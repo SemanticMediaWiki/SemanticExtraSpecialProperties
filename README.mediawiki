@@ -12,8 +12,7 @@ I have only tested the latest version with MW 1.18 and SMW 1.7.
  @leo_wallentin
  http://xn--ssongsmat-v2a.nu
 
-Installation:
-=============
+==Installation==
 Place the extension files in $IP/extensions/SemanticExtraProperties/
 
 Add the following line to LocalSettings.php:
@@ -39,12 +38,13 @@ Add the following line to LocalSettings.php to ignore all users with bot flag wh
 
 $wgSESPExcludeBots = true;
 
-Changelog:
-==========
+==Changelog:==
+* 0.2.2
+** add mime type
+
 *0.2.1
 **German translation by Kghbln
 **Better method to fetch list of EUSER (getContributors and getUser, instead of getLastNAuthors. Anonymous users will never be listed)
-
 
 *0.2.0
 **Only tested with SMW 1.7 and MW 1.18.

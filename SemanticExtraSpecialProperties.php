@@ -13,220 +13,42 @@
  */
 
 /* Set up extension */
-if ( !defined( 'MEDIAWIKI' ) )
-	die();
+if ( !defined( 'MEDIAWIKI' ) ) {
+	die( 'Not an entry point.' );
+}
 
-$wgExtensionCredits['other'][] = array(
+if ( version_compare( $wgVersion, '1.17', '<' ) ) {
+	die( '<b>Error:</b> This version of Semantic Result Formats requires MediaWiki 1.18 or above.' );
+}
+
+if ( ! defined( 'SMW_VERSION' ) ) {
+	die( '<b>Error:</b> You need to have <a href="http://semantic-mediawiki.org/wiki/Semantic_MediaWiki">Semantic MediaWiki</a> installed.<br />' );
+}
+
+if ( version_compare( SMW_VERSION, '1.6.2', '<' ) ) {
+	die( '<b>Error:</b> This extension requires Semantic MediaWiki 1.7 or above.' );
+}
+
+define( 'SESP_VERSION', '0.2.2' );
+
+$wgExtensionCredits['semantic'][] = array(
 	'path'           => __FILE__,
 	'name'           => 'Semantic Extra Special Properties',
-	'author' => array( 'Leo Wallentin', '[http://xn--ssongsmat-v2a.nu Säsongsmat.nu]' ),
-	'descriptionmsg' => 'sesp-desc',
+	'author'         => array( 'Leo Wallentin', '[http://xn--ssongsmat-v2a.nu Säsongsmat.nu]' ),
+	'version'        => SESP_VERSION,
 	'url'            => 'http://www.mediawiki.org/wiki/Extension:SemanticExtraSpecialProperties',
-	'version'        => '0.2.1',
+	'descriptionmsg' => 'sesp-desc',
 );
 
-$wgExtensionMessagesFiles['SemanticExtraSpecialProperties'] = dirname(__FILE__) . '/SemanticExtraSpecialProperties.i18n.php';
+$dir = dirname( __FILE__ ) . '/';
+
+/**
+ * Message class  
+ */ 
+$wgExtensionMessagesFiles['SemanticESP' ] = $dir . 'SemanticExtraSpecialProperties.i18n.php';
+
+$wgAutoloadClasses[ 'SemanticESP'       ] = $dir . 'SemanticExtraSpecialProperties.hooks.php';
 
 /* Hook into SMW */
-$wgHooks['smwInitProperties'][] = 'sespInitProperties';
-$wgHooks['SMWStore::updateDataBefore'][] = 'sespUpdateDataBefore';
-
- /**
-    * @brief      Initializes all properties, hooks into smwInitProperties.
-    *
-    * @return     true
-    *
-    */
-function sespInitProperties() {
-
-	// Page author
-	SMWDIProperty::registerProperty( '___EUSER', '_wpg',
-					wfMsgForContent('sesp-property-author') );
-	SMWDIProperty::registerPropertyAlias( '___EUSER', 'Page author' );
-
-	// Page creator
-	SMWDIProperty::registerProperty( '___CUSER', '_wpg',
-					wfMsgForContent('sesp-property-first-author') );
-	SMWDIProperty::registerPropertyAlias( '___CUSER', 'Page creator' );
-
-	// Revision ID
-	SMWDIProperty::registerProperty( '___REVID', '_num',
-					wfMsgForContent('sesp-property-revision-id') );
-	SMWDIProperty::registerPropertyAlias( '___REVID', 'Revision ID' );
-
-	//View count
-	SMWDIProperty::registerProperty( '___VIEWS', '_num',
-					wfMsgForContent('sesp-property-view-count') );
-	SMWDIProperty::registerPropertyAlias( '___VIEWS', 'Number of page views' );
-
-	//Sub pages
-	SMWDIProperty::registerProperty( '___SUBP', '_wpg',
-					wfMsgForContent('sesp-property-subpages') );
-        SMWDIProperty::registerPropertyAlias( '___SUBP', 'Subpage' );
-
-        //Number of revisions
-        SMWDIProperty::registerProperty( '___NREV', '_num',
-					wfMsgForContent('sesp-property-revisions') );
-        SMWDIProperty::registerPropertyAlias( '___NREV', 'Number of revisions' );
-
-        //Number of talk page revisions
-	SMWDIProperty::registerProperty( '___NTREV', '_num',
-					wfMsgForContent('sesp-property-talk-revisions') );
-	SMWDIProperty::registerPropertyAlias( '___NTREV', 'Number of talk page revisions' );
-
-	return true;
-}
-
-
- /**
-    * @brief      Adds the properties, hooks into SMWStore::updateDataBefore.
-    *
-    * @param      SMWStore $store, SMWSemanticData $newData
-    *
-    * @return     true
-    *
-    */
-function sespUpdateDataBefore ( $store, $data ) {
-
-	/* Get array of properties to set */
-	global $smwgPageSpecialProperties2;
-	if ( !isset($smwgPageSpecialProperties2 ) )
-		$smwgPageSpecialProperties2 = array ();
-
-	/* Get current title and article */
-	$title = $data->getSubject()->getTitle();
-	$article = Article::newFromID( $title->getArticleID() );
-
-	/**************************/
-	/* CUSER (First author)   */
-	/**************************/
-	if ( in_array( '_CUSER', $smwgPageSpecialProperties2 ) ) {
-
-		$firstrev = $title->getFirstRevision();
-
-		$u =  User::newFromId( $firstrev->getRawUser () );
-
-		if ($u) {
-			$property = new SMWDIProperty( '___CUSER' );
-			$dataItem = SMWDIWikiPage::newFromTitle( $u->getUserPage() );
-			$data->addPropertyObjectValue( $property, $dataItem );
-		}
-
-	}
-
-        /**************************/
-        /* REVID (Revision ID)    */
-        /**************************/
-        if ( in_array( '_REVID', $smwgPageSpecialProperties2 ) ) {
-
-                $property = new SMWDIProperty( '___REVID' );
-                $dataItem = new SMWDINumber( $article->getRevIdFetched() );
-                $data->addPropertyObjectValue( $property, $dataItem );
-
-        }
-
-        /********************************/
-        /* VIEWS (Number of page views) */
-        /********************************/
-        global $wgDisableCounters;
-
-        if ( in_array( '_VIEWS', $smwgPageSpecialProperties2 ) && !$wgDisableCounters ) {
-
-                $property = new SMWDIProperty( '___VIEWS' );
-                $dataItem = new SMWDINumber( $article->getCount() );
-                $data->addPropertyObjectValue ( $property, $dataItem );
-
-        }
-
-        /*****************************/
-        /* EUSER (Page contributors) */
-        /*****************************/
-
-        if ( in_array( '_EUSER', $smwgPageSpecialProperties2 ) ) {
-
-                /* Create property */
-                $property = new SMWDIProperty( '___EUSER' );
-
-                /* Get options */
-                global $wgSESPExcludeBots;
-                if ( !isset( $wgSESPExcludeBots ) )
-                        $wgSESPExcludeBots = false;
-
-		/* Get author from current revision */
-		$u = User::newFromId( $article->getUser() );
-                /* Get authors from earlier revisions */
-		$authors = $article->getContributors();
-
-		while ( $u ) {
-			if (    !$u->isHidden()  //don't list hidden users
-			     && !(in_array( 'bot', $u->getRights() ) && $wgSESPExcludeBots) //exclude bots?
-			     && !$u->isAnon () ) { //no anonymous users
-				/* Add values*/
-				$dataItem = SMWDIWikiPage::newFromTitle( $u->getUserPage() );
-				$data->addPropertyObjectValue( $property, $dataItem );
-			}
-			$u = $authors->current();
-			$authors->next();
-		}
-
-        }
-
-        /******************************/
-        /* NREV (Number of revisions) */
-        /******************************/
-        if ( in_array( '_NREV', $smwgPageSpecialProperties2 ) ) {
-
-                /* Create property */
-                $property = new SMWDIProperty( '___NREV' );
-
-                /* Get number of revisions */
-                $dbr =& wfGetDB( DB_SLAVE );
-                $num = $dbr->estimateRowCount( "revision", "*", array( "rev_page" => $title->getArticleID() ) );
-
-                /* Add values */
-                $dataItem = new SMWDINumber( $num );
-                $data->addPropertyObjectValue ( $property, $dataItem );
-
-        }
-
-        /*****************************************/
-        /* NTREV (Number of talk page revisions) */
-        /*****************************************/
-        if ( in_array( '_NTREV', $smwgPageSpecialProperties2 ) ) {
-
-                /* Create property */
-                $property = new SMWDIProperty( '___NTREV' );
-
-                /* Get number of revisions */
-                if ( !isset( $dbr ) )
-                        $dbr =& wfGetDB( DB_SLAVE );
-                $ttitle = $title->getTalkPage ();
-                $num = $dbr->estimateRowCount( "revision", "*", array( "rev_page" => $ttitle->getArticleID() ) );;
-
-                /* Add values */
-                $dataItem = new SMWDINumber( $num );
-                $data->addPropertyObjectValue( $property, $dataItem );
-        }
-
-        /************************/
-        /* SUBP (Get sub pages) */
-        /************************/
-        if ( in_array( '_SUBP', $smwgPageSpecialProperties2 ) ) {
-
-                /* Create property */
-                $property = new SMWDIProperty( '___SUBP' );
-
-                $subpages = $title->getSubpages ( -1 ); //-1 = no limit. Returns TitleArray object
-
-                /* Add values*/
-                foreach ( $subpages as $t ) {
-
-                        $dataItem = SMWDIWikiPage::newFromTitle( $t );
-                        $data->addPropertyObjectValue( $property, $dataItem );
-
-                }
-
-        }
-
-        return true;
-}
+$wgHooks['smwInitProperties'          ][] = 'SemanticESP::sespInitProperties';
+$wgHooks['SMWStore::updateDataBefore' ][] = 'SemanticESP::sespUpdateDataBefore';
