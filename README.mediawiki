@@ -23,14 +23,29 @@ require_once("$IP/extensions/SemanticExtraSpecialProperties/SemanticExtraSpecial
 $sespSpecialProperties in LocalSettings.php enables SpecialProperties:
 
 <pre>
-$sespSpecialProperties[] = '_EUSER';// Add properties for editiong users
-$sespSpecialProperties[] = '_CUSER';// Add property for creating user
-$sespSpecialProperties[] = '_REVID';// Add property with current revision ID
-$sespSpecialProperties[] = '_VIEWS';// Add property with number of page views. Note that depending on local settings this value might not be very up to date. If $wgDisableCounters is set to true this property will never be set
-$sespSpecialProperties[] = '_NREV'; // Add property showing an estimated number of total revisions
-$sespSpecialProperties[] = '_TNREV';// Same but for the talk page, i.e. showing how much discussion is going on around this page
-$sespSpecialProperties[] = '_SUBP'; // Add properties for subpages
-$sespSpecialProperties[] = '_MIMETYPE'; // Adding mimetype and mediatype for NS_IMAGE objects
+Add properties for editiong users
+$sespSpecialProperties[] = '_EUSER';
+
+Add property for creating user
+$sespSpecialProperties[] = '_CUSER'; 
+
+Add property with current revision ID
+$sespSpecialProperties[] = '_REVID'; 
+
+Add property with number of page views. Note that depending on local settings this value might not be very up to date. If $wgDisableCounters is set to true this property will never be set
+$sespSpecialProperties[] = '_VIEWS'; 
+
+Add property showing an estimated number of total revisions
+$sespSpecialProperties[] = '_NREV';  
+
+Same but for the talk page, i.e. showing how much discussion is going on around this page
+$sespSpecialProperties[] = '_TNREV'; 
+
+Add properties for subpages
+$sespSpecialProperties[] = '_SUBP'; 
+
+Adding mimetype and mediatype in case the article object is NS_IMAGE/NS_FILE
+$sespSpecialProperties[] = '_MIMETYPE'; 
 </pre>
 
 Compound customizing can be done as
