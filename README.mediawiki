@@ -22,33 +22,37 @@ require_once("$IP/extensions/SemanticExtraSpecialProperties/SemanticExtraSpecial
 ===Customizing ===
 $sespSpecialProperties in LocalSettings.php can enable the following Special Properties:
 
-Add properties for editiong users
-$sespSpecialProperties[] = '_EUSER';
-
-Add property for creating user
-$sespSpecialProperties[] = '_CUSER'; 
-
-Add property with current revision ID
-$sespSpecialProperties[] = '_REVID'; 
-
-Add property with number of page views. Note that depending on local settings this value might not be very up to date. If $wgDisableCounters is set to true this property will never be set
-$sespSpecialProperties[] = '_VIEWS'; 
-
-Add property showing an estimated number of total revisions
-$sespSpecialProperties[] = '_NREV';  
-
-Same but for the talk page, i.e. showing how much discussion is going on around this page
-$sespSpecialProperties[] = '_TNREV'; 
-
-====Subpages====
-Add properties for subpages
-
-$sespSpecialProperties[] = '_SUBP'; 
-
-====Mimetype and mediatype ====
-Adding mimetype and mediatype in case the article object is NS_IMAGE/NS_FILE
-
-$sespSpecialProperties[] = '_MIMETYPE'; 
+{|
+! Option
+! Descrition
+! Example
+|-
+|_EUSER
+|Add properties for editiong users
+|$sespSpecialProperties[] = '_EUSER';
+|-
+!_CUSER
+|Add property for creating user
+|$sespSpecialProperties[] = '_CUSER'; 
+|-
+|Add property with current revision ID
+|$sespSpecialProperties[] = '_REVID'; 
+|-
+|Add property with number of page views. Note that depending on local settings this value might not be very up to date. If $wgDisableCounters is set to true this property will never be set
+|$sespSpecialProperties[] = '_VIEWS'; 
+|-
+|Add property showing an estimated number of total revisions
+|$sespSpecialProperties[] = '_NREV';  
+|-
+|Same but for the talk page, i.e. showing how much discussion is going on around this page
+|$sespSpecialProperties[] = '_TNREV'; 
+|-
+|Add properties for subpages
+|$sespSpecialProperties[] = '_SUBP'; 
+|-
+|Adding mimetype and mediatype in case the article object is NS_IMAGE/NS_FILE
+|$sespSpecialProperties[] = '_MIMETYPE'; 
+|}
 
 Compound customizing can be done as
 <pre>
