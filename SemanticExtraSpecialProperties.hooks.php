@@ -14,52 +14,52 @@ class SemanticESP {
   */
   public function sespInitProperties() {
 
-	 // Page author
-	 SMWDIProperty::registerProperty( '___EUSER', '_wpg',
-	 wfMsgForContent('sesp-property-author') );
-	 SMWDIProperty::registerPropertyAlias( '___EUSER', 'Page author' );
+   // Page author
+   SMWDIProperty::registerProperty( '___EUSER', '_wpg',
+   wfMsgForContent('sesp-property-author') );
+   SMWDIProperty::registerPropertyAlias( '___EUSER', 'Page author' );
 
-	 // Page creator
-	 SMWDIProperty::registerProperty( '___CUSER', '_wpg',
-	 wfMsgForContent('sesp-property-first-author') );
-	 SMWDIProperty::registerPropertyAlias( '___CUSER', 'Page creator' );
+   // Page creator
+   SMWDIProperty::registerProperty( '___CUSER', '_wpg',
+   wfMsgForContent('sesp-property-first-author') );
+   SMWDIProperty::registerPropertyAlias( '___CUSER', 'Page creator' );
 
-	 // Revision ID
-	 SMWDIProperty::registerProperty( '___REVID', '_num',
-	 wfMsgForContent('sesp-property-revision-id') );
-	 SMWDIProperty::registerPropertyAlias( '___REVID', 'Revision ID' );
+   // Revision ID
+   SMWDIProperty::registerProperty( '___REVID', '_num',
+   wfMsgForContent('sesp-property-revision-id') );
+   SMWDIProperty::registerPropertyAlias( '___REVID', 'Revision ID' );
 
-	 //View count
-	 SMWDIProperty::registerProperty( '___VIEWS', '_num',
-	 wfMsgForContent('sesp-property-view-count') );
-	 SMWDIProperty::registerPropertyAlias( '___VIEWS', 'Number of page views' );
+   //View count
+   SMWDIProperty::registerProperty( '___VIEWS', '_num',
+   wfMsgForContent('sesp-property-view-count') );
+   SMWDIProperty::registerPropertyAlias( '___VIEWS', 'Number of page views' );
 
-	 //Sub pages
-	 SMWDIProperty::registerProperty( '___SUBP', '_wpg',
-	 wfMsgForContent('sesp-property-subpages') );
+   //Sub pages
+   SMWDIProperty::registerProperty( '___SUBP', '_wpg',
+   wfMsgForContent('sesp-property-subpages') );
    SMWDIProperty::registerPropertyAlias( '___SUBP', 'Subpage' );
 
    //Number of revisions
    SMWDIProperty::registerProperty( '___NREV', '_num',
-	 wfMsgForContent('sesp-property-revisions') );
+   wfMsgForContent('sesp-property-revisions') );
    SMWDIProperty::registerPropertyAlias( '___NREV', 'Number of revisions' );
 
    //Number of talk page revisions
-	 SMWDIProperty::registerProperty( '___NTREV', '_num',
+   SMWDIProperty::registerProperty( '___NTREV', '_num',
    wfMsgForContent('sesp-property-talk-revisions') );
-	 SMWDIProperty::registerPropertyAlias( '___NTREV', 'Number of talk page revisions' );
+   SMWDIProperty::registerPropertyAlias( '___NTREV', 'Number of talk page revisions' );
 
-	 // MIME type
-	 SMWDIProperty::registerProperty( '___MIMETYPE', '_str',
-	 wfMsgForContent('sfp-property-mimetype') );
-	 SMWDIProperty::registerPropertyAlias( '___MIMETYPE', 'MIME type' );
+   // MIME type
+   SMWDIProperty::registerProperty( '___MIMETYPE', '_str',
+   wfMsgForContent('sesp-property-mimetype') );
+   SMWDIProperty::registerPropertyAlias( '___MIMETYPE', 'MIME type' );
 
-	 // MIME type
-	 SMWDIProperty::registerProperty( '___MEDIATYPE', '_str',
-	 wfMsgForContent('sfp-property-mediatype') );
-	 SMWDIProperty::registerPropertyAlias( '___MEDIATYPE', 'Media type' );
+   // MIME type
+   SMWDIProperty::registerProperty( '___MEDIATYPE', '_str',
+   wfMsgForContent('sesp-property-mediatype') );
+   SMWDIProperty::registerPropertyAlias( '___MEDIATYPE', 'Media type' );
 
-	 return true;
+   return true;
  } // end sespInitProperties()
 
  /**
@@ -71,12 +71,12 @@ class SemanticESP {
   *
   */
   public function sespUpdateDataBefore ( $store, $data ) {
-	 global $sespSpecialProperties;
+   global $sespSpecialProperties;
 
-   // just to make sure all values are covered
+   // just some compat mode
    $smwgPageSpecialProperties2 = $sespSpecialProperties;
 
-	/* Get array of properties to set */
+  /* Get array of properties to set */
   if ( !isset( $sespSpecialProperties ) ) {
    wfDebug( __METHOD__ . ": SESP array is not specified, please add the following\n" );
    wfDebug( "variables to your LocalSettings.php:\n" );
@@ -84,26 +84,24 @@ class SemanticESP {
    return true;
   }       
 
-	/* Get current title and article */
-	$title   = $data->getSubject()->getTitle();
-	$article = Article::newFromID( $title->getArticleID() );
+  /* Get current title and article */
+  $title   = $data->getSubject()->getTitle();
+  $article = Article::newFromID( $title->getArticleID() );
 
-	/**************************/
-	/* CUSER (First author)   */
-	/**************************/
-	if ( in_array( '_CUSER', $smwgPageSpecialProperties2 ) ) {
+  /**************************/
+  /* CUSER (First author)   */
+  /**************************/
+  if ( in_array( '_CUSER', $smwgPageSpecialProperties2 ) ) {
 
-		$firstrev = $title->getFirstRevision();
+   $firstRevision = $title->getFirstRevision();
+   $firstAuthor   = User::newFromId( $firstRevision->getRawUser () );
 
-		$u =  User::newFromId( $firstrev->getRawUser () );
-
-		if ($u) {
-			$property = new SMWDIProperty( '___CUSER' );
-			$dataItem = SMWDIWikiPage::newFromTitle( $u->getUserPage() );
-			$data->addPropertyObjectValue( $property, $dataItem );
-		}
-
-	}
+   if ($firstAuthor) {
+    $property = new SMWDIProperty( '___CUSER' );
+    $dataItem = SMWDIWikiPage::newFromTitle( $firstAuthor->getUserPage() );
+    $data->addPropertyObjectValue( $property, $dataItem );
+   }
+  } // end if _CUSER
 
         /**************************/
         /* REVID (Revision ID)    */

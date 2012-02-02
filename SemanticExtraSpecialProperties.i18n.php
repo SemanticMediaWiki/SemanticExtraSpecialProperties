@@ -20,6 +20,8 @@ $messages['en'] = array(
         'sesp-property-subpages' => 'Subpage',
         'sesp-property-revisions' => 'Number of revisions',
         'sesp-property-talk-revisions' => 'Number of talk page revisions',
+        'sesp-property-mimetype' => 'MIME type',
+        'sesp-property-mediatype' => 'Media type',
 );
  
 /** German (Deutsch)
