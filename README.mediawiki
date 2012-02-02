@@ -7,10 +7,11 @@ as the EUSER property will list all authors for everyone.
 Originally written for http://säsongsmat.nu, this extension works fine for me. It may or may not work for you.
 I have only tested the latest version with MW 1.18 and SMW 1.7.
 
- Leo Wallentin
- leo_wallentin@hotmail.com
- @leo_wallentin
- http://xn--ssongsmat-v2a.nu
+Leo Wallentin
+leo_wallentin (at) hotmail.com
+
+@leo_wallentin
+http://xn--ssongsmat-v2a.nu
 
 ==Installation==
 Place the extension files in $IP/extensions/SemanticExtraProperties/
@@ -18,29 +19,35 @@ Place the extension files in $IP/extensions/SemanticExtraProperties/
 Add the following line to LocalSettings.php:
 require_once("$IP/extensions/SemanticExtraSpecialProperties/SemanticExtraSpecialProperties.php");
 
-Use $smwgPageSpecialProperties2 in LocalSettings to enable properties offered here, like this:
+===Customizing ===
+$sespSpecialProperties in LocalSettings.php enables SpecialProperties:
 
-$smwgPageSpecialProperties2[] = '_EUSER';// Add properties for editiong users
-$smwgPageSpecialProperties2[] = '_CUSER';// Add property for creating user
-$smwgPageSpecialProperties2[] = '_REVID';// Add property with current revision ID
-$smwgPageSpecialProperties2[] = '_VIEWS';// Add property with number of page views. Note that depending on local settings this value might not be very up to date. If $wgDisableCounters is set to true this property will never be set
-$smwgPageSpecialProperties2[] = '_NREV'; // Add property showing an estimated number of total revisions
-$smwgPageSpecialProperties2[] = '_TNREV';// Same but for the talk page, i.e. showing how much discussion is going on around this page
-$smwgPageSpecialProperties2[] = '_SUBP'; // Add properties for subpages
+<pre>
+$sespSpecialProperties[] = '_EUSER';// Add properties for editiong users
+$sespSpecialProperties[] = '_CUSER';// Add property for creating user
+$sespSpecialProperties[] = '_REVID';// Add property with current revision ID
+$sespSpecialProperties[] = '_VIEWS';// Add property with number of page views. Note that depending on local settings this value might not be very up to date. If $wgDisableCounters is set to true this property will never be set
+$sespSpecialProperties[] = '_NREV'; // Add property showing an estimated number of total revisions
+$sespSpecialProperties[] = '_TNREV';// Same but for the talk page, i.e. showing how much discussion is going on around this page
+$sespSpecialProperties[] = '_SUBP'; // Add properties for subpages
+$sespSpecialProperties[] = '_MIMETYPE'; // Adding mimetype and mediatype for NS_IMAGE objects
+</pre>
 
-...or to enable them all in one line:
-$smwgPageSpecialProperties2 = array( '_EUSER', '_CUSER', '_REVID', '_VIEWS', '_NREV', '_TNREV', '_SUBP' );
+Compound customizing can be done as
+<pre>
+$sespSpecialProperties = array( '_EUSER', '_CUSER', '_REVID', '_VIEWS', '_NREV', '_TNREV', '_SUBP' );
+</pre>
 
 After upgrading from 0.1 to 0.2 or higher, you will need to run the SMW refresh script for things for work.
 
-Add the following line to LocalSettings.php to ignore all users with bot flag when creating the article author properties.
+To ignore all users with a bot flag when creating the article author properties.
 (This does not affect the article creator property.)
-
+<pre>
 $wgSESPExcludeBots = true;
-
-==Changelog:==
+</pre>
+==Changelog==
 * 0.2.2
-** add mime type
+** add mime type, mediatype
 
 *0.2.1
 **German translation by Kghbln
@@ -54,4 +61,14 @@ $wgSESPExcludeBots = true;
 **Added SUBP, NREV and TNREV
 
 *0.1 First version
+*
 
+==Testing ==
+The extensions has been tested against: 
+MediaWiki 1.18.0 PHP 5.3.8 (apache2handler) MySQL 5.5.16 Semantic MediaWiki (Version 1.7)
+
+== License ==
+BSD 
+
+== Disclaimer ==
+The source code is provided as-is, without warranty and does not warrant or endorse and does not assume and will not have any liability or responsibility for any damage or loss.
