@@ -8,7 +8,7 @@
  * @file SemanticExtraSpecialProperties.php
  * @ingroup Extensions
  * @package MediaWiki
- * @author Leo Wallentin (Rotsee)
+ * @author Leo Wallentin (Rotsee), mwjames
  * @license http://www.opensource.org/licenses/BSD-2-Clause BSD
  */
 
@@ -34,7 +34,7 @@ define( 'SESP_VERSION', '0.2.2' );
 $wgExtensionCredits['semantic'][] = array(
 	'path'           => __FILE__,
 	'name'           => 'Semantic Extra Special Properties',
-	'author'         => array( 'Leo Wallentin', '[http://xn--ssongsmat-v2a.nu Säsongsmat.nu]' ),
+	'author'         => array( 'Leo Wallentin', '[http://xn--ssongsmat-v2a.nu Säsongsmat.nu]', 'mwjames' ),
 	'version'        => SESP_VERSION,
 	'url'            => 'http://www.mediawiki.org/wiki/Extension:SemanticExtraSpecialProperties',
 	'descriptionmsg' => 'sesp-desc',
