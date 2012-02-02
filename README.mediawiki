@@ -20,9 +20,8 @@ Add the following line to LocalSettings.php:
 require_once("$IP/extensions/SemanticExtraSpecialProperties/SemanticExtraSpecialProperties.php");
 
 ===Customizing ===
-$sespSpecialProperties in LocalSettings.php enables SpecialProperties:
+$sespSpecialProperties in LocalSettings.php can enable the following Special Properties:
 
-<pre>
 Add properties for editiong users
 $sespSpecialProperties[] = '_EUSER';
 
@@ -46,7 +45,7 @@ $sespSpecialProperties[] = '_SUBP';
 
 Adding mimetype and mediatype in case the article object is NS_IMAGE/NS_FILE
 $sespSpecialProperties[] = '_MIMETYPE'; 
-</pre>
+
 
 Compound customizing can be done as
 <pre>
