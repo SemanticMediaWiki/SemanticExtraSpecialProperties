@@ -19,7 +19,6 @@ Place the extension files in $IP/extensions/SemanticExtraProperties/
 Add the following line to LocalSettings.php:
 require_once("$IP/extensions/SemanticExtraSpecialProperties/SemanticExtraSpecialProperties.php");
 
-===Customizing ===
 $sespSpecialProperties in LocalSettings.php can enable the following Special Properties:
 
 {|
@@ -31,25 +30,31 @@ $sespSpecialProperties in LocalSettings.php can enable the following Special Pro
 |Add properties for editiong users
 |$sespSpecialProperties[] = '_EUSER';
 |-
-!_CUSER
+|_CUSER
 |Add property for creating user
 |$sespSpecialProperties[] = '_CUSER'; 
 |-
+|_REVID
 |Add property with current revision ID
 |$sespSpecialProperties[] = '_REVID'; 
 |-
+|_VIEWS
 |Add property with number of page views. Note that depending on local settings this value might not be very up to date. If $wgDisableCounters is set to true this property will never be set
 |$sespSpecialProperties[] = '_VIEWS'; 
 |-
+|_NREV
 |Add property showing an estimated number of total revisions
 |$sespSpecialProperties[] = '_NREV';  
 |-
+|_TNREV
 |Same but for the talk page, i.e. showing how much discussion is going on around this page
 |$sespSpecialProperties[] = '_TNREV'; 
 |-
+|_SUBP
 |Add properties for subpages
 |$sespSpecialProperties[] = '_SUBP'; 
 |-
+|_MIMETYPE
 |Adding mimetype and mediatype in case the article object is NS_IMAGE/NS_FILE
 |$sespSpecialProperties[] = '_MIMETYPE'; 
 |}
@@ -82,7 +87,6 @@ $wgSESPExcludeBots = true;
 **Added SUBP, NREV and TNREV
 
 *0.1 First version
-*
 
 ==Testing ==
 The extensions has been tested against: 
