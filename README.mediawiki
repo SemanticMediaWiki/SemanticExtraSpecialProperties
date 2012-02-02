@@ -40,12 +40,15 @@ $sespSpecialProperties[] = '_NREV';
 Same but for the talk page, i.e. showing how much discussion is going on around this page
 $sespSpecialProperties[] = '_TNREV'; 
 
+====Subpages====
 Add properties for subpages
+
 $sespSpecialProperties[] = '_SUBP'; 
 
+====Mimetype and mediatype ====
 Adding mimetype and mediatype in case the article object is NS_IMAGE/NS_FILE
-$sespSpecialProperties[] = '_MIMETYPE'; 
 
+$sespSpecialProperties[] = '_MIMETYPE'; 
 
 Compound customizing can be done as
 <pre>
