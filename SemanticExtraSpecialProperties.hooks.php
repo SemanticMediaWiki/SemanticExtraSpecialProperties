@@ -73,8 +73,10 @@ class SemanticESP {
   public function sespUpdateDataBefore ( $store, $data ) {
    global $sespSpecialProperties, $wgDisableCounters;
 
-   // just some compat mode
-   $smwgPageSpecialProperties2 = $sespSpecialProperties;
+   // just some compat mode, TODO remove in v0.2.3?
+   global $smwgPageSpecialProperties2;
+   if ( isset( $smwgPageSpecialProperties2) && !isset( $sespSpecialProperties ) )
+	$sespSpecialProperties = $smwgPageSpecialProperties2;
 
   /* Get array of properties to set */
   if ( !isset( $sespSpecialProperties ) ) {
@@ -82,16 +84,21 @@ class SemanticESP {
    wfDebug( "variables to your LocalSettings.php:\n" );
    wfDebug( "\$sespSpecialProperties\n" );
    return true;
-  }       
+  }
 
   /* Get current title and article */
   $title   = $data->getSubject()->getTitle();
-  $article = Article::newFromID( $title->getArticleID() );
+  $article = Article::newFromTitle( $title, RequestContext::getMain() );
+
+  // return if $title or $article is null
+  if ( is_null( $title ) || is_null( $article) ) {
+   return true;
+  }
 
   /**************************/
   /* CUSER (First author)   */
   /**************************/
-  if ( in_array( '_CUSER', $smwgPageSpecialProperties2 ) ) {
+  if ( in_array( '_CUSER', $sespSpecialProperties ) ) {
 
    $firstRevision = $title->getFirstRevision();
    $firstAuthor   = User::newFromId( $firstRevision->getRawUser () );
@@ -106,7 +113,7 @@ class SemanticESP {
   /**************************/
   /* REVID (Revision ID)    */
   /**************************/
-  if ( in_array( '_REVID', $smwgPageSpecialProperties2 ) ) {
+  if ( in_array( '_REVID', $sespSpecialProperties ) ) {
    $property = new SMWDIProperty( '___REVID' );
    $dataItem = new SMWDINumber( $article->getRevIdFetched() );
    $data->addPropertyObjectValue( $property, $dataItem );
@@ -115,7 +122,7 @@ class SemanticESP {
   /********************************/
   /* VIEWS (Number of page views) */
   /********************************/
-  if ( in_array( '_VIEWS', $smwgPageSpecialProperties2 ) && !$wgDisableCounters ) {
+  if ( in_array( '_VIEWS', $sespSpecialProperties ) && !$wgDisableCounters ) {
    $property = new SMWDIProperty( '___VIEWS' );
    $dataItem = new SMWDINumber( $article->getCount() );
    $data->addPropertyObjectValue ( $property, $dataItem );
@@ -124,7 +131,7 @@ class SemanticESP {
   /*****************************/
   /* EUSER (Page contributors) */
   /*****************************/
-  if ( in_array( '_EUSER', $smwgPageSpecialProperties2 ) ) {
+  if ( in_array( '_EUSER', $sespSpecialProperties ) ) {
    /* Create property */
    $property = new SMWDIProperty( '___EUSER' );
   /* Get options */
@@ -153,7 +160,7 @@ class SemanticESP {
   /******************************/
   /* NREV (Number of revisions) */
   /******************************/
-  if ( in_array( '_NREV', $smwgPageSpecialProperties2 ) ) {
+  if ( in_array( '_NREV', $sespSpecialProperties ) ) {
    /* Create property */
    $property = new SMWDIProperty( '___NREV' );
    /* Get number of revisions */
@@ -168,7 +175,7 @@ class SemanticESP {
   /*****************************************/
   /* NTREV (Number of talk page revisions) */
   /*****************************************/
-  if ( in_array( '_NTREV', $smwgPageSpecialProperties2 ) ) {
+  if ( in_array( '_NTREV', $sespSpecialProperties ) ) {
    /* Create property */
    $property = new SMWDIProperty( '___NTREV' );
    /* Get number of revisions */
@@ -185,7 +192,7 @@ class SemanticESP {
   /************************/
   /* SUBP (Get sub pages) */
   /************************/
-  if ( in_array( '_SUBP', $smwgPageSpecialProperties2 ) ) {
+  if ( in_array( '_SUBP', $sespSpecialProperties ) ) {
    /* Create property */
    $property = new SMWDIProperty( '___SUBP' );
    $subpages = $title->getSubpages ( -1 ); //-1 = no limit. Returns TitleArray object
@@ -200,7 +207,7 @@ class SemanticESP {
   /************************/
   /* MIMETYPE */
   /************************/
-  if ( !is_null( $title ) && $title->getNamespace() == NS_FILE && in_array( '_MIMETYPE', $sespSpecialProperties )) {
+  if ( $title->getNamespace() == NS_FILE && in_array( '_MIMETYPE', $sespSpecialProperties ) ) { //TODO use $title->inNamespace( NS_FILE ) as soon as MW 1.19 is a dependency
 
    // Build image page instance
    $imagePage  = new ImagePage( $title );
