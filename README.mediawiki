@@ -1,25 +1,18 @@
-This extensions, when used with Semantic MediaWiki, adds some extra special properties to all content pages in the wiki.
-You will have to state explicitly in LocalSettings.php which properties you want to include, using the array $smwgPageSpecialProperties2. (Just like with $smwgPageSpecialProperties in recent versions of SMW.)
+A Semantic MediaWiki extension which add's some extra special properties to all content pages in a wiki.
 
-Please note that users that are otherwise hidden to some usergroup might be revealed by this extension,
-as the EUSER property will list all authors for everyone.
+You will have to specify (LocalSettings.php) which properties you want to include, using the array $sespSpecialProperties. 
 
-Originally written for http://säsongsmat.nu, this extension works fine for me. It may or may not work for you.
-I have only tested the latest version with MW 1.18 and SMW 1.7.
+Please note that users that are otherwise hidden to some usergroup might be revealed by this extension, as the EUSER property will list all authors for everyone.
 
-Leo Wallentin
-leo_wallentin (at) hotmail.com
-
-@leo_wallentin
-http://xn--ssongsmat-v2a.nu
+==Release ==
+[https://github.com/rotsee/Semantic-Extra-Special-Properties/tags 0.2.2]
 
 ==Installation==
-Place the extension files in $IP/extensions/SemanticExtraProperties/
-
-Add the following line to LocalSettings.php:
+Add the following settings to your LocalSettings.php:
 require_once("$IP/extensions/SemanticExtraSpecialProperties/SemanticExtraSpecialProperties.php");
 
-$sespSpecialProperties in LocalSettings.php can enable the following Special Properties:
+==Customing==
+$sespSpecialProperties in LocalSettings.php enables the following Special Properties:
 
 {|
 ! Option
@@ -59,7 +52,7 @@ $sespSpecialProperties in LocalSettings.php can enable the following Special Pro
 |$sespSpecialProperties[] = '_MIMETYPE'; 
 |}
 
-Compound customizing can be done as
+Special Properties compound customizing can be maintained as:
 <pre>
 $sespSpecialProperties = array( '_EUSER', '_CUSER', '_REVID', '_VIEWS', '_NREV', '_TNREV', '_SUBP' );
 </pre>
@@ -73,7 +66,7 @@ $wgSESPExcludeBots = true;
 </pre>
 ==Changelog==
 * 0.2.2
-** add mime type, mediatype
+** add _MIMETYPE (mime type, mediatype)
 
 *0.2.1
 **German translation by Kghbln
@@ -88,12 +81,22 @@ $wgSESPExcludeBots = true;
 
 *0.1 First version
 
-==Testing ==
+==Unit Test ==
 The extensions has been tested against: 
 MediaWiki 1.18.0 PHP 5.3.8 (apache2handler) MySQL 5.5.16 Semantic MediaWiki (Version 1.7)
+
+==Credits ==
+The extension was originally written for http://säsongsmat.nu.
+
+Leo Wallentin
+leo_wallentin (at) hotmail.com
+
+@leo_wallentin
+http://xn--ssongsmat-v2a.nu
 
 == License ==
 BSD 
 
 == Disclaimer ==
 The source code is provided as-is, without warranty and does not warrant or endorse and does not assume and will not have any liability or responsibility for any damage or loss.
+__NOTOC__
