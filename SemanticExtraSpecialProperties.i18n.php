@@ -9,7 +9,7 @@
 $messages = array();
  
 /** English
- * @author Rotsee
+ * @author Rotsee, MWJames
  */
 $messages['en'] = array(
         'sesp-desc' => 'Adds some extra special properties to all pages',
@@ -36,6 +36,8 @@ $messages['de'] = array(
         'sesp-property-subpages' => 'Unterseite',
         'sesp-property-revisions' => 'Anzahl der Bearbeitungen',
         'sesp-property-talk-revisions' => 'Anzahl der Diskussionsbearbeitungen',
+        'sesp-property-mimetype' => 'MIME-Type',
+        'sesp-property-mediatype' => 'Medientyp',
 );
  
 /** Swedish (Svenska)
@@ -50,4 +52,6 @@ $messages['sv'] = array(
         'sesp-property-subpages' => 'Undersida',
         'sesp-property-revisions' => 'Antal sidredigeringar',
         'sesp-property-talk-revisions' => 'Antal redigeringar på diskussionssidan',
+        'sesp-property-mimetype' => 'MIME-typ',
+        'sesp-property-mediatype' => 'Medietyp',
 );
