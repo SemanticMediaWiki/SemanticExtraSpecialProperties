@@ -7,11 +7,15 @@ Please note that users that are otherwise hidden to some usergroup might be reve
 ==Release ==
 [https://github.com/rotsee/Semantic-Extra-Special-Properties/tags 0.2.2]
 
+==Dependencies==
+MediaWiki 1.18
+Semantic MediaWiki 1.7
+
 ==Installation==
 Add the following settings to your LocalSettings.php:
 require_once("$IP/extensions/SemanticExtraSpecialProperties/SemanticExtraSpecialProperties.php");
 
-==Customing==
+==Customizing==
 $sespSpecialProperties in LocalSettings.php enables the following Special Properties:
 
 {|
@@ -82,8 +86,7 @@ $wgSESPExcludeBots = true;
 *0.1 First version
 
 ==Unit Test ==
-The extensions has been tested against: 
-MediaWiki 1.18.0 PHP 5.3.8 (apache2handler) MySQL 5.5.16 Semantic MediaWiki (Version 1.7)
+The extensions has been tested with MediaWiki 1.18.0 PHP 5.3.8 (apache2handler) MySQL 5.5.16 Semantic MediaWiki (Version 1.7).
 
 ==Credits ==
 The extension was originally written for http://säsongsmat.nu.
