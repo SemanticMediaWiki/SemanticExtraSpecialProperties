@@ -58,7 +58,7 @@ $sespSpecialProperties in LocalSettings.php enables the following Special Proper
 
 Special Properties compound customizing can be maintained as:
 <pre>
-$sespSpecialProperties = array( '_EUSER', '_CUSER', '_REVID', '_VIEWS', '_NREV', '_TNREV', '_SUBP' );
+$sespSpecialProperties = array( '_EUSER', '_CUSER', '_REVID', '_VIEWS', '_NREV', '_TNREV', '_SUBP', '_MIMETYPE' );
 </pre>
 
 After upgrading from 0.1 to 0.2 or higher, you will need to run the SMW refresh script for things for work.
@@ -70,6 +70,7 @@ $wgSESPExcludeBots = true;
 </pre>
 ==Changelog==
 * 0.2.2
+** $smwgPageSpecialProperties replaced by $sespSpecialProperties
 ** add _MIMETYPE (mime type, mediatype)
 
 *0.2.1
@@ -93,9 +94,11 @@ The extension was originally written for http://säsongsmat.nu.
 
 Leo Wallentin
 leo_wallentin (at) hotmail.com
-
 @leo_wallentin
 http://xn--ssongsmat-v2a.nu
+
+Major improvments and additions by mwjames
+http://www.mediawiki.org/wiki/User:MWJames
 
 == License ==
 BSD 
