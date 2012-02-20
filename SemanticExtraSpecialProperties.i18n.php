@@ -22,6 +22,7 @@ $messages['en'] = array(
         'sesp-property-talk-revisions' => 'Number of talk page revisions',
         'sesp-property-mimetype' => 'MIME type',
         'sesp-property-mediatype' => 'Media type',
+        'sesp-property-shorturl' => 'Short URL',
 );
  
 /** German (Deutsch)
@@ -54,4 +55,5 @@ $messages['sv'] = array(
         'sesp-property-talk-revisions' => 'Antal redigeringar på diskussionssidan',
         'sesp-property-mimetype' => 'MIME-typ',
         'sesp-property-mediatype' => 'Medietyp',
+        'sesp-property-shorturl' => 'Kortlänk',
 );

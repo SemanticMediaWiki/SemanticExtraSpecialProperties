@@ -1,11 +1,11 @@
-A Semantic MediaWiki extension which add's some extra special properties to all content pages in a wiki.
+A Semantic MediaWiki extension which adds some extra special properties to all content pages in a wiki.
 
 You will have to specify (LocalSettings.php) which properties you want to include, using the array $sespSpecialProperties. 
 
 Please note that users that are otherwise hidden to some usergroup might be revealed by this extension, as the EUSER property will list all authors for everyone.
 
 ==Release ==
-[https://github.com/rotsee/Semantic-Extra-Special-Properties/tags 0.2.2]
+[https://github.com/rotsee/Semantic-Extra-Special-Properties/tags 0.2.3]
 
 ==Dependencies==
 MediaWiki 1.18
@@ -52,13 +52,21 @@ $sespSpecialProperties in LocalSettings.php enables the following Special Proper
 |$sespSpecialProperties[] = '_SUBP'; 
 |-
 |_MIMETYPE
-|Adding mimetype and mediatype in case the article object is NS_IMAGE/NS_FILE
+|Adding mimetype in case the article object is NS_IMAGE/NS_FILE
 |$sespSpecialProperties[] = '_MIMETYPE'; 
+|-
+|_MEDIATYPE
+|Adding mediatype in case the article object is NS_IMAGE/NS_FILE
+|$sespSpecialProperties[] = '_MEDIATYPE'; 
+|-
+|_SHORTURL
+|Adding short URL if Extension:ShortUrl is installed, and there is a shortened URL for the current page
+|$sespSpecialProperties[] = '_SHORTURL'; 
 |}
 
 Special Properties compound customizing can be maintained as:
 <pre>
-$sespSpecialProperties = array( '_EUSER', '_CUSER', '_REVID', '_VIEWS', '_NREV', '_TNREV', '_SUBP', '_MIMETYPE' );
+$sespSpecialProperties = array( '_EUSER', '_CUSER', '_REVID', '_VIEWS', '_NREV', '_TNREV', '_SUBP', '_MIMETYPE', '_MEDIATYPE', '_SHORTURL' );
 </pre>
 
 After upgrading from 0.1 to 0.2 or higher, you will need to run the SMW refresh script for things for work.
@@ -69,6 +77,9 @@ To ignore all users with a bot flag when creating the article author properties.
 $wgSESPExcludeBots = true;
 </pre>
 ==Changelog==
+* 0.2.3
+** add SHORTURL
+
 * 0.2.2
 ** $smwgPageSpecialProperties replaced by $sespSpecialProperties
 ** add _MIMETYPE (mime type, mediatype)

@@ -59,6 +59,11 @@ class SemanticESP {
    wfMsgForContent('sesp-property-mediatype') );
    SMWDIProperty::registerPropertyAlias( '___MEDIATYPE', 'Media type' );
 
+   // SHORTURL type
+   SMWDIProperty::registerProperty( '___SHORTURL', '_uri',
+   wfMsgForContent('sesp-property-shorturl') );
+   SMWDIProperty::registerPropertyAlias( '___SHORTURL', 'Short URL' );
+
    return true;
  } // end sespInitProperties()
 
@@ -73,7 +78,7 @@ class SemanticESP {
   public function sespUpdateDataBefore ( $store, $data ) {
    global $sespSpecialProperties, $wgDisableCounters;
 
-   // just some compat mode, TODO remove in v0.2.3?
+   // just some compat mode
    global $smwgPageSpecialProperties2;
    if ( isset( $smwgPageSpecialProperties2) && !isset( $sespSpecialProperties ) )
 	$sespSpecialProperties = $smwgPageSpecialProperties2;
@@ -227,6 +232,56 @@ class SemanticESP {
    $data->addPropertyObjectValue ($property, $dataItem);
    
   } // end if MIMETYPE   
+
+  /************************/
+  /* SHORTURL             */
+  /************************/
+//FIXME ugly URL handling. wgShortUrlPrefix can be either relative (/wiki/index.php...), "protocol relative" (//domain.com/...) or absolute (http://domain.com/...) and still work with Extension:ShortUrl, so we need to handle all cases. There is probably a better way to do this, though.
+
+  /* Check if Extension:ShortUrl is installed*/
+  if ( in_array( '_SHORTURL', $sespSpecialProperties ) && class_exists( 'ShortUrlUtils' ) ) {
+   global $wgShortUrlPrefix;
+
+   /* Get ShortUrlPrefix, default to Special:ShortUrl*/
+   if ( !is_string( $wgShortUrlPrefix ) ) {
+    $urlPrefix = SpecialPage::getTitleFor( 'ShortUrl' )->getFullUrl() . '/';
+   } else {
+    $urlPrefix = $wgShortUrlPrefix;
+   }
+
+   $protocol = 'http';
+
+   /* make sure urlPrefix is on the form //domain.com/, by checking for '//' */
+   $test = explode( '//', $urlPrefix );
+
+   if ( empty( $test ) ) {
+    /* urlPrefix was local, relative. Add server name. */
+    global $wgServer;
+
+    $serveruri = parse_url( $wgServer );
+    $urlPrefix = $serveruri['host'] . $urlPrefix; //TODO What to do if this fails?
+
+   } else {
+    /* urlPrefix was absolute. Use everything after // */
+    $urlPrefix = $test[1];
+
+    /* was there a protocol before //? */
+    if ( $test[0] )
+     $protocol = $test[0];
+   }
+
+   if ( ShortUrlUtils::needsShortUrl( $title ) ) {
+    $shortId = ShortUrlUtils::encodeTitle( $title );
+    $shortURL = $urlPrefix . $shortId;
+
+    $property = new SMWDIProperty( '___SHORTURL' );
+    $dataItem = new SMWDIUri( $protocol, $shortURL, '', '' );
+
+    $data->addPropertyObjectValue ($property, $dataItem);
+   } else {
+   }
+   
+  } // end if SHORTURL
         
  return true;
  } // end sespUpdateDataBefore()
