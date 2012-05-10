@@ -79,6 +79,8 @@ $wgSESPExcludeBots = true;
 ==Changelog==
 * 0.2.3
 ** add SHORTURL
+** Translation updates, german
+** Fix for bug with first author for certain special pages, by Van de Bugger
 
 * 0.2.2
 ** $smwgPageSpecialProperties replaced by $sespSpecialProperties
