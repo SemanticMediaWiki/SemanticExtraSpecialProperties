@@ -106,12 +106,17 @@ class SemanticESP {
   if ( in_array( '_CUSER', $sespSpecialProperties ) ) {
 
    $firstRevision = $title->getFirstRevision();
-   $firstAuthor   = User::newFromId( $firstRevision->getRawUser () );
 
-   if ($firstAuthor) {
-    $property = new SMWDIProperty( '___CUSER' );
-    $dataItem = SMWDIWikiPage::newFromTitle( $firstAuthor->getUserPage() );
-    $data->addPropertyObjectValue( $property, $dataItem );
+   if ( $firstRevision !== null ) {
+
+    $firstAuthor = User::newFromId( $firstRevision->getRawUser () );
+
+    if ($firstAuthor) {
+     $property = new SMWDIProperty( '___CUSER' );
+     $dataItem = SMWDIWikiPage::newFromTitle( $firstAuthor->getUserPage() );
+     $data->addPropertyObjectValue( $property, $dataItem );
+    }
+
    }
   } // end if _CUSER
 
@@ -236,38 +241,15 @@ class SemanticESP {
   /************************/
   /* SHORTURL             */
   /************************/
-//FIXME ugly URL handling. wgShortUrlPrefix can be either relative (/wiki/index.php...), "protocol relative" (//domain.com/...) or absolute (http://domain.com/...) and still work with Extension:ShortUrl, so we need to handle all cases. There is probably a better way to do this, though.
+//FIXME handle internal and external links
 
-  /* Check if Extension:ShortUrl is installed*/
   if ( in_array( '_SHORTURL', $sespSpecialProperties ) && class_exists( 'ShortUrlUtils' ) ) {
    global $wgShortUrlPrefix;
 
-   /* Get ShortUrlPrefix, default to Special:ShortUrl*/
    if ( !is_string( $wgShortUrlPrefix ) ) {
     $urlPrefix = SpecialPage::getTitleFor( 'ShortUrl' )->getFullUrl() . '/';
    } else {
     $urlPrefix = $wgShortUrlPrefix;
-   }
-
-   $protocol = 'http';
-
-   /* make sure urlPrefix is on the form //domain.com/, by checking for '//' */
-   $test = explode( '//', $urlPrefix );
-
-   if ( empty( $test ) ) {
-    /* urlPrefix was local, relative. Add server name. */
-    global $wgServer;
-
-    $serveruri = parse_url( $wgServer );
-    $urlPrefix = $serveruri['host'] . $urlPrefix; //TODO What to do if this fails?
-
-   } else {
-    /* urlPrefix was absolute. Use everything after // */
-    $urlPrefix = $test[1];
-
-    /* was there a protocol before //? */
-    if ( $test[0] )
-     $protocol = $test[0];
    }
 
    if ( ShortUrlUtils::needsShortUrl( $title ) ) {
@@ -275,7 +257,7 @@ class SemanticESP {
     $shortURL = $urlPrefix . $shortId;
 
     $property = new SMWDIProperty( '___SHORTURL' );
-    $dataItem = new SMWDIUri( $protocol, $shortURL, '', '' );
+    $dataItem = new SMWDIUri( 'http', $shortURL, '', '' );
 
     $data->addPropertyObjectValue ($property, $dataItem);
    } else {
