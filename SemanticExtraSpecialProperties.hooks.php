@@ -12,7 +12,7 @@ class SemanticESP {
   *
   * @return true
   */
-  public function sespInitProperties() {
+  public static function sespInitProperties() {
 
    // Page author
    SMWDIProperty::registerProperty( '___EUSER', '_wpg',
@@ -63,6 +63,16 @@ class SemanticESP {
    SMWDIProperty::registerProperty( '___SHORTURL', '_uri',
    wfMsgForContent('sesp-property-shorturl') );
    SMWDIProperty::registerPropertyAlias( '___SHORTURL', 'Short URL' );
+
+   // METADATA types
+   SMWDIProperty::registerProperty( '___EXIFDATETIME', '_dat',
+   wfMsgForContent('exif-datetimeoriginal') );
+   SMWDIProperty::registerPropertyAlias( '___EXIFDATETIME', 'Exposure date' );
+
+   SMWDIProperty::registerProperty( '___EXIFSOFTWARE', '_str',
+   wfMsgForContent('exif-software') );
+   SMWDIProperty::registerPropertyAlias( '___EXIFSOFTWARE', 'Software' );
+
 
    return true;
  } // end sespInitProperties()
@@ -217,7 +227,7 @@ class SemanticESP {
   /************************/
   /* MIMETYPE */
   /************************/
-  if ( $title->getNamespace() == NS_FILE && in_array( '_MIMETYPE', $sespSpecialProperties ) ) { //TODO use $title->inNamespace( NS_FILE ) as soon as MW 1.19 is a dependency
+  if ( $title->inNamespace( NS_FILE ) && in_array( '_MIMETYPE', $sespSpecialProperties ) ) {
 
    // Build image page instance
    $imagePage  = new ImagePage( $title );
@@ -236,7 +246,81 @@ class SemanticESP {
    $dataItem = new SMWDIString( $mediaType );
    $data->addPropertyObjectValue ($property, $dataItem);
    
-  } // end if MIMETYPE   
+  } // end if MIMETYPE
+
+  /************************/
+  /* IMAGEMETA */
+  /************************/
+
+  function convertexifdate ( $exifString ) {
+   $exifPieces = explode(":", $exifString);
+   if ( $exifPieces[0] && $exifPieces[1] && $exifPieces[2] ) {
+    $res = new DateTime($exifPieces[0] . "-" . $exifPieces[1] .
+        "-" . $exifPieces[2] . ":" . $exifPieces[3] . ":" . $exifPieces[4]);
+    return $res;
+   } else {
+    return false;
+   } 
+  }
+
+  if ( $title->inNamespace( NS_FILE ) && in_array( '_METADATA', $sespSpecialProperties ) ) {
+   $imagePage  = new ImagePage( $title );
+   $file       = $imagePage->getFile();
+   $metadata = $file->getMetadata();
+
+
+  if ( $metadata === ExifBitmapHandler::OLD_BROKEN_FILE ||
+        $metadata === ExifBitmapHandler::BROKEN_FILE /*||
+	ExifBitmapHandler::isMetadataValid( $file, $metadata ) === ExifBitmapHandler::METADATA_BAD //Too picky... */ ) {
+    // So we don't try and display metadata from PagedTiffHandler
+    // for example when using InstantCommons.
+    return true;
+   }
+
+   $exif = unserialize( $metadata );
+   if ( $exif ) {
+    if ( count( $exif ) ) {
+
+     // EXIFDATETIME 
+     if ( array_key_exists( 'DateTimeOriginal', $exif ) || array_key_exists( 'DateTime', $exif ) ) {
+      $property = new SMWDIProperty( '___EXIFDATETIME' );
+      if ( array_key_exists( 'DateTimeOriginal', $exif ) ) {
+       $exifstr = $exif['DateTimeOriginal'];
+      } else {
+       $exifstr = $exif['DateTime'];
+      }
+      $datetime = convertexifdate( $exifstr );
+
+      if ( $datetime ) {
+       $dataItem = new SMWDITime( SMWDITime::CM_GREGORIAN, $datetime->format('Y'), $datetime->format('n'), $datetime->format('j'), $datetime->format('G'), $datetime->format('i') );
+       $data->addPropertyObjectValue ($property, $dataItem);
+      }
+     }
+
+     // EXIFSOFTWARE
+     if ( array_key_exists( 'Software', $exif ) || ( array_key_exists( 'metadata', $exif ) && array_key_exists( 'Software', $exif['metadata'] )) ) {
+
+      $str = array_key_exists( 'Software', $exif ) ? $exif['Software'] : $exif['metadata']['Software'];
+      if ( is_array( $str) ) {
+       $str = array_key_exists( 'x-default', $str ) ? $str['x-default'] : $str[0];
+      }
+      if ( !$str )
+       return true;
+
+      $property = new SMWDIProperty( '___EXIFSOFTWARE' );
+      $dataItem = new SMWDIString( $str );
+      $data->addPropertyObjectValue ($property, $dataItem);
+     }
+
+     // EXIFLATLON
+/*
+//TODO
+     if ( array_key_exists( 'GPSLatitudeRef', $exif ) || array_key_exists( 'GPSLongitudeRef', $exif ) ) {
+     } *///EXIFLATLON
+
+    }
+   }
+  }//IMAGEMETA
 
   /************************/
   /* SHORTURL             */
