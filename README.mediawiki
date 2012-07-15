@@ -5,10 +5,10 @@ You will have to specify (LocalSettings.php) which properties you want to includ
 Please note that users that are otherwise hidden to some usergroup might be revealed by this extension, as the EUSER property will list all authors for everyone.
 
 ==Release ==
-[https://github.com/rotsee/Semantic-Extra-Special-Properties/tags 0.2.3]
+[https://github.com/rotsee/Semantic-Extra-Special-Properties/tags 0.2.4]
 
 ==Dependencies==
-MediaWiki 1.18
+MediaWiki 1.19
 Semantic MediaWiki 1.7
 
 ==Installation==
@@ -62,11 +62,15 @@ $sespSpecialProperties in LocalSettings.php enables the following Special Proper
 |_SHORTURL
 |Adding short URL if Extension:ShortUrl is installed, and there is a shortened URL for the current page
 |$sespSpecialProperties[] = '_SHORTURL'; 
+|-
+|_METADATA
+|Adding some porperties based om image metadata (exif data), when available
+|$sespSpecialProperties[] = '_METADATA';
 |}
 
 Special Properties compound customizing can be maintained as:
 <pre>
-$sespSpecialProperties = array( '_EUSER', '_CUSER', '_REVID', '_VIEWS', '_NREV', '_TNREV', '_SUBP', '_MIMETYPE', '_MEDIATYPE', '_SHORTURL' );
+$sespSpecialProperties = array( '_EUSER', '_CUSER', '_REVID', '_VIEWS', '_NREV', '_TNREV', '_SUBP', '_MIMETYPE', '_MEDIATYPE', '_SHORTURL', '_METADATA' );
 </pre>
 
 After upgrading from 0.1 to 0.2 or higher, you will need to run the SMW refresh script for things for work.
@@ -77,6 +81,11 @@ To ignore all users with a bot flag when creating the article author properties.
 $wgSESPExcludeBots = true;
 </pre>
 ==Changelog==
+* 0.2.4
+** Reuires MediaWiki 1.19
+** add some image meta data (exif) properties
+** bug fix by Van de Bugger
+
 * 0.2.3
 ** add SHORTURL
 ** Translation updates, german
