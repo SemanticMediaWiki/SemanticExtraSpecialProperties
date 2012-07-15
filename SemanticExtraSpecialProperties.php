@@ -1,7 +1,7 @@
 <?php
 /**
  * Extension SemanticExtraSpecialProperties - Adds some extra special properties to all pages.
- * @version 0.2.3 - 2012/02/19
+ * @version 0.2.4 - 2012/07/15
  *
  * @link http://www.mediawiki.org/wiki/Extension:SemanticExtraSpecialProperties Documentation
  *
@@ -17,19 +17,19 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	die( 'Not an entry point.' );
 }
 
-if ( version_compare( $wgVersion, '1.17', '<' ) ) {
-	die( '<b>Error:</b> This version of Semantic Result Formats requires MediaWiki 1.18 or above.' );
+if ( version_compare( $wgVersion, '1.19', '<' ) ) {
+	die( '<b>Error:</b> This version of Semantic Result Formats requires MediaWiki 1.19 or above.' );
 }
 
 if ( ! defined( 'SMW_VERSION' ) ) {
 	die( '<b>Error:</b> You need to have <a href="http://semantic-mediawiki.org/wiki/Semantic_MediaWiki">Semantic MediaWiki</a> installed.<br />' );
 }
 
-if ( version_compare( SMW_VERSION, '1.6.2', '<' ) ) {
+if ( version_compare( SMW_VERSION, '1.7', '<' ) ) {
 	die( '<b>Error:</b> This extension requires Semantic MediaWiki 1.7 or above.' );
 }
 
-define( 'SESP_VERSION', '0.2.3' );
+define( 'SESP_VERSION', '0.2.4' );
 
 $wgExtensionCredits['semantic'][] = array(
 	'path'           => __FILE__,
