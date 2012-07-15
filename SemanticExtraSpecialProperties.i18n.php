@@ -26,7 +26,7 @@ $messages['en'] = array(
 );
  
 /** German (Deutsch)
- * @author Kghbln
+ * @author Kghbln, Rotsee
  */
 $messages['de'] = array(
         'sesp-desc' => 'Stellt zusätzliche Spezialattribute zur Verfügung',
@@ -39,6 +39,7 @@ $messages['de'] = array(
         'sesp-property-talk-revisions' => 'Anzahl der Diskussionsbearbeitungen',
         'sesp-property-mimetype' => 'MIME-Type',
         'sesp-property-mediatype' => 'Medientyp',
+        'sesp-property-shorturl' => 'Kurz-URL',
 );
  
 /** Swedish (Svenska)
