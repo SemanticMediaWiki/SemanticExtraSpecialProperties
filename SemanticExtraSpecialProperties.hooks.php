@@ -252,17 +252,6 @@ class SemanticESP {
   /* IMAGEMETA */
   /************************/
 
-  function convertexifdate ( $exifString ) {
-   $exifPieces = explode(":", $exifString);
-   if ( $exifPieces[0] && $exifPieces[1] && $exifPieces[2] ) {
-    $res = new DateTime($exifPieces[0] . "-" . $exifPieces[1] .
-        "-" . $exifPieces[2] . ":" . $exifPieces[3] . ":" . $exifPieces[4]);
-    return $res;
-   } else {
-    return false;
-   } 
-  }
-
   if ( $title->inNamespace( NS_FILE ) && in_array( '_METADATA', $sespSpecialProperties ) ) {
    $imagePage  = new ImagePage( $title );
    $file       = $imagePage->getFile();
@@ -289,7 +278,7 @@ class SemanticESP {
       } else {
        $exifstr = $exif['DateTime'];
       }
-      $datetime = convertexifdate( $exifstr );
+      $datetime = $this->convertexifdate( $exifstr );
 
       if ( $datetime ) {
        $dataItem = new SMWDITime( SMWDITime::CM_GREGORIAN, $datetime->format('Y'), $datetime->format('n'), $datetime->format('j'), $datetime->format('G'), $datetime->format('i') );
@@ -351,4 +340,18 @@ class SemanticESP {
         
  return true;
  } // end sespUpdateDataBefore()
+
+
+ /* Make Exif dates something SMW can store */
+ function convertexifdate ( $exifString ) {
+  $exifPieces = explode(":", $exifString);
+  if ( $exifPieces[0] && $exifPieces[1] && $exifPieces[2] ) {
+   $res = new DateTime($exifPieces[0] . "-" . $exifPieces[1] .
+   "-" . $exifPieces[2] . ":" . $exifPieces[3] . ":" . $exifPieces[4]);
+   return $res;
+  } else {
+   return false;
+  } 
+ }
+
 } // end of class SemanticESP

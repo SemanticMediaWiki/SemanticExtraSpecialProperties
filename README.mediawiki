@@ -81,6 +81,9 @@ To ignore all users with a bot flag when creating the article author properties.
 $wgSESPExcludeBots = true;
 </pre>
 ==Changelog==
+* 0.2.5
+** Bugfixes
+
 * 0.2.4
 ** Reuires MediaWiki 1.19
 ** add some image meta data (exif) properties
