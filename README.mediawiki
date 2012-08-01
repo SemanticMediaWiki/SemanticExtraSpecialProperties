@@ -83,6 +83,7 @@ $wgSESPExcludeBots = true;
 ==Changelog==
 * 0.2.5
 ** Bugfixes
+** Error message fixes by Nischayn22 
 
 * 0.2.4
 ** Reuires MediaWiki 1.19

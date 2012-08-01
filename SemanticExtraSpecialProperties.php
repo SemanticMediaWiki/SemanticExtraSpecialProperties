@@ -1,14 +1,14 @@
 <?php
 /**
  * Extension SemanticExtraSpecialProperties - Adds some extra special properties to all pages.
- * @version 0.2.4 - 2012/07/15
+ * @version 0.2.5 - 2012/08/01
  *
  * @link http://www.mediawiki.org/wiki/Extension:SemanticExtraSpecialProperties Documentation
  *
  * @file SemanticExtraSpecialProperties.php
  * @ingroup Extensions
  * @package MediaWiki
- * @author Leo Wallentin (Rotsee), mwjames
+ * @author Leo Wallentin (Rotsee), mwjames,  nischayn22
  * @license http://www.opensource.org/licenses/BSD-2-Clause BSD
  */
 
@@ -29,7 +29,7 @@ if ( version_compare( SMW_VERSION, '1.7', '<' ) ) {
 	die( '<b>Error:</b> This version of Semantic Extra Special Properties requires Semantic MediaWiki 1.7 or above.' );
 }
 
-define( 'SESP_VERSION', '0.2.4' );
+define( 'SESP_VERSION', '0.2.5' );
 
 $wgExtensionCredits['semantic'][] = array(
 	'path'           => __FILE__,

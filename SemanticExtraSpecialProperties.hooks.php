@@ -278,7 +278,7 @@ class SemanticESP {
       } else {
        $exifstr = $exif['DateTime'];
       }
-      $datetime = $this->convertexifdate( $exifstr );
+      $datetime = self::convertexifdate( $exifstr );
 
       if ( $datetime ) {
        $dataItem = new SMWDITime( SMWDITime::CM_GREGORIAN, $datetime->format('Y'), $datetime->format('n'), $datetime->format('j'), $datetime->format('G'), $datetime->format('i') );
