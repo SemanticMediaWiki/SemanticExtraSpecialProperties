@@ -73,6 +73,12 @@ class SemanticESP {
    wfMsgForContent('exif-software') );
    SMWDIProperty::registerPropertyAlias( '___EXIFSOFTWARE', 'Software' );
 
+   //User registration date
+   SMWDIProperty::registerProperty( '___USERREG', '_dat',
+   wfMsgForContent('sesp-property-user-registration-date') );
+   SMWDIProperty::registerPropertyAlias( '___USERREG', 'User registration date' );
+
+
 
    return true;
  } // end sespInitProperties()
@@ -80,7 +86,8 @@ class SemanticESP {
  /**
   * @brief      Adds the properties, hooks into SMWStore::updateDataBefore.
   *
-  * @param      SMWStore $store, SMWSemanticData $newData
+  * @param SMWStore $store
+  * @param SMWChangeSet $changes
   *
   * @return     true
   *
@@ -102,7 +109,9 @@ class SemanticESP {
   }
 
   /* Get current title and article */
-  $title   = $data->getSubject()->getTitle();
+  $subject = $data->getSubject();
+  $title = Title::makeTitle( $subject->getNamespace(), $subject->getDBkey() );
+//  $title   = $data->getSubject()->getTitle();
   $article = Article::newFromTitle( $title, RequestContext::getMain() );
 
   // return if $title or $article is null
@@ -165,8 +174,8 @@ class SemanticESP {
   $authors = $article->getContributors();
 
   while ( $u ) {
-   if (    !$u->isHidden()  //don't list hidden users
-     && !(in_array( 'bot', $u->getRights() ) && $wgSESPExcludeBots) //exclude bots?
+   if ( //!$u->isHidden()  //don't list hidden users. This call currently causes a crash. Remove for now
+        !(in_array( 'bot', $u->getRights() ) && $wgSESPExcludeBots) //exclude bots?
      && !$u->isAnon () ) { //no anonymous users
      /* Add values*/
      $dataItem = SMWDIWikiPage::newFromTitle( $u->getUserPage() );
@@ -337,7 +346,31 @@ class SemanticESP {
    }
    
   } // end if SHORTURL
-        
+
+  /************************/
+  /* USERREG             */
+  /************************/
+
+  if ( in_array( '_USERREG', $sespSpecialProperties ) && $title->inNamespace( NS_USER ) ) {
+
+    $property = new SMWDIProperty( '___USERREG' );
+
+	$u = User::newFromName($title->getText());
+	if ( $u ) {
+
+	    $d = $u->getRegistration(); // Mediawiki timestamp (20110125223011)
+	    $d = wfTimestamp( TS_ISO_8601, $d );
+	    $d = new DateTime($d);
+
+	    $dataItem = new SMWDITime ( SMWDITime::CM_GREGORIAN,$d->format('Y'),$d->format('m'),$d->format('d'),$d->format('H'),$d->format('i') );
+	    $data->addPropertyObjectValue ($property, $dataItem);
+
+	}
+
+   
+  } // end USERREG
+
+     
  return true;
  } // end sespUpdateDataBefore()
 

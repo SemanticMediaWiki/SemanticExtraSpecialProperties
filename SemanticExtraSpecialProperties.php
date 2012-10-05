@@ -1,7 +1,7 @@
 <?php
 /**
  * Extension SemanticExtraSpecialProperties - Adds some extra special properties to all pages.
- * @version 0.2.5 - 2012/08/01
+ * @version 0.2.6 - 2012/10/05
  *
  * @link http://www.mediawiki.org/wiki/Extension:SemanticExtraSpecialProperties Documentation
  *
@@ -29,7 +29,7 @@ if ( version_compare( SMW_VERSION, '1.7', '<' ) ) {
 	die( '<b>Error:</b> This version of Semantic Extra Special Properties requires Semantic MediaWiki 1.7 or above.' );
 }
 
-define( 'SESP_VERSION', '0.2.5' );
+define( 'SESP_VERSION', '0.2.6' );
 
 $wgExtensionCredits['semantic'][] = array(
 	'path'           => __FILE__,
@@ -50,5 +50,6 @@ $wgExtensionMessagesFiles['SemanticESP' ] = $dir . 'SemanticExtraSpecialProperti
 $wgAutoloadClasses[ 'SemanticESP'       ] = $dir . 'SemanticExtraSpecialProperties.hooks.php';
 
 /* Hook into SMW */
-$wgHooks['smwInitProperties'          ][] = 'SemanticESP::sespInitProperties';
-$wgHooks['SMWStore::updateDataBefore' ][] = 'SemanticESP::sespUpdateDataBefore';
+$wgHooks['smwInitProperties'         ][] = 'SemanticESP::sespInitProperties';
+$wgHooks['SMWStore::updateDataBefore'][] = 'SemanticESP::sespUpdateDataBefore';
+

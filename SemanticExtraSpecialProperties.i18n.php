@@ -23,6 +23,7 @@ $messages['en'] = array(
         'sesp-property-mimetype' => 'MIME type',
         'sesp-property-mediatype' => 'Media type',
         'sesp-property-shorturl' => 'Short URL',
+	'sesp-property-user-registration-date' => 'User registration date',
 );
  
 /** German (Deutsch)
@@ -57,4 +58,6 @@ $messages['sv'] = array(
         'sesp-property-mimetype' => 'MIME-typ',
         'sesp-property-mediatype' => 'Medietyp',
         'sesp-property-shorturl' => 'Kortlänk',
+	'sesp-property-user-registration-date' => 'Användarens registreringsdatum',
 );
+
