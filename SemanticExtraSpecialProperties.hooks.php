@@ -367,7 +367,6 @@ class SemanticESP {
 
 	}
 
-   
   } // end USERREG
 
      

@@ -66,6 +66,10 @@ $sespSpecialProperties in LocalSettings.php enables the following Special Proper
 |_METADATA
 |Adding some porperties based om image metadata (exif data), when available
 |$sespSpecialProperties[] = '_METADATA';
+|-
+|_USERREG
+|Adding a property to user pages with the users registration date
+|$sespSpecialProperties[] = '_USERREG';
 |}
 
 Special Properties compound customizing can be maintained as:
