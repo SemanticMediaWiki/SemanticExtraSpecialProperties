@@ -175,8 +175,7 @@ class SemanticESP {
 
    while ( $u ) {
     if ( !(in_array( 'bot', $u->getRights() ) && $wgSESPExcludeBots) //exclude bots?
-      && !$u->isAnon() //no anonymous users
-      && !$u->isHidden() ){  //don't list hidden users. This call must come last, can crash if checking on anonymous user
+      && !$u->isAnon() ) { //no anonymous users
       /* Add values*/
       $dataItem = SMWDIWikiPage::newFromTitle( $u->getUserPage() );
       $data->addPropertyObjectValue( $property, $dataItem );
