@@ -124,7 +124,7 @@ $wgSESPExcludeBots = true;
 The extensions has been tested with MediaWiki 1.18.0 PHP 5.3.8 (apache2handler) MySQL 5.5.16 Semantic MediaWiki (Version 1.7).
 
 ==Credits ==
-The extension was originally written for http://säsongsmat.nu.
+The extension was originally written for http://säsongsmat.nu
 
 Leo Wallentin
 leo_wallentin (at) hotmail.com
