@@ -163,27 +163,27 @@ class SemanticESP {
   if ( in_array( '_EUSER', $sespSpecialProperties ) ) {
    /* Create property */
    $property = new SMWDIProperty( '___EUSER' );
-  /* Get options */
-  global $wgSESPExcludeBots;
-  if ( !isset( $wgSESPExcludeBots ) )
-  $wgSESPExcludeBots = false;
+   /* Get options */
+   global $wgSESPExcludeBots;
+   if ( !isset( $wgSESPExcludeBots ) )
+    $wgSESPExcludeBots = false;
 
-  /* Get author from current revision */
-  $u = User::newFromId( $article->getUser() );
-  /* Get authors from earlier revisions */
-  $authors = $article->getContributors();
+   /* Get author from current revision */
+   $u = User::newFromId( $article->getUser() );
+   /* Get authors from earlier revisions */
+   $authors = $article->getContributors();
 
-  while ( $u ) {
-   if ( //!$u->isHidden()  //don't list hidden users. This call currently causes a crash. Remove for now
-        !(in_array( 'bot', $u->getRights() ) && $wgSESPExcludeBots) //exclude bots?
-     && !$u->isAnon () ) { //no anonymous users
-     /* Add values*/
-     $dataItem = SMWDIWikiPage::newFromTitle( $u->getUserPage() );
-     $data->addPropertyObjectValue( $property, $dataItem );
-	 }
-	  $u = $authors->current();
-		$authors->next();
-	 }
+   while ( $u ) {
+    if ( !(in_array( 'bot', $u->getRights() ) && $wgSESPExcludeBots) //exclude bots?
+      && !$u->isAnon() //no anonymous users
+      && !$u->isHidden() ){  //don't list hidden users. This call must come last, can crash if checking on anonymous user
+      /* Add values*/
+      $dataItem = SMWDIWikiPage::newFromTitle( $u->getUserPage() );
+      $data->addPropertyObjectValue( $property, $dataItem );
+    }//if
+    $u = $authors->current();
+    $authors->next();
+   }//while u
   }
 
   /******************************/
