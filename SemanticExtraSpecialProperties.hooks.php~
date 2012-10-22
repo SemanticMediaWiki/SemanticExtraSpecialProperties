@@ -108,10 +108,11 @@ class SemanticESP {
    return true;
   }
 
-  /* Get current title and wikipage  */
+  /* Get current title and wikipage //TODO use WikiPage only, not article */
   $subject = $data->getSubject();
   $title = Title::makeTitle( $subject->getNamespace(), $subject->getDBkey() );
   $wikipage = WikiPage::factory($title);
+//  $article = Article::newFromTitle( $title, RequestContext::getMain() );
 
   // return if $title or $wikipage is null
   if ( is_null( $title ) || is_null( $wikipage) ) {

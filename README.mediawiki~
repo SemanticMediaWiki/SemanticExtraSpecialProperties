@@ -28,7 +28,7 @@ $sespSpecialProperties in LocalSettings.php enables the following Special Proper
 |$sespSpecialProperties[] = '_EUSER';
 |-
 |_CUSER
-|Add user that created this article
+|Add property for creating user
 |$sespSpecialProperties[] = '_CUSER'; 
 |-
 |_REVID
