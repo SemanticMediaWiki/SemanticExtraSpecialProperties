@@ -61,3 +61,21 @@ $messages['sv'] = array(
 	'sesp-property-user-registration-date' => 'Användarens registreringsdatum',
 );
 
+/** Message documentation (Message documentation)
+ *
+ */
+$messages['qqq'] = array(
+	'sesp-desc' => '{{desc}}',
+	'sesp-property-author' => 'The name of the special property that stores the contributors to a page',
+	'sesp-property-first-author' => 'The name of the special property that stores the user that created the page ',
+	'sesp-property-revision-id' => 'The name of the special property that stores the current revision id',
+	'sesp-property-view-count' => 'The name of the special property that stores the number of pages views',
+	'sesp-property-subpages' => 'The name of the special property that stores subpages',
+	'sesp-property-revisions' => 'The name of the special property that stores the number of revisions',
+	'sesp-property-talk-revisions' => 'The name of the special property that stores the number of revisions on the talk page associated to this page',
+	'sesp-property-mimetype' => 'The name of the special property that stores the MIME type of a file',
+	'sesp-property-mediatype' => 'The name of the special property that stores the media type of a file',
+	'sesp-property-shorturl' => 'The name of the special property that stores the short URL of a page, if the extensions ShortURL is installed',
+	'sesp-property-user-registration-date' => 'The name of the special property that stores a users registration date on a user page',
+);
+
