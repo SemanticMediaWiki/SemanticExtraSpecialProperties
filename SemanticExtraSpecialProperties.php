@@ -36,7 +36,7 @@ $wgExtensionCredits['semantic'][] = array(
 	'name'           => 'Semantic Extra Special Properties',
 	'author'         => array( 'Leo Wallentin', '[http://xn--ssongsmat-v2a.nu Säsongsmat.nu]', 'mwjames' ),
 	'version'        => SESP_VERSION,
-	'url'            => 'http://www.mediawiki.org/wiki/Extension:SemanticExtraSpecialProperties',
+	'url'            => 'https://www.mediawiki.org/wiki/Extension:SemanticExtraSpecialProperties',
 	'descriptionmsg' => 'sesp-desc',
 );
 
