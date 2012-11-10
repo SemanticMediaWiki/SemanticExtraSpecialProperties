@@ -27,12 +27,11 @@ $messages['en'] = array(
 );
 
 /** Message documentation (Message documentation)
- *
  */
 $messages['qqq'] = array(
 	'sesp-desc' => '{{desc}}',
 	'sesp-property-author' => 'The name of the special property that stores the contributors to a page',
-	'sesp-property-first-author' => 'The name of the special property that stores the user that created the page ',
+	'sesp-property-first-author' => 'The name of the special property that stores the user that created the page',
 	'sesp-property-revision-id' => 'The name of the special property that stores the current revision id',
 	'sesp-property-view-count' => 'The name of the special property that stores the number of pages views',
 	'sesp-property-subpages' => 'The name of the special property that stores subpages',
@@ -46,6 +45,7 @@ $messages['qqq'] = array(
 
 /** German (Deutsch)
  * @author Kghbln, Rotsee
+ * @author Metalhead64
  */
 $messages['de'] = array(
 	'sesp-desc' => 'Stellt zusätzliche Spezialattribute zur Verfügung',
@@ -59,9 +59,10 @@ $messages['de'] = array(
 	'sesp-property-mimetype' => 'MIME-Type',
 	'sesp-property-mediatype' => 'Medientyp',
 	'sesp-property-shorturl' => 'Kurz-URL',
+	'sesp-property-user-registration-date' => 'Benutzerregistrierungsdatum',
 );
 
-/** Swedish (Svenska)
+/** Swedish (svenska)
  * @author Rotsee
  */
 $messages['sv'] = array(
@@ -78,4 +79,3 @@ $messages['sv'] = array(
 	'sesp-property-shorturl' => 'Kortlänk',
 	'sesp-property-user-registration-date' => 'Användarens registreringsdatum',
 );
-
