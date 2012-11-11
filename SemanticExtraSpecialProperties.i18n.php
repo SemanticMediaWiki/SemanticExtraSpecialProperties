@@ -27,9 +27,10 @@ $messages['en'] = array(
 );
 
 /** Message documentation (Message documentation)
+ * @author Shirayuki
  */
 $messages['qqq'] = array(
-	'sesp-desc' => '{{desc}}',
+	'sesp-desc' => '{{desc|name=Semantic Extra Special Properties|url=http://www.mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties}}',
 	'sesp-property-author' => 'The name of the special property that stores the contributors to a page',
 	'sesp-property-first-author' => 'The name of the special property that stores the user that created the page',
 	'sesp-property-revision-id' => 'The name of the special property that stores the current revision id',
@@ -56,10 +57,54 @@ $messages['de'] = array(
 	'sesp-property-subpages' => 'Unterseite',
 	'sesp-property-revisions' => 'Anzahl der Bearbeitungen',
 	'sesp-property-talk-revisions' => 'Anzahl der Diskussionsbearbeitungen',
-	'sesp-property-mimetype' => 'MIME-Type',
+	'sesp-property-mimetype' => 'MIME-Typ',
 	'sesp-property-mediatype' => 'Medientyp',
 	'sesp-property-shorturl' => 'Kurz-URL',
 	'sesp-property-user-registration-date' => 'Benutzerregistrierungsdatum',
+);
+
+/** Japanese (日本語)
+ * @author Shirayuki
+ */
+$messages['ja'] = array(
+	'sesp-desc' => 'すべてのページに特殊なプロパティを追加する',
+	'sesp-property-author' => 'ページの著者',
+	'sesp-property-first-author' => 'ページの作成者',
+	'sesp-property-revision-id' => '版 ID',
+	'sesp-property-view-count' => 'ページビュー数',
+	'sesp-property-subpages' => '下位ページ',
+	'sesp-property-revisions' => '版数',
+	'sesp-property-talk-revisions' => 'トークページの版数',
+	'sesp-property-mimetype' => 'MIMEタイプ',
+	'sesp-property-mediatype' => 'メディアの種類',
+	'sesp-property-shorturl' => '短縮 URL',
+	'sesp-property-user-registration-date' => '利用者登録日',
+);
+
+/** Luxembourgish (Lëtzebuergesch)
+ * @author Robby
+ */
+$messages['lb'] = array(
+	'sesp-property-revisions' => 'Zuel vun de Versiounen',
+	'sesp-property-shorturl' => 'Kuerz URL',
+);
+
+/** Macedonian (македонски)
+ * @author Bjankuloski06
+ */
+$messages['mk'] = array(
+	'sesp-desc' => 'Додава дополнителни специјални својства во сите страници',
+	'sesp-property-author' => 'Автор на страницата',
+	'sesp-property-first-author' => 'Создавач на страницата',
+	'sesp-property-revision-id' => 'Назнака на ревизијата',
+	'sesp-property-view-count' => 'Број на прегледи на страниците',
+	'sesp-property-subpages' => 'Потстраница',
+	'sesp-property-revisions' => 'Број на ревизии',
+	'sesp-property-talk-revisions' => 'Број на ревизии на стран. за разговор',
+	'sesp-property-mimetype' => 'MIME-тип',
+	'sesp-property-mediatype' => 'Тип на мидиум',
+	'sesp-property-shorturl' => 'Кратка URL',
+	'sesp-property-user-registration-date' => 'Датум на регистрација на корисникот',
 );
 
 /** Swedish (svenska)
