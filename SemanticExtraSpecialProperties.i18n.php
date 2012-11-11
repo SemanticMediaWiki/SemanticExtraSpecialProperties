@@ -9,7 +9,8 @@
 $messages = array();
 
 /** English
- * @author Rotsee, MWJames
+ * @author Rotsee
+ * @author MWJames
  */
 $messages['en'] = array(
 	'sesp-desc' => 'Adds some extra special properties to all pages',
@@ -45,7 +46,8 @@ $messages['qqq'] = array(
 );
 
 /** German (Deutsch)
- * @author Kghbln, Rotsee
+ * @author Kghbln
+ * @author Rotsee
  * @author Metalhead64
  */
 $messages['de'] = array(
