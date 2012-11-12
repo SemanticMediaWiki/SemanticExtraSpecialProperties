@@ -47,8 +47,8 @@ $messages['qqq'] = array(
 
 /** German (Deutsch)
  * @author Kghbln
- * @author Rotsee
  * @author Metalhead64
+ * @author Rotsee
  */
 $messages['de'] = array(
 	'sesp-desc' => 'Stellt zusätzliche Spezialattribute zur Verfügung',
@@ -63,6 +63,23 @@ $messages['de'] = array(
 	'sesp-property-mediatype' => 'Medientyp',
 	'sesp-property-shorturl' => 'Kurz-URL',
 	'sesp-property-user-registration-date' => 'Benutzerregistrierungsdatum',
+);
+
+/** Italian (italiano)
+ * @author Beta16
+ */
+$messages['it'] = array(
+	'sesp-desc' => 'Aggiunge alcune proprietà speciali extra a tutte le pagine',
+	'sesp-property-author' => 'Autore della pagina',
+	'sesp-property-first-author' => 'Creatore della pagina',
+	'sesp-property-revision-id' => 'ID versione',
+	'sesp-property-view-count' => 'Numero di visite alla pagina',
+	'sesp-property-subpages' => 'Sottopagine',
+	'sesp-property-revisions' => 'Numero di versioni',
+	'sesp-property-talk-revisions' => 'Numero di versioni della pagina di discussione',
+	'sesp-property-mimetype' => 'Tipo MIME',
+	'sesp-property-shorturl' => 'URL breve',
+	'sesp-property-user-registration-date' => "Data di registrazione dell'utente",
 );
 
 /** Japanese (日本語)
