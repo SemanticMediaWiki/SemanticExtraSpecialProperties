@@ -126,6 +126,13 @@ $messages['mk'] = array(
 	'sesp-property-user-registration-date' => 'Датум на регистрација на корисникот',
 );
 
+/** Russian (русский)
+ * @author ShinePhantom
+ */
+$messages['ru'] = array(
+	'sesp-property-user-registration-date' => 'Дата регистрации пользователя',
+);
+
 /** Swedish (svenska)
  * @author Rotsee
  */
