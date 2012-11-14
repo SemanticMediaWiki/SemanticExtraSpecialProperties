@@ -65,6 +65,33 @@ $messages['de'] = array(
 	'sesp-property-user-registration-date' => 'Benutzerregistrierungsdatum',
 );
 
+/** French (français)
+ * @author Pierre Slamich
+ */
+$messages['fr'] = array(
+	'sesp-property-author' => 'Auteur de la page',
+	'sesp-property-first-author' => 'Créateur de la page',
+	'sesp-property-user-registration-date' => "Date d'inscription de l'utilisateur",
+);
+
+/** Galician (galego)
+ * @author Toliño
+ */
+$messages['gl'] = array(
+	'sesp-desc' => 'Engade algunhas propiedades adicionais a todas as páxinas',
+	'sesp-property-author' => 'Autor da páxina',
+	'sesp-property-first-author' => 'Creador da páxina',
+	'sesp-property-revision-id' => 'ID da revisión',
+	'sesp-property-view-count' => 'Número de vistas por páxina',
+	'sesp-property-subpages' => 'Subpáxina',
+	'sesp-property-revisions' => 'Número de revisións',
+	'sesp-property-talk-revisions' => 'Número de revisións da páxina de conversa',
+	'sesp-property-mimetype' => 'Tipo MIME',
+	'sesp-property-mediatype' => 'Tipo de medios',
+	'sesp-property-shorturl' => 'Enderezo URL curto',
+	'sesp-property-user-registration-date' => 'Data de rexistro do usuario',
+);
+
 /** Italian (italiano)
  * @author Beta16
  */
