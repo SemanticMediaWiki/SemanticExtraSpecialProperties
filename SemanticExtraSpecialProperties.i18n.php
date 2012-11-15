@@ -65,6 +65,24 @@ $messages['de'] = array(
 	'sesp-property-user-registration-date' => 'Benutzerregistrierungsdatum',
 );
 
+/** Spanish (español)
+ * @author Armando-Martin
+ */
+$messages['es'] = array(
+	'sesp-desc' => 'Añade algunas propiedades adicionales especiales a todas las páginas',
+	'sesp-property-author' => 'Autor de la página',
+	'sesp-property-first-author' => 'Creador de la página',
+	'sesp-property-revision-id' => 'Identificador ID de la revisión',
+	'sesp-property-view-count' => 'Número de vistas de página',
+	'sesp-property-subpages' => 'Subpágina',
+	'sesp-property-revisions' => 'Número de revisiones',
+	'sesp-property-talk-revisions' => 'Número de revisiones de la página de discusión',
+	'sesp-property-mimetype' => 'Tipo MIME',
+	'sesp-property-mediatype' => 'Tipo de medios',
+	'sesp-property-shorturl' => 'Dirección URL corta',
+	'sesp-property-user-registration-date' => 'Fecha de registro del usuario',
+);
+
 /** French (français)
  * @author Pierre Slamich
  */
@@ -176,4 +194,12 @@ $messages['sv'] = array(
 	'sesp-property-mediatype' => 'Medietyp',
 	'sesp-property-shorturl' => 'Kortlänk',
 	'sesp-property-user-registration-date' => 'Användarens registreringsdatum',
+);
+
+/** Telugu (తెలుగు)
+ * @author Veeven
+ */
+$messages['te'] = array(
+	'sesp-property-subpages' => 'ఉపపుట',
+	'sesp-property-user-registration-date' => 'వాడుకరి నమోదైన తేదీ',
 );
