@@ -84,11 +84,21 @@ $messages['es'] = array(
 );
 
 /** French (français)
+ * @author Gomoko
  * @author Pierre Slamich
  */
 $messages['fr'] = array(
+	'sesp-desc' => 'Ajoute des propriétés spéciales supplémentaires à toutes les pages',
 	'sesp-property-author' => 'Auteur de la page',
 	'sesp-property-first-author' => 'Créateur de la page',
+	'sesp-property-revision-id' => 'ID de révision',
+	'sesp-property-view-count' => 'Nombre de page vues',
+	'sesp-property-subpages' => 'Sous-page',
+	'sesp-property-revisions' => 'Nombre de révisions',
+	'sesp-property-talk-revisions' => 'Nombre de révisions de la page de discussion',
+	'sesp-property-mimetype' => 'Type MIME',
+	'sesp-property-mediatype' => 'Type de média',
+	'sesp-property-shorturl' => 'URL courte',
 	'sesp-property-user-registration-date' => "Date d'inscription de l'utilisateur",
 );
 
