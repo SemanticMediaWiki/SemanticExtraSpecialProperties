@@ -181,6 +181,16 @@ $messages['mk'] = array(
 	'sesp-property-user-registration-date' => 'Датум на регистрација на корисникот',
 );
 
+/** Dutch (Nederlands)
+ * @author Siebrand
+ */
+$messages['nl'] = array(
+	'sesp-property-mimetype' => 'MIME-type',
+	'sesp-property-mediatype' => 'Mediatype',
+	'sesp-property-shorturl' => 'Korte URL',
+	'sesp-property-user-registration-date' => 'Gebruikersregistratiedatum',
+);
+
 /** Russian (русский)
  * @author ShinePhantom
  */
