@@ -185,6 +185,7 @@ $messages['mk'] = array(
  * @author Siebrand
  */
 $messages['nl'] = array(
+	'sesp-desc' => "Voegt extra bijzondere eigenschappen toe aan alle pagina's",
 	'sesp-property-mimetype' => 'MIME-type',
 	'sesp-property-mediatype' => 'Mediatype',
 	'sesp-property-shorturl' => 'Korte URL',
