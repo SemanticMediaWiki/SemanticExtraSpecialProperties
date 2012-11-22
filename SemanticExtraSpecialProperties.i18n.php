@@ -192,6 +192,19 @@ $messages['nl'] = array(
 	'sesp-property-user-registration-date' => 'Gebruikersregistratiedatum',
 );
 
+/** Pashto (پښتو)
+ * @author Ahmed-Najib-Biabani-Ibrahimkhel
+ */
+$messages['ps'] = array(
+	'sesp-property-author' => 'د مخ ليکوال',
+	'sesp-property-first-author' => 'مخ جوړونکی',
+	'sesp-property-subpages' => 'څېرمه مخ',
+	'sesp-property-mimetype' => 'MIME بڼه',
+	'sesp-property-mediatype' => 'د رسنۍ ډول',
+	'sesp-property-shorturl' => 'لنډ يو آر ال',
+	'sesp-property-user-registration-date' => 'د کارن نومليکنې نېټه',
+);
+
 /** Russian (русский)
  * @author ShinePhantom
  */
