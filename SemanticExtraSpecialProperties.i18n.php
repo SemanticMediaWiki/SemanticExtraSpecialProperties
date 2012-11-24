@@ -45,6 +45,19 @@ $messages['qqq'] = array(
 	'sesp-property-user-registration-date' => 'The name of the special property that stores a users registration date on a user page',
 );
 
+/** Breton (brezhoneg)
+ * @author Y-M D
+ */
+$messages['br'] = array(
+	'sesp-property-view-count' => 'Niver a bajennoù gwelet',
+	'sesp-property-subpages' => 'ispajenn',
+	'sesp-property-revisions' => 'Niver a adweladennoù',
+	'sesp-property-mimetype' => 'Seurt MIME',
+	'sesp-property-mediatype' => 'Doare media',
+	'sesp-property-shorturl' => 'URL berr',
+	'sesp-property-user-registration-date' => 'Deiziad enskrivadur an implijer',
+);
+
 /** German (Deutsch)
  * @author Kghbln
  * @author Metalhead64
