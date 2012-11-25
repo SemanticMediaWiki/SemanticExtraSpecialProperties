@@ -96,6 +96,15 @@ $messages['es'] = array(
 	'sesp-property-user-registration-date' => 'Fecha de registro del usuario',
 );
 
+/** Persian (فارسی)
+ * @author ZxxZxxZ
+ */
+$messages['fa'] = array(
+	'sesp-property-first-author' => 'ایجاد کنندهٔ صفحه',
+	'sesp-property-revisions' => 'تعداد نسخه‌ها',
+	'sesp-property-mediatype' => 'نوع رسانه',
+);
+
 /** French (français)
  * @author Gomoko
  * @author Pierre Slamich
