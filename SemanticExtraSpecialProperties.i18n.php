@@ -105,6 +105,25 @@ $messages['fa'] = array(
 	'sesp-property-mediatype' => 'نوع رسانه',
 );
 
+/** Finnish (suomi)
+ * @author Crt
+ * @author Nedergard
+ */
+$messages['fi'] = array(
+	'sesp-desc' => 'Lisää joitain erikoisominaisuuksia kaikille sivuille',
+	'sesp-property-author' => 'Sivun tekijä',
+	'sesp-property-first-author' => 'Sivun luonut',
+	'sesp-property-revision-id' => 'Versiotunniste',
+	'sesp-property-view-count' => 'Näyttökertojen määrä',
+	'sesp-property-subpages' => 'Alasivu',
+	'sesp-property-revisions' => 'Muokkausten määrä',
+	'sesp-property-talk-revisions' => 'Keskustelusivujen muokkausten määrä',
+	'sesp-property-mimetype' => 'MIME-tyyppi',
+	'sesp-property-mediatype' => 'Median tyyppi',
+	'sesp-property-shorturl' => 'Lyhytosoite',
+	'sesp-property-user-registration-date' => 'Käyttäjätunnuksen luontipäivämäärä',
+);
+
 /** French (français)
  * @author Gomoko
  * @author Pierre Slamich
