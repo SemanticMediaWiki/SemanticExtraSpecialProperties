@@ -227,6 +227,13 @@ $messages['mk'] = array(
  */
 $messages['nl'] = array(
 	'sesp-desc' => "Voegt extra bijzondere eigenschappen toe aan alle pagina's",
+	'sesp-property-author' => 'Paginaauteur',
+	'sesp-property-first-author' => 'Paginamaker',
+	'sesp-property-revision-id' => 'Versienummer',
+	'sesp-property-view-count' => 'Aantal keren bekeken',
+	'sesp-property-subpages' => 'Subpagina',
+	'sesp-property-revisions' => 'Aantal versies',
+	'sesp-property-talk-revisions' => 'Aantal versies overlegpagina',
 	'sesp-property-mimetype' => 'MIME-type',
 	'sesp-property-mediatype' => 'Mediatype',
 	'sesp-property-shorturl' => 'Korte URL',
