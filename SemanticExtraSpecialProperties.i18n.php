@@ -78,6 +78,24 @@ $messages['de'] = array(
 	'sesp-property-user-registration-date' => 'Benutzerregistrierungsdatum',
 );
 
+/** Lower Sorbian (dolnoserbski)
+ * @author Michawiki
+ */
+$messages['dsb'] = array(
+	'sesp-desc' => 'Pśidawa wšym bokam pśidatne wósebne kakosći',
+	'sesp-property-author' => 'Awtor boka',
+	'sesp-property-first-author' => 'Stwóriśel boka',
+	'sesp-property-revision-id' => 'Wersijowy ID',
+	'sesp-property-view-count' => 'Licba zwobraznjenjow bokow',
+	'sesp-property-subpages' => 'Pódbok',
+	'sesp-property-revisions' => 'Licba wersijow',
+	'sesp-property-talk-revisions' => 'Licba wersijow diskusijnych bokow',
+	'sesp-property-mimetype' => 'MIME-typ',
+	'sesp-property-mediatype' => 'Medijowy typ',
+	'sesp-property-shorturl' => 'Krotki URL',
+	'sesp-property-user-registration-date' => 'Registrěrowański datum wužywarja',
+);
+
 /** Spanish (español)
  * @author Armando-Martin
  */
@@ -159,6 +177,24 @@ $messages['gl'] = array(
 	'sesp-property-mediatype' => 'Tipo de medios',
 	'sesp-property-shorturl' => 'Enderezo URL curto',
 	'sesp-property-user-registration-date' => 'Data de rexistro do usuario',
+);
+
+/** Upper Sorbian (hornjoserbsce)
+ * @author Michawiki
+ */
+$messages['hsb'] = array(
+	'sesp-desc' => 'Přidawa wšěm stronam přidatne wosebite kajkosće',
+	'sesp-property-author' => 'Awtor strony',
+	'sesp-property-first-author' => 'Tworićel strony',
+	'sesp-property-revision-id' => 'Wersijowy ID',
+	'sesp-property-view-count' => 'Ličba zwobraznjenjow strony',
+	'sesp-property-subpages' => 'Podstrona',
+	'sesp-property-revisions' => 'Ličba wersijow',
+	'sesp-property-talk-revisions' => 'Ličba wersijow diskusijnych stronow',
+	'sesp-property-mimetype' => 'MIME-typ',
+	'sesp-property-mediatype' => 'Medijowy typ',
+	'sesp-property-shorturl' => 'Krótki URL',
+	'sesp-property-user-registration-date' => 'Registrowanski datum wužiwarja',
 );
 
 /** Italian (italiano)
