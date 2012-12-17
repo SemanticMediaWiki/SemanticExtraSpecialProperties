@@ -258,6 +258,24 @@ $messages['mk'] = array(
 	'sesp-property-user-registration-date' => 'Датум на регистрација на корисникот',
 );
 
+/** Norwegian Bokmål (norsk (bokmål)‎)
+ * @author EvenT
+ */
+$messages['nb'] = array(
+	'sesp-desc' => 'Legg til et antall ekstra spesialegenskaper for alle sider',
+	'sesp-property-author' => 'Bidragsyter',
+	'sesp-property-first-author' => 'Oppretter',
+	'sesp-property-revision-id' => 'Revisjonsid',
+	'sesp-property-view-count' => 'Antall sidetreff',
+	'sesp-property-subpages' => 'Underside',
+	'sesp-property-revisions' => 'Antall revisjoner',
+	'sesp-property-talk-revisions' => 'Antall diskusjonssiderevisjoner',
+	'sesp-property-mimetype' => 'MIME-type',
+	'sesp-property-mediatype' => 'Mediatype',
+	'sesp-property-shorturl' => 'Kort URL',
+	'sesp-property-user-registration-date' => 'Brukerregistreringsdato',
+);
+
 /** Dutch (Nederlands)
  * @author Siebrand
  */
