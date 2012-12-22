@@ -115,12 +115,15 @@ $messages['es'] = array(
 );
 
 /** Persian (فارسی)
+ * @author Mjbmr
  * @author ZxxZxxZ
  */
 $messages['fa'] = array(
 	'sesp-property-first-author' => 'ایجاد کنندهٔ صفحه',
+	'sesp-property-subpages' => 'زیرصفحه',
 	'sesp-property-revisions' => 'تعداد نسخه‌ها',
 	'sesp-property-mediatype' => 'نوع رسانه',
+	'sesp-property-shorturl' => 'نشانی کوتاه',
 );
 
 /** Finnish (suomi)
@@ -232,6 +235,15 @@ $messages['ja'] = array(
 	'sesp-property-user-registration-date' => '利用者登録日',
 );
 
+/** Georgian (ქართული)
+ * @author David1010
+ */
+$messages['ka'] = array(
+	'sesp-property-author' => 'გვერდის ავტორი',
+	'sesp-property-first-author' => 'გვერდის შემქნელი',
+	'sesp-property-mimetype' => 'MIME ტიპი',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */
@@ -314,6 +326,14 @@ $messages['ru'] = array(
 	'sesp-property-user-registration-date' => 'Дата регистрации пользователя',
 );
 
+/** Sinhala (සිංහල)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['si'] = array(
+	'sesp-property-mimetype' => 'MIME වර්ගය',
+	'sesp-property-mediatype' => 'මාධ්‍ය වර්ගය',
+);
+
 /** Swedish (svenska)
  * @author Rotsee
  */
@@ -338,4 +358,12 @@ $messages['sv'] = array(
 $messages['te'] = array(
 	'sesp-property-subpages' => 'ఉపపుట',
 	'sesp-property-user-registration-date' => 'వాడుకరి నమోదైన తేదీ',
+);
+
+/** Simplified Chinese (中文（简体）‎)
+ * @author Shirayuki
+ */
+$messages['zh-hans'] = array(
+	'sesp-property-mimetype' => 'MIME类型',
+	'sesp-property-mediatype' => '媒体文件类型',
 );
