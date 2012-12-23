@@ -330,8 +330,14 @@ $messages['ru'] = array(
  * @author පසිඳු කාවින්ද
  */
 $messages['si'] = array(
+	'sesp-property-author' => 'පිටුවේ කතෘ',
+	'sesp-property-first-author' => 'පිටු තැනූ තැනැත්තා',
+	'sesp-property-view-count' => 'පිටු නැරඹුම් සංඛ්‍යාව',
+	'sesp-property-subpages' => 'උපපිටුව',
+	'sesp-property-revisions' => 'සංශෝධන ගණන',
 	'sesp-property-mimetype' => 'MIME වර්ගය',
 	'sesp-property-mediatype' => 'මාධ්‍ය වර්ගය',
+	'sesp-property-shorturl' => 'කෙටි URL',
 );
 
 /** Swedish (svenska)
@@ -360,10 +366,31 @@ $messages['te'] = array(
 	'sesp-property-user-registration-date' => 'వాడుకరి నమోదైన తేదీ',
 );
 
+/** Ukrainian (українська)
+ * @author Steve.rusyn
+ */
+$messages['uk'] = array(
+	'sesp-property-shorturl' => 'Коротке посилання',
+);
+
 /** Simplified Chinese (中文（简体）‎)
  * @author Shirayuki
  */
 $messages['zh-hans'] = array(
+	'sesp-property-first-author' => '页面创建者',
+	'sesp-property-revisions' => '修订数',
 	'sesp-property-mimetype' => 'MIME类型',
 	'sesp-property-mediatype' => '媒体文件类型',
+	'sesp-property-shorturl' => '短链接',
+);
+
+/** Traditional Chinese (中文（繁體）‎)
+ * @author Shirayuki
+ */
+$messages['zh-hant'] = array(
+	'sesp-property-first-author' => '頁面的建立者',
+	'sesp-property-revisions' => '修訂的數目',
+	'sesp-property-mimetype' => 'MIME類型',
+	'sesp-property-mediatype' => '媒體類型',
+	'sesp-property-shorturl' => '簡短的網址',
 );
