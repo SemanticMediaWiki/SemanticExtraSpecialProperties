@@ -319,6 +319,13 @@ $messages['ps'] = array(
 	'sesp-property-user-registration-date' => 'د کارن نومليکنې نېټه',
 );
 
+/** Romanian (română)
+ * @author Stelistcristi
+ */
+$messages['ro'] = array(
+	'sesp-property-user-registration-date' => 'Data de înregistrare a utilizatorului',
+);
+
 /** Russian (русский)
  * @author ShinePhantom
  */
