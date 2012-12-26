@@ -114,6 +114,14 @@ $messages['es'] = array(
 	'sesp-property-user-registration-date' => 'Fecha de registro del usuario',
 );
 
+/** Estonian (eesti)
+ * @author Avjoska
+ */
+$messages['et'] = array(
+	'sesp-property-author' => 'Lehekülje autor',
+	'sesp-property-first-author' => 'Lehekülje alustaja',
+);
+
 /** Persian (فارسی)
  * @author Mjbmr
  * @author ZxxZxxZ
@@ -306,6 +314,24 @@ $messages['nl'] = array(
 	'sesp-property-user-registration-date' => 'Gebruikersregistratiedatum',
 );
 
+/** Piedmontese (Piemontèis)
+ * @author Dragonòt
+ */
+$messages['pms'] = array(
+	'sesp-desc' => 'A gionta quaich propietà extra speciaj a tute le pagine',
+	'sesp-property-author' => 'Autor ëd la pagina',
+	'sesp-property-first-author' => 'Creator ëd la pàgina',
+	'sesp-property-revision-id' => 'Revision ID',
+	'sesp-property-view-count' => 'Nùmer ëd vìsite a la pàgina',
+	'sesp-property-subpages' => 'Sotpagina',
+	'sesp-property-revisions' => 'Nùmer ëd revision',
+	'sesp-property-talk-revisions' => 'Nùmer ëd revision ëd pagine ëd discussion',
+	'sesp-property-mimetype' => 'Sòrt MIME',
+	'sesp-property-mediatype' => 'Sòrt ëd mojen',
+	'sesp-property-shorturl' => 'Anliura curta',
+	'sesp-property-user-registration-date' => "Data ëd registrassion ëd l'utent",
+);
+
 /** Pashto (پښتو)
  * @author Ahmed-Najib-Biabani-Ibrahimkhel
  */
@@ -363,6 +389,22 @@ $messages['sv'] = array(
 	'sesp-property-mediatype' => 'Medietyp',
 	'sesp-property-shorturl' => 'Kortlänk',
 	'sesp-property-user-registration-date' => 'Användarens registreringsdatum',
+);
+
+/** Tamil (தமிழ்)
+ * @author Shanmugamp7
+ */
+$messages['ta'] = array(
+	'sesp-property-author' => 'பக்க ஆக்குநர்',
+	'sesp-property-first-author' => 'பக்க உருவாக்குநர்',
+	'sesp-property-revision-id' => 'திருத்த அடையாள எண்',
+	'sesp-property-subpages' => 'துணைப்பக்கம்',
+	'sesp-property-revisions' => 'திருத்தங்களின் எண்ணிக்கை',
+	'sesp-property-talk-revisions' => 'பேச்சுப் பக்க திருத்தங்களின் எண்ணிக்கை',
+	'sesp-property-mimetype' => 'MIME வகை',
+	'sesp-property-mediatype' => 'ஊடக வகை',
+	'sesp-property-shorturl' => 'குறுந்தொடுப்பு',
+	'sesp-property-user-registration-date' => 'பயனர் பதிவுசெய்த நாள்',
 );
 
 /** Telugu (తెలుగు)
