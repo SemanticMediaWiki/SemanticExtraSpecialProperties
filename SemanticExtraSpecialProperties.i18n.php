@@ -352,6 +352,22 @@ $messages['ro'] = array(
 	'sesp-property-user-registration-date' => 'Data de înregistrare a utilizatorului',
 );
 
+/** tarandíne (tarandíne)
+ * @author Joetaras
+ */
+$messages['roa-tara'] = array(
+	'sesp-property-author' => "Autore d'a pàgene",
+	'sesp-property-first-author' => "Ccrejatore d'a pàgene",
+	'sesp-property-revision-id' => "ID d'a revisione",
+	'sesp-property-view-count' => 'Numere de pàggene viste',
+	'sesp-property-subpages' => 'Sottopàgene',
+	'sesp-property-revisions' => 'Numere de le revisiune',
+	'sesp-property-talk-revisions' => "Numere de le revisiune de le pàggene de le 'ngazzaminde",
+	'sesp-property-mimetype' => 'Tipe de MIME',
+	'sesp-property-mediatype' => 'Tipe de media',
+	'sesp-property-shorturl' => 'URL corte',
+);
+
 /** Russian (русский)
  * @author ShinePhantom
  */
@@ -365,6 +381,7 @@ $messages['ru'] = array(
 $messages['si'] = array(
 	'sesp-property-author' => 'පිටුවේ කතෘ',
 	'sesp-property-first-author' => 'පිටු තැනූ තැනැත්තා',
+	'sesp-property-revision-id' => 'සංශෝධන හැඳුනුම',
 	'sesp-property-view-count' => 'පිටු නැරඹුම් සංඛ්‍යාව',
 	'sesp-property-subpages' => 'උපපිටුව',
 	'sesp-property-revisions' => 'සංශෝධන ගණන',
