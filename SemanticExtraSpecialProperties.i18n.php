@@ -58,6 +58,13 @@ $messages['br'] = array(
 	'sesp-property-user-registration-date' => 'Deiziad enskrivadur an implijer',
 );
 
+/** Czech (česky)
+ * @author Vks
+ */
+$messages['cs'] = array(
+	'sesp-property-shorturl' => 'Krátké URL',
+);
+
 /** German (Deutsch)
  * @author Kghbln
  * @author Metalhead64
@@ -346,9 +353,11 @@ $messages['ps'] = array(
 );
 
 /** Romanian (română)
+ * @author Minisarm
  * @author Stelistcristi
  */
 $messages['ro'] = array(
+	'sesp-property-shorturl' => 'URL scurt',
 	'sesp-property-user-registration-date' => 'Data de înregistrare a utilizatorului',
 );
 
@@ -385,9 +394,11 @@ $messages['si'] = array(
 	'sesp-property-view-count' => 'පිටු නැරඹුම් සංඛ්‍යාව',
 	'sesp-property-subpages' => 'උපපිටුව',
 	'sesp-property-revisions' => 'සංශෝධන ගණන',
+	'sesp-property-talk-revisions' => 'කතාබහ පිටු සංශෝධන ගණන',
 	'sesp-property-mimetype' => 'MIME වර්ගය',
 	'sesp-property-mediatype' => 'මාධ්‍ය වර්ගය',
 	'sesp-property-shorturl' => 'කෙටි URL',
+	'sesp-property-user-registration-date' => 'පරිශීලක ලියාපදිංචි කිරීම් දිනය',
 );
 
 /** Swedish (svenska)
