@@ -322,17 +322,18 @@ $messages['nl'] = array(
 );
 
 /** Piedmontese (Piemontèis)
+ * @author Borichèt
  * @author Dragonòt
  */
 $messages['pms'] = array(
-	'sesp-desc' => 'A gionta quaich propietà extra speciaj a tute le pagine',
-	'sesp-property-author' => 'Autor ëd la pagina',
+	'sesp-desc' => 'A gionta dle propietà speciaj suplementar a tute le pàgine',
+	'sesp-property-author' => 'Autor ëd la pàgina',
 	'sesp-property-first-author' => 'Creator ëd la pàgina',
-	'sesp-property-revision-id' => 'Revision ID',
+	'sesp-property-revision-id' => 'ID ëd revision',
 	'sesp-property-view-count' => 'Nùmer ëd vìsite a la pàgina',
-	'sesp-property-subpages' => 'Sotpagina',
+	'sesp-property-subpages' => 'Sot-pàgina',
 	'sesp-property-revisions' => 'Nùmer ëd revision',
-	'sesp-property-talk-revisions' => 'Nùmer ëd revision ëd pagine ëd discussion',
+	'sesp-property-talk-revisions' => 'Nùmer ëd revision ëd la pàgina ëd discussion',
 	'sesp-property-mimetype' => 'Sòrt MIME',
 	'sesp-property-mediatype' => 'Sòrt ëd mojen',
 	'sesp-property-shorturl' => 'Anliura curta',
