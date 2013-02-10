@@ -257,6 +257,9 @@ $messages['ka'] = array(
 	'sesp-property-author' => 'გვერდის ავტორი',
 	'sesp-property-first-author' => 'გვერდის შემქნელი',
 	'sesp-property-mimetype' => 'MIME ტიპი',
+	'sesp-property-mediatype' => 'მედიის ტიპი',
+	'sesp-property-shorturl' => 'მოკლე URL',
+	'sesp-property-user-registration-date' => 'მომხმარებლის რეგისტრაციის თარიღი',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
