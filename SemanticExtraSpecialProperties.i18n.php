@@ -256,6 +256,7 @@ $messages['ja'] = array(
 $messages['ka'] = array(
 	'sesp-property-author' => 'გვერდის ავტორი',
 	'sesp-property-first-author' => 'გვერდის შემქნელი',
+	'sesp-property-subpages' => 'ქვეგვერდი',
 	'sesp-property-mimetype' => 'MIME ტიპი',
 	'sesp-property-mediatype' => 'მედიის ტიპი',
 	'sesp-property-shorturl' => 'მოკლე URL',
