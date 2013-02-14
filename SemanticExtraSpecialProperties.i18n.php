@@ -370,6 +370,7 @@ $messages['ro'] = array(
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
+	'sesp-desc' => 'Aggiunge quacche probbietà speciale extra a tutte le pàggene',
 	'sesp-property-author' => "Autore d'a pàgene",
 	'sesp-property-first-author' => "Ccrejatore d'a pàgene",
 	'sesp-property-revision-id' => "ID d'a revisione",
@@ -380,6 +381,7 @@ $messages['roa-tara'] = array(
 	'sesp-property-mimetype' => 'Tipe de MIME',
 	'sesp-property-mediatype' => 'Tipe de media',
 	'sesp-property-shorturl' => 'URL corte',
+	'sesp-property-user-registration-date' => "Date de reggistrazione de l'utende",
 );
 
 /** Russian (русский)
