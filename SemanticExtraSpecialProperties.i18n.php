@@ -34,7 +34,8 @@ $messages['qqq'] = array(
 	'sesp-desc' => '{{desc|name=Semantic Extra Special Properties|url=http://www.mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties}}',
 	'sesp-property-author' => 'The name of the special property that stores the contributors to a page',
 	'sesp-property-first-author' => 'The name of the special property that stores the user that created the page',
-	'sesp-property-revision-id' => 'The name of the special property that stores the current revision id',
+	'sesp-property-revision-id' => 'The name of the special property that stores the current revision id.
+{{Identical|Revision ID}}',
 	'sesp-property-view-count' => 'The name of the special property that stores the number of pages views',
 	'sesp-property-subpages' => 'The name of the special property that stores subpages',
 	'sesp-property-revisions' => 'The name of the special property that stores the number of revisions',
@@ -452,9 +453,21 @@ $messages['te'] = array(
 
 /** Ukrainian (українська)
  * @author Steve.rusyn
+ * @author Ата
  */
 $messages['uk'] = array(
+	'sesp-desc' => 'Додає деякі додаткові спеціальні властивості для всіх сторінок',
+	'sesp-property-author' => 'Автор сторінки',
+	'sesp-property-first-author' => 'Творець сторінки',
+	'sesp-property-revision-id' => 'ID версії',
+	'sesp-property-view-count' => 'Кількість переглядів сторінки',
+	'sesp-property-subpages' => 'Підсторінка',
+	'sesp-property-revisions' => 'Кількість версій',
+	'sesp-property-talk-revisions' => 'Кількість версій сторінки обговорення',
+	'sesp-property-mimetype' => 'MIME-тип',
+	'sesp-property-mediatype' => 'Медіатип',
 	'sesp-property-shorturl' => 'Коротке посилання',
+	'sesp-property-user-registration-date' => 'Дата реєстрації користувача',
 );
 
 /** Simplified Chinese (中文（简体）‎)
