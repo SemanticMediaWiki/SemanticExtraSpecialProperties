@@ -123,13 +123,25 @@ class SemanticESP {
   /**************************/
   if ( in_array( '_CUSER', $sespSpecialProperties ) ) {
 
-   $firstAuthor = $wikipage->getCreator();
+   // TODO: remove else branch when compatibility to MW pre1.20 is dropped
+   if ( method_exists( $wikipage, 'getCreator') ) {
 
-    if ($firstAuthor) {
-     $property = new SMWDIProperty( '___CUSER' );
-     $dataItem = SMWDIWikiPage::newFromTitle( $firstAuthor->getUserPage() );
-     $data->addPropertyObjectValue( $property, $dataItem );
-    }
+    $firstAuthor = $wikipage->getCreator();
+
+   } else {
+
+    $firstRevision = $title->getFirstRevision();
+    if ( $firstRevision !== null ) {
+     $firstAuthor = User::newFromId( $firstRevision->getRawUser () );
+	}
+
+   }
+
+   if ($firstAuthor) {
+    $property = new SMWDIProperty( '___CUSER' );
+    $dataItem = SMWDIWikiPage::newFromTitle( $firstAuthor->getUserPage() );
+    $data->addPropertyObjectValue( $property, $dataItem );
+   }
 
   } // end if _CUSER
 

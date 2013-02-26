@@ -18,7 +18,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 }
 
 if ( version_compare( $wgVersion, '1.19', '<' ) ) {
-	die( '<b>Error:</b> This version of Semantic Extra Special Properties requires MediaWiki 1.20 or above.' );
+	die( '<b>Error:</b> This version of Semantic Extra Special Properties requires MediaWiki 1.19 or above.' );
 }
 
 if ( ! defined( 'SMW_VERSION' ) ) {
