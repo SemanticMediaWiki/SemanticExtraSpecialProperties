@@ -47,9 +47,12 @@ $messages['qqq'] = array(
 );
 
 /** Breton (brezhoneg)
+ * @author Fohanno
  * @author Y-M D
  */
 $messages['br'] = array(
+	'sesp-property-author' => 'Aozer ar bajenn',
+	'sesp-property-first-author' => 'Krouer ar bajenn',
 	'sesp-property-view-count' => 'Niver a bajennoù gwelet',
 	'sesp-property-subpages' => 'ispajenn',
 	'sesp-property-revisions' => 'Niver a adweladennoù',
