@@ -40,7 +40,8 @@ $messages['qqq'] = array(
 	'sesp-property-subpages' => 'The name of the special property that stores subpages',
 	'sesp-property-revisions' => 'The name of the special property that stores the number of revisions',
 	'sesp-property-talk-revisions' => 'The name of the special property that stores the number of revisions on the talk page associated to this page',
-	'sesp-property-mimetype' => 'The name of the special property that stores the MIME type of a file',
+	'sesp-property-mimetype' => 'The name of the special property that stores the MIME type of a file.
+{{Identical|MIME type}}',
 	'sesp-property-mediatype' => 'The name of the special property that stores the media type of a file',
 	'sesp-property-shorturl' => 'The name of the special property that stores the short URL of a page, if the extensions ShortURL is installed',
 	'sesp-property-user-registration-date' => 'The name of the special property that stores a users registration date on a user page',
