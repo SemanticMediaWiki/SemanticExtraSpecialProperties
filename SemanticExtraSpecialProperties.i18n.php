@@ -25,6 +25,8 @@ $messages['en'] = array(
 	'sesp-property-mediatype' => 'Media type',
 	'sesp-property-shorturl' => 'Short URL',
 	'sesp-property-user-registration-date' => 'User registration date',
+
+	'sesp-property-exif-data' => 'EXIF data',
 );
 
 /** Message documentation (Message documentation)
@@ -45,6 +47,8 @@ $messages['qqq'] = array(
 	'sesp-property-mediatype' => 'The name of the special property that stores the media type of a file',
 	'sesp-property-shorturl' => 'The name of the special property that stores the short URL of a page, if the extensions ShortURL is installed',
 	'sesp-property-user-registration-date' => 'The name of the special property that stores a users registration date on a user page',
+
+	'sesp-property-exif-data' => 'The name of the special property that stores a reference to the EXIF data of a file',
 );
 
 /** Breton (brezhoneg)
