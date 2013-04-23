@@ -37,7 +37,8 @@ $messages['qqq'] = array(
 	'sesp-property-revision-id' => 'The name of the special property that stores the current revision id.
 {{Identical|Revision ID}}',
 	'sesp-property-view-count' => 'The name of the special property that stores the number of pages views',
-	'sesp-property-subpages' => 'The name of the special property that stores subpages',
+	'sesp-property-subpages' => 'The name of the special property that stores subpages.
+{{Identical|Subpage}}',
 	'sesp-property-revisions' => 'The name of the special property that stores the number of revisions',
 	'sesp-property-talk-revisions' => 'The name of the special property that stores the number of revisions on the talk page associated to this page',
 	'sesp-property-mimetype' => 'The name of the special property that stores the MIME type of a file.
