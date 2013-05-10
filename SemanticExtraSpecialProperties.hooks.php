@@ -469,7 +469,7 @@ class SemanticESP {
 		// log exif data to log if log group exif is specified
 		wfDebugLog( 'exif', "\n" . $title->getFullText() . "\nFORMATTED EXIF DATA: " . var_export($formattedExif, true), false );
 
-		// create semantic data container for EXIF data subobject
+		// create semantic data container for Exif data subobject
 		$diSubobject = new SMWDIWikiPage(
 						$subject->getDBkey(),
 						$subject->getNamespace(),
