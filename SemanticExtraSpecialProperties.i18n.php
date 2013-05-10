@@ -48,7 +48,6 @@ $messages['qqq'] = array(
 	'sesp-property-mediatype' => 'The name of the special property that stores the media type of a file',
 	'sesp-property-shorturl' => 'The name of the special property that stores the short URL of a page, if the extensions ShortURL is installed',
 	'sesp-property-user-registration-date' => 'The name of the special property that stores a users registration date on a user page',
-
 	'sesp-property-exif-data' => 'The name of the special property that stores a reference to the EXIF data of a file',
 );
 
@@ -93,6 +92,7 @@ $messages['de'] = array(
 	'sesp-property-mediatype' => 'Medientyp',
 	'sesp-property-shorturl' => 'Kurz-URL',
 	'sesp-property-user-registration-date' => 'Benutzerregistrierungsdatum',
+	'sesp-property-exif-data' => 'EXIF-Daten',
 );
 
 /** Lower Sorbian (dolnoserbski)
@@ -187,6 +187,7 @@ $messages['fr'] = array(
 	'sesp-property-mediatype' => 'Type de média',
 	'sesp-property-shorturl' => 'URL courte',
 	'sesp-property-user-registration-date' => "Date d'inscription de l'utilisateur",
+	'sesp-property-exif-data' => 'Données EXIF',
 );
 
 /** Galician (galego)
@@ -205,6 +206,7 @@ $messages['gl'] = array(
 	'sesp-property-mediatype' => 'Tipo de medios',
 	'sesp-property-shorturl' => 'Enderezo URL curto',
 	'sesp-property-user-registration-date' => 'Data de rexistro do usuario',
+	'sesp-property-exif-data' => 'Datos EXIF',
 );
 
 /** Upper Sorbian (hornjoserbsce)
@@ -258,6 +260,7 @@ $messages['ja'] = array(
 	'sesp-property-mediatype' => 'メディアの種類',
 	'sesp-property-shorturl' => '短縮 URL',
 	'sesp-property-user-registration-date' => '利用者登録日',
+	'sesp-property-exif-data' => 'Exif データ',
 );
 
 /** Georgian (ქართული)
@@ -297,6 +300,7 @@ $messages['mk'] = array(
 	'sesp-property-mediatype' => 'Тип на мидиум',
 	'sesp-property-shorturl' => 'Кратка URL',
 	'sesp-property-user-registration-date' => 'Датум на регистрација на корисникот',
+	'sesp-property-exif-data' => 'EXIF-податоци',
 );
 
 /** Norwegian Bokmål (norsk (bokmål)‎)
