@@ -337,6 +337,7 @@ $messages['nl'] = array(
 	'sesp-property-mediatype' => 'Mediatype',
 	'sesp-property-shorturl' => 'Korte URL',
 	'sesp-property-user-registration-date' => 'Gebruikersregistratiedatum',
+	'sesp-property-exif-data' => 'Exifgegevens',
 );
 
 /** Piedmontese (Piemontèis)
