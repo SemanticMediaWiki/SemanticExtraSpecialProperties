@@ -154,6 +154,7 @@ $messages['fa'] = array(
 /** Finnish (suomi)
  * @author Crt
  * @author Nedergard
+ * @author Nike
  */
 $messages['fi'] = array(
 	'sesp-desc' => 'Lisää joitain erikoisominaisuuksia kaikille sivuille',
@@ -168,6 +169,7 @@ $messages['fi'] = array(
 	'sesp-property-mediatype' => 'Median tyyppi',
 	'sesp-property-shorturl' => 'Lyhytosoite',
 	'sesp-property-user-registration-date' => 'Käyttäjätunnuksen luontipäivämäärä',
+	'sesp-property-exif-data' => 'Exit-tiedot',
 );
 
 /** French (français)
@@ -397,6 +399,7 @@ $messages['roa-tara'] = array(
 	'sesp-property-mediatype' => 'Tipe de media',
 	'sesp-property-shorturl' => 'URL corte',
 	'sesp-property-user-registration-date' => "Date de reggistrazione de l'utende",
+	'sesp-property-exif-data' => 'Date EXIF',
 );
 
 /** Russian (русский)
@@ -497,6 +500,7 @@ $messages['zh-hans'] = array(
 
 /** Traditional Chinese (中文（繁體）‎)
  * @author Shirayuki
+ * @author Simon Shek
  */
 $messages['zh-hant'] = array(
 	'sesp-property-first-author' => '頁面的建立者',
@@ -504,4 +508,5 @@ $messages['zh-hant'] = array(
 	'sesp-property-mimetype' => 'MIME類型',
 	'sesp-property-mediatype' => '媒體類型',
 	'sesp-property-shorturl' => '簡短的網址',
+	'sesp-property-exif-data' => 'EXIF資料',
 );
