@@ -92,7 +92,7 @@ $messages['de'] = array(
 	'sesp-property-mediatype' => 'Medientyp',
 	'sesp-property-shorturl' => 'Kurz-URL',
 	'sesp-property-user-registration-date' => 'Benutzerregistrierungsdatum',
-	'sesp-property-exif-data' => 'EXIF-Daten',
+	'sesp-property-exif-data' => 'Exif-Daten',
 );
 
 /** Lower Sorbian (dolnoserbski)
@@ -169,7 +169,7 @@ $messages['fi'] = array(
 	'sesp-property-mediatype' => 'Median tyyppi',
 	'sesp-property-shorturl' => 'Lyhytosoite',
 	'sesp-property-user-registration-date' => 'Käyttäjätunnuksen luontipäivämäärä',
-	'sesp-property-exif-data' => 'Exit-tiedot',
+	'sesp-property-exif-data' => 'Exit-tiedot', # Fuzzy
 );
 
 /** French (français)
@@ -399,7 +399,7 @@ $messages['roa-tara'] = array(
 	'sesp-property-mediatype' => 'Tipe de media',
 	'sesp-property-shorturl' => 'URL corte',
 	'sesp-property-user-registration-date' => "Date de reggistrazione de l'utende",
-	'sesp-property-exif-data' => 'Date EXIF',
+	'sesp-property-exif-data' => 'Date EXIF', # Fuzzy
 );
 
 /** Russian (русский)
@@ -508,5 +508,5 @@ $messages['zh-hant'] = array(
 	'sesp-property-mimetype' => 'MIME類型',
 	'sesp-property-mediatype' => '媒體類型',
 	'sesp-property-shorturl' => '簡短的網址',
-	'sesp-property-exif-data' => 'EXIF資料',
+	'sesp-property-exif-data' => 'EXIF資料', # Fuzzy
 );
