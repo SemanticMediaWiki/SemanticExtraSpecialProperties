@@ -208,7 +208,14 @@ $messages['gl'] = array(
 	'sesp-property-mediatype' => 'Tipo de medios',
 	'sesp-property-shorturl' => 'Enderezo URL curto',
 	'sesp-property-user-registration-date' => 'Data de rexistro do usuario',
-	'sesp-property-exif-data' => 'Datos EXIF',
+	'sesp-property-exif-data' => 'Datos Exif',
+);
+
+/** Hebrew (עברית)
+ * @author ExampleTomer
+ */
+$messages['he'] = array(
+	'sesp-property-exif-data' => 'נתוני Exif',
 );
 
 /** Upper Sorbian (hornjoserbsce)
