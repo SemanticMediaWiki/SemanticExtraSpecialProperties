@@ -174,6 +174,7 @@ $messages['fi'] = array(
 
 /** French (français)
  * @author Gomoko
+ * @author Hello71
  * @author Pierre Slamich
  */
 $messages['fr'] = array(
@@ -189,7 +190,7 @@ $messages['fr'] = array(
 	'sesp-property-mediatype' => 'Type de média',
 	'sesp-property-shorturl' => 'URL courte',
 	'sesp-property-user-registration-date' => "Date d'inscription de l'utilisateur",
-	'sesp-property-exif-data' => 'Données EXIF',
+	'sesp-property-exif-data' => 'Données Exif',
 );
 
 /** Galician (galego)
@@ -309,7 +310,7 @@ $messages['mk'] = array(
 	'sesp-property-mediatype' => 'Тип на мидиум',
 	'sesp-property-shorturl' => 'Кратка URL',
 	'sesp-property-user-registration-date' => 'Датум на регистрација на корисникот',
-	'sesp-property-exif-data' => 'EXIF-податоци',
+	'sesp-property-exif-data' => 'Exif-податоци',
 );
 
 /** Norwegian Bokmål (norsk (bokmål)‎)
@@ -496,6 +497,7 @@ $messages['uk'] = array(
 
 /** Simplified Chinese (中文（简体）‎)
  * @author Shirayuki
+ * @author Yfdyh000
  */
 $messages['zh-hans'] = array(
 	'sesp-property-first-author' => '页面创建者',
@@ -503,6 +505,7 @@ $messages['zh-hans'] = array(
 	'sesp-property-mimetype' => 'MIME类型',
 	'sesp-property-mediatype' => '媒体文件类型',
 	'sesp-property-shorturl' => '短链接',
+	'sesp-property-exif-data' => 'EXIF数据',
 );
 
 /** Traditional Chinese (中文（繁體）‎)
