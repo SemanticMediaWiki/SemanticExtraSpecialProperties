@@ -48,7 +48,7 @@ $messages['qqq'] = array(
 	'sesp-property-mediatype' => 'The name of the special property that stores the media type of a file',
 	'sesp-property-shorturl' => 'The name of the special property that stores the short URL of a page, if the extensions ShortURL is installed',
 	'sesp-property-user-registration-date' => 'The name of the special property that stores a users registration date on a user page',
-	'sesp-property-exif-data' => 'The name of the special property that stores a reference to the Exif data of a file',
+	'sesp-property-exif-data' => 'The name of the special property that stores a reference to the EXIF data of a file',
 );
 
 /** Breton (brezhoneg)
@@ -326,7 +326,7 @@ $messages['mk'] = array(
 	'sesp-property-exif-data' => 'Exif-податоци',
 );
 
-/** Norwegian Bokmål (norsk (bokmål)‎)
+/** Norwegian Bokmål (norsk bokmål)
  * @author EvenT
  */
 $messages['nb'] = array(
@@ -531,5 +531,5 @@ $messages['zh-hant'] = array(
 	'sesp-property-mimetype' => 'MIME類型',
 	'sesp-property-mediatype' => '媒體類型',
 	'sesp-property-shorturl' => '簡短的網址',
-	'sesp-property-exif-data' => 'EXIF資料', # Fuzzy
+	'sesp-property-exif-data' => 'EXIF資料',
 );
