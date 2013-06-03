@@ -67,11 +67,20 @@ $messages['br'] = array(
 	'sesp-property-user-registration-date' => 'Deiziad enskrivadur an implijer',
 );
 
+/** Chechen (нохчийн)
+ * @author Умар
+ */
+$messages['ce'] = array(
+	'sesp-property-user-registration-date' => 'Декъашхо дӀавазвела/ела терахь',
+);
+
 /** Czech (česky)
+ * @author Mormegil
  * @author Vks
  */
 $messages['cs'] = array(
 	'sesp-property-shorturl' => 'Krátké URL',
+	'sesp-property-exif-data' => 'Data EXIF',
 );
 
 /** German (Deutsch)
@@ -290,8 +299,12 @@ $messages['ka'] = array(
  * @author Robby
  */
 $messages['lb'] = array(
+	'sesp-property-author' => 'Auteur vun der Säit',
+	'sesp-property-subpages' => 'Ënnersäit',
 	'sesp-property-revisions' => 'Zuel vun de Versiounen',
 	'sesp-property-shorturl' => 'Kuerz URL',
+	'sesp-property-user-registration-date' => 'Datum vun der Umellung vum Benotzer',
+	'sesp-property-exif-data' => 'Exif-Donnéeën',
 );
 
 /** Macedonian (македонски)
