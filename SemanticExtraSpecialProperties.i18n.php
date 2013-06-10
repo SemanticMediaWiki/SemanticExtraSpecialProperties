@@ -261,6 +261,7 @@ $messages['it'] = array(
 	'sesp-property-mimetype' => 'Tipo MIME',
 	'sesp-property-shorturl' => 'URL breve',
 	'sesp-property-user-registration-date' => "Data di registrazione dell'utente",
+	'sesp-property-exif-data' => 'Dati Exif',
 );
 
 /** Japanese (日本語)
