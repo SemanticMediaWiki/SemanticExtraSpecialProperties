@@ -449,6 +449,7 @@ $messages['si'] = array(
 );
 
 /** Swedish (svenska)
+ * @author Jopparn
  * @author Rotsee
  */
 $messages['sv'] = array(
@@ -464,6 +465,7 @@ $messages['sv'] = array(
 	'sesp-property-mediatype' => 'Medietyp',
 	'sesp-property-shorturl' => 'Kortlänk',
 	'sesp-property-user-registration-date' => 'Användarens registreringsdatum',
+	'sesp-property-exif-data' => 'Exif-data',
 );
 
 /** Tamil (தமிழ்)
