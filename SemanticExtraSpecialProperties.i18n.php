@@ -124,12 +124,13 @@ $messages['dsb'] = array(
 
 /** Spanish (español)
  * @author Armando-Martin
+ * @author Fitoschido
  */
 $messages['es'] = array(
 	'sesp-desc' => 'Añade algunas propiedades adicionales especiales a todas las páginas',
 	'sesp-property-author' => 'Autor de la página',
 	'sesp-property-first-author' => 'Creador de la página',
-	'sesp-property-revision-id' => 'Identificador ID de la revisión',
+	'sesp-property-revision-id' => 'Id. de modificación',
 	'sesp-property-view-count' => 'Número de vistas de página',
 	'sesp-property-subpages' => 'Subpágina',
 	'sesp-property-revisions' => 'Número de revisiones',
