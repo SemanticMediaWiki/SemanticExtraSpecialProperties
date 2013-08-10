@@ -494,7 +494,9 @@ $messages['te'] = array(
 );
 
 /** Ukrainian (українська)
+ * @author Andriykopanytsia
  * @author Steve.rusyn
+ * @author SteveR
  * @author Ата
  */
 $messages['uk'] = array(
@@ -510,6 +512,7 @@ $messages['uk'] = array(
 	'sesp-property-mediatype' => 'Медіатип',
 	'sesp-property-shorturl' => 'Коротке посилання',
 	'sesp-property-user-registration-date' => 'Дата реєстрації користувача',
+	'sesp-property-exif-data' => 'Дані exif',
 );
 
 /** Simplified Chinese (中文（简体）‎)
