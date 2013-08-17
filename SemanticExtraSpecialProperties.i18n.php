@@ -422,7 +422,7 @@ $messages['roa-tara'] = array(
 	'sesp-property-mediatype' => 'Tipe de media',
 	'sesp-property-shorturl' => 'URL corte',
 	'sesp-property-user-registration-date' => "Date de reggistrazione de l'utende",
-	'sesp-property-exif-data' => 'Date EXIF', # Fuzzy
+	'sesp-property-exif-data' => 'Date Exif',
 );
 
 /** Russian (русский)
