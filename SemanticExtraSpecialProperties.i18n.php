@@ -366,6 +366,25 @@ $messages['nl'] = array(
 	'sesp-property-exif-data' => 'Exifgegevens',
 );
 
+/** Occitan (occitan)
+ * @author Cedric31
+ */
+$messages['oc'] = array(
+	'sesp-desc' => 'Apond de proprietats especialas suplementàrias a totas las paginas',
+	'sesp-property-author' => 'Autor de la pagina',
+	'sesp-property-first-author' => 'Creator de la pagina',
+	'sesp-property-revision-id' => 'ID de revision',
+	'sesp-property-view-count' => 'Nombre de paginas vistas',
+	'sesp-property-subpages' => 'Sospagina',
+	'sesp-property-revisions' => 'Nombre de revisions',
+	'sesp-property-talk-revisions' => 'Nombre de revisions de la pagina de discussion',
+	'sesp-property-mimetype' => 'Tipe MIME',
+	'sesp-property-mediatype' => 'Tipe de mèdia',
+	'sesp-property-shorturl' => 'URL corta',
+	'sesp-property-user-registration-date' => "Data d'inscripcion de l'utilizaire",
+	'sesp-property-exif-data' => 'Donadas Exif',
+);
+
 /** Piedmontese (Piemontèis)
  * @author Borichèt
  * @author Dragonòt
