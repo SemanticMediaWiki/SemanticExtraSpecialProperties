@@ -250,6 +250,7 @@ $messages['hsb'] = array(
 
 /** Italian (italiano)
  * @author Beta16
+ * @author Gianfranco
  */
 $messages['it'] = array(
 	'sesp-desc' => 'Aggiunge alcune proprietà speciali extra a tutte le pagine',
@@ -261,6 +262,7 @@ $messages['it'] = array(
 	'sesp-property-revisions' => 'Numero di versioni',
 	'sesp-property-talk-revisions' => 'Numero di versioni della pagina di discussione',
 	'sesp-property-mimetype' => 'Tipo MIME',
+	'sesp-property-mediatype' => 'Tipo di supporto',
 	'sesp-property-shorturl' => 'URL breve',
 	'sesp-property-user-registration-date' => "Data di registrazione dell'utente",
 	'sesp-property-exif-data' => 'Dati Exif',
