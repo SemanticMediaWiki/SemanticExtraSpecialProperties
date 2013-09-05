@@ -52,6 +52,25 @@ $messages['qqq'] = array(
 	'sesp-property-exif-data' => 'The name of the special property that stores a reference to the EXIF data of a file',
 );
 
+/** Asturian (asturianu)
+ * @author Xuacu
+ */
+$messages['ast'] = array(
+	'sesp-desc' => 'Amiesta delles propiedaes especiales estra a toles páxines',
+	'sesp-property-author' => 'Autor de la páxina',
+	'sesp-property-first-author' => 'Creador de la páxina',
+	'sesp-property-revision-id' => 'ID de la revisión',
+	'sesp-property-view-count' => 'Númberu de vistes de la páxina',
+	'sesp-property-subpages' => 'Subpáxina',
+	'sesp-property-revisions' => 'Númberu de revisiones',
+	'sesp-property-talk-revisions' => "Númberu de revisiones de la páxina d'alderique",
+	'sesp-property-mimetype' => 'Tipu MIME',
+	'sesp-property-mediatype' => 'Tipu de mediu',
+	'sesp-property-shorturl' => 'URL curtia',
+	'sesp-property-user-registration-date' => 'Data de rexistru del usuariu',
+	'sesp-property-exif-data' => 'Datos Exif',
+);
+
 /** Breton (brezhoneg)
  * @author Fohanno
  * @author Y-M D
