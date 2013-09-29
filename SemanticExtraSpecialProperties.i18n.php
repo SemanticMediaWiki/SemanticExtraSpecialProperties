@@ -185,6 +185,7 @@ $messages['fa'] = array(
  * @author Crt
  * @author Nedergard
  * @author Nike
+ * @author Stryn
  */
 $messages['fi'] = array(
 	'sesp-desc' => 'Lisää joitain erikoisominaisuuksia kaikille sivuille',
@@ -199,7 +200,7 @@ $messages['fi'] = array(
 	'sesp-property-mediatype' => 'Median tyyppi',
 	'sesp-property-shorturl' => 'Lyhytosoite',
 	'sesp-property-user-registration-date' => 'Käyttäjätunnuksen luontipäivämäärä',
-	'sesp-property-exif-data' => 'Exit-tiedot', # Fuzzy
+	'sesp-property-exif-data' => 'Exif-tiedot',
 );
 
 /** French (français)
