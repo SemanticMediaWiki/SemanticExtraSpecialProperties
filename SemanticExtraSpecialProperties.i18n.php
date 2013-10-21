@@ -558,11 +558,15 @@ $messages['uk'] = array(
 );
 
 /** Simplified Chinese (中文（简体）‎)
+ * @author Liuxinyu970226
  * @author Shirayuki
  * @author Yfdyh000
  */
 $messages['zh-hans'] = array(
+	'sesp-property-author' => '页面所有者',
 	'sesp-property-first-author' => '页面创建者',
+	'sesp-property-view-count' => '页面访问数',
+	'sesp-property-subpages' => '子页',
 	'sesp-property-revisions' => '修订数',
 	'sesp-property-mimetype' => 'MIME类型',
 	'sesp-property-mediatype' => '媒体文件类型',
