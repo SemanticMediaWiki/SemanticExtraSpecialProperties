@@ -468,10 +468,23 @@ $messages['roa-tara'] = array(
 );
 
 /** Russian (русский)
+ * @author Okras
  * @author ShinePhantom
  */
 $messages['ru'] = array(
+	'sesp-desc' => 'Добавляет некоторые дополнительные специальные свойства для всех страниц',
+	'sesp-property-author' => 'Автор страницы',
+	'sesp-property-first-author' => 'Создатель страницы',
+	'sesp-property-revision-id' => 'Идентификатор правки',
+	'sesp-property-view-count' => 'Количество просмотров страницы',
+	'sesp-property-subpages' => 'Подстраница',
+	'sesp-property-revisions' => 'Количество правок',
+	'sesp-property-talk-revisions' => 'Количество правок страницы обсуждения',
+	'sesp-property-mimetype' => 'MIME-тип',
+	'sesp-property-mediatype' => 'Тип медиа',
+	'sesp-property-shorturl' => 'Короткая ссылка',
 	'sesp-property-user-registration-date' => 'Дата регистрации пользователя',
+	'sesp-property-exif-data' => 'Данные EXIF',
 );
 
 /** Sinhala (සිංහල)
