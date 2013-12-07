@@ -94,7 +94,7 @@ $messages['ce'] = array(
 	'sesp-property-user-registration-date' => 'Декъашхо дӀавазвела/ела терахь',
 );
 
-/** Czech (česky)
+/** Czech (čeština)
  * @author Mormegil
  * @author Vks
  */
