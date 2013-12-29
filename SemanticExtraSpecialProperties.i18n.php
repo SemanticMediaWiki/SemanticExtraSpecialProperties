@@ -140,6 +140,7 @@ $messages['dsb'] = array(
 	'sesp-property-mediatype' => 'Medijowy typ',
 	'sesp-property-shorturl' => 'Krotki URL',
 	'sesp-property-user-registration-date' => 'Registrěrowański datum wužywarja',
+	'sesp-property-exif-data' => 'Exif-daty',
 );
 
 /** Spanish (español)
@@ -266,6 +267,7 @@ $messages['hsb'] = array(
 	'sesp-property-mediatype' => 'Medijowy typ',
 	'sesp-property-shorturl' => 'Krótki URL',
 	'sesp-property-user-registration-date' => 'Registrowanski datum wužiwarja',
+	'sesp-property-exif-data' => 'Exif-daty',
 );
 
 /** Italian (italiano)
