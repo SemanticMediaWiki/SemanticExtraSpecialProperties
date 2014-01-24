@@ -171,15 +171,23 @@ $messages['et'] = array(
 );
 
 /** Persian (فارسی)
+ * @author Armin1392
  * @author Mjbmr
  * @author ZxxZxxZ
  */
 $messages['fa'] = array(
+	'sesp-property-author' => 'نویسندهٔ صفحه',
 	'sesp-property-first-author' => 'ایجاد کنندهٔ صفحه',
+	'sesp-property-revision-id' => 'شناسهٔ بازبینی',
+	'sesp-property-view-count' => 'تعداد مشاهده‌ٔ صفحات',
 	'sesp-property-subpages' => 'زیرصفحه',
 	'sesp-property-revisions' => 'تعداد نسخه‌ها',
+	'sesp-property-talk-revisions' => 'تعداد بازبینی‌های صفحهٔ گفتگو',
+	'sesp-property-mimetype' => 'نوع مایم',
 	'sesp-property-mediatype' => 'نوع رسانه',
 	'sesp-property-shorturl' => 'نشانی کوتاه',
+	'sesp-property-user-registration-date' => 'تاریخ ثبت‌نام کاربر',
+	'sesp-property-exif-data' => 'اطلاعات اگزیف',
 );
 
 /** Finnish (suomi)
