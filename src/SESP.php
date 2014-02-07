@@ -88,7 +88,7 @@ class SESP {
 	* @return true
 	*
 	*/
-	public function sespUpdateDataBefore ( $store, $data ) {
+	public static function sespUpdateDataBefore ( $store, $data ) {
 		global $sespSpecialProperties, $wgDisableCounters;
 
 		// just some compat mode
