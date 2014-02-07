@@ -11,7 +11,7 @@
 		"special properties"
 	],
 	"homepage": "https://www.mediawiki.org/wiki/Extension:SemanticExtraSpecialProperties",
-	"license": "GPL-2.0+",
+	"license": "BSD 2-Clause",
 	"authors": [
 		{
 			"name": "Leo Wallentin",
