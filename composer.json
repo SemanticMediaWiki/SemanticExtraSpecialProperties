@@ -43,9 +43,6 @@
 	"autoload": {
 		"files" : [
 			"SemanticExtraSpecialProperties.php"
-		],
-		"classmap": [
-			"src/"
 		]
 	}
 }

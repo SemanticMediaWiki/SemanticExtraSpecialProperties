@@ -28,7 +28,8 @@ Add the following settings to your LocalSettings.php:
 require_once("$IP/extensions/SemanticExtraSpecialProperties/SemanticExtraSpecialProperties.php");
 </pre>
 
-==Customizing==
+== Customizing ==
+
 $sespSpecialProperties in LocalSettings.php enables the following Special Properties:
 
 {|
@@ -103,6 +104,10 @@ $wgSESPExcludeBots = true;
 
 == Changelog ==
 
+* 0.3
+** Added support for installation via Composer
+** Fixed PHP strict notices
+
 * 0.2.7
 ** Now requires MediaWiki 1.20
 ** Use WikiPage instead of Article
@@ -142,7 +147,7 @@ $wgSESPExcludeBots = true;
 
 *0.1 First version
 
-==Credits ==
+== Credits ==
 The extension was originally written for http://säsongsmat.nu
 
 Leo Wallentin
@@ -157,5 +162,7 @@ http://www.mediawiki.org/wiki/User:MWJames
 BSD 
 
 == Disclaimer ==
-The source code is provided as-is, without warranty and does not warrant or endorse and does not assume and will not have any liability or responsibility for any damage or loss.
+
+The source code is provided as-is, without warranty and does not warrant or endorse and does not
+assume and will not have any liability or responsibility for any damage or loss.
 __NOTOC__

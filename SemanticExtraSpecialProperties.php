@@ -46,6 +46,8 @@ $GLOBALS['wgExtensionCredits']['semantic'][] = array(
 
 $GLOBALS['wgExtensionMessagesFiles']['SemanticESP'] = __DIR__ . '/SemanticExtraSpecialProperties.i18n.php';
 
+$GLOBALS['wgAutoloadClasses']['SESP'] = __DIR__ . '/src/SESP.php';
+
 $GLOBALS['wgHooks']['smwInitProperties'][] = 'SESP::sespInitProperties';
 $GLOBALS['wgHooks']['SMWStore::updateDataBefore'][] = 'SESP::sespUpdateDataBefore';
 
