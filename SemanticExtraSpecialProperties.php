@@ -17,7 +17,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	die( 'Not an entry point.' );
 }
 
-if ( version_compare( $wgVersion, '1.19', '<' ) ) {
+if ( version_compare( $GLOBALS['wgVersion'], '1.19', '<' ) ) {
 	die( '<b>Error:</b> This version of Semantic Extra Special Properties requires MediaWiki 1.20 or above.' );
 }
 
