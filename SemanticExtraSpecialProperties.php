@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Extension SemanticExtraSpecialProperties - Adds some extra special properties to all pages.
  * @version 0.2.6 - 2012/10/05
@@ -12,7 +13,6 @@
  * @license http://www.opensource.org/licenses/BSD-2-Clause BSD
  */
 
-/* Set up extension */
 if ( !defined( 'MEDIAWIKI' ) ) {
 	die( 'Not an entry point.' );
 }
@@ -29,27 +29,23 @@ if ( version_compare( SMW_VERSION, '1.7', '<' ) ) {
 	die( '<b>Error:</b> This version of Semantic Extra Special Properties requires Semantic MediaWiki 1.7 or above.' );
 }
 
-define( 'SESP_VERSION', '0.2.7' );
+define( 'SESP_VERSION', '0.3 alpha' );
 
-$wgExtensionCredits['semantic'][] = array(
+$GLOBALS['wgExtensionCredits']['semantic'][] = array(
 	'path'           => __FILE__,
 	'name'           => 'Semantic Extra Special Properties',
-	'author'         => array( 'Leo Wallentin', '[http://xn--ssongsmat-v2a.nu Säsongsmat.nu]', 'mwjames' ),
+	'author'         => array(
+		'[https://github.com/rotsee Leo Wallentin]',
+		'[http://xn--ssongsmat-v2a.nu Säsongsmat.nu]',
+		'[https://semantic-mediawiki.org/wiki/User:MWJames mwjames]'
+	),
 	'version'        => SESP_VERSION,
 	'url'            => 'http://www.mediawiki.org/wiki/Extension:SemanticExtraSpecialProperties',
 	'descriptionmsg' => 'sesp-desc',
 );
 
-$dir = dirname( __FILE__ ) . '/';
+$GLOBALS['wgExtensionMessagesFiles']['SemanticESP'] = __DIR__ . '/SemanticExtraSpecialProperties.i18n.php';
 
-/**
- * Message class  
- */ 
-$wgExtensionMessagesFiles['SemanticESP' ] = $dir . 'SemanticExtraSpecialProperties.i18n.php';
-
-$wgAutoloadClasses[ 'SemanticESP'       ] = $dir . 'SemanticExtraSpecialProperties.hooks.php';
-
-/* Hook into SMW */
-$wgHooks['smwInitProperties'         ][] = 'SemanticESP::sespInitProperties';
-$wgHooks['SMWStore::updateDataBefore'][] = 'SemanticESP::sespUpdateDataBefore';
+$GLOBALS['wgHooks']['smwInitProperties'][] = 'SESP::sespInitProperties';
+$GLOBALS['wgHooks']['SMWStore::updateDataBefore'][] = 'SESP::sespUpdateDataBefore';
 
