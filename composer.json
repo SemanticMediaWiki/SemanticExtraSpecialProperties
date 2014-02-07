@@ -1,0 +1,48 @@
+{
+	"name": "mediawiki/semantic-extra-special-properties",
+	"type": "mediawiki-extension",
+	"description": "Provides extra special properties for Semantic MediaWiki",
+	"keywords": [
+		"SMW",
+		"Semantic MediaWiki",
+		"Wiki",
+		"MediaWiki",
+		"properties",
+		"special properties"
+	],
+	"homepage": "https://www.mediawiki.org/wiki/Extension:SemanticExtraSpecialProperties",
+	"license": "GPL-2.0+",
+	"authors": [
+		{
+			"name": "Leo Wallentin",
+			"homepage": "https://github.com/rotsee"
+		},
+		{
+			"name": "Säsongsmat.nu",
+			"homepage": "http://xn--ssongsmat-v2a.nu"
+		},
+		{
+			"name": "James Hong Kong",
+			"homepage": "https://semantic-mediawiki.org/wiki/User:MWJames"
+		}
+	],
+	"support": {
+		"irc": "irc://irc.freenode.net/semantic-mediawiki"
+	},
+	"require": {
+		"php": ">=5.3.0",
+		"composer/installers": "1.*,>=1.0.1",
+		"mediawiki/semantic-mediawiki": "1.9.*"
+	},
+
+	"extra": {
+		"branch-alias": {
+			"dev-master": "0.2.x-dev"
+		}
+	},
+	"autoload": {
+		"files" : [
+			"SemanticExtraSpecialProperties.php"
+		]
+	}
+}
