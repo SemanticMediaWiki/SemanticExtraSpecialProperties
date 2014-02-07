@@ -14,6 +14,7 @@ by this extension, as the EUSER property will list all authors for everyone.
 On Packagist:
 
 [[File:https://poser.pugx.org/mediawiki/semantic-extra-special-properties/version.png|link=https://packagist.org/packages/mediawiki/semantic-extra-special-properties|Latest Stable Version]]
+&nbsp;
 [[File:https://poser.pugx.org/mediawiki/semantic-extra-special-properties/d/total.png|link=https://packagist.org/packages/mediawiki/semantic-extra-special-properties|Download count]]
 
 == Compatibility ==
