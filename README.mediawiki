@@ -11,7 +11,7 @@ by this extension, as the EUSER property will list all authors for everyone.
 
 [https://github.com/rotsee/Semantic-Extra-Special-Properties/tags 0.2.6]
 
-On Packagist:
+On [https://packagist.org/packages/mediawiki/semantic-extra-special-properties Packagist]:
 
 [[File:https://poser.pugx.org/mediawiki/semantic-extra-special-properties/version.png|link=https://packagist.org/packages/mediawiki/semantic-extra-special-properties|Latest Stable Version]]
 &nbsp;
