@@ -1,19 +1,32 @@
-A Semantic MediaWiki extension which adds some extra special properties to all content pages in a wiki.
+A Semantic MediaWiki extension which adds some extra special properties to all
+content pages in a wiki.
 
-You will have to specify (LocalSettings.php) which properties you want to include, using the array $sespSpecialProperties. 
+You will have to specify (LocalSettings.php) which properties you want to include,
+using the array $sespSpecialProperties.
 
-Please note that users that are otherwise hidden to some usergroup might be revealed by this extension, as the EUSER property will list all authors for everyone.
+Please note that users that are otherwise hidden to some usergroup might be revealed
+by this extension, as the EUSER property will list all authors for everyone.
 
-==Release ==
+== Release ==
 [https://github.com/rotsee/Semantic-Extra-Special-Properties/tags 0.2.6]
 
-==Dependencies==
-MediaWiki 1.20
-Semantic MediaWiki 1.7
+== Compatibility ==
 
-==Installation==
+Requirements:
+
+* MediaWiki 1.20
+* Semantic MediaWiki 1.7
+
+The extensions has been tested with MediaWiki 1.18.0 PHP 5.3.8 (apache2handler)
+MySQL 5.5.16 Semantic MediaWiki (Version 1.7).
+
+== Installation ==
+
 Add the following settings to your LocalSettings.php:
+
+<pre>
 require_once("$IP/extensions/SemanticExtraSpecialProperties/SemanticExtraSpecialProperties.php");
+</pre>
 
 ==Customizing==
 $sespSpecialProperties in LocalSettings.php enables the following Special Properties:
@@ -36,7 +49,8 @@ $sespSpecialProperties in LocalSettings.php enables the following Special Proper
 |$sespSpecialProperties[] = '_REVID'; 
 |-
 |_VIEWS
-|Add property with number of page views. Note that depending on local settings this value might not be very up to date. If $wgDisableCounters is set to true this property will never be set
+|Add property with number of page views. Note that depending on local settings this value might
+not be very up to date. If $wgDisableCounters is set to true this property will never be set
 |$sespSpecialProperties[] = '_VIEWS'; 
 |-
 |_NREV
@@ -74,17 +88,21 @@ $sespSpecialProperties in LocalSettings.php enables the following Special Proper
 
 Special Properties compound customizing can be maintained as:
 <pre>
-$sespSpecialProperties = array( '_EUSER', '_CUSER', '_REVID', '_VIEWS', '_NREV', '_TNREV', '_SUBP', '_MIMETYPE', '_MEDIATYPE', '_SHORTURL', '_METADATA', '_USERREG' );
+$sespSpecialProperties = array( '_EUSER', '_CUSER', '_REVID', '_VIEWS', '_NREV', '_TNREV', '_SUBP',
+'_MIMETYPE', '_MEDIATYPE', '_SHORTURL', '_METADATA', '_USERREG' );
 </pre>
 
 After upgrading from 0.1 to 0.2 or higher, you will need to run the SMW refresh script for things for work.
 
 To ignore all users with a bot flag when creating the article author properties.
 (This does not affect the article creator property.)
+
 <pre>
 $wgSESPExcludeBots = true;
 </pre>
-==Changelog==
+
+== Changelog ==
+
 * 0.2.7
 ** Now requires MediaWiki 1.20
 ** Use WikiPage instead of Article
@@ -123,9 +141,6 @@ $wgSESPExcludeBots = true;
 **Added SUBP, NREV and TNREV
 
 *0.1 First version
-
-==Unit Test ==
-The extensions has been tested with MediaWiki 1.18.0 PHP 5.3.8 (apache2handler) MySQL 5.5.16 Semantic MediaWiki (Version 1.7).
 
 ==Credits ==
 The extension was originally written for http://säsongsmat.nu
