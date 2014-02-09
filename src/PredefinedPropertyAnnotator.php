@@ -161,8 +161,7 @@ class PredefinedPropertyAnnotator {
 				$this->addPropertyValuesForSubPages( $property );
 				break;
 			case '_MIMETYPE' :
-				// 0.3 use SMW's _MIME;
-				// 0.3 use SMW's _MEDIA;
+				$this->addPropertyValuesForMIMEAndMediaType();
 				break;
 			case '_METADATA' :
 				$this->addPropertyValuesForImageMetadata();
@@ -245,6 +244,28 @@ class PredefinedPropertyAnnotator {
 		return new DINumber( $this->getPageRevisionsForId(
 			$this->getWikiPage()->getTitle()->getTalkPage()->getArticleID()
 		) );
+	}
+
+	private function addPropertyValuesForMIMEAndMediaType(){
+
+		if ( $this->isImagePage() ) {
+
+			$file = $this->getWikiPage()->getFile();
+			$mimetype = $file->getMimeType();
+			$mediaType = \MimeMagic::singleton()->findMediaType( $mimetype );
+			list( $mimetypemajor, $mimetypeminor ) = $file->splitMime( $mimetype );
+
+			$this->getSemanticData()->addPropertyObjectValue(
+				new DIProperty( PropertyRegistry::getInstance()->getPropertyId( '_MIMETYPE' ) ),
+				new DIBlob( $mimetypeminor )
+			);
+
+			$this->getSemanticData()->addPropertyObjectValue(
+				new DIProperty( PropertyRegistry::getInstance()->getPropertyId( '_MEDIATYPE' ) ),
+				new DIBlob( $mediaType )
+			);
+		}
+
 	}
 
 	private function addPropertyValuesForSubPages( DIProperty $property ) {

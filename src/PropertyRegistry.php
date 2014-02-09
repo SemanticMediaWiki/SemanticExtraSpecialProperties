@@ -60,10 +60,12 @@ class PropertyRegistry {
 			'_EUSER' => '___EUSER',
 			'___EXIFDATETIME' => '___EXIFDATETIME',
 			'___EXIFSOFTWARE' => '___EXIFSOFTWARE',
-			'_SHORTURL' => '___SHORTURL',
-			'_METADATA' => '___EXIFDATETIME',
-			'_METADATA' => '___EXIFSOFTWARE',
-			'_USERREG'  => '___USERREG'
+			'_SHORTURL'  => '___SHORTURL',
+			'_METADATA'  => '___EXIFDATETIME',
+			'_METADATA'  => '___EXIFSOFTWARE',
+			'_USERREG'   => '___USERREG',
+			'_MIMETYPE'  => '___MIMETYPE',
+			'_MEDIATYPE' => '___MEDIATYPE'
 		);
 
 		if ( isset( $container[$id] ) ) {
