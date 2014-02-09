@@ -146,7 +146,7 @@ class PredefinedPropertyAnnotator {
 				$dataItem = $this->makeUserRegistrationDataItem();
 				break;
 			case '_REVID' :
-				$dataItem = new DINumber( $this->getWikiPage()->getId() );
+				$dataItem = $this->makeRevisionIdDataItem();
 				break;
 			case '_NREV' :
 				$dataItem = $this->makeNumberOfRevisionsDataItem();
@@ -223,6 +223,14 @@ class PredefinedPropertyAnnotator {
 
 			$user = $authors->current();
 			$authors->next();
+		}
+	}
+
+	private function makeRevisionIdDataItem() {
+		$revId = $this->getWikiPage()->getId();
+
+		if ( is_integer( $revId ) ) {
+			return new DINumber( $revId );
 		}
 	}
 

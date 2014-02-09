@@ -104,7 +104,7 @@ $GLOBALS['wgExtensionFunctions'][] = function() {
 		$propertyAnnotator = new PredefinedPropertyAnnotator( $semanticData, $configuration );
 
 		// DI object registration
-		$propertyAnnotator->registerObject( 'DBConnection', function( $instance ) {
+		$propertyAnnotator->registerObject( 'DBConnection', function() {
 			return wfGetDB( DB_SLAVE );
 		} );
 
