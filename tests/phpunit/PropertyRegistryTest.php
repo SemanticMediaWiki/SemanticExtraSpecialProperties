@@ -45,9 +45,34 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 		PropertyRegistry::getInstance()->getPropertyId( 'Foo' );
 	}
 
-	public function testRegister() {
+	public function testRegisterPropertiesAndAliases() {
 		PropertyRegistry::clear();
-		$this->assertTrue( PropertyRegistry::getInstance()->register() );
+		$this->assertTrue( PropertyRegistry::getInstance()->registerPropertiesAndAliases() );
+	}
+
+	public function testRegisterAsFixedTables() {
+		PropertyRegistry::clear();
+
+		$notAsFixedTables = array();
+		PropertyRegistry::getInstance()->registerAsFixedTables( $notAsFixedTables );
+		$this->assertEmpty( $notAsFixedTables );
+
+		$asFixedTablesSetFalse = array(
+			'sespUseAsFixedTables' => false,
+			'smwgFixedProperties' => array()
+		);
+
+		PropertyRegistry::getInstance()->registerAsFixedTables( $asFixedTablesSetFalse );
+		$this->assertCount( 0, $asFixedTablesSetFalse['smwgFixedProperties'] );
+
+		$asFixedTablesSetTrue = array(
+			'sespUseAsFixedTables' => true,
+			'smwgFixedProperties' => array()
+		);
+
+		PropertyRegistry::getInstance()->registerAsFixedTables( $asFixedTablesSetTrue );
+		$this->assertCount( 13, $asFixedTablesSetTrue['smwgFixedProperties'] );
+
 	}
 
 }

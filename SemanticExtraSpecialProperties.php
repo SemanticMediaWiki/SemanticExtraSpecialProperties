@@ -67,6 +67,8 @@ $GLOBALS['wgAutoloadClasses']['SESP\PropertyRegistry']            = __DIR__ . '/
 $GLOBALS['wgAutoloadClasses']['SESP\ImageMetadataAnnotator']      = __DIR__ . '/src/ImageMetadataAnnotator.php';
 $GLOBALS['wgAutoloadClasses']['SESP\ShortUrlAnnotator']           = __DIR__ . '/src/ShortUrlAnnotator.php';
 
+PropertyRegistry::getInstance()->registerAsFixedTables( $GLOBALS );
+
 /**
  * Setup and initialization
  *
@@ -92,7 +94,7 @@ $GLOBALS['wgExtensionFunctions'][] = function() {
 	 * @since 0.3
 	 */
 	$GLOBALS['wgHooks']['smwInitProperties'][] = function () {
-		return PropertyRegistry::getInstance()->register();
+		return PropertyRegistry::getInstance()->registerPropertiesAndAliases();
 	};
 
 	/**

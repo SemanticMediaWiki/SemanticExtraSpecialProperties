@@ -2,6 +2,7 @@
 
 namespace SESP;
 
+use SMWDataItem as DataItem;
 use SMW\DIProperty;
 
 use InvalidArgumentException;
@@ -78,7 +79,35 @@ class PropertyRegistry {
 	/**
 	 * @since 0.3
 	 */
-	public function register() {
+	public function registerAsFixedTables( &$container ) {
+
+		if ( isset( $container['sespUseAsFixedTables'] ) && $container['sespUseAsFixedTables'] ) {
+
+			$container['smwgFixedProperties'] = array_merge(
+				$container['smwgFixedProperties'],
+				array(
+					'___REVID' => DataItem::TYPE_NUMBER,
+					'___EUSER' => DataItem::TYPE_WIKIPAGE,
+					'___CUSER' => DataItem::TYPE_WIKIPAGE,
+					'___VIEWS' => DataItem::TYPE_NUMBER,
+					'___SUBP'  => DataItem::TYPE_WIKIPAGE,
+					'___NREV'  => DataItem::TYPE_NUMBER,
+					'___NTREV' => DataItem::TYPE_NUMBER,
+					'___MIMETYPE'  => DataItem::TYPE_BLOB,
+					'___MEDIATYPE' => DataItem::TYPE_BLOB,
+					'___SHORTURL'  => DataItem::TYPE_URI,
+					'___EXIFDATETIME' => DataItem::TYPE_TIME,
+					'___EXIFSOFTWARE' => DataItem::TYPE_BLOB,
+					'___USERREG'      => DataItem::TYPE_TIME,
+				)
+			);
+		}
+	}
+
+	/**
+	 * @since 0.3
+	 */
+	public function registerPropertiesAndAliases() {
 
 		// Page author
 		DIProperty::registerProperty( '___EUSER', '_wpg',
