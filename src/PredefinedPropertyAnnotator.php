@@ -28,13 +28,13 @@ use RuntimeException;
  */
 class PredefinedPropertyAnnotator {
 
-	/** @var array */
-	protected $store = null;
+	/** @var SemanticData */
 	protected $semanticData = null;
+
 	protected $configuration = null;
-	protected $page = null;
-	protected $readConnection = null;
+	protected $DBConnection = null;
 	protected $container = array();
+	protected $page = null;
 
 	/**
 	 * @since 0.3
@@ -54,7 +54,7 @@ class PredefinedPropertyAnnotator {
 	 * @param Closure $objectSignature
 	 */
 	public function registerObject( $objectName, Closure $objectSignature ) {
-		$this->container[$objectName] = $objectSignature;
+		$this->container[ $objectName ] = $objectSignature;
 	}
 
 	/**
@@ -65,12 +65,12 @@ class PredefinedPropertyAnnotator {
 	 */
 	public function addAnnotation() {
 
-		if ( !isset( $this->configuration['sespSpecialProperties'] ) || !is_array( $this->configuration['sespSpecialProperties'] ) ) {
-			throw new RuntimeException( "Expected a 'sespSpecialProperties' configuration entry" );
+		if ( isset( $this->configuration['sespSpecialProperties'] ) &&
+			is_array( $this->configuration['sespSpecialProperties'] ) ) {
+			return $this->addPropertyValues();
 		}
 
-		$this->addPropertyValues();
-		return true;
+		throw new RuntimeException( "Expected a 'sespSpecialProperties' configuration array" );
 	}
 
 	/**
@@ -80,6 +80,20 @@ class PredefinedPropertyAnnotator {
 	 */
 	public function getSemanticData() {
 		return $this->semanticData;
+	}
+
+	/**
+	 * @since 0.3
+	 *
+	 * @return WikiPage
+	 */
+	public function getWikiPage() {
+
+		if ( $this->page === null ) {
+			$this->page = $this->loadRegisteredObject( 'WikiPage' );
+		}
+
+		return $this->page;
 	}
 
 	protected function addPropertyValues() {
@@ -109,6 +123,7 @@ class PredefinedPropertyAnnotator {
 			}
 		}
 
+		return true;
 	}
 
 	protected function hasRegisteredPropertyId( $propertyId, $cachedProperties ) {
@@ -134,10 +149,10 @@ class PredefinedPropertyAnnotator {
 				$dataItem = new DINumber( $this->getWikiPage()->getId() );
 				break;
 			case '_NREV' :
-				$dataItem = new DINumber( $this->getNumberOfRevisions() );
+				$dataItem = $this->makeNumberOfRevisionsDataItem();
 				break;
 			case '_NTREV' :
-				$dataItem = new DINumber( $this->getNumberOfTalkPageRevisions() );
+				$dataItem = $this->makeNumberOfTalkPageRevisionsDataItem();
 				break;
 			case '_EUSER' :
 				$this->addPropertyValuesForPageContributors( $property );
@@ -160,35 +175,28 @@ class PredefinedPropertyAnnotator {
 		return $dataItem;
 	}
 
-	protected function acquireDBConnection() {
+	private function acquireDBConnection() {
 
-		if ( $this->readConnection === null ) {
-			$this->readConnection = $this->loadObject( 'DatabaseBase' );
+		if ( $this->DBConnection === null ) {
+			$this->DBConnection = $this->loadRegisteredObject( 'DBConnection', 'DatabaseBase' );
 		}
 
-		return $this->readConnection;
+		return $this->DBConnection;
 	}
 
-	protected function isUserPage() {
+	private function isUserPage() {
 		return $this->getWikiPage()->getTitle()->inNamespace( NS_USER );
 	}
 
-	protected function isImagePage() {
+	private function isImagePage() {
 		return $this->getWikiPage()->getTitle()->inNamespace( NS_FILE );
 	}
 
-	protected function getWikiPage() {
-
-		if ( $this->page === null ) {
-			$this->page = $this->loadObject( 'WikiPage' );
-		}
-
-		return $this->page;
-	}
-
 	private function makeFirstAuthorDataItem() {
-		if ( $this->getWikiPage()->getCreator() ) {
-			return DIWikiPage::newFromTitle( $this->getWikiPage()->getCreator()->getUserPage() );
+		$creator = $this->getWikiPage()->getCreator();
+
+		if ( $creator ) {
+			return DIWikiPage::newFromTitle( $creator->getUserPage() );
 		}
 	}
 
@@ -227,12 +235,16 @@ class PredefinedPropertyAnnotator {
 		);
 	}
 
-	private function getNumberOfRevisions() {
-		return $this->getPageRevisionsForId( $this->getWikiPage()->getTitle()->getArticleID() );
+	private function makeNumberOfRevisionsDataItem() {
+		return new DINumber( $this->getPageRevisionsForId(
+			$this->getWikiPage()->getTitle()->getArticleID()
+		) );
 	}
 
-	private function getNumberOfTalkPageRevisions() {
-		return $this->getPageRevisionsForId( $this->getWikiPage()->getTitle()->getTalkPage()->getArticleID() );
+	private function makeNumberOfTalkPageRevisionsDataItem() {
+		return new DINumber( $this->getPageRevisionsForId(
+			$this->getWikiPage()->getTitle()->getTalkPage()->getArticleID()
+		) );
 	}
 
 	private function addPropertyValuesForSubPages( DIProperty $property ) {
@@ -268,7 +280,7 @@ class PredefinedPropertyAnnotator {
 			return null;
 		}
 
-		$user = User::newFromName( $this->getWikiPage()->getTitle()->getText() );
+		$user = $this->loadRegisteredObject( 'UserByName', 'User' );
 
 		if ( $user instanceof User ) {
 
@@ -286,14 +298,14 @@ class PredefinedPropertyAnnotator {
 		}
 	}
 
-	private function loadObject( $objectName ) {
-		$instance = isset( $this->container[$objectName] ) ? $this->container[$objectName]( $this ) : null;
+	private function loadRegisteredObject( $objectName, $expectedSignature = null ) {
+		$instance = isset( $this->container[ $objectName ] ) ? $this->container[ $objectName ]( $this ) : null;
 
-		if ( $instance instanceof $objectName ) {
+		if ( $instance instanceof $objectName || $instance instanceof $expectedSignature ) {
 			return $instance;
 		}
 
-		throw new RuntimeException( "Expected a service object with a {$objectName} signature" );
+		throw new RuntimeException( "Expected a {$objectName} service object with a {$expectedSignature} signature" );
 	}
 
 }

@@ -91,12 +91,17 @@ $GLOBALS['wgExtensionFunctions'][] = function() {
 	$GLOBALS['wgHooks']['SMWStore::updateDataBefore'][] = function ( \SMW\Store $store, \SMW\SemanticData $semanticData ) use ( $configuration ) {
 		$propertyAnnotator = new PredefinedPropertyAnnotator( $semanticData, $configuration );
 
-		$propertyAnnotator->registerObject( 'DatabaseBase', function( $instance ) {
+		// DI object registration
+		$propertyAnnotator->registerObject( 'DBConnection', function( $instance ) {
 			return wfGetDB( DB_SLAVE );
 		} );
 
 		$propertyAnnotator->registerObject( 'WikiPage', function( $instance ) {
 			return \WikiPage::factory( $instance->getSemanticData()->getSubject()->getTitle() );
+		} );
+
+		$propertyAnnotator->registerObject( 'UserByName', function( $instance ) {
+			return \User::newFromName( $instance->getWikiPage()->getTitle()->getText() );
 		} );
 
 		return $propertyAnnotator->addAnnotation();
