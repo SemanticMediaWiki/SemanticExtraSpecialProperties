@@ -21,21 +21,28 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	die( 'Not an entry point.' );
 }
 
-// Assure compatibility
+if ( defined( 'SESP_VERSION' ) ) {
+	// Do not initialize more than once.
+	return 1;
+}
+
+define( 'SESP_VERSION', '0.3 alpha' );
+
+if ( is_readable( __DIR__ . '/vendor/autoload.php' ) ) {
+	include_once( __DIR__ . '/vendor/autoload.php' );
+}
+
 if ( version_compare( $GLOBALS['wgVersion'], '1.19', '<' ) ) {
 	die( '<b>Error:</b> This version of Semantic Extra Special Properties requires MediaWiki 1.20 or above.' );
 }
 
-if ( ! defined( 'SMW_VERSION' ) ) {
+if ( !defined( 'SMW_VERSION' ) ) {
 	die( '<b>Error:</b> This version of Semantic Extra Special Properties requires <a href="http://semantic-mediawiki.org/wiki/Semantic_MediaWiki">Semantic MediaWiki</a> installed.<br />' );
 }
 
 if ( version_compare( SMW_VERSION, '1.7', '<' ) ) {
 	die( '<b>Error:</b> This version of Semantic Extra Special Properties requires Semantic MediaWiki 1.7 or above.' );
 }
-
-// Define version
-define( 'SESP_VERSION', '0.3 alpha' );
 
 // Register extension
 $GLOBALS['wgExtensionCredits']['semantic'][] = array(
