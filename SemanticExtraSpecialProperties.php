@@ -1,5 +1,8 @@
 <?php
 
+use SESP\PropertyRegistry;
+use SESP\PredefinedPropertyAnnotator;
+
 /**
  * Extension SemanticExtraSpecialProperties - Adds some extra special properties to all pages.
  * @version 0.2.6 - 2012/10/05
@@ -47,7 +50,56 @@ $GLOBALS['wgExtensionCredits']['semantic'][] = array(
 $GLOBALS['wgExtensionMessagesFiles']['SemanticESP'] = __DIR__ . '/SemanticExtraSpecialProperties.i18n.php';
 
 $GLOBALS['wgAutoloadClasses']['SESP'] = __DIR__ . '/src/SESP.php';
+$GLOBALS['wgAutoloadClasses']['SESP\PredefinedPropertyAnnotator'] = __DIR__ . '/src/PredefinedPropertyAnnotator.php';
+$GLOBALS['wgAutoloadClasses']['SESP\PropertyRegistry']            = __DIR__ . '/src/PropertyRegistry.php';
+$GLOBALS['wgAutoloadClasses']['SESP\ImageMetadataAnnotator']      = __DIR__ . '/src/ImageMetadataAnnotator.php';
+$GLOBALS['wgAutoloadClasses']['SESP\ShortUrlAnnotator']           = __DIR__ . '/src/ShortUrlAnnotator.php';
 
-$GLOBALS['wgHooks']['smwInitProperties'][] = 'SESP::sespInitProperties';
-$GLOBALS['wgHooks']['SMWStore::updateDataBefore'][] = 'SESP::sespUpdateDataBefore';
+/**
+ * Setup and initialization
+ *
+ * @since 0.3
+ */
+$GLOBALS['wgExtensionFunctions'][] = function() {
 
+	/**
+	 * Collect configuration parameters
+	 *
+	 * @since 0.3
+	 */
+	$configuration = array(
+		'wgDisableCounters'     => $GLOBALS['wgDisableCounters'],
+		'sespSpecialProperties' => isset( $GLOBALS['sespSpecialProperties'] ) ? $GLOBALS['sespSpecialProperties'] : array(),
+		'wgSESPExcludeBots'     => isset( $GLOBALS['wgSESPExcludeBots'] ) ? $GLOBALS['wgSESPExcludeBots'] : false,
+		'wgShortUrlPrefix'      => isset( $GLOBALS['wgShortUrlPrefix'] )  ? $GLOBALS['wgShortUrlPrefix']  : false
+	);
+
+	/**
+	 * Register properties
+	 *
+	 * @since 0.3
+	 */
+	$GLOBALS['wgHooks']['smwInitProperties'][] = function () {
+		return PropertyRegistry::getInstance()->register();
+	};
+
+	/**
+	 * Execute and update annotation
+	 *
+	 * @since 0.3
+	 */
+	$GLOBALS['wgHooks']['SMWStore::updateDataBefore'][] = function ( \SMW\Store $store, \SMW\SemanticData $semanticData ) use ( $configuration ) {
+		$propertyAnnotator = new PredefinedPropertyAnnotator( $semanticData, $configuration );
+
+		$propertyAnnotator->registerObject( 'DatabaseBase', function( $instance ) {
+			return wfGetDB( DB_SLAVE );
+		} );
+
+		$propertyAnnotator->registerObject( 'WikiPage', function( $instance ) {
+			return \WikiPage::factory( $instance->getSemanticData()->getSubject()->getTitle() );
+		} );
+
+		return $propertyAnnotator->addAnnotation();
+	};
+
+};
