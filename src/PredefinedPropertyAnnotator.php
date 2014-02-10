@@ -200,7 +200,7 @@ class PredefinedPropertyAnnotator {
 	}
 
 	private function makeNumberOfPageViewsDataItem() {
-		if ( !$this->configuration['wgDisableCounters'] ) {
+		if ( !$this->configuration['wgDisableCounters'] && $this->getWikiPage()->getCount() ) {
 			return new DINumber( $this->getWikiPage()->getCount() );
 		}
 	}

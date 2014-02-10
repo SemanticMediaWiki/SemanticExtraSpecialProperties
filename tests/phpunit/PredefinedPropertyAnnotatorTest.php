@@ -28,16 +28,15 @@ use User;
  */
 class PredefinedPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
-	public function getClass() {
-		return '\SESP\PredefinedPropertyAnnotator';
-	}
-
 	public function acquireInstance( $externalId ) {
 
-		$subject = DIWikiPage::newFromTitle( Title::newFromText( __METHOD__ ) );
-		$semanticData = new SemanticData( $subject );
+		$semanticData = new SemanticData(
+			DIWikiPage::newFromTitle( Title::newFromText( __METHOD__ ) )
+		);
 
-		$configuration = array( 'sespSpecialProperties' => array( $externalId ) );
+		$configuration = array(
+			'sespSpecialProperties' => array( $externalId )
+		);
 
 		$instance = new PredefinedPropertyAnnotator(
 			$semanticData,
@@ -56,7 +55,7 @@ class PredefinedPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		$configuration = array();
 
 		$this->assertInstanceOf(
-			$this->getClass(),
+			'\SESP\PredefinedPropertyAnnotator',
 			new PredefinedPropertyAnnotator( $semanticData, $configuration )
 		);
 	}
@@ -84,6 +83,8 @@ class PredefinedPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 	public function testAdd_CUSER_Annotation() {
 
+		$instance = $this->acquireInstance( '_CUSER' );
+
 		$page = $this->getMockBuilder( 'WikiPage' )
 			->disableOriginalConstructor()
 			->getMock();
@@ -92,8 +93,9 @@ class PredefinedPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->method( 'getCreator' )
 			->will( $this->returnValue( User::newFromName( 'Creator' ) ) );
 
-		$instance = $this->acquireInstance( '_CUSER' );
 		$semanticData = $instance->getSemanticData();
+
+		$this->assertEmpty( $semanticData->getProperties() );
 
 		$instance->registerObject( 'WikiPage', function( $annotator ) use( $semanticData, $page ) {
 			return $annotator->getSemanticData()->getSubject() === $semanticData->getSubject() ? $page : null;
@@ -108,6 +110,8 @@ class PredefinedPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testAdd_NREV_Annotation() {
+
+		$instance = $this->acquireInstance( '_NREV' );
 
 		$connection = $this->getMockBuilder( 'DatabaseMysql' )
 			->disableOriginalConstructor()
@@ -140,8 +144,9 @@ class PredefinedPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		$propertyId = PropertyRegistry::getInstance()->getPropertyId( '_NREV' );
 		$property = new DIProperty( $propertyId );
 
-		$instance = $this->acquireInstance( '_NREV' );
 		$semanticData = $instance->getSemanticData();
+
+		$this->assertEmpty( $semanticData->getProperties() );
 
 		$instance->registerObject( 'WikiPage', function( $annotator ) use( $semanticData, $page ) {
 			return $annotator->getSemanticData()->getSubject() === $semanticData->getSubject() ? $page : null;
@@ -161,6 +166,8 @@ class PredefinedPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 	public function testAdd_REVID_Annotation() {
 
+		$instance = $this->acquireInstance( '_REVID' );
+
 		$page = $this->getMockBuilder( 'WikiPage' )
 			->disableOriginalConstructor()
 			->getMock();
@@ -172,8 +179,9 @@ class PredefinedPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		$propertyId = PropertyRegistry::getInstance()->getPropertyId( '_REVID' );
 		$property = new DIProperty( $propertyId );
 
-		$instance = $this->acquireInstance( '_REVID' );
 		$semanticData = $instance->getSemanticData();
+
+		$this->assertEmpty( $semanticData->getProperties() );
 
 		$instance->registerObject( 'WikiPage', function( $annotator ) use( $semanticData, $page ) {
 			return $annotator->getSemanticData()->getSubject() === $semanticData->getSubject() ? $page : null;
@@ -191,7 +199,9 @@ class PredefinedPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		}
 	}
 
-	public function test_REVID_NoAnnotationWhenNull() {
+	public function test_REVID_WithNull() {
+
+		$instance = $this->acquireInstance( '_REVID' );
 
 		$page = $this->getMockBuilder( 'WikiPage' )
 			->disableOriginalConstructor()
@@ -201,10 +211,9 @@ class PredefinedPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->method( 'getId' )
 			->will( $this->returnValue( null ) );
 
-		$propertyId = PropertyRegistry::getInstance()->getPropertyId( '_REVID' );
-
-		$instance = $this->acquireInstance( '_REVID' );
 		$semanticData = $instance->getSemanticData();
+
+		$this->assertEmpty( $semanticData->getProperties() );
 
 		$instance->registerObject( 'WikiPage', function( $annotator ) use( $semanticData, $page ) {
 			return $annotator->getSemanticData()->getSubject() === $semanticData->getSubject() ? $page : null;
