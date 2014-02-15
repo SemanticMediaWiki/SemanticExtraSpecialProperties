@@ -436,6 +436,16 @@ $messages['oc'] = array(
 	'sesp-property-exif-data' => 'Donadas Exif',
 );
 
+/** Polish (polski)
+ * @author Chrumps
+ */
+$messages['pl'] = array(
+	'sesp-property-revisions' => 'Liczba wersji',
+	'sesp-property-mimetype' => 'Typ MIME',
+	'sesp-property-user-registration-date' => 'Data rejestracji użytkownika',
+	'sesp-property-exif-data' => 'Dane EXIF',
+);
+
 /** Piedmontese (Piemontèis)
  * @author Borichèt
  * @author Dragonòt
