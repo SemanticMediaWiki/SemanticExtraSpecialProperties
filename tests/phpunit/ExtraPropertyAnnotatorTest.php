@@ -2,7 +2,7 @@
 
 namespace SESP\Tests;
 
-use SESP\PredefinedPropertyAnnotator;
+use SESP\ExtraPropertyAnnotator;
 use SESP\PropertyRegistry;
 
 use SMW\SemanticData;
@@ -14,7 +14,7 @@ use Title;
 use User;
 
 /**
- * @covers \SESP\PredefinedPropertyAnnotator
+ * @covers \SESP\ExtraPropertyAnnotator
  *
  * @ingroup Test
  *
@@ -26,7 +26,7 @@ use User;
  *
  * @author mwjames
  */
-class PredefinedPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
+class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 	public function acquireInstance( $externalId ) {
 
@@ -38,7 +38,7 @@ class PredefinedPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			'sespSpecialProperties' => array( $externalId )
 		);
 
-		$instance = new PredefinedPropertyAnnotator(
+		$instance = new ExtraPropertyAnnotator(
 			$semanticData,
 			$configuration
 		);
@@ -55,8 +55,8 @@ class PredefinedPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		$configuration = array();
 
 		$this->assertInstanceOf(
-			'\SESP\PredefinedPropertyAnnotator',
-			new PredefinedPropertyAnnotator( $semanticData, $configuration )
+			'\SESP\ExtraPropertyAnnotator',
+			new ExtraPropertyAnnotator( $semanticData, $configuration )
 		);
 	}
 
@@ -73,7 +73,7 @@ class PredefinedPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$configuration = array();
 
-		$instance = new PredefinedPropertyAnnotator(
+		$instance = new ExtraPropertyAnnotator(
 			$semanticData,
 			$configuration
 		);
@@ -173,7 +173,7 @@ class PredefinedPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->getMock();
 
 		$page->expects( $this->once() )
-			->method( 'getId' )
+			->method( 'getLatest' )
 			->will( $this->returnValue( 9001 ) );
 
 		$propertyId = PropertyRegistry::getInstance()->getPropertyId( '_REVID' );
@@ -208,7 +208,7 @@ class PredefinedPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->getMock();
 
 		$page->expects( $this->once() )
-			->method( 'getId' )
+			->method( 'getLatest' )
 			->will( $this->returnValue( null ) );
 
 		$semanticData = $instance->getSemanticData();

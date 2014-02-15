@@ -18,8 +18,9 @@ use Title;
  * @licence GNU GPL v2+
  * @since 0.3
  *
+ * @author rotsee
  */
-class ImageMetadataAnnotator {
+class ImageMetadataAnnotator extends BaseAnnotator {
 
 	/** @var SemanticData */
 	protected $semanticData = null;
@@ -109,7 +110,7 @@ class ImageMetadataAnnotator {
 				);
 
 				$this->getSemanticData()->addPropertyObjectValue(
-					new DIProperty( PropertyRegistry::getInstance()->getPropertyId( '___EXIFDATETIME' ) ),
+					new DIProperty( PropertyRegistry::getInstance()->getPropertyId( '_EXIFDATETIME' ) ),
 					$dataItem
 				);
 			}
@@ -127,7 +128,7 @@ class ImageMetadataAnnotator {
 
 			if ( $str ) {
 				$this->getSemanticData()->addPropertyObjectValue(
-					new DIProperty( PropertyRegistry::getInstance()->getPropertyId( '___EXIFSOFTWARE' ) ),
+					new DIProperty( PropertyRegistry::getInstance()->getPropertyId( '_EXIFSOFTWARE' ) ),
 					new DIBlob( $str )
 				);
 			}

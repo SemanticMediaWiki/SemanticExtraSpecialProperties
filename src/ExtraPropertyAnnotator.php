@@ -15,7 +15,6 @@ use SMWDINumber as DINumber;
 
 use WikiPage;
 use User;
-use Closure;
 use RuntimeException;
 
 /**
@@ -25,15 +24,15 @@ use RuntimeException;
  * @since 0.3
  *
  * @author mwjames
+ * @author rotsee
  */
-class PredefinedPropertyAnnotator {
+class ExtraPropertyAnnotator extends BaseAnnotator {
 
 	/** @var SemanticData */
 	protected $semanticData = null;
 
 	protected $configuration = null;
-	protected $DBConnection = null;
-	protected $container = array();
+	protected $dbConnection = null;
 	protected $page = null;
 
 	/**
@@ -45,16 +44,6 @@ class PredefinedPropertyAnnotator {
 	public function __construct( SemanticData $semanticData, array $configuration ) {
 		$this->semanticData = $semanticData;
 		$this->configuration = $configuration;
-	}
-
-	/**
-	 * @since 0.3
-	 *
-	 * @param string $objectName
-	 * @param Closure $objectSignature
-	 */
-	public function registerObject( $objectName, Closure $objectSignature ) {
-		$this->container[ $objectName ] = $objectSignature;
 	}
 
 	/**
@@ -121,6 +110,7 @@ class PredefinedPropertyAnnotator {
 				$cachedProperties[ $propertyId ] = true;
 				$this->getSemanticData()->addPropertyObjectValue( $propertyDI, $dataItem );
 			}
+
 		}
 
 		return true;
@@ -135,6 +125,9 @@ class PredefinedPropertyAnnotator {
 
 		$dataItem = null;
 
+		// _REVID was incorrect in the original SESP because getId returns the
+		// page id not the revision Id
+
 		switch ( $externalId ) {
 			case '_CUSER' :
 				$dataItem = $this->makeFirstAuthorDataItem();
@@ -144,6 +137,9 @@ class PredefinedPropertyAnnotator {
 				break;
 			case '_USERREG' :
 				$dataItem = $this->makeUserRegistrationDataItem();
+				break;
+			case '_PAGEID' :
+				$dataItem = $this->makePageIdDataItem();
 				break;
 			case '_REVID' :
 				$dataItem = $this->makeRevisionIdDataItem();
@@ -160,10 +156,13 @@ class PredefinedPropertyAnnotator {
 			case '_SUBP' :
 				$this->addPropertyValuesForSubPages( $property );
 				break;
+			case '_MEDIATYPE' :
 			case '_MIMETYPE' :
 				$this->addPropertyValuesForMIMEAndMediaType();
 				break;
 			case '_METADATA' :
+			case '_EXIFDATETIME' :
+			case '_EXIFSOFTWARE' :
 				$this->addPropertyValuesForImageMetadata();
 				break;
 			case '_SHORTURL' :
@@ -176,11 +175,11 @@ class PredefinedPropertyAnnotator {
 
 	private function acquireDBConnection() {
 
-		if ( $this->DBConnection === null ) {
-			$this->DBConnection = $this->loadRegisteredObject( 'DBConnection', 'DatabaseBase' );
+		if ( $this->dbConnection === null ) {
+			$this->dbConnection = $this->loadRegisteredObject( 'DBConnection', 'DatabaseBase' );
 		}
 
-		return $this->DBConnection;
+		return $this->dbConnection;
 	}
 
 	private function isUserPage() {
@@ -226,8 +225,16 @@ class PredefinedPropertyAnnotator {
 		}
 	}
 
-	private function makeRevisionIdDataItem() {
+	private function makePageIdDataItem() {
 		$revId = $this->getWikiPage()->getId();
+
+		if ( is_integer( $revId ) ) {
+			return new DINumber( $revId );
+		}
+	}
+
+	private function makeRevisionIdDataItem() {
+		$revId = $this->getWikiPage()->getLatest();
 
 		if ( is_integer( $revId ) ) {
 			return new DINumber( $revId );
@@ -309,7 +316,7 @@ class PredefinedPropertyAnnotator {
 			return null;
 		}
 
-		$user = $this->loadRegisteredObject( 'UserByName', 'User' );
+		$user = $this->loadRegisteredObject( 'UserByPageName', 'User' );
 
 		if ( $user instanceof User ) {
 
@@ -325,16 +332,6 @@ class PredefinedPropertyAnnotator {
 				$date->format('i')
 			);
 		}
-	}
-
-	private function loadRegisteredObject( $objectName, $expectedSignature = null ) {
-		$instance = isset( $this->container[ $objectName ] ) ? $this->container[ $objectName ]( $this ) : null;
-
-		if ( $instance instanceof $objectName || $instance instanceof $expectedSignature ) {
-			return $instance;
-		}
-
-		throw new RuntimeException( "Expected a {$objectName} service object with a {$expectedSignature} signature" );
 	}
 
 }

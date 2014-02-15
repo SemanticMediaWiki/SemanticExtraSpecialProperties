@@ -5,8 +5,6 @@ namespace SESP;
 use SMWDataItem as DataItem;
 use SMW\DIProperty;
 
-use InvalidArgumentException;
-
 /**
  * @ingroup SESP
  *
@@ -46,21 +44,21 @@ class PropertyRegistry {
 	 *
 	 * @param string $id
 	 *
-	 * @return string
-	 * @throws InvalidArgumentException
+	 * @return string|null
 	 */
 	public function getPropertyId( $id ) {
 
 		$container = array(
-			'_CUSER' => '___CUSER',
-			'_REVID' => '___REVID',
-			'_VIEWS' => '___VIEWS',
-			'_SUBP'  => '___SUBP',
-			'_NREV'  => '___NREV',
-			'_NTREV' => '___NTREV',
-			'_EUSER' => '___EUSER',
-			'___EXIFDATETIME' => '___EXIFDATETIME',
-			'___EXIFSOFTWARE' => '___EXIFSOFTWARE',
+			'_CUSER'  => '___CUSER',
+			'_REVID'  => '___REVID',
+			'_PAGEID' => '___PAGEID',
+			'_VIEWS'  => '___VIEWS',
+			'_SUBP'   => '___SUBP',
+			'_NREV'   => '___NREV',
+			'_NTREV'  => '___NTREV',
+			'_EUSER'  => '___EUSER',
+			'_EXIFDATETIME'   => '___EXIFDATETIME',
+			'_EXIFSOFTWARE'   => '___EXIFSOFTWARE',
 			'_SHORTURL'  => '___SHORTURL',
 			'_METADATA'  => '___EXIFDATETIME',
 			'_METADATA'  => '___EXIFSOFTWARE',
@@ -73,35 +71,58 @@ class PropertyRegistry {
 			return $container[$id];
 		}
 
-		throw new InvalidArgumentException( "Expected a valid {$id} id" );
+		return null;
 	}
 
 	/**
 	 * @since 0.3
+	 *
+	 * @param array $propertyTableDefinitions
+	 * @param array $configuration
+	 *
+	 * @return boolean
 	 */
-	public function registerAsFixedTables( &$container ) {
+	public function registerAsFixedTables( &$propertyTableDefinitions, $configuration ) {
 
-		if ( isset( $container['sespUseAsFixedTables'] ) && $container['sespUseAsFixedTables'] ) {
+		if ( !isset( $configuration['sespUseAsFixedTables'] ) || !$configuration['sespUseAsFixedTables'] ) {
+			return true;
+		}
 
-			$container['smwgFixedProperties'] = array_merge(
-				$container['smwgFixedProperties'],
-				array(
-					'___REVID' => DataItem::TYPE_NUMBER,
-					'___EUSER' => DataItem::TYPE_WIKIPAGE,
-					'___CUSER' => DataItem::TYPE_WIKIPAGE,
-					'___VIEWS' => DataItem::TYPE_NUMBER,
-					'___SUBP'  => DataItem::TYPE_WIKIPAGE,
-					'___NREV'  => DataItem::TYPE_NUMBER,
-					'___NTREV' => DataItem::TYPE_NUMBER,
-					'___MIMETYPE'  => DataItem::TYPE_BLOB,
-					'___MEDIATYPE' => DataItem::TYPE_BLOB,
-					'___SHORTURL'  => DataItem::TYPE_URI,
-					'___EXIFDATETIME' => DataItem::TYPE_TIME,
-					'___EXIFSOFTWARE' => DataItem::TYPE_BLOB,
-					'___USERREG'      => DataItem::TYPE_TIME,
-				)
+		$fixedProperties = array(
+			'_REVID'  => DataItem::TYPE_NUMBER,
+			'_PAGEID' => DataItem::TYPE_NUMBER,
+			'_EUSER'  => DataItem::TYPE_WIKIPAGE,
+			'_CUSER'  => DataItem::TYPE_WIKIPAGE,
+			'_VIEWS'  => DataItem::TYPE_NUMBER,
+			'_SUBP'   => DataItem::TYPE_WIKIPAGE,
+			'_NREV'   => DataItem::TYPE_NUMBER,
+			'_NTREV'  => DataItem::TYPE_NUMBER,
+			'_MIMETYPE'  => DataItem::TYPE_BLOB,
+			'_MEDIATYPE' => DataItem::TYPE_BLOB,
+			'_SHORTURL'  => DataItem::TYPE_URI,
+			'_USERREG'   => DataItem::TYPE_TIME,
+			'_EXIFDATETIME' => DataItem::TYPE_TIME,
+			'_EXIFSOFTWARE' => DataItem::TYPE_BLOB,
+		);
+
+		$enabledSpecialProperties = array_flip( $configuration['sespSpecialProperties'] );
+
+		foreach( $fixedProperties as $propertyKey => $tableDataItemType ) {
+
+			if ( !isset( $enabledSpecialProperties[$propertyKey] ) ) {
+				continue;
+			}
+
+			$tableName = 'smw_ftp_sesp' . strtolower( $propertyKey );
+
+			$propertyTableDefinitions[$tableName] = new \SMW\SQLStore\TableDefinition(
+				$tableDataItemType,
+				$tableName,
+				$this->getPropertyId( $propertyKey )
 			);
 		}
+
+		return true;
 	}
 
 	/**
@@ -123,6 +144,11 @@ class PropertyRegistry {
 		DIProperty::registerProperty( '___REVID', '_num',
 			wfMessage('sesp-property-revision-id')->inContentLanguage()->text() );
 		DIProperty::registerPropertyAlias( '___REVID', 'Revision ID' );
+
+		// Page Id
+		DIProperty::registerProperty( '___PAGEID', '_num',
+			wfMessage('sesp-property-page-id')->inContentLanguage()->text() );
+		DIProperty::registerPropertyAlias( '___PAGEID', 'Page Id' );
 
 		//View count
 		DIProperty::registerProperty( '___VIEWS', '_num',

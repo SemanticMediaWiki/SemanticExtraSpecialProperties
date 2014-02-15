@@ -16,8 +16,9 @@ use RuntimeException;
  * @licence GNU GPL v2+
  * @since 0.3
  *
+ * @author rotsee
  */
-class ShortUrlAnnotator {
+class ShortUrlAnnotator extends BaseAnnotator {
 
 	/** @var SemanticData */
 	protected $semanticData  = null;

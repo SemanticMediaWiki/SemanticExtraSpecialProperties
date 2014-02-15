@@ -40,56 +40,94 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 	/**
 	 * @depends testGetPropertyId
 	 */
-	public function testGetPropertyIdThrowsException() {
-
-		$this->setExpectedException( 'InvalidArgumentException' );
-		PropertyRegistry::getInstance()->getPropertyId( 'Foo' );
-
+	public function testGetPropertyIdWithUnknownIdentifier() {
+		$this->assertNull( PropertyRegistry::getInstance()->getPropertyId( 'Foo' ) );
 	}
 
 	public function testRegisterPropertiesAndAliases() {
-
 		PropertyRegistry::clear();
 		$this->assertTrue( PropertyRegistry::getInstance()->registerPropertiesAndAliases() );
-
 	}
 
 	public function testRegisterNotAsFixedTables() {
 
 		PropertyRegistry::clear();
 
-		$notAsFixedTables = array();
-		PropertyRegistry::getInstance()->registerAsFixedTables( $notAsFixedTables );
-		$this->assertEmpty( $notAsFixedTables );
+		$tableDefinitions = array();
+		$configuration = array();
 
+		PropertyRegistry::getInstance()->registerAsFixedTables( $tableDefinitions, $configuration );
+		$this->assertEmpty( $tableDefinitions );
 	}
 
 	public function testRegisterAsFixedTablesSetFalse() {
 
 		PropertyRegistry::clear();
 
-		$asFixedTablesSetFalse = array(
-			'sespUseAsFixedTables' => false,
-			'smwgFixedProperties' => array()
+		$tableDefinitions = array();
+		$configuration = array(
+			'sespUseAsFixedTables'  => false
 		);
 
-		PropertyRegistry::getInstance()->registerAsFixedTables( $asFixedTablesSetFalse );
-		$this->assertCount( 0, $asFixedTablesSetFalse['smwgFixedProperties'] );
-
+		PropertyRegistry::getInstance()->registerAsFixedTables( $tableDefinitions, $configuration );
+		$this->assertCount( 0, $tableDefinitions );
 	}
 
 	public function testRegisterAsFixedTablesSetTrue() {
 
 		PropertyRegistry::clear();
 
-		$asFixedTablesSetTrue = array(
-			'sespUseAsFixedTables' => true,
-			'smwgFixedProperties' => array()
+		$tableDefinitions = array();
+		$configuration = array(
+			'sespUseAsFixedTables'  => true,
+			'sespSpecialProperties' => array( '_REVID' )
 		);
 
-		PropertyRegistry::getInstance()->registerAsFixedTables( $asFixedTablesSetTrue );
-		$this->assertCount( 13, $asFixedTablesSetTrue['smwgFixedProperties'] );
+		PropertyRegistry::getInstance()->registerAsFixedTables( $tableDefinitions, $configuration );
+		$this->assertCount( 1, $tableDefinitions );
+	}
 
+	public function testRegisterAsFixedTablesWithAll() {
+
+		PropertyRegistry::clear();
+
+		$tableDefinitions = array();
+		$configuration = array(
+			'sespUseAsFixedTables'  => true,
+			'sespSpecialProperties' => array(
+				'_CUSER',
+				'_EUSER',
+				'_REVID',
+				'_PAGEID',
+				'_VIEWS',
+				'_NREV',
+				'_NTREV',
+				'_SUBP',
+				'_USERREG',
+				'_EXIFSOFTWARE',
+				'_EXIFDATETIME',
+				'_MEDIATYPE',
+				'_MIMETYPE',
+				'_SHORTURL'
+			)
+		);
+
+		PropertyRegistry::getInstance()->registerAsFixedTables( $tableDefinitions, $configuration );
+		$this->assertCount( 14, $tableDefinitions );
+	}
+
+	public function testRegisterAsFixedTablesSetTrueWithInvalidPropertyId() {
+
+		PropertyRegistry::clear();
+
+		$tableDefinitions = array();
+		$configuration = array(
+			'sespUseAsFixedTables'  => true,
+			'sespSpecialProperties' => array( '_FOO' )
+		);
+
+		PropertyRegistry::getInstance()->registerAsFixedTables( $tableDefinitions, $configuration );
+		$this->assertCount( 0, $tableDefinitions );
 	}
 
 }

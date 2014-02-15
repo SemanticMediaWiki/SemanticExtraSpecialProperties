@@ -1,7 +1,7 @@
 <?php
 
 use SESP\PropertyRegistry;
-use SESP\PredefinedPropertyAnnotator;
+use SESP\ExtraPropertyAnnotator;
 
 /**
  * Extension SemanticExtraSpecialProperties - Adds some extra special properties to all pages.
@@ -62,31 +62,40 @@ $GLOBALS['wgExtensionCredits']['semantic'][] = array(
 $GLOBALS['wgExtensionMessagesFiles']['SemanticESP'] = __DIR__ . '/SemanticExtraSpecialProperties.i18n.php';
 
 $GLOBALS['wgAutoloadClasses']['SESP'] = __DIR__ . '/src/SESP.php';
-$GLOBALS['wgAutoloadClasses']['SESP\PredefinedPropertyAnnotator'] = __DIR__ . '/src/PredefinedPropertyAnnotator.php';
-$GLOBALS['wgAutoloadClasses']['SESP\PropertyRegistry']            = __DIR__ . '/src/PropertyRegistry.php';
-$GLOBALS['wgAutoloadClasses']['SESP\ImageMetadataAnnotator']      = __DIR__ . '/src/ImageMetadataAnnotator.php';
-$GLOBALS['wgAutoloadClasses']['SESP\ShortUrlAnnotator']           = __DIR__ . '/src/ShortUrlAnnotator.php';
-
-PropertyRegistry::getInstance()->registerAsFixedTables( $GLOBALS );
+$GLOBALS['wgAutoloadClasses']['SESP\ExtraPropertyAnnotator']   = __DIR__ . '/src/ExtraPropertyAnnotator.php';
+$GLOBALS['wgAutoloadClasses']['SESP\BaseAnnotator']            = __DIR__ . '/src/BaseAnnotator.php';
+$GLOBALS['wgAutoloadClasses']['SESP\PropertyRegistry']         = __DIR__ . '/src/PropertyRegistry.php';
+$GLOBALS['wgAutoloadClasses']['SESP\ImageMetadataAnnotator']   = __DIR__ . '/src/ImageMetadataAnnotator.php';
+$GLOBALS['wgAutoloadClasses']['SESP\ShortUrlAnnotator']        = __DIR__ . '/src/ShortUrlAnnotator.php';
 
 /**
  * Setup and initialization
  *
  * @since 0.3
  */
-$GLOBALS['wgExtensionFunctions'][] = function() {
+$GLOBALS['wgExtensionFunctions']['semantic-extra-special-properties'] = function() {
 
 	/**
-	 * Collect configuration parameters
+	 * Collect only relevant configuration parameters
 	 *
 	 * @since 0.3
 	 */
 	$configuration = array(
 		'wgDisableCounters'     => $GLOBALS['wgDisableCounters'],
+		'sespUseAsFixedTables'  => isset( $GLOBALS['sespUseAsFixedTables'] ) ? $GLOBALS['sespUseAsFixedTables']  : false,
 		'sespSpecialProperties' => isset( $GLOBALS['sespSpecialProperties'] ) ? $GLOBALS['sespSpecialProperties'] : array(),
 		'wgSESPExcludeBots'     => isset( $GLOBALS['wgSESPExcludeBots'] ) ? $GLOBALS['wgSESPExcludeBots'] : false,
 		'wgShortUrlPrefix'      => isset( $GLOBALS['wgShortUrlPrefix'] )  ? $GLOBALS['wgShortUrlPrefix']  : false
 	);
+
+	/**
+	 * Register as fixed tables
+	 *
+	 * @since 0.3
+	 */
+	$GLOBALS['wgHooks']['SMW::SQLStore::updatePropertyTableDefinitions'][] = function ( &$propertyTableDefinitions ) use ( $configuration ) {
+		return PropertyRegistry::getInstance()->registerAsFixedTables( $propertyTableDefinitions, $configuration );
+	};
 
 	/**
 	 * Register properties
@@ -98,12 +107,12 @@ $GLOBALS['wgExtensionFunctions'][] = function() {
 	};
 
 	/**
-	 * Execute and update annotation
+	 * Execute and update annotations
 	 *
 	 * @since 0.3
 	 */
 	$GLOBALS['wgHooks']['SMWStore::updateDataBefore'][] = function ( \SMW\Store $store, \SMW\SemanticData $semanticData ) use ( $configuration ) {
-		$propertyAnnotator = new PredefinedPropertyAnnotator( $semanticData, $configuration );
+		$propertyAnnotator = new ExtraPropertyAnnotator( $semanticData, $configuration );
 
 		// DI object registration
 		$propertyAnnotator->registerObject( 'DBConnection', function() {
@@ -114,11 +123,12 @@ $GLOBALS['wgExtensionFunctions'][] = function() {
 			return \WikiPage::factory( $instance->getSemanticData()->getSubject()->getTitle() );
 		} );
 
-		$propertyAnnotator->registerObject( 'UserByName', function( $instance ) {
+		$propertyAnnotator->registerObject( 'UserByPageName', function( $instance ) {
 			return \User::newFromName( $instance->getWikiPage()->getTitle()->getText() );
 		} );
 
 		return $propertyAnnotator->addAnnotation();
 	};
 
+	return true;
 };
