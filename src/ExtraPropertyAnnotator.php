@@ -160,10 +160,11 @@ class ExtraPropertyAnnotator extends BaseAnnotator {
 			case '_MIMETYPE' :
 				$this->addPropertyValuesForMIMEAndMediaType();
 				break;
+			case '_EXIFDATA' :
 			case '_METADATA' :
 			case '_EXIFDATETIME' :
 			case '_EXIFSOFTWARE' :
-				$this->addPropertyValuesForImageMetadata();
+				$this->addPropertyValuesForExifData();
 				break;
 			case '_SHORTURL' :
 				$this->addPropertyValuesForShortUrl();
@@ -256,9 +257,13 @@ class ExtraPropertyAnnotator extends BaseAnnotator {
 	}
 
 	private function makeNumberOfTalkPageRevisionsDataItem() {
-		return new DINumber( $this->getPageRevisionsForId(
+		$numberOfPageRevisions = $this->getPageRevisionsForId(
 			$this->getWikiPage()->getTitle()->getTalkPage()->getArticleID()
-		) );
+		);
+
+		if ( $this->getWikiPage()->getTitle()->getTalkPage()->exists() && $numberOfPageRevisions > 0 ) {
+			return new DINumber( $numberOfPageRevisions );
+		}
 	}
 
 	private function addPropertyValuesForMIMEAndMediaType(){
@@ -296,9 +301,9 @@ class ExtraPropertyAnnotator extends BaseAnnotator {
 		}
 	}
 
-	private function addPropertyValuesForImageMetadata() {
+	private function addPropertyValuesForExifData() {
 		if ( $this->isImagePage() ) {
-			$imageMetadataBuilder = new ImageMetadataAnnotator( $this->getSemanticData() );
+			$imageMetadataBuilder = new ExifAnnotator( $this->getSemanticData() );
 			$imageMetadataBuilder->addAnnotation();
 		}
 	}

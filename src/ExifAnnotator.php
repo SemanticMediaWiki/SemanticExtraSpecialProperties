@@ -4,6 +4,7 @@ namespace SESP;
 
 use SMW\SemanticData;
 use SMW\DIProperty;
+use SMW\Subobject;
 
 use SMWDITime as DITime;
 use SMWDIBlob as DIBlob;
@@ -20,11 +21,13 @@ use Title;
  *
  * @author rotsee
  */
-class ImageMetadataAnnotator extends BaseAnnotator {
+class ExifAnnotator extends BaseAnnotator {
 
 	/** @var SemanticData */
 	protected $semanticData = null;
 	protected $metadata = null;
+
+	protected $subobject = null;
 
 	/**
 	 * @since 0.3
@@ -61,6 +64,13 @@ class ImageMetadataAnnotator extends BaseAnnotator {
 			return true;
 		}
 
+		$this->subobject = new Subobject( $this->getSemanticData()->getSubject()->getTitle() );
+		$this->subobject->setSemanticData( '_EXIFDATA' );
+
+		// FIXME
+		// should really change the method name to something like setSemanticDataWithId
+		// $this->subobject->setSemanticDataWithId( '_EXIFDATA' );
+
 		$exif = unserialize( $metadata );
 
 		if ( $exif && count( $exif ) ) {
@@ -73,6 +83,12 @@ class ImageMetadataAnnotator extends BaseAnnotator {
 		//TODO
 		if ( array_key_exists( 'GPSLatitudeRef', $exif ) || array_key_exists( 'GPSLongitudeRef', $exif ) ) {
 		} *///EXIFLATLON
+
+
+		$this->getSemanticData()->addPropertyObjectValue(
+			new DIProperty( PropertyRegistry::getInstance()->getPropertyId( '_EXIFDATA' ) ),
+			$this->subobject->getContainer()
+		);
 
 		return true;
 	}
@@ -109,7 +125,8 @@ class ImageMetadataAnnotator extends BaseAnnotator {
 					$datetime->format('i')
 				);
 
-				$this->getSemanticData()->addPropertyObjectValue(
+				// Store as subobject since git.wikimedia.org 0.2.8 master
+				$this->subobject->getSemanticData()->addPropertyObjectValue(
 					new DIProperty( PropertyRegistry::getInstance()->getPropertyId( '_EXIFDATETIME' ) ),
 					$dataItem
 				);
@@ -127,7 +144,8 @@ class ImageMetadataAnnotator extends BaseAnnotator {
 			}
 
 			if ( $str ) {
-				$this->getSemanticData()->addPropertyObjectValue(
+				// Store as subobject since git.wikimedia.org 0.2.8 master
+				$this->subobject->getSemanticData()->addPropertyObjectValue(
 					new DIProperty( PropertyRegistry::getInstance()->getPropertyId( '_EXIFSOFTWARE' ) ),
 					new DIBlob( $str )
 				);
