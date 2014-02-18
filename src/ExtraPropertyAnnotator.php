@@ -303,8 +303,8 @@ class ExtraPropertyAnnotator extends BaseAnnotator {
 
 	private function addPropertyValuesForExifData() {
 		if ( $this->isImagePage() ) {
-			$imageMetadataBuilder = new ExifAnnotator( $this->getSemanticData() );
-			$imageMetadataBuilder->addAnnotation();
+			$exifDataAnnotator = new ExifDataAnnotator( $this->getSemanticData() );
+			$exifDataAnnotator->addAnnotation();
 		}
 	}
 

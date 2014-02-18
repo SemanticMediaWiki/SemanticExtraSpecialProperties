@@ -21,7 +21,7 @@ use Title;
  *
  * @author rotsee
  */
-class ExifAnnotator extends BaseAnnotator {
+class ExifDataAnnotator extends BaseAnnotator {
 
 	/** @var SemanticData */
 	protected $semanticData = null;
@@ -127,7 +127,7 @@ class ExifAnnotator extends BaseAnnotator {
 
 				// Store as subobject since git.wikimedia.org 0.2.8 master
 				$this->subobject->getSemanticData()->addPropertyObjectValue(
-					new DIProperty( PropertyRegistry::getInstance()->getPropertyId( '_EXIFDATETIME' ) ),
+					new DIProperty( PropertyRegistry::getInstance()->getPropertyId( 'DateTimeOriginal' ) ),
 					$dataItem
 				);
 			}
@@ -146,7 +146,7 @@ class ExifAnnotator extends BaseAnnotator {
 			if ( $str ) {
 				// Store as subobject since git.wikimedia.org 0.2.8 master
 				$this->subobject->getSemanticData()->addPropertyObjectValue(
-					new DIProperty( PropertyRegistry::getInstance()->getPropertyId( '_EXIFSOFTWARE' ) ),
+					new DIProperty( PropertyRegistry::getInstance()->getPropertyId( 'Software' ) ),
 					new DIBlob( $str )
 				);
 			}
