@@ -30,7 +30,9 @@ MediaWiki `composer.json` file and run the ``php composer.phar install/update`` 
 After upgrading this extension to a newer version the semantic data should be refreshed by running the following
 command from the base directory of your wiki:
 
-``php extensions/SemanticMediaWiki/maintenance/SMW_refreshData.php -v -d 50``
+```
+php extensions/SemanticMediaWiki/maintenance/SMW_refreshData.php -v -d 50
+```
 
 ## Configuration
 
@@ -81,13 +83,17 @@ These properties may be removed in any further release of this extension.
 ### Extra database tables for value storage
 
 Setting `$sespUseAsFixedTables` to "true" enables to setup properties as [fixed properties][fixedprop] in order to
-improve data access. Doing so is the recommended. Note that you have to run
+improve data access. Doing so is recommended. Note that you have to run
 
-``php maintenance/update.php --quick``
+```
+php maintenance/update.php --quick
+```
 
 from your wikis base directory after setting this parameter for the required tables to be created. Additionally run
 
-``php extensions/SemanticMediaWiki/maintenance/SMW_refreshData.php -v -d 50``
+```
+php extensions/SemanticMediaWiki/maintenance/SMW_refreshData.php -v -d 50
+```
 
 afterwards as well. This also has to be done every time a special property was added to the `$sespSpecialProperties`
 array.
