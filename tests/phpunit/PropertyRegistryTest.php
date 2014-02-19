@@ -19,16 +19,11 @@ use SESP\PropertyRegistry;
  */
 class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 
-	public function getClass() {
-		return '\SESP\PropertyRegistry';
-	}
-
-	public function getJsonFile() {
-		return PropertyRegistry::getInstance()->getJsonFile();
-	}
-
 	public function testCanConstruct() {
-		$this->assertInstanceOf( $this->getClass(), PropertyRegistry::getInstance() );
+		$this->assertInstanceOf(
+			'\SESP\PropertyRegistry',
+			PropertyRegistry::getInstance()
+		);
 	}
 
 	/**
@@ -82,12 +77,31 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 			PropertyRegistry::getInstance()->getPropertyId( 'soFtWare' )
 		);
 	}
+
 	/**
 	 * @depends testGetPropertyId
 	 */
 	public function testGetPropertyIdWithUnknownIdentifier() {
 		$this->assertNull( PropertyRegistry::getInstance()->getPropertyId( 'Foo' ) );
 	}
+
+	/**
+	 * @depends testAcquireDefinitionsFromJsonFile
+	 */
+	public function testGetPropertyType() {
+		$this->assertInternalType(
+			'integer',
+			PropertyRegistry::getInstance()->getPropertyType( '_CUSER' )
+		);
+	}
+
+	/**
+	 * @depends testGetPropertyType
+	 */
+	public function testGetPropertyTypeWithUnknownIdentifier() {
+		$this->assertNull( PropertyRegistry::getInstance()->getPropertyType( 'Foo' ) );
+	}
+
 
 	public function testRegisterPropertiesAndAliases() {
 		PropertyRegistry::clear();
@@ -136,6 +150,12 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		PropertyRegistry::clear();
 
+		$definitions = PropertyRegistry::getInstance()->acquireDefinitionsFromJsonFile( $this->getJsonFile() );
+		$this->assertTrue( isset( $definitions['_EXIF'] ) );
+
+		unset( $definitions['_EXIF'] );
+		$expectedCount = count( array_keys( $definitions ) );
+
 		$tableDefinitions = array();
 		$configuration = array(
 			'sespUseAsFixedTables'  => true,
@@ -157,7 +177,7 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 		);
 
 		PropertyRegistry::getInstance()->registerAsFixedTables( $tableDefinitions, $configuration );
-		$this->assertCount( 13, $tableDefinitions );
+		$this->assertCount( $expectedCount, $tableDefinitions );
 	}
 
 	public function testRegisterAsFixedTablesSetTrueWithInvalidPropertyId() {
@@ -172,6 +192,10 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		PropertyRegistry::getInstance()->registerAsFixedTables( $tableDefinitions, $configuration );
 		$this->assertCount( 0, $tableDefinitions );
+	}
+
+	protected function getJsonFile() {
+		return PropertyRegistry::getInstance()->getJsonFile();
 	}
 
 }

@@ -95,6 +95,18 @@
             "type": 2,
             "msgkey": "exif-software",
             "alias": "Software"
+        },
+        "IMAGEWIDTH": {
+            "id": "___EXIFIMAGEWIDTH",
+            "type": 1,
+            "msgkey": "exif-imagewidth",
+            "alias": "Image width"
+        },
+        "IMAGELENGTH": {
+            "id": "___EXIFIMAGELENGTH",
+            "type": 1,
+            "msgkey": "exif-imagelength",
+            "alias": "Image length"
         }
     }
 }

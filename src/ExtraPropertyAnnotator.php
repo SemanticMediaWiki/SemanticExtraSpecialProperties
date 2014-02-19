@@ -161,9 +161,6 @@ class ExtraPropertyAnnotator extends BaseAnnotator {
 				$this->addPropertyValuesForMIMEAndMediaType();
 				break;
 			case '_EXIFDATA' :
-			case '_METADATA' :
-			case '_EXIFDATETIME' :
-			case '_EXIFSOFTWARE' :
 				$this->addPropertyValuesForExifData();
 				break;
 			case '_SHORTURL' :
@@ -304,6 +301,7 @@ class ExtraPropertyAnnotator extends BaseAnnotator {
 	private function addPropertyValuesForExifData() {
 		if ( $this->isImagePage() ) {
 			$exifDataAnnotator = new ExifDataAnnotator( $this->getSemanticData() );
+			$exifDataAnnotator->setFile( $this->getWikiPage()->getFile() );
 			$exifDataAnnotator->addAnnotation();
 		}
 	}

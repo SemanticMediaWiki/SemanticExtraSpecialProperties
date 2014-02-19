@@ -63,7 +63,7 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	/**
 	 * @depends testCanConstruct
 	 */
-	public function testAddAnnotationWithoutConfigurationThrowsException() {
+	public function testPropertyAnnotationWithoutConfigurationThrowsException() {
 
 		$this->setExpectedException( 'RuntimeException' );
 
@@ -81,7 +81,7 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		$instance->addAnnotation();
 	}
 
-	public function testAdd_CUSER_Annotation() {
+	public function testPropertyAnnotation_CUSER() {
 
 		$instance = $this->acquireInstance( '_CUSER' );
 
@@ -96,10 +96,7 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		$semanticData = $instance->getSemanticData();
 
 		$this->assertEmpty( $semanticData->getProperties() );
-
-		$instance->registerObject( 'WikiPage', function( $annotator ) use( $semanticData, $page ) {
-			return $annotator->getSemanticData()->getSubject() === $semanticData->getSubject() ? $page : null;
-		} );
+		$this->attachWikiPage( $instance, $page );
 
 		$this->assertTrue( $instance->addAnnotation() );
 
@@ -109,7 +106,7 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
-	public function testAdd_NREV_Annotation() {
+	public function testPropertyAnnotation_NREV() {
 
 		$instance = $this->acquireInstance( '_NREV' );
 
@@ -147,14 +144,8 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		$semanticData = $instance->getSemanticData();
 
 		$this->assertEmpty( $semanticData->getProperties() );
-
-		$instance->registerObject( 'WikiPage', function( $annotator ) use( $semanticData, $page ) {
-			return $annotator->getSemanticData()->getSubject() === $semanticData->getSubject() ? $page : null;
-		} );
-
-		$instance->registerObject( 'DBConnection', function() use( $connection ) {
-			return $connection;
-		} );
+		$this->attachWikiPage( $instance, $page );
+		$this->attachDBConnection( $instance, $connection );
 
 		$this->assertTrue( $instance->addAnnotation() );
 		$this->assertArrayHasKey( $propertyId, $semanticData->getProperties() );
@@ -164,7 +155,7 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		}
 	}
 
-	public function testAdd_REVID_Annotation() {
+	public function testPropertyAnnotation_REVID() {
 
 		$instance = $this->acquireInstance( '_REVID' );
 
@@ -182,10 +173,7 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		$semanticData = $instance->getSemanticData();
 
 		$this->assertEmpty( $semanticData->getProperties() );
-
-		$instance->registerObject( 'WikiPage', function( $annotator ) use( $semanticData, $page ) {
-			return $annotator->getSemanticData()->getSubject() === $semanticData->getSubject() ? $page : null;
-		} );
+		$this->attachWikiPage( $instance, $page );
 
 		$this->assertTrue( $instance->addAnnotation() );
 
@@ -199,7 +187,7 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		}
 	}
 
-	public function test_REVID_WithNull() {
+	public function testPropertyAnnotationWithNull_REVID() {
 
 		$instance = $this->acquireInstance( '_REVID' );
 
@@ -214,13 +202,24 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		$semanticData = $instance->getSemanticData();
 
 		$this->assertEmpty( $semanticData->getProperties() );
+		$this->attachWikiPage( $instance, $page );
+
+		$this->assertTrue( $instance->addAnnotation() );
+		$this->assertEmpty( $semanticData->getProperties() );
+	}
+
+	protected function attachWikiPage( $instance, $page ) {
+		$semanticData = $instance->getSemanticData();
 
 		$instance->registerObject( 'WikiPage', function( $annotator ) use( $semanticData, $page ) {
 			return $annotator->getSemanticData()->getSubject() === $semanticData->getSubject() ? $page : null;
 		} );
+	}
 
-		$this->assertTrue( $instance->addAnnotation() );
-		$this->assertEmpty( $semanticData->getProperties() );
+	protected function attachDBConnection( $instance, $connection ) {
+		$instance->registerObject( 'DBConnection', function() use( $connection ) {
+			return $connection;
+		} );
 	}
 
 }

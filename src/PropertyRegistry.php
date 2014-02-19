@@ -88,7 +88,18 @@ class PropertyRegistry {
 	 * @return string|null
 	 */
 	public function getPropertyId( $id ) {
-		return $this->lookupWithIndentifier( 'id', $id );
+		return $this->lookupWithIdentifier( 'id', $id );
+	}
+
+	/**
+	 * @since 0.3
+	 *
+	 * @param string $id
+	 *
+	 * @return string|null
+	 */
+	public function getPropertyType( $id ) {
+		return $this->lookupWithIdentifier( 'type', $id );
 	}
 
 	/**
@@ -173,7 +184,7 @@ class PropertyRegistry {
 
 	protected function getPropertyLabel( $id ) {
 
-		$msgkey = $this->lookupWithIndentifier( 'msgkey', $id );
+		$msgkey = $this->lookupWithIdentifier( 'msgkey', $id );
 
 		if ( $msgkey ) {
 			return wfMessage( $msgkey )->inContentLanguage()->text();
@@ -183,11 +194,7 @@ class PropertyRegistry {
 	}
 
 	protected function getPropertyAlias( $id ) {
-		return $this->lookupWithIndentifier( 'alias', $id );
-	}
-
-	protected function getPropertyType( $id ) {
-		return $this->lookupWithIndentifier( 'type', $id );
+		return $this->lookupWithIdentifier( 'alias', $id );
 	}
 
 	protected function getPropertyDataItemTypeId( $id ) {
@@ -201,7 +208,7 @@ class PropertyRegistry {
 		return null;
 	}
 
-	protected function lookupWithIndentifier( $key, $id ) {
+	protected function lookupWithIdentifier( $key, $id ) {
 
 		$id = strtoupper( $id );
 

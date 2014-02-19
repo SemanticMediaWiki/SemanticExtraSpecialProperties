@@ -6,12 +6,16 @@ use SMW\SemanticData;
 use SMW\DIProperty;
 use SMW\Subobject;
 
+use SMWDataItem as DataItem;
 use SMWDITime as DITime;
 use SMWDIBlob as DIBlob;
+use SMWDINumber as DINumber;
 
-use ExifBitmapHandler;
-use ImagePage;
+use FormatMetadata;
 use Title;
+use File;
+
+use RuntimeException;
 
 /**
  * @ingroup SESP
@@ -19,14 +23,19 @@ use Title;
  * @licence GNU GPL v2+
  * @since 0.3
  *
+ * @author mwjames
  * @author rotsee
+ * @author Stephan Gambke
  */
 class ExifDataAnnotator extends BaseAnnotator {
 
 	/** @var SemanticData */
 	protected $semanticData = null;
-	protected $metadata = null;
 
+	/** @var File  */
+	protected $file = null;
+
+	/** @var Subobject */
 	protected $subobject = null;
 
 	/**
@@ -50,40 +59,45 @@ class ExifDataAnnotator extends BaseAnnotator {
 	/**
 	 * @since 0.3
 	 *
+	 * @param File $file
+	 */
+	public function setFile( File $file ) {
+		$this->file = $file;
+	}
+
+	/**
+	 * @since 0.3
+	 *
 	 * @return boolean
 	 */
 	public function addAnnotation() {
 
-		$metadata = $this->getMetadata();
+		if ( $this->file === null ) {
+			throw new RuntimeException( 'Expected a file' );
+		}
 
-		if ( $metadata === ExifBitmapHandler::OLD_BROKEN_FILE ||
-					$metadata === ExifBitmapHandler::BROKEN_FILE /*||
-		ExifBitmapHandler::isMetadataValid( $file, $metadata ) === ExifBitmapHandler::METADATA_BAD //Too picky... */ ) {
-			// So we don't try and display metadata from PagedTiffHandler
-			// for example when using InstantCommons.
+		$exif = unserialize( $this->file->getMetadata() );
+
+		if ( !is_array( $exif ) || count( $exif ) === 0 ) {
 			return true;
 		}
+
+		$exif[ 'ImageWidth' ]  = $this->file->getWidth();
+		$exif[ 'ImageLength' ] = $this->file->getHeight();
+
+		return $this->processExifData( $exif );
+	}
+
+	protected function processExifData( $rawExif ) {
 
 		$this->subobject = new Subobject( $this->getSemanticData()->getSubject()->getTitle() );
 		$this->subobject->setSemanticData( '_EXIFDATA' );
 
-		// FIXME
-		// should really change the method name to something like setSemanticDataWithId
-		// $this->subobject->setSemanticDataWithId( '_EXIFDATA' );
+		$this->addPropertyValuesFromExifData( $rawExif );
 
-		$exif = unserialize( $metadata );
-
-		if ( $exif && count( $exif ) ) {
-			$this->addPropertyValueForExifDate( $exif );
-			$this->addPropertyValueForExifSoftware( $exif );
+		if ( $this->subobject->getSemanticData()->isEmpty() ) {
+			return true;
 		}
-
-		// EXIFLATLON
-		/*
-		//TODO
-		if ( array_key_exists( 'GPSLatitudeRef', $exif ) || array_key_exists( 'GPSLongitudeRef', $exif ) ) {
-		} *///EXIFLATLON
-
 
 		$this->getSemanticData()->addPropertyObjectValue(
 			new DIProperty( PropertyRegistry::getInstance()->getPropertyId( '_EXIFDATA' ) ),
@@ -93,75 +107,84 @@ class ExifDataAnnotator extends BaseAnnotator {
 		return true;
 	}
 
-	protected function getMetadata() {
+	protected function addPropertyValuesFromExifData( $rawExif ) {
 
-		if ( $this->metadata === null ) {
-			$imagePage = new ImagePage( $this->getSemanticData()->getSubject()->getTitle() );
-			$this->metadata = $imagePage->getFile()->getMetadata();
-		}
+		$formattedExif = FormatMetadata::getFormattedData( $rawExif );
 
-		return $this->metadata;
-	}
+		foreach ( $formattedExif as $key => $value ) {
 
-	protected function addPropertyValueForExifDate( $exif ) {
+			$dataItem = null;
+			$propertyId = PropertyRegistry::getInstance()->getPropertyId( $key );
 
-		if ( array_key_exists( 'DateTimeOriginal', $exif ) || array_key_exists( 'DateTime', $exif ) ) {
-
-			if ( array_key_exists( 'DateTimeOriginal', $exif ) ) {
-				$exifstr = $exif['DateTimeOriginal'];
-			} else {
-				$exifstr = $exif['DateTime'];
+			if ( $propertyId === null ) {
+				continue;
 			}
 
-			$datetime = $this->convertExifDate( $exifstr );
+			$dataItemType = PropertyRegistry::getInstance()->getPropertyType( $key );
 
-			if ( $datetime ) {
-				$dataItem = new DITime(
-					DITime::CM_GREGORIAN,
-					$datetime->format('Y'),
-					$datetime->format('n'),
-					$datetime->format('j'),
-					$datetime->format('G'),
-					$datetime->format('i')
-				);
+			switch ( $dataItemType ) {
+				case DataItem::TYPE_NUMBER :
+					$dataItem = is_numeric( $rawExif[$key] ) ? new DINumber( $rawExif[$key] ) : null;
+					break;
+				case DataItem::TYPE_BLOB :
+					$dataItem = new DIBlob( $value );
+					break;
+				case DataItem::TYPE_TIME :
+					$dataItem = $this->makeDataItemTime( $rawExif[$key] );
+			}
 
-				// Store as subobject since git.wikimedia.org 0.2.8 master
+			if ( $dataItem !== null ) {
 				$this->subobject->getSemanticData()->addPropertyObjectValue(
-					new DIProperty( PropertyRegistry::getInstance()->getPropertyId( 'DateTimeOriginal' ) ),
+					new DIProperty( $propertyId ),
 					$dataItem
 				);
 			}
+
 		}
 	}
 
-	protected function addPropertyValueForExifSoftware( $exif ) {
-		if ( array_key_exists( 'Software', $exif ) || ( array_key_exists( 'metadata', $exif ) && array_key_exists( 'Software', $exif['metadata'] )) ) {
+	protected function makeDataItemTime( $exifValue ) {
+		$datetime = $this->convertExifDate( $exifValue );
 
-			$str = array_key_exists( 'Software', $exif ) ? $exif['Software'] : $exif['metadata']['Software'];
-
-			if ( is_array( $str ) ) {
-				$str = array_key_exists( 'x-default', $str ) ? $str['x-default'] : $str[0];
-			}
-
-			if ( $str ) {
-				// Store as subobject since git.wikimedia.org 0.2.8 master
-				$this->subobject->getSemanticData()->addPropertyObjectValue(
-					new DIProperty( PropertyRegistry::getInstance()->getPropertyId( 'Software' ) ),
-					new DIBlob( $str )
-				);
-			}
+		if ( $datetime ) {
+			return new DITime(
+				DITime::CM_GREGORIAN,
+				$datetime->format('Y'),
+				$datetime->format('n'),
+				$datetime->format('j'),
+				$datetime->format('G'),
+				$datetime->format('i')
+			);
 		}
 	}
 
 	protected function convertExifDate( $exifString ) {
-		$exifPieces = explode(":", $exifString);
-		if ( $exifPieces[0] && $exifPieces[1] && $exifPieces[2] ) {
-			$res = new \DateTime($exifPieces[0] . "-" . $exifPieces[1] .
-			"-" . $exifPieces[2] . ":" . $exifPieces[3] . ":" . $exifPieces[4]);
-			return $res;
-		} else {
+
+		// Unknown date
+		if ( $exifString == '0000:00:00 00:00:00' || $exifString == '    :  :     :  :  ' ) {
 			return false;
 		}
+
+		// Full date
+		if ( preg_match( '/^(?:\d{4}):(?:\d\d):(?:\d\d) (?:\d\d):(?:\d\d):(?:\d\d)$/D', $exifString ) ) {
+			return new \DateTime( $exifString );
+		}
+
+		// No second field, timeanddate doesn't include seconds but second still available in api
+		if ( preg_match( '/^(?:\d{4}):(?:\d\d):(?:\d\d) (?:\d\d):(?:\d\d)$/D', $exifString ) ) {
+			return new \DateTime( $exifString . ':00' );
+		}
+
+		// Only the date but not the time
+		if (  preg_match( '/^(?:\d{4}):(?:\d\d):(?:\d\d)$/D', $exifString ) ) {
+			return new \DateTime(
+				substr( $exifString, 0, 4 ) . ':' .
+				substr( $exifString, 5, 2 ) . ':' .
+				substr( $exifString, 8, 2 ) . ' 00:00:00'
+			);
+		}
+
+		return false;
 	}
 
 }
