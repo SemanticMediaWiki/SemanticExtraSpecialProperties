@@ -17,6 +17,7 @@ $messages['en'] = array(
 	'sesp-property-author' => 'Page author',
 	'sesp-property-first-author' => 'Page creator',
 	'sesp-property-revision-id' => 'Revision ID',
+	'sesp-property-page-id' => 'Page ID',
 	'sesp-property-view-count' => 'Number of page views',
 	'sesp-property-subpages' => 'Subpage',
 	'sesp-property-revisions' => 'Number of revisions',
@@ -36,8 +37,10 @@ $messages['qqq'] = array(
 	'sesp-desc' => '{{desc|name=Semantic Extra Special Properties|url=http://www.mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties}}',
 	'sesp-property-author' => 'The name of the special property that stores the contributors to a page',
 	'sesp-property-first-author' => 'The name of the special property that stores the user that created the page',
-	'sesp-property-revision-id' => 'The name of the special property that stores the current revision id.
+	'sesp-property-revision-id' => 'The name of the special property that stores the current revision ID.
 {{Identical|Revision ID}}',
+	'sesp-property-page-id' => 'The name of the special property that stores the page ID.
+{{Identical|Page ID}}',
 	'sesp-property-view-count' => 'The name of the special property that stores the number of pages views',
 	'sesp-property-subpages' => 'The name of the special property that stores subpages.
 {{Identical|Subpage}}',
