@@ -62,8 +62,8 @@ very up to date. If [`$wgDisableCounters`][$wgDisableCounters] is set to
 - `_NTREV` same but for the talk page, i.e. showing how much discussion is going on around this page
 - `_SUBP` add properties for subpages
 - `_USERREG` add a property to user pages with the users registration date
-- `_EXIFDATA` add properties based on image metadata (exif data), when available and in case the object
-is in namespace "file". Note that the currently available exif data ("datetimeoriginal", "datetime", "software",
+- `_EXIFDATA` add properties based on image metadata (Exif data), when available and in case the object
+is in namespace "file". Note that the currently available Exif data ("datetimeoriginal", "datetime", "software",
 "imagewidth" and "imagelength") will be stored as a [subobject][subobject].
 
 #### Properties with further depedencies
@@ -89,7 +89,7 @@ improve data access. Doing so is recommended. Note that you have to run
 php maintenance/update.php --quick
 ```
 
-from your wikis base directory after setting this parameter for the required tables to be created. Additionally run
+from your wiki's base directory after setting this parameter for the required tables to be created. Additionally run
 
 ```
 php extensions/SemanticMediaWiki/maintenance/SMW_refreshData.php -v -d 50
@@ -100,8 +100,7 @@ array.
 
 ### Stop recognition of bot edits
 
-Setting ``$wgSESPExcludeBots`` to "true" causes bot edits by users in user group "bot" to be ignored when storing
-data for the special properties activated. However this does not affect the page creator property (`_CUSER`).
+Setting ``$wgSESPExcludeBots`` to "true" causes bot edits via user accounts in usergroup "bot" to be ignored when storing data for the special properties activated. However this does not affect the page creator property (`_CUSER`).
 
 ## Privacy
 
@@ -111,7 +110,7 @@ as the `_EUSER` property will list all authors for everyone.
 The Exchangeable image file format (and thereof its Exif tags) can contain metadata about a location which
 can pose a [privacy issue][privacy].
 
-## Devolper information
+## Developer information
 
 ### Property definitions
 
