@@ -11,6 +11,7 @@ $messages = array();
 /** English
  * @author Rotsee
  * @author MWJames
+ * @author Kghbln
  */
 $messages['en'] = array(
 	'sesp-desc' => 'Adds some extra special properties to all pages',
@@ -26,12 +27,12 @@ $messages['en'] = array(
 	'sesp-property-mediatype' => 'Media type',
 	'sesp-property-shorturl' => 'Short URL',
 	'sesp-property-user-registration-date' => 'User registration date',
-
 	'sesp-property-exif-data' => 'Exif data',
 );
 
 /** Message documentation (Message documentation)
  * @author Shirayuki
+ * @author Kghbln
  */
 $messages['qqq'] = array(
 	'sesp-desc' => '{{desc|name=Semantic Extra Special Properties|url=http://www.mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties}}',
