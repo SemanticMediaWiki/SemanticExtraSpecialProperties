@@ -1,22 +1,30 @@
-
 ### 0.3
-0.3 is a complete rewrite of the existing implementation to allow sufficient test integration which made it necessary to split the original file into different classes (force encapsulation), eliminate GLOBALS (where necessary inject configuration via the constructor), and enable service injection (increase inversion of control).
+0.3 is a complete rewrite of the existing implementation to allow sufficient test integration which made it necessary
+to split the original file into different classes (force encapsulation), eliminate GLOBALS (where necessary inject
+configuration via the constructor), and enable service injection (increase inversion of control).
 
-`Exif` and `ShorUrl` handling has been moved into separate classes, property registration has been uncoupled from the functional implementation. Property definitions no longer reside within PHP and have been moved into `json` file for easier access and configurability.
+`Exif` and `ShorUrl` handling has been moved into separate classes, property registration has been uncoupled from the
+functional implementation. Property definitions no longer reside within PHP and have been moved into `json` file for
+easier access and configurability.
 
-Due to those internal changes and the introduced test integration, 0.3 requires Semantic MediaWiki 1.9. It is strongly recommended to run `update.php` together with a `SMW_refreshData`.
+Due to those internal changes and the introduced test integration, 0.3 requires Semantic MediaWiki 1.9. It is strongly
+recommended to run `update.php` together with a `SMW_refreshData.php`.
 
 For details about the rewrite, its discussion, and changes see #10.
 
 - Added support for installation via Composer
 - Added Travis-CI integration
 - Fixed PHP strict notices
-- #10 Fixed `_REVID` vs. `_PAGEID`  incorrect assignment
-- #10 Fixed wfMsgGetKey usage
-- #10Fixed initialization value "is not a number" issue
+- #10 Fixed incorrect `_REVID` assignment
+- #10 Added `_PAGEID` for page ID collection
+- #10 Fixed incorrect ``_NTREV`` assignment
+- #10 Added ``'_EXIFDATA'`` collection for ("datetimeoriginal", "datetime", "software", "imagewidth" and "imagelength")
+as subobjects
+- #10 Fixed "wfMsgGetKey" usage
+- #10 Fixed initialization value "is not a number" issue
 - #10 Added `sespUseAsFixedTables` setting
 - #10 Added unit and integrations tests
-- #13 Added i18n updates
+- #13 Added I18n updates
 
 ### 0.2.7
 - Requires MediaWiki 1.20
@@ -46,13 +54,15 @@ For details about the rewrite, its discussion, and changes see #10.
 
 ### 0.2.1
 - German translation by Kghbln
-- Better method to fetch list of `_EUSER` (getContributors and getUser, instead of getLastNAuthors. Anonymous users will never be listed)
+- Better method to fetch list of `_EUSER` (getContributors and getUser, instead of getLastNAuthors. Anonymous users
+will never be listed)
 
-### 0.2.0
+### 0.2
 - Only tested with SMW 1.7 and MW 1.18.
 - Changed name for `_EUSER` and `_CUSER` props in both English and Swedish, article ###> page for clarity.
-- Using $smwgPageSpecialProperties2 to chose which properties to set, the same way as $smwgPageSpecialProperties is used for built in special properties
+- Using $smwgPageSpecialProperties2 to chose which properties to set, the same way as $smwgPageSpecialProperties
+is used for built in special properties
 - Ignoring `_VIEWS` if statistics are disables in LocalSettings
 - Added `_SUBP`, `_NREV` and `_NTREV`
 
-### 0.1 First version
+### 0.1 Initial version
