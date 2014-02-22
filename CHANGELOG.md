@@ -1,4 +1,7 @@
-### 0.3
+### Version 0.3
+
+Released on 2014-02-23.
+
 0.3 is a complete rewrite of the existing implementation to allow sufficient test integration which made it necessary
 to split the original file into different classes (force encapsulation), eliminate GLOBALS (where necessary inject
 configuration via the constructor), and enable service injection (increase inversion of control).
@@ -26,7 +29,7 @@ as subobjects
 - #10 Added unit and integrations tests
 - #13 Added I18n updates
 
-### 0.2.7
+### Version 0.2.7
 - Requires MediaWiki 1.20
 - Use WikiPage instead of Article
 
@@ -34,30 +37,30 @@ as subobjects
 - Fixed bug sometimes causing a crash on pagesave on MW 1.20+
 - Added `_USERREG`
 
-### 0.2.5
+### Version 0.2.5
 - Bugfixes
 - Error message fixes by Nischayn22
 
-### 0.2.4
+### Version 0.2.4
 - Requires MediaWiki 1.19
 - Add some image meta data (exif) properties
 - Bug fix by Van de Bugger
 
-### 0.2.3
+### Version 0.2.3
 - add `_SHORTURL`
 - Translation updates, German
 - Fix for bug with first author for certain special pages, by Van de Bugger
 
-### 0.2.2
+### Version 0.2.2
 - $smwgPageSpecialProperties replaced by `$sespSpecialProperties`
 - Added `_MIMETYPE` (mime type, mediatype)
 
-### 0.2.1
+### Version 0.2.1
 - German translation by Kghbln
 - Better method to fetch list of `_EUSER` (getContributors and getUser, instead of getLastNAuthors. Anonymous users
 will never be listed)
 
-### 0.2
+### Version 0.2
 - Only tested with SMW 1.7 and MW 1.18.
 - Changed name for `_EUSER` and `_CUSER` props in both English and Swedish, article ###> page for clarity.
 - Using $smwgPageSpecialProperties2 to chose which properties to set, the same way as $smwgPageSpecialProperties
@@ -65,4 +68,6 @@ is used for built in special properties
 - Ignoring `_VIEWS` if statistics are disables in LocalSettings
 - Added `_SUBP`, `_NREV` and `_NTREV`
 
-### 0.1 Initial version
+### Version 0.1
+
+* Initial release
