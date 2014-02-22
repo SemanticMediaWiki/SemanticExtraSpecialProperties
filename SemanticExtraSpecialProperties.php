@@ -1,5 +1,8 @@
 <?php
 
+use SESP\PropertyRegistry;
+use SESP\ExtraPropertyAnnotator;
+
 /**
  * Extension SemanticExtraSpecialProperties - Adds some extra special properties to all pages.
  *
@@ -18,21 +21,28 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	die( 'Not an entry point.' );
 }
 
-// Assure compatibility
+if ( defined( 'SESP_VERSION' ) ) {
+	// Do not initialize more than once.
+	return 1;
+}
+
+define( 'SESP_VERSION', '0.3 alpha' );
+
+if ( is_readable( __DIR__ . '/vendor/autoload.php' ) ) {
+	include_once( __DIR__ . '/vendor/autoload.php' );
+}
+
 if ( version_compare( $GLOBALS['wgVersion'], '1.19', '<' ) ) {
 	die( '<b>Error:</b> This version of Semantic Extra Special Properties requires MediaWiki 1.20 or above.' );
 }
 
-if ( ! defined( 'SMW_VERSION' ) ) {
+if ( !defined( 'SMW_VERSION' ) ) {
 	die( '<b>Error:</b> This version of Semantic Extra Special Properties requires <a href="http://semantic-mediawiki.org/wiki/Semantic_MediaWiki">Semantic MediaWiki</a> installed.<br />' );
 }
 
 if ( version_compare( SMW_VERSION, '1.7', '<' ) ) {
 	die( '<b>Error:</b> This version of Semantic Extra Special Properties requires Semantic MediaWiki 1.7 or above.' );
 }
-
-// Define version
-define( 'SESP_VERSION', '0.3 alpha' );
 
 // Register extension
 $GLOBALS['wgExtensionCredits']['semantic'][] = array(
@@ -51,8 +61,73 @@ $GLOBALS['wgExtensionCredits']['semantic'][] = array(
 // Tell file locations
 $GLOBALS['wgExtensionMessagesFiles']['SemanticESP'] = __DIR__ . '/SemanticExtraSpecialProperties.i18n.php';
 
-$GLOBALS['wgAutoloadClasses']['SESP'] = __DIR__ . '/src/SESP.php';
+$GLOBALS['wgAutoloadClasses']['SESP\ExtraPropertyAnnotator']   = __DIR__ . '/src/ExtraPropertyAnnotator.php';
+$GLOBALS['wgAutoloadClasses']['SESP\BaseAnnotator']            = __DIR__ . '/src/BaseAnnotator.php';
+$GLOBALS['wgAutoloadClasses']['SESP\PropertyRegistry']         = __DIR__ . '/src/PropertyRegistry.php';
+$GLOBALS['wgAutoloadClasses']['SESP\ExifDataAnnotator']        = __DIR__ . '/src/ExifDataAnnotator.php';
+$GLOBALS['wgAutoloadClasses']['SESP\ShortUrlAnnotator']        = __DIR__ . '/src/ShortUrlAnnotator.php';
 
-// Register hooks
-$GLOBALS['wgHooks']['smwInitProperties'][] = 'SESP::sespInitProperties';
-$GLOBALS['wgHooks']['SMWStore::updateDataBefore'][] = 'SESP::sespUpdateDataBefore';
+/**
+ * Setup and initialization
+ *
+ * @since 0.3
+ */
+$GLOBALS['wgExtensionFunctions']['semantic-extra-special-properties'] = function() {
+
+	/**
+	 * Collect only relevant configuration parameters
+	 *
+	 * @since 0.3
+	 */
+	$configuration = array(
+		'wgDisableCounters'     => $GLOBALS['wgDisableCounters'],
+		'sespUseAsFixedTables'  => isset( $GLOBALS['sespUseAsFixedTables'] ) ? $GLOBALS['sespUseAsFixedTables']  : false,
+		'sespSpecialProperties' => isset( $GLOBALS['sespSpecialProperties'] ) ? $GLOBALS['sespSpecialProperties'] : array(),
+		'wgSESPExcludeBots'     => isset( $GLOBALS['wgSESPExcludeBots'] ) ? $GLOBALS['wgSESPExcludeBots'] : false,
+		'wgShortUrlPrefix'      => isset( $GLOBALS['wgShortUrlPrefix'] )  ? $GLOBALS['wgShortUrlPrefix']  : false
+	);
+
+	/**
+	 * Register as fixed tables
+	 *
+	 * @since 0.3
+	 */
+	$GLOBALS['wgHooks']['SMW::SQLStore::updatePropertyTableDefinitions'][] = function ( &$propertyTableDefinitions ) use ( $configuration ) {
+		return PropertyRegistry::getInstance()->registerAsFixedTables( $propertyTableDefinitions, $configuration );
+	};
+
+	/**
+	 * Register properties
+	 *
+	 * @since 0.3
+	 */
+	$GLOBALS['wgHooks']['smwInitProperties'][] = function () {
+		return PropertyRegistry::getInstance()->registerPropertiesAndAliases();
+	};
+
+	/**
+	 * Execute and update annotations
+	 *
+	 * @since 0.3
+	 */
+	$GLOBALS['wgHooks']['SMWStore::updateDataBefore'][] = function ( \SMW\Store $store, \SMW\SemanticData $semanticData ) use ( $configuration ) {
+		$propertyAnnotator = new ExtraPropertyAnnotator( $semanticData, $configuration );
+
+		// DI object registration
+		$propertyAnnotator->registerObject( 'DBConnection', function() {
+			return wfGetDB( DB_SLAVE );
+		} );
+
+		$propertyAnnotator->registerObject( 'WikiPage', function( $instance ) {
+			return \WikiPage::factory( $instance->getSemanticData()->getSubject()->getTitle() );
+		} );
+
+		$propertyAnnotator->registerObject( 'UserByPageName', function( $instance ) {
+			return \User::newFromName( $instance->getWikiPage()->getTitle()->getText() );
+		} );
+
+		return $propertyAnnotator->addAnnotation();
+	};
+
+	return true;
+};
