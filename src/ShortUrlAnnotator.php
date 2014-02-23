@@ -7,6 +7,7 @@ use SMW\DIProperty;
 
 use SMWDIUri as DIUri;
 
+use Title;
 use SpecialPage;
 use RuntimeException;
 
@@ -53,18 +54,13 @@ class ShortUrlAnnotator extends BaseAnnotator {
 	 */
 	public function addAnnotation() {
 
-		if ( !class_exists( 'ShortUrlUtils' ) ) {
+		if ( !$this->hasShortUrlUtils() ) {
 			throw new RuntimeException( 'Expected class ShortUrlUtils to be available' );
 		}
 
-		$title = $this->getSemanticData()->getSubject()->getTitle();
+		$shortURL = $this->getShortUrl( $this->getSemanticData()->getSubject()->getTitle() );
 
-		//FIXME handle internal and external links
-
-		if ( \ShortUrlUtils::needsShortUrl( $title ) ) {
-			$shortId = \ShortUrlUtils::encodeTitle( $title );
-			$shortURL = $this->getUrlPrefix() . $shortId;
-
+		if ( $shortURL !== null ) {
 			$this->getSemanticData()->addPropertyObjectValue(
 				new DIProperty( PropertyRegistry::getInstance()->getPropertyId( '_SHORTURL' ) ),
 				new DIUri( 'http', $shortURL, '', '' )
@@ -74,13 +70,29 @@ class ShortUrlAnnotator extends BaseAnnotator {
 		return true;
 	}
 
-	protected function getUrlPrefix () {
+	protected function getShortUrl( Title $title ) {
+
+		//FIXME handle internal and external links
+		$shortURL = null;
+
+		if ( \ShortUrlUtils::needsShortUrl( $title ) ) {
+			$shortURL = $this->getUrlPrefix() . \ShortUrlUtils::encodeTitle( $title );
+		}
+
+		return $shortURL;
+	}
+
+	protected function getUrlPrefix() {
 
 		if ( !isset( $this->configuration['wgShortUrlPrefix'] ) && !is_string( $this->configuration['wgShortUrlPrefix'] ) ) {
 			return SpecialPage::getTitleFor( 'ShortUrl' )->getFullUrl() . '/';
 		}
 
 		return $this->configuration['wgShortUrlPrefix'];
+	}
+
+	protected function hasShortUrlUtils() {
+		return class_exists( 'ShortUrlUtils' );
 	}
 
 }
