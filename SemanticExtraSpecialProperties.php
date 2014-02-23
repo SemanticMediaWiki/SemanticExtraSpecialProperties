@@ -70,14 +70,14 @@ $GLOBALS['wgAutoloadClasses']['SESP\ShortUrlAnnotator']        = __DIR__ . '/src
 /**
  * Setup and initialization
  *
- * @since 0.3
+ * @since 1.0
  */
 $GLOBALS['wgExtensionFunctions']['semantic-extra-special-properties'] = function() {
 
 	/**
 	 * Collect only relevant configuration parameters
 	 *
-	 * @since 0.3
+	 * @since 1.0
 	 */
 	$configuration = array(
 		'wgDisableCounters'     => $GLOBALS['wgDisableCounters'],
@@ -90,7 +90,7 @@ $GLOBALS['wgExtensionFunctions']['semantic-extra-special-properties'] = function
 	/**
 	 * Register as fixed tables
 	 *
-	 * @since 0.3
+	 * @since 1.0
 	 */
 	$GLOBALS['wgHooks']['SMW::SQLStore::updatePropertyTableDefinitions'][] = function ( &$propertyTableDefinitions ) use ( $configuration ) {
 		return PropertyRegistry::getInstance()->registerAsFixedTables( $propertyTableDefinitions, $configuration );
@@ -99,7 +99,7 @@ $GLOBALS['wgExtensionFunctions']['semantic-extra-special-properties'] = function
 	/**
 	 * Register properties
 	 *
-	 * @since 0.3
+	 * @since 1.0
 	 */
 	$GLOBALS['wgHooks']['smwInitProperties'][] = function () {
 		return PropertyRegistry::getInstance()->registerPropertiesAndAliases();
@@ -108,7 +108,7 @@ $GLOBALS['wgExtensionFunctions']['semantic-extra-special-properties'] = function
 	/**
 	 * Execute and update annotations
 	 *
-	 * @since 0.3
+	 * @since 1.0
 	 */
 	$GLOBALS['wgHooks']['SMWStore::updateDataBefore'][] = function ( \SMW\Store $store, \SMW\SemanticData $semanticData ) use ( $configuration ) {
 		$propertyAnnotator = new ExtraPropertyAnnotator( $semanticData, $configuration );

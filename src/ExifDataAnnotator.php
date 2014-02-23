@@ -21,7 +21,7 @@ use RuntimeException;
  * @ingroup SESP
  *
  * @licence GNU GPL v2+
- * @since 0.3
+ * @since 1.0
  *
  * @author mwjames
  * @author rotsee
@@ -39,7 +39,7 @@ class ExifDataAnnotator extends BaseAnnotator {
 	protected $subobject = null;
 
 	/**
-	 * @since 0.3
+	 * @since 1.0
 	 *
 	 * @param SemanticData $semanticData
 	 */
@@ -48,7 +48,7 @@ class ExifDataAnnotator extends BaseAnnotator {
 	}
 
 	/**
-	 * @since 0.3
+	 * @since 1.0
 	 *
 	 * @return SemanticData
 	 */
@@ -57,7 +57,7 @@ class ExifDataAnnotator extends BaseAnnotator {
 	}
 
 	/**
-	 * @since 0.3
+	 * @since 1.0
 	 *
 	 * @param File $file
 	 */
@@ -66,7 +66,7 @@ class ExifDataAnnotator extends BaseAnnotator {
 	}
 
 	/**
-	 * @since 0.3
+	 * @since 1.0
 	 *
 	 * @return boolean
 	 */

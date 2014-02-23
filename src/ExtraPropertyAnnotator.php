@@ -21,7 +21,7 @@ use RuntimeException;
  * @ingroup SESP
  *
  * @licence GNU GPL v2+
- * @since 0.3
+ * @since 1.0
  *
  * @author mwjames
  * @author rotsee
@@ -36,7 +36,7 @@ class ExtraPropertyAnnotator extends BaseAnnotator {
 	protected $page = null;
 
 	/**
-	 * @since 0.3
+	 * @since 1.0
 	 *
 	 * @param SemanticData $semanticData
 	 * @param array $configuration
@@ -47,7 +47,7 @@ class ExtraPropertyAnnotator extends BaseAnnotator {
 	}
 
 	/**
-	 * @since 0.3
+	 * @since 1.0
 	 *
 	 * @return boolean
 	 * @throws RuntimeException
@@ -63,7 +63,7 @@ class ExtraPropertyAnnotator extends BaseAnnotator {
 	}
 
 	/**
-	 * @since 0.3
+	 * @since 1.0
 	 *
 	 * @return SemanticData
 	 */
@@ -72,7 +72,7 @@ class ExtraPropertyAnnotator extends BaseAnnotator {
 	}
 
 	/**
-	 * @since 0.3
+	 * @since 1.0
 	 *
 	 * @return WikiPage
 	 */

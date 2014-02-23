@@ -13,7 +13,7 @@ use UnexpectedValueException;
  * @ingroup SESP
  *
  * @licence GNU GPL v2+
- * @since 0.3
+ * @since 1.0
  *
  * @author mwjames
  */
@@ -25,7 +25,7 @@ class PropertyRegistry {
 	protected $definitions = null;
 
 	/**
-	 * @since 0.3
+	 * @since 1.0
 	 *
 	 * @return PropertyRegistry
 	 */
@@ -43,21 +43,21 @@ class PropertyRegistry {
 	}
 
 	/**
-	 * @since 0.3
+	 * @since 1.0
 	 */
 	public static function clear() {
 		self::$instance = null;
 	}
 
 	/**
-	 * @since 0.3
+	 * @since 1.0
 	 */
 	public function getJsonFile() {
 		return __DIR__ . '/' . 'definitions.json';
 	}
 
 	/**
-	 * @since 0.3
+	 * @since 1.0
 	 *
 	 * @param string $path
 	 *
@@ -81,7 +81,7 @@ class PropertyRegistry {
 	}
 
 	/**
-	 * @since 0.3
+	 * @since 1.0
 	 *
 	 * @param string $id
 	 *
@@ -92,7 +92,7 @@ class PropertyRegistry {
 	}
 
 	/**
-	 * @since 0.3
+	 * @since 1.0
 	 *
 	 * @param string $id
 	 *
@@ -108,7 +108,7 @@ class PropertyRegistry {
 	 *
 	 * @note Specific exif properties are not considered as fixed table entry
 	 *
-	 * @since 0.3
+	 * @since 1.0
 	 *
 	 * @param array $propertyTableDefinitions
 	 * @param array $configuration
@@ -148,7 +148,7 @@ class PropertyRegistry {
 	 * @note If there are an exceedingly amount of possible exif properties, those
 	 * should only registered if '_EXIFDATA' is used as configuration parameter
 	 *
-	 * @since 0.3
+	 * @since 1.0
 	 *
 	 * @return boolean
 	 */

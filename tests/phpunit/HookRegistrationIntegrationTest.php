@@ -17,7 +17,7 @@ use Title;
  * @group SESPExtension
  *
  * @licence GNU GPL v2+
- * @since 0.3
+ * @since 1.0
  *
  * @author mwjames
  */

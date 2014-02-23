@@ -9,7 +9,7 @@ use RuntimeException;
  * @ingroup SESP
  *
  * @licence GNU GPL v2+
- * @since 0.3
+ * @since 1.0
  *
  * @author mwjames
  */
@@ -19,14 +19,14 @@ abstract class BaseAnnotator {
 	protected $container = array();
 
 	/**
-	 * @since 0.3
+	 * @since 1.0
 	 *
 	 * @return bbolean
 	 */
 	abstract public function addAnnotation();
 
 	/**
-	 * @since 0.3
+	 * @since 1.0
 	 *
 	 * @param string $objectName
 	 * @param Closure $objectSignature

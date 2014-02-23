@@ -15,7 +15,7 @@ use RuntimeException;
  * @ingroup SESP
  *
  * @licence GNU GPL v2+
- * @since 0.3
+ * @since 1.0
  *
  * @author rotsee
  */
@@ -28,7 +28,7 @@ class ShortUrlAnnotator extends BaseAnnotator {
 	protected $configuration = null;
 
 	/**
-	 * @since 0.3
+	 * @since 1.0
 	 *
 	 * @param SemanticData $semanticData
 	 * @param array $configuration
@@ -39,7 +39,7 @@ class ShortUrlAnnotator extends BaseAnnotator {
 	}
 
 	/**
-	 * @since 0.3
+	 * @since 1.0
 	 *
 	 * @param SemanticData
 	 */
@@ -48,7 +48,7 @@ class ShortUrlAnnotator extends BaseAnnotator {
 	}
 
 	/**
-	 * @since 0.3
+	 * @since 1.0
 	 *
 	 * @return boolean
 	 */
