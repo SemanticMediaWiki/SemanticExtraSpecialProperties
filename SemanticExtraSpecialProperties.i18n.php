@@ -31,8 +31,8 @@ $messages['en'] = array(
 );
 
 /** Message documentation (Message documentation)
- * @author Shirayuki
  * @author Kghbln
+ * @author Shirayuki
  */
 $messages['qqq'] = array(
 	'sesp-desc' => '{{desc|name=Semantic Extra Special Properties|url=http://www.mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties}}',
@@ -117,6 +117,7 @@ $messages['de'] = array(
 	'sesp-property-author' => 'Seitenbearbeiter',
 	'sesp-property-first-author' => 'Seitenersteller',
 	'sesp-property-revision-id' => 'Bearbeitungskennung',
+	'sesp-property-page-id' => 'Seitenkennung',
 	'sesp-property-view-count' => 'Anzahl der Seitenaufrufe',
 	'sesp-property-subpages' => 'Unterseite',
 	'sesp-property-revisions' => 'Anzahl der Bearbeitungen',
@@ -358,6 +359,7 @@ $messages['ko'] = array(
  */
 $messages['lb'] = array(
 	'sesp-property-author' => 'Auteur vun der Säit',
+	'sesp-property-page-id' => 'ID (Nummer) vun der Säit',
 	'sesp-property-subpages' => 'Ënnersäit',
 	'sesp-property-revisions' => 'Zuel vun de Versiounen',
 	'sesp-property-shorturl' => 'Kuerz URL',
@@ -373,6 +375,7 @@ $messages['mk'] = array(
 	'sesp-property-author' => 'Автор на страницата',
 	'sesp-property-first-author' => 'Создавач на страницата',
 	'sesp-property-revision-id' => 'Назнака на ревизијата',
+	'sesp-property-page-id' => 'Назнака на страницата',
 	'sesp-property-view-count' => 'Број на прегледи на страниците',
 	'sesp-property-subpages' => 'Потстраница',
 	'sesp-property-revisions' => 'Број на ревизии',
@@ -519,6 +522,7 @@ $messages['ru'] = array(
 	'sesp-property-author' => 'Автор страницы',
 	'sesp-property-first-author' => 'Создатель страницы',
 	'sesp-property-revision-id' => 'Идентификатор правки',
+	'sesp-property-page-id' => 'Идентификатор страницы',
 	'sesp-property-view-count' => 'Количество просмотров страницы',
 	'sesp-property-subpages' => 'Подстраница',
 	'sesp-property-revisions' => 'Количество правок',
