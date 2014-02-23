@@ -184,7 +184,7 @@ class ExtraPropertyAnnotator extends BaseAnnotator {
 		return $this->getWikiPage()->getTitle()->inNamespace( NS_USER );
 	}
 
-	private function isImagePage() {
+	private function isFilePage() {
 		return $this->getWikiPage()->getTitle()->inNamespace( NS_FILE );
 	}
 
@@ -265,7 +265,7 @@ class ExtraPropertyAnnotator extends BaseAnnotator {
 
 	private function addPropertyValuesForMIMEAndMediaType(){
 
-		if ( $this->isImagePage() ) {
+		if ( $this->isFilePage() ) {
 
 			$file = $this->getWikiPage()->getFile();
 			$mimetype = $file->getMimeType();
@@ -299,7 +299,7 @@ class ExtraPropertyAnnotator extends BaseAnnotator {
 	}
 
 	private function addPropertyValuesForExifData() {
-		if ( $this->isImagePage() ) {
+		if ( $this->isFilePage() ) {
 			$exifDataAnnotator = new ExifDataAnnotator( $this->getSemanticData() );
 			$exifDataAnnotator->setFile( $this->getWikiPage()->getFile() );
 			$exifDataAnnotator->addAnnotation();

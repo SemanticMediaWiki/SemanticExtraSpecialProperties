@@ -3,6 +3,9 @@
 namespace SESP\Tests;
 
 use SESP\PropertyRegistry;
+use SMW\DIProperty;
+
+use ReflectionClass;
 
 /**
  * @covers \SESP\PropertyRegistry
@@ -194,8 +197,62 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 		$this->assertCount( 0, $tableDefinitions );
 	}
 
+	public function testPropertyWithVisibility() {
+
+		$propertydefinition = array(
+			'_EXIF' => array(),
+			'_FOOOOO'  => array(
+				'id'     => '___FOOOOO',
+				'type'   => 1,
+				'show'   => true,
+				'msgkey' => 'fooooo'
+			)
+		);
+
+		$property = $this->registerPropertyWithDefinition( $propertydefinition );
+
+		$this->assertInstanceOf( '\SMW\DIProperty', $property );
+		$this->assertTrue( $property->isShown() );
+	}
+
+	public function testPropertyWithoutVisibility() {
+
+		$propertydefinition = array(
+			'_EXIF' => array(),
+			'_FOOOOO'  => array(
+				'id'     => '___FOOOOO',
+				'type'   => 1,
+				'show'   => false,
+				'msgkey' => 'fooooo'
+			)
+		);
+
+		$property = $this->registerPropertyWithDefinition( $propertydefinition );
+
+		$this->assertInstanceOf( '\SMW\DIProperty', $property );
+		$this->assertFalse( $property->isShown() );
+	}
+
+	protected function registerPropertyWithDefinition( $propertydefinition ) {
+
+		$instance = PropertyRegistry::getInstance();
+
+		$reflector = new ReflectionClass( '\SESP\PropertyRegistry' );
+		$definitions = $reflector->getProperty( 'definitions' );
+		$definitions->setAccessible( true );
+		$definitions->setValue( $instance, $propertydefinition );
+
+		$this->assertTrue( $instance->registerPropertiesAndAliases() );
+
+		$property = new DIProperty( $instance->getPropertyId( '_FOOOOO' ) );
+		$instance->clear();
+
+		return $property;
+	}
+
 	protected function getJsonFile() {
 		return PropertyRegistry::getInstance()->getJsonFile();
 	}
+
 
 }

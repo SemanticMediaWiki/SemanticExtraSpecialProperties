@@ -32,7 +32,7 @@ if ( is_readable( __DIR__ . '/vendor/autoload.php' ) ) {
 	include_once( __DIR__ . '/vendor/autoload.php' );
 }
 
-if ( version_compare( $GLOBALS['wgVersion'], '1.19', '<' ) ) {
+if ( version_compare( $GLOBALS['wgVersion'], '1.20', '<' ) ) {
 	die( '<b>Error:</b> This version of Semantic Extra Special Properties requires MediaWiki 1.20 or above.' );
 }
 
@@ -40,8 +40,8 @@ if ( !defined( 'SMW_VERSION' ) ) {
 	die( '<b>Error:</b> This version of Semantic Extra Special Properties requires <a href="http://semantic-mediawiki.org/wiki/Semantic_MediaWiki">Semantic MediaWiki</a> installed.<br />' );
 }
 
-if ( version_compare( SMW_VERSION, '1.7', '<' ) ) {
-	die( '<b>Error:</b> This version of Semantic Extra Special Properties requires Semantic MediaWiki 1.7 or above.' );
+if ( version_compare( SMW_VERSION, '1.9', '<' ) ) {
+	die( '<b>Error:</b> This version of Semantic Extra Special Properties requires Semantic MediaWiki 1.9 or above.' );
 }
 
 // Register extension
@@ -59,7 +59,7 @@ $GLOBALS['wgExtensionCredits']['semantic'][] = array(
 );
 
 // Tell file locations
-$GLOBALS['wgExtensionMessagesFiles']['SemanticESP'] = __DIR__ . '/SemanticExtraSpecialProperties.i18n.php';
+$GLOBALS['wgExtensionMessagesFiles']['semantic-extra-special-properties'] = __DIR__ . '/SemanticExtraSpecialProperties.i18n.php';
 
 $GLOBALS['wgAutoloadClasses']['SESP\ExtraPropertyAnnotator']   = __DIR__ . '/src/ExtraPropertyAnnotator.php';
 $GLOBALS['wgAutoloadClasses']['SESP\BaseAnnotator']            = __DIR__ . '/src/BaseAnnotator.php';
