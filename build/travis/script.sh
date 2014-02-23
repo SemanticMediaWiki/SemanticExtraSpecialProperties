@@ -38,7 +38,13 @@ function installSemanticExtraSpecialPropertiesAsExtension {
 	php maintenance/update.php --quick
 
 	cd tests/phpunit
-	php phpunit.php -c ../../extensions/SemanticExtraSpecialProperties/phpunit.xml.dist
+
+	if [ "$TYPE" == "coverage" ]
+	then
+		php phpunit.php --group SESPExtension -c ../../extensions/SemanticExtraSpecialProperties/phpunit.xml.dist --coverage-clover $originalDirectory/build/coverage.clover
+	else
+		php phpunit.php --group SESPExtension -c ../../extensions/SemanticExtraSpecialProperties/phpunit.xml.dist
+	fi
 }
 
 installMediaWiki
