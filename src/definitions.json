@@ -244,7 +244,7 @@
             "id": "___EXIFIMAGELENGTH",
             "type": 1,
             "msgkey": "exif-imagelength",
-            "alias": "Image length",
+            "alias": "Image length"
 	},
         "FILESOURCE": {
             "id": "___EXIFFILESOURCE",
