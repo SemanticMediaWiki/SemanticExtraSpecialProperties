@@ -25,20 +25,11 @@ MediaWiki `composer.json` file and run the ``php composer.phar install/update`` 
 	}
 }
 ```
-## Upgrading
-
-After upgrading this extension to a newer version the semantic data should be refreshed by running the following
-command from the base directory of your wiki:
-
-```
-php extensions/SemanticMediaWiki/maintenance/SMW_refreshData.php -v -d 50
-```
+After upgrading this extension to a newer version it is strongly recommended to rebuild existing semantic data by running the [data refresh][data-refresh] command from the base directory.
 
 ## Configuration
 
-### Special properties to be used
-
-Properties to be included need to be specified in the "LocalSettings.php" file using the `$sespSpecialProperties`
+Properties that are planned to be included need to be specified in the "LocalSettings.php" file using the `$sespSpecialProperties`
 array. By default the array is empty, i.e. no special property is used.
 
 Compound customizing for special properties can be maintained as:
@@ -66,7 +57,7 @@ very up to date. If [`$wgDisableCounters`][$wgDisableCounters] is set to
 is in namespace "file". Note that the currently available Exif data ("datetimeoriginal", "datetime", "software",
 "imagewidth" and "imagelength") will be stored as a [subobject][subobject].
 
-#### Properties with further depedencies
+#### Properties with further dependencies
 
 - `_SHORTURL` add short URL if the [ShortUrl][ShortUrl]
 is installed, and there is a shortened URL for the current page
@@ -80,27 +71,20 @@ is installed, and there is a shortened URL for the current page
 
 These properties may be removed in any further release of this extension.
 
-### Extra database tables for value storage
+#### Fixed tables
 
 Setting `$sespUseAsFixedTables` to "true" enables to setup properties as [fixed properties][fixedprop] in order to
-improve data access. Doing so is recommended. Note that you have to run
+improve data access. Doing so is recommended. Note that you have to run the [`update.php`][mw-update] from your wiki's base directory after setting this parameter for the required tables to be created.
 
-```
-php maintenance/update.php --quick
-```
+Running the [data refresh][data-refresh] afterwards is recommended as well and should be done every time a special property is added to the `$sespSpecialProperties` array.
 
-from your wiki's base directory after setting this parameter for the required tables to be created. Additionally run
-
-```
-php extensions/SemanticMediaWiki/maintenance/SMW_refreshData.php -v -d 50
-```
-
-afterwards as well. This also has to be done every time a special property was added to the `$sespSpecialProperties`
-array.
-
-### Stop recognition of bot edits
+#### Bot edits
 
 Setting ``$wgSESPExcludeBots`` to "true" causes bot edits via user accounts in usergroup "bot" to be ignored when storing data for the special properties activated. However this does not affect the page creator property (`_CUSER`).
+
+#### Property definitions
+
+Details about property definitions can be found in [definitions.json](/src/definitions.json).
 
 ## Privacy
 
@@ -110,13 +94,7 @@ as the `_EUSER` property will list all authors for everyone.
 The Exchangeable image file format (and thereof its Exif tags) can contain metadata about a location which
 can pose a [privacy issue][privacy].
 
-## Developer information
-
-### Property definitions
-
-Details about property definitions can be found in [definitions.json](/src/definitions.json).
-
-### Tests
+## Tests
 
 The extension provides unit tests that covers the core-functionality as well as testing its integration with
 [Semantic MediaWiki][smw]. The tests are normally run via a [continues integration platform][travis] that includes:
@@ -160,3 +138,5 @@ not have any liability or responsibility for any damage or loss.
 [MIME type]: https://semantic-mediawiki.org/wiki/Help:Special_property_MIME_type
 [Media type]: https://semantic-mediawiki.org/wiki/Help:Special_property_Media_type
 [ShortUrl]: https://www.mediawiki.org/wiki/Extension:ShortUrl
+[data-refresh]: https://semantic-mediawiki.org/wiki/Help:Data_refresh#Examples
+[mw-update]: https://www.mediawiki.org/wiki/Manual:Update.php
