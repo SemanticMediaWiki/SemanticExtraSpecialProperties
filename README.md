@@ -83,7 +83,7 @@ Setting ``$wgSESPExcludeBots`` to "true" causes bot edits via user accounts in u
 
 #### Property definitions
 
-Details about property definitions can be found in [definitions.json](/src/definitions.json).
+Details about available properties can be found in the [definitions.json](/src/definitions.json). The file also contains information about the visibility (display in the Factbox etc.) of a property, to alter the characterisctics of non-subobject related properties one can set `show` to `true` for each definition.
 
 ## Privacy
 
