@@ -1,8 +1,8 @@
-### Version 0.3
+### Version 1.0
 
 Released on 2014-02-23.
 
-0.3 is a complete rewrite of the existing implementation to allow sufficient test integration which made it necessary
+1.0 is a complete rewrite of the existing implementation to allow sufficient test integration which made it necessary
 to split the original file into different classes (force encapsulation), eliminate GLOBALS (where necessary inject
 configuration via the constructor), and enable service injection (increase inversion of control).
 
@@ -10,7 +10,7 @@ configuration via the constructor), and enable service injection (increase inver
 functional implementation. Property definitions no longer reside within PHP and have been moved into `json` file for
 easier access and configurability.
 
-Due to those internal changes and the introduced test integration, 0.3 requires Semantic MediaWiki 1.9. It is strongly
+Due to those internal changes and the introduced test integration, 1.0 requires Semantic MediaWiki 1.9. It is strongly
 recommended to run `update.php` together with a `SMW_refreshData.php`.
 
 For details about the rewrite, its discussion, and changes see #10.

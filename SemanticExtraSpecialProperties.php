@@ -26,7 +26,7 @@ if ( defined( 'SESP_VERSION' ) ) {
 	return 1;
 }
 
-define( 'SESP_VERSION', '0.3 alpha' );
+define( 'SESP_VERSION', '1.0 RC' );
 
 if ( is_readable( __DIR__ . '/vendor/autoload.php' ) ) {
 	include_once( __DIR__ . '/vendor/autoload.php' );

@@ -22,7 +22,7 @@ MediaWiki `composer.json` file and run the ``php composer.phar install/update`` 
 ```json
 {
 	"require": {
-		"mediawiki/semantic-extra-special-properties": "~0.3"
+		"mediawiki/semantic-extra-special-properties": "~1.0"
 	}
 }
 ```
@@ -110,7 +110,7 @@ For details about changed behaviour, added customizing or feature, see the [Chan
 
 ## Credits
 
-- 0.3 is a complete re-write and has been implemented by mwjames.
+- 1.0 is a complete re-write and has been implemented by mwjames.
 - 0.2.8 enhanced the exif data handling provided by Stephan Gambke.
 - Originally written for [säsongsmat.nu][säsongsmat] by Leo Wallentin (leo_wallentin (at) hotmail.com).
 
