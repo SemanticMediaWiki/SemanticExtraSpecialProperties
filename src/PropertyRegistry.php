@@ -88,7 +88,7 @@ class PropertyRegistry {
 	 * @return string|null
 	 */
 	public function getPropertyId( $id ) {
-		return $this->lookupWithIdentifier( 'id', $id );
+		return $this->lookupWithIndexForId( 'id', $id );
 	}
 
 	/**
@@ -99,12 +99,12 @@ class PropertyRegistry {
 	 * @return string|null
 	 */
 	public function getPropertyType( $id ) {
-		return $this->lookupWithIdentifier( 'type', $id );
+		return $this->lookupWithIndexForId( 'type', $id );
 	}
 
 	/**
-	 * Only those properties that are customized are also only considered as
-	 * possible candidates for a fixed table
+	 * Only properties that are customized are also considered as possible
+	 * candidates for a fixed table
 	 *
 	 * @note Specific exif properties are not considered as fixed table entry
 	 *
@@ -172,7 +172,8 @@ class PropertyRegistry {
 			DIProperty::registerProperty(
 				$propertyId,
 				$this->getPropertyDataItemTypeId( $externalId ),
-				$this->getPropertyLabel( $externalId )
+				$this->getPropertyLabel( $externalId ),
+				$this->getPropertyVisibility( $externalId )
 			);
 
 			DIProperty::registerPropertyAlias(
@@ -184,7 +185,7 @@ class PropertyRegistry {
 
 	protected function getPropertyLabel( $id ) {
 
-		$msgkey = $this->lookupWithIdentifier( 'msgkey', $id );
+		$msgkey = $this->lookupWithIndexForId( 'msgkey', $id );
 
 		if ( $msgkey ) {
 			return wfMessage( $msgkey )->inContentLanguage()->text();
@@ -193,8 +194,19 @@ class PropertyRegistry {
 		return false;
 	}
 
+	protected function getPropertyVisibility( $id ) {
+
+		$show = $this->lookupWithIndexForId( 'show', $id );
+
+		if ( $show === null ) {
+			return false;
+		}
+
+		return $show;
+	}
+
 	protected function getPropertyAlias( $id ) {
-		return $this->lookupWithIdentifier( 'alias', $id );
+		return $this->lookupWithIndexForId( 'alias', $id );
 	}
 
 	protected function getPropertyDataItemTypeId( $id ) {
@@ -208,16 +220,16 @@ class PropertyRegistry {
 		return null;
 	}
 
-	protected function lookupWithIdentifier( $key, $id ) {
+	protected function lookupWithIndexForId( $index, $id ) {
 
 		$id = strtoupper( $id );
 
-		if ( isset( $this->definitions[ $id ] ) && isset( $this->definitions[ $id ][ $key ] ) ) {
-			return $this->definitions[ $id ][ $key ];
+		if ( isset( $this->definitions[ $id ] ) && isset( $this->definitions[ $id ][ $index ] ) ) {
+			return $this->definitions[ $id ][ $index ];
 		}
 
-		if ( isset( $this->definitions['_EXIF'][ $id ] ) && isset( $this->definitions['_EXIF'][ $id ][ $key ] ) ) {
-			return $this->definitions['_EXIF'][ $id ][ $key ];
+		if ( isset( $this->definitions['_EXIF'][ $id ] ) && isset( $this->definitions['_EXIF'][ $id ][ $index ] ) ) {
+			return $this->definitions['_EXIF'][ $id ][ $index ];
 		}
 
 		return null;

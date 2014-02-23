@@ -2,78 +2,91 @@
     "_REVID": {
         "id": "___REVID",
         "type": 1,
+        "show": false,
         "msgkey": "sesp-property-revision-id",
         "alias": "Revision ID"
     },
     "_PAGEID": {
         "id": "___PAGEID",
         "type": 1,
+        "show": false,
         "msgkey": "sesp-property-page-id",
         "alias": "Page Id"
     },
     "_EUSER": {
         "id": "___EUSER",
         "type": 9,
+        "show": false,
         "msgkey": "sesp-property-author",
         "alias": "Page author"
     },
     "_CUSER": {
         "id": "___CUSER",
         "type": 9,
+        "show": false,
         "msgkey": "sesp-property-first-author",
         "alias": "Page creator"
     },
     "_VIEWS": {
         "id": "___VIEWS",
         "type": 1,
+        "show": false,
         "msgkey": "sesp-property-view-count",
         "alias": "Number of page views"
     },
     "_SUBP": {
         "id": "___SUBP",
         "type": 9,
+        "show": false,
         "msgkey": "sesp-property-subpages",
         "alias": "Subpage"
     },
     "_NREV": {
         "id": "___NREV",
         "type": 1,
+        "show": false,
         "msgkey": "sesp-property-revisions",
         "alias": "Number of revisions"
     },
     "_NTREV": {
         "id": "___NTREV",
         "type": 1,
+        "show": false,
         "msgkey": "sesp-property-talk-revisions",
         "alias": "Number of talk page revisions"
     },
     "_MIMETYPE": {
         "id": "___MIMETYPE",
         "type": 2,
+        "show": false,
         "msgkey": "sesp-property-mimetype",
         "alias": "MIME type"
     },
     "_MEDIATYPE": {
         "id": "___MEDIATYPE",
         "type": 2,
+        "show": false,
         "msgkey": "sesp-property-mediatype",
         "alias": "Media type"
     },
     "_SHORTURL": {
         "id": "___SHORTURL",
         "type": 5,
+        "show": false,
         "msgkey": "sesp-property-shorturl",
         "alias": "Short URL"
     },
     "_USERREG": {
         "id": "___USERREG",
         "type": 6,
+        "show": false,
         "msgkey": "sesp-property-user-registration-date",
         "alias": "User registration date"
     },
     "_EXIFDATA": {
         "id": "___EXIFDATA",
         "type": 9,
+        "show": false,
         "msgkey": "sesp-property-exif-data",
         "alias": "Exif data"
     },

@@ -15,10 +15,15 @@ use RuntimeException;
  */
 abstract class BaseAnnotator {
 
-	/** @var SemanticData */
+	/** @var array */
 	protected $container = array();
 
-	public abstract function addAnnotation();
+	/**
+	 * @since 0.3
+	 *
+	 * @return bbolean
+	 */
+	abstract public function addAnnotation();
 
 	/**
 	 * @since 0.3

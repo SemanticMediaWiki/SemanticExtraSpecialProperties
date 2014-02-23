@@ -29,7 +29,6 @@ class HookRegistrationIntegrationTest extends \PHPUnit_Framework_TestCase {
 
 		$this->assertTrue( is_callable( $registry ) );
 		$this->assertTrue( call_user_func( $registry) );
-
 	}
 
 	/**
