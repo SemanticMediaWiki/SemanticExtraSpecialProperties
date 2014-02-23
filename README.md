@@ -53,9 +53,7 @@ very up to date. If [`$wgDisableCounters`][$wgDisableCounters] is set to
 - `_NTREV` same but for the talk page, i.e. showing how much discussion is going on around this page
 - `_SUBP` add properties for subpages
 - `_USERREG` add a property to user pages with the users registration date
-- `_EXIFDATA` add properties based on image metadata (Exif data), when available and in case the object
-is in namespace "file". Note that the currently available Exif data ("datetimeoriginal", "datetime", "software",
-"imagewidth" and "imagelength") will be stored as a [subobject][subobject].
+- `_EXIFDATA` add properties based on image metadata (Exif data), when available and in case it is a `NS_FILE` namespace object data are stored as a [subobject][subobject]. Details on available Exif data can be found [here](/src/definitions.json).
 
 #### Properties with further dependencies
 
@@ -64,9 +62,9 @@ is installed, and there is a shortened URL for the current page
 
 #### Depreciated properties
 
-- `_MIMETYPE` add MIME type in case the article object is in namespace "file". Please use Semantic MediaWiki's
+- `_MIMETYPE` add MIME type in case the article object is in the `NS_FILE` namespace. Please use Semantic MediaWiki's
 (≥ 1.9.1) [MIME type][MIME type] instead.
-- `_MEDIATYPE` add media type in case the article object is in the "file" namespace. Please use Semantic MediaWiki's
+- `_MEDIATYPE` add media type in case the article object is in the `NS_FILE` namespace. Please use Semantic MediaWiki's
 (≥ 1.9.1) [Media type][Media type] instead.
 
 These properties may be removed in any further release of this extension.
