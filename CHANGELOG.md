@@ -21,13 +21,14 @@ For details about the rewrite, its discussion, and changes see #10.
 - #10 Fixed incorrect `_REVID` assignment
 - #10 Added `_PAGEID` for page ID collection
 - #10 Fixed incorrect ``_NTREV`` assignment
-- #10 Added ``'_EXIFDATA'`` collection for ("datetimeoriginal", "datetime", "software", "imagewidth" and "imagelength")
-as subobjects
+- #10 Added ``'_EXIFDATA'`` collection (see [definitions](/src/definitions.json)) which are stored as subobject
 - #10 Fixed "wfMsgGetKey" usage
 - #10 Fixed initialization value "is not a number" issue
 - #10 Added `sespUseAsFixedTables` setting
 - #10 Added unit and integrations tests
 - #13 Added I18n updates
+- #20 Added possibility to alter property visibility via the definitions file
+- #21 Extended Exif property definitions
 
 ### Version 0.2.7
 - Requires MediaWiki 1.20
