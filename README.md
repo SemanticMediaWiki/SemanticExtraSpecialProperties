@@ -29,7 +29,7 @@ After upgrading this extension to a newer version it is strongly recommended to 
 
 ## Configuration
 
-Properties that are planned to be included need to be specified in the "LocalSettings.php" file using the `$sespSpecialProperties`
+Properties that are planned to be included need to be specified in the [`LocalSettings.php`][mw-localsettings] file using the `$sespSpecialProperties`
 array. By default the array is empty, i.e. no special property is used.
 
 Compound customizing for special properties can be maintained as:
@@ -140,3 +140,4 @@ not have any liability or responsibility for any damage or loss.
 [ShortUrl]: https://www.mediawiki.org/wiki/Extension:ShortUrl
 [data-refresh]: https://semantic-mediawiki.org/wiki/Help:Data_refresh#Examples
 [mw-update]: https://www.mediawiki.org/wiki/Manual:Update.php
+[mw-localsettings]: https://www.mediawiki.org/wiki/Localsettings
