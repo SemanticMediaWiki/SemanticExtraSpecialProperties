@@ -137,6 +137,7 @@ $messages['dsb'] = array(
 	'sesp-property-author' => 'Awtor boka',
 	'sesp-property-first-author' => 'Stwóriśel boka',
 	'sesp-property-revision-id' => 'Wersijowy ID',
+	'sesp-property-page-id' => 'ID boka',
 	'sesp-property-view-count' => 'Licba zwobraznjenjow bokow',
 	'sesp-property-subpages' => 'Pódbok',
 	'sesp-property-revisions' => 'Licba wersijow',
@@ -227,6 +228,7 @@ $messages['fr'] = array(
 	'sesp-property-author' => 'Auteur de la page',
 	'sesp-property-first-author' => 'Créateur de la page',
 	'sesp-property-revision-id' => 'ID de révision',
+	'sesp-property-page-id' => 'ID de la page',
 	'sesp-property-view-count' => 'Nombre de page vues',
 	'sesp-property-subpages' => 'Sous-page',
 	'sesp-property-revisions' => 'Nombre de révisions',
@@ -272,6 +274,7 @@ $messages['hsb'] = array(
 	'sesp-property-author' => 'Awtor strony',
 	'sesp-property-first-author' => 'Tworićel strony',
 	'sesp-property-revision-id' => 'Wersijowy ID',
+	'sesp-property-page-id' => 'ID strony',
 	'sesp-property-view-count' => 'Ličba zwobraznjenjow strony',
 	'sesp-property-subpages' => 'Podstrona',
 	'sesp-property-revisions' => 'Ličba wersijow',
@@ -311,6 +314,7 @@ $messages['ja'] = array(
 	'sesp-property-author' => 'ページの著者',
 	'sesp-property-first-author' => 'ページの作成者',
 	'sesp-property-revision-id' => '版 ID',
+	'sesp-property-page-id' => 'ページ ID',
 	'sesp-property-view-count' => 'ページビュー数',
 	'sesp-property-subpages' => '下位ページ',
 	'sesp-property-revisions' => '版数',
@@ -406,6 +410,7 @@ $messages['nb'] = array(
 );
 
 /** Dutch (Nederlands)
+ * @author SPQRobin
  * @author Siebrand
  */
 $messages['nl'] = array(
@@ -413,6 +418,7 @@ $messages['nl'] = array(
 	'sesp-property-author' => 'Paginaauteur',
 	'sesp-property-first-author' => 'Paginamaker',
 	'sesp-property-revision-id' => 'Versienummer',
+	'sesp-property-page-id' => 'Paginanummer',
 	'sesp-property-view-count' => 'Aantal keren bekeken',
 	'sesp-property-subpages' => 'Subpagina',
 	'sesp-property-revisions' => 'Aantal versies',
@@ -554,12 +560,14 @@ $messages['si'] = array(
 /** Swedish (svenska)
  * @author Jopparn
  * @author Rotsee
+ * @author WikiPhoenix
  */
 $messages['sv'] = array(
 	'sesp-desc' => 'Extra specialegenskaper på alla sidor',
 	'sesp-property-author' => 'Sidförfattare',
 	'sesp-property-first-author' => 'Sidskapare',
 	'sesp-property-revision-id' => 'Versions-id',
+	'sesp-property-page-id' => 'Sidans ID',
 	'sesp-property-view-count' => 'Antal sidvisningar',
 	'sesp-property-subpages' => 'Undersida',
 	'sesp-property-revisions' => 'Antal sidredigeringar',
@@ -593,6 +601,13 @@ $messages['ta'] = array(
 $messages['te'] = array(
 	'sesp-property-subpages' => 'ఉపపుట',
 	'sesp-property-user-registration-date' => 'వాడుకరి నమోదైన తేదీ',
+);
+
+/** Tagalog (Tagalog)
+ * @author Jewel457
+ */
+$messages['tl'] = array(
+	'sesp-property-page-id' => 'Pagkakakilanlan ng pahina',
 );
 
 /** Ukrainian (українська)
