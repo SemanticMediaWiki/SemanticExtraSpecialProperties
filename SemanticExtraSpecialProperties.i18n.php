@@ -56,6 +56,13 @@ $messages['qqq'] = array(
 	'sesp-property-exif-data' => 'The name of the special property that stores a reference to the EXIF data of a file',
 );
 
+/** Arabic (العربية)
+ * @author Tarawneh
+ */
+$messages['ar'] = array(
+	'sesp-property-page-id' => 'معرف الصفحة',
+);
+
 /** Asturian (asturianu)
  * @author Xuacu
  */
@@ -95,6 +102,7 @@ $messages['br'] = array(
  * @author Умар
  */
 $messages['ce'] = array(
+	'sesp-property-page-id' => 'АгӀона ID',
 	'sesp-property-user-registration-date' => 'Декъашхо дӀавазвела/ела терахь',
 );
 
@@ -185,6 +193,7 @@ $messages['fa'] = array(
 	'sesp-property-author' => 'نویسندهٔ صفحه',
 	'sesp-property-first-author' => 'ایجاد کنندهٔ صفحه',
 	'sesp-property-revision-id' => 'شناسهٔ بازبینی',
+	'sesp-property-page-id' => 'شناسهٔ صفحه',
 	'sesp-property-view-count' => 'تعداد مشاهده‌ٔ صفحات',
 	'sesp-property-subpages' => 'زیرصفحه',
 	'sesp-property-revisions' => 'تعداد نسخه‌ها',
@@ -630,6 +639,13 @@ $messages['uk'] = array(
 	'sesp-property-shorturl' => 'Коротке посилання',
 	'sesp-property-user-registration-date' => 'Дата реєстрації користувача',
 	'sesp-property-exif-data' => 'Дані exif',
+);
+
+/** Vietnamese (Tiếng Việt)
+ * @author Skye Darcy
+ */
+$messages['vi'] = array(
+	'sesp-property-page-id' => 'Mã số trang',
 );
 
 /** Simplified Chinese (中文（简体）‎)
