@@ -5,15 +5,19 @@ use SESP\ExtraPropertyAnnotator;
 
 /**
  * Extension SemanticExtraSpecialProperties - Adds some extra special properties to all pages.
+ * 
+ * This extension was initially developed for http://xn--ssongsmat-v2a.nu Säsongsmat.nu.
  *
  * @link https://github.com/SemanticMediaWiki/SemanticExtraSpecialProperties/blob/master/README.md Documentation
- * @link https://github.com/SemanticMediaWiki/SemanticExtraSpecialProperties/blob/master/CHANGELOG.md Changlog
+ * @link https://github.com/SemanticMediaWiki/SemanticExtraSpecialProperties/blob/master/CHANGELOG.md Changelog
  * @link https://github.com/SemanticMediaWiki/SemanticExtraSpecialProperties/issues Support
  * @link https://github.com/SemanticMediaWiki/SemanticExtraSpecialProperties Source code
  *
  * @author Leo Wallentin (Rotsee)
  * @author James Hong Kong (Mwjames)
- * @license http://www.gnu.org/copyleft/gpl.html GNU General Public License 2.0 or later
+ * @author Jeroen De Dauw
+ * @author Karsten Hoffmeyer (Kghbln)
+ * @license https://www.gnu.org/copyleft/gpl.html GNU General Public License 2.0 or later
  */
 
 // Prevent direct entry
@@ -26,7 +30,7 @@ if ( defined( 'SESP_VERSION' ) ) {
 	return 1;
 }
 
-define( 'SESP_VERSION', '1.0 RC' );
+define( 'SESP_VERSION', '1.1-alpha' );
 
 if ( is_readable( __DIR__ . '/vendor/autoload.php' ) ) {
 	include_once( __DIR__ . '/vendor/autoload.php' );
@@ -50,8 +54,8 @@ $GLOBALS['wgExtensionCredits']['semantic'][] = array(
 	'name'           => 'Semantic Extra Special Properties',
 	'author'         => array(
 		'[https://github.com/rotsee Leo Wallentin]',
-		'[http://xn--ssongsmat-v2a.nu Säsongsmat.nu]',
-		'[https://semantic-mediawiki.org/wiki/User:MWJames James Hong Kong]'
+		'[https://semantic-mediawiki.org/wiki/User:MWJames James Hong Kong]',
+		'...'
 	),
 	'version'        => SESP_VERSION,
 	'url'            => 'https://www.mediawiki.org/wiki/Extension:SemanticExtraSpecialProperties',
