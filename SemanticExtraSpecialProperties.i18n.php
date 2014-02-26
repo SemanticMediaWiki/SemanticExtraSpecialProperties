@@ -71,6 +71,7 @@ $messages['ast'] = array(
 	'sesp-property-author' => 'Autor de la páxina',
 	'sesp-property-first-author' => 'Creador de la páxina',
 	'sesp-property-revision-id' => 'ID de la revisión',
+	'sesp-property-page-id' => 'ID de la páxina',
 	'sesp-property-view-count' => 'Númberu de vistes de la páxina',
 	'sesp-property-subpages' => 'Subpáxina',
 	'sesp-property-revisions' => 'Númberu de revisiones',
@@ -80,6 +81,13 @@ $messages['ast'] = array(
 	'sesp-property-shorturl' => 'URL curtia',
 	'sesp-property-user-registration-date' => 'Data de rexistru del usuariu',
 	'sesp-property-exif-data' => 'Datos Exif',
+);
+
+/** Bikol Central (Bikol Central)
+ * @author Geopoet
+ */
+$messages['bcl'] = array(
+	'sesp-property-page-id' => 'ID kan pahina',
 );
 
 /** Breton (brezhoneg)
@@ -275,6 +283,13 @@ $messages['he'] = array(
 	'sesp-property-exif-data' => 'נתוני Exif',
 );
 
+/** Hindi (हिन्दी)
+ * @author Vivek Rai
+ */
+$messages['hi'] = array(
+	'sesp-property-page-id' => 'पृष्ठ आइ॰डी',
+);
+
 /** Upper Sorbian (hornjoserbsce)
  * @author Michawiki
  */
@@ -356,6 +371,7 @@ $messages['ko'] = array(
 	'sesp-property-author' => '문서 저자',
 	'sesp-property-first-author' => '문서 생성자',
 	'sesp-property-revision-id' => '판 ID',
+	'sesp-property-page-id' => '문서 ID',
 	'sesp-property-view-count' => '페이지 뷰 수',
 	'sesp-property-subpages' => '하위 문서',
 	'sesp-property-revisions' => '판 수',
@@ -547,6 +563,13 @@ $messages['ru'] = array(
 	'sesp-property-shorturl' => 'Короткая ссылка',
 	'sesp-property-user-registration-date' => 'Дата регистрации пользователя',
 	'sesp-property-exif-data' => 'Данные EXIF',
+);
+
+/** Scots (Scots)
+ * @author John Reid
+ */
+$messages['sco'] = array(
+	'sesp-property-page-id' => 'Page ID',
 );
 
 /** Sinhala (සිංහල)
