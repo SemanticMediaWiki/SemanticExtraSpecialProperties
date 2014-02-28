@@ -9,7 +9,7 @@ For a description on how to write and run PHPUnit test, please consult the [manu
 
 ### Reporting an issue
 
-If you report an issue, please ensure to use the current master (this helps to verify that the problem still persists and isn't solved already) and describe your environment (SMW, MW version etc.) together with a [stack trace][stack-trace] and a clear description on how to reproduce the issue.
+If you report an issue, please ensure to use the current master (this helps to verify that the problem still persists and isn't solved already) and describe your environment (SMW, MW version etc.) together with a [stack trace][stack-trace] and a clear description on how to reproduce it.
 
 [sesp]: https://github.com/SemanticMediaWiki/SemanticExtraSpecialProperties
 [mw-testing]: https://www.mediawiki.org/wiki/Manual:PHP_unit_testing
