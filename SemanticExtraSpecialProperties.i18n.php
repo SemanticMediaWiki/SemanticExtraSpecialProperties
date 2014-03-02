@@ -165,6 +165,20 @@ $messages['dsb'] = array(
 	'sesp-property-exif-data' => 'Exif-daty',
 );
 
+/** British English (British English)
+ * @author Felicilijonas
+ */
+$messages['en-gb'] = array(
+	'sesp-property-page-id' => 'Puslapio ID',
+);
+
+/** Esperanto (Esperanto)
+ * @author KuboF
+ */
+$messages['eo'] = array(
+	'sesp-property-page-id' => 'Identigilo de paĝo',
+);
+
 /** Spanish (español)
  * @author Armando-Martin
  * @author Fitoschido
@@ -198,6 +212,7 @@ $messages['et'] = array(
  * @author ZxxZxxZ
  */
 $messages['fa'] = array(
+	'sesp-desc' => 'افزودن برخی خواص ویژه اضافی به همه صفحات',
 	'sesp-property-author' => 'نویسندهٔ صفحه',
 	'sesp-property-first-author' => 'ایجاد کنندهٔ صفحه',
 	'sesp-property-revision-id' => 'شناسهٔ بازبینی',
@@ -396,6 +411,13 @@ $messages['lb'] = array(
 	'sesp-property-exif-data' => 'Exif-Donnéeën',
 );
 
+/** Malagasy (Malagasy)
+ * @author Jagwar
+ */
+$messages['mg'] = array(
+	'sesp-property-page-id' => 'ID ny pejy',
+);
+
 /** Macedonian (македонски)
  * @author Bjankuloski06
  */
@@ -476,8 +498,10 @@ $messages['oc'] = array(
 
 /** Polish (polski)
  * @author Chrumps
+ * @author Jacenty359
  */
 $messages['pl'] = array(
+	'sesp-property-page-id' => 'ID strony',
 	'sesp-property-revisions' => 'Liczba wersji',
 	'sesp-property-mimetype' => 'Typ MIME',
 	'sesp-property-user-registration-date' => 'Data rejestracji użytkownika',
@@ -573,12 +597,14 @@ $messages['sco'] = array(
 );
 
 /** Sinhala (සිංහල)
+ * @author Sahan.ssw
  * @author පසිඳු කාවින්ද
  */
 $messages['si'] = array(
 	'sesp-property-author' => 'පිටුවේ කතෘ',
 	'sesp-property-first-author' => 'පිටු තැනූ තැනැත්තා',
 	'sesp-property-revision-id' => 'සංශෝධන හැඳුනුම',
+	'sesp-property-page-id' => 'පිටු හැඳුනුම',
 	'sesp-property-view-count' => 'පිටු නැරඹුම් සංඛ්‍යාව',
 	'sesp-property-subpages' => 'උපපිටුව',
 	'sesp-property-revisions' => 'සංශෝධන ගණන',
@@ -653,6 +679,7 @@ $messages['uk'] = array(
 	'sesp-property-author' => 'Автор сторінки',
 	'sesp-property-first-author' => 'Творець сторінки',
 	'sesp-property-revision-id' => 'ID версії',
+	'sesp-property-page-id' => 'ID сторінки',
 	'sesp-property-view-count' => 'Кількість переглядів сторінки',
 	'sesp-property-subpages' => 'Підсторінка',
 	'sesp-property-revisions' => 'Кількість версій',
@@ -669,6 +696,13 @@ $messages['uk'] = array(
  */
 $messages['vi'] = array(
 	'sesp-property-page-id' => 'Mã số trang',
+);
+
+/** Yiddish (ייִדיש)
+ * @author פוילישער
+ */
+$messages['yi'] = array(
+	'sesp-property-page-id' => 'בלאט נומער',
 );
 
 /** Simplified Chinese (中文（简体）‎)
