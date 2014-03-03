@@ -334,6 +334,7 @@ $messages['it'] = array(
 	'sesp-property-author' => 'Autore della pagina',
 	'sesp-property-first-author' => 'Creatore della pagina',
 	'sesp-property-revision-id' => 'ID versione',
+	'sesp-property-page-id' => 'ID della pagina',
 	'sesp-property-view-count' => 'Numero di visite alla pagina',
 	'sesp-property-subpages' => 'Sottopagine',
 	'sesp-property-revisions' => 'Numero di versioni',
