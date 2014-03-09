@@ -541,6 +541,13 @@ $messages['ps'] = array(
 	'sesp-property-user-registration-date' => 'د کارن نومليکنې نېټه',
 );
 
+/** Portuguese (português)
+ * @author SandroHc
+ */
+$messages['pt'] = array(
+	'sesp-property-page-id' => 'ID da página',
+);
+
 /** Romanian (română)
  * @author Minisarm
  * @author Stelistcristi
