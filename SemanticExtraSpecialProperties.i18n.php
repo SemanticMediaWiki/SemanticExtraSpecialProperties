@@ -280,6 +280,7 @@ $messages['gl'] = array(
 	'sesp-property-author' => 'Autor da páxina',
 	'sesp-property-first-author' => 'Creador da páxina',
 	'sesp-property-revision-id' => 'ID da revisión',
+	'sesp-property-page-id' => 'ID da páxina',
 	'sesp-property-view-count' => 'Número de vistas por páxina',
 	'sesp-property-subpages' => 'Subpáxina',
 	'sesp-property-revisions' => 'Número de revisións',
