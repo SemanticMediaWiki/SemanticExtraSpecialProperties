@@ -724,6 +724,7 @@ $messages['zh-hans'] = array(
 	'sesp-property-author' => '页面所有者',
 	'sesp-property-first-author' => '页面创建者',
 	'sesp-property-revision-id' => '修订版本',
+	'sesp-property-page-id' => '页面ID',
 	'sesp-property-view-count' => '页面访问数',
 	'sesp-property-subpages' => '子页',
 	'sesp-property-revisions' => '修订数',
