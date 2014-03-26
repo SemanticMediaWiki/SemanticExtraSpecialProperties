@@ -1,6 +1,6 @@
 <?php
 
-namespace SESP\Tests;
+namespace SESP\Tests\Integration;
 
 use SESP\PropertyRegistry;
 use SMW\SemanticData;
@@ -21,7 +21,7 @@ use Title;
  *
  * @author mwjames
  */
-class HookRegistrationIntegrationTest extends \PHPUnit_Framework_TestCase {
+class HooksRegistrationIntegrationTest extends \PHPUnit_Framework_TestCase {
 
 	public function testExtensionHookRegistration() {
 

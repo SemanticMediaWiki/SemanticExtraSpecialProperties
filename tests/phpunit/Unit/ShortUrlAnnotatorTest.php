@@ -1,8 +1,8 @@
 <?php
 
-namespace SESP\Tests;
+namespace SESP\Tests\Unit\Annotator;
 
-use SESP\ShortUrlAnnotator;
+use SESP\Annotator\ShortUrlAnnotator;
 use SESP\PropertyRegistry;
 
 use SMW\SemanticData;
@@ -11,7 +11,7 @@ use SMW\DIWikiPage;
 use Title;
 
 /**
- * @covers \SESP\ShortUrlAnnotator
+ * @covers \SESP\Annotator\ShortUrlAnnotator
  *
  * @ingroup Test
  *
@@ -34,7 +34,7 @@ class ShortUrlAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		$configuration = array();
 
 		$this->assertInstanceOf(
-			'\SESP\ShortUrlAnnotator',
+			'\SESP\Annotator\ShortUrlAnnotator',
 			new ShortUrlAnnotator( $semanticData, $configuration )
 		);
 	}
@@ -49,7 +49,7 @@ class ShortUrlAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$configuration = array();
 
-		$instance = $this->getMock( '\SESP\ShortUrlAnnotator',
+		$instance = $this->getMock( '\SESP\Annotator\ShortUrlAnnotator',
 			array( 'hasShortUrlUtils' ),
 			array(
 				$semanticData,
@@ -71,7 +71,7 @@ class ShortUrlAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$configuration = array();
 
-		$instance = $this->getMock( '\SESP\ShortUrlAnnotator',
+		$instance = $this->getMock( '\SESP\Annotator\ShortUrlAnnotator',
 			array( 'hasShortUrlUtils', 'getShortUrl' ),
 			array(
 				$semanticData,

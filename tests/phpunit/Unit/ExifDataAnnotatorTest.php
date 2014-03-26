@@ -1,8 +1,8 @@
 <?php
 
-namespace SESP\Tests;
+namespace SESP\Tests\Unit\Annotator;
 
-use SESP\ExifDataAnnotator;
+use SESP\Annotator\ExifDataAnnotator;
 use SESP\PropertyRegistry;
 
 use SMW\SemanticData;
@@ -12,7 +12,7 @@ use SMW\DIProperty;
 use Title;
 
 /**
- * @covers \SESP\ExifDataAnnotator
+ * @covers \SESP\Annotator\ExifDataAnnotator
  *
  * @ingroup Test
  *
@@ -33,7 +33,7 @@ class ExifDataAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->getMock();
 
 		$this->assertInstanceOf(
-			'\SESP\ExifDataAnnotator',
+			'\SESP\Annotator\ExifDataAnnotator',
 			new ExifDataAnnotator( $semanticData )
 		);
 	}

@@ -1,6 +1,6 @@
 <?php
 
-namespace SESP\Tests;
+namespace SESP\Tests\Unit;
 
 use SESP\PropertyRegistry;
 use SMW\DIProperty;
@@ -51,7 +51,7 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 	public function testMalformedJsonFile() {
 
 		$this->setExpectedException( 'UnexpectedValueException' );
-		PropertyRegistry::getInstance()->acquireDefinitionsFromJsonFile( __DIR__ . '/' . 'malformed.json' );
+		PropertyRegistry::getInstance()->acquireDefinitionsFromJsonFile( __DIR__ . '/..' . '/malformed.json' );
 	}
 
 	/**
@@ -253,6 +253,5 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 	protected function getJsonFile() {
 		return PropertyRegistry::getInstance()->getJsonFile();
 	}
-
 
 }
