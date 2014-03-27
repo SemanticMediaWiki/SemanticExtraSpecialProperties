@@ -1,6 +1,6 @@
 <?php
 
-namespace SESP;
+namespace SESP\Annotator;
 
 use Closure;
 use RuntimeException;

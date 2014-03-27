@@ -1,8 +1,8 @@
 <?php
 
-namespace SESP\Tests;
+namespace SESP\Tests\Unit\Annotator;
 
-use SESP\ExtraPropertyAnnotator;
+use SESP\Annotator\ExtraPropertyAnnotator;
 use SESP\PropertyRegistry;
 
 use SMW\SemanticData;
@@ -14,7 +14,7 @@ use Title;
 use User;
 
 /**
- * @covers \SESP\ExtraPropertyAnnotator
+ * @covers \SESP\Annotator\ExtraPropertyAnnotator
  *
  * @ingroup Test
  *
@@ -55,7 +55,7 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		$configuration = array();
 
 		$this->assertInstanceOf(
-			'\SESP\ExtraPropertyAnnotator',
+			'\SESP\Annotator\ExtraPropertyAnnotator',
 			new ExtraPropertyAnnotator( $semanticData, $configuration )
 		);
 	}

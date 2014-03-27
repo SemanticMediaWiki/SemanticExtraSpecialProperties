@@ -1,6 +1,8 @@
 <?php
 
-namespace SESP;
+namespace SESP\Annotator;
+
+use SESP\PropertyRegistry;
 
 use SMW\SemanticData;
 use SMW\DIProperty;
