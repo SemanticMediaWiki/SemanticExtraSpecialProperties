@@ -1,9 +1,9 @@
 <?php
 
-namespace SWL;
+namespace SESP;
 
 /**
- * @ingroup SWL
+ * @ingroup SESP
  *
  * @licence GNU GPL v2+
  * @since 1.0

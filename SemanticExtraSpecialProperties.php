@@ -65,10 +65,11 @@ $GLOBALS['wgExtensionMessagesFiles']['semantic-extra-special-properties'] = __DI
 
 $GLOBALS['wgAutoloadClasses']['SESP\Annotator\ExtraPropertyAnnotator']   = __DIR__ . '/src/Annotator/ExtraPropertyAnnotator.php';
 $GLOBALS['wgAutoloadClasses']['SESP\Annotator\BaseAnnotator']            = __DIR__ . '/src/Annotator/BaseAnnotator.php';
-$GLOBALS['wgAutoloadClasses']['SESP\PropertyRegistry']                  = __DIR__ . '/src/PropertyRegistry.php';
-$GLOBALS['wgAutoloadClasses']['SESP\Annotator\ExifDataAnnotator']       = __DIR__ . '/src/Annotator/ExifDataAnnotator.php';
-$GLOBALS['wgAutoloadClasses']['SESP\Annotator\ShortUrlAnnotator']       = __DIR__ . '/src/Annotator/ShortUrlAnnotator.php';
-$GLOBALS['wgAutoloadClasses']['SESP\Setup']                             = __DIR__ . '/src/Setup.php';
+$GLOBALS['wgAutoloadClasses']['SESP\PropertyRegistry']                   = __DIR__ . '/src/PropertyRegistry.php';
+$GLOBALS['wgAutoloadClasses']['SESP\Annotator\ExifDataAnnotator']        = __DIR__ . '/src/Annotator/ExifDataAnnotator.php';
+$GLOBALS['wgAutoloadClasses']['SESP\Annotator\ShortUrlAnnotator']        = __DIR__ . '/src/Annotator/ShortUrlAnnotator.php';
+$GLOBALS['wgAutoloadClasses']['SESP\Setup']                              = __DIR__ . '/src/Setup.php';
+$GLOBALS['wgAutoloadClasses']['SESP\ObservableReporter']                 = __DIR__ . '/src/ObservableReporter.php';
 
 \SESP\Setup::getInstance()->setGlobalVars( $GLOBALS )->run();
 

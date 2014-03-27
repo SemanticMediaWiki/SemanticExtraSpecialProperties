@@ -68,12 +68,16 @@ class Setup {
 				'wgShortUrlPrefix'      => isset( $globalVars['wgShortUrlPrefix'] )  ? $globalVars['wgShortUrlPrefix']  : false
 			);
 
+			$observableReporter = new ObservableReporter;
+			$observableReporter->registerCallback( $reporter );
+
 			/**
 			 * Register as fixed tables
 			 *
 			 * @since 1.0
 			 */
-			$globalVars['wgHooks']['SMW::SQLStore::updatePropertyTableDefinitions'][] = function ( &$propertyTableDefinitions ) use ( $configuration ) {
+			$globalVars['wgHooks']['SMW::SQLStore::updatePropertyTableDefinitions'][] = function ( &$propertyTableDefinitions ) use ( $configuration, $observableReporter ) {
+				$observableReporter->reportStatus( 'SMW::SQLStore::updatePropertyTableDefinitions', true );
 				return PropertyRegistry::getInstance()->registerAsFixedTables( $propertyTableDefinitions, $configuration );
 			};
 
@@ -82,7 +86,8 @@ class Setup {
 			 *
 			 * @since 1.0
 			 */
-			$globalVars['wgHooks']['smwInitProperties'][] = function () {
+			$globalVars['wgHooks']['smwInitProperties'][] = function () use ( $observableReporter ) {
+				$observableReporter->reportStatus( 'smwInitProperties', true );
 				return PropertyRegistry::getInstance()->registerPropertiesAndAliases();
 			};
 
@@ -91,7 +96,10 @@ class Setup {
 			 *
 			 * @since 1.0
 			 */
-			$globalVars['wgHooks']['SMWStore::updateDataBefore'][] = function ( \SMW\Store $store, \SMW\SemanticData $semanticData ) use ( $configuration ) {
+			$globalVars['wgHooks']['SMWStore::updateDataBefore'][] = function ( \SMW\Store $store, \SMW\SemanticData $semanticData ) use ( $configuration, $observableReporter ) {
+
+				$observableReporter->reportStatus( 'SMWStore::updateDataBefore', true );
+
 				$propertyAnnotator = new ExtraPropertyAnnotator( $semanticData, $configuration );
 
 				// DI object registration
