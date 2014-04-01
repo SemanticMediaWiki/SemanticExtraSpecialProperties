@@ -1,0 +1,21 @@
+{
+    "@metadata": {
+        "authors": [
+            "Bjankuloski06"
+        ]
+    },
+    "sesp-desc": "Додава дополнителни специјални својства во сите страници",
+    "sesp-property-author": "Автор на страницата",
+    "sesp-property-first-author": "Создавач на страницата",
+    "sesp-property-revision-id": "Назнака на преработката",
+    "sesp-property-page-id": "Назнака на страницата",
+    "sesp-property-view-count": "Број на прегледи на страниците",
+    "sesp-property-subpages": "Потстраница",
+    "sesp-property-revisions": "Број на преработки",
+    "sesp-property-talk-revisions": "Број на преработки на стран. за разговор",
+    "sesp-property-mimetype": "MIME-тип",
+    "sesp-property-mediatype": "Тип на мидиум",
+    "sesp-property-shorturl": "Кратка URL",
+    "sesp-property-user-registration-date": "Датум на регистрација на корисникот",
+    "sesp-property-exif-data": "Exif-податоци"
+}

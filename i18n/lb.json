@@ -1,0 +1,14 @@
+{
+    "@metadata": {
+        "authors": [
+            "Robby"
+        ]
+    },
+    "sesp-property-author": "Auteur vun der Säit",
+    "sesp-property-page-id": "ID (Nummer) vun der Säit",
+    "sesp-property-subpages": "Ënnersäit",
+    "sesp-property-revisions": "Zuel vun de Versiounen",
+    "sesp-property-shorturl": "Kuerz URL",
+    "sesp-property-user-registration-date": "Datum vun der Umellung vum Benotzer",
+    "sesp-property-exif-data": "Exif-Donnéeën"
+}

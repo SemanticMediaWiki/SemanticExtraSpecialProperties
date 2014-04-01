@@ -1,0 +1,14 @@
+{
+    "@metadata": {
+        "authors": [
+            "Shirayuki",
+            "Simon Shek"
+        ]
+    },
+    "sesp-property-first-author": "頁面的建立者",
+    "sesp-property-revisions": "修訂的數目",
+    "sesp-property-mimetype": "MIME類型",
+    "sesp-property-mediatype": "媒體類型",
+    "sesp-property-shorturl": "簡短的網址",
+    "sesp-property-exif-data": "EXIF資料"
+}

@@ -1,0 +1,17 @@
+{
+    "@metadata": {
+        "authors": [
+            "Shanmugamp7"
+        ]
+    },
+    "sesp-property-author": "பக்க ஆக்குநர்",
+    "sesp-property-first-author": "பக்க உருவாக்குநர்",
+    "sesp-property-revision-id": "திருத்த அடையாள எண்",
+    "sesp-property-subpages": "துணைப்பக்கம்",
+    "sesp-property-revisions": "திருத்தங்களின் எண்ணிக்கை",
+    "sesp-property-talk-revisions": "பேச்சுப் பக்க திருத்தங்களின் எண்ணிக்கை",
+    "sesp-property-mimetype": "MIME வகை",
+    "sesp-property-mediatype": "ஊடக வகை",
+    "sesp-property-shorturl": "குறுந்தொடுப்பு",
+    "sesp-property-user-registration-date": "பயனர் பதிவுசெய்த நாள்"
+}

@@ -1,0 +1,23 @@
+{
+    "@metadata": {
+        "authors": [
+            "Rotsee",
+            "MWJames",
+            "Kghbln"
+        ]
+    },
+    "sesp-desc": "Adds some extra special properties to all pages",
+    "sesp-property-author": "Page author",
+    "sesp-property-first-author": "Page creator",
+    "sesp-property-revision-id": "Revision ID",
+    "sesp-property-page-id": "Page ID",
+    "sesp-property-view-count": "Number of page views",
+    "sesp-property-subpages": "Subpage",
+    "sesp-property-revisions": "Number of revisions",
+    "sesp-property-talk-revisions": "Number of talk page revisions",
+    "sesp-property-mimetype": "MIME type",
+    "sesp-property-mediatype": "Media type",
+    "sesp-property-shorturl": "Short URL",
+    "sesp-property-user-registration-date": "User registration date",
+    "sesp-property-exif-data": "Exif data"
+}

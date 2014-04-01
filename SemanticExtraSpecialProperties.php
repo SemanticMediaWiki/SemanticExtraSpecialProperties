@@ -5,7 +5,7 @@ use SESP\ExtraPropertyAnnotator;
 
 /**
  * Extension SemanticExtraSpecialProperties - Adds some extra special properties to all pages.
- * 
+ *
  * This extension was initially developed for http://xn--ssongsmat-v2a.nu Säsongsmat.nu.
  *
  * @link https://github.com/SemanticMediaWiki/SemanticExtraSpecialProperties/blob/master/README.md Documentation
@@ -63,6 +63,7 @@ $GLOBALS['wgExtensionCredits']['semantic'][] = array(
 );
 
 // Tell file locations
+$GLOBALS['wgMessagesDirs']['semantic-extra-special-properties'] = __DIR__ . '/i18n';
 $GLOBALS['wgExtensionMessagesFiles']['semantic-extra-special-properties'] = __DIR__ . '/SemanticExtraSpecialProperties.i18n.php';
 
 $GLOBALS['wgAutoloadClasses']['SESP\ExtraPropertyAnnotator']   = __DIR__ . '/src/ExtraPropertyAnnotator.php';
