@@ -1,0 +1,21 @@
+{
+    "@metadata": {
+        "authors": [
+            "Priviet"
+        ]
+    },
+    "sesp-desc": "추가 특별 속성을 모든 문서에 추가",
+    "sesp-property-author": "문서 저자",
+    "sesp-property-first-author": "문서 생성자",
+    "sesp-property-revision-id": "판 ID",
+    "sesp-property-page-id": "문서 ID",
+    "sesp-property-view-count": "페이지 뷰 수",
+    "sesp-property-subpages": "하위 문서",
+    "sesp-property-revisions": "판 수",
+    "sesp-property-talk-revisions": "토론 문서 판 수",
+    "sesp-property-mimetype": "MiME 종류",
+    "sesp-property-mediatype": "미디어 유형",
+    "sesp-property-shorturl": "짧은 URL",
+    "sesp-property-user-registration-date": "사용자 등록 날짜",
+    "sesp-property-exif-data": "Exif 데이터"
+}

@@ -1,0 +1,21 @@
+{
+    "@metadata": {
+        "authors": [
+            "Shirayuki"
+        ]
+    },
+    "sesp-desc": "すべてのページに特殊なプロパティを追加する",
+    "sesp-property-author": "ページの著者",
+    "sesp-property-first-author": "ページの作成者",
+    "sesp-property-revision-id": "版 ID",
+    "sesp-property-page-id": "ページ ID",
+    "sesp-property-view-count": "ページビュー数",
+    "sesp-property-subpages": "下位ページ",
+    "sesp-property-revisions": "版数",
+    "sesp-property-talk-revisions": "トークページの版数",
+    "sesp-property-mimetype": "MIMEタイプ",
+    "sesp-property-mediatype": "メディアの種類",
+    "sesp-property-shorturl": "短縮 URL",
+    "sesp-property-user-registration-date": "利用者登録日",
+    "sesp-property-exif-data": "Exif データ"
+}
