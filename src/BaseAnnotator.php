@@ -38,6 +38,10 @@ abstract class BaseAnnotator {
 	protected function loadRegisteredObject( $objectName, $expectedSignature = null ) {
 		$instance = isset( $this->container[ $objectName ] ) ? $this->container[ $objectName ]( $this ) : null;
 
+		if ( $instance === null || !$instance ) {
+			return $instance;
+		}
+
 		if ( $instance instanceof $objectName || $instance instanceof $expectedSignature ) {
 			return $instance;
 		}

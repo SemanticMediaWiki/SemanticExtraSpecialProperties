@@ -20,6 +20,8 @@ use User;
  *
  * @group SESP
  * @group SESPExtension
+ * @group mw-dependant
+ * @group mw-databaseless
  *
  * @licence GNU GPL v2+
  * @since 1.0
@@ -208,6 +210,65 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		$this->assertEmpty( $semanticData->getProperties() );
 	}
 
+	public function testPropertyAnnotation_USERREG() {
+
+		$title = Title::newFromText( 'Foo', NS_USER );
+
+		$instance = $this->acquireInstance( '_USERREG' );
+
+		$page = $this->getMockBuilder( 'WikiPage' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$page->expects( $this->atLeastOnce() )
+			->method( 'getTitle' )
+			->will( $this->returnValue( $title ) );
+
+		$propertyId = PropertyRegistry::getInstance()->getPropertyId( '_USERREG' );
+		$property = new DIProperty( $propertyId );
+
+		$semanticData = $instance->getSemanticData();
+
+		$this->assertEmpty( $semanticData->getProperties() );
+		$this->attachWikiPage( $instance, $page );
+		$this->attachUserByPageName( $instance );
+
+		$this->assertTrue( $instance->addAnnotation() );
+
+		$this->assertArrayHasKey(
+			$propertyId,
+			$semanticData->getProperties()
+		);
+
+		foreach ( $semanticData->getPropertyValues( $property ) as $value ) {
+			$this->assertInstanceOf( 'SMWDITime', $value );
+		}
+	}
+
+	public function testPropertyAnnotation_USERREG_OnUserSubpage() {
+
+		$title = Title::newFromText( 'Foo/Boo', NS_USER );
+
+		$instance = $this->acquireInstance( '_USERREG' );
+
+		$page = $this->getMockBuilder( 'WikiPage' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$page->expects( $this->atLeastOnce() )
+			->method( 'getTitle' )
+			->will( $this->returnValue( $title ) );
+
+		$semanticData = $instance->getSemanticData();
+
+		$this->assertEmpty( $semanticData->getProperties() );
+		$this->attachWikiPage( $instance, $page );
+		$this->attachUserByPageName( $instance );
+
+		$this->assertTrue( $instance->addAnnotation() );
+		$this->assertEmpty( $semanticData->getProperties() );
+	}
+
 	protected function attachWikiPage( $instance, $page ) {
 		$semanticData = $instance->getSemanticData();
 
@@ -219,6 +280,12 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	protected function attachDBConnection( $instance, $connection ) {
 		$instance->registerObject( 'DBConnection', function() use( $connection ) {
 			return $connection;
+		} );
+	}
+
+	protected function attachUserByPageName( $instance ) {
+		$instance->registerObject( 'UserByPageName', function( $instance ) {
+			return \User::newFromName( $instance->getWikiPage()->getTitle()->getText() );
 		} );
 	}
 
