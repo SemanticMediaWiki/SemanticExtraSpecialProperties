@@ -2,7 +2,8 @@
 
 Released on 2014-04-04
 
-- #31 Fixed error when a User page is created with a subpage 
+- #31 Fixed error when a User page is created with a subpage
+- #32 Migrate to JSON i18n
 
 ### Version 1.0
 
