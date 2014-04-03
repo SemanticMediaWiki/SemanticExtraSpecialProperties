@@ -10,7 +10,7 @@ $GLOBALS['sespSpecialProperties'] = array(
 ```
 ## Property identifier
 
-Property identifiers (see [`definitions.json`](/src/definitions.json) ) are used to specify which of the properties are enabled. An indentifier is an internal `ID` which is not to be used during user interaction (e.g. handling in `#ask` queries) instead the property label should be used as reference.
+Property identifiers (see [`definitions.json`](/src/definitions.json) ) are used to specify which of the properties are enabled. An indentifier is an internal `ID` which is not to be used during user interaction (e.g. handling in `#ask` queries) instead the property label should be used as reference. These labels differ according to the language the wiki was set up. An easy way to identify them is to navigate to special page "Special:Properies" which contains a listing of all available properties inclucding the special properties provided by this extension.
 
 - `_EUSER` add all users that edited this page (expensive; use with care)
 - `_CUSER` add user that created this page
