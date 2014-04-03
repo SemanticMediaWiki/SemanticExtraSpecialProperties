@@ -1,0 +1,23 @@
+{
+    "@metadata": {
+        "authors": [
+            "Liuxinyu970226",
+            "Shirayuki",
+            "Yfdyh000"
+        ]
+    },
+    "sesp-desc": "添加一些额外的特殊属性到所有页面",
+    "sesp-property-author": "页面所有者",
+    "sesp-property-first-author": "页面创建者",
+    "sesp-property-revision-id": "修订版本",
+    "sesp-property-page-id": "页面ID",
+    "sesp-property-view-count": "页面访问数",
+    "sesp-property-subpages": "子页",
+    "sesp-property-revisions": "修订数",
+    "sesp-property-talk-revisions": "讨论页修订次数",
+    "sesp-property-mimetype": "MIME类型",
+    "sesp-property-mediatype": "媒体文件类型",
+    "sesp-property-shorturl": "短链接",
+    "sesp-property-user-registration-date": "用户注册日期",
+    "sesp-property-exif-data": "EXIF数据"
+}

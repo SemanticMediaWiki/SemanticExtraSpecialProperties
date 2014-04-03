@@ -1,0 +1,22 @@
+{
+    "@metadata": {
+        "authors": [
+            "Amgauna",
+            "Jaideraf"
+        ]
+    },
+    "sesp-desc": "Adiciona algumas propriedades especiais para todas as páginas",
+    "sesp-property-author": "Autor da página",
+    "sesp-property-first-author": "Criador da página",
+    "sesp-property-revision-id": "ID da revisão",
+    "sesp-property-page-id": "ID da página",
+    "sesp-property-view-count": "Número de visualizações da página",
+    "sesp-property-subpages": "Subpágina",
+    "sesp-property-revisions": "Número de revisões",
+    "sesp-property-talk-revisions": "Número de revisões da página de discussão",
+    "sesp-property-mimetype": "Tipo MIME",
+    "sesp-property-mediatype": "Tipo de mídia",
+    "sesp-property-shorturl": "URL resumido",
+    "sesp-property-user-registration-date": "Data de registro do usuário",
+    "sesp-property-exif-data": "Dados Exif"
+}

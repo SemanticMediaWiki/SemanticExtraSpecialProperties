@@ -1,0 +1,21 @@
+{
+    "@metadata": {
+        "authors": [
+            "Michawiki"
+        ]
+    },
+    "sesp-desc": "Přidawa wšěm stronam přidatne wosebite kajkosće",
+    "sesp-property-author": "Awtor strony",
+    "sesp-property-first-author": "Tworićel strony",
+    "sesp-property-revision-id": "Wersijowy ID",
+    "sesp-property-page-id": "ID strony",
+    "sesp-property-view-count": "Ličba zwobraznjenjow strony",
+    "sesp-property-subpages": "Podstrona",
+    "sesp-property-revisions": "Ličba wersijow",
+    "sesp-property-talk-revisions": "Ličba wersijow diskusijnych stronow",
+    "sesp-property-mimetype": "MIME-typ",
+    "sesp-property-mediatype": "Medijowy typ",
+    "sesp-property-shorturl": "Krótki URL",
+    "sesp-property-user-registration-date": "Registrowanski datum wužiwarja",
+    "sesp-property-exif-data": "Exif-daty"
+}
