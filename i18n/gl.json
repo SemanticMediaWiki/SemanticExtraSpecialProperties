@@ -1,21 +1,21 @@
 {
-    "@metadata": {
-        "authors": [
-            "Toliño"
-        ]
-    },
-    "sesp-desc": "Engade algunhas propiedades adicionais a todas as páxinas",
-    "sesp-property-author": "Autor da páxina",
-    "sesp-property-first-author": "Creador da páxina",
-    "sesp-property-revision-id": "ID da revisión",
-    "sesp-property-page-id": "ID da páxina",
-    "sesp-property-view-count": "Número de vistas por páxina",
-    "sesp-property-subpages": "Subpáxina",
-    "sesp-property-revisions": "Número de revisións",
-    "sesp-property-talk-revisions": "Número de revisións da páxina de conversa",
-    "sesp-property-mimetype": "Tipo MIME",
-    "sesp-property-mediatype": "Tipo de medios",
-    "sesp-property-shorturl": "Enderezo URL curto",
-    "sesp-property-user-registration-date": "Data de rexistro do usuario",
-    "sesp-property-exif-data": "Datos Exif"
+	"@metadata": {
+		"authors": [
+			"Toliño"
+		]
+	},
+	"sesp-desc": "Engade algunhas propiedades adicionais a todas as páxinas",
+	"sesp-property-author": "Autor da páxina",
+	"sesp-property-first-author": "Creador da páxina",
+	"sesp-property-revision-id": "ID da revisión",
+	"sesp-property-page-id": "ID da páxina",
+	"sesp-property-view-count": "Número de vistas por páxina",
+	"sesp-property-subpages": "Subpáxina",
+	"sesp-property-revisions": "Número de revisións",
+	"sesp-property-talk-revisions": "Número de revisións da páxina de conversa",
+	"sesp-property-mimetype": "Tipo MIME",
+	"sesp-property-mediatype": "Tipo de medios",
+	"sesp-property-shorturl": "Enderezo URL curto",
+	"sesp-property-user-registration-date": "Data de rexistro do usuario",
+	"sesp-property-exif-data": "Datos Exif"
 }

@@ -1,21 +1,21 @@
 {
-    "@metadata": {
-        "authors": [
-            "Michawiki"
-        ]
-    },
-    "sesp-desc": "Pśidawa wšym bokam pśidatne wósebne kakosći",
-    "sesp-property-author": "Awtor boka",
-    "sesp-property-first-author": "Stwóriśel boka",
-    "sesp-property-revision-id": "Wersijowy ID",
-    "sesp-property-page-id": "ID boka",
-    "sesp-property-view-count": "Licba zwobraznjenjow bokow",
-    "sesp-property-subpages": "Pódbok",
-    "sesp-property-revisions": "Licba wersijow",
-    "sesp-property-talk-revisions": "Licba wersijow diskusijnych bokow",
-    "sesp-property-mimetype": "MIME-typ",
-    "sesp-property-mediatype": "Medijowy typ",
-    "sesp-property-shorturl": "Krotki URL",
-    "sesp-property-user-registration-date": "Registrěrowański datum wužywarja",
-    "sesp-property-exif-data": "Exif-daty"
+	"@metadata": {
+		"authors": [
+			"Michawiki"
+		]
+	},
+	"sesp-desc": "Pśidawa wšym bokam pśidatne wósebne kakosći",
+	"sesp-property-author": "Awtor boka",
+	"sesp-property-first-author": "Stwóriśel boka",
+	"sesp-property-revision-id": "Wersijowy ID",
+	"sesp-property-page-id": "ID boka",
+	"sesp-property-view-count": "Licba zwobraznjenjow bokow",
+	"sesp-property-subpages": "Pódbok",
+	"sesp-property-revisions": "Licba wersijow",
+	"sesp-property-talk-revisions": "Licba wersijow diskusijnych bokow",
+	"sesp-property-mimetype": "MIME-typ",
+	"sesp-property-mediatype": "Medijowy typ",
+	"sesp-property-shorturl": "Krotki URL",
+	"sesp-property-user-registration-date": "Registrěrowański datum wužywarja",
+	"sesp-property-exif-data": "Exif-daty"
 }

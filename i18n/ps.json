@@ -1,14 +1,14 @@
 {
-    "@metadata": {
-        "authors": [
-            "Ahmed-Najib-Biabani-Ibrahimkhel"
-        ]
-    },
-    "sesp-property-author": "د مخ ليکوال",
-    "sesp-property-first-author": "مخ جوړونکی",
-    "sesp-property-subpages": "څېرمه مخ",
-    "sesp-property-mimetype": "MIME بڼه",
-    "sesp-property-mediatype": "د رسنۍ ډول",
-    "sesp-property-shorturl": "لنډ يو آر ال",
-    "sesp-property-user-registration-date": "د کارن نومليکنې نېټه"
+	"@metadata": {
+		"authors": [
+			"Ahmed-Najib-Biabani-Ibrahimkhel"
+		]
+	},
+	"sesp-property-author": "د مخ ليکوال",
+	"sesp-property-first-author": "مخ جوړونکی",
+	"sesp-property-subpages": "څېرمه مخ",
+	"sesp-property-mimetype": "MIME بڼه",
+	"sesp-property-mediatype": "د رسنۍ ډول",
+	"sesp-property-shorturl": "لنډ يو آر ال",
+	"sesp-property-user-registration-date": "د کارن نومليکنې نېټه"
 }
