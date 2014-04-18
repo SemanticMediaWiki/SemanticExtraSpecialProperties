@@ -2,6 +2,7 @@
 
 namespace SESP\Tests;
 
+use SESP\Definition\DefinitionReader;
 use SESP\PropertyRegistry;
 use SMW\DIProperty;
 
@@ -14,6 +15,7 @@ use ReflectionClass;
  *
  * @group SESP
  * @group SESPExtension
+ * @group mediawiki-databaseless
  *
  * @licence GNU GPL v2+
  * @since 1.0
@@ -29,44 +31,6 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
-	/**
-	 * @depends testCanConstruct
-	 */
-	public function testJsonFileAvailability() {
-		$this->assertTrue( is_file( $this->getJsonFile() ) );
-	}
-
-	/**
-	 * @depends testJsonFileAvailability
-	 */
-	public function testInaccessibleJsonFile() {
-
-		$this->setExpectedException( 'RuntimeException' );
-		PropertyRegistry::getInstance()->acquireDefinitionsFromJsonFile( 'foo.json' );
-	}
-
-	/**
-	 * @depends testJsonFileAvailability
-	 */
-	public function testMalformedJsonFile() {
-
-		$this->setExpectedException( 'UnexpectedValueException' );
-		PropertyRegistry::getInstance()->acquireDefinitionsFromJsonFile( __DIR__ . '/' . 'malformed.json' );
-	}
-
-	/**
-	 * @depends testJsonFileAvailability
-	 */
-	public function testAcquireDefinitionsFromJsonFile() {
-		$this->assertInternalType(
-			'array',
-			PropertyRegistry::getInstance()->acquireDefinitionsFromJsonFile( $this->getJsonFile() )
-		);
-	}
-
-	/**
-	 * @depends testAcquireDefinitionsFromJsonFile
-	 */
 	public function testGetPropertyId() {
 		$this->assertInternalType(
 			'string',
@@ -81,16 +45,10 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
-	/**
-	 * @depends testGetPropertyId
-	 */
 	public function testGetPropertyIdWithUnknownIdentifier() {
 		$this->assertNull( PropertyRegistry::getInstance()->getPropertyId( 'Foo' ) );
 	}
 
-	/**
-	 * @depends testAcquireDefinitionsFromJsonFile
-	 */
 	public function testGetPropertyType() {
 		$this->assertInternalType(
 			'integer',
@@ -98,13 +56,9 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
-	/**
-	 * @depends testGetPropertyType
-	 */
 	public function testGetPropertyTypeWithUnknownIdentifier() {
 		$this->assertNull( PropertyRegistry::getInstance()->getPropertyType( 'Foo' ) );
 	}
-
 
 	public function testRegisterPropertiesAndAliases() {
 		PropertyRegistry::clear();
@@ -153,7 +107,9 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		PropertyRegistry::clear();
 
-		$definitions = PropertyRegistry::getInstance()->acquireDefinitionsFromJsonFile( $this->getJsonFile() );
+		$definitionReader = new DefinitionReader;
+		$definitions = $definitionReader->getDefinitions();
+
 		$this->assertTrue( isset( $definitions['_EXIF'] ) );
 
 		unset( $definitions['_EXIF'] );
@@ -249,10 +205,5 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		return $property;
 	}
-
-	protected function getJsonFile() {
-		return PropertyRegistry::getInstance()->getJsonFile();
-	}
-
 
 }

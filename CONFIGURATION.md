@@ -10,7 +10,7 @@ $GLOBALS['sespSpecialProperties'] = array(
 ```
 ## Property identifier
 
-Property identifiers (see [`definitions.json`](/src/definitions.json) ) are used to specify which of the properties are enabled. An indentifier is an internal `ID` which is not to be used during user interaction (e.g. handling in `#ask` queries) instead the property label should be used as reference. These labels differ according to the language the wiki was set up. An easy way to identify them is to navigate to special page "Special:Properies" which contains a listing of all available properties inclucding the special properties provided by this extension.
+Property identifiers (see [`definitions.json`](/src/Definition/definitions.json) ) are used to specify which of the properties are enabled. An indentifier is an internal `ID` which is not to be used during user interaction (e.g. handling in `#ask` queries) instead the property label should be used as reference. These labels differ according to the language the wiki was set up. An easy way to identify them is to navigate to special page "Special:Properies" which contains a listing of all available properties inclucding the special properties provided by this extension.
 
 - `_EUSER` add all users that edited this page (expensive; use with care)
 - `_CUSER` add user that created this page
@@ -23,7 +23,7 @@ very up to date. If [`$wgDisableCounters`][$wgDisableCounters] is set to
 - `_NTREV` same but for the talk page, i.e. showing how much discussion is going on around this page
 - `_SUBP` add properties for subpages
 - `_USERREG` add a property to user pages with the users registration date
-- `_EXIFDATA` add properties based on image metadata (Exif data), when available and in case it is a `NS_FILE` namespace object data are stored as a [subobject][subobject]. Details on available Exif data can be found [here](/src/definitions.json).
+- `_EXIFDATA` add properties based on image metadata (Exif data), when available and in case it is a `NS_FILE` namespace object data are stored as a [subobject][subobject]. Details on available Exif data can be found [here](/src/Definition/definitions.json).
 
 
 #### Properties with further dependencies
@@ -55,7 +55,7 @@ Setting ``$wgSESPExcludeBots`` to "true" causes bot edits via user accounts in u
 
 #### Property definitions
 
-Details about available properties can be found in the [definitions.json](/src/definitions.json). The file also contains information about the visibility (display in the Factbox etc.) of a property, to alter the characterisctics of non-subobject related properties one can set `show` to `true` for each definition.
+Details about available properties can be found in the [definitions.json](/src/Definition/definitions.json). The file also contains information about the visibility (display in the Factbox etc.) of a property, to alter the characterisctics of non-subobject related properties one can set `show` to `true` for each definition.
 
 ## Privacy
 

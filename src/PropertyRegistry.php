@@ -2,12 +2,10 @@
 
 namespace SESP;
 
+use SESP\Definition\DefinitionReader;
 use SMW\DataTypeRegistry;
 use SMW\DIProperty;
 use SMWDataItem as DataItem;
-
-use RuntimeException;
-use UnexpectedValueException;
 
 /**
  * @ingroup SESP
@@ -25,6 +23,15 @@ class PropertyRegistry {
 	protected $definitions = null;
 
 	/**
+	 * @since 1.1.1
+	 *
+	 * @param DefinitionReader $definitionReader
+	 */
+	protected function __construct( DefinitionReader $definitionReader ) {
+		$this->definitions = $definitionReader->getDefinitions();
+	}
+
+	/**
 	 * @since 1.0
 	 *
 	 * @return PropertyRegistry
@@ -32,11 +39,7 @@ class PropertyRegistry {
 	public static function getInstance() {
 
 		if ( self::$instance === null ) {
-
-			$instance = new self();
-			$instance->definitions = $instance->acquireDefinitionsFromJsonFile( $instance->getJsonFile() );
-
-			self::$instance = $instance;
+			self::$instance = new self( new DefinitionReader );
 		}
 
 		return self::$instance;
@@ -47,37 +50,6 @@ class PropertyRegistry {
 	 */
 	public static function clear() {
 		self::$instance = null;
-	}
-
-	/**
-	 * @since 1.0
-	 */
-	public function getJsonFile() {
-		return __DIR__ . '/' . 'definitions.json';
-	}
-
-	/**
-	 * @since 1.0
-	 *
-	 * @param string $path
-	 *
-	 * @return array
-	 * @throws RuntimeException
-	 * @throws UnexpectedValueException
-	 */
-	public function acquireDefinitionsFromJsonFile( $path ) {
-
-		if ( !is_readable( $path ) ) {
-			throw new RuntimeException( "Expected a {$path} file" );
-		}
-
-		$definitions = json_decode( file_get_contents( $path ), true );
-
-		if ( $definitions !== null && is_array( $definitions ) && json_last_error() === JSON_ERROR_NONE ) {
-			return $definitions;
-		}
-
-		throw new UnexpectedValueException( 'Expected a JSON compatible format' );
 	}
 
 	/**
@@ -128,13 +100,13 @@ class PropertyRegistry {
 
 			$dataItemType = $this->getPropertyType( $externalId );
 
-			if ( !isset( $enabledSpecialProperties[$externalId] ) || $dataItemType === null ) {
+			if ( !isset( $enabledSpecialProperties[ $externalId ] ) || $dataItemType === null ) {
 				continue;
 			}
 
 			$tableName = 'smw_ftp_sesp' . strtolower( $externalId );
 
-			$propertyTableDefinitions[$tableName] = new \SMW\SQLStore\TableDefinition(
+			$propertyTableDefinitions[ $tableName ] = new \SMW\SQLStore\TableDefinition(
 				$dataItemType,
 				$tableName,
 				$this->getPropertyId( $externalId )

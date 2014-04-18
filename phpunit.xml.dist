@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <phpunit backupGlobals="false"
          backupStaticAttributes="false"
          bootstrap="tests/bootstrap.php"
@@ -13,7 +14,7 @@
          strict="true"
          verbose="true">
     <testsuites>
-        <testsuite name="SemanticExtraSpecialProperties">
+        <testsuite name="semantic-extra-special-properties">
             <directory>tests/phpunit</directory>
         </testsuite>
     </testsuites>

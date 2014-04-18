@@ -5,6 +5,10 @@ Released on 2014-04-09
 - #31 Fixed error when a User page is created with a subpage
 - #32 Migrate to JSON i18n
 
+#### 1.1.1
+
+- #33 Added DefinitionReader
+
 ### Version 1.0
 
 Released on 2014-02-23.
@@ -28,7 +32,7 @@ For details about the rewrite, its discussion, and changes see #10.
 - #10 Fixed incorrect `_REVID` assignment
 - #10 Added `_PAGEID` for page ID collection
 - #10 Fixed incorrect ``_NTREV`` assignment
-- #10 Added ``'_EXIFDATA'`` collection (see [definitions](/src/definitions.json)) which are stored as subobject
+- #10 Added ``'_EXIFDATA'`` collection (see [definitions](/src/Definition/definitions.json)) which are stored as subobject
 - #10 Fixed "wfMsgGetKey" usage
 - #10 Fixed initialization value "is not a number" issue
 - #10 Added `sespUseAsFixedTables` setting
