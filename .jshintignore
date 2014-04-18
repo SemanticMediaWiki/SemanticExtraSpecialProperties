@@ -1,2 +1,2 @@
 # Test related files
-tests/phpunit/malformed.json
+tests/phpunit/Fixture/

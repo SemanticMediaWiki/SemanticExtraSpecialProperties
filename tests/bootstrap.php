@@ -4,11 +4,33 @@ if ( php_sapi_name() !== 'cli' ) {
 	die( 'Not an entry point' );
 }
 
-$pwd = getcwd();
-chdir( __DIR__ . '/..' );
-passthru( 'composer update' );
-chdir( $pwd );
+if ( !defined( 'MEDIAWIKI' ) ) {
+	die( 'MediaWiki is not available for the test environment' );
+}
 
-if ( !is_readable( __DIR__ . '/../vendor/autoload.php' ) ) {
-	die( 'You need to install this package with Composer before you can run the tests' );
+function registerAutoloaderPath( $identifier, $path ) {
+	print( "\nUsing the {$identifier} vendor autoloader ...\n" );
+	return require $path;
+}
+
+function runTestAutoLoader( $autoLoader = null ) {
+
+	$mwVendorPath = __DIR__ . '/../../../vendor/autoload.php';
+	$localVendorPath = __DIR__ . '/../vendor/autoload.php';
+
+	if ( is_readable( $localVendorPath ) ) {
+		$autoLoader = registerAutoloaderPath( 'local', $localVendorPath );
+	} elseif ( is_readable( $mwVendorPath ) ) {
+		$autoLoader = registerAutoloaderPath( 'MediaWiki', $mwVendorPath );
+	}
+
+	if ( $autoLoader instanceof \Composer\Autoload\ClassLoader ) {
+		return true;
+	}
+
+	return false;
+}
+
+if ( !runTestAutoLoader() ) {
+	die( 'The required test autoloader was not accessible' );
 }

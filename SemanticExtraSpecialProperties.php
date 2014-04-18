@@ -30,7 +30,7 @@ if ( defined( 'SESP_VERSION' ) ) {
 	return 1;
 }
 
-define( 'SESP_VERSION', '1.1.0' );
+define( 'SESP_VERSION', '1.1.1' );
 
 if ( is_readable( __DIR__ . '/vendor/autoload.php' ) ) {
 	include_once( __DIR__ . '/vendor/autoload.php' );
@@ -71,6 +71,7 @@ $GLOBALS['wgAutoloadClasses']['SESP\BaseAnnotator']            = __DIR__ . '/src
 $GLOBALS['wgAutoloadClasses']['SESP\PropertyRegistry']         = __DIR__ . '/src/PropertyRegistry.php';
 $GLOBALS['wgAutoloadClasses']['SESP\ExifDataAnnotator']        = __DIR__ . '/src/ExifDataAnnotator.php';
 $GLOBALS['wgAutoloadClasses']['SESP\ShortUrlAnnotator']        = __DIR__ . '/src/ShortUrlAnnotator.php';
+$GLOBALS['wgAutoloadClasses']['SESP\Definition\DefinitionReader']        = __DIR__ . '/src/Definition/DefinitionReader.php';
 
 /**
  * Setup and initialization
