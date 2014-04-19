@@ -1,8 +1,8 @@
 {
-    "@metadata": {
-        "authors": [
-            "ExampleTomer"
-        ]
-    },
-    "sesp-property-exif-data": "נתוני Exif"
+	"@metadata": {
+		"authors": [
+			"ExampleTomer"
+		]
+	},
+	"sesp-property-exif-data": "נתוני Exif"
 }

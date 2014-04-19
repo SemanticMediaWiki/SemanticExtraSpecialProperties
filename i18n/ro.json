@@ -1,10 +1,10 @@
 {
-    "@metadata": {
-        "authors": [
-            "Minisarm",
-            "Stelistcristi"
-        ]
-    },
-    "sesp-property-shorturl": "URL scurt",
-    "sesp-property-user-registration-date": "Data de înregistrare a utilizatorului"
+	"@metadata": {
+		"authors": [
+			"Minisarm",
+			"Stelistcristi"
+		]
+	},
+	"sesp-property-shorturl": "URL scurt",
+	"sesp-property-user-registration-date": "Data de înregistrare a utilizatorului"
 }

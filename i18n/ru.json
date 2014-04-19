@@ -1,22 +1,22 @@
 {
-    "@metadata": {
-        "authors": [
-            "Okras",
-            "ShinePhantom"
-        ]
-    },
-    "sesp-desc": "Добавляет некоторые дополнительные специальные свойства для всех страниц",
-    "sesp-property-author": "Автор страницы",
-    "sesp-property-first-author": "Создатель страницы",
-    "sesp-property-revision-id": "Идентификатор правки",
-    "sesp-property-page-id": "Идентификатор страницы",
-    "sesp-property-view-count": "Количество просмотров страницы",
-    "sesp-property-subpages": "Подстраница",
-    "sesp-property-revisions": "Количество правок",
-    "sesp-property-talk-revisions": "Количество правок страницы обсуждения",
-    "sesp-property-mimetype": "MIME-тип",
-    "sesp-property-mediatype": "Тип медиа",
-    "sesp-property-shorturl": "Короткая ссылка",
-    "sesp-property-user-registration-date": "Дата регистрации пользователя",
-    "sesp-property-exif-data": "Данные EXIF"
+	"@metadata": {
+		"authors": [
+			"Okras",
+			"ShinePhantom"
+		]
+	},
+	"sesp-desc": "Добавляет некоторые дополнительные специальные свойства для всех страниц",
+	"sesp-property-author": "Автор страницы",
+	"sesp-property-first-author": "Создатель страницы",
+	"sesp-property-revision-id": "Идентификатор правки",
+	"sesp-property-page-id": "Идентификатор страницы",
+	"sesp-property-view-count": "Количество просмотров страницы",
+	"sesp-property-subpages": "Подстраница",
+	"sesp-property-revisions": "Количество правок",
+	"sesp-property-talk-revisions": "Количество правок страницы обсуждения",
+	"sesp-property-mimetype": "MIME-тип",
+	"sesp-property-mediatype": "Тип медиа",
+	"sesp-property-shorturl": "Короткая ссылка",
+	"sesp-property-user-registration-date": "Дата регистрации пользователя",
+	"sesp-property-exif-data": "Данные EXIF"
 }

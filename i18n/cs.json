@@ -1,10 +1,10 @@
 {
-    "@metadata": {
-        "authors": [
-            "Mormegil",
-            "Vks"
-        ]
-    },
-    "sesp-property-shorturl": "Krátké URL",
-    "sesp-property-exif-data": "Data EXIF"
+	"@metadata": {
+		"authors": [
+			"Mormegil",
+			"Vks"
+		]
+	},
+	"sesp-property-shorturl": "Krátké URL",
+	"sesp-property-exif-data": "Data EXIF"
 }

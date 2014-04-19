@@ -1,14 +1,14 @@
 {
-    "@metadata": {
-        "authors": [
-            "David1010"
-        ]
-    },
-    "sesp-property-author": "გვერდის ავტორი",
-    "sesp-property-first-author": "გვერდის შემქნელი",
-    "sesp-property-subpages": "ქვეგვერდი",
-    "sesp-property-mimetype": "MIME ტიპი",
-    "sesp-property-mediatype": "მედიის ტიპი",
-    "sesp-property-shorturl": "მოკლე URL",
-    "sesp-property-user-registration-date": "მომხმარებლის რეგისტრაციის თარიღი"
+	"@metadata": {
+		"authors": [
+			"David1010"
+		]
+	},
+	"sesp-property-author": "გვერდის ავტორი",
+	"sesp-property-first-author": "გვერდის შემქნელი",
+	"sesp-property-subpages": "ქვეგვერდი",
+	"sesp-property-mimetype": "MIME ტიპი",
+	"sesp-property-mediatype": "მედიის ტიპი",
+	"sesp-property-shorturl": "მოკლე URL",
+	"sesp-property-user-registration-date": "მომხმარებლის რეგისტრაციის თარიღი"
 }

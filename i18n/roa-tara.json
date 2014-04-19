@@ -1,20 +1,20 @@
 {
-    "@metadata": {
-        "authors": [
-            "Joetaras"
-        ]
-    },
-    "sesp-desc": "Aggiunge quacche probbietà speciale extra a tutte le pàggene",
-    "sesp-property-author": "Autore d'a pàgene",
-    "sesp-property-first-author": "Ccrejatore d'a pàgene",
-    "sesp-property-revision-id": "ID d'a revisione",
-    "sesp-property-view-count": "Numere de pàggene viste",
-    "sesp-property-subpages": "Sottopàgene",
-    "sesp-property-revisions": "Numere de le revisiune",
-    "sesp-property-talk-revisions": "Numere de le revisiune de le pàggene de le 'ngazzaminde",
-    "sesp-property-mimetype": "Tipe de MIME",
-    "sesp-property-mediatype": "Tipe de media",
-    "sesp-property-shorturl": "URL corte",
-    "sesp-property-user-registration-date": "Date de reggistrazione de l'utende",
-    "sesp-property-exif-data": "Date Exif"
+	"@metadata": {
+		"authors": [
+			"Joetaras"
+		]
+	},
+	"sesp-desc": "Aggiunge quacche probbietà speciale extra a tutte le pàggene",
+	"sesp-property-author": "Autore d'a pàgene",
+	"sesp-property-first-author": "Ccrejatore d'a pàgene",
+	"sesp-property-revision-id": "ID d'a revisione",
+	"sesp-property-view-count": "Numere de pàggene viste",
+	"sesp-property-subpages": "Sottopàgene",
+	"sesp-property-revisions": "Numere de le revisiune",
+	"sesp-property-talk-revisions": "Numere de le revisiune de le pàggene de le 'ngazzaminde",
+	"sesp-property-mimetype": "Tipe de MIME",
+	"sesp-property-mediatype": "Tipe de media",
+	"sesp-property-shorturl": "URL corte",
+	"sesp-property-user-registration-date": "Date de reggistrazione de l'utende",
+	"sesp-property-exif-data": "Date Exif"
 }
