@@ -1,9 +1,9 @@
 {
-    "@metadata": {
-        "authors": [
-            "Avjoska"
-        ]
-    },
-    "sesp-property-author": "Lehekülje autor",
-    "sesp-property-first-author": "Lehekülje alustaja"
+	"@metadata": {
+		"authors": [
+			"Avjoska"
+		]
+	},
+	"sesp-property-author": "Lehekülje autor",
+	"sesp-property-first-author": "Lehekülje alustaja"
 }

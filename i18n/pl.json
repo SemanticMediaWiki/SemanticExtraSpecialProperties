@@ -1,13 +1,13 @@
 {
-    "@metadata": {
-        "authors": [
-            "Chrumps",
-            "Jacenty359"
-        ]
-    },
-    "sesp-property-page-id": "ID strony",
-    "sesp-property-revisions": "Liczba wersji",
-    "sesp-property-mimetype": "Typ MIME",
-    "sesp-property-user-registration-date": "Data rejestracji użytkownika",
-    "sesp-property-exif-data": "Dane EXIF"
+	"@metadata": {
+		"authors": [
+			"Chrumps",
+			"Jacenty359"
+		]
+	},
+	"sesp-property-page-id": "ID strony",
+	"sesp-property-revisions": "Liczba wersji",
+	"sesp-property-mimetype": "Typ MIME",
+	"sesp-property-user-registration-date": "Data rejestracji użytkownika",
+	"sesp-property-exif-data": "Dane EXIF"
 }

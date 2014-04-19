@@ -1,14 +1,23 @@
 {
-    "@metadata": {
-        "authors": [
-            "Shirayuki",
-            "Simon Shek"
-        ]
-    },
-    "sesp-property-first-author": "頁面的建立者",
-    "sesp-property-revisions": "修訂的數目",
-    "sesp-property-mimetype": "MIME類型",
-    "sesp-property-mediatype": "媒體類型",
-    "sesp-property-shorturl": "簡短的網址",
-    "sesp-property-exif-data": "EXIF資料"
+	"@metadata": {
+		"authors": [
+			"Shirayuki",
+			"Simon Shek",
+			"Liuxinyu970226"
+		]
+	},
+	"sesp-desc": "加入一些額外特殊屬性於所有頁面",
+	"sesp-property-author": "頁面作者",
+	"sesp-property-first-author": "頁面的建立者",
+	"sesp-property-revision-id": "修訂ID",
+	"sesp-property-page-id": "頁面ID",
+	"sesp-property-view-count": "頁面瀏覽數位",
+	"sesp-property-subpages": "子頁",
+	"sesp-property-revisions": "修訂的數目",
+	"sesp-property-talk-revisions": "討論頁修訂數位",
+	"sesp-property-mimetype": "MIME類型",
+	"sesp-property-mediatype": "媒體類型",
+	"sesp-property-shorturl": "簡短的網址",
+	"sesp-property-user-registration-date": "用戶註冊時間",
+	"sesp-property-exif-data": "EXIF資料"
 }

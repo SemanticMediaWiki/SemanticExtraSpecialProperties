@@ -1,23 +1,23 @@
 {
-    "@metadata": {
-        "authors": [
-            "Jopparn",
-            "Rotsee",
-            "WikiPhoenix"
-        ]
-    },
-    "sesp-desc": "Extra specialegenskaper på alla sidor",
-    "sesp-property-author": "Sidförfattare",
-    "sesp-property-first-author": "Sidskapare",
-    "sesp-property-revision-id": "Versions-id",
-    "sesp-property-page-id": "Sidans ID",
-    "sesp-property-view-count": "Antal sidvisningar",
-    "sesp-property-subpages": "Undersida",
-    "sesp-property-revisions": "Antal sidredigeringar",
-    "sesp-property-talk-revisions": "Antal redigeringar på diskussionssidan",
-    "sesp-property-mimetype": "MIME-typ",
-    "sesp-property-mediatype": "Medietyp",
-    "sesp-property-shorturl": "Kortlänk",
-    "sesp-property-user-registration-date": "Användarens registreringsdatum",
-    "sesp-property-exif-data": "Exif-data"
+	"@metadata": {
+		"authors": [
+			"Jopparn",
+			"Rotsee",
+			"WikiPhoenix"
+		]
+	},
+	"sesp-desc": "Extra specialegenskaper på alla sidor",
+	"sesp-property-author": "Sidförfattare",
+	"sesp-property-first-author": "Sidskapare",
+	"sesp-property-revision-id": "Versions-id",
+	"sesp-property-page-id": "Sidans ID",
+	"sesp-property-view-count": "Antal sidvisningar",
+	"sesp-property-subpages": "Undersida",
+	"sesp-property-revisions": "Antal sidredigeringar",
+	"sesp-property-talk-revisions": "Antal redigeringar på diskussionssidan",
+	"sesp-property-mimetype": "MIME-typ",
+	"sesp-property-mediatype": "Medietyp",
+	"sesp-property-shorturl": "Kortlänk",
+	"sesp-property-user-registration-date": "Användarens registreringsdatum",
+	"sesp-property-exif-data": "Exif-data"
 }
