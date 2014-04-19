@@ -8,9 +8,17 @@ $GLOBALS['sespSpecialProperties'] = array(
 	...
 );
 ```
-## Property identifier
+## Properties
 
-Property identifiers (see [`definitions.json`](/src/Definition/definitions.json) ) are used to specify which of the properties are enabled. An indentifier is an internal `ID` which is not to be used during user interaction (e.g. handling in `#ask` queries) instead the property label should be used as reference. These labels differ according to the language the wiki was set up. An easy way to identify them is to navigate to special page "Special:Properies" which contains a listing of all available properties inclucding the special properties provided by this extension.
+Property identifiers (see [`definitions.json`](/src/Definition/definitions.json) ) are used to specify which of the properties are enabled. An identifier is an internal `ID` which is not to be used during user interaction (e.g. handling in `#ask` queries) instead the property label should be used as reference.
+
+### Labels
+
+Property labels differ according to the language the wiki was set up. An easy way to identify those used labels is to navigate to the "Special:Properies" page that lists all available properties including properties provided by this extension.
+
+Property labels are displayed in accordance with the maintained [content language][mw-contentlang]. Message keys and labels are retrieved from cache where in case message content is altered (`definitions.json` or message file), the cache will automatically be purged. Changing the default cache type can be achieved by modifying the [`$sespCacheType`][mw-cachetype] customizing.
+
+### Identifier
 
 - `_EUSER` add all users that edited this page (expensive; use with care)
 - `_CUSER` add user that created this page
@@ -77,3 +85,5 @@ can pose a [privacy issue][privacy].
 [data-refresh]: https://semantic-mediawiki.org/wiki/Help:Data_refresh#Examples
 [mw-update]: https://www.mediawiki.org/wiki/Manual:Update.php
 [mw-localsettings]: https://www.mediawiki.org/wiki/Localsettings
+[mw-contentlang]: https://www.mediawiki.org/wiki/Content_language
+[mw-cachetype]: https://www.mediawiki.org/wiki/Manual:$wgMainCacheType

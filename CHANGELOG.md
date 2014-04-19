@@ -1,15 +1,18 @@
-### Version 1.1.0
+### Version 1.1.x
+
+#### 1.1.1
+
+- #25 Added MessageCache to improve registration and lookup performance
+- #33 Added DefinitionReader to separate responsibilities
+
+#### 1.1.0
 
 Released on 2014-04-09
 
 - #31 Fixed error when a User page is created with a subpage
 - #32 Migrate to JSON i18n
 
-#### 1.1.1
-
-- #33 Added DefinitionReader
-
-### Version 1.0
+### Version 1.0.x
 
 Released on 2014-02-23.
 
