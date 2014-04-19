@@ -41,22 +41,31 @@ class DefinitionReader {
 		}
 
 		if ( $this->definitions === null ) {
-			$this->definitions = $this->acquireDefinitionsFromJsonFile( $this->definitionFile );
+			$this->definitions = $this->decodeJsonFile( $this->isReadableOrThrowException( $this->definitionFile ) );
 		}
 
 		return $this->definitions;
+	}
+
+	/**
+	 * @since 1.1.1
+	 *
+	 * @return integer
+	 */
+	public function getModificationTime() {
+		return filemtime( $this->isReadableOrThrowException( $this->getDefaultDefinitionFile() ) );
 	}
 
 	protected function getDefaultDefinitionFile() {
 		return __DIR__ . '/' . 'definitions.json';
 	}
 
-	protected function acquireDefinitionsFromJsonFile( $definitionFile ) {
+	protected function isReadableOrThrowException( $definitionFile ) {
 
 		$definitionFile = str_replace( array( '\\', '/' ), DIRECTORY_SEPARATOR, $definitionFile );
 
 		if ( is_readable( $definitionFile ) ) {
-			return $this->decodeJsonFile( $definitionFile );
+			return $definitionFile;
 		}
 
 		throw new RuntimeException( "Expected a {$definitionFile} file" );

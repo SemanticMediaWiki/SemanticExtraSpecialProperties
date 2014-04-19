@@ -23,7 +23,7 @@ function installSemanticExtraSpecialPropertiesAsExtension {
 	cp -r $originalDirectory SemanticExtraSpecialProperties
 
 	cd SemanticExtraSpecialProperties
-	composer update --prefer-source
+	composer update --prefer-source --dev
 
 	cd ../..
 

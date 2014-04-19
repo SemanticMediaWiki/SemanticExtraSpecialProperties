@@ -32,6 +32,11 @@ class DefinitionReaderTest extends \PHPUnit_Framework_TestCase {
 		$this->assertInternalType( 'array', $instance->getDefinitions() );
 	}
 
+	public function testGetModificationTime() {
+		$instance = new DefinitionReader;
+		$this->assertInternalType( 'integer', $instance->getModificationTime() );
+	}
+
 	public function testInaccessibleJsonFileThrowsExeception() {
 
 		$this->setExpectedException( 'RuntimeException' );

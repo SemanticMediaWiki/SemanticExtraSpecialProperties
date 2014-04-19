@@ -71,7 +71,8 @@ $GLOBALS['wgAutoloadClasses']['SESP\BaseAnnotator']            = __DIR__ . '/src
 $GLOBALS['wgAutoloadClasses']['SESP\PropertyRegistry']         = __DIR__ . '/src/PropertyRegistry.php';
 $GLOBALS['wgAutoloadClasses']['SESP\ExifDataAnnotator']        = __DIR__ . '/src/ExifDataAnnotator.php';
 $GLOBALS['wgAutoloadClasses']['SESP\ShortUrlAnnotator']        = __DIR__ . '/src/ShortUrlAnnotator.php';
-$GLOBALS['wgAutoloadClasses']['SESP\Definition\DefinitionReader']        = __DIR__ . '/src/Definition/DefinitionReader.php';
+$GLOBALS['wgAutoloadClasses']['SESP\Definition\DefinitionReader'] = __DIR__ . '/src/Definition/DefinitionReader.php';
+$GLOBALS['wgAutoloadClasses']['SESP\Cache\MessageCache']          = __DIR__ . '/src/Cache/MessageCache.php';
 
 /**
  * Setup and initialization
@@ -79,6 +80,8 @@ $GLOBALS['wgAutoloadClasses']['SESP\Definition\DefinitionReader']        = __DIR
  * @since 1.0
  */
 $GLOBALS['wgExtensionFunctions']['semantic-extra-special-properties'] = function() {
+
+	$GLOBALS['sespCacheType'] = isset( $GLOBALS['sespCacheType'] ) ? $GLOBALS['sespCacheType'] : CACHE_ANYTHING;
 
 	/**
 	 * Collect only relevant configuration parameters

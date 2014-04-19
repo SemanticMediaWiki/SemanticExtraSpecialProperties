@@ -17,12 +17,26 @@ use ReflectionClass;
  * @group SESPExtension
  * @group mediawiki-databaseless
  *
- * @licence GNU GPL v2+
+ * @license GNU GPL v2+
  * @since 1.0
  *
  * @author mwjames
  */
 class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
+
+	protected $sespCacheType = null;
+
+	protected function setUp() {
+		$this->sespCacheType = $GLOBALS['sespCacheType'];
+		$GLOBALS['sespCacheType'] = 'hash';
+
+		parent::setUp();
+	}
+
+	protected function tearDown() {
+		parent::tearDown();
+		$GLOBALS['sespCacheType'] = $this->sespCacheType;
+	}
 
 	public function testCanConstruct() {
 		$this->assertInstanceOf(
@@ -165,7 +179,8 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 			)
 		);
 
-		$property = $this->registerPropertyWithDefinition( $propertydefinition );
+		$propertyId = $this->registerPropertyIdWithDefinition( '_FOOOOO', $propertydefinition );
+		$property = new DIProperty( $propertyId );
 
 		$this->assertInstanceOf( '\SMW\DIProperty', $property );
 		$this->assertTrue( $property->isShown() );
@@ -183,13 +198,63 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 			)
 		);
 
-		$property = $this->registerPropertyWithDefinition( $propertydefinition );
+		$propertyId = $this->registerPropertyIdWithDefinition( '_FOOOOO', $propertydefinition );
+		$property = new DIProperty( $propertyId );
 
 		$this->assertInstanceOf( '\SMW\DIProperty', $property );
 		$this->assertFalse( $property->isShown() );
 	}
 
-	protected function registerPropertyWithDefinition( $propertydefinition ) {
+	public function testPropertyWithoutMsgKey() {
+
+		$propertydefinition = array(
+			'_EXIF' => array(),
+			'_FOOOOO'  => array(
+				'id'     => '___FOOOOO',
+				'type'   => 1
+			)
+		);
+
+		$propertyId = $this->registerPropertyIdWithDefinition( '_FOOOOO', $propertydefinition );
+		$property = new DIProperty( $propertyId );
+
+		$this->assertInstanceOf( '\SMW\DIProperty', $property );
+	}
+
+/* FIXME see SMW::core a7db2039c513751ab357c49b87041f2d167f0161
+	public function testPropertyWithInvalidType() {
+
+		$propertydefinition = array(
+			'_EXIF' => array(),
+			'_FOOOOO'  => array(
+				'id'     => '___FOOOOO',
+				'type'   => 9999
+			)
+		);
+
+		$propertyId = $this->registerPropertyIdWithDefinition( '_FOOOOO', $propertydefinition );
+		$property = new DIProperty( $propertyId );
+
+		$this->assertInstanceOf( '\SMW\DIProperty', $property );
+	}
+*/
+
+	public function testPropertyWithoutType() {
+
+		$propertydefinition = array(
+			'_EXIF' => array(),
+			'_FOOOOO'  => array(
+				'id'     => '___FOOOOO'
+			)
+		);
+
+		$propertyId = $this->registerPropertyIdWithDefinition( '_FOOOOO', $propertydefinition );
+		$property = new DIProperty( $propertyId );
+
+		$this->assertInstanceOf( '\SMW\DIProperty', $property );
+	}
+
+	protected function registerPropertyIdWithDefinition( $id, $propertydefinition ) {
 
 		$instance = PropertyRegistry::getInstance();
 
@@ -200,10 +265,10 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$this->assertTrue( $instance->registerPropertiesAndAliases() );
 
-		$property = new DIProperty( $instance->getPropertyId( '_FOOOOO' ) );
+		$propertyId = $instance->getPropertyId( $id );
 		$instance->clear();
 
-		return $property;
+		return $propertyId;
 	}
 
 }

@@ -3,6 +3,8 @@
 namespace SESP;
 
 use SESP\Definition\DefinitionReader;
+use SESP\Cache\MessageCache;
+
 use SMW\DataTypeRegistry;
 use SMW\DIProperty;
 use SMWDataItem as DataItem;
@@ -20,15 +22,22 @@ class PropertyRegistry {
 	/** @var PropertyRegistry */
 	protected static $instance = null;
 
+	/** @var MessageCache */
+	protected $messageCache = null;
+
 	protected $definitions = null;
 
 	/**
 	 * @since 1.1.1
 	 *
 	 * @param DefinitionReader $definitionReader
+	 * @param MessageCache $messageCache
 	 */
-	protected function __construct( DefinitionReader $definitionReader ) {
+	protected function __construct( DefinitionReader $definitionReader, MessageCache $messageCache ) {
 		$this->definitions = $definitionReader->getDefinitions();
+		$this->messageCache = $messageCache;
+
+		$this->messageCache->setCacheTimeOffset( $definitionReader->getModificationTime() );
 	}
 
 	/**
@@ -39,7 +48,10 @@ class PropertyRegistry {
 	public static function getInstance() {
 
 		if ( self::$instance === null ) {
-			self::$instance = new self( new DefinitionReader );
+			self::$instance = new self(
+				new DefinitionReader,
+				new MessageCache( $GLOBALS['wgContLang'] )
+			);
 		}
 
 		return self::$instance;
@@ -160,7 +172,7 @@ class PropertyRegistry {
 		$msgkey = $this->lookupWithIndexForId( 'msgkey', $id );
 
 		if ( $msgkey ) {
-			return wfMessage( $msgkey )->inContentLanguage()->text();
+			return $this->messageCache->get( $msgkey );
 		}
 
 		return false;
