@@ -1,7 +1,7 @@
 <?php
 
 use SESP\PropertyRegistry;
-use SESP\ExtraPropertyAnnotator;
+use SESP\Annotator\ExtraPropertyAnnotator;
 
 /**
  * Extension SemanticExtraSpecialProperties - Adds some extra special properties to all pages.
@@ -66,11 +66,11 @@ $GLOBALS['wgExtensionCredits']['semantic'][] = array(
 $GLOBALS['wgMessagesDirs']['semantic-extra-special-properties'] = __DIR__ . '/i18n';
 $GLOBALS['wgExtensionMessagesFiles']['semantic-extra-special-properties'] = __DIR__ . '/SemanticExtraSpecialProperties.i18n.php';
 
-$GLOBALS['wgAutoloadClasses']['SESP\ExtraPropertyAnnotator']   = __DIR__ . '/src/ExtraPropertyAnnotator.php';
-$GLOBALS['wgAutoloadClasses']['SESP\BaseAnnotator']            = __DIR__ . '/src/BaseAnnotator.php';
+$GLOBALS['wgAutoloadClasses']['SESP\Annotator\ExtraPropertyAnnotator']   = __DIR__ . '/src/Annotator/ExtraPropertyAnnotator.php';
+$GLOBALS['wgAutoloadClasses']['SESP\Annotator\BaseAnnotator']            = __DIR__ . '/src/Annotator/BaseAnnotator.php';
 $GLOBALS['wgAutoloadClasses']['SESP\PropertyRegistry']         = __DIR__ . '/src/PropertyRegistry.php';
-$GLOBALS['wgAutoloadClasses']['SESP\ExifDataAnnotator']        = __DIR__ . '/src/ExifDataAnnotator.php';
-$GLOBALS['wgAutoloadClasses']['SESP\ShortUrlAnnotator']        = __DIR__ . '/src/ShortUrlAnnotator.php';
+$GLOBALS['wgAutoloadClasses']['SESP\Annotator\ExifDataAnnotator']        = __DIR__ . '/src/Annotator/ExifDataAnnotator.php';
+$GLOBALS['wgAutoloadClasses']['SESP\Annotator\ShortUrlAnnotator']        = __DIR__ . '/src/Annotator/ShortUrlAnnotator.php';
 $GLOBALS['wgAutoloadClasses']['SESP\Definition\DefinitionReader'] = __DIR__ . '/src/Definition/DefinitionReader.php';
 $GLOBALS['wgAutoloadClasses']['SESP\Cache\MessageCache']          = __DIR__ . '/src/Cache/MessageCache.php';
 
