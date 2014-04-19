@@ -9,7 +9,7 @@ use UnexpectedValueException;
  * @ingroup SESP
  *
  * @licence GNU GPL v2+
- * @since 1.1.1
+ * @since 1.2.0
  *
  * @author mwjames
  */
@@ -19,7 +19,7 @@ class DefinitionReader {
 	protected $definitions = null;
 
 	/**
-	 * @since 1.1.1
+	 * @since 1.2.0
 	 *
 	 * @param string|null $definitionFile
 	 */
@@ -28,7 +28,7 @@ class DefinitionReader {
 	}
 
 	/**
-	 * @since 1.1.1
+	 * @since 1.2.0
 	 *
 	 * @return array
 	 * @throws RuntimeException
@@ -48,7 +48,7 @@ class DefinitionReader {
 	}
 
 	/**
-	 * @since 1.1.1
+	 * @since 1.2.0
 	 *
 	 * @return integer
 	 */

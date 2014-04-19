@@ -28,7 +28,7 @@ class PropertyRegistry {
 	protected $definitions = null;
 
 	/**
-	 * @since 1.1.1
+	 * @since 1.2.0
 	 *
 	 * @param DefinitionReader $definitionReader
 	 * @param MessageCache $messageCache

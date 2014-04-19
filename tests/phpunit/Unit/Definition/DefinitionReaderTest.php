@@ -14,7 +14,7 @@ use SESP\Definition\DefinitionReader;
  * @group mediawiki-databaseless
  *
  * @license GNU GPL v2+
- * @since 1.1.1
+ * @since 1.2.0
  *
  * @author mwjames
  */

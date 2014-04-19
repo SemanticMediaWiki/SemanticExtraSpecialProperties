@@ -10,7 +10,7 @@ use BagOStuff;
  * @ingroup SESP
  *
  * @licence GNU GPL v2+
- * @since 1.1.1
+ * @since 1.2.0
  *
  * @author mwjames
  */
@@ -25,7 +25,7 @@ class MessageCache {
 	protected $cache = null;
 
 	/**
-	 * @since 1.1.1
+	 * @since 1.2.0
 	 *
 	 * @param Language $language
 	 * @param integer|null $cacheTimeOffset
@@ -36,7 +36,7 @@ class MessageCache {
 	}
 
 	/**
-	 * @since 1.1.1
+	 * @since 1.2.0
 	 *
 	 * @param Language $language
 	 *
@@ -47,7 +47,7 @@ class MessageCache {
 	}
 
 	/**
-	 * @since 1.1.1
+	 * @since 1.2.0
 	 *
 	 * MessageCache::byLanguage( Language::factory( 'en' ) )->purge()
 	 *
@@ -59,7 +59,7 @@ class MessageCache {
 	}
 
 	/**
-	 * @since 1.1.1
+	 * @since 1.2.0
 	 *
 	 * @param integer $cacheTimeOffset
 	 *
@@ -71,7 +71,7 @@ class MessageCache {
 	}
 
 	/**
-	 * @since 1.1.1
+	 * @since 1.2.0
 	 *
 	 * @param BagOStuff $cache
 	 */
@@ -81,7 +81,7 @@ class MessageCache {
 	}
 
 	/**
-	 * @since 1.1.1
+	 * @since 1.2.0
 	 *
 	 * @return string
 	 */
@@ -90,7 +90,7 @@ class MessageCache {
 	}
 
 	/**
-	 * @since 1.1.1
+	 * @since 1.2.0
 	 *
 	 * @param string $key
 	 *

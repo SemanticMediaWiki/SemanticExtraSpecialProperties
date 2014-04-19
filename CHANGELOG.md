@@ -1,11 +1,11 @@
 ### Version 1.1.x
 
-#### 1.1.1
+### 1.2.0
 
 - #25 Added MessageCache to improve registration and lookup performance
 - #33 Added DefinitionReader to separate responsibilities
 
-#### 1.1.0
+### 1.1.0
 
 Released on 2014-04-09
 
