@@ -8,7 +8,7 @@ use UnexpectedValueException;
 /**
  * @ingroup SESP
  *
- * @licence GNU GPL v2+
+ * @license GNU GPL v2+
  * @since 1.2.0
  *
  * @author mwjames

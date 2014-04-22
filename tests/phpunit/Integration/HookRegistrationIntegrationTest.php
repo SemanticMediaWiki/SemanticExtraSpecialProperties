@@ -16,7 +16,7 @@ use Title;
  * @group SESP
  * @group SESPExtension
  *
- * @licence GNU GPL v2+
+ * @license GNU GPL v2+
  * @since 1.0
  *
  * @author mwjames
@@ -28,6 +28,7 @@ class HookRegistrationIntegrationTest extends \PHPUnit_Framework_TestCase {
 	protected $wgExtensionFunctions = array();
 
 	protected function setUp() {
+		parent::setUp();
 
 		// Clears all GLOBALS that can influence the test run
 		$this->wgHooks = $GLOBALS['wgHooks'];
@@ -38,16 +39,14 @@ class HookRegistrationIntegrationTest extends \PHPUnit_Framework_TestCase {
 		$GLOBALS['wgHooks'] = array();
 		$GLOBALS['wgExtensionFunctions'] = array();
 		$GLOBALS['sespCacheType'] = 'hash';
-
-		parent::setUp();
 	}
 
 	protected function tearDown() {
-		parent::tearDown();
-
 		$GLOBALS['sespCacheType'] = $this->sespCacheType;
 		$GLOBALS['wgHooks'] = $this->wgHooks;
 		$GLOBALS['wgExtensionFunctions'] = $this->wgExtensionFunctions;
+
+		parent::tearDown();
 	}
 
 	public function testExtensionHookRegistration() {

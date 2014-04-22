@@ -8,7 +8,7 @@ use Language;
 use HashBagOStuff;
 
 /**
- * @covers \SESP\Cache\MessageCache
+ * @uses \SESP\Cache\MessageCache
  *
  * @ingroup Test
  *
@@ -24,6 +24,20 @@ use HashBagOStuff;
 class MessageCacheTest extends \PHPUnit_Framework_TestCase {
 
 	protected $cacheId = 'sesp:foo';
+	protected $sespCacheType = null;
+
+	protected function setUp() {
+		parent::setUp();
+
+		$this->sespCacheType = $GLOBALS['sespCacheType'];
+		$GLOBALS['sespCacheType'] = 'hash';
+	}
+
+	protected function tearDown() {
+		$GLOBALS['sespCacheType'] = $this->sespCacheType;
+
+		parent::tearDown();
+	}
 
 	public function testCanConstruct() {
 
@@ -73,7 +87,7 @@ class MessageCacheTest extends \PHPUnit_Framework_TestCase {
 		$cache = new HashBagOStuff;
 
 		$presetCached = array(
-			'touched'  => $cacheTimeOffset . 1000,
+			'touched'  => 1000 . $cacheTimeOffset,
 			'messages' => array( 'foo' => 'bar' )
 		);
 
@@ -85,12 +99,12 @@ class MessageCacheTest extends \PHPUnit_Framework_TestCase {
 		$this->assertEquals( 'bar', $instance->get( 'foo' ) );
 	}
 
-	public function testCachePurgeByLanguage() {
+	public function testCachePurgeByLanguageInstance() {
 
 		$cache = new HashBagOStuff;
 
-		$instanceJa = MessageCache::byLanguage( Language::factory( 'ja' ) );
-		$instanceEn = MessageCache::byLanguage( Language::factory( 'en' ) );
+		$instanceJa = MessageCache::ByLanguage( Language::factory( 'ja' ) );
+		$instanceEn = MessageCache::ByLanguage( Language::factory( 'en' ) );
 
 		$presetCached = array(
 			'touched'  => 1000,
@@ -105,6 +119,16 @@ class MessageCacheTest extends \PHPUnit_Framework_TestCase {
 
 		$this->assertEmpty( $cache->get( $instanceEn->getCacheId() ) );
 		$this->assertNotEmpty( $cache->get( $instanceJa->getCacheId() ) );
+
+		MessageCache::clear();
+	}
+
+	public function testGetTextOnContentLanguage() {
+
+		$instance = MessageCache::ByContentLanguage();
+
+		$this->assertInternalType( 'string', $instance->get( 'exif-software' ) );
+		MessageCache::clear();
 	}
 
 	protected function acquireInstanceWith( $modificationTimeOffset, $cacheTimeOffset = null ) {
@@ -117,7 +141,7 @@ class MessageCacheTest extends \PHPUnit_Framework_TestCase {
 				'getMessageFileModificationTime' ),
 			array(
 				$language,
-				$modificationTimeOffset )
+				$cacheTimeOffset )
 		);
 
 		$instance->expects( $this->atLeastOnce() )
@@ -126,7 +150,7 @@ class MessageCacheTest extends \PHPUnit_Framework_TestCase {
 
 		$instance->expects( $this->atLeastOnce() )
 			->method( 'getMessageFileModificationTime' )
-			->will( $this->returnValue( $cacheTimeOffset ) );
+			->will( $this->returnValue( $modificationTimeOffset ) );
 
 		return $instance;
 	}

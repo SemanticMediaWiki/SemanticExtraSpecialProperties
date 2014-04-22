@@ -5,7 +5,7 @@ namespace SESP\Tests\Definition;
 use SESP\Definition\DefinitionReader;
 
 /**
- * @covers \SESP\Definition\DefinitionReader
+ * @uses \SESP\Definition\DefinitionReader
  *
  * @ingroup Test
  *

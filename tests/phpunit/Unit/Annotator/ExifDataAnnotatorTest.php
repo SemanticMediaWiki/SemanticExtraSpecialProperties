@@ -12,14 +12,14 @@ use SMW\DIProperty;
 use Title;
 
 /**
- * @covers \SESP\Annotator\ExifDataAnnotator
+ * @uses \SESP\Annotator\ExifDataAnnotator
  *
  * @ingroup Test
  *
  * @group SESP
  * @group SESPExtension
  *
- * @licence GNU GPL v2+
+ * @license GNU GPL v2+
  * @since 1.0
  *
  * @author mwjames
@@ -48,6 +48,15 @@ class ExifDataAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$instance = new ExifDataAnnotator( $semanticData );
 		$instance->addAnnotation();
+	}
+
+	public function testPropertyAnnotationOnEmptyExifData() {
+
+		$semanticData = $this->annotateWithExifData( false );
+
+		$this->assertEmpty(
+			$semanticData->findSubSemanticData( '_EXIFDATA' )
+		);
 	}
 
 	public function testPropertyAnnotationWithBlobValue() {
@@ -149,6 +158,8 @@ class ExifDataAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 	protected function annotateWithExifData( $exifData, $parameters = array() ) {
 
+		$expectedToRun = $exifData ? $this->atLeastOnce() : $this->never();
+
 		$exifData = serialize( $exifData );
 
 		$semanticData = new SemanticData(
@@ -163,13 +174,13 @@ class ExifDataAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->method( 'getMetadata' )
 			->will( $this->returnValue( $exifData ) );
 
-		$file->expects( $this->once() )
+		$file->expects( $expectedToRun )
 			->method( 'getWidth' )
 			->will( $this->returnValue(
 				isset( $parameters['getWidth'] ) ? $parameters['getWidth'] : false
 		) );
 
-		$file->expects( $this->once() )
+		$file->expects( $expectedToRun )
 			->method( 'getHeight' )
 			->will( $this->returnValue(
 				isset( $parameters['getHeight'] ) ? $parameters['getHeight'] : false

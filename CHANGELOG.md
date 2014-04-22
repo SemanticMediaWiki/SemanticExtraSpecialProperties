@@ -1,4 +1,4 @@
-### Version 1.1.x
+## Version 1.x
 
 ### 1.2.0
 
@@ -12,7 +12,7 @@ Released on 2014-04-09
 - #31 Fixed error when a User page is created with a subpage
 - #32 Migrate to JSON i18n
 
-### Version 1.0.x
+### 1.0.0
 
 Released on 2014-02-23.
 
@@ -44,28 +44,30 @@ For details about the rewrite, its discussion, and changes see #10.
 - #20 Added possibility to alter property visibility via the definitions file
 - #21 Extended Exif property definitions
 
-### Version 0.2.7
+## Version 0.x
+
+### 0.2.7
 
 Released on 2012-10-22.
 
 - Requires MediaWiki 1.20
 - Use WikiPage instead of Article
 
-### Version 0.2.6
+### 0.2.6
 
 Released on 2012-10-05.
 
 - Fixed bug sometimes causing a crash on pagesave on MW 1.20+
 - Added `_USERREG`
 
-### Version 0.2.5
+### 0.2.5
 
 Released on 2012-08-01.
 
 - Bugfixes
 - Error message fixes by Nischayn22
 
-### Version 0.2.4
+### 0.2.4
 
 Released on 2012-07-28.
 
@@ -73,7 +75,7 @@ Released on 2012-07-28.
 - Add some image meta data (exif) properties
 - Bug fix by Van de Bugger
 
-### Version 0.2.3
+### 0.2.3
 
 Released on 2012-05-10.
 
@@ -81,14 +83,14 @@ Released on 2012-05-10.
 - Translation updates, German
 - Fix for bug with first author for certain special pages, by Van de Bugger
 
-### Version 0.2.2
+### 0.2.2
 
 Released on 2012-02-09.
 
 - $smwgPageSpecialProperties replaced by `$sespSpecialProperties`
 - Added `_MIMETYPE` (mime type, mediatype)
 
-### Version 0.2.1
+### 0.2.1
 
 Released on 2012-01-08.
 
@@ -96,7 +98,7 @@ Released on 2012-01-08.
 - Better method to fetch list of `_EUSER` (getContributors and getUser, instead of getLastNAuthors. Anonymous users
 will never be listed)
 
-### Version 0.2
+### 0.2.0
 
 Released on 2012-01-04.
 
@@ -107,7 +109,7 @@ is used for built in special properties
 - Ignoring `_VIEWS` if statistics are disables in LocalSettings
 - Added `_SUBP`, `_NREV` and `_NTREV`
 
-### Version 0.1
+### 0.1
 
 Released on 2011-11-25.
 
