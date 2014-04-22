@@ -14,8 +14,11 @@
          strict="true"
          verbose="true">
     <testsuites>
-        <testsuite name="semantic-extra-special-properties">
-            <directory>tests/phpunit</directory>
+        <testsuite name="semantic-extra-special-properties-unit">
+            <directory>tests/phpunit/Unit</directory>
+        </testsuite>
+        <testsuite name="semantic-extra-special-properties-integration">
+            <directory>tests/phpunit/Integration</directory>
         </testsuite>
     </testsuites>
     <filter>

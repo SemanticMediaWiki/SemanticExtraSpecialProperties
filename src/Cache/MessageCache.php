@@ -16,6 +16,9 @@ use BagOStuff;
  */
 class MessageCache {
 
+	/** @var MessageCache[] */
+	private static $instance = array();
+
 	/** @var Language */
 	protected $language = null;
 
@@ -42,14 +45,37 @@ class MessageCache {
 	 *
 	 * @return MessageCache
 	 */
-	public static function byLanguage( Language $language ) {
-		return new self( $language );
+	public static function ByLanguage( Language $language ) {
+
+		$languageCode = $language->getCode();
+
+		if ( !isset( self::$instance[ $languageCode ] ) ) {
+			self::$instance[ $languageCode ] = new self( $language );
+		}
+
+		return self::$instance[ $languageCode ];
 	}
 
 	/**
 	 * @since 1.2.0
 	 *
-	 * MessageCache::byLanguage( Language::factory( 'en' ) )->purge()
+	 * @return MessageCache
+	 */
+	public static function ByContentLanguage() {
+		return self::byLanguage( $GLOBALS['wgContLang'] );
+	}
+
+	/**
+	 * @since 1.2.0
+	 */
+	public static function clear() {
+		self::$instance = array();
+	}
+
+	/**
+	 * @since 1.2.0
+	 *
+	 * MessageCache::ByLanguage( Language::factory( 'en' ) )->purge()
 	 *
 	 * @return MessageCache
 	 */
@@ -101,7 +127,7 @@ class MessageCache {
 		$arguments = func_get_args();
 
 		if ( $this->messages === null ) {
-			$this->messages = $this->loadMessagesFromCache();
+			$this->messages = $this->fetchMessagesFromCache();
 		}
 
 		$key = implode( '#', $arguments );
@@ -131,7 +157,7 @@ class MessageCache {
 		return $this->getCache()->set( $this->getCacheId(), $messagesToBeCached );
 	}
 
-	protected function loadMessagesFromCache() {
+	protected function fetchMessagesFromCache() {
 
 		$cached = $this->getCache()->get( $this->getCacheId() );
 

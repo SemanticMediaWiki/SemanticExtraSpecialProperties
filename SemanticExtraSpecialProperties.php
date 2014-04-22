@@ -1,23 +1,15 @@
 <?php
 
-use SESP\PropertyRegistry;
-use SESP\Annotator\ExtraPropertyAnnotator;
-
 /**
  * Extension SemanticExtraSpecialProperties - Adds some extra special properties to all pages.
  *
- * This extension was initially developed for http://xn--ssongsmat-v2a.nu Säsongsmat.nu.
- *
- * @link https://github.com/SemanticMediaWiki/SemanticExtraSpecialProperties/blob/master/README.md Documentation
- * @link https://github.com/SemanticMediaWiki/SemanticExtraSpecialProperties/blob/master/CHANGELOG.md Changelog
- * @link https://github.com/SemanticMediaWiki/SemanticExtraSpecialProperties/issues Support
- * @link https://github.com/SemanticMediaWiki/SemanticExtraSpecialProperties Source code
+ * @license GNU GPL v2+
+ * @since 0.1
  *
  * @author Leo Wallentin (Rotsee)
  * @author James Hong Kong (Mwjames)
  * @author Jeroen De Dauw
  * @author Karsten Hoffmeyer (Kghbln)
- * @license https://www.gnu.org/copyleft/gpl.html GNU General Public License 2.0 or later
  */
 
 // Prevent direct entry
@@ -48,24 +40,7 @@ if ( version_compare( SMW_VERSION, '1.9', '<' ) ) {
 	die( '<b>Error:</b> This version of Semantic Extra Special Properties requires Semantic MediaWiki 1.9 or above.' );
 }
 
-// Register extension
-$GLOBALS['wgExtensionCredits']['semantic'][] = array(
-	'path'           => __FILE__,
-	'name'           => 'Semantic Extra Special Properties',
-	'author'         => array(
-		'[https://github.com/rotsee Leo Wallentin]',
-		'[https://semantic-mediawiki.org/wiki/User:MWJames James Hong Kong]',
-		'...'
-	),
-	'version'        => SESP_VERSION,
-	'url'            => 'https://www.mediawiki.org/wiki/Extension:SemanticExtraSpecialProperties',
-	'descriptionmsg' => 'sesp-desc'
-);
-
-// Tell file locations
-$GLOBALS['wgMessagesDirs']['semantic-extra-special-properties'] = __DIR__ . '/i18n';
-$GLOBALS['wgExtensionMessagesFiles']['semantic-extra-special-properties'] = __DIR__ . '/SemanticExtraSpecialProperties.i18n.php';
-
+// FIXME Use the PSR-4 Composer autoloader
 $GLOBALS['wgAutoloadClasses']['SESP\Annotator\ExtraPropertyAnnotator']   = __DIR__ . '/src/Annotator/ExtraPropertyAnnotator.php';
 $GLOBALS['wgAutoloadClasses']['SESP\Annotator\BaseAnnotator']            = __DIR__ . '/src/Annotator/BaseAnnotator.php';
 $GLOBALS['wgAutoloadClasses']['SESP\PropertyRegistry']         = __DIR__ . '/src/PropertyRegistry.php';
@@ -73,70 +48,27 @@ $GLOBALS['wgAutoloadClasses']['SESP\Annotator\ExifDataAnnotator']        = __DIR
 $GLOBALS['wgAutoloadClasses']['SESP\Annotator\ShortUrlAnnotator']        = __DIR__ . '/src/Annotator/ShortUrlAnnotator.php';
 $GLOBALS['wgAutoloadClasses']['SESP\Definition\DefinitionReader'] = __DIR__ . '/src/Definition/DefinitionReader.php';
 $GLOBALS['wgAutoloadClasses']['SESP\Cache\MessageCache']          = __DIR__ . '/src/Cache/MessageCache.php';
+$GLOBALS['wgAutoloadClasses']['SESP\Setup']          = __DIR__ . '/src/Setup.php';
 
 /**
- * Setup and initialization
- *
- * @since 1.0
+ * @codeCoverageIgnore
  */
-$GLOBALS['wgExtensionFunctions']['semantic-extra-special-properties'] = function() {
+call_user_func( function () {
 
-	$GLOBALS['sespCacheType'] = isset( $GLOBALS['sespCacheType'] ) ? $GLOBALS['sespCacheType'] : CACHE_ANYTHING;
-
-	/**
-	 * Collect only relevant configuration parameters
-	 *
-	 * @since 1.0
-	 */
-	$configuration = array(
-		'wgDisableCounters'     => $GLOBALS['wgDisableCounters'],
-		'sespUseAsFixedTables'  => isset( $GLOBALS['sespUseAsFixedTables'] ) ? $GLOBALS['sespUseAsFixedTables']  : false,
-		'sespSpecialProperties' => isset( $GLOBALS['sespSpecialProperties'] ) ? $GLOBALS['sespSpecialProperties'] : array(),
-		'wgSESPExcludeBots'     => isset( $GLOBALS['wgSESPExcludeBots'] ) ? $GLOBALS['wgSESPExcludeBots'] : false,
-		'wgShortUrlPrefix'      => isset( $GLOBALS['wgShortUrlPrefix'] )  ? $GLOBALS['wgShortUrlPrefix']  : false
+	$GLOBALS['wgExtensionCredits']['semantic'][] = array(
+		'path'           => __FILE__,
+		'name'           => 'Semantic Extra Special Properties',
+		'author'         => array(
+			'[https://github.com/rotsee Leo Wallentin]',
+			'[https://semantic-mediawiki.org/wiki/User:MWJames James Hong Kong]',
+			'...'
+		),
+		'version'        => SESP_VERSION,
+		'url'            => 'https://www.mediawiki.org/wiki/Extension:SemanticExtraSpecialProperties',
+		'descriptionmsg' => 'sesp-desc'
 	);
 
-	/**
-	 * Register as fixed tables
-	 *
-	 * @since 1.0
-	 */
-	$GLOBALS['wgHooks']['SMW::SQLStore::updatePropertyTableDefinitions'][] = function ( &$propertyTableDefinitions ) use ( $configuration ) {
-		return PropertyRegistry::getInstance()->registerAsFixedTables( $propertyTableDefinitions, $configuration );
-	};
+	$setup = new \SESP\Setup( $GLOBALS, __DIR__ );
+	$setup->run();
 
-	/**
-	 * Register properties
-	 *
-	 * @since 1.0
-	 */
-	$GLOBALS['wgHooks']['smwInitProperties'][] = function () {
-		return PropertyRegistry::getInstance()->registerPropertiesAndAliases();
-	};
-
-	/**
-	 * Execute and update annotations
-	 *
-	 * @since 1.0
-	 */
-	$GLOBALS['wgHooks']['SMWStore::updateDataBefore'][] = function ( \SMW\Store $store, \SMW\SemanticData $semanticData ) use ( $configuration ) {
-		$propertyAnnotator = new ExtraPropertyAnnotator( $semanticData, $configuration );
-
-		// DI object registration
-		$propertyAnnotator->registerObject( 'DBConnection', function() {
-			return wfGetDB( DB_SLAVE );
-		} );
-
-		$propertyAnnotator->registerObject( 'WikiPage', function( $instance ) {
-			return \WikiPage::factory( $instance->getSemanticData()->getSubject()->getTitle() );
-		} );
-
-		$propertyAnnotator->registerObject( 'UserByPageName', function( $instance ) {
-			return \User::newFromName( $instance->getWikiPage()->getTitle()->getText() );
-		} );
-
-		return $propertyAnnotator->addAnnotation();
-	};
-
-	return true;
-};
+} );

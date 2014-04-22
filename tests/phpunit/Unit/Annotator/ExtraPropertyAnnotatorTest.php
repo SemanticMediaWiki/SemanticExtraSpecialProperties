@@ -14,7 +14,7 @@ use Title;
 use User;
 
 /**
- * @covers \SESP\Annotator\ExtraPropertyAnnotator
+ * @uses \SESP\Annotator\ExtraPropertyAnnotator
  *
  * @ingroup Test
  *
@@ -23,7 +23,7 @@ use User;
  * @group mw-dependant
  * @group mw-databaseless
  *
- * @licence GNU GPL v2+
+ * @license GNU GPL v2+
  * @since 1.0
  *
  * @author mwjames

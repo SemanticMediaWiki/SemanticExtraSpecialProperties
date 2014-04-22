@@ -8,8 +8,8 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	die( 'MediaWiki is not available for the test environment' );
 }
 
-function registerAutoloaderPath( $identifier, $path ) {
-	print( "\nUsing the {$identifier} vendor autoloader ...\n" );
+function registerAutoloaderPath( $name, $path ) {
+	print( "\nUsing the {$name} vendor autoloader ...\n\n" );
 	return require $path;
 }
 

@@ -12,7 +12,7 @@ use SMWDataItem as DataItem;
 /**
  * @ingroup SESP
  *
- * @licence GNU GPL v2+
+ * @license GNU GPL v2+
  * @since 1.0
  *
  * @author mwjames

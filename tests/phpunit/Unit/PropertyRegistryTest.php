@@ -9,7 +9,7 @@ use SMW\DIProperty;
 use ReflectionClass;
 
 /**
- * @covers \SESP\PropertyRegistry
+ * @uses \SESP\PropertyRegistry
  *
  * @ingroup Test
  *
@@ -27,15 +27,16 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 	protected $sespCacheType = null;
 
 	protected function setUp() {
+		parent::setUp();
+
 		$this->sespCacheType = $GLOBALS['sespCacheType'];
 		$GLOBALS['sespCacheType'] = 'hash';
-
-		parent::setUp();
 	}
 
 	protected function tearDown() {
-		parent::tearDown();
 		$GLOBALS['sespCacheType'] = $this->sespCacheType;
+
+		parent::tearDown();
 	}
 
 	public function testCanConstruct() {

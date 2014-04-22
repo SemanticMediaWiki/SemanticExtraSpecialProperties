@@ -6,7 +6,7 @@
 [![Packagist download count](https://poser.pugx.org/mediawiki/semantic-extra-special-properties/d/total.png)](https://packagist.org/packages/mediawiki/semantic-extra-special-properties)
 [![Dependency Status](https://www.versioneye.com/php/mediawiki:semantic-extra-special-properties/badge.png)](https://www.versioneye.com/php/mediawiki:semantic-extra-special-properties)
 
-Semantic Extra Special Properties (a.k.a. SESP) is an extension to [Semantic MediaWiki][smw] which adds some extra special properties to all content pages in a wiki.
+Semantic Extra Special Properties (a.k.a. SESP) is an extension to [Semantic MediaWiki][smw] which adds some extra special properties to enabled content pages.
 
 ## Requirements
 
@@ -45,11 +45,9 @@ $GLOBALS['sespSpecialProperties'] = array(
 
 For details about changed behaviour, added customizing or features, see the [Changelog](CHANGELOG.md).
 
-- 1.0 is a complete re-write and has been implemented by mwjames.
-- 0.2.8 enhanced the exif data handling provided by Stephan Gambke.
-- Originally written for [säsongsmat.nu][säsongsmat] by Leo Wallentin (leo_wallentin (at) hotmail.com).
-
 ## Contribution and support
+
+This extension was originally written for [säsongsmat.nu][säsongsmat] by Leo Wallentin (leo_wallentin (at) hotmail.com).
 
 If you have remarks, questions, or suggestions, please send them to semediawiki-users@lists.sourceforge.net. You can subscribe to this list [here](http://sourceforge.net/mailarchive/forum.php?forum_name=semediawiki-user).
 
@@ -73,17 +71,10 @@ The library provides unit tests that covers the core-functionality normally run 
 [licence]: https://www.gnu.org/copyleft/gpl.html
 [mwcomposer]: https://www.mediawiki.org/wiki/Composer
 [smw]: https://www.semantic-mediawiki.org/wiki/Semantic_MediaWiki
-[subobject]: https://semantic-mediawiki.org/wiki/Subobject
-[$wgDisableCounters]: https://www.mediawiki.org/wiki/Manual:$wgDisableCounters
-[privacy]: https://en.wikipedia.org/wiki/Exchangeable_image_file_format#Privacy_and_security
 [travis]: https://travis-ci.org/SemanticMediaWiki/SemanticExtraSpecialProperties
-[säsongsmat]: http://säsongsmat.nu
 [mw-testing]: https://www.mediawiki.org/wiki/Manual:PHP_unit_testing
-[fixedprop]: https://www.semantic-mediawiki.org/wiki/Help:Fixed_properties
-[MIME type]: https://semantic-mediawiki.org/wiki/Help:Special_property_MIME_type
-[Media type]: https://semantic-mediawiki.org/wiki/Help:Special_property_Media_type
-[ShortUrl]: https://www.mediawiki.org/wiki/Extension:ShortUrl
 [data-refresh]: https://semantic-mediawiki.org/wiki/Help:Data_refresh#Examples
 [mw-update]: https://www.mediawiki.org/wiki/Manual:Update.php
 [mw-localsettings]: https://www.mediawiki.org/wiki/Localsettings
 [contributors]: https://github.com/SemanticMediaWiki/SemanticExtraSpecialProperties/graphs/contributors
+[säsongsmat]: http://säsongsmat.nu
