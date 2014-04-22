@@ -16,18 +16,22 @@ use SESP\Annotator\ExtraPropertyAnnotator;
 class Setup {
 
 	/** @var array */
-	protected $globalVars;
-	protected $rootDirectory;
+	protected $globalVars= array();
+
+	protected $rootDirectory = '';
+	protected $reporter = null;
 
 	/**
 	 * @since 1.2.0
 	 *
 	 * @param array $language
 	 * @param string $rootDirectory
+	 * @param Closure|null $reporter
 	 */
-	public function __construct( array &$globalVars, $rootDirectory ) {
+	public function __construct( array &$globalVars, $rootDirectory, $reporter = null ) {
 		$this->globalVars =& $globalVars;
 		$this->rootDirectory = $rootDirectory;
+		$this->reporter = $reporter;
 	}
 
 	/**
@@ -46,7 +50,6 @@ class Setup {
 		if ( !isset( $this->globalVars['sespCacheType'] ) ) {
 			$this->globalVars['sespCacheType'] = CACHE_ANYTHING;
 		}
-
 	}
 
 	protected function registerMessageFiles() {
@@ -56,11 +59,14 @@ class Setup {
 
 	protected function registerHooksInDeferredMode() {
 
+		$observableReporter = new ObservableReporter;
+		$observableReporter->registerCallback( $this->reporter );
+
 		// FIXME PHP 5.3 doesn't allow to use $this reference within a closure
 		// when 5.3 is obsolete use $this instead (PHP 5.4+)
 		$globalVars = $this->globalVars;
 
-		$this->globalVars['wgExtensionFunctions']['semantic-extra-special-properties'] = function( $reporter = null ) use( $globalVars ) {
+		$this->globalVars['wgExtensionFunctions']['semantic-extra-special-properties'] = function() use( $globalVars, $observableReporter ) {
 
 			/**
 			 * Collect only relevant configuration parameters
@@ -80,7 +86,8 @@ class Setup {
 			 *
 			 * @since 1.0
 			 */
-			$globalVars['wgHooks']['SMW::SQLStore::updatePropertyTableDefinitions'][] = function ( &$propertyTableDefinitions ) use ( $configuration ) {
+			$globalVars['wgHooks']['SMW::SQLStore::updatePropertyTableDefinitions'][] = function ( &$propertyTableDefinitions ) use ( $configuration, $observableReporter ) {
+				$observableReporter->reportStatus( 'SMW::SQLStore::updatePropertyTableDefinitions', true );
 				return PropertyRegistry::getInstance()->registerAsFixedTables( $propertyTableDefinitions, $configuration );
 			};
 
@@ -89,7 +96,8 @@ class Setup {
 			 *
 			 * @since 1.0
 			 */
-			$globalVars['wgHooks']['smwInitProperties'][] = function () {
+			$globalVars['wgHooks']['smwInitProperties'][] = function () use( $observableReporter ) {
+				$observableReporter->reportStatus( 'smwInitProperties', true );
 				return PropertyRegistry::getInstance()->registerPropertiesAndAliases();
 			};
 
@@ -98,7 +106,9 @@ class Setup {
 			 *
 			 * @since 1.0
 			 */
-			$globalVars['wgHooks']['SMWStore::updateDataBefore'][] = function ( \SMW\Store $store, \SMW\SemanticData $semanticData ) use ( $configuration ) {
+			$globalVars['wgHooks']['SMWStore::updateDataBefore'][] = function ( \SMW\Store $store, \SMW\SemanticData $semanticData ) use ( $configuration, $observableReporter ) {
+				$observableReporter->reportStatus( 'SMWStore::updateDataBefore', true );
+
 				$propertyAnnotator = new ExtraPropertyAnnotator( $semanticData, $configuration );
 
 				// DI object registration
