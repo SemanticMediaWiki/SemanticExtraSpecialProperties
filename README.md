@@ -23,7 +23,7 @@ MediaWiki `composer.json` file and run the ``php composer.phar install/update`` 
 ```json
 {
 	"require": {
-		"mediawiki/semantic-extra-special-properties": "~1.1"
+		"mediawiki/semantic-extra-special-properties": "~1.2"
 	}
 }
 ```
