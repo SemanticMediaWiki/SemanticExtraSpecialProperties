@@ -52,6 +52,8 @@ $GLOBALS['wgAutoloadClasses']['SESP\Setup']          = __DIR__ . '/src/Setup.php
 
 /**
  * @codeCoverageIgnore
+ *
+ * @since 1.2.0
  */
 call_user_func( function () {
 
