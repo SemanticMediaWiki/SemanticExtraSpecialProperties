@@ -4,6 +4,7 @@ namespace SESP\Tests\Annotator;
 
 use SESP\Annotator\ExtraPropertyAnnotator;
 use SESP\PropertyRegistry;
+use SESP\DIC\ObjectFactory;
 
 use SMW\SemanticData;
 use SMW\DIWikiPage;
@@ -20,8 +21,7 @@ use User;
  *
  * @group SESP
  * @group SESPExtension
- * @group mw-dependant
- * @group mw-databaseless
+ * @group mediawiki-databaseless
  *
  * @license GNU GPL v2+
  * @since 1.0
@@ -29,6 +29,23 @@ use User;
  * @author mwjames
  */
 class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
+
+	protected $objectFactory;
+	protected $propertyRegistry;
+
+	protected function setUp() {
+		parent::setUp();
+
+		$this->objectFactory = ObjectFactory::getInstance();
+		$this->propertyRegistry = PropertyRegistry::getInstance();
+	}
+
+	protected function tearDown() {
+		$this->objectFactory->clear();
+		$this->propertyRegistry->clear();
+
+		parent::tearDown();
+	}
 
 	public function acquireInstance( $externalId ) {
 
@@ -67,8 +84,6 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	 */
 	public function testPropertyAnnotationWithoutConfigurationThrowsException() {
 
-		$this->setExpectedException( 'RuntimeException' );
-
 		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
 			->disableOriginalConstructor()
 			->getMock();
@@ -80,12 +95,12 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			$configuration
 		);
 
+		$this->setExpectedException( 'RuntimeException' );
+
 		$instance->addAnnotation();
 	}
 
-	public function testPropertyAnnotation_CUSER() {
-
-		$instance = $this->acquireInstance( '_CUSER' );
+	public function testPropertyAnnotationForCUSER() {
 
 		$page = $this->getMockBuilder( 'WikiPage' )
 			->disableOriginalConstructor()
@@ -95,26 +110,29 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->method( 'getCreator' )
 			->will( $this->returnValue( User::newFromName( 'Creator' ) ) );
 
+		$this->objectFactory->registerObject(
+			'mw.wikipage',
+			$this->attachWikiPage( $page )
+		);
+
+		$instance = $this->acquireInstance( '_CUSER' );
 		$semanticData = $instance->getSemanticData();
 
 		$this->assertEmpty( $semanticData->getProperties() );
-		$this->attachWikiPage( $instance, $page );
-
 		$this->assertTrue( $instance->addAnnotation() );
 
 		$this->assertArrayHasKey(
-			PropertyRegistry::getInstance()->getPropertyId( '_CUSER' ),
+			$this->propertyRegistry->getPropertyId( '_CUSER' ),
 			$semanticData->getProperties()
 		);
 	}
 
-	public function testPropertyAnnotation_NREV() {
+	public function testPropertyAnnotationForNREV() {
 
-		$instance = $this->acquireInstance( '_NREV' );
-
-		$connection = $this->getMockBuilder( 'DatabaseMysql' )
+		$connection = $this->getMockBuilder( 'DatabaseBase' )
 			->disableOriginalConstructor()
-			->getMock();
+			->setMethods( array( 'estimateRowCount' ) )
+			->getMockForAbstractClass();
 
 		$connection->expects( $this->once() )
 			->method( 'estimateRowCount' )
@@ -140,16 +158,25 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->method( 'getTitle' )
 			->will( $this->returnValue( $title ) );
 
-		$propertyId = PropertyRegistry::getInstance()->getPropertyId( '_NREV' );
+		$this->objectFactory->registerObject(
+			'mw.wikipage',
+			$this->attachWikiPage( $page )
+		);
+
+		$this->objectFactory->registerObject(
+			'mw.dbconnection',
+			$connection
+		);
+
+		$propertyId = $this->propertyRegistry->getPropertyId( '_NREV' );
 		$property = new DIProperty( $propertyId );
 
+		$instance = $this->acquireInstance( '_NREV' );
 		$semanticData = $instance->getSemanticData();
 
 		$this->assertEmpty( $semanticData->getProperties() );
-		$this->attachWikiPage( $instance, $page );
-		$this->attachDBConnection( $instance, $connection );
-
 		$this->assertTrue( $instance->addAnnotation() );
+
 		$this->assertArrayHasKey( $propertyId, $semanticData->getProperties() );
 
 		foreach ( $semanticData->getPropertyValues( $property ) as $value ) {
@@ -157,9 +184,7 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		}
 	}
 
-	public function testPropertyAnnotation_REVID() {
-
-		$instance = $this->acquireInstance( '_REVID' );
+	public function testPropertyAnnotationForREVID() {
 
 		$page = $this->getMockBuilder( 'WikiPage' )
 			->disableOriginalConstructor()
@@ -169,14 +194,18 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->method( 'getLatest' )
 			->will( $this->returnValue( 9001 ) );
 
-		$propertyId = PropertyRegistry::getInstance()->getPropertyId( '_REVID' );
+		$this->objectFactory->registerObject(
+			'mw.wikipage',
+			$this->attachWikiPage( $page )
+		);
+
+		$propertyId = $this->propertyRegistry->getPropertyId( '_REVID' );
 		$property = new DIProperty( $propertyId );
 
+		$instance = $this->acquireInstance( '_REVID' );
 		$semanticData = $instance->getSemanticData();
 
 		$this->assertEmpty( $semanticData->getProperties() );
-		$this->attachWikiPage( $instance, $page );
-
 		$this->assertTrue( $instance->addAnnotation() );
 
 		$this->assertArrayHasKey(
@@ -189,9 +218,7 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		}
 	}
 
-	public function testPropertyAnnotationWithNull_REVID() {
-
-		$instance = $this->acquireInstance( '_REVID' );
+	public function testPropertyAnnotationWithNullRevisionForREVID() {
 
 		$page = $this->getMockBuilder( 'WikiPage' )
 			->disableOriginalConstructor()
@@ -201,20 +228,22 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->method( 'getLatest' )
 			->will( $this->returnValue( null ) );
 
+		$this->objectFactory->registerObject(
+			'mw.wikipage',
+			$this->attachWikiPage( $page )
+		);
+
+		$instance = $this->acquireInstance( '_REVID' );
 		$semanticData = $instance->getSemanticData();
 
 		$this->assertEmpty( $semanticData->getProperties() );
-		$this->attachWikiPage( $instance, $page );
-
 		$this->assertTrue( $instance->addAnnotation() );
 		$this->assertEmpty( $semanticData->getProperties() );
 	}
 
-	public function testPropertyAnnotation_USERREG() {
+	public function testPropertyAnnotationForUSERREG() {
 
 		$title = Title::newFromText( 'Foo', NS_USER );
-
-		$instance = $this->acquireInstance( '_USERREG' );
 
 		$page = $this->getMockBuilder( 'WikiPage' )
 			->disableOriginalConstructor()
@@ -224,15 +253,18 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->method( 'getTitle' )
 			->will( $this->returnValue( $title ) );
 
-		$propertyId = PropertyRegistry::getInstance()->getPropertyId( '_USERREG' );
+		$this->objectFactory->registerObject(
+			'mw.wikipage',
+			$this->attachWikiPage( $page )
+		);
+
+		$propertyId = $this->propertyRegistry->getPropertyId( '_USERREG' );
 		$property = new DIProperty( $propertyId );
 
+		$instance = $this->acquireInstance( '_USERREG' );
 		$semanticData = $instance->getSemanticData();
 
 		$this->assertEmpty( $semanticData->getProperties() );
-		$this->attachWikiPage( $instance, $page );
-		$this->attachUserByPageName( $instance );
-
 		$this->assertTrue( $instance->addAnnotation() );
 
 		$this->assertArrayHasKey(
@@ -245,11 +277,9 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		}
 	}
 
-	public function testPropertyAnnotation_USERREG_OnUserSubpage() {
+	public function testPropertyAnnotationOnUserSubpageForUSERREG() {
 
 		$title = Title::newFromText( 'Foo/Boo', NS_USER );
-
-		$instance = $this->acquireInstance( '_USERREG' );
 
 		$page = $this->getMockBuilder( 'WikiPage' )
 			->disableOriginalConstructor()
@@ -259,34 +289,23 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->method( 'getTitle' )
 			->will( $this->returnValue( $title ) );
 
+		$this->objectFactory->registerObject(
+			'mw.wikipage',
+			$this->attachWikiPage( $page )
+		);
+
+		$instance = $this->acquireInstance( '_USERREG' );
 		$semanticData = $instance->getSemanticData();
 
 		$this->assertEmpty( $semanticData->getProperties() );
-		$this->attachWikiPage( $instance, $page );
-		$this->attachUserByPageName( $instance );
-
 		$this->assertTrue( $instance->addAnnotation() );
 		$this->assertEmpty( $semanticData->getProperties() );
 	}
 
-	protected function attachWikiPage( $instance, $page ) {
-		$semanticData = $instance->getSemanticData();
-
-		$instance->registerObject( 'WikiPage', function( $annotator ) use( $semanticData, $page ) {
-			return $annotator->getSemanticData()->getSubject() === $semanticData->getSubject() ? $page : null;
-		} );
-	}
-
-	protected function attachDBConnection( $instance, $connection ) {
-		$instance->registerObject( 'DBConnection', function() use( $connection ) {
-			return $connection;
-		} );
-	}
-
-	protected function attachUserByPageName( $instance ) {
-		$instance->registerObject( 'UserByPageName', function( $instance ) {
-			return \User::newFromName( $instance->getWikiPage()->getTitle()->getText() );
-		} );
+	protected function attachWikiPage( $page ) {
+		return function( $dependencyBuilder ) use( $page ) {
+			return $dependencyBuilder->getArgumentValue( 'mw.title' ) ? $page : null;
+		};
 	}
 
 }

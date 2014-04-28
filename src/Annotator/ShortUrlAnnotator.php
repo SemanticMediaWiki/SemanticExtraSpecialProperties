@@ -21,7 +21,7 @@ use RuntimeException;
  *
  * @author rotsee
  */
-class ShortUrlAnnotator extends BaseAnnotator {
+class ShortUrlAnnotator {
 
 	/** @var SemanticData */
 	protected $semanticData  = null;

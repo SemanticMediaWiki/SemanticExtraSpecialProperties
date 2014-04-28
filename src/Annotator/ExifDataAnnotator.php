@@ -29,7 +29,7 @@ use RuntimeException;
  * @author rotsee
  * @author Stephan Gambke
  */
-class ExifDataAnnotator extends BaseAnnotator {
+class ExifDataAnnotator {
 
 	/** @var SemanticData */
 	protected $semanticData = null;
