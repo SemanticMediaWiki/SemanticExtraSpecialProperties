@@ -43,7 +43,7 @@ $GLOBALS['sespSpecialProperties'] = array(
 
 ## Changelog
 
-For details about changed behaviour, added customizing or features, see the [Changelog](CHANGELOG.md).
+SESP follows the `<major>`.`<minor>`.`<patch>` [semantic versioning][semver] increment schema. For details about changes, added customizing or features, see the [Changelog](CHANGELOG.md).
 
 ## Contribution and support
 
@@ -78,3 +78,4 @@ The library provides unit tests that covers the core-functionality normally run 
 [mw-localsettings]: https://www.mediawiki.org/wiki/Localsettings
 [contributors]: https://github.com/SemanticMediaWiki/SemanticExtraSpecialProperties/graphs/contributors
 [säsongsmat]: http://säsongsmat.nu
+[semver]: http://semver.org/
