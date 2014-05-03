@@ -8,13 +8,13 @@ function installMediaWiki {
 	cd ..
 
 	wget https://github.com/wikimedia/mediawiki-core/archive/$MW.tar.gz
-    tar -zxf $MW.tar.gz
-    mv mediawiki-core-$MW phase3
+	tar -zxf $MW.tar.gz
+	mv mediawiki-core-$MW phase3
 
-    cd phase3
+	cd phase3
 
-    mysql -e 'create database its_a_mw;'
-    php maintenance/install.php --dbtype $DBTYPE --dbuser root --dbname its_a_mw --dbpath $(pwd) --pass nyan TravisWiki admin
+	mysql -e 'create database its_a_mw;'
+	php maintenance/install.php --dbtype $DBTYPE --dbuser root --dbname its_a_mw --dbpath $(pwd) --pass nyan TravisWiki admin
 }
 
 function installSemanticExtraSpecialPropertiesAsExtension {
@@ -23,6 +23,8 @@ function installSemanticExtraSpecialPropertiesAsExtension {
 	cp -r $originalDirectory SemanticExtraSpecialProperties
 
 	cd SemanticExtraSpecialProperties
+
+	composer require 'phpunit/phpunit=3.7.*' --prefer-source
 	composer update --prefer-source --dev
 
 	cd ../..
