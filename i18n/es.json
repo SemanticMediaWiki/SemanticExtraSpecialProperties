@@ -16,5 +16,6 @@
 	"sesp-property-mimetype": "Tipo MIME",
 	"sesp-property-mediatype": "Tipo de medios",
 	"sesp-property-shorturl": "Dirección URL corta",
-	"sesp-property-user-registration-date": "Fecha de registro del usuario"
+	"sesp-property-user-registration-date": "Fecha de registro del usuario",
+	"sesp-property-exif-data": "Datos EXIF"
 }
