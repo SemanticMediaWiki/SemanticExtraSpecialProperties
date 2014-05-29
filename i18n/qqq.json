@@ -5,18 +5,18 @@
 			"Shirayuki"
 		]
 	},
-	"sesp-desc": "{{desc|name=Semantic Extra Special Properties|url=http://www.mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties}}",
+	"sesp-desc": "{{desc|name=Semantic Extra Special Properties|url=https://www.mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties}}",
 	"sesp-property-author": "The name of the special property that stores the contributors to a page",
-	"sesp-property-first-author": "The name of the special property that stores the user that created the page",
-	"sesp-property-revision-id": "The name of the special property that stores the current revision ID.\n{{Identical|Revision ID}}",
-	"sesp-property-page-id": "The name of the special property that stores the page ID.\n{{Identical|Page ID}}",
-	"sesp-property-view-count": "The name of the special property that stores the number of pages views",
-	"sesp-property-subpages": "The name of the special property that stores subpages.\n{{Identical|Subpage}}",
-	"sesp-property-revisions": "The name of the special property that stores the number of revisions",
-	"sesp-property-talk-revisions": "The name of the special property that stores the number of revisions on the talk page associated to this page",
-	"sesp-property-mimetype": "The name of the special property that stores the MIME type of a file.\n{{Identical|MIME type}}",
-	"sesp-property-mediatype": "The name of the special property that stores the media type of a file",
-	"sesp-property-shorturl": "The name of the special property that stores the short URL of a page, if the extensions ShortURL is installed.\n{{Identical|Short URL}}",
-	"sesp-property-user-registration-date": "The name of the special property that stores a users registration date on a user page",
-	"sesp-property-exif-data": "The name of the special property that stores a reference to the EXIF data of a file"
+	"sesp-property-first-author": "The name of the special property that stores the user that created the page.\n{{Doc-smw-sp}}",
+	"sesp-property-revision-id": "The name of the special property that stores the current revision ID.\n{{Doc-smw-sp}}\n{{Identical|Revision ID}}",
+	"sesp-property-page-id": "The name of the special property that stores the page ID.\n{{Doc-smw-sp}}\n{{Identical|Page ID}}",
+	"sesp-property-view-count": "The name of the special property that stores the number of pages views.\n{{Doc-smw-sp}}",
+	"sesp-property-subpages": "The name of the special property that stores subpages.\n{{Doc-smw-sp}}\n{{Identical|Subpage}}",
+	"sesp-property-revisions": "The name of the special property that stores the number of revisions.\n{{Doc-smw-sp}}",
+	"sesp-property-talk-revisions": "The name of the special property that stores the number of revisions on the talk page associated to this page.\n{{Doc-smw-sp}}",
+	"sesp-property-mimetype": "The name of the special property that stores the MIME type of a file.\n{{Doc-smw-sp}}\n{{Identical|MIME type}}",
+	"sesp-property-mediatype": "The name of the special property that stores the media type of a file.\n{{Doc-smw-sp}}",
+	"sesp-property-shorturl": "The name of the special property that stores the short URL of a page, if the extensions ShortURL is installed.\n{{Doc-smw-sp}}\n{{Identical|Short URL}}",
+	"sesp-property-user-registration-date": "The name of the special property that stores a users registration date on a user page.\n{{Doc-smw-sp}}",
+	"sesp-property-exif-data": "The name of the special property that stores a reference to the EXIF data of a file.\n{{Doc-smw-sp}}"
 }
