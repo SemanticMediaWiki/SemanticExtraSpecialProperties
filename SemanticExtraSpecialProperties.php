@@ -67,7 +67,8 @@ call_user_func( function () {
 		),
 		'version'        => SESP_VERSION,
 		'url'            => 'https://www.mediawiki.org/wiki/Extension:SemanticExtraSpecialProperties',
-		'descriptionmsg' => 'sesp-desc'
+		'descriptionmsg' => 'sesp-desc',
+		'license-name'   => 'GPL-2.0+'
 	);
 
 	$setup = new \SESP\Setup( $GLOBALS, __DIR__ );
