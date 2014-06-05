@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Amgauna",
-			"Jaideraf"
+			"Jaideraf",
+			"Tuliouel"
 		]
 	},
 	"sesp-desc": "Adiciona algumas propriedades especiais para todas as páginas",
@@ -16,7 +17,7 @@
 	"sesp-property-talk-revisions": "Número de revisões da página de discussão",
 	"sesp-property-mimetype": "Tipo MIME",
 	"sesp-property-mediatype": "Tipo de mídia",
-	"sesp-property-shorturl": "URL resumido",
+	"sesp-property-shorturl": "URL curto",
 	"sesp-property-user-registration-date": "Data de registro do usuário",
 	"sesp-property-exif-data": "Dados Exif"
 }
