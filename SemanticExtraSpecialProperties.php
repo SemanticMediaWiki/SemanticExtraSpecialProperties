@@ -42,13 +42,14 @@ if ( version_compare( SMW_VERSION, '1.9', '<' ) ) {
 
 // FIXME Use the PSR-4 Composer autoloader
 $GLOBALS['wgAutoloadClasses']['SESP\Annotator\ExtraPropertyAnnotator']   = __DIR__ . '/src/Annotator/ExtraPropertyAnnotator.php';
-$GLOBALS['wgAutoloadClasses']['SESP\Annotator\BaseAnnotator']            = __DIR__ . '/src/Annotator/BaseAnnotator.php';
 $GLOBALS['wgAutoloadClasses']['SESP\PropertyRegistry']         = __DIR__ . '/src/PropertyRegistry.php';
 $GLOBALS['wgAutoloadClasses']['SESP\Annotator\ExifDataAnnotator']        = __DIR__ . '/src/Annotator/ExifDataAnnotator.php';
 $GLOBALS['wgAutoloadClasses']['SESP\Annotator\ShortUrlAnnotator']        = __DIR__ . '/src/Annotator/ShortUrlAnnotator.php';
 $GLOBALS['wgAutoloadClasses']['SESP\Definition\DefinitionReader'] = __DIR__ . '/src/Definition/DefinitionReader.php';
 $GLOBALS['wgAutoloadClasses']['SESP\Cache\MessageCache']          = __DIR__ . '/src/Cache/MessageCache.php';
-$GLOBALS['wgAutoloadClasses']['SESP\Setup']          = __DIR__ . '/src/Setup.php';
+$GLOBALS['wgAutoloadClasses']['SESP\Setup']                    = __DIR__ . '/src/Setup.php';
+$GLOBALS['wgAutoloadClasses']['SESP\DIC\DIContainer']          = __DIR__ . '/src/DIC/DIContainer.php';
+$GLOBALS['wgAutoloadClasses']['SESP\DIC\ObjectFactory']        = __DIR__ . '/src/DIC/ObjectFactory.php';
 
 /**
  * @codeCoverageIgnore

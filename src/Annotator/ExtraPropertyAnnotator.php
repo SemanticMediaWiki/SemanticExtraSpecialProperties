@@ -3,6 +3,7 @@
 namespace SESP\Annotator;
 
 use SESP\PropertyRegistry;
+use SESP\DIC\ObjectFactory;
 
 use SMW\SemanticData;
 use SMW\DIProperty;
@@ -28,7 +29,7 @@ use RuntimeException;
  * @author mwjames
  * @author rotsee
  */
-class ExtraPropertyAnnotator extends BaseAnnotator {
+class ExtraPropertyAnnotator {
 
 	/** @var SemanticData */
 	protected $semanticData = null;
@@ -73,15 +74,12 @@ class ExtraPropertyAnnotator extends BaseAnnotator {
 		return $this->semanticData;
 	}
 
-	/**
-	 * @since 1.0
-	 *
-	 * @return WikiPage
-	 */
-	public function getWikiPage() {
+	protected function getWikiPage() {
 
 		if ( $this->page === null ) {
-			$this->page = $this->loadRegisteredObject( 'WikiPage' );
+			$this->page = ObjectFactory::getInstance()->newWikiPage(
+				$this->getSemanticData()->getSubject()->getTitle()
+			);
 		}
 
 		return $this->page;
@@ -127,9 +125,6 @@ class ExtraPropertyAnnotator extends BaseAnnotator {
 
 		$dataItem = null;
 
-		// _REVID was incorrect in the original SESP because getId returns the
-		// page id not the revision Id
-
 		switch ( $externalId ) {
 			case '_CUSER' :
 				$dataItem = $this->makeFirstAuthorDataItem();
@@ -173,13 +168,8 @@ class ExtraPropertyAnnotator extends BaseAnnotator {
 		return $dataItem;
 	}
 
-	private function acquireDBConnection() {
-
-		if ( $this->dbConnection === null ) {
-			$this->dbConnection = $this->loadRegisteredObject( 'DBConnection', 'DatabaseBase' );
-		}
-
-		return $this->dbConnection;
+	private function getDBConnection() {
+		return ObjectFactory::getInstance()->getDBConnection( DB_SLAVE );
 	}
 
 	private function isUserPage() {
@@ -206,7 +196,8 @@ class ExtraPropertyAnnotator extends BaseAnnotator {
 
 	private function addPropertyValuesForPageContributors( DIProperty $property ) {
 
-		$user = User::newFromId( $this->getWikiPage()->getUser() );
+		$user = ObjectFactory::getInstance()->newUserFromId( $this->getWikiPage()->getUser() );
+
 		$authors = $this->getWikiPage()->getContributors();
 
 		while ( $user ) {
@@ -242,7 +233,7 @@ class ExtraPropertyAnnotator extends BaseAnnotator {
 	}
 
 	private function getPageRevisionsForId( $pageId ) {
-		return $this->acquireDBConnection()->estimateRowCount(
+		return $this->getDBConnection()->estimateRowCount(
 			"revision",
 			"*",
 			array( "rev_page" => $pageId )
@@ -321,7 +312,7 @@ class ExtraPropertyAnnotator extends BaseAnnotator {
 			return null;
 		}
 
-		$user = $this->loadRegisteredObject( 'UserByPageName', 'User' );
+		$user = ObjectFactory::getInstance()->newUserFromName( $this->getWikiPage()->getTitle() );
 
 		if ( $user instanceof User ) {
 

@@ -4,6 +4,7 @@ namespace SESP;
 
 use SESP\PropertyRegistry;
 use SESP\Annotator\ExtraPropertyAnnotator;
+use SESP\DIC\ObjectFactory;
 
 /**
  * @ingroup SESP
@@ -46,7 +47,6 @@ class Setup {
 		if ( !isset( $this->globalVars['sespCacheType'] ) ) {
 			$this->globalVars['sespCacheType'] = CACHE_ANYTHING;
 		}
-
 	}
 
 	protected function registerMessageFiles() {
@@ -75,6 +75,8 @@ class Setup {
 				'wgShortUrlPrefix'      => isset( $globalVars['wgShortUrlPrefix'] )  ? $globalVars['wgShortUrlPrefix']  : false
 			);
 
+			ObjectFactory::getInstance()->registerObject( 'sesp.configuration', $configuration );
+
 			/**
 			 * Register as fixed tables
 			 *
@@ -100,23 +102,8 @@ class Setup {
 			 */
 			$globalVars['wgHooks']['SMWStore::updateDataBefore'][] = function ( \SMW\Store $store, \SMW\SemanticData $semanticData ) use ( $configuration ) {
 				$propertyAnnotator = new ExtraPropertyAnnotator( $semanticData, $configuration );
-
-				// DI object registration
-				$propertyAnnotator->registerObject( 'DBConnection', function() {
-					return wfGetDB( DB_SLAVE );
-				} );
-
-				$propertyAnnotator->registerObject( 'WikiPage', function( $instance ) {
-					return \WikiPage::factory( $instance->getSemanticData()->getSubject()->getTitle() );
-				} );
-
-				$propertyAnnotator->registerObject( 'UserByPageName', function( $instance ) {
-					return \User::newFromName( $instance->getWikiPage()->getTitle()->getText() );
-				} );
-
 				return $propertyAnnotator->addAnnotation();
 			};
-
 
 			return true;
 		};
