@@ -3,13 +3,14 @@
 		"authors": [
 			"Liuxinyu970226",
 			"Shirayuki",
-			"Yfdyh000"
+			"Yfdyh000",
+			"Mywood"
 		]
 	},
 	"sesp-desc": "添加一些额外的特殊属性到所有页面",
 	"sesp-property-author": "页面所有者",
 	"sesp-property-first-author": "页面创建者",
-	"sesp-property-revision-id": "修订版本",
+	"sesp-property-revision-id": "版本ID",
 	"sesp-property-page-id": "页面ID",
 	"sesp-property-view-count": "页面访问数",
 	"sesp-property-subpages": "子页",
