@@ -2,7 +2,7 @@
 
 ### 1.2.1
 
-2014-07-21
+Released on 2014-07-21
 
 - Added compatibility with Semantic MediaWiki 2.x
 
