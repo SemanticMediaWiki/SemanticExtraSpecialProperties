@@ -1,6 +1,14 @@
 ## Version 1.x
 
+### 1.2.1
+
+2014-07-21
+
+- Added compatibility with Semantic MediaWiki 2.x
+
 ### 1.2.0
+
+Released on 2014-04-23
 
 - #25 Added MessageCache to improve registration and lookup performance
 - #33 Added DefinitionReader to separate responsibilities
