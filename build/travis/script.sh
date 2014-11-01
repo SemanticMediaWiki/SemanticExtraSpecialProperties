@@ -7,11 +7,17 @@ originalDirectory=$(pwd)
 function installMediaWiki {
 	cd ..
 
-	wget https://github.com/wikimedia/mediawiki-core/archive/$MW.tar.gz
+	wget https://github.com/wikimedia/mediawiki/archive/$MW.tar.gz
 	tar -zxf $MW.tar.gz
-	mv mediawiki-core-$MW phase3
+	mv mediawiki-$MW phase3
 
 	cd phase3
+
+	## MW 1.25 requires Psr\Logger
+	if [ "$MW" == "master" ]
+	then
+	  composer install
+	fi
 
 	mysql -e 'create database its_a_mw;'
 	php maintenance/install.php --dbtype $DBTYPE --dbuser root --dbname its_a_mw --dbpath $(pwd) --pass nyan TravisWiki admin
@@ -24,7 +30,7 @@ function installSemanticExtraSpecialPropertiesAsExtension {
 
 	cd SemanticExtraSpecialProperties
 
-	composer require 'phpunit/phpunit=3.7.*' --prefer-source
+	composer require 'phpunit/phpunit=3.7.*' --prefer-source --update-with-dependencies
 	composer update --prefer-source --dev
 
 	cd ../..
