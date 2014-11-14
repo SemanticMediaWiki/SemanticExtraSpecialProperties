@@ -3,7 +3,8 @@
 		"authors": [
 			"Shirayuki",
 			"Simon Shek",
-			"Liuxinyu970226"
+			"Liuxinyu970226",
+			"LNDDYL"
 		]
 	},
 	"sesp-desc": "加入一些額外特殊屬性於所有頁面",
@@ -18,6 +19,6 @@
 	"sesp-property-mimetype": "MIME類型",
 	"sesp-property-mediatype": "媒體類型",
 	"sesp-property-shorturl": "簡短的網址",
-	"sesp-property-user-registration-date": "用戶註冊時間",
+	"sesp-property-user-registration-date": "使用者註冊日期",
 	"sesp-property-exif-data": "EXIF資料"
 }
