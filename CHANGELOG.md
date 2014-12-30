@@ -4,7 +4,7 @@
 
 Released on 2014-12-31
 
-- #42 Fix fatal during `importDump` for when a file doesn't exists
+- #42 Fix fatal during `importDump` for when a file doesn't exist
 
 ### 1.2.1
 
