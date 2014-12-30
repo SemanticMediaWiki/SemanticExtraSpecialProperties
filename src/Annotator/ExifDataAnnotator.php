@@ -31,14 +31,20 @@ use RuntimeException;
  */
 class ExifDataAnnotator extends BaseAnnotator {
 
-	/** @var SemanticData */
-	protected $semanticData = null;
+	/**
+	 * @var SemanticData
+	 */
+	private $semanticData = null;
 
-	/** @var File  */
-	protected $file = null;
+	/**
+	 * @var File
+	 */
+	private $file = null;
 
-	/** @var Subobject */
-	protected $subobject = null;
+	/**
+	 * @var Subobject
+	 */
+	private $subobject = null;
 
 	/**
 	 * @since 1.0
@@ -76,6 +82,10 @@ class ExifDataAnnotator extends BaseAnnotator {
 
 		if ( $this->file === null ) {
 			throw new RuntimeException( 'Expected a file' );
+		}
+
+		if ( !$this->file->exists() ) {
+			return true;
 		}
 
 		$exif = unserialize( $this->file->getMetadata() );

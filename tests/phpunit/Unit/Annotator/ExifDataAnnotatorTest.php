@@ -50,6 +50,29 @@ class ExifDataAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		$instance->addAnnotation();
 	}
 
+	public function testTryAddAnnotationForNonExistingFile() {
+
+		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$file = $this->getMockBuilder( 'File' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$file->expects( $this->once() )
+			->method( 'exists' )
+			->will( $this->returnValue( false ) );
+
+		$file->expects( $this->never() )
+			->method( 'getMetadata' );
+
+		$instance = new ExifDataAnnotator( $semanticData );
+		$instance->setFile( $file );
+
+		$instance->addAnnotation();
+	}
+
 	public function testPropertyAnnotationOnEmptyExifData() {
 
 		$semanticData = $this->annotateWithExifData( false );
@@ -169,6 +192,10 @@ class ExifDataAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		$file = $this->getMockBuilder( 'File' )
 			->disableOriginalConstructor()
 			->getMock();
+
+		$file->expects( $this->once() )
+			->method( 'exists' )
+			->will( $this->returnValue( true ) );
 
 		$file->expects( $this->once() )
 			->method( 'getMetadata' )

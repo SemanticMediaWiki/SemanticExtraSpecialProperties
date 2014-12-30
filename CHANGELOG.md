@@ -1,5 +1,11 @@
 ## Version 1.x
 
+### 1.2.2
+
+Released on 2014-12-31
+
+- #42 Fix fatal during `importDump` for when a file doesn't exists
+
 ### 1.2.1
 
 Released on 2014-07-21
