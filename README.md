@@ -17,8 +17,8 @@ Semantic Extra Special Properties (a.k.a. SESP) is an extension to [Semantic Med
 
 ## Installation
 
-The recommended way to install this extension is by using [Composer][composer]. Just add the following to the
-MediaWiki `composer.json` file and run the ``php composer.phar install/update`` command.
+The recommended way to install Semantic Extra Special Properties is by using [Composer][composer]
+with an entry in MediaWiki's `composer.json`.
 
 ```json
 {
@@ -27,27 +27,26 @@ MediaWiki `composer.json` file and run the ``php composer.phar install/update`` 
 	}
 }
 ```
-After upgrading this extension to a newer version it is strongly recommended to rebuild existing semantic data by running the [data refresh][data-refresh] command from the base directory.
+1. From your MediaWiki installation directory, execute
+   `composer require mediawiki/semantic-extra-special-properties:~1.2`
+2. It is strongly recommended to rebuild existing semantic data and run
+   Semantic MediaWiki's rebuild data process.
+3. Navigate to _Special:Version_ on your wiki and verify that the package
+   have been successfully installed.
 
-## Configuration
+## Usage
 
-The [`LocalSettings.php`][mw-localsettings] needs additional settings in order to enable `SESP` property annotations. For details on how to adjust the settings, please have a look at the [configuration guideline](CONFIGURATION.md).
+The annotation process for predefined properties is mostly done in the background
+and therefore doesn't need any special interaction from a user but [`LocalSettings`][mw-localsettings] for
+`SESP` need to be enabled.
 
-```php
-$GLOBALS['sespSpecialProperties'] = array(
-	'_EUSER',
-	'_CUSER',
-	...
-);
-```
+For details on how to adjust the settings, please have a look at the [configuration guideline](CONFIGURATION.md).
 
 ## Changelog
 
-SESP follows the `<major>`.`<minor>`.`<patch>` [semantic versioning][semver] increment schema. For details about changes, added customizing or features, see the [Changelog](CHANGELOG.md).
+For details about changes, added customizing or features, see the [Changelog](CHANGELOG.md).
 
 ## Contribution and support
-
-This extension was originally written for [säsongsmat.nu][säsongsmat] by Leo Wallentin (leo_wallentin (at) hotmail.com).
 
 If you have remarks, questions, or suggestions, please send them to semediawiki-users@lists.sourceforge.net. You can subscribe to this list [here](http://sourceforge.net/mailarchive/forum.php?forum_name=semediawiki-user).
 
@@ -61,7 +60,8 @@ developers mailing list and have a look at the [contribution guildline](/CONTRIB
 
 ### Tests
 
-The library provides unit tests that covers the core-functionality normally run by the [continues integration platform][travis]. Tests can also be executed [manual][mw-testing] using the PHPUnit configuration file found in the root directory.
+This extension provides unit and integration tests that are run by a [continues integration platform][travis]
+but can also be executed using `composer phpunit` from the extension base directory.
 
 ## License
 
@@ -73,9 +73,7 @@ The library provides unit tests that covers the core-functionality normally run 
 [smw]: https://www.semantic-mediawiki.org/wiki/Semantic_MediaWiki
 [travis]: https://travis-ci.org/SemanticMediaWiki/SemanticExtraSpecialProperties
 [mw-testing]: https://www.mediawiki.org/wiki/Manual:PHP_unit_testing
-[data-refresh]: https://semantic-mediawiki.org/wiki/Help:Data_refresh#Examples
 [mw-update]: https://www.mediawiki.org/wiki/Manual:Update.php
 [mw-localsettings]: https://www.mediawiki.org/wiki/Localsettings
 [contributors]: https://github.com/SemanticMediaWiki/SemanticExtraSpecialProperties/graphs/contributors
-[säsongsmat]: http://säsongsmat.nu
 [semver]: http://semver.org/
