@@ -32,13 +32,16 @@
 	},
 	"extra": {
 		"branch-alias": {
-			"dev-master": "1.2.x-dev"
+			"dev-master": "1.3.x-dev"
 		}
 	},
 	"autoload": {
 		"files" : [
 			"SemanticExtraSpecialProperties.php"
-		]
+		],
+		"psr-4": {
+			"SESP\\": "src/"
+		}
 	},
 	"config": {
 		"process-timeout": 0
@@ -46,5 +49,4 @@
 	"scripts": {
 		"phpunit": "php ../../tests/phpunit/phpunit.php -c phpunit.xml.dist"
 	}
-
 }
