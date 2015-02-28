@@ -23,12 +23,12 @@ with an entry in MediaWiki's `composer.json`.
 ```json
 {
 	"require": {
-		"mediawiki/semantic-extra-special-properties": "~1.2"
+		"mediawiki/semantic-extra-special-properties": "~1.3"
 	}
 }
 ```
 1. From your MediaWiki installation directory, execute
-   `composer require mediawiki/semantic-extra-special-properties:~1.2`
+   `composer require mediawiki/semantic-extra-special-properties:~1.3`
 2. It is strongly recommended to rebuild existing semantic data and run
    Semantic MediaWiki's rebuild data process.
 3. Navigate to _Special:Version_ on your wiki and verify that the package
@@ -41,10 +41,6 @@ and therefore doesn't need any special interaction from a user but [`LocalSettin
 `SESP` need to be enabled.
 
 For details on how to adjust the settings, please have a look at the [configuration guideline](CONFIGURATION.md).
-
-## Changelog
-
-For details about changes, added customizing or features, see the [Changelog](CHANGELOG.md).
 
 ## Contribution and support
 
