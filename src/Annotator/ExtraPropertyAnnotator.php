@@ -3,6 +3,7 @@
 namespace SESP\Annotator;
 
 use SESP\PropertyRegistry;
+use SESP\AppFactory;
 
 use SMW\SemanticData;
 use SMW\DIProperty;
@@ -28,23 +29,33 @@ use RuntimeException;
  * @author mwjames
  * @author rotsee
  */
-class ExtraPropertyAnnotator extends BaseAnnotator {
+class ExtraPropertyAnnotator {
 
-	/** @var SemanticData */
+	/**
+	 * @var SemanticData
+	 */
 	protected $semanticData = null;
 
+	/**
+	 * @var AppFactory
+	 */
+	private $appFactory = null;
+
+
 	protected $configuration = null;
-	protected $dbConnection = null;
-	protected $page = null;
+	private $dbConnection = null;
+	private $page = null;
 
 	/**
 	 * @since 1.0
 	 *
 	 * @param SemanticData $semanticData
+	 * @param Factory $factory
 	 * @param array $configuration
 	 */
-	public function __construct( SemanticData $semanticData, array $configuration ) {
+	public function __construct( SemanticData $semanticData, AppFactory $appFactory, array $configuration ) {
 		$this->semanticData = $semanticData;
+		$this->appFactory = $appFactory;
 		$this->configuration = $configuration;
 	}
 
@@ -81,7 +92,7 @@ class ExtraPropertyAnnotator extends BaseAnnotator {
 	public function getWikiPage() {
 
 		if ( $this->page === null ) {
-			$this->page = $this->loadRegisteredObject( 'WikiPage' );
+			$this->page = $this->appFactory->newWikiPage( $this->semanticData->getSubject()->getTitle() ); //$this->loadRegisteredObject( 'WikiPage' );
 		}
 
 		return $this->page;
@@ -173,15 +184,6 @@ class ExtraPropertyAnnotator extends BaseAnnotator {
 		return $dataItem;
 	}
 
-	private function acquireDBConnection() {
-
-		if ( $this->dbConnection === null ) {
-			$this->dbConnection = $this->loadRegisteredObject( 'DBConnection', 'DatabaseBase' );
-		}
-
-		return $this->dbConnection;
-	}
-
 	private function isUserPage() {
 		return $this->getWikiPage()->getTitle()->inNamespace( NS_USER );
 	}
@@ -242,7 +244,12 @@ class ExtraPropertyAnnotator extends BaseAnnotator {
 	}
 
 	private function getPageRevisionsForId( $pageId ) {
-		return $this->acquireDBConnection()->estimateRowCount(
+
+		if ( $this->dbConnection === null ) {
+			$this->dbConnection = $this->appFactory->newDatabaseConnection(); //( 'DBConnection', 'DatabaseBase' );
+		}
+
+		return $this->dbConnection->estimateRowCount(
 			"revision",
 			"*",
 			array( "rev_page" => $pageId )
@@ -302,15 +309,15 @@ class ExtraPropertyAnnotator extends BaseAnnotator {
 
 	private function addPropertyValuesForExifData() {
 		if ( $this->isFilePage() ) {
-			$exifDataAnnotator = new ExifDataAnnotator( $this->getSemanticData() );
-			$exifDataAnnotator->setFile( $this->getWikiPage()->getFile() );
-			$exifDataAnnotator->addAnnotation();
+			$this->appFactory->newExifDataAnnotator( $this->getSemanticData(), $this->getWikiPage()->getFile() )->addAnnotation();
 		}
 	}
 
 	private function addPropertyValuesForShortUrl() {
-		if ( class_exists( 'ShortUrlUtils' ) ) {
-			$shortUrlAnnotator = new ShortUrlAnnotator( $this->getSemanticData(), $this->configuration );
+
+		$shortUrlAnnotator = $this->appFactory->newShortUrlAnnotator( $this->getSemanticData() );
+
+		if ( $shortUrlAnnotator->canUseShortUrl() ) {
 			$shortUrlAnnotator->addAnnotation();
 		}
 	}
@@ -321,7 +328,7 @@ class ExtraPropertyAnnotator extends BaseAnnotator {
 			return null;
 		}
 
-		$user = $this->loadRegisteredObject( 'UserByPageName', 'User' );
+		$user = $this->appFactory->newUserFromTitle( $this->getWikiPage()->getTitle() );
 
 		if ( $user instanceof User ) {
 

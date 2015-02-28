@@ -11,12 +11,9 @@ use SMW\DIWikiPage;
 use Title;
 
 /**
- * @uses \SESP\Annotator\ShortUrlAnnotator
+ * @covers \SESP\Annotator\ShortUrlAnnotator
  *
- * @ingroup Test
- *
- * @group SESP
- * @group SESPExtension
+ * @group semantic-extra-special-properties
  *
  * @license GNU GPL v2+
  * @since 1.0
@@ -31,11 +28,23 @@ class ShortUrlAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$configuration = array();
-
 		$this->assertInstanceOf(
 			'\SESP\Annotator\ShortUrlAnnotator',
-			new ShortUrlAnnotator( $semanticData, $configuration )
+			new ShortUrlAnnotator( $semanticData )
+		);
+	}
+
+	public function testCanUseShortUrl() {
+
+		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$instance = new ShortUrlAnnotator( $semanticData );
+
+		$this->assertInternalType(
+			'boolean',
+			$instance->canUseShortUrl()
 		);
 	}
 
@@ -47,13 +56,10 @@ class ShortUrlAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$configuration = array();
-
 		$instance = $this->getMock( '\SESP\Annotator\ShortUrlAnnotator',
 			array( 'hasShortUrlUtils' ),
 			array(
-				$semanticData,
-				$configuration
+				$semanticData
 			)
 		);
 
@@ -69,13 +75,10 @@ class ShortUrlAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		$title = Title::newFromText( __METHOD__ );
 		$semanticData = new SemanticData( DIWikiPage::newFromTitle( $title ) );
 
-		$configuration = array();
-
 		$instance = $this->getMock( '\SESP\Annotator\ShortUrlAnnotator',
 			array( 'hasShortUrlUtils', 'getShortUrl' ),
 			array(
-				$semanticData,
-				$configuration
+				$semanticData
 			)
 		);
 
@@ -88,6 +91,7 @@ class ShortUrlAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->with( $this->equalTo( $title ) )
 			->will( $this->returnValue( 'example.org' ) );
 
+		$instance->setShortUrlPrefix( 'foo' );
 		$instance->addAnnotation();
 
 		$this->assertArrayHasKey(

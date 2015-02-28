@@ -21,32 +21,43 @@ use RuntimeException;
  *
  * @author rotsee
  */
-class ShortUrlAnnotator extends BaseAnnotator {
+class ShortUrlAnnotator {
 
-	/** @var SemanticData */
-	protected $semanticData  = null;
+	/**
+	 * @var SemanticData
+	 */
+	private $semanticData  = null;
 
-	/** @var array */
-	protected $configuration = null;
+	/**
+	 * @var string
+	 */
+	private $shortUrlPrefix = '';
 
 	/**
 	 * @since 1.0
 	 *
 	 * @param SemanticData $semanticData
-	 * @param array $configuration
 	 */
-	public function __construct( SemanticData $semanticData, array $configuration ) {
+	public function __construct( SemanticData $semanticData ) {
 		$this->semanticData = $semanticData;
-		$this->configuration = $configuration;
+	}
+
+	/**
+	 * @since 1.3
+	 *
+	 * @return boolean
+	 */
+	public function canUseShortUrl() {
+		return class_exists( 'ShortUrlUtils' );
 	}
 
 	/**
 	 * @since 1.0
 	 *
-	 * @param SemanticData
+	 * @param string $shortUrlPrefix
 	 */
-	public function getSemanticData() {
-		return $this->semanticData;
+	public function setShortUrlPrefix( $shortUrlPrefix ) {
+		$this->shortUrlPrefix = $shortUrlPrefix;
 	}
 
 	/**
@@ -60,10 +71,10 @@ class ShortUrlAnnotator extends BaseAnnotator {
 			throw new RuntimeException( 'Expected class ShortUrlUtils to be available' );
 		}
 
-		$shortURL = $this->getShortUrl( $this->getSemanticData()->getSubject()->getTitle() );
+		$shortURL = $this->getShortUrl( $this->semanticData->getSubject()->getTitle() );
 
 		if ( $shortURL !== null ) {
-			$this->getSemanticData()->addPropertyObjectValue(
+			$this->semanticData->addPropertyObjectValue(
 				new DIProperty( PropertyRegistry::getInstance()->getPropertyId( '_SHORTURL' ) ),
 				new DIUri( 'http', $shortURL, '', '' )
 			);
@@ -86,11 +97,11 @@ class ShortUrlAnnotator extends BaseAnnotator {
 
 	protected function getUrlPrefix() {
 
-		if ( !isset( $this->configuration['wgShortUrlPrefix'] ) && !is_string( $this->configuration['wgShortUrlPrefix'] ) ) {
+		if ( $this->shortUrlPrefix === '' ) {
 			return SpecialPage::getTitleFor( 'ShortUrl' )->getFullUrl() . '/';
 		}
 
-		return $this->configuration['wgShortUrlPrefix'];
+		return $this->shortUrlPrefix;
 	}
 
 	protected function hasShortUrlUtils() {
