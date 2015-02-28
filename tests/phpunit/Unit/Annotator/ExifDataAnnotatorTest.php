@@ -12,12 +12,9 @@ use SMW\DIProperty;
 use Title;
 
 /**
- * @uses \SESP\Annotator\ExifDataAnnotator
+ * @covers \SESP\Annotator\ExifDataAnnotator
  *
- * @ingroup Test
- *
- * @group SESP
- * @group SESPExtension
+ * @group semantic-extra-special-properties
  *
  * @license GNU GPL v2+
  * @since 1.0
@@ -32,22 +29,14 @@ class ExifDataAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$this->assertInstanceOf(
-			'\SESP\Annotator\ExifDataAnnotator',
-			new ExifDataAnnotator( $semanticData )
-		);
-	}
-
-	public function testAddAnnotationWithoutFileThrowsException() {
-
-		$this->setExpectedException( 'RuntimeException' );
-
-		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
+		$file = $this->getMockBuilder( '\File' )
 			->disableOriginalConstructor()
 			->getMock();
 
-		$instance = new ExifDataAnnotator( $semanticData );
-		$instance->addAnnotation();
+		$this->assertInstanceOf(
+			'\SESP\Annotator\ExifDataAnnotator',
+			new ExifDataAnnotator( $semanticData, $file )
+		);
 	}
 
 	public function testTryAddAnnotationForNonExistingFile() {
@@ -67,15 +56,13 @@ class ExifDataAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		$file->expects( $this->never() )
 			->method( 'getMetadata' );
 
-		$instance = new ExifDataAnnotator( $semanticData );
-		$instance->setFile( $file );
-
+		$instance = new ExifDataAnnotator( $semanticData, $file );
 		$instance->addAnnotation();
 	}
 
 	public function testPropertyAnnotationOnEmptyExifData() {
 
-		$semanticData = $this->annotateWithExifData( false );
+		$semanticData = $this->getSemanticDataForExifDataAnnotatorBy( false );
 
 		$this->assertEmpty(
 			$semanticData->findSubSemanticData( '_EXIFDATA' )
@@ -84,7 +71,7 @@ class ExifDataAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 	public function testPropertyAnnotationWithBlobValue() {
 
-		$semanticData = $this->annotateWithExifData( array(
+		$semanticData = $this->getSemanticDataForExifDataAnnotatorBy( array(
 			'Software'  => 'ABC',
 		) );
 
@@ -96,7 +83,7 @@ class ExifDataAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 	public function testPropertyAnnotationWithFullDateTime() {
 
-		$semanticData = $this->annotateWithExifData( array(
+		$semanticData = $this->getSemanticDataForExifDataAnnotatorBy( array(
 			'DateTimeOriginal'  => '2013:01:11 02:13:35',
 		) );
 
@@ -108,7 +95,7 @@ class ExifDataAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 	public function testPropertyAnnotationWithoutSeconds() {
 
-		$semanticData = $this->annotateWithExifData( array(
+		$semanticData = $this->getSemanticDataForExifDataAnnotatorBy( array(
 			'DateTimeOriginal'  => '2013:01:11 02:13',
 		) );
 
@@ -120,7 +107,7 @@ class ExifDataAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 	public function testPropertyAnnotationWithDateOnly() {
 
-		$semanticData = $this->annotateWithExifData( array(
+		$semanticData = $this->getSemanticDataForExifDataAnnotatorBy( array(
 			'DateTimeOriginal'  => '2013:01:11',
 		) );
 
@@ -132,17 +119,19 @@ class ExifDataAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 	public function testPropertyAnnotationWithInvalidDate() {
 
-		$semanticData = $this->annotateWithExifData( array(
+		$semanticData = $this->getSemanticDataForExifDataAnnotatorBy( array(
 			'DateTimeOriginal'  => '0000:00:00 00:00:00',
 			'DateTime'  => '    :  :     :  :  ',
 		) );
 
-		$this->assertEmpty( $semanticData->findSubSemanticData( '_EXIFDATA' ) );
+		$this->assertEmpty(
+			$semanticData->findSubSemanticData( '_EXIFDATA' )
+		);
 	}
 
 	public function testPropertyAnnotationWithNumberValue() {
 
-		$semanticData = $this->annotateWithExifData(
+		$semanticData = $this->getSemanticDataForExifDataAnnotatorBy(
 			array(
 				'Foo'  => 'ABC',
 			),
@@ -166,7 +155,7 @@ class ExifDataAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 	public function testPropertyAnnotationWithUnkownExif() {
 
-		$semanticData = $this->annotateWithExifData(
+		$semanticData = $this->getSemanticDataForExifDataAnnotatorBy(
 			array(
 				'Foo'       => 'ABC',
 			),
@@ -176,10 +165,12 @@ class ExifDataAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			)
 		);
 
-		$this->assertEmpty( $semanticData->findSubSemanticData( '_EXIFDATA' ) );
+		$this->assertEmpty(
+			$semanticData->findSubSemanticData( '_EXIFDATA' )
+		);
 	}
 
-	protected function annotateWithExifData( $exifData, $parameters = array() ) {
+	protected function getSemanticDataForExifDataAnnotatorBy( $exifData, $parameters = array() ) {
 
 		$expectedToRun = $exifData ? $this->atLeastOnce() : $this->never();
 
@@ -213,10 +204,11 @@ class ExifDataAnnotatorTest extends \PHPUnit_Framework_TestCase {
 				isset( $parameters['getHeight'] ) ? $parameters['getHeight'] : false
 		) );
 
-		$instance = new ExifDataAnnotator( $semanticData );
-		$instance->setFile( $file );
+		$instance = new ExifDataAnnotator( $semanticData, $file );
 
-		$this->assertTrue( $instance->addAnnotation() );
+		$this->assertTrue(
+			$instance->addAnnotation()
+		);
 
 		return $semanticData;
 	}

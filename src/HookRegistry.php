@@ -4,8 +4,7 @@ namespace SESP;
 
 use SESP\PropertyRegistry;
 use SESP\Annotator\ExtraPropertyAnnotator;
-use SMW\Store;
-use SMW\SemanticData;
+use SESP\Annotator\ShortUrlAnnotator;
 use Hooks;
 
 /**
@@ -81,39 +80,23 @@ class HookRegistry {
 
 		$propertyRegistry = PropertyRegistry::getInstance();
 
-		/**
-		 * @see ...
-		 */
 		$this->handlers['smwInitProperties'] = function () use( $propertyRegistry ) {
 			return $propertyRegistry->registerPropertiesAndAliases();
 		};
 
-		/**
-		 * @see ...
-		 */
 		$this->handlers['SMW::SQLStore::updatePropertyTableDefinitions'] = function ( &$propertyTableDefinitions ) use( $propertyRegistry, $configuration ) {
 			return $propertyRegistry->registerAsFixedTables( $propertyTableDefinitions, $configuration );
 		};
 
-		/**
-		 * @see ...
-		 */
-		$this->handlers['SMWStore::updateDataBefore'] = function ( Store $store, SemanticData $semanticData ) use ( $configuration ) {
+		$this->handlers['SMWStore::updateDataBefore'] = function ( $store, $semanticData ) use ( $configuration ) {
 
-			$propertyAnnotator = new ExtraPropertyAnnotator( $semanticData, $configuration );
+			$appFactory = new AppFactory( $configuration['wgShortUrlPrefix'] );
 
-			// DI object registration
-			$propertyAnnotator->registerObject( 'DBConnection', function() {
-				return wfGetDB( DB_SLAVE );
-			} );
-
-			$propertyAnnotator->registerObject( 'WikiPage', function( $instance ) {
-				return \WikiPage::factory( $instance->getSemanticData()->getSubject()->getTitle() );
-			} );
-
-			$propertyAnnotator->registerObject( 'UserByPageName', function( $instance ) {
-				return \User::newFromName( $instance->getWikiPage()->getTitle()->getText() );
-			} );
+			$propertyAnnotator = new ExtraPropertyAnnotator(
+				$semanticData,
+				$appFactory,
+				$configuration
+			);
 
 			return $propertyAnnotator->addAnnotation();
 		};

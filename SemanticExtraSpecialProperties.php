@@ -61,10 +61,10 @@ call_user_func( function () {
 	$GLOBALS['sespUseAsFixedTables'] = false;
 	$GLOBALS['sespSpecialProperties'] = array();
 	$GLOBALS['wgSESPExcludeBots'] = false;
-	$GLOBALS['wgShortUrlPrefix'] = false;
+	$GLOBALS['wgShortUrlPrefix'] = '';
 
 	$GLOBALS['wgMessagesDirs']['semantic-extra-special-properties'] = __DIR__ . '/i18n';
-	$GLOBALS['wgExtensionMessagesFiles']['semantic-extra-special-properties'] = __DIR__ . '/SemanticExtraSpecialProperties.i18n.php';
+	$GLOBALS['wgExtensionMessagesFiles']['semantic-extra-special-properties'] = __DIR__ . '/i18n/SemanticExtraSpecialProperties.i18n.php';
 
 	// Finalize extension setup
 	$GLOBALS['wgExtensionFunctions'][] = function() {

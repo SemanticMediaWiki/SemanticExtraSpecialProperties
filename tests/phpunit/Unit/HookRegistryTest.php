@@ -5,7 +5,7 @@ namespace SESP\Tests;
 use SESP\HookRegistry;
 
 /**
- * @covers \SMT\HookRegistry
+ * @covers \SESP\HookRegistry
  *
  * @group semantic-extra-special-properties
  *
@@ -33,8 +33,8 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 			'wgDisableCounters' => false,
 			'sespUseAsFixedTables' => false,
 			'wgSESPExcludeBots' => false,
-			'wgShortUrlPrefix' => false,
-			'sespCacheType'         => 'hash'
+			'wgShortUrlPrefix' => '',
+			'sespCacheType'    => 'hash'
 		);
 
 		$instance = new HookRegistry( $configuration );

@@ -29,7 +29,7 @@ use RuntimeException;
  * @author rotsee
  * @author Stephan Gambke
  */
-class ExifDataAnnotator extends BaseAnnotator {
+class ExifDataAnnotator {
 
 	/**
 	 * @var SemanticData
@@ -50,9 +50,11 @@ class ExifDataAnnotator extends BaseAnnotator {
 	 * @since 1.0
 	 *
 	 * @param SemanticData $semanticData
+	 * @param File $file
 	 */
-	public function __construct( SemanticData $semanticData ) {
+	public function __construct( SemanticData $semanticData, File $file ) {
 		$this->semanticData = $semanticData;
+		$this->file = $file;
 	}
 
 	/**
@@ -67,22 +69,9 @@ class ExifDataAnnotator extends BaseAnnotator {
 	/**
 	 * @since 1.0
 	 *
-	 * @param File $file
-	 */
-	public function setFile( File $file ) {
-		$this->file = $file;
-	}
-
-	/**
-	 * @since 1.0
-	 *
 	 * @return boolean
 	 */
 	public function addAnnotation() {
-
-		if ( $this->file === null ) {
-			throw new RuntimeException( 'Expected a file' );
-		}
 
 		if ( !$this->file->exists() ) {
 			return true;
