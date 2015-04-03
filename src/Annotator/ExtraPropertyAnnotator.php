@@ -151,6 +151,9 @@ class ExtraPropertyAnnotator {
 			case '_USERREG' :
 				$dataItem = $this->makeUserRegistrationDataItem();
 				break;
+			case '_USEREDITCNT' :
+				$dataItem = $this->makeUserEditCountDataItem();
+				break;
 			case '_PAGEID' :
 				$dataItem = $this->makePageIdDataItem();
 				break;
@@ -343,6 +346,22 @@ class ExtraPropertyAnnotator {
 				$date->format('H'),
 				$date->format('i')
 			);
+		}
+	}
+	
+	private function makeUserEditCountDataItem() {
+	
+		if ( !$this->isUserPage() ) {
+			return;
+		}
+
+		$user = $this->appFactory->newUserFromTitle( $this->getWikiPage()->getTitle() );
+		
+		$count = $user->getEditCount();
+		
+		if ( $count ) {
+
+			return new DINumber( $count );
 		}
 	}
 
