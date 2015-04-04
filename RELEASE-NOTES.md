@@ -1,5 +1,11 @@
 ## Version 1.x
 
+### 1.3.0
+
+This is not a release yet.
+
+- #43 Added `_USEREDITCNT` for user edit count collection on user pages
+
 ### 1.2.2
 
 Released on 2014-12-31

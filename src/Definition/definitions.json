@@ -83,6 +83,13 @@
         "msgkey": "sesp-property-user-registration-date",
         "alias": "User registration date"
     },
+    "_USEREDITCNT": {
+        "id": "___USEREDITCNT",
+        "type": 1,
+        "show": false,
+        "msgkey": "sesp-property-user-edit-count",
+        "alias": "User edit count"
+    },
     "_EXIFDATA": {
         "id": "___EXIFDATA",
         "type": 9,

@@ -143,6 +143,7 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 				'_NTREV',
 				'_SUBP',
 				'_USERREG',
+				'_USEREDITCNT',
 				'_EXIFDATA',
 				'_MEDIATYPE',
 				'_MIMETYPE',
