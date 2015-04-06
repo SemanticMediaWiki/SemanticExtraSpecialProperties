@@ -19,5 +19,6 @@
 	"sesp-property-mediatype": "Medientyp",
 	"sesp-property-shorturl": "Kurz-URL",
 	"sesp-property-user-registration-date": "Benutzerregistrierungsdatum",
+	"sesp-property-user-edit-count": "Anzahl der Benutzerbearbeitungen",
 	"sesp-property-exif-data": "Exif-Daten"
 }

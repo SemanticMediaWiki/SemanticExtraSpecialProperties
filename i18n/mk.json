@@ -17,5 +17,6 @@
 	"sesp-property-mediatype": "Тип на медиум",
 	"sesp-property-shorturl": "Кратка URL",
 	"sesp-property-user-registration-date": "Датум на регистрација на корисникот",
+	"sesp-property-user-edit-count": "Бр. на кориснички уредувања",
 	"sesp-property-exif-data": "Exif-податоци"
 }

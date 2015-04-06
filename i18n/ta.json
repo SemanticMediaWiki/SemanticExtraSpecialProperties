@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Shanmugamp7"
+			"Shanmugamp7",
+			"மதனாஹரன்"
 		]
 	},
 	"sesp-property-author": "பக்க ஆக்குநர்",
@@ -13,5 +14,6 @@
 	"sesp-property-mimetype": "MIME வகை",
 	"sesp-property-mediatype": "ஊடக வகை",
 	"sesp-property-shorturl": "குறுந்தொடுப்பு",
-	"sesp-property-user-registration-date": "பயனர் பதிவுசெய்த நாள்"
+	"sesp-property-user-registration-date": "பயனர் பதிவுசெய்த நாள்",
+	"sesp-property-user-edit-count": "பயனர் தொகுப்பு எண்ணிக்கை"
 }

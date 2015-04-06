@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Vivek Rai"
+			"Vivek Rai",
+			"Phoenix303"
 		]
 	},
-	"sesp-property-page-id": "पृष्ठ आइ॰डी"
+	"sesp-property-page-id": "पृष्ठ आइ॰डी",
+	"sesp-property-user-edit-count": "सदस्य सम्पादन संख्या"
 }

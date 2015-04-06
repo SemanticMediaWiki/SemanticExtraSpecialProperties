@@ -21,5 +21,6 @@
 	"sesp-property-mediatype": "媒体文件类型",
 	"sesp-property-shorturl": "简短URL",
 	"sesp-property-user-registration-date": "用户注册日期",
+	"sesp-property-user-edit-count": "用户编辑数",
 	"sesp-property-exif-data": "EXIF数据"
 }
