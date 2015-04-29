@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Toliño"
+			"Toliño",
+			"Elisardojm"
 		]
 	},
 	"sesp-desc": "Engade algunhas propiedades adicionais a todas as páxinas",
@@ -17,5 +18,6 @@
 	"sesp-property-mediatype": "Tipo de medios",
 	"sesp-property-shorturl": "Enderezo URL curto",
 	"sesp-property-user-registration-date": "Data de rexistro do usuario",
+	"sesp-property-user-edit-count": "Número de edición do usuario",
 	"sesp-property-exif-data": "Datos Exif"
 }
