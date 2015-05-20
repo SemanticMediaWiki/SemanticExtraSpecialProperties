@@ -18,5 +18,6 @@
 	"sesp-property-mediatype": "Tipo di supporto",
 	"sesp-property-shorturl": "URL breve",
 	"sesp-property-user-registration-date": "Data di registrazione dell'utente",
+	"sesp-property-user-edit-count": "Numero modifiche utente",
 	"sesp-property-exif-data": "Dati Exif"
 }
