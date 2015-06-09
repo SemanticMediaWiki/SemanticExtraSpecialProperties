@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"SPQRobin",
-			"Siebrand"
+			"Siebrand",
+			"Esketti"
 		]
 	},
 	"sesp-desc": "Voegt extra bijzondere eigenschappen toe aan alle pagina's",
@@ -18,5 +19,6 @@
 	"sesp-property-mediatype": "Mediatype",
 	"sesp-property-shorturl": "Korte URL",
 	"sesp-property-user-registration-date": "Gebruikersregistratiedatum",
+	"sesp-property-user-edit-count": "Aantal bewerkingen van de gebruiker",
 	"sesp-property-exif-data": "Exifgegevens"
 }
