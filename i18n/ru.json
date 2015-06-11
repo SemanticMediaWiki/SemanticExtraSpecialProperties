@@ -18,5 +18,6 @@
 	"sesp-property-mediatype": "Тип медиа",
 	"sesp-property-shorturl": "Короткая ссылка",
 	"sesp-property-user-registration-date": "Дата регистрации пользователя",
+	"sesp-property-user-edit-count": "Число правок участника",
 	"sesp-property-exif-data": "Данные EXIF"
 }
