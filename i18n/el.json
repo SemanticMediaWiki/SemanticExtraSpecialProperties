@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"Protnet"
+		]
+	},
+	"sesp-desc": "Προσθέτει κάποιες επιπλέον ειδικές ιδιότητες σε όλες τις σελίδες",
+	"sesp-property-author": "Συντάκτης σελίδας",
+	"sesp-property-first-author": "Δημιουργός σελίδας",
+	"sesp-property-revision-id": "Αναγνωριστικό αναθεώρησης",
+	"sesp-property-page-id": "Αναγνωριστικό σελίδας",
+	"sesp-property-view-count": "Αριθμός προβολών σελίδας",
+	"sesp-property-subpages": "Υποσελίδα",
+	"sesp-property-revisions": "Αριθμός αναθεωρήσεων",
+	"sesp-property-talk-revisions": "Αριθμός αναθεωρήσεων σελίδας συζήτησης",
+	"sesp-property-mimetype": "Τύπος MIME",
+	"sesp-property-mediatype": "Τύπος μέσου",
+	"sesp-property-shorturl": "Σύντομη διεύθυνση URL",
+	"sesp-property-user-registration-date": "Ημερομηνία εγγραφής χρήστη",
+	"sesp-property-user-edit-count": "Αριθμός επεξεργασιών χρήστη",
+	"sesp-property-exif-data": "Δεδομένα Exif"
+}
