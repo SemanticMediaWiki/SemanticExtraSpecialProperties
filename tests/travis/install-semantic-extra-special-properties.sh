@@ -44,6 +44,7 @@ function installToMediaWikiRoot {
 	fi
 
 	# Rebuild the class map for added classes during git fetch
+	composer update
 	composer dump-autoload
 }
 
