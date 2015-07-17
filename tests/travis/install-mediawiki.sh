@@ -23,7 +23,7 @@ mv mediawiki-* mw
 cd mw
 
 ## MW 1.25 requires Psr\Logger
-if [ "$MW" == "master" ]
+if [ "$MW" == "1.25.1" ]
 then
   composer install
 fi
