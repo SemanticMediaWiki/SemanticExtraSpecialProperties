@@ -357,10 +357,9 @@ class ExtraPropertyAnnotator {
 
 		$user = $this->appFactory->newUserFromTitle( $this->getWikiPage()->getTitle() );
 		
-		$count = $user->getEditCount();
+		$count = $user instanceof User ? $user->getEditCount() : false;
 		
 		if ( $count ) {
-
 			return new DINumber( $count );
 		}
 	}
