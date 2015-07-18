@@ -4,7 +4,7 @@
 
 Released on 2015-07-18
 
-- #50 Fix error with `_USEREDITCNT` on subpabes in namespace "user"
+- #50 Fix error with `_USEREDITCNT` on subpages in namespace "user"
 
 ### 1.3.0
 
