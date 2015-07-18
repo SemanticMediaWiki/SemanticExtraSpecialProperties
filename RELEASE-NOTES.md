@@ -1,5 +1,11 @@
 ## Version 1.x
 
+### 1.3.1
+
+Released on 2015-07-18
+
+- #50 Fix error with `_USEREDITCNT` on subpabes in namespace "user"
+
 ### 1.3.0
 
 Released on 2015-05-09
