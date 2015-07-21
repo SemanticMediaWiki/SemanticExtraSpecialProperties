@@ -20,5 +20,6 @@
 	"sesp-property-mediatype": "Медіатип",
 	"sesp-property-shorturl": "Коротке посилання",
 	"sesp-property-user-registration-date": "Дата реєстрації користувача",
+	"sesp-property-user-edit-count": "Кількість редагувань користувача",
 	"sesp-property-exif-data": "Дані exif"
 }
