@@ -3,7 +3,8 @@
 		"authors": [
 			"Gomoko",
 			"Hello71",
-			"Pierre Slamich"
+			"Pierre Slamich",
+			"Wladek92"
 		]
 	},
 	"sesp-desc": "Ajoute des propriétés spéciales supplémentaires à toutes les pages",
@@ -19,5 +20,6 @@
 	"sesp-property-mediatype": "Type de média",
 	"sesp-property-shorturl": "URL courte",
 	"sesp-property-user-registration-date": "Date d'inscription de l'utilisateur",
+	"sesp-property-user-edit-count": "Compteur d'édition de l'utilisateur",
 	"sesp-property-exif-data": "Données Exif"
 }
