@@ -204,17 +204,29 @@ class ExtraPropertyAnnotator {
 	}
 
 	private function makeNumberOfPageViewsDataItem() {
-		$count = null;
-	
-		if ( class_exists( '\HitCounters\HitCounters' ) ) {
-			$count = \HitCounters\HitCounters::getCount( $this->getWikiPage()->getTitle() );
-            	} elseif ( method_exists( $this->getWikiPage(), 'getCount' ) ) {
-			$count = $this->getWikiPage()->getCount();
+		if ( $this->configuration['wgDisableCounters'] ) {
+			return null;
 		}
 
-		if ( !$this->configuration['wgDisableCounters'] && is_numeric( $count ) ) {
-			return new DINumber( $count );
+		$count = $this->getPageViewCount();
+
+		if ( !is_numeric( $count ) ) {
+			return null;
 		}
+
+		return new DINumber( $count );
+	}
+
+	private function getPageViewCount() {
+		if ( class_exists( '\HitCounters\HitCounters' ) ) {
+			return \HitCounters\HitCounters::getCount( $this->getWikiPage()->getTitle() );
+		}
+
+		if ( method_exists( $this->getWikiPage(), 'getCount' ) ) {
+			return $this->getWikiPage()->getCount();
+		}
+
+		return null;
 	}
 
 	private function addPropertyValuesForPageContributors( DIProperty $property ) {
