@@ -204,9 +204,29 @@ class ExtraPropertyAnnotator {
 	}
 
 	private function makeNumberOfPageViewsDataItem() {
-		if ( !$this->configuration['wgDisableCounters'] && $this->getWikiPage()->getCount() ) {
-			return new DINumber( $this->getWikiPage()->getCount() );
+		if ( $this->configuration['wgDisableCounters'] ) {
+			return null;
 		}
+
+		$count = $this->getPageViewCount();
+
+		if ( !is_numeric( $count ) ) {
+			return null;
+		}
+
+		return new DINumber( $count );
+	}
+
+	private function getPageViewCount() {
+		if ( class_exists( '\HitCounters\HitCounters' ) ) {
+			return \HitCounters\HitCounters::getCount( $this->getWikiPage()->getTitle() );
+		}
+
+		if ( method_exists( $this->getWikiPage(), 'getCount' ) ) {
+			return $this->getWikiPage()->getCount();
+		}
+
+		return null;
 	}
 
 	private function addPropertyValuesForPageContributors( DIProperty $property ) {
