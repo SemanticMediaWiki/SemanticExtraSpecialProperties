@@ -3,7 +3,8 @@
 		"authors": [
 			"Armin1392",
 			"Mjbmr",
-			"ZxxZxxZ"
+			"ZxxZxxZ",
+			"Reza1615"
 		]
 	},
 	"sesp-desc": "افزودن برخی خواص ویژه اضافی به همه صفحات",
@@ -19,5 +20,6 @@
 	"sesp-property-mediatype": "نوع رسانه",
 	"sesp-property-shorturl": "نشانی کوتاه",
 	"sesp-property-user-registration-date": "تاریخ ثبت‌نام کاربر",
+	"sesp-property-user-edit-count": "شمار ویرایش‌های کاربر",
 	"sesp-property-exif-data": "اطلاعات اگزیف"
 }
