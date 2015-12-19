@@ -49,6 +49,29 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
+	public function testNoAnnotationForSpecialPage() {
+
+		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$semanticData->expects( $this->once() )
+			->method( 'getSubject' )
+			->will( $this->returnValue( new DIWikiPage( 'Special', NS_SPECIAL ) ) );
+
+		$configuration = array();
+
+		$instance = new ExtraPropertyAnnotator(
+			$semanticData,
+			$this->appFactory,
+			$configuration
+		);
+
+		$this->assertFalse(
+			$instance->addAnnotation()
+		);
+	}
+
 	/**
 	 * @depends testCanConstruct
 	 */
@@ -57,6 +80,10 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
 			->disableOriginalConstructor()
 			->getMock();
+
+		$semanticData->expects( $this->once() )
+			->method( 'getSubject' )
+			->will( $this->returnValue( new DIWikiPage( 'Foo', NS_MAIN ) ) );
 
 		$configuration = array();
 
