@@ -1,5 +1,9 @@
 ## Version 1.x
 
+### 1.3.2 (2015-12-??)
+
+* #54 Guard against `Invalid or virtual namespace -1` exception
+
 ### 1.3.1
 
 Released on 2015-07-18
