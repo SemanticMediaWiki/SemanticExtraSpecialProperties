@@ -64,8 +64,16 @@ class ExtraPropertyAnnotator {
 	 *
 	 * @return boolean
 	 * @throws RuntimeException
+	 *
+	 * @return boolean
 	 */
 	public function addAnnotation() {
+
+		$subject = $this->semanticData->getSubject();
+
+		if ( $subject === null || $subject->getTitle() === null || $subject->getTitle()->isSpecialPage() ) {
+			return false;
+		}
 
 		if ( isset( $this->configuration['sespSpecialProperties'] ) &&
 			is_array( $this->configuration['sespSpecialProperties'] ) ) {
