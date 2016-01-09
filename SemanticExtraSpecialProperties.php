@@ -21,6 +21,10 @@ if ( version_compare( $GLOBALS['wgVersion'], '1.20', '<' ) ) {
 	die( '<b>Error:</b> This version of Semantic Extra Special Properties requires MediaWiki 1.20 or above.' );
 }
 
+if ( is_readable( __DIR__ . '/vendor/autoload.php' ) ) {
+	include_once( __DIR__ . '/vendor/autoload.php' );
+}
+
 if ( !defined( 'SMW_VERSION' ) ) {
 	die( '<b>Error:</b> This version of Semantic Extra Special Properties requires <a href="http://semantic-mediawiki.org/wiki/Semantic_MediaWiki">Semantic MediaWiki</a> installed.<br />' );
 }
