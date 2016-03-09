@@ -78,14 +78,12 @@ class HookRegistry {
 
 	private function registerCallbackHandlers( $configuration ) {
 
-		$propertyRegistry = PropertyRegistry::getInstance();
-
-		$this->handlers['smwInitProperties'] = function () use( $propertyRegistry ) {
-			return $propertyRegistry->registerPropertiesAndAliases();
+		$this->handlers['smwInitProperties'] = function () {
+			return PropertyRegistry::getInstance()->registerPropertiesAndAliases();
 		};
 
-		$this->handlers['SMW::SQLStore::updatePropertyTableDefinitions'] = function ( &$propertyTableDefinitions ) use( $propertyRegistry, $configuration ) {
-			return $propertyRegistry->registerAsFixedTables( $propertyTableDefinitions, $configuration );
+		$this->handlers['SMW::SQLStore::updatePropertyTableDefinitions'] = function ( &$propertyTableDefinitions ) use( $configuration ) {
+			return PropertyRegistry::getInstance()->registerAsFixedTables( $propertyTableDefinitions, $configuration );
 		};
 
 		$this->handlers['SMWStore::updateDataBefore'] = function ( $store, $semanticData ) use ( $configuration ) {

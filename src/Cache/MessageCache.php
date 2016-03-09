@@ -30,39 +30,31 @@ class MessageCache {
 	/**
 	 * @since 1.2.0
 	 *
-	 * @param Language $language
+	 * @param Language|null $language
 	 * @param integer|null $cacheTimeOffset
 	 */
-	public function __construct( Language $language, $cacheTimeOffset = null ) {
+	public function __construct( Language $language = null, $cacheTimeOffset = null ) {
 		$this->language = $language;
 		$this->cacheTimeOffset = $cacheTimeOffset;
 	}
 
 	/**
-	 * @since 1.2.0
+	 * @since 1.4
 	 *
 	 * @param Language $language
-	 *
-	 * @return MessageCache
 	 */
-	public static function ByLanguage( Language $language ) {
-
-		$languageCode = $language->getCode();
-
-		if ( !isset( self::$instance[ $languageCode ] ) ) {
-			self::$instance[ $languageCode ] = new self( $language );
-		}
-
-		return self::$instance[ $languageCode ];
+	public function setLanguage( Language $language ) {
+		$this->language = $language;
 	}
 
 	/**
-	 * @since 1.2.0
+	 * @since 1.4
 	 *
 	 * @return MessageCache
 	 */
-	public static function ByContentLanguage() {
-		return self::byLanguage( $GLOBALS['wgContLang'] );
+	public function inUserLanguage() {
+		$this->language = $GLOBALS['wgLang'];
+		return $this;
 	}
 
 	/**

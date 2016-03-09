@@ -376,17 +376,17 @@ class ExtraPropertyAnnotator {
 			);
 		}
 	}
-	
+
 	private function makeUserEditCountDataItem() {
-	
+
 		if ( !$this->isUserPage() ) {
 			return;
 		}
 
 		$user = $this->appFactory->newUserFromTitle( $this->getWikiPage()->getTitle() );
-		
+
 		$count = $user instanceof User ? $user->getEditCount() : false;
-		
+
 		if ( $count ) {
 			return new DINumber( $count );
 		}

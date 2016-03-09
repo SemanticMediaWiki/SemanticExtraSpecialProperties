@@ -103,8 +103,11 @@ class MessageCacheTest extends \PHPUnit_Framework_TestCase {
 
 		$cache = new HashBagOStuff;
 
-		$instanceJa = MessageCache::ByLanguage( Language::factory( 'ja' ) );
-		$instanceEn = MessageCache::ByLanguage( Language::factory( 'en' ) );
+		$instanceJa = new MessageCache();
+		$instanceJa->setLanguage( Language::factory( 'ja' ) );
+
+		$instanceEn = new MessageCache();
+		$instanceEn->setLanguage( Language::factory( 'en' ) );
 
 		$presetCached = array(
 			'touched'  => 1000,
@@ -120,14 +123,6 @@ class MessageCacheTest extends \PHPUnit_Framework_TestCase {
 		$this->assertEmpty( $cache->get( $instanceEn->getCacheId() ) );
 		$this->assertNotEmpty( $cache->get( $instanceJa->getCacheId() ) );
 
-		MessageCache::clear();
-	}
-
-	public function testGetTextOnContentLanguage() {
-
-		$instance = MessageCache::ByContentLanguage();
-
-		$this->assertInternalType( 'string', $instance->get( 'exif-software' ) );
 		MessageCache::clear();
 	}
 
