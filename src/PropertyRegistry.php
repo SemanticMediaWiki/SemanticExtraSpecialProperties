@@ -50,7 +50,7 @@ class PropertyRegistry {
 		if ( self::$instance === null ) {
 			self::$instance = new self(
 				new DefinitionReader,
-				new MessageCache( $GLOBALS['wgContLang'] )
+				new MessageCache()
 			);
 		}
 
@@ -168,14 +168,7 @@ class PropertyRegistry {
 	}
 
 	protected function getPropertyLabel( $id ) {
-
-		$msgkey = $this->lookupWithIndexForId( 'msgkey', $id );
-
-		if ( $msgkey ) {
-			return $this->messageCache->get( $msgkey );
-		}
-
-		return false;
+		return $this->lookupWithIndexForId( 'label', $id );
 	}
 
 	protected function getPropertyVisibility( $id ) {
@@ -190,7 +183,14 @@ class PropertyRegistry {
 	}
 
 	protected function getPropertyAlias( $id ) {
-		return $this->lookupWithIndexForId( 'alias', $id );
+
+		$msgkey = $this->lookupWithIndexForId( 'alias', $id );
+
+		if ( $msgkey ) {
+			return $this->messageCache->inUserLanguage()->get( $msgkey );
+		}
+
+		return false;
 	}
 
 	protected function getPropertyDataItemTypeId( $id ) {
