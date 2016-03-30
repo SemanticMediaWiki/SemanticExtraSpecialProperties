@@ -259,18 +259,18 @@ class ExtraPropertyAnnotator {
 	}
 
 	private function makePageIdDataItem() {
-		$revId = $this->getWikiPage()->getId();
+		$pageID = $this->getWikiPage()->getId();
 
-		if ( is_integer( $revId ) ) {
-			return new DINumber( $revId );
+		if ( is_integer( $pageID ) && $pageID > 0 ) {
+			return new DINumber( $pageID );
 		}
 	}
 
 	private function makeRevisionIdDataItem() {
-		$revId = $this->getWikiPage()->getLatest();
+		$revID = $this->getWikiPage()->getLatest();
 
-		if ( is_integer( $revId ) ) {
-			return new DINumber( $revId );
+		if ( is_integer( $revID ) && $revID > 0 ) {
+			return new DINumber( $revID );
 		}
 	}
 
@@ -288,18 +288,22 @@ class ExtraPropertyAnnotator {
 	}
 
 	private function makeNumberOfRevisionsDataItem() {
-		return new DINumber( $this->getPageRevisionsForId(
+		$numberOfPageRevisions = $this->getPageRevisionsForId(
 			$this->getWikiPage()->getTitle()->getArticleID()
-		) );
+		);
+
+		if ( $this->getWikiPage()->getTitle()->exists() && $numberOfPageRevisions > 0 ) {
+			return new DINumber( $numberOfPageRevisions );
+		}
 	}
 
 	private function makeNumberOfTalkPageRevisionsDataItem() {
-		$numberOfPageRevisions = $this->getPageRevisionsForId(
+		$numberOfTalkPageRevisions = $this->getPageRevisionsForId(
 			$this->getWikiPage()->getTitle()->getTalkPage()->getArticleID()
 		);
 
-		if ( $this->getWikiPage()->getTitle()->getTalkPage()->exists() && $numberOfPageRevisions > 0 ) {
-			return new DINumber( $numberOfPageRevisions );
+		if ( $this->getWikiPage()->getTitle()->getTalkPage()->exists() && $numberOfTalkPageRevisions > 0 ) {
+			return new DINumber( $numberOfTalkPageRevisions );
 		}
 	}
 
