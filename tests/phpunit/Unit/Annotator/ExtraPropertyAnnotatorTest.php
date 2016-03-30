@@ -151,11 +151,15 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->method( 'getArticleID' )
 			->will( $this->returnValue( 1001 ) );
 
+		$title->expects( $this->atLeastOnce() )
+			->method( 'exists' )
+			->will( $this->returnValue( true ) );
+
 		$page = $this->getMockBuilder( 'WikiPage' )
 			->disableOriginalConstructor()
 			->getMock();
 
-		$page->expects( $this->once() )
+		$page->expects( $this->atLeastOnce() )
 			->method( 'getTitle' )
 			->will( $this->returnValue( $title ) );
 
