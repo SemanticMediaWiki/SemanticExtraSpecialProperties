@@ -1,14 +1,15 @@
 ## Version 1.x
 
-### 1.3.2 (2015-12-??)
+### 1.3.2 (2016-04-??)
 
 * #54 Guard against `Invalid or virtual namespace -1` exception
+* #59 Fixed `0` annotation values
 
 ### 1.3.1
 
 Released on 2015-07-18
 
-- #50 Fix error with `_USEREDITCNT` on subpages in namespace "user"
+- #50 Fixed error with `_USEREDITCNT` on subpages in namespace "user"
 
 ### 1.3.0
 
@@ -20,7 +21,7 @@ Released on 2015-05-09
 
 Released on 2014-12-31
 
-- #42 Fix fatal during `importDump` for when a file doesn't exist
+- #42 Fixed fatal during `importDump` for when a file doesn't exist
 
 ### 1.2.1
 
