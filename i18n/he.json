@@ -2,9 +2,21 @@
 	"@metadata": {
 		"authors": [
 			"ExampleTomer",
-			"LaG roiL"
+			"LaG roiL",
+			"Guycn2"
 		]
 	},
+	"sesp-property-author": "מחבר הדף",
+	"sesp-property-first-author": "יוצר הדף",
+	"sesp-property-revision-id": "מזהה הגרסה",
+	"sesp-property-page-id": "מזהה הדף",
+	"sesp-property-view-count": "מספר הצפיות בדף",
+	"sesp-property-subpages": "דפי משנה",
+	"sesp-property-revisions": "מספר הגרסאות",
+	"sesp-property-talk-revisions": "מספר הגרסאות של דף השיחה",
+	"sesp-property-mediatype": "סוג המדיה",
+	"sesp-property-shorturl": "כתובת מקוצרת",
+	"sesp-property-user-registration-date": "תאריך ההרשמה של המשתמש",
 	"sesp-property-user-edit-count": "מספר עריכות",
 	"sesp-property-exif-data": "נתוני Exif"
 }
