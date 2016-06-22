@@ -94,12 +94,12 @@ class PropertyRegistry {
 	 *
 	 * @since 1.0
 	 *
-	 * @param array $propertyTableDefinitions
+	 * @param array $customFixedProperties
 	 * @param array $configuration
 	 *
 	 * @return boolean
 	 */
-	public function registerAsFixedTables( &$propertyTableDefinitions, $configuration ) {
+	public function registerAsFixedTables( &$customFixedProperties, $configuration ) {
 
 		if ( !isset( $configuration['sespUseAsFixedTables'] ) || !$configuration['sespUseAsFixedTables'] ) {
 			return true;
@@ -116,13 +116,7 @@ class PropertyRegistry {
 				continue;
 			}
 
-			$tableName = 'smw_ftp_sesp' . strtolower( $externalId );
-
-			$propertyTableDefinitions[ $tableName ] = new \SMW\SQLStore\TableDefinition(
-				$dataItemType,
-				$tableName,
-				$this->getPropertyId( $externalId )
-			);
+			$customFixedProperties[$externalId] = str_replace( '__', '_', '_sesp' . strtolower( $externalId ) );
 		}
 
 		return true;
@@ -137,8 +131,14 @@ class PropertyRegistry {
 	 * @return boolean
 	 */
 	public function registerPropertiesAndAliases() {
-		$this->registerPropertiesFromList( array_keys( $this->definitions ) );
-		$this->registerPropertiesFromList( array_keys( $this->definitions['_EXIF'] ) );
+
+		$this->registerPropertiesFromList(
+			array_keys( $this->definitions )
+		);
+
+		$this->registerPropertiesFromList(
+			array_keys( $this->definitions['_EXIF'] )
+		);
 
 		return true;
 	}
