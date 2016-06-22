@@ -185,10 +185,17 @@ class MessageCache {
 	protected function getMessageFileModificationTime() {
 
 		if ( method_exists( $this->language, 'getJsonMessagesFileName' )  ) {
-			return filemtime( $this->language->getJsonMessagesFileName( $this->language->getCode() ) );
+			$file = $this->language->getJsonMessagesFileName( $this->language->getCode() );
+		} else {
+			$file = $this->language->getMessagesFileName( $this->language->getCode() );
 		}
 
-		return filemtime( $this->language->getMessagesFileName( $this->language->getCode() ) );
+		// #60
+		if ( is_readable( $file ) ) {
+			return filemtime( $file );
+		}
+
+		return microtime();
 	}
 
 }
