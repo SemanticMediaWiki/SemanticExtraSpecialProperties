@@ -42,6 +42,18 @@ class AppFactory {
 	 * @return WikiPage
 	 */
 	public function newWikiPage( Title $title ) {
+
+		// #55
+		// Fight a possible DB corruption and avoid "NS_MEDIA is a virtual namespace; use NS_FILE"
+		if ( $title->getNamespace() === NS_MEDIA ) {
+			$title = Title::makeTitleSafe(
+				NS_FILE,
+				$title->getDBkey(),
+				$title->getInterwiki(),
+				$title->getFragment()
+			);
+		}
+
 		return \WikiPage::factory( $title );
 	}
 
