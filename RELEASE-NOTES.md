@@ -1,51 +1,38 @@
-## Version 1.x
+This file contains the RELEASE-NOTES of the SemanticExtraSpecialProperties (a.k.a. SESP) extension.
 
-### 1.3.2 (2016-04-??)
+### 1.4.0 (2016-06-??)
 
 * #54 Guard against `Invalid or virtual namespace -1` exception
 * #59 Fixed `0` annotation values
+* Localization updates from https://translatewiki.net
 
-### 1.3.1
-
-Released on 2015-07-18
+### 1.3.1 (2015-07-18)
 
 - #50 Fixed error with `_USEREDITCNT` on subpages in namespace "user"
 
-### 1.3.0
-
-Released on 2015-05-09
+### 1.3.0 (2015-05-09)
 
 - #43 Added `_USEREDITCNT` for user edit count collection on user pages
 
-### 1.2.2
-
-Released on 2014-12-31
+### 1.2.2 (2014-12-31)
 
 - #42 Fixed fatal during `importDump` for when a file doesn't exist
 
-### 1.2.1
-
-Released on 2014-07-21
+### 1.2.1 (2014-07-21)
 
 - Added compatibility with Semantic MediaWiki 2.x
 
-### 1.2.0
-
-Released on 2014-04-23
+### 1.2.0 (2014-04-23)
 
 - #25 Added MessageCache to improve registration and lookup performance
 - #33 Added DefinitionReader to separate responsibilities
 
-### 1.1.0
-
-Released on 2014-04-09
+### 1.1.0 (2014-04-09)
 
 - #31 Fixed error when a User page is created with a subpage
 - #32 Migrate to JSON i18n
 
-### 1.0.0
-
-Released on 2014-02-23.
+### 1.0.0 (2014-02-23)
 
 1.0 is a complete rewrite of the existing implementation to allow sufficient test integration which made it necessary
 to split the original file into different classes (force encapsulation), eliminate GLOBALS (where necessary inject
@@ -75,63 +62,45 @@ For details about the rewrite, its discussion, and changes see #10.
 - #20 Added possibility to alter property visibility via the definitions file
 - #21 Extended Exif property definitions
 
-## Version 0.x
-
-### 0.2.7
-
-Released on 2012-10-22.
+### 0.2.7 (2012-10-22)
 
 - Requires MediaWiki 1.20
 - Use WikiPage instead of Article
 
-### 0.2.6
-
-Released on 2012-10-05.
+### 0.2.6 (2012-10-05)
 
 - Fixed bug sometimes causing a crash on pagesave on MW 1.20+
 - Added `_USERREG`
 
-### 0.2.5
-
-Released on 2012-08-01.
+### 0.2.5 (2012-08-01)
 
 - Bugfixes
 - Error message fixes by Nischayn22
 
-### 0.2.4
-
-Released on 2012-07-28.
+### 0.2.4 (2012-07-28)
 
 - Requires MediaWiki 1.19
 - Add some image meta data (exif) properties
 - Bug fix by Van de Bugger
 
-### 0.2.3
-
-Released on 2012-05-10.
+### 0.2.3 (2012-05-10)
 
 - add `_SHORTURL`
 - Translation updates, German
 - Fix for bug with first author for certain special pages, by Van de Bugger
 
-### 0.2.2
-
-Released on 2012-02-09.
+### 0.2.2 (2012-02-09)
 
 - $smwgPageSpecialProperties replaced by `$sespSpecialProperties`
 - Added `_MIMETYPE` (mime type, mediatype)
 
-### 0.2.1
-
-Released on 2012-01-08.
+### 0.2.1 (2012-01-08)
 
 - German translation by Kghbln
 - Better method to fetch list of `_EUSER` (getContributors and getUser, instead of getLastNAuthors. Anonymous users
 will never be listed)
 
-### 0.2.0
-
-Released on 2012-01-04.
+### 0.2.0 (2012-01-04)
 
 - Only tested with SMW 1.7 and MW 1.18.
 - Changed name for `_EUSER` and `_CUSER` props in both English and Swedish, article ###> page for clarity.
@@ -140,8 +109,6 @@ is used for built in special properties
 - Ignoring `_VIEWS` if statistics are disables in LocalSettings
 - Added `_SUBP`, `_NREV` and `_NTREV`
 
-### 0.1
-
-Released on 2011-11-25.
+### 0.1 (2011-11-25)
 
 * Initial release

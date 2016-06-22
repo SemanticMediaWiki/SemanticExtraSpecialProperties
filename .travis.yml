@@ -3,22 +3,15 @@ sudo: false
 
 language: php
 
-env:
-  - THENEEDFORTHIS=FAIL
-
 matrix:
   fast_finish: true
   include:
     - env: DB=mysql; MW=1.25.6; TYPE=coverage
+      php: 5.3
+    - env: DB=mysql; MW=REL1_27;
       php: 5.6
-    - env: DB=mysql; MW=1.23.8;
-      php: 5.4
-    - env: DB=sqlite; MW=1.24.1; SITELANG=ja
+    - env: DB=sqlite; MW=1.26.3; SITELANG=ja
       php: 5.5
-  exclude:
-    - env: THENEEDFORTHIS=FAIL
-  allow_failures:
-    - env: THENEEDFORTHIS=FAIL
 
 install:
   - composer self-update
