@@ -24,7 +24,7 @@ class AppFactoryTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
-	public function testCanConstructDatabaseConnection( ) {
+	public function testCanConstructDatabaseConnection() {
 
 		$instance = new AppFactory();
 
@@ -48,6 +48,18 @@ class AppFactoryTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
+	public function testCanConstructWikiPageFrom_NS_MEDIA() {
+
+		$title = \Title::newFromText( 'Foo', NS_MEDIA );
+
+		$instance = new AppFactory();
+
+		$this->assertInstanceOf(
+			'\WikiFilePage',
+			$instance->newWikiPage( $title )
+		);
+	}
+
 	public function testCanConstructUser( ) {
 
 		$title = $this->getMockBuilder( '\Title' )
@@ -66,7 +78,7 @@ class AppFactoryTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
-	public function testCanConstructShortUrlAnnotator( ) {
+	public function testCanConstructShortUrlAnnotator() {
 
 		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
 			->disableOriginalConstructor()
@@ -80,7 +92,7 @@ class AppFactoryTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
-	public function testCanConstructExifDataAnnotator( ) {
+	public function testCanConstructExifDataAnnotator() {
 
 		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
 			->disableOriginalConstructor()

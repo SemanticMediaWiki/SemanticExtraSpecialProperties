@@ -11,9 +11,8 @@ Semantic Extra Special Properties (a.k.a. SESP) is an extension to [Semantic Med
 ## Requirements
 
 - PHP 5.3 or later
-- MediaWiki 1.20 or later
-- Semantic MediaWiki 1.9 or later
-- When using MySQL 5 or later or when using SQLite 3 or later
+- MediaWiki 1.25 or later
+- Semantic MediaWiki 2.3 or later
 
 ## Installation
 
@@ -23,12 +22,12 @@ with an entry in MediaWiki's `composer.json`.
 ```json
 {
 	"require": {
-		"mediawiki/semantic-extra-special-properties": "~1.3"
+		"mediawiki/semantic-extra-special-properties": "~1.4"
 	}
 }
 ```
 1. From your MediaWiki installation directory, execute
-   `composer require mediawiki/semantic-extra-special-properties:~1.3`
+   `composer require mediawiki/semantic-extra-special-properties:~1.4`
 2. It is strongly recommended to rebuild existing semantic data and run
    Semantic MediaWiki's rebuild data process.
 3. Navigate to _Special:Version_ on your wiki and verify that the package
@@ -40,7 +39,7 @@ The annotation process for predefined properties is mostly done in the backgroun
 and therefore doesn't need any special interaction from a user but [`LocalSettings`][mw-localsettings] for
 `SESP` need to be enabled.
 
-For details on how to adjust the settings, please have a look at the [configuration guideline](CONFIGURATION.md).
+For details about available settings, please have a look at the [configuration](docs/01-configuration.md) document.
 
 ## Contribution and support
 
