@@ -78,15 +78,12 @@ class HookRegistry {
 
 	private function registerCallbackHandlers( $configuration ) {
 
-		$this->handlers['SMW::Property::initProperties'] = function () {
+		$this->handlers['smwInitProperties'] = function () {
 			return PropertyRegistry::getInstance()->registerPropertiesAndAliases();
 		};
 
-		/**
-		 * https://www.semantic-mediawiki.org/wiki/Hooks#SMW::SQLStore::AddCustomFixedPropertyTables
-		 */
-		$this->handlers['SMW::SQLStore::AddCustomFixedPropertyTables'] = function ( &$customFixedProperties ) use( $configuration ) {
-			return PropertyRegistry::getInstance()->registerAsFixedTables( $customFixedProperties, $configuration );
+		$this->handlers['SMW::SQLStore::updatePropertyTableDefinitions'] = function ( &$propertyTableDefinitions ) use( $configuration ) {
+			return PropertyRegistry::getInstance()->registerAsFixedTables( $propertyTableDefinitions, $configuration );
 		};
 
 		$this->handlers['SMWStore::updateDataBefore'] = function ( $store, $semanticData ) use ( $configuration ) {

@@ -6,6 +6,7 @@ use SESP\HookRegistry;
 
 /**
  * @covers \SESP\HookRegistry
+ *
  * @group semantic-extra-special-properties
  *
  * @license GNU GPL v2+
@@ -40,38 +41,34 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 		$instance->deregister();
 		$instance->register();
 
-		$this->doTestRegisteredSMWPropertyInitProperties( $instance );
-		$this->doTestRegisteredSMMSQLStoreAddCustomFixedPropertyTables( $instance );
+		$this->doTestRegisteredInitPropertiesHandler( $instance );
+		$this->doTestRegisteredUpdatePropertyTableDefinitionsHandler( $instance );
 		$this->doTestRegisteredUpdateDataBeforeHandler( $instance );
 	}
 
-	public function doTestRegisteredSMWPropertyInitProperties( $instance ) {
-
-		$handler = 'SMW::Property::initProperties';
+	public function doTestRegisteredInitPropertiesHandler( $instance ) {
 
 		$this->assertTrue(
-			$instance->isRegistered( $handler )
+			$instance->isRegistered( 'smwInitProperties' )
 		);
 
 		$this->assertThatHookIsExcutable(
-			$instance->getHandlers( $handler ),
+			$instance->getHandlers( 'smwInitProperties' ),
 			array()
 		);
 	}
 
-	public function doTestRegisteredSMMSQLStoreAddCustomFixedPropertyTables( $instance ) {
-
-		$handler = 'SMW::SQLStore::AddCustomFixedPropertyTables';
+	public function doTestRegisteredUpdatePropertyTableDefinitionsHandler( $instance ) {
 
 		$this->assertTrue(
-			$instance->isRegistered( $handler )
+			$instance->isRegistered( 'SMW::SQLStore::updatePropertyTableDefinitions' )
 		);
 
-		$customFixedProperties = array();
+		$propertyTableDefinitions = array();
 
 		$this->assertThatHookIsExcutable(
-			$instance->getHandlers( $handler ),
-			array( &$customFixedProperties )
+			$instance->getHandlers( 'SMW::SQLStore::updatePropertyTableDefinitions' ),
+			array( &$propertyTableDefinitions )
 		);
 	}
 
