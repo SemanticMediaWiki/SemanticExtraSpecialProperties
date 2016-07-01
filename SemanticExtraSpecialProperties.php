@@ -53,11 +53,11 @@ class SemanticExtraSpecialProperties {
 
 		// Register extension info
 		$GLOBALS['wgExtensionCredits']['semantic'][] = array(
-			'path'           => __DIR__,
+			'path'           => __FILE__,
 			'name'           => 'Semantic Extra Special Properties',
 			'author'         => array(
 				'[https://github.com/rotsee Leo Wallentin]',
-				'[https://semantic-mediawiki.org/wiki/User:MWJames James Hong Kong]',
+				'[https://www.semantic-mediawiki.org/wiki/User:MWJames James Hong Kong]',
 				'...'
 			),
 			'version'        => SESP_VERSION,
