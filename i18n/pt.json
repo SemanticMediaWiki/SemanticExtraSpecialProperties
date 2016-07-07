@@ -1,8 +1,20 @@
 {
 	"@metadata": {
 		"authors": [
-			"SandroHc"
+			"SandroHc",
+			"Vitorvicentevalente"
 		]
 	},
-	"sesp-property-page-id": "ID da página"
+	"sesp-desc": "Adiciona algumas propriedades adicionais especiais a todas as páginas",
+	"sesp-property-author": "Autor da página",
+	"sesp-property-first-author": "Criador da página",
+	"sesp-property-revision-id": "ID de revisão",
+	"sesp-property-page-id": "ID da página",
+	"sesp-property-view-count": "Número de visualizações de página",
+	"sesp-property-subpages": "Subpágina",
+	"sesp-property-revisions": "Número de revisões",
+	"sesp-property-mimetype": "Tipo MIME",
+	"sesp-property-mediatype": "Tipo de multimédia",
+	"sesp-property-shorturl": "URL encurtado",
+	"sesp-property-user-registration-date": "Data de registo do(a) utilizador(a)"
 }
