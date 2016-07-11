@@ -13,7 +13,6 @@ use Title;
 
 /**
  * @covers \SESP\Annotator\ExifDataAnnotator
- *
  * @group semantic-extra-special-properties
  *
  * @license GNU GPL v2+
@@ -60,7 +59,7 @@ class ExifDataAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		$instance->addAnnotation();
 	}
 
-	public function testPropertyAnnotationOnEmptyExifData() {
+	public function testPropertyAnnotationOnFalseExifData() {
 
 		$semanticData = $this->getSemanticDataForExifDataAnnotatorBy( false );
 
@@ -69,11 +68,22 @@ class ExifDataAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
+	public function testPropertyAnnotationOnEmptyExifData() {
+
+		$semanticData = $this->getSemanticDataForExifDataAnnotatorBy( ' ' );
+
+		$this->assertEmpty(
+			$semanticData->findSubSemanticData( '_EXIFDATA' )
+		);
+	}
+
 	public function testPropertyAnnotationWithBlobValue() {
 
-		$semanticData = $this->getSemanticDataForExifDataAnnotatorBy( array(
-			'Software'  => 'ABC',
+		$meta = serialize( array(
+			'Software' => 'ABC'
 		) );
+
+		$semanticData = $this->getSemanticDataForExifDataAnnotatorBy( $meta );
 
 		$this->assertArrayHasKey(
 			PropertyRegistry::getInstance()->getPropertyId( 'Software' ),
@@ -83,9 +93,11 @@ class ExifDataAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 	public function testPropertyAnnotationWithFullDateTime() {
 
-		$semanticData = $this->getSemanticDataForExifDataAnnotatorBy( array(
-			'DateTimeOriginal'  => '2013:01:11 02:13:35',
+		$meta = serialize( array(
+			'DateTimeOriginal' => '2013:01:11 02:13:35'
 		) );
+
+		$semanticData = $this->getSemanticDataForExifDataAnnotatorBy( $meta );
 
 		$this->assertArrayHasKey(
 			PropertyRegistry::getInstance()->getPropertyId( 'DateTimeOriginal' ),
@@ -95,9 +107,11 @@ class ExifDataAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 	public function testPropertyAnnotationWithoutSeconds() {
 
-		$semanticData = $this->getSemanticDataForExifDataAnnotatorBy( array(
-			'DateTimeOriginal'  => '2013:01:11 02:13',
+		$meta = serialize( array(
+			'DateTimeOriginal' => '2013:01:11 02:13'
 		) );
+
+		$semanticData = $this->getSemanticDataForExifDataAnnotatorBy( $meta );
 
 		$this->assertArrayHasKey(
 			PropertyRegistry::getInstance()->getPropertyId( 'DateTimeOriginal' ),
@@ -107,9 +121,11 @@ class ExifDataAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 	public function testPropertyAnnotationWithDateOnly() {
 
-		$semanticData = $this->getSemanticDataForExifDataAnnotatorBy( array(
-			'DateTimeOriginal'  => '2013:01:11',
+		$meta = serialize( array(
+			'DateTimeOriginal' => '2013:01:11',
 		) );
+
+		$semanticData = $this->getSemanticDataForExifDataAnnotatorBy( $meta );
 
 		$this->assertArrayHasKey(
 			PropertyRegistry::getInstance()->getPropertyId( 'DateTimeOriginal' ),
@@ -119,10 +135,12 @@ class ExifDataAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 	public function testPropertyAnnotationWithInvalidDate() {
 
-		$semanticData = $this->getSemanticDataForExifDataAnnotatorBy( array(
+		$meta = serialize( array(
 			'DateTimeOriginal'  => '0000:00:00 00:00:00',
 			'DateTime'  => '    :  :     :  :  ',
 		) );
+
+		$semanticData = $this->getSemanticDataForExifDataAnnotatorBy( $meta );
 
 		$this->assertEmpty(
 			$semanticData->findSubSemanticData( '_EXIFDATA' )
@@ -131,10 +149,12 @@ class ExifDataAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 	public function testPropertyAnnotationWithNumberValue() {
 
-		$semanticData = $this->getSemanticDataForExifDataAnnotatorBy(
-			array(
+		$meta = serialize( array(
 				'Foo'  => 'ABC',
-			),
+		) );
+
+		$semanticData = $this->getSemanticDataForExifDataAnnotatorBy(
+			$meta,
 			array(
 				'getWidth'  => 1000,
 				'getHeight' => 9999
@@ -155,10 +175,12 @@ class ExifDataAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 	public function testPropertyAnnotationWithUnkownExif() {
 
+		$meta = serialize( array(
+				'Foo'  => 'ABC',
+		) );
+
 		$semanticData = $this->getSemanticDataForExifDataAnnotatorBy(
-			array(
-				'Foo'       => 'ABC',
-			),
+			$meta,
 			array(
 				'getWidth'  => false,
 				'getHeight' => false
@@ -170,11 +192,9 @@ class ExifDataAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
-	protected function getSemanticDataForExifDataAnnotatorBy( $exifData, $parameters = array() ) {
+	protected function getSemanticDataForExifDataAnnotatorBy( $meta, $parameters = array() ) {
 
-		$expectedToRun = $exifData ? $this->atLeastOnce() : $this->never();
-
-		$exifData = serialize( $exifData );
+		$expectedToRun = $meta && strlen( $meta ) > 2 ? $this->atLeastOnce() : $this->never();
 
 		$semanticData = new SemanticData(
 			DIWikiPage::newFromTitle( Title::newFromText( __METHOD__ ) )
@@ -190,7 +210,7 @@ class ExifDataAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$file->expects( $this->once() )
 			->method( 'getMetadata' )
-			->will( $this->returnValue( $exifData ) );
+			->will( $this->returnValue( $meta ) );
 
 		$file->expects( $expectedToRun )
 			->method( 'getWidth' )
@@ -206,7 +226,8 @@ class ExifDataAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$instance = new ExifDataAnnotator( $semanticData, $file );
 
-		$this->assertTrue(
+		$this->assertInternalType(
+			'boolean',
 			$instance->addAnnotation()
 		);
 
