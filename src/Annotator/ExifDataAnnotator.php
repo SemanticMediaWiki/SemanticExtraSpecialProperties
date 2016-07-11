@@ -74,13 +74,21 @@ class ExifDataAnnotator {
 	public function addAnnotation() {
 
 		if ( !$this->file->exists() ) {
-			return true;
+			return false;
 		}
 
-		$exif = unserialize( $this->file->getMetadata() );
+		// #66
+		$meta = $this->file->getMetadata();
+
+		if ( !$meta ) {
+			return false;
+		}
+
+		// Guard against "Error at offset 0 of 1 bytes"
+		$exif = @unserialize( $meta );
 
 		if ( !is_array( $exif ) || count( $exif ) === 0 ) {
-			return true;
+			return false;
 		}
 
 		$exif[ 'ImageWidth' ]  = $this->file->getWidth();
