@@ -1,8 +1,17 @@
 {
 	"@metadata": {
 		"authors": [
-			"Reedy"
+			"Reedy",
+			"Eitvys200"
 		]
 	},
-	"sesp-property-page-id": "Puslapio ID"
+	"sesp-property-author": "Puslapio autorius",
+	"sesp-property-first-author": "Puslapio kūrėjas",
+	"sesp-property-page-id": "Puslapio ID",
+	"sesp-property-view-count": "Puslapio peržiūrų skaičius",
+	"sesp-property-mimetype": "MIME tipas",
+	"sesp-property-mediatype": "Laikmenos tipas",
+	"sesp-property-shorturl": "Trumpas URL",
+	"sesp-property-user-registration-date": "Vartotojo registracijos data",
+	"sesp-property-exif-data": "Exif duomenys"
 }
