@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": [
+			"V.narsikar"
+		]
+	},
+	"sesp-property-author": "पान लेखक",
+	"sesp-property-first-author": "पृष्ठ निर्माणक",
+	"sesp-property-subpages": "उपपान",
+	"sesp-property-revisions": "आवृत्त्यांची संख्या",
+	"sesp-property-talk-revisions": "चर्चा पानांच्या आवृत्त्यांची संख्या",
+	"sesp-property-mimetype": "विविधामाप (माईम) प्रकार",
+	"sesp-property-mediatype": "माध्यम प्रकार",
+	"sesp-property-shorturl": "लघु यूआरएल(URL)",
+	"sesp-property-user-registration-date": "सदस्य नोंदणी दिनांक",
+	"sesp-property-user-edit-count": "सदस्याची संपादन मोजणी"
+}
