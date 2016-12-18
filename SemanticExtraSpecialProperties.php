@@ -26,11 +26,7 @@ if ( defined( 'SESP_VERSION' ) ) {
 	return 1;
 }
 
-SemanticExtraSpecialProperties::initExtension();
-
-$GLOBALS['wgExtensionFunctions'][] = function() {
-	SemanticExtraSpecialProperties::onExtensionFunction();
-};
+SemanticExtraSpecialProperties::load();
 
 /**
  * @codeCoverageIgnore
@@ -39,17 +35,37 @@ class SemanticExtraSpecialProperties {
 
 	/**
 	 * @since 1.4
+	 *
+	 * @note It is expected that this function is loaded before LocalSettings.php
+	 * to ensure that settings and global functions are available by the time
+	 * the extension is activated.
 	 */
-	public static function initExtension() {
+	public static function load() {
 
 		// Load DefaultSettings
 		require_once __DIR__ . '/DefaultSettings.php';
 
-		define( 'SESP_VERSION', '1.4.0-alpha' );
-
 		if ( is_readable( __DIR__ . '/vendor/autoload.php' ) ) {
-			include_once( __DIR__ . '/vendor/autoload.php' );
+			include_once __DIR__ . '/vendor/autoload.php';
 		}
+
+		// In case extension.json is being used, the the succeeding steps will
+		// be handled by the ExtensionRegistry
+		self::initExtension();
+
+		// PHP 5.3
+		// "Fatal error: Cannot access self:: when no class scope is active"
+		$GLOBALS['wgExtensionFunctions'][] = function() {
+			SemanticExtraSpecialProperties::onExtensionFunction();
+		};
+	}
+
+	/**
+	 * @since 1.4
+	 */
+	public static function initExtension() {
+
+		define( 'SESP_VERSION', '1.4.0-alpha' );
 
 		// Register extension info
 		$GLOBALS['wgExtensionCredits']['semantic'][] = array(
@@ -68,6 +84,18 @@ class SemanticExtraSpecialProperties {
 
 		$GLOBALS['wgMessagesDirs']['SemanticExtraSpecialProperties'] = __DIR__ . '/i18n';
 		$GLOBALS['wgExtensionMessagesFiles']['SemanticExtraSpecialProperties'] = __DIR__ . '/i18n/SemanticExtraSpecialProperties.i18n.php';
+
+		self::onBeforeExtensionFunction();
+	}
+
+	/**
+	 * Register hooks that require to be listed as soon as possible and preferable
+	 * before the execution of onExtensionFunction
+	 *
+	 * @since 1.4
+	 */
+	public static function onBeforeExtensionFunction() {
+		$GLOBALS['wgHooks']['SMW::Config::BeforeCompletion'][] = '\SESP\HookRegistry::onBeforeConfigCompletion';
 	}
 
 	/**
