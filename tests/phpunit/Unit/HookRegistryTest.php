@@ -46,6 +46,29 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 		$this->doTestRegisteredUpdateDataBeforeHandler( $instance );
 	}
 
+	public function testOnBeforeConfigCompletion() {
+
+		$config = array(
+			'smwgFulltextSearchPropertyExemptionList' => array()
+		);
+
+		$propertyExemptionList = array(
+			'___EUSER',
+			'___CUSER',
+			'___SUBP',
+			'___EXIFDATA'
+		);
+
+		HookRegistry::onBeforeConfigCompletion( $config );
+
+		$this->assertEquals(
+			array(
+				'smwgFulltextSearchPropertyExemptionList' => $propertyExemptionList,
+			),
+			$config
+		);
+	}
+
 	public function doTestRegisteredInitPropertiesHandler( $instance ) {
 
 		$this->assertTrue(

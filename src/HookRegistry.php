@@ -76,6 +76,24 @@ class HookRegistry {
 		return Hooks::getHandlers( $name );
 	}
 
+	/**
+	 * @since  1.0
+	 *
+	 * @param array &$config
+	 */
+	public static function onBeforeConfigCompletion( &$config ) {
+
+		if ( !isset( $config['smwgFulltextSearchPropertyExemptionList'] ) ) {
+			return;
+		}
+
+		// Exclude those properties from indexing
+		$config['smwgFulltextSearchPropertyExemptionList'] = array_merge(
+			$config['smwgFulltextSearchPropertyExemptionList'],
+			array( '___EUSER', '___CUSER', '___SUBP', '___EXIFDATA'	)
+		);
+	}
+
 	private function registerCallbackHandlers( $configuration ) {
 
 		$this->handlers['smwInitProperties'] = function () {
