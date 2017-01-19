@@ -3,7 +3,8 @@
 		"authors": [
 			"Okras",
 			"ShinePhantom",
-			"Аль-Гимравий"
+			"Аль-Гимравий",
+			"Putnik"
 		]
 	},
 	"sesp-desc": "Добавляет некоторые дополнительные специальные свойства для всех страниц",
@@ -12,7 +13,7 @@
 	"sesp-property-revision-id": "Идентификатор правки",
 	"sesp-property-page-id": "Идентификатор страницы",
 	"sesp-property-view-count": "Количество просмотров страницы",
-	"sesp-property-subpages": "Гъоркьгьумер",
+	"sesp-property-subpages": "Подстраница",
 	"sesp-property-revisions": "Количество правок",
 	"sesp-property-talk-revisions": "Количество правок страницы обсуждения",
 	"sesp-property-mimetype": "MIME-тип",
