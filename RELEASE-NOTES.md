@@ -2,7 +2,7 @@ This file contains the RELEASE-NOTES of the SemanticExtraSpecialProperties (a.k.
 
 ### 1.4.0
 
-Released on January 21, 2017.
+Released on January 22, 2017.
 
 This release now requires MediaWiki 1.25+ and Semantic MediaWiki 2.3+ (#61).
 
