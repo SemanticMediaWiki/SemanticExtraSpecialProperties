@@ -15,15 +15,22 @@
 	"authors": [
 		{
 			"name": "Leo Wallentin",
-			"homepage": "https://github.com/rotsee"
+			"homepage": "https://github.com/rotsee",
+			"role": "Creator"
 		},
 		{
-			"name": "mwjames",
-			"homepage": "https://semantic-mediawiki.org/wiki/User:MWJames"
+			"name": "James Hong Kong",
+			"homepage": "https://semantic-mediawiki.org/wiki/User:MWJames",
+			"role": "Developer"
 		}
 	],
 	"support": {
-		"irc": "irc://irc.freenode.net/semantic-mediawiki"
+		"email": "semediawiki-user@lists.sourceforge.net",
+		"issues": "https://github.com/SemanticMediaWiki/SemanticExtraSpecialProperties/issues",
+		"irc": "irc://irc.freenode.net/semantic-mediawiki",
+		"forum": "https://www.semantic-mediawiki.org/wiki/semantic-mediawiki.org_talk:Community_portal",
+		"wiki": "https://www.semantic-mediawiki.org/wiki/",
+		"source": "https://github.com/SemanticMediaWiki/SemanticExtraSpecialProperties"
 	},
 	"require": {
 		"php": ">=5.3.0",

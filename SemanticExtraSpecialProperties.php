@@ -18,7 +18,7 @@ if ( version_compare( $GLOBALS['wgVersion'], '1.25', '<' ) ) {
 }
 
 if ( !defined( 'SMW_VERSION' ) ) {
-	die( '<b>Error:</b> This version of Semantic Extra Special Properties requires <a href="http://semantic-mediawiki.org/wiki/Semantic_MediaWiki">Semantic MediaWiki</a> installed.<br />' );
+	die( '<b>Error:</b> This version of Semantic Extra Special Properties requires <a href="http://www.semantic-mediawiki.org/wiki/Semantic_MediaWiki">Semantic MediaWiki</a> installed.<br />' );
 }
 
 if ( defined( 'SESP_VERSION' ) ) {
@@ -65,7 +65,7 @@ class SemanticExtraSpecialProperties {
 	 */
 	public static function initExtension() {
 
-		define( 'SESP_VERSION', '1.4.0-alpha' );
+		define( 'SESP_VERSION', '1.4.0' );
 
 		// Register extension info
 		$GLOBALS['wgExtensionCredits']['semantic'][] = array(
