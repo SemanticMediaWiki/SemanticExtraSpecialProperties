@@ -4,13 +4,15 @@
 			"Crt",
 			"Nedergard",
 			"Nike",
-			"Stryn"
+			"Stryn",
+			"Pyscowicz"
 		]
 	},
 	"sesp-desc": "Lisää joitain erikoisominaisuuksia kaikille sivuille",
 	"sesp-property-author": "Sivun tekijä",
 	"sesp-property-first-author": "Sivun luonut",
 	"sesp-property-revision-id": "Versiotunniste",
+	"sesp-property-page-id": "Sivun tunniste",
 	"sesp-property-view-count": "Näyttökertojen määrä",
 	"sesp-property-subpages": "Alasivu",
 	"sesp-property-revisions": "Muokkausten määrä",
@@ -19,5 +21,6 @@
 	"sesp-property-mediatype": "Median tyyppi",
 	"sesp-property-shorturl": "Lyhytosoite",
 	"sesp-property-user-registration-date": "Käyttäjätunnuksen luontipäivämäärä",
+	"sesp-property-user-edit-count": "Käyttäjän muokkausmäärä",
 	"sesp-property-exif-data": "Exif-tiedot"
 }
