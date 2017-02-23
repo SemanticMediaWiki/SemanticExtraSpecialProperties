@@ -4,5 +4,18 @@
 			"Jagwar"
 		]
 	},
-	"sesp-property-page-id": "ID ny pejy"
+	"sesp-property-author": "Namorona ilay pejy",
+	"sesp-property-first-author": "Mpamoron'ilay pejy",
+	"sesp-property-revision-id": "IDn'ny reviziôna",
+	"sesp-property-page-id": "ID ny pejy",
+	"sesp-property-view-count": "Isan'ny fijerem-pejy",
+	"sesp-property-subpages": "Zana-pejy",
+	"sesp-property-revisions": "Isan'ny reviziôna",
+	"sesp-property-talk-revisions": "Isan'ny reviziônan'ny pejin-dresaka",
+	"sesp-property-mimetype": "Karazana MIME",
+	"sesp-property-mediatype": "Karazana hainoamanjery",
+	"sesp-property-shorturl": "URL fohy",
+	"sesp-property-user-registration-date": "Daty nisoratan'ilay mpikambana anarana",
+	"sesp-property-user-edit-count": "Isan'ny fanovana nataon'ilay mpikambana",
+	"sesp-property-exif-data": "Angona Exif"
 }
