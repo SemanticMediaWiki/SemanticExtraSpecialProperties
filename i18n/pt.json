@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"SandroHc",
-			"Vitorvicentevalente"
+			"Vitorvicentevalente",
+			"Fúlvio"
 		]
 	},
 	"sesp-desc": "Adiciona algumas propriedades adicionais especiais a todas as páginas",
@@ -16,5 +17,6 @@
 	"sesp-property-mimetype": "Tipo MIME",
 	"sesp-property-mediatype": "Tipo de multimédia",
 	"sesp-property-shorturl": "URL encurtado",
-	"sesp-property-user-registration-date": "Data de registo do(a) utilizador(a)"
+	"sesp-property-user-registration-date": "Data de registo do(a) utilizador(a)",
+	"sesp-property-exif-data": "Dados Exif"
 }

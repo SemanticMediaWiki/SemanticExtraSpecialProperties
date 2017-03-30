@@ -4,5 +4,15 @@
 			"Aftabuzzaman"
 		]
 	},
-	"sesp-property-user-edit-count": "ব্যবহারকারী সম্পাদনা গণনা"
+	"sesp-property-author": "পাতার লেখক",
+	"sesp-property-first-author": "পাতার স্রষ্টা",
+	"sesp-property-view-count": "পাতা দর্শনের সংখ্যা",
+	"sesp-property-subpages": "উপপাতা",
+	"sesp-property-revisions": "সংস্করণের সংখ্যা",
+	"sesp-property-mimetype": "MIME ধরন",
+	"sesp-property-mediatype": "মিডিয়ার ধরন",
+	"sesp-property-shorturl": "সংক্ষিপ্ত URL",
+	"sesp-property-user-registration-date": "ব্যবহারকারীর নিবন্ধনের তারিখ",
+	"sesp-property-user-edit-count": "ব্যবহারকারী সম্পাদনা গণনা",
+	"sesp-property-exif-data": "Exif উপাত্ত"
 }
