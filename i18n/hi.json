@@ -2,9 +2,23 @@
 	"@metadata": {
 		"authors": [
 			"Vivek Rai",
-			"Phoenix303"
+			"Phoenix303",
+			"Sfic",
+			"चक्रपाणी"
 		]
 	},
+	"sesp-property-author": "पेज लेखक",
+	"sesp-property-first-author": "पेज निर्माता",
+	"sesp-property-revision-id": "अवतरण आईडी",
 	"sesp-property-page-id": "पृष्ठ आइ॰डी",
-	"sesp-property-user-edit-count": "सदस्य सम्पादन संख्या"
+	"sesp-property-view-count": "पेज व्यू संख्या",
+	"sesp-property-subpages": "उपपृष्ठ",
+	"sesp-property-revisions": "रिविज़न्स की संख्या",
+	"sesp-property-talk-revisions": "वार्ता पृष्ठ रिविज़न्स की संख्या",
+	"sesp-property-mimetype": "MIME प्रकार",
+	"sesp-property-mediatype": "मीडिया प्रकार",
+	"sesp-property-shorturl": "लघु यूआरएल",
+	"sesp-property-user-registration-date": "यूज़र पंजीकरण तारीक",
+	"sesp-property-user-edit-count": "सदस्य सम्पादन संख्या",
+	"sesp-property-exif-data": "Exif डेटा"
 }

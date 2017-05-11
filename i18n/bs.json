@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Srdjan m"
+		]
+	},
+	"sesp-property-author": "Autor stranice",
+	"sesp-property-first-author": "Stvaralac stranice",
+	"sesp-property-revision-id": "ID izmjene",
+	"sesp-property-page-id": "ID stranice",
+	"sesp-property-subpages": "Podstranica",
+	"sesp-property-revisions": "Broj izmjena",
+	"sesp-property-shorturl": "Kratki URL"
+}
