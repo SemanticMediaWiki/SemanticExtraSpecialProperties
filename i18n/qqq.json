@@ -10,6 +10,7 @@
 	"sesp-property-first-author": "The name of the special property that stores the user that created the page.\n{{Doc-smw-sp}}",
 	"sesp-property-revision-id": "The name of the special property that stores the current revision ID.\n{{Doc-smw-sp}}\n{{Identical|Revision ID}}",
 	"sesp-property-page-id": "The name of the special property that stores the page ID.\n{{Doc-smw-sp}}\n{{Identical|Page ID}}",
+	"sesp-property-page-len": "The name of the special property that stores the page length (size in bytes)\n{{Doc-smw-sp}}",
 	"sesp-property-view-count": "The name of the special property that stores the number of pages views.\n{{Doc-smw-sp}}",
 	"sesp-property-subpages": "The name of the special property that stores subpages.\n{{Doc-smw-sp}}\n{{Identical|Subpage}}",
 	"sesp-property-revisions": "The name of the special property that stores the number of revisions.\n{{Doc-smw-sp}}",
