@@ -1,3 +1,6 @@
+
+[Extension](01-extension.md) &rarr;
+
 # Configuration
 
 Properties that are planned to be included need to be specified in the [`LocalSettings.php`][mw-localsettings] file using the `$GLOBALS['sespSpecialProperties']` array. By default the array is empty, i.e. no special property is being annotated to a page.
@@ -8,43 +11,32 @@ $GLOBALS['sespSpecialProperties'] = array(
 	...
 );
 ```
-## Properties
+## Property definitions
 
-Property identifiers (see [`definitions.json`](/src/Definition/definitions.json) ) are used to specify which of the properties are enabled. An identifier is an internal `ID` which is not to be used during user interaction (e.g. handling in `#ask` queries) instead the property label should be used as reference.
+Property identifiers (see [`definitions.json`]) are used to specify which of the properties are enabled. An identifier is an internal `ID` which is not to be used during user interaction (e.g. handling in `#ask` queries) instead the property label should be used as reference.
 
 ### Labels
 
 Property labels differ according to the language the wiki was set up. An easy way to identify those used labels is to navigate to the "Special:Properies" page that lists all available properties including properties provided by this extension.
 
-Property labels are displayed in accordance with the maintained [content language][mw-contentlang]. Message keys and labels are retrieved from cache where in case message content is altered (`definitions.json` or message file), the cache will automatically be purged. Changing the default cache type can be achieved by modifying the [`$sespCacheType`][mw-cachetype] customizing.
-
-### Identifier
+### Identifiers
 
 - `_EUSER` adds a property with all users that edited this page (expensive; use with care)
 - `_CUSER` adds a property with the user that created this page
 - `_REVID` adds a property with current revision ID
 - `_PAGEID` adds a property with the page ID
+- `_PAGELGTH` adds a property to record the page length
 - `_NREV` adds a property showing an estimated number of total revisions of a page
 - `_NTREV` same as `_NREV` but for the talk page, i.e. showing how much discussion is going on around this page
 - `_SUBP` adds a property with all subpages
 - `_USERREG` adds a property to user pages with the users registration date
 - `_USEREDITCNT` add a property to user pages with the users edit count
-- `_EXIFDATA` adds properties based on image metadata (Exif data), when available and in case it is a `NS_FILE` namespace object data are stored as a [subobject][subobject]. Details on available Exif data can be found [here](/src/Definition/definitions.json).
-
+- `_EXIFDATA` adds properties for image metadata (Exif data)
 
 #### Properties with further dependencies
 
 - `_SHORTURL` adds short URL if the [ShortUrl][ShortUrl] extension is installed, and there is a shortened URL for the current page
 - `_VIEWS` adds a property with number of page views if the [HitCounters][HitCounters] extension is installed. This is required starting with MediaWiki 1.25 and later. In earlier versions of MediaWiki this special property used to work out of the box if enabled. Note that depending on local settings this value might not be very up to date. If [`$wgDisableCounters`][$wgDisableCounters] is set to "true" this property will never be set.
-
-#### Depreciated properties
-
-- `_MIMETYPE` add MIME type in case the article object is in the `NS_FILE` namespace. Please use Semantic MediaWiki's
-(≥ 1.9.1) [MIME type][MIME type] instead.
-- `_MEDIATYPE` add media type in case the article object is in the `NS_FILE` namespace. Please use Semantic MediaWiki's
-(≥ 1.9.1) [Media type][Media type] instead.
-
-These properties may be removed in any further release of this extension.
 
 ## Additional configuration
 
@@ -85,4 +77,3 @@ can pose a [privacy issue][privacy].
 [mw-update]: https://www.mediawiki.org/wiki/Manual:Update.php
 [mw-localsettings]: https://www.mediawiki.org/wiki/Localsettings
 [mw-contentlang]: https://www.mediawiki.org/wiki/Content_language
-[mw-cachetype]: https://www.mediawiki.org/wiki/Manual:$wgMainCacheType

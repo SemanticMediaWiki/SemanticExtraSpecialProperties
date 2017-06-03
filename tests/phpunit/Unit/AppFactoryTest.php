@@ -6,11 +6,10 @@ use SESP\AppFactory;
 
 /**
  * @covers \SESP\AppFactory
- *
- * @group semantic-extra-special-properties
+ * @group SESP
  *
  * @license GNU GPL v2+
- * @since 1.3
+ * @since 2.0
  *
  * @author mwjames
  */
@@ -19,18 +18,8 @@ class AppFactoryTest extends \PHPUnit_Framework_TestCase {
 	public function testCanConstruct() {
 
 		$this->assertInstanceOf(
-			'\SESP\AppFactory',
+			AppFactory::class,
 			new AppFactory()
-		);
-	}
-
-	public function testCanConstructDatabaseConnection() {
-
-		$instance = new AppFactory();
-
-		$this->assertInstanceOf(
-			'\DatabaseBase',
-			$instance->newDatabaseConnection()
 		);
 	}
 
@@ -60,7 +49,7 @@ class AppFactoryTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
-	public function testCanConstructUser( ) {
+	public function testCanConstructUserFromTitle( ) {
 
 		$title = $this->getMockBuilder( '\Title' )
 			->disableOriginalConstructor()
@@ -78,35 +67,74 @@ class AppFactoryTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
-	public function testCanConstructShortUrlAnnotator() {
-
-		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
-			->disableOriginalConstructor()
-			->getMock();
+	public function testCanConstructUserFromID( ) {
 
 		$instance = new AppFactory();
 
 		$this->assertInstanceOf(
-			'\SESP\Annotator\ShortUrlAnnotator',
-			$instance->newShortUrlAnnotator( $semanticData )
+			'\User',
+			$instance->newUserFromID( 42 )
 		);
 	}
 
-	public function testCanConstructExifDataAnnotator() {
+	public function testGetConnection( ) {
 
-		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
-			->disableOriginalConstructor()
-			->getMock();
-
-		$file = $this->getMockBuilder( '\File' )
+		$connection = $this->getMockBuilder( '\DatabaseBase' )
 			->disableOriginalConstructor()
 			->getMock();
 
 		$instance = new AppFactory();
 
+		$instance->setConnection(
+			$connection
+		);
+
+		$this->assertSame(
+			$connection,
+			$instance->getConnection()
+		);
+	}
+
+	public function testGetPropertyDefinitions( ) {
+
+		$options = array(
+			'sespPropertyDefinitionFile' => '',
+			'sespLocalPropertyDefinitions' => array()
+		);
+
+		$instance = new AppFactory(
+			$options
+		);
+
 		$this->assertInstanceOf(
-			'\SESP\Annotator\ExifDataAnnotator',
-			$instance->newExifDataAnnotator( $semanticData, $file )
+			'\SESP\PropertyDefinitions',
+			$instance->getPropertyDefinitions()
+		);
+	}
+
+	public function testGetLogger( ) {
+
+		$instance = new AppFactory();
+
+		$this->assertInstanceOf(
+			'\Psr\Log\LoggerInterface',
+			$instance->getLogger()
+		);
+	}
+
+	public function testGetOption( ) {
+
+		$options = array(
+			'Foo' => 'Bar'
+		);
+
+		$instance = new AppFactory(
+			$options
+		);
+
+		$this->assertSame(
+			'Bar',
+			$instance->getOption( 'Foo' )
 		);
 	}
 

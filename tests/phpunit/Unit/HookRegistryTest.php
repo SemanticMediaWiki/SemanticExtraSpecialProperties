@@ -6,8 +6,7 @@ use SESP\HookRegistry;
 
 /**
  * @covers \SESP\HookRegistry
- *
- * @group semantic-extra-special-properties
+ * @group SESP
  *
  * @license GNU GPL v2+
  * @since 1.3
@@ -29,6 +28,8 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 	public function testRegister() {
 
 		$configuration = array(
+			'sespPropertyDefinitionFile' => $GLOBALS['sespPropertyDefinitionFile'],
+			'sespLocalPropertyDefinitions' => array(),
 			'sespSpecialProperties' => array(),
 			'wgDisableCounters' => false,
 			'sespUseAsFixedTables' => false,
@@ -42,7 +43,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 		$instance->register();
 
 		$this->doTestRegisteredInitPropertiesHandler( $instance );
-		$this->doTestRegisteredUpdatePropertyTableDefinitionsHandler( $instance );
+		$this->doTestRegisteredAddCustomFixedPropertyTables( $instance );
 		$this->doTestRegisteredUpdateDataBeforeHandler( $instance );
 	}
 
@@ -76,27 +77,32 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 
 	public function doTestRegisteredInitPropertiesHandler( $instance ) {
 
+		$propertyRegistry = $this->getMockBuilder( '\SMW\PropertyRegistry' )
+			->disableOriginalConstructor()
+			->getMock();
+
 		$this->assertTrue(
-			$instance->isRegistered( 'smwInitProperties' )
+			$instance->isRegistered( 'SMW::Property::initProperties' )
 		);
 
 		$this->assertThatHookIsExcutable(
-			$instance->getHandlers( 'smwInitProperties' ),
-			array()
+			$instance->getHandlers( 'SMW::Property::initProperties' ),
+			array( $propertyRegistry )
 		);
 	}
 
-	public function doTestRegisteredUpdatePropertyTableDefinitionsHandler( $instance ) {
+	public function doTestRegisteredAddCustomFixedPropertyTables( $instance ) {
 
 		$this->assertTrue(
-			$instance->isRegistered( 'SMW::SQLStore::updatePropertyTableDefinitions' )
+			$instance->isRegistered( 'SMW::SQLStore::AddCustomFixedPropertyTables' )
 		);
 
-		$propertyTableDefinitions = array();
+		$customFixedProperties = array();
+		$fixedPropertyTablePrefix = array();
 
 		$this->assertThatHookIsExcutable(
-			$instance->getHandlers( 'SMW::SQLStore::updatePropertyTableDefinitions' ),
-			array( &$propertyTableDefinitions )
+			$instance->getHandlers( 'SMW::SQLStore::AddCustomFixedPropertyTables' ),
+			array( &$customFixedProperties, &$fixedPropertyTablePrefix )
 		);
 	}
 

@@ -2,11 +2,10 @@
 
 namespace SESP;
 
-use SESP\Definition\DefinitionReader;
-use SESP\Cache\MessageCache;
-
+use SMW\PropertyRegistry as BasePropertyRegistry;
 use SMW\DataTypeRegistry;
 use SMW\DIProperty;
+use SMW\Message;
 use SMWDataItem as DataItem;
 
 /**
@@ -19,204 +18,121 @@ use SMWDataItem as DataItem;
  */
 class PropertyRegistry {
 
-	/** @var PropertyRegistry */
-	protected static $instance = null;
-
-	/** @var MessageCache */
-	protected $messageCache = null;
-
-	protected $definitions = null;
+	/**
+	 * @var AppFactory
+	 */
+	private $appFactory;
 
 	/**
-	 * @since 1.2.0
+	 * @since 2.0
 	 *
-	 * @param DefinitionReader $definitionReader
-	 * @param MessageCache $messageCache
+	 * @param AppFactory $appFactory
 	 */
-	protected function __construct( DefinitionReader $definitionReader, MessageCache $messageCache ) {
-		$this->definitions = $definitionReader->getDefinitions();
-		$this->messageCache = $messageCache;
-
-		$this->messageCache->setCacheTimeOffset( $definitionReader->getModificationTime() );
+	public function __construct( AppFactory $appFactory ) {
+		$this->appFactory = $appFactory;
 	}
 
 	/**
 	 * @since 1.0
 	 *
-	 * @return PropertyRegistry
-	 */
-	public static function getInstance() {
-
-		if ( self::$instance === null ) {
-			self::$instance = new self(
-				new DefinitionReader,
-				new MessageCache()
-			);
-		}
-
-		return self::$instance;
-	}
-
-	/**
-	 * @since 1.0
-	 */
-	public static function clear() {
-		self::$instance = null;
-	}
-
-	/**
-	 * @since 1.0
-	 *
-	 * @param string $id
-	 *
-	 * @return string|null
-	 */
-	public function getPropertyId( $id ) {
-		return $this->lookupWithIndexForId( 'id', $id );
-	}
-
-	/**
-	 * @since 1.0
-	 *
-	 * @param string $id
-	 *
-	 * @return string|null
-	 */
-	public function getPropertyType( $id ) {
-		return $this->lookupWithIndexForId( 'type', $id );
-	}
-
-	/**
-	 * Only properties that are customized are also considered as possible
-	 * candidates for a fixed table
-	 *
-	 * @note Specific exif properties are not considered as fixed table entry
-	 *
-	 * @since 1.0
-	 *
-	 * @param array $propertyTableDefinitions
-	 * @param array $configuration
+	 * @param PropertyRegistry $propertyRegistry
 	 *
 	 * @return boolean
 	 */
-	public function registerAsFixedTables( &$propertyTableDefinitions, $configuration ) {
+	public function registerOn( BasePropertyRegistry $propertyRegistry ) {
 
-		if ( !isset( $configuration['sespUseAsFixedTables'] ) || !$configuration['sespUseAsFixedTables'] ) {
-			return true;
-		}
+		$definitions = $this->appFactory->getPropertyDefinitions();
 
-		$enabledSpecialProperties = array_flip( $configuration['sespSpecialProperties'] );
-		$propertyTypeList = array_keys( $this->definitions );
+		foreach ( $definitions as $key => $definition ) {
 
-		foreach( $propertyTypeList as $externalId ) {
-
-			$dataItemType = $this->getPropertyType( $externalId );
-
-			if ( !isset( $enabledSpecialProperties[ $externalId ] ) || $dataItemType === null ) {
+			if ( !isset( $definition['id'] ) ) {
 				continue;
 			}
 
-			$tableName = 'smw_ftp_sesp' . strtolower( $externalId );
+			$this->addPropertyDefinition( $propertyRegistry, $definition );
+		}
 
-			$propertyTableDefinitions[ $tableName ] = new \SMW\SQLStore\TableDefinition(
-				$dataItemType,
-				$tableName,
-				$this->getPropertyId( $externalId )
-			);
+		foreach ( $definitions->safeGet( '_EXIF', array() ) as $key => $definition ) {
+
+			if ( !isset( $definition['id'] ) ) {
+				continue;
+			}
+
+			$this->addPropertyDefinition( $propertyRegistry, $definition );
 		}
 
 		return true;
 	}
 
 	/**
-	 * @note If there are an exceedingly amount of possible exif properties, those
-	 * should only registered if '_EXIFDATA' is used as configuration parameter
+	 * @since 2.0
 	 *
-	 * @since 1.0
-	 *
-	 * @return boolean
+	 * @param array $customFixedProperties
+	 * @param array $fixedPropertyTablePrefix
 	 */
-	public function registerPropertiesAndAliases() {
-		$this->registerPropertiesFromList( array_keys( $this->definitions ) );
-		$this->registerPropertiesFromList( array_keys( $this->definitions['_EXIF'] ) );
+	public function registerAsFixedProperties( &$customFixedProperties, &$fixedPropertyTablePrefix ) {
 
-		return true;
-	}
+		if ( $this->appFactory->getOption( 'sespUseAsFixedTables' ) === false ) {
+			return;
+		}
 
-	protected function registerPropertiesFromList( array $propertyList ) {
+		$definitions = $this->appFactory->getPropertyDefinitions();
 
-		foreach ( $propertyList as $externalId ) {
+		$properties = array_flip(
+			$this->appFactory->getOption( 'sespSpecialProperties', array() )
+		);
 
-			$propertyId = $this->getPropertyId( $externalId );
+		foreach ( $definitions as $key => $definition ) {
 
-			if ( $propertyId === null ) {
+			if ( !isset( $definition['id'] ) ) {
 				continue;
 			}
 
-			DIProperty::registerProperty(
-				$propertyId,
-				$this->getPropertyDataItemTypeId( $externalId ),
-				$this->getPropertyLabel( $externalId ),
-				$this->getPropertyVisibility( $externalId )
-			);
+			$id = $definition['id'];
 
-			DIProperty::registerPropertyAlias(
-				$propertyId,
-				$this->getPropertyAlias( $externalId )
-			);
+			if ( isset( $properties[$key] ) ) {
+				$customFixedProperties[$id] = str_replace( array( '___', '__' ), '_', strtolower( $id ) );
+
+				// Legacy setting `smw_ftp` vs. `smw_fpt`
+				$fixedPropertyTablePrefix[$id] = 'smw_ftp_sesp';
+			}
 		}
 	}
 
-	protected function getPropertyLabel( $id ) {
-		return $this->lookupWithIndexForId( 'label', $id );
-	}
+	private function addPropertyDefinition( $propertyRegistry, $definition ) {
 
-	protected function getPropertyVisibility( $id ) {
+		$visible = isset( $definition['show'] ) ? $definition['show'] : false;
+		$annotable = false;
 
-		$show = $this->lookupWithIndexForId( 'show', $id );
+		$alias = isset( $definition['alias'] ) ? $definition['alias'] : 'smw-unknown-alias';
 
-		if ( $show === null ) {
-			return false;
-		}
+		// If someone screws up the definition format we just fail epically here
+		// on purpose
 
-		return $show;
-	}
+		$propertyRegistry->registerProperty(
+			$definition['id'],
+			$definition['type'],
+			$definition['label'],
+			$visible,
+			$annotable
+		);
 
-	protected function getPropertyAlias( $id ) {
+		$propertyRegistry->registerPropertyAlias(
+			$definition['id'],
+			Message::get( $alias )
+		);
 
-		$msgkey = $this->lookupWithIndexForId( 'alias', $id );
+		$propertyRegistry->registerPropertyAliasByMsgKey(
+			$definition['id'],
+			$alias
+		);
 
-		if ( $msgkey ) {
-			return $this->messageCache->inUserLanguage()->get( $msgkey );
-		}
+		$desc = isset( $definition['desc'] ) ? $definition['desc'] : '';
 
-		return false;
-	}
-
-	protected function getPropertyDataItemTypeId( $id ) {
-
-		$type = $this->getPropertyType( $id );
-
-		if ( $type ) {
-			return DataTypeRegistry::getInstance()->getDefaultDataItemTypeId( $type );
-		}
-
-		return null;
-	}
-
-	protected function lookupWithIndexForId( $index, $id ) {
-
-		$id = strtoupper( $id );
-
-		if ( isset( $this->definitions[ $id ] ) && isset( $this->definitions[ $id ][ $index ] ) ) {
-			return $this->definitions[ $id ][ $index ];
-		}
-
-		if ( isset( $this->definitions['_EXIF'][ $id ] ) && isset( $this->definitions['_EXIF'][ $id ][ $index ] ) ) {
-			return $this->definitions['_EXIF'][ $id ][ $index ];
-		}
-
-		return null;
+		$propertyRegistry->registerPropertyDescriptionMsgKeyById(
+			$definition['id'],
+			$desc
+		);
 	}
 
 }
