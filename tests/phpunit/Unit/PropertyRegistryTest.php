@@ -138,6 +138,7 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 				'_EUSER',
 				'_REVID',
 				'_PAGEID',
+				'_PAGELGTH',
 				'_VIEWS',
 				'_NREV',
 				'_NTREV',
