@@ -1,6 +1,6 @@
 This file contains the RELEASE-NOTES of the SemanticExtraSpecialProperties (a.k.a. SESP) extension.
 
-### 1,5,0
+### 1.5.0
 
 This is not a release yet.
 
