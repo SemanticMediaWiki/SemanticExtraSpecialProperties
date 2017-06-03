@@ -13,6 +13,13 @@
         "alias": "sesp-property-page-id",
         "label": "Page ID"
     },
+    "_PAGELGTH": {
+        "id": "___PAGELGTH",
+        "type": 1,
+        "show": false,
+        "alias": "sesp-property-page-len",
+        "label": "Page length"
+    },
     "_EUSER": {
         "id": "___EUSER",
         "type": 9,
