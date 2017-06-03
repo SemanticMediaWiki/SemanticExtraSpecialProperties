@@ -270,7 +270,7 @@ class ExtraPropertyAnnotator {
 	}
 
 	private function makePageLengthItem() {
-		$pageID = $this->getWikiPage()->getLen();
+		$pageLen = $this->getWikiPage()->getLen();
 		
 		if ( is_integer( $pageLen ) && $pageLen > 0 ) {
 			return new DINumber( $pageLen );
