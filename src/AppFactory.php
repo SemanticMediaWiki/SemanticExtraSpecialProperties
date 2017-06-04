@@ -2,27 +2,57 @@
 
 namespace SESP;
 
-use SESP\Annotator\ShortUrlAnnotator;
-use SESP\Annotator\ExifDataAnnotator;
-use SMW\SemanticData;
-use File;
+use Psr\Log\NullLogger;
+use Psr\Log\LoggerInterface;
+use Psr\Log\LoggerAwareInterface;
 use Title;
+use WikiPage;
+use User;
 
 /**
+ * @ingroup SESP
+ *
  * @license GNU GPL v2+
  * @since 1.3
  *
  * @author mwjames
  */
-class AppFactory {
+class AppFactory implements LoggerAwareInterface {
 
 	/**
-	 * @var string
+	 * @var array
 	 */
-	private $shortUrlPrefix;
+	private $options;
 
-	public function __construct( $shortUrlPrefix = '' ) {
-		$this->shortUrlPrefix = $shortUrlPrefix;
+	/**
+	 * @var array
+	 */
+	private $connection;
+
+	/**
+	 * @var LoggerInterface
+	 */
+	private $logger;
+
+	/**
+	 * @var PropertyDefinitions
+	 */
+	private $propertyDefinitions;
+
+	/**
+	 * @since 2.0
+	 *
+	 * @param array $options
+	 */
+	public function __construct( array $options = array() ) {
+		$this->options = $options;
+	}
+
+	/**
+	 * @since 2.0
+	 */
+	public function setConnection( \DatabaseBase $connection ) {
+		$this->connection = $connection;
 	}
 
 	/**
@@ -30,8 +60,72 @@ class AppFactory {
 	 *
 	 * @return DatabaseBase
 	 */
-	public function newDatabaseConnection() {
-		return wfGetDB( DB_SLAVE );
+	public function getConnection() {
+		return $this->connection;
+	}
+
+	/**
+	 * @see LoggerAwareInterface::setLogger
+	 *
+	 * @since 2.0
+	 *
+	 * @param LoggerInterface $logger
+	 */
+	public function setLogger( LoggerInterface $logger ) {
+		$this->logger = $logger;
+	}
+
+	/**
+	 * @since 3.0
+	 *
+	 * @param LoggerInterface
+	 */
+	public function getLogger() {
+
+		if ( $this->logger === null ) {
+			return new NullLogger();
+		}
+
+		return $this->logger;
+	}
+
+	/**
+	 * @since 2.4
+	 *
+	 * @param string $key
+	 * @param $default $mixed
+	 *
+	 * @return mixed|false
+	 */
+	public function getOption( $key, $default = false ) {
+
+		if ( isset( $this->options[$key] ) ) {
+			return $this->options[$key];
+		}
+
+		return $default;
+	}
+
+	/**
+	 * @since 2.0
+	 *
+	 * @return PropertyDefinitions
+	 */
+	public function getPropertyDefinitions() {
+
+		if ( $this->propertyDefinitions !== null ) {
+			return $this->propertyDefinitions;
+		}
+
+		$this->propertyDefinitions = new PropertyDefinitions(
+			$this->getOption( 'sespPropertyDefinitionFile' )
+		);
+
+		$this->propertyDefinitions->setLocalPropertyDefinitions(
+			$this->getOption( 'sespLocalPropertyDefinitions', array() )
+		);
+
+		return $this->propertyDefinitions;
 	}
 
 	/**
@@ -54,7 +148,7 @@ class AppFactory {
 			);
 		}
 
-		return \WikiPage::factory( $title );
+		return WikiPage::factory( $title );
 	}
 
 	/**
@@ -65,34 +159,18 @@ class AppFactory {
 	 * @return User
 	 */
 	public function newUserFromTitle( Title $title ) {
-		return \User::newFromName( $title->getText() );
+		return User::newFromName( $title->getText() );
 	}
 
 	/**
 	 * @since 1.3
 	 *
-	 * @param SemanticData $semanticData
+	 * @param $id
 	 *
-	 * @return ShortUrlAnnotator
+	 * @return User
 	 */
-	public function newShortUrlAnnotator( SemanticData $semanticData ) {
-
-		$shortUrlAnnotator = new ShortUrlAnnotator( $semanticData );
-		$shortUrlAnnotator->setShortUrlPrefix( $this->shortUrlPrefix );
-
-		return $shortUrlAnnotator;
-	}
-
-	/**
-	 * @since 1.3
-	 *
-	 * @param SemanticData $semanticData
-	 * @param File $file
-	 *
-	 * @return ExifDataAnnotator
-	 */
-	public function newExifDataAnnotator( SemanticData $semanticData, File $file ) {
-		return new ExifDataAnnotator( $semanticData, $file );
+	public function newUserFromID( $id ) {
+		return User::newFromId( $id );
 	}
 
 }

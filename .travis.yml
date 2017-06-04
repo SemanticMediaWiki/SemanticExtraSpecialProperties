@@ -6,11 +6,11 @@ language: php
 matrix:
   fast_finish: true
   include:
-    - env: DB=mysql; MW=1.25.6; TYPE=coverage
-      php: 5.3
-    - env: DB=mysql; MW=REL1_27;
+    - env: DB=mysql; MW=REL1_27; TYPE=coverage; PHPUNIT=4.8.*
       php: 5.6
-    - env: DB=sqlite; MW=1.26.3; SITELANG=ja
+    - env: DB=mysql; MW=master; PHPUNIT=4.8.*
+      php: 7.1
+    - env: DB=sqlite; MW=REL1_28; SITELANG=ja; PHPUNIT=4.8.*
       php: 5.5
 
 install:

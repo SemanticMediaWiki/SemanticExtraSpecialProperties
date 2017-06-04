@@ -12,28 +12,37 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	die( 'This file is part of the SemanticExtraSpecialProperties extension, it is not a valid entry point.' );
 }
 
-/**
- * MessageCache
- */
-$GLOBALS['sespCacheType'] = CACHE_ANYTHING;
+return array(
 
-/**
- * To setup properties as fixed properties in order to improve data access
- */
-$GLOBALS['sespUseAsFixedTables'] = false;
+	/**
+	 * To setup properties as fixed properties in order to improve data access
+	 */
+	'sespUseAsFixedTables' => false,
 
-/**
- * Specifies the enabled properties
- */
-$GLOBALS['sespSpecialProperties'] = array();
+	/**
+	 * Location of the property definitions
+	 */
+	'sespPropertyDefinitionFile' => __DIR__ . '/definitions.json',
 
-/**
- * It causes bot edits via user accounts in usergroup "bot" to be ignored when
- * storing data for the special properties.
- */
-$GLOBALS['wgSESPExcludeBots'] = false;
+	/**
+	 * Specifies local definitions
+	 */
+	'sespLocalPropertyDefinitions' => array(),
 
-/**
- * Use in connection with ShortUrlUtils
- */
-$GLOBALS['wgShortUrlPrefix'] = '';
+	/**
+	 * Specifies the enabled properties
+	 */
+	'sespSpecialProperties' =>  array(),
+
+	/**
+	 * It causes bot edits via user accounts in usergroup "bot" to be ignored when
+	 * storing data for the special properties.
+	 */
+	'wgSESPExcludeBots' => false,
+
+	/**
+	 * Used in connection with ShortUrlUtils
+	 */
+	'wgShortUrlPrefix' => '',
+
+);

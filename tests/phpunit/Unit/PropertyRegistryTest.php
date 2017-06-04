@@ -2,275 +2,209 @@
 
 namespace SESP\Tests;
 
-use SESP\Definition\DefinitionReader;
 use SESP\PropertyRegistry;
 use SMW\DIProperty;
-
-use ReflectionClass;
+use SMW\DIWikiPage;
 
 /**
- * @uses \SESP\PropertyRegistry
- *
- * @ingroup Test
- *
+ * @covers \SESP\PropertyRegistry
  * @group SESP
- * @group SESPExtension
- * @group mediawiki-databaseless
  *
  * @license GNU GPL v2+
- * @since 1.0
+ * @since 2.0
  *
  * @author mwjames
  */
 class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 
-	protected $sespCacheType = null;
+	private $appFactory;
 
 	protected function setUp() {
 		parent::setUp();
 
-		$this->sespCacheType = $GLOBALS['sespCacheType'];
-		$GLOBALS['sespCacheType'] = 'hash';
-	}
-
-	protected function tearDown() {
-		$GLOBALS['sespCacheType'] = $this->sespCacheType;
-
-		parent::tearDown();
+		$this->appFactory = $this->getMockBuilder( '\SESP\AppFactory' )
+			->disableOriginalConstructor()
+			->getMock();
 	}
 
 	public function testCanConstruct() {
+
 		$this->assertInstanceOf(
-			'\SESP\PropertyRegistry',
-			PropertyRegistry::getInstance()
+			PropertyRegistry::class,
+			new PropertyRegistry( $this->appFactory )
 		);
 	}
 
-	public function testGetPropertyId() {
-		$this->assertInternalType(
-			'string',
-			PropertyRegistry::getInstance()->getPropertyId( '_CUSER' )
-		);
-	}
+	public function testRegisterOnEmptyDefinition() {
 
-	public function testGetExifPropertyIdWithMixedcaseIdentifier() {
-		$this->assertInternalType(
-			'string',
-			PropertyRegistry::getInstance()->getPropertyId( 'soFtWare' )
-		);
-	}
+		$propertyDefinitions = $this->getMockBuilder( '\SESP\PropertyDefinitions' )
+			->disableOriginalConstructor()
+			->setMethods( null )
+			->getMock();
 
-	public function testGetPropertyIdWithUnknownIdentifier() {
-		$this->assertNull( PropertyRegistry::getInstance()->getPropertyId( 'Foo' ) );
-	}
-
-	public function testGetPropertyType() {
-		$this->assertInternalType(
-			'integer',
-			PropertyRegistry::getInstance()->getPropertyType( '_CUSER' )
-		);
-	}
-
-	public function testGetPropertyTypeWithUnknownIdentifier() {
-		$this->assertNull( PropertyRegistry::getInstance()->getPropertyType( 'Foo' ) );
-	}
-
-	public function testRegisterPropertiesAndAliases() {
-		PropertyRegistry::clear();
-		$this->assertTrue( PropertyRegistry::getInstance()->registerPropertiesAndAliases() );
-	}
-
-	public function testRegisterNotAsFixedTables() {
-
-		PropertyRegistry::clear();
-
-		$tableDefinitions = array();
-		$configuration = array();
-
-		PropertyRegistry::getInstance()->registerAsFixedTables( $tableDefinitions, $configuration );
-		$this->assertEmpty( $tableDefinitions );
-	}
-
-	public function testRegisterAsFixedTablesSetFalse() {
-
-		PropertyRegistry::clear();
-
-		$tableDefinitions = array();
-		$configuration = array(
-			'sespUseAsFixedTables'  => false
+		$propertyDefinitions->setPropertyDefinitions(
+			array()
 		);
 
-		PropertyRegistry::getInstance()->registerAsFixedTables( $tableDefinitions, $configuration );
-		$this->assertCount( 0, $tableDefinitions );
-	}
+		$this->appFactory->expects( $this->once() )
+			->method( 'getPropertyDefinitions' )
+			->will( $this->returnValue( $propertyDefinitions ) );
 
-	public function testRegisterAsFixedTablesSetTrue() {
+		$propertyRegistry = $this->getMockBuilder( '\SMW\PropertyRegistry' )
+			->disableOriginalConstructor()
+			->getMock();
 
-		PropertyRegistry::clear();
-
-		$tableDefinitions = array();
-		$configuration = array(
-			'sespUseAsFixedTables'  => true,
-			'sespSpecialProperties' => array( '_REVID' )
+		$instance = new PropertyRegistry(
+			$this->appFactory
 		);
 
-		PropertyRegistry::getInstance()->registerAsFixedTables( $tableDefinitions, $configuration );
-		$this->assertCount( 1, $tableDefinitions );
+		$instance->registerOn( $propertyRegistry );
 	}
 
-	public function testRegisterAsFixedTablesWithNonExifProperties() {
+	public function testRegisterOnEmptyDefinitionOnExifDefintion() {
 
-		PropertyRegistry::clear();
+		$defs = [ '_EXIF' => [
+			'SOFTWARE' => [ 'id' => 'Foo', 'type' => '_txt', 'label' => 'Foo' ] ]
+		];
 
-		$definitionReader = new DefinitionReader;
-		$definitions = $definitionReader->getDefinitions();
+		$propertyDefinitions = $this->getMockBuilder( '\SESP\PropertyDefinitions' )
+			->disableOriginalConstructor()
+			->setMethods( null )
+			->getMock();
 
-		$this->assertTrue( isset( $definitions['_EXIF'] ) );
-
-		unset( $definitions['_EXIF'] );
-		$expectedCount = count( array_keys( $definitions ) );
-
-		$tableDefinitions = array();
-		$configuration = array(
-			'sespUseAsFixedTables'  => true,
-			'sespSpecialProperties' => array(
-				'_CUSER',
-				'_EUSER',
-				'_REVID',
-				'_PAGEID',
-				'_VIEWS',
-				'_NREV',
-				'_NTREV',
-				'_SUBP',
-				'_USERREG',
-				'_USEREDITCNT',
-				'_EXIFDATA',
-				'_MEDIATYPE',
-				'_MIMETYPE',
-				'_SHORTURL'
-			)
+		$propertyDefinitions->setPropertyDefinitions(
+			$defs
 		);
 
-		PropertyRegistry::getInstance()->registerAsFixedTables( $tableDefinitions, $configuration );
-		$this->assertCount( $expectedCount, $tableDefinitions );
-	}
+		$this->appFactory->expects( $this->once() )
+			->method( 'getPropertyDefinitions' )
+			->will( $this->returnValue( $propertyDefinitions ) );
 
-	public function testRegisterAsFixedTablesSetTrueWithInvalidPropertyId() {
+		$propertyRegistry = $this->getMockBuilder( '\SMW\PropertyRegistry' )
+			->disableOriginalConstructor()
+			->getMock();
 
-		PropertyRegistry::clear();
+		$propertyRegistry->expects( $this->once() )
+			->method( 'registerProperty' );
 
-		$tableDefinitions = array();
-		$configuration = array(
-			'sespUseAsFixedTables'  => true,
-			'sespSpecialProperties' => array( '_FOO' )
+		$propertyRegistry->expects( $this->once() )
+			->method( 'registerPropertyAlias' );
+
+		$propertyRegistry->expects( $this->once() )
+			->method( 'registerPropertyAliasByMsgKey' );
+
+		$propertyRegistry->expects( $this->once() )
+			->method( 'registerPropertyDescriptionMsgKeyById' );
+
+		$instance = new PropertyRegistry(
+			$this->appFactory
 		);
 
-		PropertyRegistry::getInstance()->registerAsFixedTables( $tableDefinitions, $configuration );
-		$this->assertCount( 0, $tableDefinitions );
+		$instance->registerOn( $propertyRegistry );
 	}
 
-	public function testPropertyWithVisibility() {
+	public function testRegisterOnFakeDefinition() {
 
-		$propertydefinition = array(
-			'_EXIF' => array(),
-			'_FOOOOO'  => array(
-				'id'     => '___FOOOOO',
-				'type'   => 1,
-				'show'   => true,
-				'msgkey' => 'fooooo'
-			)
+		$definition['_MY_CUSTOM1'] = [
+			'id'    => '___MY_CUSTOM1',
+			'type'  => '_wpg',
+			'alias' => 'some-...',
+			'label' => 'SomeCustomProperty',
+		];
+
+		$propertyDefinitions = $this->getMockBuilder( '\SESP\PropertyDefinitions' )
+			->disableOriginalConstructor()
+			->setMethods( null )
+			->getMock();
+
+		$propertyDefinitions->setPropertyDefinitions(
+			$definition
 		);
 
-		$propertyId = $this->registerPropertyIdWithDefinition( '_FOOOOO', $propertydefinition );
-		$property = new DIProperty( $propertyId );
+		$this->appFactory->expects( $this->once() )
+			->method( 'getPropertyDefinitions' )
+			->will( $this->returnValue( $propertyDefinitions ) );
 
-		$this->assertInstanceOf( '\SMW\DIProperty', $property );
-		$this->assertTrue( $property->isShown() );
-	}
+		$propertyRegistry = $this->getMockBuilder( '\SMW\PropertyRegistry' )
+			->disableOriginalConstructor()
+			->getMock();
 
-	public function testPropertyWithoutVisibility() {
+		$propertyRegistry->expects( $this->once() )
+			->method( 'registerProperty' );
 
-		$propertydefinition = array(
-			'_EXIF' => array(),
-			'_FOOOOO'  => array(
-				'id'     => '___FOOOOO',
-				'type'   => 1,
-				'show'   => false,
-				'msgkey' => 'fooooo'
-			)
+		$propertyRegistry->expects( $this->once() )
+			->method( 'registerPropertyAlias' );
+
+		$propertyRegistry->expects( $this->once() )
+			->method( 'registerPropertyAliasByMsgKey' );
+
+		$propertyRegistry->expects( $this->once() )
+			->method( 'registerPropertyDescriptionMsgKeyById' );
+
+		$instance = new PropertyRegistry(
+			$this->appFactory
 		);
 
-		$propertyId = $this->registerPropertyIdWithDefinition( '_FOOOOO', $propertydefinition );
-		$property = new DIProperty( $propertyId );
-
-		$this->assertInstanceOf( '\SMW\DIProperty', $property );
-		$this->assertFalse( $property->isShown() );
+		$instance->registerOn( $propertyRegistry );
 	}
 
-	public function testPropertyWithoutMsgKey() {
+	public function testRegisterAsFixedPropertiesDisabled() {
 
-		$propertydefinition = array(
-			'_EXIF' => array(),
-			'_FOOOOO'  => array(
-				'id'     => '___FOOOOO',
-				'type'   => 1
-			)
+		$this->appFactory->expects( $this->once() )
+			->method( 'getOption' )
+			->with( $this->stringContains( 'sespUseAsFixedTables' ) )
+			->will( $this->returnValue( false ) );
+
+		$this->appFactory->expects( $this->never() )
+			->method( 'getPropertyDefinitions' );
+
+		$propertyRegistry = $this->getMockBuilder( '\SMW\PropertyRegistry' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$instance = new PropertyRegistry(
+			$this->appFactory
 		);
 
-		$propertyId = $this->registerPropertyIdWithDefinition( '_FOOOOO', $propertydefinition );
-		$property = new DIProperty( $propertyId );
+		$customFixedProperties = array();
+		$fixedPropertyTablePrefix = array();
 
-		$this->assertInstanceOf( '\SMW\DIProperty', $property );
+		$instance->registerAsFixedProperties( $customFixedProperties, $fixedPropertyTablePrefix );
 	}
 
-/* FIXME see SMW::core a7db2039c513751ab357c49b87041f2d167f0161
-	public function testPropertyWithInvalidType() {
+	public function testRegisterAsFixedPropertiesEnabled() {
 
-		$propertydefinition = array(
-			'_EXIF' => array(),
-			'_FOOOOO'  => array(
-				'id'     => '___FOOOOO',
-				'type'   => 9999
-			)
+		$propertyDefinitions = $this->getMockBuilder( '\SESP\PropertyDefinitions' )
+			->disableOriginalConstructor()
+			->setMethods( null )
+			->getMock();
+
+		$propertyDefinitions->setPropertyDefinitions(
+			array()
 		);
 
-		$propertyId = $this->registerPropertyIdWithDefinition( '_FOOOOO', $propertydefinition );
-		$property = new DIProperty( $propertyId );
+		$this->appFactory->expects( $this->at( 0 ) )
+			->method( 'getOption' )
+			->with( $this->stringContains( 'sespUseAsFixedTables' ) )
+			->will( $this->returnValue( true ) );
 
-		$this->assertInstanceOf( '\SMW\DIProperty', $property );
-	}
-*/
+		$this->appFactory->expects( $this->at( 1 ) )
+			->method( 'getPropertyDefinitions' )
+			->will( $this->returnValue( $propertyDefinitions ) );
 
-	public function testPropertyWithoutType() {
+		$this->appFactory->expects( $this->at( 2 ) )
+			->method( 'getOption' )
+			->with( $this->stringContains( 'sespSpecialProperties' ) )
+			->will( $this->returnValue( array() ) );
 
-		$propertydefinition = array(
-			'_EXIF' => array(),
-			'_FOOOOO'  => array(
-				'id'     => '___FOOOOO'
-			)
+		$instance = new PropertyRegistry(
+			$this->appFactory
 		);
 
-		$propertyId = $this->registerPropertyIdWithDefinition( '_FOOOOO', $propertydefinition );
-		$property = new DIProperty( $propertyId );
+		$customFixedProperties = array();
+		$fixedPropertyTablePrefix = array();
 
-		$this->assertInstanceOf( '\SMW\DIProperty', $property );
-	}
-
-	protected function registerPropertyIdWithDefinition( $id, $propertydefinition ) {
-
-		$instance = PropertyRegistry::getInstance();
-
-		$reflector = new ReflectionClass( '\SESP\PropertyRegistry' );
-		$definitions = $reflector->getProperty( 'definitions' );
-		$definitions->setAccessible( true );
-		$definitions->setValue( $instance, $propertydefinition );
-
-		$this->assertTrue( $instance->registerPropertiesAndAliases() );
-
-		$propertyId = $instance->getPropertyId( $id );
-		$instance->clear();
-
-		return $propertyId;
+		$instance->registerAsFixedProperties( $customFixedProperties, $fixedPropertyTablePrefix );
 	}
 
 }

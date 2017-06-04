@@ -1,0 +1,853 @@
+{
+	"_REVID": {
+		"id": "___REVID",
+		"type": "_num",
+		"show": false,
+		"alias": "sesp-property-revision-id",
+		"label": "Revision ID"
+	},
+	"_PAGEID": {
+		"id": "___PAGEID",
+		"type": "_num",
+		"show": false,
+		"alias": "sesp-property-page-id",
+		"label": "Page ID",
+		"desc": "sesp-property-page-id-desc"
+	},
+    "_PAGELGTH": {
+        "id": "___PAGELGTH",
+        "type": "_num",
+        "show": false,
+        "alias": "sesp-property-page-len",
+        "label": "Page length",
+        "desc": "sesp-property-page-len-desc"
+    },
+	"_EUSER": {
+		"id": "___EUSER",
+		"type": "_wpg",
+		"show": false,
+		"alias": "sesp-property-author",
+		"label": "Page author"
+	},
+	"_CUSER": {
+		"id": "___CUSER",
+		"type": "_wpg",
+		"show": false,
+		"alias": "sesp-property-first-author",
+		"label": "Page creator"
+	},
+	"_VIEWS": {
+		"id": "___VIEWS",
+		"type": "_num",
+		"show": false,
+		"alias": "sesp-property-view-count",
+		"label": "Number of page views"
+	},
+	"_SUBP": {
+		"id": "___SUBP",
+		"type": "_wpg",
+		"show": false,
+		"alias": "sesp-property-subpages",
+		"label": "Subpage"
+	},
+	"_NREV": {
+		"id": "___NREV",
+		"type": "_num",
+		"show": false,
+		"alias": "sesp-property-revisions",
+		"label": "Number of revisions"
+	},
+	"_NTREV": {
+		"id": "___NTREV",
+		"type": "_num",
+		"show": false,
+		"alias": "sesp-property-talk-revisions",
+		"label": "Number of talk page revisions"
+	},
+	"_SHORTURL": {
+		"id": "___SHORTURL",
+		"type": "_uri",
+		"show": false,
+		"alias": "sesp-property-shorturl",
+		"label": "Short URL"
+	},
+	"_USERREG": {
+		"id": "___USERREG",
+		"type": "_dat",
+		"show": false,
+		"alias": "sesp-property-user-registration-date",
+		"label": "User registration date"
+	},
+	"_USEREDITCNT": {
+		"id": "___USEREDITCNT",
+		"type": "_num",
+		"show": false,
+		"alias": "sesp-property-user-edit-count",
+		"label": "User edit count"
+	},
+	"_EXIFDATA": {
+		"id": "___EXIFDATA",
+		"type": "_wpg",
+		"show": false,
+		"alias": "sesp-property-exif-data",
+		"label": "Exif data"
+	},
+	"_EXIF": {
+		"MAKE": {
+			"id": "___EXIFMAKE",
+			"type": "_txt",
+			"alias": "exif-make",
+			"label": "Exif:Camera manufacturer"
+		},
+		"MODEL": {
+			"id": "___EXIFMODEL",
+			"type": "_txt",
+			"alias": "exif-model",
+			"label": "Exif:Camera model"
+		},
+		"ORIENTATION": {
+			"id": "___EXIFORIENTATION",
+			"type": "_txt",
+			"alias": "exif-orientation",
+			"label": "Exif:Orientation"
+		},
+		"SOFTWARE": {
+			"id": "___EXIFSOFTWARE",
+			"type": "_txt",
+			"alias": "exif-software",
+			"label": "Exif:Software"
+		},
+		"DATETIME": {
+			"id": "___EXIFDATETIME",
+			"type": "_dat",
+			"alias": "exif-datetime",
+			"label": "Exif:Exposure date"
+		},
+		"YCBCRPOSITIONING": {
+			"id": "___EXIFYCBCRPOSITIONING",
+			"type": "_txt",
+			"alias": "exif-ycbcrpositioning",
+			"label": "Exif:Y and C positioning"
+		},
+		"COMOPRESSION": {
+			"id": "___EXIFCOMOPRESSION",
+			"type": "_txt",
+			"alias": "exif-compression",
+			"label": "Exif:Compression scheme"
+		},
+		"XRESOLUTION": {
+			"id": "___EXIFXRESOLUTION",
+			"type": "_txt",
+			"alias": "exif-xresolution",
+			"label": "Exif:Horizontal resolution"
+		},
+		"YRESOLUTION": {
+			"id": "___EXIFYRESOLUTION",
+			"type": "_txt",
+			"alias": "exif-yresolution",
+			"label": "Exif:Vertical resolution"
+		},
+		"EXPOSURETIME": {
+			"id": "___EXIFEXPOSURETIME",
+			"type": "_txt",
+			"alias": "exif-exposuretime",
+			"label": "Exif:Exposure time"
+		},
+		"FNUMBER": {
+			"id": "___EXIFFNUMBER",
+			"type": "_txt",
+			"alias": "exif-fnumber",
+			"label": "Exif:F Number"
+		},
+		"EXPOSUREPROGRAM": {
+			"id": "___EXIFEXPOSUREPROGRAM",
+			"type": "_txt",
+			"alias": "exif-exposureprogram",
+			"label": "Exif:Exposure Program"
+		},
+		"EXIFVERSION": {
+			"id": "___EXIFEXIFVERSION",
+			"type": "_txt",
+			"alias": "exif-exifversion",
+			"label": "Exif:Version"
+		},
+		"DATETIMEORIGINAL": {
+			"id": "___EXIFDATETIMEORIGINAL",
+			"type": "_dat",
+			"alias": "exif-datetimeoriginal",
+			"label": "Exif:Exposure date (data generation)"
+		},
+		"DATETIMEDIGITIZED": {
+			"id": "___EXIFDATETIMEDIGITIZED",
+			"type": "_dat",
+			"alias": "exif-datetimedigitized",
+			"label": "Exif:Exposure date (digitizing)"
+		},
+		"COMPONENTSCONFIGURATION": {
+			"id": "___EXIFCOMPONENTSCONFIGURATION",
+			"type": "_txt",
+			"alias": "exif-componentsconfiguration",
+			"label": "Exif:Component's configuration"
+		},
+		"MAXAPERTUREVALUE": {
+			"id": "___EXIFMAXAPERTUREVALUE",
+			"type": "_txt",
+			"alias": "exif-maxaperturevalue",
+			"label": "Exif:Maximum land aperture"
+		},
+		"METERINGMODE": {
+			"id": "___EXIFMETERINGMODE",
+			"type": "_txt",
+			"alias": "exif-meteringmode",
+			"label": "Exif:Metering mode"
+		},
+		"FLASH": {
+			"id": "___EXIFFLASH",
+			"type": "_txt",
+			"alias": "exif-flash",
+			"label": "Exif:Flash"
+		},
+		"LENS": {
+			"id": "___EXIFLENS",
+			"type": "_txt",
+			"alias": "exif-lens",
+			"label": "Exif:Lens"
+		},
+		"FOCALLENGTH": {
+			"id": "___EXIFFOCALLENGTH",
+			"type": "_txt",
+			"alias": "exif-focallength",
+			"label": "Exif:Lens focal length"
+		},
+		"FOCALLENGTHIN35MMFILM": {
+			"id": "___EXIFFOCALLENGTHIN35MMFILM",
+			"type": "_txt",
+			"alias": "exif-focallengthin35mmfilm",
+			"label": "Exif:Lens focal length (35 mm film)"
+		},
+		"FLASHPIXVERSION": {
+			"id": "___EXIFFLASHPIXVERSION",
+			"type": "_txt",
+			"alias": "exif-flashpixversion",
+			"label": "Exif:Flashpix version"
+		},
+		"COLORSPACE": {
+			"id": "___EXIFCOLORSPACE",
+			"type": "_txt",
+			"alias": "exif-colorspace",
+			"label": "Exif:Color space"
+		},
+		"PIXELXDIMENSION": {
+			"id": "___EXIFPIXELXDIMENSION",
+			"type": "_num",
+			"alias": "exif-pixelxdimension",
+			"label": "Exif:Image height (pixel dimension)"
+		},
+		"PIXELYDIMENSION": {
+			"id": "___EXIFPIXELYDIMENSION",
+			"type": "_num",
+			"alias": "exif-pixelYdimension",
+			"label": "Exif:Image width (pixel dimension)"
+		},
+		"IMAGEWIDTH": {
+			"id": "___EXIFIMAGEWIDTH",
+			"type": "_num",
+			"alias": "exif-imagewidth",
+			"label": "Exif:Image width"
+		},
+		"IMAGELENGTH": {
+			"id": "___EXIFIMAGELENGTH",
+			"type": "_num",
+			"alias": "exif-imagelength",
+			"label": "Exif:Image length"
+		},
+		"FILESOURCE": {
+			"id": "___EXIFFILESOURCE",
+			"type": "_txt",
+			"alias": "exif-filesource",
+			"label": "Exif:File source"
+		},
+		"CONTRAST": {
+			"id": "___EXIFCONTRAST",
+			"type": "_txt",
+			"alias": "exif-contrast",
+			"label": "Exif:Contrast"
+		},
+		"SATURATION": {
+			"id": "___EXIFSATURATION",
+			"type": "_txt",
+			"alias": "exif-saturation",
+			"label": "Exif:Saturation"
+		},
+		"SHARPNESS": {
+			"id": "___EXIFSHARPNESS",
+			"type": "_txt",
+			"alias": "exif-sharpness",
+			"label": "Exif:Sharpness"
+		},
+		"EXPOSUREMODE": {
+			"id": "___EXIFEXPOSUREMODE",
+			"type": "_txt",
+			"alias": "exif-exposuremode",
+			"label": "Exif:Exposure mode"
+		},
+		"SCENECODE": {
+			"id": "___EXIFSCENECODE",
+			"type": "_txt",
+			"alias": "exif-scenecode",
+			"label": "Exif:Scene code"
+		},
+		"SCENETYPE": {
+			"id": "___EXIFSCENETYPE",
+			"type": "_txt",
+			"alias": "exif-scenetype",
+			"label": "Exif:Scene type"
+		},
+		"SCENECAPTURETYPE": {
+			"id": "___EXIFSCENECAPTURETYPE",
+			"type": "_txt",
+			"alias": "exif-scenecapturetype",
+			"label": "Exif:Scene capture type"
+		},
+		"SENSINGMETHOD": {
+			"id": "___EXIFSENSINGMETHOD",
+			"type": "_txt",
+			"alias": "exif-sensingmethod",
+			"label": "Exif:Sensing method"
+		},
+		"ISOSPEEDRATINGS": {
+			"id": "___EXIFISOSPEEDRATINGS",
+			"type": "_txt",
+			"alias": "exif-isospeedratings",
+			"label": "Exif:ISO speed rating"
+		},
+		"WHITEBALANCE": {
+			"id": "___EXIFWHITEBALANCE",
+			"type": "_txt",
+			"alias": "exif-whitebalance",
+			"label": "Exif:White balance"
+		},
+		"LIGHTSOURCE": {
+			"id": "___EXIFLIGHTSOURCE",
+			"type": "_txt",
+			"alias": "exif-lightsource",
+			"label": "Exif:Light source"
+		},
+		"ORIGINALIMAGEHEIGHT": {
+			"id": "___EXIFORIGINALIMAGEHEIGHT",
+			"type": "_num",
+			"alias": "exif-originalimageheight",
+			"label": "Exif:Original image height"
+		},
+		"ORIGINALIMAGEWIDTH": {
+			"id": "___EXIFORIGINALIMAGEWIDTH",
+			"type": "_num",
+			"alias": "exif-originalimagewidth",
+			"label": "Exif:Original image width"
+		},
+		"RATING": {
+			"id": "___EXIFRATING",
+			"type": "_num",
+			"alias": "exif-rating",
+			"label": "Exif:Rating"
+		},
+		"DATETIMERELEASED": {
+			"id": "___EXIFDATETIMERELEASED",
+			"type": "_dat",
+			"alias": "exif-datetimereleased",
+			"label": "Exif:Date time released"
+		},
+		"DATETIMEEXPIRES": {
+			"id": "___EXIFDATETIMEEXPIRES",
+			"type": "_dat",
+			"alias": "exif-datetimeexpires",
+			"label": "Exif:Date time expires"
+		},
+		"GPSDATESTAMP": {
+			"id": "___EXIFGPSDATESTAMP",
+			"type": "_dat",
+			"alias": "exif-gpsdatestamp",
+			"label": "Exif:Gps date stamp"
+		},
+		"DC-DATE": {
+			"id": "___EXIFDC-DATE",
+			"type": "_dat",
+			"alias": "exif-dc-date",
+			"label": "Exif:Dc-date"
+		},
+		"DATETIMEMETADATA": {
+			"id": "___EXIFDATETIMEMETADATA",
+			"type": "_dat",
+			"alias": "exif-datetimemetadata",
+			"label": "Exif:Date time metadata"
+		},
+		"COMPRESSION": {
+			"id": "___EXIFCOMPRESSION",
+			"type": "_txt",
+			"alias": "exif-compression",
+			"label": "Exif:Compression"
+		},
+		"PHOTOMETRICINTERPRETATION": {
+			"id": "___EXIFPHOTOMETRICINTERPRETATION",
+			"type": "_txt",
+			"alias": "exif-photometricinterpretation",
+			"label": "Exif:Photometric interpretation"
+		},
+		"PLANARCONFIGURATION": {
+			"id": "___EXIFPLANARCONFIGURATION",
+			"type": "_txt",
+			"alias": "exif-planarconfiguration",
+			"label": "Exif:Planar configuration"
+		},
+		"SUBJECTDISTANCE": {
+			"id": "___EXIFSUBJECTDISTANCE",
+			"type": "_txt",
+			"alias": "exif-subjectdistance",
+			"label": "Exif:Subject distance"
+		},
+		"FOCALPLANERESOLUTIONUNIT": {
+			"id": "___EXIFFOCALPLANERESOLUTIONUNIT",
+			"type": "_txt",
+			"alias": "exif-focalplaneresolutionunit",
+			"label": "Exif:Focal plane resolution unit"
+		},
+		"CUSTOMRENDERED": {
+			"id": "___EXIFCUSTOMRENDERED",
+			"type": "_txt",
+			"alias": "exif-customrendered",
+			"label": "Exif:Custom rendered"
+		},
+		"GAINCONTROL": {
+			"id": "___EXIFGAINCONTROL",
+			"type": "_txt",
+			"alias": "exif-gaincontrol",
+			"label": "Exif:Gain control"
+		},
+		"SUBJECTDISTANCERANGE": {
+			"id": "___EXIFSUBJECTDISTANCERANGE",
+			"type": "_txt",
+			"alias": "exif-subjectdistancerange",
+			"label": "Exif:Subject distance range"
+		},
+		"IIMCATEGORY": {
+			"id": "___EXIFIIMCATEGORY",
+			"type": "_txt",
+			"alias": "exif-iimcategory",
+			"label": "Exif:Iim category"
+		},
+		"SUBJECTNEWSCODE": {
+			"id": "___EXIFSUBJECTNEWSCODE",
+			"type": "_txt",
+			"alias": "exif-subjectnewscode",
+			"label": "Exif:Subject news code"
+		},
+		"URGENCY": {
+			"id": "___EXIFURGENCY",
+			"type": "_txt",
+			"alias": "exif-urgency",
+			"label": "Exif:Urgency"
+		},
+		"IMAGEDESCRIPTION": {
+			"id": "___EXIFIMAGEDESCRIPTION",
+			"type": "_txt",
+			"alias": "exif-imagedescription",
+			"label": "Exif:Image description"
+		},
+		"ARTIST": {
+			"id": "___EXIFARTIST",
+			"type": "_txt",
+			"alias": "exif-artist",
+			"label": "Exif:Artist"
+		},
+		"COPYRIGHT": {
+			"id": "___EXIFCOPYRIGHT",
+			"type": "_txt",
+			"alias": "exif-copyright",
+			"label": "Exif:Copyright"
+		},
+		"RELATEDSOUNDFILE": {
+			"id": "___EXIFRELATEDSOUNDFILE",
+			"type": "_txt",
+			"alias": "exif-relatedsoundfile",
+			"label": "Exif:Related sound file"
+		},
+		"IMAGEUNIQUEID": {
+			"id": "___EXIFIMAGEUNIQUEID",
+			"type": "_txt",
+			"alias": "exif-imageuniqueid",
+			"label": "Exif:Image unique i d"
+		},
+		"SPECTRALSENSITIVITY": {
+			"id": "___EXIFSPECTRALSENSITIVITY",
+			"type": "_txt",
+			"alias": "exif-spectralsensitivity",
+			"label": "Exif:Spectral sensitivity"
+		},
+		"GPSSATELLITES": {
+			"id": "___EXIFGPSSATELLITES",
+			"type": "_txt",
+			"alias": "exif-gpssatellites",
+			"label": "Exif:Gps satellites"
+		},
+		"GPSVERSIONID": {
+			"id": "___EXIFGPSVERSIONID",
+			"type": "_txt",
+			"alias": "exif-gpsversionid",
+			"label": "Exif:Gps version i d"
+		},
+		"GPSMAPDATUM": {
+			"id": "___EXIFGPSMAPDATUM",
+			"type": "_txt",
+			"alias": "exif-gpsmapdatum",
+			"label": "Exif:Gps map datum"
+		},
+		"KEYWORDS": {
+			"id": "___EXIFKEYWORDS",
+			"type": "_txt",
+			"alias": "exif-keywords",
+			"label": "Exif:Keywords"
+		},
+		"WORLDREGIONDEST": {
+			"id": "___EXIFWORLDREGIONDEST",
+			"type": "_txt",
+			"alias": "exif-worldregiondest",
+			"label": "Exif:World region dest"
+		},
+		"COUNTRYDEST": {
+			"id": "___EXIFCOUNTRYDEST",
+			"type": "_txt",
+			"alias": "exif-countrydest",
+			"label": "Exif:Country dest"
+		},
+		"COUNTRYCODEDEST": {
+			"id": "___EXIFCOUNTRYCODEDEST",
+			"type": "_txt",
+			"alias": "exif-countrycodedest",
+			"label": "Exif:Country code dest"
+		},
+		"PROVINCEORSTATEDEST": {
+			"id": "___EXIFPROVINCEORSTATEDEST",
+			"type": "_txt",
+			"alias": "exif-provinceorstatedest",
+			"label": "Exif:Province or state dest"
+		},
+		"CITYDEST": {
+			"id": "___EXIFCITYDEST",
+			"type": "_txt",
+			"alias": "exif-citydest",
+			"label": "Exif:City dest"
+		},
+		"SUBLOCATIONDEST": {
+			"id": "___EXIFSUBLOCATIONDEST",
+			"type": "_txt",
+			"alias": "exif-sublocationdest",
+			"label": "Exif:Sublocation dest"
+		},
+		"WORLDREGIONCREATED": {
+			"id": "___EXIFWORLDREGIONCREATED",
+			"type": "_txt",
+			"alias": "exif-worldregioncreated",
+			"label": "Exif:World region created"
+		},
+		"COUNTRYCREATED": {
+			"id": "___EXIFCOUNTRYCREATED",
+			"type": "_txt",
+			"alias": "exif-countrycreated",
+			"label": "Exif:Country created"
+		},
+		"COUNTRYCODECREATED": {
+			"id": "___EXIFCOUNTRYCODECREATED",
+			"type": "_txt",
+			"alias": "exif-countrycodecreated",
+			"label": "Exif:Country code created"
+		},
+		"PROVINCEORSTATECREATED": {
+			"id": "___EXIFPROVINCEORSTATECREATED",
+			"type": "_txt",
+			"alias": "exif-provinceorstatecreated",
+			"label": "Exif:Province or state created"
+		},
+		"CITYCREATED": {
+			"id": "___EXIFCITYCREATED",
+			"type": "_txt",
+			"alias": "exif-citycreated",
+			"label": "Exif:City created"
+		},
+		"SUBLOCATIONCREATED": {
+			"id": "___EXIFSUBLOCATIONCREATED",
+			"type": "_txt",
+			"alias": "exif-sublocationcreated",
+			"label": "Exif:Sublocation created"
+		},
+		"OBJECTNAME": {
+			"id": "___EXIFOBJECTNAME",
+			"type": "_txt",
+			"alias": "exif-objectname",
+			"label": "Exif:Object name"
+		},
+		"SPECIALINSTRUCTIONS": {
+			"id": "___EXIFSPECIALINSTRUCTIONS",
+			"type": "_txt",
+			"alias": "exif-specialinstructions",
+			"label": "Exif:Special instructions"
+		},
+		"HEADLINE": {
+			"id": "___EXIFHEADLINE",
+			"type": "_txt",
+			"alias": "exif-headline",
+			"label": "Exif:Headline"
+		},
+		"CREDIT": {
+			"id": "___EXIFCREDIT",
+			"type": "_txt",
+			"alias": "exif-credit",
+			"label": "Exif:Credit"
+		},
+		"SOURCE": {
+			"id": "___EXIFSOURCE",
+			"type": "_txt",
+			"alias": "exif-source",
+			"label": "Exif:Source"
+		},
+		"EDITSTATUS": {
+			"id": "___EXIFEDITSTATUS",
+			"type": "_txt",
+			"alias": "exif-editstatus",
+			"label": "Exif:Edit status"
+		},
+		"FIXTUREIDENTIFIER": {
+			"id": "___EXIFFIXTUREIDENTIFIER",
+			"type": "_txt",
+			"alias": "exif-fixtureidentifier",
+			"label": "Exif:Fixture identifier"
+		},
+		"LOCATIONDEST": {
+			"id": "___EXIFLOCATIONDEST",
+			"type": "_txt",
+			"alias": "exif-locationdest",
+			"label": "Exif:Location dest"
+		},
+		"LOCATIONDESTCODE": {
+			"id": "___EXIFLOCATIONDESTCODE",
+			"type": "_txt",
+			"alias": "exif-locationdestcode",
+			"label": "Exif:Location dest code"
+		},
+		"WRITER": {
+			"id": "___EXIFWRITER",
+			"type": "_txt",
+			"alias": "exif-writer",
+			"label": "Exif:Writer"
+		},
+		"JPEGFILECOMMENT": {
+			"id": "___EXIFJPEGFILECOMMENT",
+			"type": "_txt",
+			"alias": "exif-jpegfilecomment",
+			"label": "Exif:Jpeg file comment"
+		},
+		"IIMSUPPLEMENTALCATEGORY": {
+			"id": "___EXIFIIMSUPPLEMENTALCATEGORY",
+			"type": "_txt",
+			"alias": "exif-iimsupplementalcategory",
+			"label": "Exif:Iim supplemental category"
+		},
+		"ORIGINALTRANSMISSIONREF": {
+			"id": "___EXIFORIGINALTRANSMISSIONREF",
+			"type": "_txt",
+			"alias": "exif-originaltransmissionref",
+			"label": "Exif:Original transmission ref"
+		},
+		"IDENTIFIER": {
+			"id": "___EXIFIDENTIFIER",
+			"type": "_txt",
+			"alias": "exif-identifier",
+			"label": "Exif:Identifier"
+		},
+		"DC-CONTRIBUTOR": {
+			"id": "___EXIFDC-CONTRIBUTOR",
+			"type": "_txt",
+			"alias": "exif-dc-contributor",
+			"label": "Exif:Dc-contributor"
+		},
+		"DC-COVERAGE": {
+			"id": "___EXIFDC-COVERAGE",
+			"type": "_txt",
+			"alias": "exif-dc-coverage",
+			"label": "Exif:Dc-coverage"
+		},
+		"DC-PUBLISHER": {
+			"id": "___EXIFDC-PUBLISHER",
+			"type": "_txt",
+			"alias": "exif-dc-publisher",
+			"label": "Exif:Dc-publisher"
+		},
+		"DC-RELATION": {
+			"id": "___EXIFDC-RELATION",
+			"type": "_txt",
+			"alias": "exif-dc-relation",
+			"label": "Exif:Dc-relation"
+		},
+		"DC-RIGHTS": {
+			"id": "___EXIFDC-RIGHTS",
+			"type": "_txt",
+			"alias": "exif-dc-rights",
+			"label": "Exif:Dc-rights"
+		},
+		"DC-SOURCE": {
+			"id": "___EXIFDC-SOURCE",
+			"type": "_txt",
+			"alias": "exif-dc-source",
+			"label": "Exif:Dc-source"
+		},
+		"DC-TYPE": {
+			"id": "___EXIFDC-TYPE",
+			"type": "_txt",
+			"alias": "exif-dc-type",
+			"label": "Exif:Dc-type"
+		},
+		"SERIALNUMBER": {
+			"id": "___EXIFSERIALNUMBER",
+			"type": "_txt",
+			"alias": "exif-serialnumber",
+			"label": "Exif:Serial number"
+		},
+		"CAMERAOWNERNAME": {
+			"id": "___EXIFCAMERAOWNERNAME",
+			"type": "_txt",
+			"alias": "exif-cameraownername",
+			"label": "Exif:Camera owner name"
+		},
+		"LABEL": {
+			"id": "___EXIFLABEL",
+			"type": "_txt",
+			"alias": "exif-label",
+			"label": "Exif:Label"
+		},
+		"NICKNAME": {
+			"id": "___EXIFNICKNAME",
+			"type": "_txt",
+			"alias": "exif-nickname",
+			"label": "Exif:Nickname"
+		},
+		"RIGHTSCERTIFICATE": {
+			"id": "___EXIFRIGHTSCERTIFICATE",
+			"type": "_txt",
+			"alias": "exif-rightscertificate",
+			"label": "Exif:Rights certificate"
+		},
+		"COPYRIGHTOWNER": {
+			"id": "___EXIFCOPYRIGHTOWNER",
+			"type": "_txt",
+			"alias": "exif-copyrightowner",
+			"label": "Exif:Copyright owner"
+		},
+		"USAGETERMS": {
+			"id": "___EXIFUSAGETERMS",
+			"type": "_txt",
+			"alias": "exif-usageterms",
+			"label": "Exif:Usage terms"
+		},
+		"WEBSTATEMENT": {
+			"id": "___EXIFWEBSTATEMENT",
+			"type": "_txt",
+			"alias": "exif-webstatement",
+			"label": "Exif:Web statement"
+		},
+		"ORIGINALDOCUMENTID": {
+			"id": "___EXIFORIGINALDOCUMENTID",
+			"type": "_txt",
+			"alias": "exif-originaldocumentid",
+			"label": "Exif:Original document i d"
+		},
+		"LICENSEURL": {
+			"id": "___EXIFLICENSEURL",
+			"type": "_txt",
+			"alias": "exif-licenseurl",
+			"label": "Exif:License url"
+		},
+		"MOREPERMISSIONSURL": {
+			"id": "___EXIFMOREPERMISSIONSURL",
+			"type": "_txt",
+			"alias": "exif-morepermissionsurl",
+			"label": "Exif:Permissions url"
+		},
+		"ATTRIBUTIONURL": {
+			"id": "___EXIFATTRIBUTIONURL",
+			"type": "_txt",
+			"alias": "exif-attributionurl",
+			"label": "Exif:Attribution url"
+		},
+		"PREFERREDATTRIBUTIONNAME": {
+			"id": "___EXIFPREFERREDATTRIBUTIONNAME",
+			"type": "_txt",
+			"alias": "exif-preferredattributionname",
+			"label": "Exif:Preferred attribution name"
+		},
+		"PNGFILECOMMENT": {
+			"id": "___EXIFPNGFILECOMMENT",
+			"type": "_txt",
+			"alias": "exif-pngfilecomment",
+			"label": "Exif:Png file comment"
+		},
+		"DISCLAIMER": {
+			"id": "___EXIFDISCLAIMER",
+			"type": "_txt",
+			"alias": "exif-disclaimer",
+			"label": "Exif:Disclaimer"
+		},
+		"CONTENTWARNING": {
+			"id": "___EXIFCONTENTWARNING",
+			"type": "_txt",
+			"alias": "exif-contentwarning",
+			"label": "Exif:Content warning"
+		},
+		"GIFFILECOMMENT": {
+			"id": "___EXIFGIFFILECOMMENT",
+			"type": "_txt",
+			"alias": "exif-giffilecomment",
+			"label": "Exif:Gif file comment"
+		},
+		"INTELLECTUALGENRE": {
+			"id": "___EXIFINTELLECTUALGENRE",
+			"type": "_txt",
+			"alias": "exif-intellectualgenre",
+			"label": "Exif:Intellectual genre"
+		},
+		"EVENT": {
+			"id": "___EXIFEVENT",
+			"type": "_txt",
+			"alias": "exif-event",
+			"label": "Exif:Event"
+		},
+		"ORGINISATIONINIMAGE": {
+			"id": "___EXIFORGINISATIONINIMAGE",
+			"type": "_txt",
+			"alias": "exif-orginisationinimage",
+			"label": "Exif:Orginisation in image"
+		},
+		"PERSONINIMAGE": {
+			"id": "___EXIFPERSONINIMAGE",
+			"type": "_txt",
+			"alias": "exif-personinimage",
+			"label": "Exif:Person in image"
+		},
+		"OBJECTCYCLE": {
+			"id": "___EXIFOBJECTCYCLE",
+			"type": "_txt",
+			"alias": "exif-objectcycle",
+			"label": "Exif:Object cycle"
+		},
+		"COPYRIGHTED": {
+			"id": "___EXIFCOPYRIGHTED",
+			"type": "_txt",
+			"alias": "exif-copyrighted",
+			"label": "Exif:Copyrighted"
+		},
+		"LANGUAGECODE": {
+			"id": "___EXIFLANGUAGECODE",
+			"type": "_txt",
+			"alias": "exif-languagecode",
+			"label": "Exif:Language code"
+		}
+	}
+}
