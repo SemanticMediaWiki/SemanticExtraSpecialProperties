@@ -1,5 +1,12 @@
 This file contains the RELEASE-NOTES of the SemanticExtraSpecialProperties (a.k.a. SESP) extension.
 
+### 1.5.0
+
+This is not a release yet.
+
+* #74 Added `_PAGELGTH` for page length (size in bytes) collection on pages
+* Localization updates from https://translatewiki.net
+
 ### 1.4.0
 
 Released on January 22, 2017.

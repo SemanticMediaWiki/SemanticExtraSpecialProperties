@@ -165,6 +165,9 @@ class ExtraPropertyAnnotator {
 			case '_PAGEID' :
 				$dataItem = $this->makePageIdDataItem();
 				break;
+			case '_PAGELGTH' :
+				$dataItem = $this->makePageLengthDataItem();
+				break;
 			case '_REVID' :
 				$dataItem = $this->makeRevisionIdDataItem();
 				break;
@@ -263,6 +266,14 @@ class ExtraPropertyAnnotator {
 
 		if ( is_integer( $pageID ) && $pageID > 0 ) {
 			return new DINumber( $pageID );
+		}
+	}
+
+	private function makePageLengthDataItem() {
+		$pageLen = $this->getWikiPage()->getTitle()->getLength();
+
+		if ( is_integer( $pageLen ) && $pageLen > 0 ) {
+			return new DINumber( $pageLen );
 		}
 	}
 
