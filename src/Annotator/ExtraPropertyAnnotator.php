@@ -269,14 +269,14 @@ class ExtraPropertyAnnotator {
 		}
 	}
 
-	private function makePageLengthItem() {
-		$pageLen = $this->getWikiPage()->getLen();
-		
+	private function makePageLengthDataItem() {
+		$pageLen = $this->getWikiPage()->getTitle()->getLength();
+
 		if ( is_integer( $pageLen ) && $pageLen > 0 ) {
 			return new DINumber( $pageLen );
 		}
 	}
-	
+
 	private function makeRevisionIdDataItem() {
 		$revID = $this->getWikiPage()->getLatest();
 

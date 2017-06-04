@@ -371,4 +371,38 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		return $instance;
 	}
 
+	public function testPropertyAnnotation_PAGELGTH() {
+
+		$title = $this->getMockBuilder( 'Title' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$title->expects( $this->once() )
+			->method( 'getLength' )
+			->will( $this->returnValue( 42 ) );
+
+		$page = $this->getMockBuilder( 'WikiPage' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$page->expects( $this->once() )
+			->method( 'getTitle' )
+			->will( $this->returnValue( $title ) );
+
+		$this->appFactory->expects( $this->once() )
+			->method( 'newWikiPage' )
+			->will( $this->returnValue( $page ) );
+
+		$instance = $this->newExtraPropertyAnnotatorInstanceFor( '_PAGELGTH' );
+
+		$semanticData = $instance->getSemanticData();
+
+		$instance->addAnnotation();
+
+		$this->assertArrayHasKey(
+			PropertyRegistry::getInstance()->getPropertyId( '_PAGELGTH' ),
+			$semanticData->getProperties()
+		);
+	}
+
 }
