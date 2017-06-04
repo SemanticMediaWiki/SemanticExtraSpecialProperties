@@ -3,8 +3,8 @@
 
 ## Repository extension
 
-The repository extension includes changes to the SESP repository itself to provide
-additional services which can be enabled via the `$sespSpecialProperties` setting.
+The repository extension is meant to change the SESP repository itself in providing
+additional services that can be enabled via the `$sespSpecialProperties` setting.
 
 ```
 $sespSpecialProperties = [
@@ -15,19 +15,19 @@ $sespSpecialProperties = [
 ];
 ```
 
-Each extension is expected to be represented by a definition expansion and an
-implementation of a corresponding `PropertyAnnotator`.
+Each extension is expected to be represented by a definition and a
+corresponding `PropertyAnnotator` implementation.
 
 ### Property definition expansion
 
 Expand the property definition in `definitions.json` with something like:
 
 * `_ETX1` defines an external reference
-* `id` (`___EXT1`) defines the internal reference values that are stored or fetched from
-* `type` (`num`) declares the expected type of a value to be stored
+* `id` (`___EXT1`) defines the internal reference for values that are stored and fetched from
+* `type` (`num`) declares the expected [data type](https://www.semantic-mediawiki.org/wiki/Datatype) of a value
 * `alias` (`sesp-property-ext-1`) declares a message key for the label alias
-* `label` (`Ext ID`) free form caption
-* `desc` (`sesp-property-ext-1-desc`) declares a message key for the decription of the property
+* `label` (`Ext ID`) free caption form
+* `desc` (`sesp-property-ext-1-desc`) declares a message key for the decription of a property
 
 **Examples**
 
@@ -43,16 +43,17 @@ Expand the property definition in `definitions.json` with something like:
 
 **PropertyAnnotator implementation**
 
-- Create an individual class (e.g. `MyExt1PropertyAnnotator`) that implements the `PropertyAnnotator` interface
-  and is placed in the corresponding folder
-- Add a complementary test class (e.g. `MyExt1PropertyAnnotatorTest`) that tests the newly added functionality
-- Register the newly create service in `ExtraPropertyAnnotator`
+- Create an individual class (e.g. `MyExt1PropertyAnnotator`) that implements the `PropertyAnnotator` interface,
+  placed in the corresponding folder, and contain the details required for the value annotation supported by
+  the related property
+- Add a complementary test class (e.g. `MyExt1PropertyAnnotatorTest`) to test the newly added functionality
+- Register the service with the `ExtraPropertyAnnotator`
 - Extend the `ExtraPropertyAnnotator` test to cover the newly added service
 
 ## Local extension
 
-Local extension is meant as functionality that does not alter the `SESP` repository
-directly but instead provides a simple extension mechanism for local adaptation.
+The local extension mechanism has been introduced to avoid having to alter the `SESP` repository
+directly and instead provide a method for simple local adaptation.
 
 ```
 $sespSpecialProperties = [
@@ -64,12 +65,11 @@ $sespSpecialProperties = [
 ];
 ```
 
-`$sespLocalPropertyDefinitions` is used to encapsulate property definitions that
-are only valid locally to a wiki and are loaded on-the-fly from the
-`LocalSettinsg.php`.
+`$sespLocalPropertyDefinitions` contains encapsulate property definitions that
+are only valid locally to a wiki and are loaded from the `LocalSettinsg.php`.
 
-* Fields required are the same as outlined above in "Repository extension"
-* `callback` expects a callable instance (either as static or Closure)
+* Same fields are required as outlined in the "Repository extension" section
+* Define a `callback` which expects a callable instance (either as static or Closure)
 
 **Examples**
 
