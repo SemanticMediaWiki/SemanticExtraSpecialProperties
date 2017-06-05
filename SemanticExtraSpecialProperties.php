@@ -1,6 +1,6 @@
 <?php
 
-use SESP\HookRegistry;
+use SMW\MediaWiki\Hooks\HookRegistry;
 
 /**
  * Extension SemanticExtraSpecialProperties - Adds some extra special properties to all pages.
