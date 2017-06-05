@@ -10,6 +10,7 @@
 	"sesp-property-first-author": "문서 생성자",
 	"sesp-property-revision-id": "판 ID",
 	"sesp-property-page-id": "문서 ID",
+	"sesp-property-page-len": "페이지 길이",
 	"sesp-property-view-count": "페이지 뷰 수",
 	"sesp-property-subpages": "하위 문서",
 	"sesp-property-revisions": "판 수",
