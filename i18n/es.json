@@ -11,6 +11,7 @@
 	"sesp-property-first-author": "Creador de la página",
 	"sesp-property-revision-id": "Id. de modificación",
 	"sesp-property-page-id": "Id. de página",
+	"sesp-property-page-len": "Longitud de página",
 	"sesp-property-view-count": "Número de vistas de página",
 	"sesp-property-subpages": "Subpágina",
 	"sesp-property-revisions": "Número de revisiones",
