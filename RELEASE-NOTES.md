@@ -2,7 +2,7 @@ This file contains the RELEASE-NOTES of the SemanticExtraSpecialProperties (a.k.
 
 ### 1.5.0
 
-This is not a release yet.
+Released on June 7, 2017.
 
 * #74 Added `_PAGELGTH` for page length (size in bytes) collection on pages
 * Localization updates from https://translatewiki.net

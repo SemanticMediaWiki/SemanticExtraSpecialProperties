@@ -22,12 +22,12 @@ with an entry in MediaWiki's `composer.json`.
 ```json
 {
 	"require": {
-		"mediawiki/semantic-extra-special-properties": "~1.4"
+		"mediawiki/semantic-extra-special-properties": "~1.5"
 	}
 }
 ```
 1. From your MediaWiki installation directory, execute
-   `composer require mediawiki/semantic-extra-special-properties:~1.4`
+   `composer require mediawiki/semantic-extra-special-properties:~1.5`
 2. It is strongly recommended to rebuild existing semantic data and run
    Semantic MediaWiki's rebuild data process.
 3. Navigate to _Special:Version_ on your wiki and verify that the package

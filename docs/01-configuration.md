@@ -24,6 +24,7 @@ Property labels are displayed in accordance with the maintained [content languag
 - `_CUSER` adds a property with the user that created this page
 - `_REVID` adds a property with current revision ID
 - `_PAGEID` adds a property with the page ID
+- `_PAGELGTH` adds a property with the page length (in bytes)
 - `_NREV` adds a property showing an estimated number of total revisions of a page
 - `_NTREV` same as `_NREV` but for the talk page, i.e. showing how much discussion is going on around this page
 - `_SUBP` adds a property with all subpages
