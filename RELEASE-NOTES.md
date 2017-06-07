@@ -6,10 +6,17 @@ Not a release, yet!
 
 This release now requires MediaWiki 1.27+ and Semantic MediaWiki 2.5+ (#61).
 
-* Complete refactoring of the extension to allow for better extensibility and
-  testability
+* Complete refactoring of the extension to allow for better extensibility and testability
 * #16 Extended the `Exif` attributes
 * #48 Fixed the registration of property tables
+* Localization updates from https://translatewiki.net
+
+### 1.5.0
+
+Released on June 7, 2017.
+
+* #74 Added `_PAGELGTH` for page length (size in bytes) collection on pages
+* Localization updates from https://translatewiki.net
 
 ### 1.4.0
 
