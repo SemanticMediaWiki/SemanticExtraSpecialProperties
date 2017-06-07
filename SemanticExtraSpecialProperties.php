@@ -65,7 +65,7 @@ class SemanticExtraSpecialProperties {
 	 */
 	public static function initExtension() {
 
-		define( 'SESP_VERSION', '1.4.0' );
+		define( 'SESP_VERSION', '1.5.0' );
 
 		// Register extension info
 		$GLOBALS['wgExtensionCredits']['semantic'][] = array(
