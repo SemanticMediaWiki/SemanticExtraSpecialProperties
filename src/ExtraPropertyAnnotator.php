@@ -4,21 +4,8 @@ namespace SESP;
 
 use SMW\DIProperty;
 use SMW\SemanticData;
-use SESP\PropertyAnnotators\NullPropertyAnnotator;
-use SESP\PropertyAnnotators\CreatorPropertyAnnotator;
-use SESP\PropertyAnnotators\PageViewsPropertyAnnotator;
 use SESP\PropertyAnnotators\LocalPropertyAnnotator;
-use SESP\PropertyAnnotators\UserRegistrationDatePropertyAnnotator;
-use SESP\PropertyAnnotators\UserEditCountPropertyAnnotator;
-use SESP\PropertyAnnotators\PageIDPropertyAnnotator;
-use SESP\PropertyAnnotators\ShortUrlPropertyAnnotator;
-use SESP\PropertyAnnotators\ExifPropertyAnnotator;
-use SESP\PropertyAnnotators\RevisionIDPropertyAnnotator;
-use SESP\PropertyAnnotators\PageNumRevisionPropertyAnnotator;
-use SESP\PropertyAnnotators\TalkPageNumRevisionPropertyAnnotator;
-use SESP\PropertyAnnotators\PageContributorsPropertyAnnotator;
-use SESP\PropertyAnnotators\SubPagePropertyAnnotator;
-use SESP\PropertyAnnotators\PageLengthPropertyAnnotator;
+use SESP\PropertyAnnotators\DispatchingPropertyAnnotator;
 
 /**
  * @private
@@ -36,12 +23,12 @@ class ExtraPropertyAnnotator {
 	private $appFactory;
 
 	/**
-	 * @var PropertyAnnotator[]
+	 * @var DispatchingPropertyAnnotator
 	 */
-	private $propertyAnnotators = array();
+	private $dispatchingPropertyAnnotator;
 
 	/**
-	 * @var PropertyAnnotator
+	 * @var LocalPropertyAnnotator
 	 */
 	private $localPropertyAnnotator;
 
@@ -82,7 +69,7 @@ class ExtraPropertyAnnotator {
 			if ( $propertyDefinitions->isLocalDef( $key ) ) {
 				$this->localPropertyAnnotator->addAnnotation( $property, $semanticData );
 			} else {
-				$this->findPropertyAnnotator( $property )->addAnnotation( $property, $semanticData );
+				$this->dispatchingPropertyAnnotator->addAnnotation( $property, $semanticData );
 			}
 		}
 
@@ -94,35 +81,16 @@ class ExtraPropertyAnnotator {
 	/**
 	 * @since 2.0
 	 *
-	 * @param DIProperty $property
-	 *
-	 * @return PropertyAnnotator
-	 */
-	public function findPropertyAnnotator( DIProperty $property ) {
-
-		$key = $property->getKey();
-
-		if ( $this->propertyAnnotators === array() ) {
-			$this->initDefaultPropertyAnnotators();
-		}
-
-		if ( isset( $this->propertyAnnotators[$key] ) && is_callable( $this->propertyAnnotators[$key] ) ) {
-			return call_user_func( $this->propertyAnnotators[$key], $this->appFactory );
-		} elseif( isset( $this->propertyAnnotators[$key] ) ) {
-			return $this->propertyAnnotators[$key];
-		}
-
-		return new NullPropertyAnnotator();
-	}
-
-	/**
-	 * @since 2.0
-	 *
 	 * @param string $key
-	 * @param Closure $callbak
+	 * @param PropertyAnnotator $propertyAnnotator
 	 */
-	public function addPropertyAnnotator( $key, Closure $callback ) {
-		$this->propertyAnnotators[$key] = $callback;
+	public function addPropertyAnnotator( $key, PropertyAnnotator $propertyAnnotator ) {
+
+		if ( $this->dispatchingPropertyAnnotator === null ) {
+			$this->initPropertyAnnotators();
+		}
+
+		$this->dispatchingPropertyAnnotator->addPropertyAnnotator( $key, $propertyAnnotator );
 	}
 
 	private function canAnnotate( $subject ) {
@@ -131,73 +99,21 @@ class ExtraPropertyAnnotator {
 			return false;
 		}
 
-		$this->initDefaultPropertyAnnotators();
+		if ( $this->dispatchingPropertyAnnotator === null ) {
+			$this->initPropertyAnnotators();
+		}
 
 		return true;
 	}
 
-	private function initDefaultPropertyAnnotators() {
+	private function initPropertyAnnotators() {
 
 		$this->localPropertyAnnotator = new LocalPropertyAnnotator(
 			$this->appFactory
 		);
 
-		// Encapsulate each instance to avoid direct instantiation for unused
-		// matches
-		$this->propertyAnnotators = array(
-
-			CreatorPropertyAnnotator::PROP_ID => function( $appFactory ) {
-				return new CreatorPropertyAnnotator( $appFactory );
-			},
-
-			PageViewsPropertyAnnotator::PROP_ID => function( $appFactory ) {
-				return new PageViewsPropertyAnnotator( $appFactory );
-			},
-
-			UserRegistrationDatePropertyAnnotator::PROP_ID => function( $appFactory ) {
-				return new UserRegistrationDatePropertyAnnotator( $appFactory );
-			},
-
-			UserEditCountPropertyAnnotator::PROP_ID => function( $appFactory ) {
-				return new UserEditCountPropertyAnnotator( $appFactory );
-			},
-
-			PageIDPropertyAnnotator::PROP_ID => function( $appFactory ) {
-				return new PageIDPropertyAnnotator( $appFactory );
-			},
-
-			PageLengthPropertyAnnotator::PROP_ID => function( $appFactory ) {
-				return new PageLengthPropertyAnnotator( $appFactory );
-			},
-
-			RevisionIDPropertyAnnotator::PROP_ID => function( $appFactory ) {
-				return new RevisionIDPropertyAnnotator( $appFactory );
-			},
-
-			PageNumRevisionPropertyAnnotator::PROP_ID => function( $appFactory ) {
-				return new PageNumRevisionPropertyAnnotator( $appFactory );
-			},
-
-			TalkPageNumRevisionPropertyAnnotator::PROP_ID => function( $appFactory ) {
-				return new TalkPageNumRevisionPropertyAnnotator( $appFactory );
-			},
-
-			PageContributorsPropertyAnnotator::PROP_ID => function( $appFactory ) {
-				return new PageContributorsPropertyAnnotator( $appFactory );
-			},
-
-			SubPagePropertyAnnotator::PROP_ID => function( $appFactory ) {
-				return new SubPagePropertyAnnotator( $appFactory );
-			},
-
-			ShortUrlPropertyAnnotator::PROP_ID => function( $appFactory ) {
-				return new ShortUrlPropertyAnnotator( $appFactory );
-			},
-
-			ExifPropertyAnnotator::PROP_ID => function( $appFactory ) {
-				return new ExifPropertyAnnotator( $appFactory );
-			},
-
+		$this->dispatchingPropertyAnnotator = new DispatchingPropertyAnnotator(
+			$this->appFactory
 		);
 	}
 

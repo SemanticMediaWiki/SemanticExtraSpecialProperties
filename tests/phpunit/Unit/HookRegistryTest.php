@@ -6,7 +6,7 @@ use SESP\HookRegistry;
 
 /**
  * @covers \SESP\HookRegistry
- * @group SESP
+ * @group semantic-extra-special-properties
  *
  * @license GNU GPL v2+
  * @since 1.3

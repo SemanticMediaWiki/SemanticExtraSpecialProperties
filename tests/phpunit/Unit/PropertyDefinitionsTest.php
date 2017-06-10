@@ -6,7 +6,7 @@ use SESP\PropertyDefinitions;
 
 /**
  * @covers \SESP\PropertyDefinitions
- * @group SESP
+ * @group semantic-extra-special-properties
  *
  * @license GNU GPL v2+
  * @since 2.0

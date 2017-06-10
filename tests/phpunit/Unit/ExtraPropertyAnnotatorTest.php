@@ -6,25 +6,10 @@ use SESP\ExtraPropertyAnnotator;
 use SESP\PropertyDefinitions;
 use SMW\DIProperty;
 use SMW\DIWikiPage;
-use SESP\PropertyAnnotators\NullPropertyAnnotator;
-use SESP\PropertyAnnotators\CreatorPropertyAnnotator;
-use SESP\PropertyAnnotators\PageViewsPropertyAnnotator;
-use SESP\PropertyAnnotators\LocalPropertyAnnotator;
-use SESP\PropertyAnnotators\UserRegistrationDatePropertyAnnotator;
-use SESP\PropertyAnnotators\UserEditCountPropertyAnnotator;
-use SESP\PropertyAnnotators\PageIDPropertyAnnotator;
-use SESP\PropertyAnnotators\ShortUrlPropertyAnnotator;
-use SESP\PropertyAnnotators\ExifPropertyAnnotator;
-use SESP\PropertyAnnotators\RevisionIDPropertyAnnotator;
-use SESP\PropertyAnnotators\PageNumRevisionPropertyAnnotator;
-use SESP\PropertyAnnotators\TalkPageNumRevisionPropertyAnnotator;
-use SESP\PropertyAnnotators\PageContributorsPropertyAnnotator;
-use SESP\PropertyAnnotators\SubPagePropertyAnnotator;
-use SESP\PropertyAnnotators\PageLengthPropertyAnnotator;
 
 /**
  * @covers \SESP\ExtraPropertyAnnotator
- * @group SESP
+ * @group semantic-extra-special-properties
  *
  * @license GNU GPL v2+
  * @since 2.0
@@ -85,7 +70,6 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			'callback' => $callback
 		);
 
-
 		$propertyDefinitions = new PropertyDefinitions();
 
 		$propertyDefinitions->setLocalPropertyDefinitions(
@@ -116,94 +100,58 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		$instance->addAnnotation( $semanticData );
 	}
 
-	/**
-	 * @dataProvider propertyAnnotatorProvider
-	 */
-	public function testFindPropertyAnnotator( $property, $expected ) {
+	public function testAddAnnotationOnPredefined() {
+
+		$appFactory = $this->getMockBuilder( '\SESP\AppFactory' )
+			->disableOriginalConstructor()
+			->setMethods( array( 'getPropertyDefinitions', 'getOption' ) )
+			->getMock();
+
+		$subject = DIWikiPage::newFromText( __METHOD__ );
+
+		$specialProperties = array( 'FAKE2' );
+
+		$defs['FAKE2'] = array(
+			'id'    => 'FAKE2'
+		);
+
+		$propertyDefinitions = new PropertyDefinitions();
+
+		$propertyDefinitions->setPropertyDefinitions(
+			$defs
+		);
+
+		$appFactory->expects( $this->at( 0 ) )
+			->method( 'getPropertyDefinitions' )
+			->will( $this->returnValue( $propertyDefinitions ) );
+
+		$appFactory->expects( $this->at( 1 ) )
+			->method( 'getOption' )
+			->with( $this->equalTo( 'sespSpecialProperties' ) )
+			->will( $this->returnValue( $specialProperties ) );
+
+		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$semanticData->expects( $this->once() )
+			->method( 'getSubject' )
+			->will( $this->returnValue( $subject ) );
+
+		$propertyAnnotator = $this->getMockBuilder( '\SESP\PropertyAnnotator' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$propertyAnnotator->expects( $this->once() )
+			->method( 'addAnnotation' );
 
 		$instance = new ExtraPropertyAnnotator(
-			$this->appFactory
+			$appFactory
 		);
 
-		$this->assertInstanceOf(
-			$expected,
-			$instance->findPropertyAnnotator( new DIProperty( $property ) )
-		);
-	}
+		$instance->addPropertyAnnotator( 'FAKE2', $propertyAnnotator );
 
-	public function propertyAnnotatorProvider() {
-
-		$provider[] = array(
-			CreatorPropertyAnnotator::PROP_ID,
-			CreatorPropertyAnnotator::class
-		);
-
-		$provider[] = array(
-			PageViewsPropertyAnnotator::PROP_ID,
-			PageViewsPropertyAnnotator::class
-		);
-
-		$provider[] = array(
-			UserRegistrationDatePropertyAnnotator::PROP_ID,
-			UserRegistrationDatePropertyAnnotator::class
-		);
-
-		$provider[] = array(
-			UserEditCountPropertyAnnotator::PROP_ID,
-			UserEditCountPropertyAnnotator::class
-		);
-
-		$provider[] = array(
-			PageIDPropertyAnnotator::PROP_ID,
-			PageIDPropertyAnnotator::class
-		);
-
-		$provider[] = array(
-			PageLengthPropertyAnnotator::PROP_ID,
-			PageLengthPropertyAnnotator::class
-		);
-
-		$provider[] = array(
-			RevisionIDPropertyAnnotator::PROP_ID,
-			RevisionIDPropertyAnnotator::class
-		);
-
-		$provider[] = array(
-			PageNumRevisionPropertyAnnotator::PROP_ID,
-			PageNumRevisionPropertyAnnotator::class
-		);
-
-		$provider[] = array(
-			TalkPageNumRevisionPropertyAnnotator::PROP_ID,
-			TalkPageNumRevisionPropertyAnnotator::class
-		);
-
-		$provider[] = array(
-			PageContributorsPropertyAnnotator::PROP_ID,
-			PageContributorsPropertyAnnotator::class
-		);
-
-		$provider[] = array(
-			SubPagePropertyAnnotator::PROP_ID,
-			SubPagePropertyAnnotator::class
-		);
-
-		$provider[] = array(
-			ShortUrlPropertyAnnotator::PROP_ID,
-			ShortUrlPropertyAnnotator::class
-		);
-
-		$provider[] = array(
-			ExifPropertyAnnotator::PROP_ID,
-			ExifPropertyAnnotator::class
-		);
-
-		$provider[] = array(
-			'Foo',
-			NullPropertyAnnotator::class
-		);
-
-		return $provider;
+		$instance->addAnnotation( $semanticData );
 	}
 
 }
