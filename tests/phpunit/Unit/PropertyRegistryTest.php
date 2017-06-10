@@ -8,7 +8,7 @@ use SMW\DIWikiPage;
 
 /**
  * @covers \SESP\PropertyRegistry
- * @group SESP
+ * @group semantic-extra-special-properties
  *
  * @license GNU GPL v2+
  * @since 2.0
