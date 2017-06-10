@@ -69,18 +69,18 @@ class SemanticExtraSpecialProperties {
 		define( 'SESP_VERSION', '2.0.0-alpha' );
 
 		// Register extension info
-		$GLOBALS['wgExtensionCredits']['semantic'][] = array(
+		$GLOBALS['wgExtensionCredits']['semantic'][] = [
 			'path'           => __FILE__,
 			'name'           => 'Semantic Extra Special Properties',
-			'author'         => array(
+			'author'         => [
 				'[https://www.semantic-mediawiki.org/wiki/User:MWJames James Hong Kong]',
 				'...'
-			),
+			],
 			'version'        => SESP_VERSION,
 			'url'            => 'https://www.mediawiki.org/wiki/Extension:SemanticExtraSpecialProperties',
 			'descriptionmsg' => 'sesp-desc',
 			'license-name'   => 'GPL-2.0+'
-		);
+		];
 
 		$GLOBALS['wgMessagesDirs']['SemanticExtraSpecialProperties'] = __DIR__ . '/i18n';
 		$GLOBALS['wgExtensionMessagesFiles']['SemanticExtraSpecialProperties'] = __DIR__ . '/i18n/SemanticExtraSpecialProperties.i18n.php';
@@ -120,7 +120,7 @@ class SemanticExtraSpecialProperties {
 		// Check requirements after LocalSetting.php has been processed
 		self::checkRequirements();
 
-		$configuration = array(
+		$configuration = [
 			'wgDisableCounters'       => $GLOBALS['wgDisableCounters'],
 			'sespUseAsFixedTables'    => $GLOBALS['sespUseAsFixedTables'],
 			'sespSpecialProperties'   => $GLOBALS['sespSpecialProperties'],
@@ -129,8 +129,8 @@ class SemanticExtraSpecialProperties {
 			'sespPropertyDefinitionFile' => $GLOBALS['sespPropertyDefinitionFile'],
 			'sespLocalPropertyDefinitions' => $GLOBALS['sespLocalPropertyDefinitions'],
 			'sespLabelCacheVersion' => $GLOBALS['sespLabelCacheVersion'],
-			'sespPropertyDefinitions' => array(),
-		);
+			'sespPropertyDefinitions' => [],
+		];
 
 		$hookRegistry = new HookRegistry(
 			$configuration

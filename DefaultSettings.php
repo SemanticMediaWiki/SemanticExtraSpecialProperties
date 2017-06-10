@@ -12,7 +12,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	die( 'This file is part of the SemanticExtraSpecialProperties extension, it is not a valid entry point.' );
 }
 
-return array(
+return [
 
 	/**
 	 * To setup properties as fixed properties in order to improve data access
@@ -27,12 +27,12 @@ return array(
 	/**
 	 * Specifies local definitions
 	 */
-	'sespLocalPropertyDefinitions' => array(),
+	'sespLocalPropertyDefinitions' => [],
 
 	/**
 	 * Specifies the enabled properties
 	 */
-	'sespSpecialProperties' => array(),
+	'sespSpecialProperties' => [],
 
 	/**
 	 * Specifies an internal cache modifier
@@ -50,4 +50,4 @@ return array(
 	 */
 	'wgShortUrlPrefix' => '',
 
-);
+];

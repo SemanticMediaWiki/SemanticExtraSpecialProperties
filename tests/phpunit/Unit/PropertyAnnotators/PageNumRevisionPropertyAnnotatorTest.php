@@ -76,7 +76,7 @@ class PageNumRevisionPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$connection = $this->getMockBuilder( '\stdClass' )
 			->disableOriginalConstructor()
-			->setMethods( array( 'estimateRowCount' ) )
+			->setMethods( [ 'estimateRowCount' ] )
 			->getMock();
 
 		$connection->expects( $this->once() )
@@ -107,25 +107,25 @@ class PageNumRevisionPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 	public function rowCountProvider() {
 
-		$provider[] = array(
+		$provider[] = [
 			42,
 			$this->once()
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			0,
 			$this->never()
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			null,
 			$this->never()
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			'Foo',
 			$this->never()
-		);
+		];
 
 		return $provider;
 	}

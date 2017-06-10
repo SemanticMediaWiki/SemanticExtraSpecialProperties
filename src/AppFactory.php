@@ -52,7 +52,7 @@ class AppFactory implements LoggerAwareInterface {
 	 * @param array $options
 	 * @param Cache|null $cache
 	 */
-	public function __construct( array $options = array(), Cache $cache = null ) {
+	public function __construct( array $options = [], Cache $cache = null ) {
 		$this->options = $options;
 		$this->cache = $cache;
 	}
@@ -146,7 +146,7 @@ class AppFactory implements LoggerAwareInterface {
 		);
 
 		$this->propertyDefinitions->setLocalPropertyDefinitions(
-			$this->getOption( 'sespLocalPropertyDefinitions', array() )
+			$this->getOption( 'sespLocalPropertyDefinitions', [] )
 		);
 
 		return $this->propertyDefinitions;

@@ -103,75 +103,75 @@ class DispatchingPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 	public function propertyAnnotatorProvider() {
 
-		$provider[] = array(
+		$provider[] = [
 			CreatorPropertyAnnotator::PROP_ID,
 			CreatorPropertyAnnotator::class
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			PageViewsPropertyAnnotator::PROP_ID,
 			PageViewsPropertyAnnotator::class
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			UserRegistrationDatePropertyAnnotator::PROP_ID,
 			UserRegistrationDatePropertyAnnotator::class
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			UserEditCountPropertyAnnotator::PROP_ID,
 			UserEditCountPropertyAnnotator::class
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			PageIDPropertyAnnotator::PROP_ID,
 			PageIDPropertyAnnotator::class
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			PageLengthPropertyAnnotator::PROP_ID,
 			PageLengthPropertyAnnotator::class
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			RevisionIDPropertyAnnotator::PROP_ID,
 			RevisionIDPropertyAnnotator::class
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			PageNumRevisionPropertyAnnotator::PROP_ID,
 			PageNumRevisionPropertyAnnotator::class
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			TalkPageNumRevisionPropertyAnnotator::PROP_ID,
 			TalkPageNumRevisionPropertyAnnotator::class
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			PageContributorsPropertyAnnotator::PROP_ID,
 			PageContributorsPropertyAnnotator::class
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			SubPagePropertyAnnotator::PROP_ID,
 			SubPagePropertyAnnotator::class
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			ShortUrlPropertyAnnotator::PROP_ID,
 			ShortUrlPropertyAnnotator::class
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			ExifPropertyAnnotator::PROP_ID,
 			ExifPropertyAnnotator::class
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			'Foo',
 			NullPropertyAnnotator::class
-		);
+		];
 
 		return $provider;
 	}

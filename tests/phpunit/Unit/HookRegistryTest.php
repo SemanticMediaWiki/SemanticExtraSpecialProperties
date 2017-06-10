@@ -17,7 +17,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 
 	public function testCanConstruct() {
 
-		$configuration =  array();
+		$configuration =  [];
 
 		$this->assertInstanceOf(
 			'\SESP\HookRegistry',
@@ -27,16 +27,16 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 
 	public function testRegister() {
 
-		$configuration = array(
+		$configuration = [
 			'sespPropertyDefinitionFile' => $GLOBALS['sespPropertyDefinitionFile'],
-			'sespLocalPropertyDefinitions' => array(),
-			'sespSpecialProperties' => array(),
+			'sespLocalPropertyDefinitions' => [],
+			'sespSpecialProperties' => [],
 			'wgDisableCounters' => false,
 			'sespUseAsFixedTables' => false,
 			'wgSESPExcludeBots' => false,
 			'wgShortUrlPrefix' => '',
 			'sespCacheType'    => 'hash'
-		);
+		];
 
 		$instance = new HookRegistry( $configuration );
 		$instance->deregister();
@@ -49,11 +49,11 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 
 	public function testOnBeforeConfigCompletion() {
 
-		$config = array(
-			'smwgFulltextSearchPropertyExemptionList' => array()
-		);
+		$config = [
+			'smwgFulltextSearchPropertyExemptionList' => []
+		];
 
-		$propertyExemptionList = array(
+		$propertyExemptionList = [
 			'___EUSER',
 			'___CUSER',
 			'___SUBP',
@@ -63,14 +63,14 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 			'___NTREV',
 			'___USEREDITCNT',
 			'___EXIFDATA'
-		);
+		];
 
 		HookRegistry::onBeforeConfigCompletion( $config );
 
 		$this->assertEquals(
-			array(
+			[
 				'smwgFulltextSearchPropertyExemptionList' => $propertyExemptionList,
-			),
+			],
 			$config
 		);
 	}
@@ -87,7 +87,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$this->assertThatHookIsExcutable(
 			$instance->getHandlers( 'SMW::Property::initProperties' ),
-			array( $propertyRegistry )
+			[ $propertyRegistry ]
 		);
 	}
 
@@ -97,12 +97,12 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 			$instance->isRegistered( 'SMW::SQLStore::AddCustomFixedPropertyTables' )
 		);
 
-		$customFixedProperties = array();
-		$fixedPropertyTablePrefix = array();
+		$customFixedProperties = [];
+		$fixedPropertyTablePrefix = [];
 
 		$this->assertThatHookIsExcutable(
 			$instance->getHandlers( 'SMW::SQLStore::AddCustomFixedPropertyTables' ),
-			array( &$customFixedProperties, &$fixedPropertyTablePrefix )
+			[ &$customFixedProperties, &$fixedPropertyTablePrefix ]
 		);
 	}
 
@@ -122,7 +122,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$this->assertThatHookIsExcutable(
 			$instance->getHandlers( 'SMWStore::updateDataBefore' ),
-			array( $store, $semanticData )
+			[ $store, $semanticData ]
 		);
 	}
 

@@ -52,7 +52,7 @@ class LocalPropertyAnnotator implements PropertyAnnotator {
 
 		$time = microtime( true );
 
-		$localDefs = $this->appFactory->getOption( 'sespLocalPropertyDefinitions', array() );
+		$localDefs = $this->appFactory->getOption( 'sespLocalPropertyDefinitions', [] );
 
 		foreach ( $localDefs as $key => $definition ) {
 			$this->callOnLocalDef( $definition, $property, $semanticData );
@@ -72,7 +72,7 @@ class LocalPropertyAnnotator implements PropertyAnnotator {
 		$dataItem = null;
 
 		if ( isset( $definition['callback'] ) && is_callable( $definition['callback'] ) ) {
-			$dataItem = call_user_func_array( $definition['callback'], array( $this->appFactory, $property, $semanticData ) );
+			$dataItem = call_user_func_array( $definition['callback'], [ $this->appFactory, $property, $semanticData ] );
 		}
 
 		if ( $dataItem instanceof DataItem ) {

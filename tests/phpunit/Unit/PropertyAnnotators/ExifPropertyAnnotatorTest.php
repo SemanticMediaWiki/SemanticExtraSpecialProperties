@@ -170,31 +170,31 @@ class ExifPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 	public function metaProvider() {
 
-		$provider[] = array(
+		$provider[] = [
 			[ 'Software' => 'ABC' ],
 			[ '_EXIF' => [ 'SOFTWARE' => [ 'id' => 'Foo', 'type' => '_txt' ] ] ],
 			$this->once()
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			[ 'DateTimeOriginal' => '2013:01:11 02:13:35' ],
 			[ '_EXIF' => [ 'DATETIMEORIGINAL' => [ 'id' => 'Foo', 'type' => '_dat' ] ] ],
 			$this->once()
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			[ 'DateTimeOriginal' => '2013:01:11 02:13' ],
 			[ '_EXIF' => [ 'DATETIMEORIGINAL' => [ 'id' => 'Foo', 'type' => '_dat' ] ] ],
 			$this->once()
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			[ 'DateTimeOriginal' => '2013:01:11' ],
 			[ '_EXIF' => [ 'DATETIMEORIGINAL' => [ 'id' => 'Foo', 'type' => '_dat' ] ] ],
 			$this->once()
-		);
+		];
 
-		$provider['invalid-time'] = array(
+		$provider['invalid-time'] = [
 			[
 				'DateTimeOriginal'  => '0000:00:00 00:00:00',
 				'DateTime'  => '    :  :     :  :  ' ],
@@ -203,13 +203,13 @@ class ExifPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 				'DATETIME' => [ 'id' => 'Bar', 'type' => '_dat' ]
 			] ],
 			$this->never()
-		);
+		];
 
-		$provider['unmatchable'] = array(
+		$provider['unmatchable'] = [
 			[ 'Foo' => 'ABC' ],
 			[ '_EXIF' => [ 'Foo' => [ 'id' => 'Foo', 'type' => '_txt' ] ] ],
 			$this->never()
-		);
+		];
 
 		return $provider;
 	}

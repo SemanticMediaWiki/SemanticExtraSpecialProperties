@@ -88,15 +88,15 @@ class RevisionIDPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 	public function latestProvider() {
 
-		$provider[] = array(
+		$provider[] = [
 			42,
 			$this->once()
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			0,
 			$this->never()
-		);
+		];
 
 		return $provider;
 	}

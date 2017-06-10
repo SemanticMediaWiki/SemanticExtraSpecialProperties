@@ -42,7 +42,7 @@ class PropertyDefinitions implements IteratorAggregate {
 	/**
 	 * @var array
 	 */
-	private $localPropertyDefinitions = array();
+	private $localPropertyDefinitions = [];
 
 	/**
 	 * @since 2.0
@@ -200,7 +200,7 @@ class PropertyDefinitions implements IteratorAggregate {
 	private function initPropertyDefinitions() {
 
 		$contents = file_get_contents(
-			str_replace( array( '\\', '/' ), DIRECTORY_SEPARATOR, $this->propertyDefinitionFile )
+			str_replace( [ '\\', '/' ], DIRECTORY_SEPARATOR, $this->propertyDefinitionFile )
 		);
 
 		$this->propertyDefinitions = json_decode(
@@ -209,7 +209,7 @@ class PropertyDefinitions implements IteratorAggregate {
 		);
 
 		if ( json_last_error() !== JSON_ERROR_NONE ) {
-			$this->propertyDefinitions = array();
+			$this->propertyDefinitions = [];
 		}
 
 		$this->propertyDefinitions += $this->localPropertyDefinitions;

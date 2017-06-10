@@ -88,25 +88,25 @@ class PageIDPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 	public function idProvider() {
 
-		$provider[] = array(
+		$provider[] = [
 			42,
 			$this->once()
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			0,
 			$this->never()
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			null,
 			$this->never()
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			'Foo',
 			$this->never()
-		);
+		];
 
 		return $provider;
 	}

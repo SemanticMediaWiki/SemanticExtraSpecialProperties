@@ -71,7 +71,7 @@ class PageContributorsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase 
 
 		$user->expects( $this->once() )
 			->method( 'getRights' )
-			->will( $this->returnValue( array() ) );
+			->will( $this->returnValue( [] ) );
 
 		$wikiPage = $this->getMockBuilder( '\WikiPage' )
 			->disableOriginalConstructor()

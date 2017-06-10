@@ -39,11 +39,11 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$propertyDefinitions = $this->getMockBuilder( '\SESP\PropertyDefinitions' )
 			->disableOriginalConstructor()
-			->setMethods( array( 'getLabels' ) )
+			->setMethods( [ 'getLabels' ] )
 			->getMock();
 
 		$propertyDefinitions->setPropertyDefinitions(
-			array()
+			[]
 		);
 
 		$this->appFactory->expects( $this->once() )
@@ -69,7 +69,7 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$propertyDefinitions = $this->getMockBuilder( '\SESP\PropertyDefinitions' )
 			->disableOriginalConstructor()
-			->setMethods( array( 'getLabels', 'getLabel' ) )
+			->setMethods( [ 'getLabels', 'getLabel' ] )
 			->getMock();
 
 		$propertyDefinitions->setPropertyDefinitions(
@@ -114,7 +114,7 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$propertyDefinitions = $this->getMockBuilder( '\SESP\PropertyDefinitions' )
 			->disableOriginalConstructor()
-			->setMethods( array( 'getLabels', 'getLabel' ) )
+			->setMethods( [ 'getLabels', 'getLabel' ] )
 			->getMock();
 
 		$propertyDefinitions->setPropertyDefinitions(
@@ -166,8 +166,8 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 			$this->appFactory
 		);
 
-		$customFixedProperties = array();
-		$fixedPropertyTablePrefix = array();
+		$customFixedProperties = [];
+		$fixedPropertyTablePrefix = [];
 
 		$instance->registerAsFixedProperties( $customFixedProperties, $fixedPropertyTablePrefix );
 	}
@@ -180,9 +180,9 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 			->getMock();
 
 		$propertyDefinitions->setPropertyDefinitions(
-			array(
+			[
 				'Foo' => [ 'id' => '___FOO' ]
-			)
+			]
 		);
 
 		$this->appFactory->expects( $this->at( 0 ) )
@@ -197,14 +197,14 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 		$this->appFactory->expects( $this->at( 2 ) )
 			->method( 'getOption' )
 			->with( $this->stringContains( 'sespSpecialProperties' ) )
-			->will( $this->returnValue( array( 'Foo' ) ) );
+			->will( $this->returnValue( [ 'Foo' ] ) );
 
 		$instance = new PropertyRegistry(
 			$this->appFactory
 		);
 
-		$customFixedProperties = array();
-		$fixedPropertyTablePrefix = array();
+		$customFixedProperties = [];
+		$fixedPropertyTablePrefix = [];
 
 		$instance->registerAsFixedProperties( $customFixedProperties, $fixedPropertyTablePrefix );
 
