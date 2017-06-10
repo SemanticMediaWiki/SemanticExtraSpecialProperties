@@ -44,8 +44,16 @@ class SemanticExtraSpecialProperties {
 			}
 		}
 
-		// In case extension.json is being used, the the succeeding steps will
-		// be handled by the ExtensionRegistry
+		/**
+		 * In case extension.json is being used, the succeeding steps are
+		 * expected to be handled by the ExtensionRegistry aka extension.json
+		 * ...
+		 *
+		 * 	"callback": "SemanticExtraSpecialProperties::initExtension",
+		 * 	"ExtensionFunctions": [
+		 * 		"SemanticExtraSpecialProperties::onExtensionFunction"
+		 * 	],
+		 */
 		self::initExtension();
 
 		$GLOBALS['wgExtensionFunctions'][] = function() {
@@ -93,9 +101,9 @@ class SemanticExtraSpecialProperties {
 	/**
 	 * @since 2.0
 	 */
-	public static function doCheckRequirements() {
+	public static function checkRequirements() {
 
-		if ( version_compare( $GLOBALS['wgVersion'], '1.25', '<' ) ) {
+		if ( version_compare( $GLOBALS['wgVersion'], '1.27', '<' ) ) {
 			die( '<b>Error:</b> This version of <a href="https://github.com/SemanticMediaWiki/SemanticExtraSpecialProperties/">Semantic Extra Special Properties</a> requires MediaWiki 1.25 or above.' );
 		}
 
@@ -110,7 +118,7 @@ class SemanticExtraSpecialProperties {
 	public static function onExtensionFunction() {
 
 		// Check requirements after LocalSetting.php has been processed
-		self::doCheckRequirements();
+		self::checkRequirements();
 
 		$configuration = array(
 			'wgDisableCounters'       => $GLOBALS['wgDisableCounters'],
