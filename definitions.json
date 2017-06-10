@@ -246,7 +246,7 @@
 		"PIXELYDIMENSION": {
 			"id": "___EXIFPIXELYDIMENSION",
 			"type": "_num",
-			"alias": "exif-pixelYdimension",
+			"alias": "exif-pixelydimension",
 			"label": "Exif:Image width (pixel dimension)"
 		},
 		"IMAGEWIDTH": {
@@ -819,11 +819,11 @@
 			"alias": "exif-event",
 			"label": "Exif:Event"
 		},
-		"ORGINISATIONINIMAGE": {
-			"id": "___EXIFORGINISATIONINIMAGE",
+		"ORGANISATIONINIMAGE": {
+			"id": "___EXIFORGANISATIONINIMAGE",
 			"type": "_txt",
-			"alias": "exif-orginisationinimage",
-			"label": "Exif:Orginisation in image"
+			"alias": "exif-organisationinimage",
+			"label": "Exif:Organisation in image"
 		},
 		"PERSONINIMAGE": {
 			"id": "___EXIFPERSONINIMAGE",
