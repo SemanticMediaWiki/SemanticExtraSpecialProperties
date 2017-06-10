@@ -104,11 +104,11 @@ class SemanticExtraSpecialProperties {
 	public static function checkRequirements() {
 
 		if ( version_compare( $GLOBALS['wgVersion'], '1.27', '<' ) ) {
-			die( '<b>Error:</b> This version of <a href="https://github.com/SemanticMediaWiki/SemanticExtraSpecialProperties/">Semantic Extra Special Properties</a> requires MediaWiki 1.25 or above.' );
+			die( '<b>Error:</b> This version of <a href="https://github.com/SemanticMediaWiki/SemanticExtraSpecialProperties/">Semantic Extra Special Properties</a> requires MediaWiki 1.27 or above.' );
 		}
 
 		if ( !defined( 'SMW_VERSION' ) ) {
-			die( '<b>Error:</b> This version of <a href="https://github.com/SemanticMediaWiki/SemanticExtraSpecialProperties/">Semantic Extra Special Properties</a> requires <a href="http://www.semantic-mediawiki.org/wiki/Semantic_MediaWiki">Semantic MediaWiki</a> installed.<br />' );
+			die( '<b>Error:</b> This version of <a href="https://github.com/SemanticMediaWiki/SemanticExtraSpecialProperties/">Semantic Extra Special Properties</a> requires <a href="https://www.semantic-mediawiki.org/wiki/Semantic_MediaWiki">Semantic MediaWiki</a> installed.<br />' );
 		}
 	}
 
