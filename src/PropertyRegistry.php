@@ -119,7 +119,7 @@ class PropertyRegistry {
 
 		$propertyRegistry->registerPropertyAlias(
 			$definition['id'],
-			Message::get( $alias )
+			Message::get( $alias, null, Message::USER_LANGUAGE )
 		);
 
 		$propertyRegistry->registerPropertyAliasByMsgKey(
