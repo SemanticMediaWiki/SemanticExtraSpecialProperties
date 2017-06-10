@@ -49,7 +49,10 @@ class UserEditCountPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
-	public function testAddAnnotation() {
+	/**
+	 * @dataProvider editCountProvider
+	 */
+	public function testAddAnnotation( $count, $expected ) {
 
 		$user = $this->getMockBuilder( '\User' )
 			->disableOriginalConstructor()
@@ -57,7 +60,7 @@ class UserEditCountPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$user->expects( $this->once() )
 			->method( 'getEditCount' )
-			->will( $this->returnValue( 42 ) );
+			->will( $this->returnValue( $count ) );
 
 		$this->appFactory->expects( $this->once() )
 			->method( 'newUserFromTitle' )
@@ -87,7 +90,7 @@ class UserEditCountPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->method( 'getSubject' )
 			->will( $this->returnValue( $subject ) );
 
-		$semanticData->expects( $this->once() )
+		$semanticData->expects( $expected )
 			->method( 'addPropertyObjectValue' );
 
 		$instance = new UserEditCountPropertyAnnotator(
@@ -95,6 +98,26 @@ class UserEditCountPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		);
 
 		$instance->addAnnotation( $this->property, $semanticData );
+	}
+
+	public function editCountProvider() {
+
+		$provider[] = array(
+			42,
+			$this->once()
+		);
+
+		$provider[] = array(
+			null,
+			$this->never()
+		);
+
+		$provider[] = array(
+			'Foo',
+			$this->never()
+		);
+
+		return $provider;
 	}
 
 }

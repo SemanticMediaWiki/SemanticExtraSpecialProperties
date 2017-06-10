@@ -65,8 +65,8 @@ class UserEditCountPropertyAnnotator implements PropertyAnnotator {
 		$user = $this->appFactory->newUserFromTitle( $title );
 		$dataItem = null;
 
-		if ( $user instanceof User ) {
-			$dataItem = new DINumber( $user->getEditCount() );
+		if ( $user instanceof User && ( $count = $user->getEditCount() ) && is_int( $count ) ) {
+			$dataItem = new DINumber( $count );
 		}
 
 		if ( $dataItem instanceof DataItem ) {
