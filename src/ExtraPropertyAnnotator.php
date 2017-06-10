@@ -46,11 +46,6 @@ class ExtraPropertyAnnotator {
 	private $localPropertyAnnotator;
 
 	/**
-	 * @var array
-	 */
-	private $options;
-
-	/**
 	 * @since 2.0
 	 *
 	 * @param AppFactory $appFactory
