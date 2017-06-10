@@ -49,7 +49,10 @@ class PageIDPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
-	public function testAddAnnotation() {
+	/**
+	 * @dataProvider idProvider
+	 */
+	public function testAddAnnotation( $id, $expected ) {
 
 		$subject = DIWikiPage::newFromText( __METHOD__ );
 
@@ -59,7 +62,7 @@ class PageIDPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$wikiPage->expects( $this->once() )
 			->method( 'getId' )
-			->will( $this->returnValue( 42 ) );
+			->will( $this->returnValue( $id ) );
 
 		$this->appFactory->expects( $this->once() )
 			->method( 'newWikiPage' )
@@ -73,7 +76,7 @@ class PageIDPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->method( 'getSubject' )
 			->will( $this->returnValue( $subject ) );
 
-		$semanticData->expects( $this->once() )
+		$semanticData->expects( $expected )
 			->method( 'addPropertyObjectValue' );
 
 		$instance = new PageIDPropertyAnnotator(
@@ -81,6 +84,31 @@ class PageIDPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		);
 
 		$instance->addAnnotation( $this->property, $semanticData );
+	}
+
+	public function idProvider() {
+
+		$provider[] = array(
+			42,
+			$this->once()
+		);
+
+		$provider[] = array(
+			0,
+			$this->never()
+		);
+
+		$provider[] = array(
+			null,
+			$this->never()
+		);
+
+		$provider[] = array(
+			'Foo',
+			$this->never()
+		);
+
+		return $provider;
 	}
 
 }

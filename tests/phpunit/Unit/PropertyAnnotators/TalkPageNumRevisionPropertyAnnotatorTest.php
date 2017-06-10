@@ -49,7 +49,10 @@ class TalkPageNumRevisionPropertyAnnotatorTest extends \PHPUnit_Framework_TestCa
 		);
 	}
 
-	public function testAddAnnotation() {
+	/**
+	 * @dataProvider rowCountProvider
+	 */
+	public function testAddAnnotation( $count, $expected ) {
 
 		$talkPage = $this->getMockBuilder( '\Title' )
 			->disableOriginalConstructor()
@@ -86,7 +89,7 @@ class TalkPageNumRevisionPropertyAnnotatorTest extends \PHPUnit_Framework_TestCa
 
 		$connection->expects( $this->once() )
 			->method( 'estimateRowCount' )
-			->will( $this->returnValue( 42 ) );
+			->will( $this->returnValue( $count ) );
 
 		$this->appFactory->expects( $this->once() )
 			->method( 'getConnection' )
@@ -100,7 +103,7 @@ class TalkPageNumRevisionPropertyAnnotatorTest extends \PHPUnit_Framework_TestCa
 			->method( 'getSubject' )
 			->will( $this->returnValue( $subject ) );
 
-		$semanticData->expects( $this->once() )
+		$semanticData->expects( $expected )
 			->method( 'addPropertyObjectValue' );
 
 		$instance = new TalkPageNumRevisionPropertyAnnotator(
@@ -108,6 +111,31 @@ class TalkPageNumRevisionPropertyAnnotatorTest extends \PHPUnit_Framework_TestCa
 		);
 
 		$instance->addAnnotation( $this->property, $semanticData );
+	}
+
+	public function rowCountProvider() {
+
+		$provider[] = array(
+			42,
+			$this->once()
+		);
+
+		$provider[] = array(
+			0,
+			$this->never()
+		);
+
+		$provider[] = array(
+			null,
+			$this->never()
+		);
+
+		$provider[] = array(
+			'Foo',
+			$this->never()
+		);
+
+		return $provider;
 	}
 
 }

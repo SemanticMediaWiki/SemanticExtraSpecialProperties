@@ -49,7 +49,10 @@ class PageNumRevisionPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
-	public function testAddAnnotation() {
+	/**
+	 * @dataProvider rowCountProvider
+	 */
+	public function testAddAnnotation( $count, $expected ) {
 
 		$title = $this->getMockBuilder( '\Title' )
 			->disableOriginalConstructor()
@@ -78,7 +81,7 @@ class PageNumRevisionPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$connection->expects( $this->once() )
 			->method( 'estimateRowCount' )
-			->will( $this->returnValue( 42 ) );
+			->will( $this->returnValue( $count ) );
 
 		$this->appFactory->expects( $this->once() )
 			->method( 'getConnection' )
@@ -92,7 +95,7 @@ class PageNumRevisionPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->method( 'getSubject' )
 			->will( $this->returnValue( $subject ) );
 
-		$semanticData->expects( $this->once() )
+		$semanticData->expects( $expected )
 			->method( 'addPropertyObjectValue' );
 
 		$instance = new PageNumRevisionPropertyAnnotator(
@@ -100,6 +103,31 @@ class PageNumRevisionPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		);
 
 		$instance->addAnnotation( $this->property, $semanticData );
+	}
+
+	public function rowCountProvider() {
+
+		$provider[] = array(
+			42,
+			$this->once()
+		);
+
+		$provider[] = array(
+			0,
+			$this->never()
+		);
+
+		$provider[] = array(
+			null,
+			$this->never()
+		);
+
+		$provider[] = array(
+			'Foo',
+			$this->never()
+		);
+
+		return $provider;
 	}
 
 }
