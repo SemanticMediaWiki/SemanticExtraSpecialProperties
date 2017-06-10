@@ -49,7 +49,10 @@ class CreatorPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
-	public function testAddAnnotation() {
+	/**
+	 * @dataProvider userPageProvider
+	 */
+	public function testAddAnnotation( $userPage, $expected ) {
 
 		$subject = DIWikiPage::newFromText( __METHOD__ );
 
@@ -59,7 +62,7 @@ class CreatorPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$creator->expects( $this->once() )
 			->method( 'getUserPage' )
-			->will( $this->returnValue( $subject->getTitle() ) );
+			->will( $this->returnValue( $userPage ) );
 
 		$wikiPage = $this->getMockBuilder( '\WikiPage' )
 			->disableOriginalConstructor()
@@ -81,7 +84,7 @@ class CreatorPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->method( 'getSubject' )
 			->will( $this->returnValue( $subject ) );
 
-		$semanticData->expects( $this->once() )
+		$semanticData->expects( $expected )
 			->method( 'addPropertyObjectValue' );
 
 		$instance = new CreatorPropertyAnnotator(
@@ -89,6 +92,31 @@ class CreatorPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		);
 
 		$instance->addAnnotation( $this->property, $semanticData );
+	}
+
+	public function userPageProvider() {
+
+		$provider[] = array(
+			DIWikiPage::newFromText( __METHOD__ )->getTitle(),
+			$this->once()
+		);
+
+		$provider[] = array(
+			0,
+			$this->never()
+		);
+
+		$provider[] = array(
+			null,
+			$this->never()
+		);
+
+		$provider[] = array(
+			'Foo',
+			$this->never()
+		);
+
+		return $provider;
 	}
 
 }

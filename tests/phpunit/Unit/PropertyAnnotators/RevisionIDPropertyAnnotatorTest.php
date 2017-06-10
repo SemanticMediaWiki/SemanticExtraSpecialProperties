@@ -49,7 +49,10 @@ class RevisionIDPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
-	public function testAddAnnotation() {
+	/**
+	 * @dataProvider latestProvider
+	 */
+	public function testAddAnnotation( $latest, $expected ) {
 
 		$subject = DIWikiPage::newFromText( __METHOD__ );
 
@@ -59,7 +62,7 @@ class RevisionIDPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$wikiPage->expects( $this->once() )
 			->method( 'getLatest' )
-			->will( $this->returnValue( 42 ) );
+			->will( $this->returnValue( $latest ) );
 
 		$this->appFactory->expects( $this->once() )
 			->method( 'newWikiPage' )
@@ -73,7 +76,7 @@ class RevisionIDPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->method( 'getSubject' )
 			->will( $this->returnValue( $subject ) );
 
-		$semanticData->expects( $this->once() )
+		$semanticData->expects( $expected )
 			->method( 'addPropertyObjectValue' );
 
 		$instance = new RevisionIDPropertyAnnotator(
@@ -81,6 +84,21 @@ class RevisionIDPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		);
 
 		$instance->addAnnotation( $this->property, $semanticData );
+	}
+
+	public function latestProvider() {
+
+		$provider[] = array(
+			42,
+			$this->once()
+		);
+
+		$provider[] = array(
+			0,
+			$this->never()
+		);
+
+		return $provider;
 	}
 
 }

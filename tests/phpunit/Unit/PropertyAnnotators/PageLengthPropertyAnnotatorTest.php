@@ -49,7 +49,10 @@ class PageLengthPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
-	public function testAddAnnotation() {
+	/**
+	 * @dataProvider lengthProvider
+	 */
+	public function testAddAnnotation( $length, $expected ) {
 
 		$title = $this->getMockBuilder( '\Title' )
 			->disableOriginalConstructor()
@@ -57,7 +60,7 @@ class PageLengthPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$title->expects( $this->once() )
 			->method( 'getLength' )
-			->will( $this->returnValue( 42 ) );
+			->will( $this->returnValue( $length ) );
 
 		$subject = $this->getMockBuilder( '\SMW\DIWikiPage' )
 			->disableOriginalConstructor()
@@ -75,7 +78,7 @@ class PageLengthPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->method( 'getSubject' )
 			->will( $this->returnValue( $subject ) );
 
-		$semanticData->expects( $this->once() )
+		$semanticData->expects( $expected )
 			->method( 'addPropertyObjectValue' );
 
 		$instance = new PageLengthPropertyAnnotator(
@@ -83,6 +86,26 @@ class PageLengthPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		);
 
 		$instance->addAnnotation( $this->property, $semanticData );
+	}
+
+	public function lengthProvider() {
+
+		$provider[] = array(
+			42,
+			$this->once()
+		);
+
+		$provider[] = array(
+			null,
+			$this->never()
+		);
+
+		$provider[] = array(
+			'Foo',
+			$this->never()
+		);
+
+		return $provider;
 	}
 
 }
