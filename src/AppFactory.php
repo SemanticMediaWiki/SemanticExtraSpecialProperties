@@ -5,6 +5,8 @@ namespace SESP;
 use Psr\Log\NullLogger;
 use Psr\Log\LoggerInterface;
 use Psr\Log\LoggerAwareInterface;
+use Onoi\Cache\Cache;
+use Onoi\Cache\NullCache;
 use Title;
 use WikiPage;
 use User;
@@ -25,6 +27,11 @@ class AppFactory implements LoggerAwareInterface {
 	private $options;
 
 	/**
+	 * @var Cache
+	 */
+	private $cache;
+
+	/**
 	 * @var array
 	 */
 	private $connection;
@@ -43,9 +50,11 @@ class AppFactory implements LoggerAwareInterface {
 	 * @since 2.0
 	 *
 	 * @param array $options
+	 * @param Cache|null $cache
 	 */
-	public function __construct( array $options = array() ) {
+	public function __construct( array $options = array(), Cache $cache = null ) {
 		$this->options = $options;
+		$this->cache = $cache;
 	}
 
 	/**
@@ -61,6 +70,11 @@ class AppFactory implements LoggerAwareInterface {
 	 * @return DatabaseBase
 	 */
 	public function getConnection() {
+
+		if ( $this->connection === null ) {
+			$this->connection = wfGetDB( DB_SLAVE );
+		}
+
 		return $this->connection;
 	}
 
@@ -76,7 +90,7 @@ class AppFactory implements LoggerAwareInterface {
 	}
 
 	/**
-	 * @since 3.0
+	 * @since 2.0
 	 *
 	 * @param LoggerInterface
 	 */
@@ -90,7 +104,7 @@ class AppFactory implements LoggerAwareInterface {
 	}
 
 	/**
-	 * @since 2.4
+	 * @since 2.0
 	 *
 	 * @param string $key
 	 * @param $default $mixed
@@ -117,7 +131,17 @@ class AppFactory implements LoggerAwareInterface {
 			return $this->propertyDefinitions;
 		}
 
+		$labelFetcher = new LabelFetcher(
+			$this->cache,
+			$GLOBALS['wgLang']->getCode()
+		);
+
+		$labelFetcher->setLabelCacheVersion(
+			$this->getOption( 'sespLabelCacheVersion', 0 )
+		);
+
 		$this->propertyDefinitions = new PropertyDefinitions(
+			$labelFetcher,
 			$this->getOption( 'sespPropertyDefinitionFile' )
 		);
 

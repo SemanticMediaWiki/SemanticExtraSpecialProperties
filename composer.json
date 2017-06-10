@@ -54,6 +54,7 @@
 		"process-timeout": 0
 	},
 	"scripts": {
-		"phpunit": "php ../../tests/phpunit/phpunit.php -c phpunit.xml.dist"
+		"phpunit": "php ../../tests/phpunit/phpunit.php -c phpunit.xml.dist",
+		"phpdbg": "phpdbg -qrr ../../tests/phpunit/phpunit.php -c phpunit.xml.dist"
 	}
 }

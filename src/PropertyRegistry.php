@@ -5,7 +5,6 @@ namespace SESP;
 use SMW\PropertyRegistry as BasePropertyRegistry;
 use SMW\DataTypeRegistry;
 use SMW\DIProperty;
-use SMW\Message;
 use SMWDataItem as DataItem;
 
 /**
@@ -41,24 +40,25 @@ class PropertyRegistry {
 	 */
 	public function registerOn( BasePropertyRegistry $propertyRegistry ) {
 
-		$definitions = $this->appFactory->getPropertyDefinitions();
+		$propertyDefinitions = $this->appFactory->getPropertyDefinitions();
+		$labels = $propertyDefinitions->getLabels();
 
-		foreach ( $definitions as $key => $definition ) {
+		foreach ( $propertyDefinitions as $key => $definition ) {
 
 			if ( !isset( $definition['id'] ) ) {
 				continue;
 			}
 
-			$this->addPropertyDefinition( $propertyRegistry, $definition );
+			$this->addPropertyDefinition( $propertyRegistry, $propertyDefinitions, $definition, $labels );
 		}
 
-		foreach ( $definitions->safeGet( '_EXIF', array() ) as $key => $definition ) {
+		foreach ( $propertyDefinitions->safeGet( '_EXIF', array() ) as $key => $definition ) {
 
 			if ( !isset( $definition['id'] ) ) {
 				continue;
 			}
 
-			$this->addPropertyDefinition( $propertyRegistry, $definition );
+			$this->addPropertyDefinition( $propertyRegistry, $propertyDefinitions, $definition, $labels );
 		}
 
 		return true;
@@ -76,13 +76,13 @@ class PropertyRegistry {
 			return;
 		}
 
-		$definitions = $this->appFactory->getPropertyDefinitions();
+		$propertyDefinitions = $this->appFactory->getPropertyDefinitions();
 
 		$properties = array_flip(
 			$this->appFactory->getOption( 'sespSpecialProperties', array() )
 		);
 
-		foreach ( $definitions as $key => $definition ) {
+		foreach ( $propertyDefinitions as $key => $definition ) {
 
 			if ( !isset( $definition['id'] ) ) {
 				continue;
@@ -99,12 +99,10 @@ class PropertyRegistry {
 		}
 	}
 
-	private function addPropertyDefinition( $propertyRegistry, $definition ) {
+	private function addPropertyDefinition( $propertyRegistry, $propertyDefinitions, $definition, $aliases ) {
 
 		$visible = isset( $definition['show'] ) ? $definition['show'] : false;
 		$annotable = false;
-
-		$alias = isset( $definition['alias'] ) ? $definition['alias'] : 'smw-unknown-alias';
 
 		// If someone screws up the definition format we just fail epically here
 		// on purpose
@@ -117,9 +115,12 @@ class PropertyRegistry {
 			$annotable
 		);
 
+		$alias = isset( $definition['alias'] ) ? $definition['alias'] : 'smw-unknown-alias';
+		$label = isset( $aliases[$definition['id']] ) ? $aliases[$definition['id']] : $propertyDefinitions->getLabel( $alias );
+
 		$propertyRegistry->registerPropertyAlias(
 			$definition['id'],
-			Message::get( $alias, null, Message::USER_LANGUAGE )
+			$label
 		);
 
 		$propertyRegistry->registerPropertyAliasByMsgKey(

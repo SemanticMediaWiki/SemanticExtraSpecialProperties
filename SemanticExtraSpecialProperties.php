@@ -120,7 +120,8 @@ class SemanticExtraSpecialProperties {
 			'wgShortUrlPrefix'        => $GLOBALS['wgShortUrlPrefix'],
 			'sespPropertyDefinitionFile' => $GLOBALS['sespPropertyDefinitionFile'],
 			'sespLocalPropertyDefinitions' => $GLOBALS['sespLocalPropertyDefinitions'],
-			'sespPropertyDefinitions' => array()
+			'sespLabelCacheVersion' => $GLOBALS['sespLabelCacheVersion'],
+			'sespPropertyDefinitions' => array(),
 		);
 
 		$hookRegistry = new HookRegistry(
