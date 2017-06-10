@@ -32,7 +32,12 @@ return array(
 	/**
 	 * Specifies the enabled properties
 	 */
-	'sespSpecialProperties' =>  array(),
+	'sespSpecialProperties' => array(),
+
+	/**
+	 * Specifies an internal cache modifier
+	 */
+	'sespLabelCacheVersion' => '2017.06',
 
 	/**
 	 * It causes bot edits via user accounts in usergroup "bot" to be ignored when

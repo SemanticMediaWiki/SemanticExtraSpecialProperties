@@ -39,7 +39,7 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$propertyDefinitions = $this->getMockBuilder( '\SESP\PropertyDefinitions' )
 			->disableOriginalConstructor()
-			->setMethods( null )
+			->setMethods( array( 'getLabels' ) )
 			->getMock();
 
 		$propertyDefinitions->setPropertyDefinitions(
@@ -69,7 +69,7 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$propertyDefinitions = $this->getMockBuilder( '\SESP\PropertyDefinitions' )
 			->disableOriginalConstructor()
-			->setMethods( null )
+			->setMethods( array( 'getLabels', 'getLabel' ) )
 			->getMock();
 
 		$propertyDefinitions->setPropertyDefinitions(
@@ -114,7 +114,7 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$propertyDefinitions = $this->getMockBuilder( '\SESP\PropertyDefinitions' )
 			->disableOriginalConstructor()
-			->setMethods( null )
+			->setMethods( array( 'getLabels', 'getLabel' ) )
 			->getMock();
 
 		$propertyDefinitions->setPropertyDefinitions(
@@ -180,7 +180,9 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 			->getMock();
 
 		$propertyDefinitions->setPropertyDefinitions(
-			array()
+			array(
+				'Foo' => [ 'id' => '___FOO' ]
+			)
 		);
 
 		$this->appFactory->expects( $this->at( 0 ) )
@@ -195,7 +197,7 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 		$this->appFactory->expects( $this->at( 2 ) )
 			->method( 'getOption' )
 			->with( $this->stringContains( 'sespSpecialProperties' ) )
-			->will( $this->returnValue( array() ) );
+			->will( $this->returnValue( array( 'Foo' ) ) );
 
 		$instance = new PropertyRegistry(
 			$this->appFactory
@@ -205,6 +207,16 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 		$fixedPropertyTablePrefix = array();
 
 		$instance->registerAsFixedProperties( $customFixedProperties, $fixedPropertyTablePrefix );
+
+		$this->assertArrayHasKey(
+			'___FOO',
+			$customFixedProperties
+		);
+
+		$this->assertEquals(
+			['___FOO' => 'smw_ftp_sesp' ],
+			$fixedPropertyTablePrefix
+		);
 	}
 
 }

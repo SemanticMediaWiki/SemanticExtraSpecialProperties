@@ -106,8 +106,15 @@ class AppFactoryTest extends \PHPUnit_Framework_TestCase {
 			$options
 		);
 
+		$propertyDefinitions = $instance->getPropertyDefinitions();
+
 		$this->assertInstanceOf(
 			'\SESP\PropertyDefinitions',
+			$propertyDefinitions
+		);
+
+		$this->assertSame(
+			$propertyDefinitions,
 			$instance->getPropertyDefinitions()
 		);
 	}
@@ -117,7 +124,18 @@ class AppFactoryTest extends \PHPUnit_Framework_TestCase {
 		$instance = new AppFactory();
 
 		$this->assertInstanceOf(
-			'\Psr\Log\LoggerInterface',
+			'\Psr\Log\NullLogger',
+			$instance->getLogger()
+		);
+
+		$logger = $this->getMockBuilder( '\Psr\Log\LoggerInterface' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$instance->setLogger( $logger );
+
+		$this->assertSame(
+			$logger,
 			$instance->getLogger()
 		);
 	}

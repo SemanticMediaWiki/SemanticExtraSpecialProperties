@@ -1,9 +1,8 @@
 
-[Extension](01-extension.md) &rarr;
-
 # Configuration
 
 Properties that are planned to be included need to be specified in the [`LocalSettings.php`][mw-localsettings] file using the `$GLOBALS['sespSpecialProperties']` array. By default the array is empty, i.e. no special property is being annotated to a page.
+
 ```php
 $GLOBALS['sespSpecialProperties'] = array(
 	'_EUSER',
@@ -62,6 +61,9 @@ as the `_EUSER` property will list all authors for everyone.
 
 The Exchangeable image file format (and thereof its Exif tags) can contain metadata about a location which
 can pose a [privacy issue][privacy].
+
+&larr; [README](README.md) | [Extension](01-extension.md) &rarr;
+
 
 [smw]: https://www.semantic-mediawiki.org/wiki/Semantic_MediaWiki
 [subobject]: https://semantic-mediawiki.org/wiki/Subobject

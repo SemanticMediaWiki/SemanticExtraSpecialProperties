@@ -1,5 +1,8 @@
 
-&larr; [Configuration](00-configuration.md)
+# Extension
+
+* [Repository extensio](#repository-extension)
+* [Local extension](#local-extension)
 
 ## Repository extension
 
@@ -47,8 +50,8 @@ Expand the property definition in `definitions.json` with something like:
   placed in the corresponding folder, and contain the details required for the value annotation supported by
   the related property
 - Add a complementary test class (e.g. `MyExt1PropertyAnnotatorTest`) to test the newly added functionality
-- Register the service with the `ExtraPropertyAnnotator`
-- Extend the `ExtraPropertyAnnotator` test to cover the newly added service
+- Register the service with the `DispatchingPropertyAnnotator`
+- Extend the `DispatchingPropertyAnnotator` test to cover the newly added service
 
 ## Local extension
 
@@ -105,3 +108,5 @@ class FooCustom {
 	}
 }
 ```
+
+&larr; [Configuration](00-configuration.md)

@@ -2,6 +2,9 @@
 
 namespace SESP;
 
+use Onoi\Cache\Cache;
+use Onoi\Cache\NullCache;
+use SMW\Message;
 use IteratorAggregate;
 use ArrayIterator;
 use InvalidArgumentException;
@@ -17,9 +20,19 @@ use InvalidArgumentException;
 class PropertyDefinitions implements IteratorAggregate {
 
 	/**
+	 * @var LabelFetcher
+	 */
+	private $labelFetcher;
+
+	/**
 	 * @var string
 	 */
 	private $propertyDefinitionFile;
+
+	/**
+	 * @var string
+	 */
+	private $labelCacheVersion = 0;
 
 	/**
 	 * @var array|null
@@ -34,9 +47,11 @@ class PropertyDefinitions implements IteratorAggregate {
 	/**
 	 * @since 2.0
 	 *
+	 * @param LabelFetcher $labelFetcher
 	 * @param string $propertyDefinitionFile
 	 */
-	public function __construct( $propertyDefinitionFile = '' ) {
+	public function __construct( LabelFetcher $labelFetcher, $propertyDefinitionFile = '' ) {
+		$this->labelFetcher = $labelFetcher;
 		$this->propertyDefinitionFile = $propertyDefinitionFile;
 
 		if ( $this->propertyDefinitionFile === '' ) {
@@ -139,6 +154,31 @@ class PropertyDefinitions implements IteratorAggregate {
 	 */
 	public function safeGet( $key, $default = false ) {
 		return $this->has( $key ) ? $this->propertyDefinitions[$key] : $default;
+	}
+
+	/**
+	 * @since 2.0
+	 *
+	 * @return array
+	 */
+	public function getLabels() {
+
+		if ( $this->propertyDefinitions === null ) {
+			$this->initPropertyDefinitions();
+		}
+
+		return $this->labelFetcher->getLabelsFrom( $this );
+	}
+
+	/**
+	 * @since 2.0
+	 *
+	 * @param string $key
+	 *
+	 * @return string
+	 */
+	public function getLabel( $key ) {
+		return $this->labelFetcher->getLabel( $key );
 	}
 
 	/**

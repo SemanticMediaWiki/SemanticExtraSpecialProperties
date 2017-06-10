@@ -70,7 +70,13 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			'callback' => $callback
 		);
 
-		$propertyDefinitions = new PropertyDefinitions();
+		$labelFetcher = $this->getMockBuilder( '\SESP\LabelFetcher' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$propertyDefinitions = new PropertyDefinitions(
+			$labelFetcher
+		);
 
 		$propertyDefinitions->setLocalPropertyDefinitions(
 			$localPropertyDefinitions
@@ -115,7 +121,13 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			'id'    => 'FAKE2'
 		);
 
-		$propertyDefinitions = new PropertyDefinitions();
+		$labelFetcher = $this->getMockBuilder( '\SESP\LabelFetcher' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$propertyDefinitions = new PropertyDefinitions(
+			$labelFetcher
+		);
 
 		$propertyDefinitions->setPropertyDefinitions(
 			$defs

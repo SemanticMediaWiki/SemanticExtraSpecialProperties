@@ -15,17 +15,29 @@ use SESP\PropertyDefinitions;
  */
 class PropertyDefinitionsTest extends \PHPUnit_Framework_TestCase {
 
+	private $labelFetcher;
+
+	protected function setup() {
+		parent::setUp();
+
+		$this->labelFetcher = $this->getMockBuilder( '\SESP\LabelFetcher' )
+			->disableOriginalConstructor()
+			->getMock();
+	}
+
 	public function testCanConstruct() {
 
 		$this->assertInstanceOf(
 			PropertyDefinitions::class,
-			new PropertyDefinitions()
+			new PropertyDefinitions( $this->labelFetcher )
 		);
 	}
 
 	public function testEmptyFile() {
 
-		$instance = new PropertyDefinitions();
+		$instance = new PropertyDefinitions(
+			$this->labelFetcher
+		);
 
 		$this->assertInstanceOf(
 			'\ArrayIterator',
@@ -42,7 +54,9 @@ class PropertyDefinitionsTest extends \PHPUnit_Framework_TestCase {
 		$key = 'SOFTWARE';
 		$expected = [ 'id' => 'Foo', 'type' => '_txt' ];
 
-		$instance = new PropertyDefinitions();
+		$instance = new PropertyDefinitions(
+			$this->labelFetcher
+		);
 
 		$instance->setPropertyDefinitions(
 			$defs
@@ -58,6 +72,34 @@ class PropertyDefinitionsTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
+	public function testSafeGet() {
+
+		$defs = [
+			'SOFTWARE' => [ 'id' => 'Foo', 'type' => '_txt' ]
+		];
+
+		$key = 'SOFTWARE';
+		$expected = [ 'id' => 'Foo', 'type' => '_txt' ];
+
+		$instance = new PropertyDefinitions(
+			$this->labelFetcher
+		);
+
+		$instance->setPropertyDefinitions(
+			$defs
+		);
+
+		$this->assertEquals(
+			[],
+			$instance->safeGet( 'Foo', [] )
+		);
+
+		$this->assertEquals(
+			$expected,
+			$instance->safeGet( $key )
+		);
+	}
+
 	public function testDeepHasGet() {
 
 		$defs = [
@@ -67,7 +109,9 @@ class PropertyDefinitionsTest extends \PHPUnit_Framework_TestCase {
 		$key = 'SOFTWARE';
 		$expected = 'Foo';
 
-		$instance = new PropertyDefinitions();
+		$instance = new PropertyDefinitions(
+			$this->labelFetcher
+		);
 
 		$instance->setPropertyDefinitions(
 			$defs
@@ -81,6 +125,52 @@ class PropertyDefinitionsTest extends \PHPUnit_Framework_TestCase {
 			$expected,
 			$instance->deepGet( $key, 'id' )
 		);
+	}
+
+	public function testLocalDef() {
+
+		$defs = [
+			'SOFTWARE' => [ 'id' => 'Foo', 'type' => '_txt' ]
+		];
+
+		$key = 'SOFTWARE';
+		$expected = 'Foo';
+
+		$instance = new PropertyDefinitions(
+			$this->labelFetcher
+		);
+
+		$instance->setLocalPropertyDefinitions(
+			$defs
+		);
+
+		$this->assertTrue(
+			$instance->isLocalDef( $key )
+		);
+	}
+
+	public function testGetLabels() {
+
+		$this->labelFetcher->expects( $this->once() )
+			->method( 'getLabelsFrom' );
+
+		$instance = new PropertyDefinitions(
+			$this->labelFetcher
+		);
+
+		$instance->getLabels();
+	}
+
+	public function testGetLabel() {
+
+		$this->labelFetcher->expects( $this->once() )
+			->method( 'getLabel' );
+
+		$instance = new PropertyDefinitions(
+			$this->labelFetcher
+		);
+
+		$instance->getLabel( 'Foo' );
 	}
 
 }

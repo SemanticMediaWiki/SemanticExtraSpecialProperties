@@ -106,16 +106,15 @@ class HookRegistry {
 
 	private function registerCallbackHandlers( $configuration ) {
 
-		$appFactory = new AppFactory(
-			$configuration
-		);
+		$applicationFactory = \SMW\ApplicationFactory::getInstance();
 
-		$appFactory->setConnection(
-			wfGetDB( DB_SLAVE )
+		$appFactory = new AppFactory(
+			$configuration,
+			$applicationFactory->getCache()
 		);
 
 		$appFactory->setLogger(
-			\SMW\ApplicationFactory::getInstance()->getMediaWikiLogger( 'sesp' )
+			$applicationFactory->getMediaWikiLogger( 'sesp' )
 		);
 
 		$propertyRegistry = new PropertyRegistry(

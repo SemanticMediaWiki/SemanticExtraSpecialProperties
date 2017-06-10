@@ -108,7 +108,13 @@ class ExifPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	 */
 	public function testAddAnnotation( $meta, $defs, $expected ) {
 
-		$propertyDefinitions = new PropertyDefinitions();
+		$labelFetcher = $this->getMockBuilder( '\SESP\LabelFetcher' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$propertyDefinitions = new PropertyDefinitions(
+			$labelFetcher
+		);
 
 		$propertyDefinitions->setPropertyDefinitions(
 			$defs
