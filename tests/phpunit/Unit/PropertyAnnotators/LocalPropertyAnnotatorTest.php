@@ -25,7 +25,7 @@ class LocalPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$this->appFactory = $this->getMockBuilder( '\SESP\AppFactory' )
 			->disableOriginalConstructor()
-			->setMethods( array( 'getOption' ) )
+			->setMethods( [ 'getOption' ] )
 			->getMock();
 
 		$this->property = new DIProperty( 'FAKE_PROP' );
@@ -58,12 +58,12 @@ class LocalPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			return $semanticData->getSubject();
 		};
 
-		$localPropertyDefinitions = array();
+		$localPropertyDefinitions = [];
 
-		$localPropertyDefinitions['FAKE_PROP'] = array(
+		$localPropertyDefinitions['FAKE_PROP'] = [
 			'id'    => 'FAKE_PROP',
 			'callback' => $callback
-		);
+		];
 
 		$this->appFactory->expects( $this->once() )
 			->method( 'getOption' )
@@ -92,8 +92,8 @@ class LocalPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$subject = DIWikiPage::newFromText( __METHOD__ );
 
-		$localPropertyDefinitions = array();
-		$localPropertyDefinitions['FAKE_PROP'] = array();
+		$localPropertyDefinitions = [];
+		$localPropertyDefinitions['FAKE_PROP'] = [];
 
 		$this->appFactory->expects( $this->once() )
 			->method( 'getOption' )

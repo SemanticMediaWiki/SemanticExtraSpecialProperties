@@ -59,7 +59,7 @@ class ShortUrlPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$instance = $this->getMockBuilder( ShortUrlPropertyAnnotator::class )
 			->disableOriginalConstructor()
-			->setMethods( array( 'hasShortUrlUtils' ) )
+			->setMethods( [ 'hasShortUrlUtils' ] )
 			->getMock();
 
 		$instance->expects( $this->once() )
@@ -86,7 +86,7 @@ class ShortUrlPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$instance = $this->getMockBuilder( ShortUrlPropertyAnnotator::class )
 			->disableOriginalConstructor()
-			->setMethods( array( 'hasShortUrlUtils', 'getShortUrl' ) )
+			->setMethods( [ 'hasShortUrlUtils', 'getShortUrl' ] )
 			->getMock();
 
 		$instance->expects( $this->once() )

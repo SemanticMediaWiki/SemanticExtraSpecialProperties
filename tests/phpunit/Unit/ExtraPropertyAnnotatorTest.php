@@ -56,7 +56,7 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$appFactory = $this->getMockBuilder( '\SESP\AppFactory' )
 			->disableOriginalConstructor()
-			->setMethods( array( 'getPropertyDefinitions', 'getOption' ) )
+			->setMethods( [ 'getPropertyDefinitions', 'getOption' ] )
 			->getMock();
 
 		$subject = DIWikiPage::newFromText( __METHOD__ );
@@ -65,10 +65,10 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			return $semanticData->getSubject();
 		};
 
-		$localPropertyDefinitions['FAKE_PROP'] = array(
+		$localPropertyDefinitions['FAKE_PROP'] = [
 			'id'    => 'FAKE_PROP',
 			'callback' => $callback
-		);
+		];
 
 		$labelFetcher = $this->getMockBuilder( '\SESP\LabelFetcher' )
 			->disableOriginalConstructor()
@@ -110,16 +110,16 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$appFactory = $this->getMockBuilder( '\SESP\AppFactory' )
 			->disableOriginalConstructor()
-			->setMethods( array( 'getPropertyDefinitions', 'getOption' ) )
+			->setMethods( [ 'getPropertyDefinitions', 'getOption' ] )
 			->getMock();
 
 		$subject = DIWikiPage::newFromText( __METHOD__ );
 
-		$specialProperties = array( 'FAKE2' );
+		$specialProperties = [ 'FAKE2' ];
 
-		$defs['FAKE2'] = array(
+		$defs['FAKE2'] = [
 			'id'    => 'FAKE2'
-		);
+		];
 
 		$labelFetcher = $this->getMockBuilder( '\SESP\LabelFetcher' )
 			->disableOriginalConstructor()

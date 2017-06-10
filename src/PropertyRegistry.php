@@ -52,7 +52,7 @@ class PropertyRegistry {
 			$this->addPropertyDefinition( $propertyRegistry, $propertyDefinitions, $definition, $labels );
 		}
 
-		foreach ( $propertyDefinitions->safeGet( '_EXIF', array() ) as $key => $definition ) {
+		foreach ( $propertyDefinitions->safeGet( '_EXIF', [] ) as $key => $definition ) {
 
 			if ( !isset( $definition['id'] ) ) {
 				continue;
@@ -79,7 +79,7 @@ class PropertyRegistry {
 		$propertyDefinitions = $this->appFactory->getPropertyDefinitions();
 
 		$properties = array_flip(
-			$this->appFactory->getOption( 'sespSpecialProperties', array() )
+			$this->appFactory->getOption( 'sespSpecialProperties', [] )
 		);
 
 		foreach ( $propertyDefinitions as $key => $definition ) {
@@ -91,7 +91,7 @@ class PropertyRegistry {
 			$id = $definition['id'];
 
 			if ( isset( $properties[$key] ) ) {
-				$customFixedProperties[$id] = str_replace( array( '___', '__' ), '_', strtolower( $id ) );
+				$customFixedProperties[$id] = str_replace( [ '___', '__' ], '_', strtolower( $id ) );
 
 				// Legacy setting `smw_ftp` vs. `smw_fpt`
 				$fixedPropertyTablePrefix[$id] = 'smw_ftp_sesp';

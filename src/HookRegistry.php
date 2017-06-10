@@ -15,7 +15,7 @@ class HookRegistry {
 	/**
 	 * @var array
 	 */
-	private $handlers = array();
+	private $handlers = [];
 
 	/**
 	 * @since 1.0
@@ -80,10 +80,10 @@ class HookRegistry {
 	 */
 	public static function onBeforeConfigCompletion( &$config ) {
 
-		$exemptionlist = array(
+		$exemptionlist = [
 			'___EUSER', '___CUSER', '___SUBP', '___REVID', '___VIEWS',
 			'___NREV', '___NTREV', '___USEREDITCNT', '___EXIFDATA'
-		);
+		];
 
 		// Exclude listed properties from indexing
 		if ( isset( $config['smwgFulltextSearchPropertyExemptionList'] ) ) {

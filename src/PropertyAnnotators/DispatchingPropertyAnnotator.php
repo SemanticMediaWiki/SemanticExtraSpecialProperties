@@ -29,7 +29,7 @@ class DispatchingPropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * @var PropertyAnnotator[]
 	 */
-	private $propertyAnnotators = array();
+	private $propertyAnnotators = [];
 
 	/**
 	 * @var PropertyAnnotator
@@ -84,7 +84,7 @@ class DispatchingPropertyAnnotator implements PropertyAnnotator {
 
 		$key = $property->getKey();
 
-		if ( $this->propertyAnnotators === array() ) {
+		if ( $this->propertyAnnotators === [] ) {
 			$this->initDefaultPropertyAnnotators();
 		}
 
@@ -101,7 +101,7 @@ class DispatchingPropertyAnnotator implements PropertyAnnotator {
 
 		// Encapsulate each instance to avoid direct instantiation for unused
 		// matches
-		$this->propertyAnnotators = array(
+		$this->propertyAnnotators = [
 
 			CreatorPropertyAnnotator::PROP_ID => function( $appFactory ) {
 				return new CreatorPropertyAnnotator( $appFactory );
@@ -155,7 +155,7 @@ class DispatchingPropertyAnnotator implements PropertyAnnotator {
 				return new ExifPropertyAnnotator( $appFactory );
 			},
 
-		);
+		];
 	}
 
 }

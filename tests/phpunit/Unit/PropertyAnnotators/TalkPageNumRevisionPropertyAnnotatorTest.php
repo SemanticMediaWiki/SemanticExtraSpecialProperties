@@ -84,7 +84,7 @@ class TalkPageNumRevisionPropertyAnnotatorTest extends \PHPUnit_Framework_TestCa
 
 		$connection = $this->getMockBuilder( '\stdClass' )
 			->disableOriginalConstructor()
-			->setMethods( array( 'estimateRowCount' ) )
+			->setMethods( [ 'estimateRowCount' ] )
 			->getMock();
 
 		$connection->expects( $this->once() )
@@ -115,25 +115,25 @@ class TalkPageNumRevisionPropertyAnnotatorTest extends \PHPUnit_Framework_TestCa
 
 	public function rowCountProvider() {
 
-		$provider[] = array(
+		$provider[] = [
 			42,
 			$this->once()
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			0,
 			$this->never()
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			null,
 			$this->never()
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			'Foo',
 			$this->never()
-		);
+		];
 
 		return $provider;
 	}

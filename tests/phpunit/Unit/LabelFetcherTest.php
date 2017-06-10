@@ -88,7 +88,7 @@ class LabelFetcherTest extends \PHPUnit_Framework_TestCase {
 
 		$propertyDefinitions = $this->getMockBuilder( '\SESP\PropertyDefinitions' )
 			->disableOriginalConstructor()
-			->setMethods( array( 'getLabels' ) )
+			->setMethods( [ 'getLabels' ] )
 			->getMock();
 
 		$this->cache->expects( $this->once() )

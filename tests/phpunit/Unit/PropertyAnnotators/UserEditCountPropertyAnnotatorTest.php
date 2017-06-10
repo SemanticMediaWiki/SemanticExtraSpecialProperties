@@ -102,20 +102,20 @@ class UserEditCountPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 	public function editCountProvider() {
 
-		$provider[] = array(
+		$provider[] = [
 			42,
 			$this->once()
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			null,
 			$this->never()
-		);
+		];
 
-		$provider[] = array(
+		$provider[] = [
 			'Foo',
 			$this->never()
-		);
+		];
 
 		return $provider;
 	}

@@ -56,7 +56,7 @@ class ExtraPropertyAnnotator {
 
 		$propertyDefinitions = $this->appFactory->getPropertyDefinitions();
 
-		foreach ( $this->appFactory->getOption( 'sespSpecialProperties', array() ) as $key ) {
+		foreach ( $this->appFactory->getOption( 'sespSpecialProperties', [] ) as $key ) {
 
 			if ( !$propertyDefinitions->deepHas( $key, 'id' ) ) {
 				continue;

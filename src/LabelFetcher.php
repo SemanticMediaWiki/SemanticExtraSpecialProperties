@@ -82,29 +82,29 @@ class LabelFetcher {
 
 		$hash = smwfCacheKey(
 			self::LABEL_CACHE_NAMESPACE,
-			array(
+			[
 				$propertyDefinitions,
 				$this->languageCode,
 				$this->labelCacheVersion
-			)
+			]
 		);
 
 		if ( $this->labelCacheVersion !== false && ( $labels = $this->cache->fetch( $hash ) ) !== false ) {
 			return $labels;
 		}
 
-		$labels = array();
-		$exifDefinitions = array();
+		$labels = [];
+		$exifDefinitions = [];
 
 		foreach ( $propertyDefinitions as $key => $definition ) {
 			$this->matchLabel( $labels, $definition );
 		}
 
-		foreach ( $propertyDefinitions->safeGet( '_EXIF', array() ) as $key => $definition ) {
+		foreach ( $propertyDefinitions->safeGet( '_EXIF', [] ) as $key => $definition ) {
 			$this->matchLabel( $labels, $definition );
 		}
 
-		if ( $labels !== array() ) {
+		if ( $labels !== [] ) {
 			$this->cache->save( $hash, $labels, 3600 * 24 );
 		}
 

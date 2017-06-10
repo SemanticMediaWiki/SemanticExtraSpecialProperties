@@ -59,7 +59,7 @@ class SubPagePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$title->expects( $this->once() )
 			->method( 'getSubpages' )
-			->will( $this->returnValue( array( $sub ) ) );
+			->will( $this->returnValue( [ $sub ] ) );
 
 		$subject = $this->getMockBuilder( '\SMW\DIWikiPage' )
 			->disableOriginalConstructor()
