@@ -7,6 +7,7 @@
 		]
 	},
 	"sesp-desc": "Stellt zusätzliche Spezialattribute bereit",
+	"sesp-property-unknown-label": "Unbekannte Bezeichnung oder unbekannter Alias",
 	"sesp-property-author": "Seitenbearbeiter",
 	"sesp-property-first-author": "Seitenersteller",
 	"sesp-property-revision-id": "Bearbeitungskennung",

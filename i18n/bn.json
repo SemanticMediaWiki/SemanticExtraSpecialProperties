@@ -4,6 +4,7 @@
 			"Aftabuzzaman"
 		]
 	},
+	"sesp-property-unknown-label": "অজানা লেবেল বা উপনাম",
 	"sesp-property-author": "পাতার লেখক",
 	"sesp-property-first-author": "পাতার স্রষ্টা",
 	"sesp-property-page-id-desc": "\"$1\" একটি পাতার মিডিয়াউইকি আইডি চিহ্নিত করে ও এটি [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP] এক্সটেনশনটি দ্বারা প্রদান করা হয়েছে।",

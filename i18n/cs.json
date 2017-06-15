@@ -2,9 +2,19 @@
 	"@metadata": {
 		"authors": [
 			"Mormegil",
-			"Vks"
+			"Vks",
+			"Aktron",
+			"Dvorapa"
 		]
 	},
+	"sesp-property-author": "Autor stránky",
+	"sesp-property-first-author": "Stránku vytvořil",
+	"sesp-property-revision-id": "ID revize",
+	"sesp-property-page-id": "ID stránky",
+	"sesp-property-page-len": "Velikost stránky",
+	"sesp-property-mimetype": "MIME typ",
+	"sesp-property-mediatype": "Typ média",
 	"sesp-property-shorturl": "Krátké URL",
+	"sesp-property-user-edit-count": "Počet editací uživatele",
 	"sesp-property-exif-data": "Data EXIF"
 }

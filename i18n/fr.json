@@ -9,6 +9,7 @@
 		]
 	},
 	"sesp-desc": "Ajoute des propriétés spéciales supplémentaires à toutes les pages",
+	"sesp-property-unknown-label": "Etiquette ou alias inconnu",
 	"sesp-property-author": "Auteur de la page",
 	"sesp-property-first-author": "Créateur de la page",
 	"sesp-property-revision-id": "ID de révision",
