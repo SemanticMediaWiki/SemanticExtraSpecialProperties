@@ -3,7 +3,8 @@
 		"authors": [
 			"SPQRobin",
 			"Siebrand",
-			"Esketti"
+			"Esketti",
+			"Mainframe98"
 		]
 	},
 	"sesp-desc": "Voegt extra bijzondere eigenschappen toe aan alle pagina's",
@@ -11,6 +12,7 @@
 	"sesp-property-first-author": "Paginamaker",
 	"sesp-property-revision-id": "Versienummer",
 	"sesp-property-page-id": "Pagina-ID",
+	"sesp-property-page-len": "Paginalengte",
 	"sesp-property-view-count": "Aantal keren bekeken",
 	"sesp-property-subpages": "Subpagina",
 	"sesp-property-revisions": "Aantal versies",
