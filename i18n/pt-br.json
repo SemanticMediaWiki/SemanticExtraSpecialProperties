@@ -4,15 +4,18 @@
 			"Amgauna",
 			"Jaideraf",
 			"Tuliouel",
-			"Trigonometria87"
+			"Trigonometria87",
+			"Eduardo Addad de Oliveira"
 		]
 	},
 	"sesp-desc": "Adiciona algumas propriedades especiais para todas as páginas",
+	"sesp-property-unknown-label": "Etiqueta ou nome alternativo desconhecidos",
 	"sesp-property-author": "Autor da página",
 	"sesp-property-first-author": "Criador da página",
 	"sesp-property-revision-id": "ID da revisão",
 	"sesp-property-page-id": "ID da página",
 	"sesp-property-page-id-desc": "\"$1\" identifica a ID MediaWiki de uma página e é fornecida pela extensão [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP].",
+	"sesp-property-page-len": "Tamanho da página",
 	"sesp-property-page-len-desc": "\"$1\" indentifica o comprimento de uma página em bytes e é fornecida pela extensão [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP].",
 	"sesp-property-view-count": "Número de visualizações da página",
 	"sesp-property-subpages": "Subpágina",
