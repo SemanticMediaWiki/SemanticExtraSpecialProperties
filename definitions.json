@@ -432,7 +432,7 @@
 		"IIMCATEGORY": {
 			"id": "___EXIFIIMCATEGORY",
 			"type": "_txt",
-			"alias": "exif-iimcategory",
+			"alias": "sesp-exif-iimcategory",
 			"label": "Exif:Iim category"
 		},
 		"SUBJECTNEWSCODE": {
@@ -720,7 +720,7 @@
 		"LABEL": {
 			"id": "___EXIFLABEL",
 			"type": "_txt",
-			"alias": "exif-label",
+			"alias": "sesp-exif-label",
 			"label": "Exif:Label"
 		},
 		"NICKNAME": {
@@ -846,7 +846,7 @@
 		"LANGUAGECODE": {
 			"id": "___EXIFLANGUAGECODE",
 			"type": "_txt",
-			"alias": "exif-languagecode",
+			"alias": "sesp-exif-languagecode",
 			"label": "Exif:Language code"
 		}
 	}
