@@ -24,5 +24,8 @@
 	"sesp-property-shorturl": "Kurz-URL",
 	"sesp-property-user-registration-date": "Benutzerregistrierungsdatum",
 	"sesp-property-user-edit-count": "Anzahl der Benutzerbearbeitungen",
-	"sesp-property-exif-data": "Exif-Daten"
+	"sesp-property-exif-data": "Exif-Daten",
+	"sesp-exif-languagecode": "Exif:Sprachcode",
+	"sesp-exif-label": "Exif:Beschreibung",
+	"sesp-exif-iimcategory": "Exif:IIM-Kategorie"
 }

@@ -3,7 +3,8 @@
 		"authors": [
 			"Chrumps",
 			"Jacenty359",
-			"Devwebtel"
+			"Devwebtel",
+			"InternerowyGołąb"
 		]
 	},
 	"sesp-desc": "Dodaje kilka dodatkowych specjalnych właściwości do wszystkich stron",
@@ -20,5 +21,7 @@
 	"sesp-property-shorturl": "Krótki URL",
 	"sesp-property-user-registration-date": "Data rejestracji użytkownika",
 	"sesp-property-user-edit-count": "Licznik edycji użytkownika",
-	"sesp-property-exif-data": "Dane EXIF"
+	"sesp-property-exif-data": "Dane EXIF",
+	"sesp-exif-languagecode": "Exif:Kod języka",
+	"sesp-exif-label": "Exif:Etykieta"
 }

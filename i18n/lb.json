@@ -17,5 +17,8 @@
 	"sesp-property-shorturl": "Kuerz URL",
 	"sesp-property-user-registration-date": "Datum vun der Umellung vum Benotzer",
 	"sesp-property-user-edit-count": "Compteur vu Benotzerännerungen",
-	"sesp-property-exif-data": "Exif-Donnéeën"
+	"sesp-property-exif-data": "Exif-Donnéeën",
+	"sesp-exif-languagecode": "Exif:Sproochecode",
+	"sesp-exif-label": "Exif:Etikett",
+	"sesp-exif-iimcategory": "Exif:IIM-Kategorie"
 }

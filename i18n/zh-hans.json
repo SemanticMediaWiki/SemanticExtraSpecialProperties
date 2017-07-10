@@ -26,5 +26,8 @@
 	"sesp-property-shorturl": "简短URL",
 	"sesp-property-user-registration-date": "用户注册日期",
 	"sesp-property-user-edit-count": "用户编辑数",
-	"sesp-property-exif-data": "EXIF数据"
+	"sesp-property-exif-data": "EXIF数据",
+	"sesp-exif-languagecode": "Exif:语言代码",
+	"sesp-exif-label": "Exif:标签",
+	"sesp-exif-iimcategory": "Exif:Iim分类"
 }

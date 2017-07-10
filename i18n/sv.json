@@ -22,5 +22,8 @@
 	"sesp-property-shorturl": "Kortlänk",
 	"sesp-property-user-registration-date": "Användarens registreringsdatum",
 	"sesp-property-user-edit-count": "Användarens antal redigeringar",
-	"sesp-property-exif-data": "Exif-data"
+	"sesp-property-exif-data": "Exif-data",
+	"sesp-exif-languagecode": "Exif:Språkkod",
+	"sesp-exif-label": "Exif:Etikett",
+	"sesp-exif-iimcategory": "Exif:Iim-kategori"
 }
