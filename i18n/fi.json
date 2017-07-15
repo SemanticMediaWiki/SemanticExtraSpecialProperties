@@ -5,7 +5,8 @@
 			"Nedergard",
 			"Nike",
 			"Stryn",
-			"Pyscowicz"
+			"Pyscowicz",
+			"Silvonen"
 		]
 	},
 	"sesp-desc": "Lisää joitain erikoisominaisuuksia kaikille sivuille",
@@ -13,6 +14,7 @@
 	"sesp-property-first-author": "Sivun luonut",
 	"sesp-property-revision-id": "Versiotunniste",
 	"sesp-property-page-id": "Sivun tunniste",
+	"sesp-property-page-len": "Sivun pituus",
 	"sesp-property-view-count": "Näyttökertojen määrä",
 	"sesp-property-subpages": "Alasivu",
 	"sesp-property-revisions": "Muokkausten määrä",

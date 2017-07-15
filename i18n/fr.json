@@ -26,5 +26,8 @@
 	"sesp-property-shorturl": "URL courte",
 	"sesp-property-user-registration-date": "Date d'inscription de l'utilisateur",
 	"sesp-property-user-edit-count": "Compteur d'édition de l'utilisateur",
-	"sesp-property-exif-data": "Données Exif"
+	"sesp-property-exif-data": "Données Exif",
+	"sesp-exif-languagecode": "Exif:Code de langue",
+	"sesp-exif-label": "Exif:Libellé",
+	"sesp-exif-iimcategory": "Exif:Catégorie lim"
 }
