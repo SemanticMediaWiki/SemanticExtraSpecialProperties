@@ -17,5 +17,8 @@
 	"sesp-property-mediatype": "Media mota",
 	"sesp-property-shorturl": "URL motza",
 	"sesp-property-user-registration-date": "Erabiltzaile erregistro data",
-	"sesp-property-user-edit-count": "Lankidearen aldaketa kontagailua"
+	"sesp-property-user-edit-count": "Lankidearen aldaketa kontagailua",
+	"sesp-exif-languagecode": "Exif:Hizkuntza kodea",
+	"sesp-exif-label": "Exif:Marka",
+	"sesp-exif-iimcategory": "Exif:lim Kategoria"
 }

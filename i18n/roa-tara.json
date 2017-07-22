@@ -5,10 +5,14 @@
 		]
 	},
 	"sesp-desc": "Aggiunge quacche probbietà speciale extra a tutte le pàggene",
+	"sesp-property-unknown-label": "Etichette scanusciute o alias",
 	"sesp-property-author": "Autore d'a pàgene",
 	"sesp-property-first-author": "Ccrejatore d'a pàgene",
 	"sesp-property-revision-id": "ID d'a revisione",
 	"sesp-property-page-id": "ID d'a pàgene",
+	"sesp-property-page-id-desc": "\"$1\" idendifiche l'ID MediaUicchi de 'na pàgene e jè date da l'estenzione [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP].",
+	"sesp-property-page-len": "Lunghezze d'a pàgene",
+	"sesp-property-page-len-desc": "\"$1\" idendifiche 'a lunghezze de 'na pàgene in byte e jè date da l'estenzione [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP].",
 	"sesp-property-view-count": "Numere de pàggene viste",
 	"sesp-property-subpages": "Sottopàgene",
 	"sesp-property-revisions": "Numere de le revisiune",
@@ -20,5 +24,6 @@
 	"sesp-property-user-edit-count": "Condatore de le cangiaminde de l'utende",
 	"sesp-property-exif-data": "Date Exif",
 	"sesp-exif-languagecode": "Exif:Languge code",
-	"sesp-exif-label": "Exif:Label"
+	"sesp-exif-label": "Exif:Label",
+	"sesp-exif-iimcategory": "Exif:Iim Category"
 }

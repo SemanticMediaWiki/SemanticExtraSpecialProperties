@@ -5,7 +5,8 @@
 			"Steve.rusyn",
 			"SteveR",
 			"Ата",
-			"Piramidion"
+			"Piramidion",
+			"Base"
 		]
 	},
 	"sesp-desc": "Додає деякі додаткові спеціальні властивості для всіх сторінок",
@@ -14,6 +15,7 @@
 	"sesp-property-first-author": "Творець сторінки",
 	"sesp-property-revision-id": "ID версії",
 	"sesp-property-page-id": "ID сторінки",
+	"sesp-property-page-len": "Довжина сторінки",
 	"sesp-property-view-count": "Кількість переглядів сторінки",
 	"sesp-property-subpages": "Підсторінка",
 	"sesp-property-revisions": "Кількість версій",
