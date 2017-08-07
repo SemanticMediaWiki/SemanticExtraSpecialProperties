@@ -22,5 +22,8 @@
 	"sesp-property-shorturl": "Кратка URL",
 	"sesp-property-user-registration-date": "Датум на регистрација на корисникот",
 	"sesp-property-user-edit-count": "Бр. на кориснички уредувања",
-	"sesp-property-exif-data": "Exif-податоци"
+	"sesp-property-exif-data": "Exif-податоци",
+	"sesp-exif-languagecode": "Exif:Јазичен код",
+	"sesp-exif-label": "Exif:Опис",
+	"sesp-exif-iimcategory": "Exif:Iim-категорија"
 }
