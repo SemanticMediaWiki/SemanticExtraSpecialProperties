@@ -8,6 +8,7 @@
 		]
 	},
 	"sesp-desc": "Voegt extra bijzondere eigenschappen toe aan alle pagina's",
+	"sesp-property-unknown-label": "Onbekend label of alias",
 	"sesp-property-author": "Paginaauteur",
 	"sesp-property-first-author": "Paginamaker",
 	"sesp-property-revision-id": "Versienummer",

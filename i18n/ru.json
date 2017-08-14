@@ -12,6 +12,7 @@
 	"sesp-property-first-author": "Создатель страницы",
 	"sesp-property-revision-id": "Идентификатор правки",
 	"sesp-property-page-id": "Идентификатор страницы",
+	"sesp-property-page-len": "Длина страницы",
 	"sesp-property-view-count": "Количество просмотров страницы",
 	"sesp-property-subpages": "Подстраница",
 	"sesp-property-revisions": "Количество правок",
