@@ -1,8 +1,31 @@
 {
 	"@metadata": {
 		"authors": [
-			"Tarawneh"
+			"Tarawneh",
+			"Mido",
+			"ديفيد"
 		]
 	},
-	"sesp-property-page-id": "معرف الصفحة"
+	"sesp-desc": "يضيف بعض الخصائص الخاصة الإضافية لجميع الصفحات",
+	"sesp-property-unknown-label": "التسمية أو الاسم المستعار غير معروفة",
+	"sesp-property-author": "مؤلف الصفحة",
+	"sesp-property-first-author": "منشئ الصفحة",
+	"sesp-property-revision-id": "معرف المراجعة",
+	"sesp-property-page-id": "معرف الصفحة",
+	"sesp-property-page-id-desc": "\"$1\" يحدد معرف ميدياويكي للصفحة ويتم توفيره من قبل تمديد\n[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP].",
+	"sesp-property-page-len": "طول الصفحة",
+	"sesp-property-page-len-desc": "\"$1\" يحدد طول الصفحة بالبايت ويتم توفيره من قبل تمديد [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP].",
+	"sesp-property-view-count": "عدد مشاهدات الصفحة",
+	"sesp-property-subpages": "صفحة فرعية",
+	"sesp-property-revisions": "عدد المراجعات",
+	"sesp-property-talk-revisions": "عدد مراجعات صفحة النقاش",
+	"sesp-property-mimetype": "نوع MIME",
+	"sesp-property-mediatype": "نوع الوسائط",
+	"sesp-property-shorturl": "مسار قصير",
+	"sesp-property-user-registration-date": "تاريخ تسجيل المستخدم",
+	"sesp-property-user-edit-count": "عداد تعديلات المستخدم",
+	"sesp-property-exif-data": "بيانات Exif",
+	"sesp-exif-languagecode": "Exif:كود لغة",
+	"sesp-exif-label": "Exif:تسمية",
+	"sesp-exif-iimcategory": "Exif:Iim تصنيف"
 }
