@@ -4,7 +4,8 @@
 			"Armin1392",
 			"Mjbmr",
 			"ZxxZxxZ",
-			"Reza1615"
+			"Reza1615",
+			"Alirezaaa"
 		]
 	},
 	"sesp-desc": "افزودن برخی خواص ویژه اضافی به همه صفحات",
@@ -12,6 +13,7 @@
 	"sesp-property-first-author": "ایجاد کنندهٔ صفحه",
 	"sesp-property-revision-id": "شناسهٔ بازبینی",
 	"sesp-property-page-id": "شناسهٔ صفحه",
+	"sesp-property-page-len": "طول صفحه",
 	"sesp-property-view-count": "تعداد مشاهده‌ٔ صفحات",
 	"sesp-property-subpages": "زیرصفحه",
 	"sesp-property-revisions": "تعداد نسخه‌ها",
@@ -21,5 +23,8 @@
 	"sesp-property-shorturl": "نشانی کوتاه",
 	"sesp-property-user-registration-date": "تاریخ ثبت‌نام کاربر",
 	"sesp-property-user-edit-count": "شمار ویرایش‌های کاربر",
-	"sesp-property-exif-data": "اطلاعات اگزیف"
+	"sesp-property-exif-data": "اطلاعات اگزیف",
+	"sesp-exif-languagecode": "Exif:Languge code",
+	"sesp-exif-label": "Exif:Label",
+	"sesp-exif-iimcategory": "Exif:Iim Category"
 }
