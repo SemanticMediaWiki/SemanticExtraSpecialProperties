@@ -4,7 +4,8 @@
 			"Mormegil",
 			"Vks",
 			"Aktron",
-			"Dvorapa"
+			"Dvorapa",
+			"Martin Urbanec"
 		]
 	},
 	"sesp-property-author": "Autor stránky",
@@ -12,9 +13,14 @@
 	"sesp-property-revision-id": "ID revize",
 	"sesp-property-page-id": "ID stránky",
 	"sesp-property-page-len": "Velikost stránky",
+	"sesp-property-view-count": "Počet návštěv stránky",
+	"sesp-property-subpages": "Podstránka",
+	"sesp-property-revisions": "Počet editací",
+	"sesp-property-talk-revisions": "Počet editací na diskusních stránkách",
 	"sesp-property-mimetype": "MIME typ",
 	"sesp-property-mediatype": "Typ média",
 	"sesp-property-shorturl": "Krátké URL",
+	"sesp-property-user-registration-date": "Datum registrace uživatele",
 	"sesp-property-user-edit-count": "Počet editací uživatele",
 	"sesp-property-exif-data": "Data EXIF"
 }
