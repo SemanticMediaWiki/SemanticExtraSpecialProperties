@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Joedalton"
+		]
+	},
+	"sesp-property-author": "Sideforfatter",
+	"sesp-property-revisions": "Antal revisioner",
+	"sesp-property-mimetype": "MIME-type",
+	"sesp-property-mediatype": "Medietype",
+	"sesp-property-exif-data": "Exif-data",
+	"sesp-exif-languagecode": "Exif:Sprog-kode",
+	"sesp-exif-label": "Exif:Etiket",
+	"sesp-exif-iimcategory": "Exif:Iim-kategori"
+}
