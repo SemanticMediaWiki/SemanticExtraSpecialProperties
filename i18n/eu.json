@@ -6,6 +6,7 @@
 			"Mikel Ibaiba"
 		]
 	},
+	"sesp-property-unknown-label": "Etiketa edo alias ezezagunak",
 	"sesp-property-author": "Orriaren egilea",
 	"sesp-property-first-author": "Orriaren sortzailea",
 	"sesp-property-revision-id": "Berrikuspen IDa",
@@ -13,6 +14,7 @@
 	"sesp-property-page-len": "Orri luzeera",
 	"sesp-property-view-count": "Ikustaldi kopurua",
 	"sesp-property-subpages": "Azpiorrialdea",
+	"sesp-property-revisions": "Berrikusketa zenbakiak",
 	"sesp-property-mimetype": "MIME mota",
 	"sesp-property-mediatype": "Media mota",
 	"sesp-property-shorturl": "URL motza",
