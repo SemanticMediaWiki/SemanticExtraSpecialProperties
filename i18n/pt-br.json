@@ -5,7 +5,8 @@
 			"Jaideraf",
 			"Tuliouel",
 			"Trigonometria87",
-			"Eduardo Addad de Oliveira"
+			"Eduardo Addad de Oliveira",
+			"Felipe L. Ewald"
 		]
 	},
 	"sesp-desc": "Adiciona algumas propriedades especiais para todas as páginas",
@@ -28,5 +29,6 @@
 	"sesp-property-user-edit-count": "Contador de edições do usuário",
 	"sesp-property-exif-data": "Dados Exif",
 	"sesp-exif-languagecode": "Exif:Código de língua",
-	"sesp-exif-label": "Exif:Etiqueta"
+	"sesp-exif-label": "Exif:Etiqueta",
+	"sesp-exif-iimcategory": "Exif:Categoria Iim"
 }
