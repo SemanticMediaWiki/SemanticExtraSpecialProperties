@@ -25,7 +25,7 @@
 	"sesp-property-user-registration-date": "User registration date",
 	"sesp-property-user-edit-count": "User edit count",
 	"sesp-property-exif-data": "Exif data",
-	"sesp-exif-languagecode": "Exif:Languge code",
+	"sesp-exif-languagecode": "Exif:Language code",
 	"sesp-exif-label": "Exif:Label",
 	"sesp-exif-iimcategory": "Exif:Iim Category"
 }
