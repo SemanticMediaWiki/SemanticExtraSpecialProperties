@@ -18,5 +18,6 @@
 	"sesp-property-shorturl": "সংক্ষিপ্ত URL",
 	"sesp-property-user-registration-date": "ব্যবহারকারীর নিবন্ধনের তারিখ",
 	"sesp-property-user-edit-count": "ব্যবহারকারী সম্পাদনা গণনা",
-	"sesp-property-exif-data": "Exif উপাত্ত"
+	"sesp-property-exif-data": "Exif উপাত্ত",
+	"sesp-exif-languagecode": "Exif:ভাষা কোড"
 }
