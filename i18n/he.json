@@ -3,17 +3,20 @@
 		"authors": [
 			"ExampleTomer",
 			"LaG roiL",
-			"Guycn2"
+			"Guycn2",
+			"YaronSh"
 		]
 	},
 	"sesp-property-author": "מחבר הדף",
 	"sesp-property-first-author": "יוצר הדף",
 	"sesp-property-revision-id": "מזהה הגרסה",
 	"sesp-property-page-id": "מזהה הדף",
+	"sesp-property-page-len": "אורך עמוד",
 	"sesp-property-view-count": "מספר הצפיות בדף",
 	"sesp-property-subpages": "דפי משנה",
 	"sesp-property-revisions": "מספר הגרסאות",
 	"sesp-property-talk-revisions": "מספר הגרסאות של דף השיחה",
+	"sesp-property-mimetype": "סוג MIME",
 	"sesp-property-mediatype": "סוג המדיה",
 	"sesp-property-shorturl": "כתובת מקוצרת",
 	"sesp-property-user-registration-date": "תאריך ההרשמה של המשתמש",
