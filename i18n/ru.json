@@ -4,10 +4,12 @@
 			"Okras",
 			"ShinePhantom",
 			"Аль-Гимравий",
-			"Putnik"
+			"Putnik",
+			"Alexandr Efremov"
 		]
 	},
 	"sesp-desc": "Добавляет некоторые дополнительные специальные свойства для всех страниц",
+	"sesp-property-unknown-label": "Неизвестная метка или псевдоним",
 	"sesp-property-author": "Автор страницы",
 	"sesp-property-first-author": "Создатель страницы",
 	"sesp-property-revision-id": "Идентификатор правки",
