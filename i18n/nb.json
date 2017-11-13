@@ -6,10 +6,14 @@
 		]
 	},
 	"sesp-desc": "Legg til et antall ekstra spesialegenskaper for alle sider",
+	"sesp-property-unknown-label": "Ukjent etikett eller alias",
 	"sesp-property-author": "Bidragsyter",
 	"sesp-property-first-author": "Oppretter",
 	"sesp-property-revision-id": "Revisjonsid",
 	"sesp-property-page-id": "Side-ID",
+	"sesp-property-page-id-desc": "«$1» identifiserer MediaWiki-ID-en til en side og gis av utvidelsen [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special:Properties SESP].",
+	"sesp-property-page-len": "Sidelengde",
+	"sesp-property-page-len-desc": "«$1» identifiserer lengden til ei side i byte og gis av utvidelsen [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP].",
 	"sesp-property-view-count": "Antall sidetreff",
 	"sesp-property-subpages": "Underside",
 	"sesp-property-revisions": "Antall revisjoner",
@@ -19,5 +23,8 @@
 	"sesp-property-shorturl": "Kort URL",
 	"sesp-property-user-registration-date": "Brukerregistreringsdato",
 	"sesp-property-user-edit-count": "Antall redigeringer av brukeren",
-	"sesp-property-exif-data": "Exif-data"
+	"sesp-property-exif-data": "Exif-data",
+	"sesp-exif-languagecode": "Exif:Språkkode",
+	"sesp-exif-label": "Exif:Etikett",
+	"sesp-exif-iimcategory": "Exif:lim-kategori"
 }
