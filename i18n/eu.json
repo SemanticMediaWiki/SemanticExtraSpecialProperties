@@ -15,11 +15,13 @@
 	"sesp-property-view-count": "Ikustaldi kopurua",
 	"sesp-property-subpages": "Azpiorrialdea",
 	"sesp-property-revisions": "Berrikusketa zenbakiak",
+	"sesp-property-talk-revisions": "Eztabaida orri berrikusketen zenbakia",
 	"sesp-property-mimetype": "MIME mota",
 	"sesp-property-mediatype": "Media mota",
 	"sesp-property-shorturl": "URL motza",
 	"sesp-property-user-registration-date": "Erabiltzaile erregistro data",
 	"sesp-property-user-edit-count": "Lankidearen aldaketa kontagailua",
+	"sesp-property-exif-data": "Exif datuak",
 	"sesp-exif-languagecode": "Exif:Hizkuntza kodea",
 	"sesp-exif-label": "Exif:Marka",
 	"sesp-exif-iimcategory": "Exif:lim Kategoria"
