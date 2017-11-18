@@ -28,14 +28,14 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 	public function testRegister() {
 
 		$configuration = [
-			'sespPropertyDefinitionFile' => $GLOBALS['sespPropertyDefinitionFile'],
-			'sespLocalPropertyDefinitions' => [],
-			'sespSpecialProperties' => [],
+			'sespgDefinitionsFile' => $GLOBALS['sespgDefinitionsFile'],
+			'sespgLocalDefinitions' => [],
+			'sespgEnabledPropertiesList' => [],
 			'wgDisableCounters' => false,
-			'sespUseAsFixedTables' => false,
-			'wgSESPExcludeBots' => false,
+			'sespgUseFixedTables' => false,
+			'sespgExcludeBotEdits' => false,
 			'wgShortUrlPrefix' => '',
-			'sespCacheType'    => 'hash'
+			'sespCacheType' => 'hash'
 		];
 
 		$instance = new HookRegistry( $configuration );

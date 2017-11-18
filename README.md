@@ -4,9 +4,9 @@
 [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/SemanticMediaWiki/SemanticExtraSpecialProperties/badges/quality-score.png?s=9cc8ce493f63f5c2c22db71b2061b4b8c21f43ba)](https://scrutinizer-ci.com/g/SemanticMediaWiki/SemanticExtraSpecialProperties/)
 [![Latest Stable Version](https://poser.pugx.org/mediawiki/semantic-extra-special-properties/version.png)](https://packagist.org/packages/mediawiki/semantic-extra-special-properties)
 [![Packagist download count](https://poser.pugx.org/mediawiki/semantic-extra-special-properties/d/total.png)](https://packagist.org/packages/mediawiki/semantic-extra-special-properties)
-[![Dependency Status](https://www.versioneye.com/php/mediawiki:semantic-extra-special-properties/badge.png)](https://www.versioneye.com/php/mediawiki:semantic-extra-special-properties)
 
-Semantic Extra Special Properties (a.k.a. SESP) is an extension to [Semantic MediaWiki][smw] which adds some extra special properties to enabled content pages.
+Semantic Extra Special Properties (a.k.a. SESP) is an extension to [Semantic MediaWiki][smw] which
+adds some extra special properties to enabled content pages.
 
 ## Requirements
 
@@ -17,7 +17,7 @@ Semantic Extra Special Properties (a.k.a. SESP) is an extension to [Semantic Med
 ## Installation
 
 The recommended way to install Semantic Extra Special Properties is by using [Composer][composer]
-with an entry in MediaWiki's `composer.json` or `composer.local.json`.
+with an entry in MediaWiki's "composer.local.json" file.
 
 ```json
 {
@@ -26,32 +26,34 @@ with an entry in MediaWiki's `composer.json` or `composer.local.json`.
 	}
 }
 ```
-1. From your MediaWiki installation directory, execute
-   `composer require mediawiki/semantic-extra-special-properties:~2.0`
-2. It is strongly recommended to rebuild existing semantic data and run
-   Semantic MediaWiki's rebuild data process.
-3. Navigate to _Special:Version_ on your wiki and verify that the package
-   have been successfully installed.
+- It is strongly recommended to rebuild existing semantic data and run
+  Semantic MediaWiki's rebuild data process.
+- Navigate to "Special:Version" on your wiki and verify that the package
+  have been successfully installed.
 
 ## Usage
 
 The annotation process for predefined properties is mostly done in the background
-and therefore doesn't need any special interaction from a user but [`LocalSettings`][mw-localsettings] for
+and therefore does not need any special interaction from a user but [local settings][mw-localsettings] for
 `SESP` need to be enabled.
 
 For details about available settings, please have a look at the [configuration](docs/00-configuration.md) document.
 
+If you are upgrading from an version earlier than 2.0 you must migrate existing
+configuration settings as shown in the [migration documentation](docs/02-migration-to-20.md)
+
 ## Contribution and support
 
-If you have remarks, questions, or suggestions, please send them to semediawiki-users@lists.sourceforge.net. You can subscribe to this list [here](http://sourceforge.net/mailarchive/forum.php?forum_name=semediawiki-user).
+If you have remarks, questions, or suggestions, please send them to semediawiki-users@lists.sourceforge.net.
+You can subscribe to this list [here](http://sourceforge.net/mailarchive/forum.php?forum_name=semediawiki-user).
 
 If you want to contribute work to the project please subscribe to the
-developers mailing list and have a look at the [contribution guildline](/CONTRIBUTING.md). A list of people who have made contributions in the past can be found [here][contributors].
+developers mailing list and have a look at the [contribution guildline](/CONTRIBUTING.md).
+A list of people who have made contributions in the past can be found [here][contributors].
 
 * [File an issue](https://github.com/SemanticMediaWiki/SemanticExtraSpecialProperties/issues)
 * [Submit a pull request](https://github.com/SemanticMediaWiki/SemanticExtraSpecialProperties/pulls)
-* Ask a question on [the mailing list](https://semantic-mediawiki.org/wiki/Mailing_list)
-* Ask a question on the #semantic-mediawiki IRC channel on Freenode.
+* Ask a question on [the mailing list](https://www.semantic-mediawiki.org/wiki/Semantic_MediaWiki_mailing_lists)
 
 ### Tests
 
@@ -69,6 +71,6 @@ but can also be executed using `composer phpunit` from the extension base direct
 [travis]: https://travis-ci.org/SemanticMediaWiki/SemanticExtraSpecialProperties
 [mw-testing]: https://www.mediawiki.org/wiki/Manual:PHP_unit_testing
 [mw-update]: https://www.mediawiki.org/wiki/Manual:Update.php
-[mw-localsettings]: https://www.mediawiki.org/wiki/Localsettings
+[mw-localsettings]: https://www.mediawiki.org/wiki/Manual:LocalSettings.php
 [contributors]: https://github.com/SemanticMediaWiki/SemanticExtraSpecialProperties/graphs/contributors
 [semver]: http://semver.org/

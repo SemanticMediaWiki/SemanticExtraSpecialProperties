@@ -152,7 +152,7 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$this->appFactory->expects( $this->once() )
 			->method( 'getOption' )
-			->with( $this->stringContains( 'sespUseAsFixedTables' ) )
+			->with( $this->stringContains( 'sespgUseFixedTables' ) )
 			->will( $this->returnValue( false ) );
 
 		$this->appFactory->expects( $this->never() )
@@ -187,7 +187,7 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$this->appFactory->expects( $this->at( 0 ) )
 			->method( 'getOption' )
-			->with( $this->stringContains( 'sespUseAsFixedTables' ) )
+			->with( $this->stringContains( 'sespgUseFixedTables' ) )
 			->will( $this->returnValue( true ) );
 
 		$this->appFactory->expects( $this->at( 1 ) )
@@ -196,7 +196,7 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$this->appFactory->expects( $this->at( 2 ) )
 			->method( 'getOption' )
-			->with( $this->stringContains( 'sespSpecialProperties' ) )
+			->with( $this->stringContains( 'sespgEnabledPropertiesList' ) )
 			->will( $this->returnValue( [ 'Foo' ] ) );
 
 		$instance = new PropertyRegistry(

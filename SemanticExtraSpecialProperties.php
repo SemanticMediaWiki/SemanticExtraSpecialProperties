@@ -10,7 +10,7 @@ use SESP\HookRegistry;
  * @defgroup SemanticExtraSpecialProperties Semantic Extra Special Properties
  */
 if ( !defined( 'MEDIAWIKI' ) ) {
-	die( 'This file is part of the SemanticExtraSpecialProperties extension, it is not a valid entry point.' );
+	die( 'This file is part of the Semantic Extra Special Properties extension. It is not a valid entry point.' );
 }
 
 if ( defined( 'SESP_VERSION' ) ) {
@@ -120,15 +120,15 @@ class SemanticExtraSpecialProperties {
 		self::checkRequirements();
 
 		$configuration = [
-			'wgDisableCounters'       => $GLOBALS['wgDisableCounters'],
-			'sespUseAsFixedTables'    => $GLOBALS['sespUseAsFixedTables'],
-			'sespSpecialProperties'   => $GLOBALS['sespSpecialProperties'],
-			'wgSESPExcludeBots'       => $GLOBALS['wgSESPExcludeBots'],
-			'wgShortUrlPrefix'        => $GLOBALS['wgShortUrlPrefix'],
-			'sespPropertyDefinitionFile' => $GLOBALS['sespPropertyDefinitionFile'],
-			'sespLocalPropertyDefinitions' => $GLOBALS['sespLocalPropertyDefinitions'],
-			'sespLabelCacheVersion' => $GLOBALS['sespLabelCacheVersion'],
+			'sespUseAsFixedTables' => $GLOBALS['sespgUseFixedTables'],
+			'sespSpecialProperties' => $GLOBALS['sespgEnabledPropertiesList'],
+			'wgSESPExcludeBots' => $GLOBALS['sespgExcludeBotEdits'],
+			'sespPropertyDefinitionFile' => $GLOBALS['sespgDefinitionsFile'],
+			'sespLocalPropertyDefinitions' => $GLOBALS['sespgLocalDefinitions'],
+			'sespLabelCacheVersion' => $GLOBALS['sespgLabelCacheVersion'],
 			'sespPropertyDefinitions' => [],
+			'wgDisableCounters' => $GLOBALS['wgDisableCounters'],
+			'wgShortUrlPrefix' => $GLOBALS['wgShortUrlPrefix']
 		];
 
 		$hookRegistry = new HookRegistry(
