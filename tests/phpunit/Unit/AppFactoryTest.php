@@ -98,8 +98,8 @@ class AppFactoryTest extends \PHPUnit_Framework_TestCase {
 	public function testGetPropertyDefinitions( ) {
 
 		$options = [
-			'sespPropertyDefinitionFile' => '',
-			'sespLocalPropertyDefinitions' => []
+			'sespgDefinitionsFile' => '',
+			'sespgLocalDefinitionsFiles' => []
 		];
 
 		$instance = new AppFactory(
