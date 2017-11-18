@@ -79,7 +79,7 @@ class PageContributorsPropertyAnnotator implements PropertyAnnotator {
 	}
 
 	private function isNotAnonymous( $user ) {
-		return !( in_array( 'bot', $user->getRights() ) && $this->appFactory->getOption( 'wgSESPExcludeBots' ) ) && !$user->isAnon();
+		return !( in_array( 'bot', $user->getRights() ) && $this->appFactory->getOption( 'sespgExcludeBotEdits' ) ) && !$user->isAnon();
 	}
 
 }

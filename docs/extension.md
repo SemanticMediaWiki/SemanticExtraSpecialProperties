@@ -7,10 +7,10 @@
 ## Repository extension
 
 The repository extension is meant to change the SESP repository itself in providing
-additional services that can be enabled via the `$sespSpecialProperties` setting.
+additional services that can be enabled via the `$sespgEnabledPropertyList` setting.
 
 ```
-$sespSpecialProperties = [
+$sespgEnabledPropertyList = [
 	'_CUSER',
 	'_VIEWS',
 	'_PAGEID',
@@ -59,7 +59,7 @@ The local extension mechanism has been introduced to avoid having to alter the `
 directly and instead provide a method for simple local adaptation.
 
 ```
-$sespSpecialProperties = [
+$sespgEnabledPropertyList = [
 	'_CUSER',
 	'_VIEWS',
 	'_PAGEID',
@@ -68,7 +68,7 @@ $sespSpecialProperties = [
 ];
 ```
 
-`$sespLocalPropertyDefinitions` contains encapsulate property definitions that
+`$sespgLocalDefinitions` contains encapsulate property definitions that
 are only valid locally to a wiki and are loaded from the `LocalSettinsg.php`.
 
 * Same fields are required as outlined in the "Repository extension" section
@@ -77,7 +77,7 @@ are only valid locally to a wiki and are loaded from the `LocalSettinsg.php`.
 **Examples**
 
 ```
-$sespLocalPropertyDefinitions['_MY_CUSTOM1'] = [
+$sespgLocalDefinitions['_MY_CUSTOM1'] = [
 	'id'    => '___MY_CUSTOM1',
 	'type'  => '_wpg',
 	'alias' => 'some-...',
@@ -88,7 +88,7 @@ $sespLocalPropertyDefinitions['_MY_CUSTOM1'] = [
 ];
 ```
 ```
-$sespLocalPropertyDefinitions['_MY_CUSTOM2'] = [
+$sespgLocalDefinitions['_MY_CUSTOM2'] = [
 	'id'    => '___MY_CUSTOM2',
 	'type'  => '_wpg',
 	'alias' => 'some-...',

@@ -52,7 +52,7 @@ class LocalPropertyAnnotator implements PropertyAnnotator {
 
 		$time = microtime( true );
 
-		$localDefs = $this->appFactory->getOption( 'sespLocalPropertyDefinitions', [] );
+		$localDefs = $this->appFactory->getOption( 'sespgLocalDefinitions', [] );
 
 		foreach ( $localDefs as $key => $definition ) {
 			$this->callOnLocalDef( $definition, $property, $semanticData );
