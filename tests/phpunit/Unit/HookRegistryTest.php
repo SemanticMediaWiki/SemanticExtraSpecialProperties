@@ -28,7 +28,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 	public function testRegister() {
 
 		$configuration = [
-			'sespPropertyDefinitionFile' => $GLOBALS['sespPropertyDefinitionFile'],
+			'sespPropertyDefinitionFile' => $GLOBALS['sespDefinitionsFile'],
 			'sespLocalPropertyDefinitions' => [],
 			'sespSpecialProperties' => [],
 			'wgDisableCounters' => false,

@@ -17,33 +17,33 @@ return [
 	/**
 	 * To setup properties as fixed properties in order to improve data access
 	 */
-	'sespUseAsFixedTables' => false,
+	'sespgUseFixedTables' => false,
 
 	/**
 	 * Location of the property definitions
 	 */
-	'sespPropertyDefinitionFile' => __DIR__ . '/definitions.json',
+	'sespgDefinitionsFile' => __DIR__ . '/definitions.json',
 
 	/**
 	 * Specifies local definitions
 	 */
-	'sespLocalPropertyDefinitions' => [],
+	'sespgLocalDefinitionsFiles' => [],
 
 	/**
 	 * Specifies the enabled properties
 	 */
-	'sespSpecialProperties' => [],
+	'sespgEnabledPropertiesList' => [],
 
 	/**
 	 * Specifies an internal cache modifier
 	 */
-	'sespLabelCacheVersion' => '2017.07',
+	'sespgLabelCacheVersion' => '2017.07',
 
 	/**
 	 * It causes bot edits via user accounts in usergroup "bot" to be ignored when
 	 * storing data for the special properties.
 	 */
-	'wgSESPExcludeBots' => false,
+	'sespgExcludeBotEdits' => false,
 
 	/**
 	 * Used in connection with ShortUrlUtils

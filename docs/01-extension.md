@@ -1,16 +1,16 @@
 
 # Extension
 
-* [Repository extensio](#repository-extension)
+* [Repository extension](#repository-extension)
 * [Local extension](#local-extension)
 
 ## Repository extension
 
 The repository extension is meant to change the SESP repository itself in providing
-additional services that can be enabled via the `$sespSpecialProperties` setting.
+additional services that can be enabled via the `$sespgEnabledPropertiesList` configuration parameter.
 
 ```
-$sespSpecialProperties = [
+$sespgEnabledPropertiesList = [
 	'_CUSER',
 	'_VIEWS',
 	'_PAGEID',
@@ -23,7 +23,7 @@ corresponding `PropertyAnnotator` implementation.
 
 ### Property definition expansion
 
-Expand the property definition in `definitions.json` with something like:
+Expand the property definition in file "definitions.json" with something like:
 
 * `_ETX1` defines an external reference
 * `id` (`___EXT1`) defines the internal reference for values that are stored and fetched from
@@ -59,7 +59,7 @@ The local extension mechanism has been introduced to avoid having to alter the `
 directly and instead provide a method for simple local adaptation.
 
 ```
-$sespSpecialProperties = [
+$sespgEnabledPropertiesList = [
 	'_CUSER',
 	'_VIEWS',
 	'_PAGEID',
@@ -68,8 +68,8 @@ $sespSpecialProperties = [
 ];
 ```
 
-`$sespLocalPropertyDefinitions` contains encapsulate property definitions that
-are only valid locally to a wiki and are loaded from the `LocalSettinsg.php`.
+`$sespgLocalDefinitions` contains encapsulate property definitions that
+are only valid locally to a wiki and are loaded from the "LocalSettinsg.php" file.
 
 * Same fields are required as outlined in the "Repository extension" section
 * Define a `callback` which expects a callable instance (either as static or Closure)
@@ -77,7 +77,7 @@ are only valid locally to a wiki and are loaded from the `LocalSettinsg.php`.
 **Examples**
 
 ```
-$sespLocalPropertyDefinitions['_MY_CUSTOM1'] = [
+$sespgLocalDefinitions['_MY_CUSTOM1'] = [
 	'id'    => '___MY_CUSTOM1',
 	'type'  => '_wpg',
 	'alias' => 'some-...',
@@ -88,7 +88,7 @@ $sespLocalPropertyDefinitions['_MY_CUSTOM1'] = [
 ];
 ```
 ```
-$sespLocalPropertyDefinitions['_MY_CUSTOM2'] = [
+$sespgLocalDefinitions['_MY_CUSTOM2'] = [
 	'id'    => '___MY_CUSTOM2',
 	'type'  => '_wpg',
 	'alias' => 'some-...',
@@ -109,4 +109,4 @@ class FooCustom {
 }
 ```
 
-&larr; [Configuration](00-configuration.md)
+&larr; [README](README.md) | [Configuration](00-configuration.md) | [Migration|(02-migration.md)

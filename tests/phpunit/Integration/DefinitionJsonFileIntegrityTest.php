@@ -20,7 +20,7 @@ class DefinitionJsonFileIntegrityTest extends \PHPUnit_Framework_TestCase {
 		$testEnvironment = new TestEnvironment();
 
 		$jsonFileReader = $testEnvironment->getUtilityFactory()->newJsonFileReader(
-			$GLOBALS['sespPropertyDefinitionFile']
+			$GLOBALS['sespgDefinitionFile']
 		);
 
 		$this->assertInternalType(
