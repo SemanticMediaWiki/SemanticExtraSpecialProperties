@@ -55,7 +55,7 @@ class PropertyDefinitions implements IteratorAggregate {
 		$this->propertyDefinitionFile = $propertyDefinitionFile;
 
 		if ( $this->propertyDefinitionFile === '' ) {
-			$this->propertyDefinitionFile = $GLOBALS['sespPropertyDefinitionFile'];
+			$this->propertyDefinitionFile = $GLOBALS['sespgDefinitionFile'];
 		}
 	}
 

@@ -83,7 +83,6 @@ class SemanticExtraSpecialProperties {
 		];
 
 		$GLOBALS['wgMessagesDirs']['SemanticExtraSpecialProperties'] = __DIR__ . '/i18n';
-		$GLOBALS['wgExtensionMessagesFiles']['SemanticExtraSpecialProperties'] = __DIR__ . '/i18n/SemanticExtraSpecialProperties.i18n.php';
 
 		self::onBeforeExtensionFunction();
 	}
@@ -121,15 +120,15 @@ class SemanticExtraSpecialProperties {
 		self::checkRequirements();
 
 		$configuration = [
-			'wgDisableCounters'       => $GLOBALS['wgDisableCounters'],
-			'sespUseAsFixedTables'    => $GLOBALS['sespUseAsFixedTables'],
-			'sespSpecialProperties'   => $GLOBALS['sespSpecialProperties'],
-			'wgSESPExcludeBots'       => $GLOBALS['wgSESPExcludeBots'],
-			'wgShortUrlPrefix'        => $GLOBALS['wgShortUrlPrefix'],
-			'sespPropertyDefinitionFile' => $GLOBALS['sespPropertyDefinitionFile'],
-			'sespLocalPropertyDefinitions' => $GLOBALS['sespLocalPropertyDefinitions'],
-			'sespLabelCacheVersion' => $GLOBALS['sespLabelCacheVersion'],
-			'sespPropertyDefinitions' => [],
+			'wgDisableCounters' => $GLOBALS['wgDisableCounters'],
+			'wgShortUrlPrefix' => $GLOBALS['wgShortUrlPrefix'],
+			'sespUseAsFixedTables' => $GLOBALS['sespgUseFixedTables'],
+			'sespSpecialProperties' => $GLOBALS['sespgEnabledPropertiesList'],
+			'wgSESPExcludeBots' => $GLOBALS['sespgExcludeBotEdits'],
+			'sespPropertyDefinitionFile' => $GLOBALS['sespgDefinitionsFile'],
+			'sespLocalPropertyDefinitions' => $GLOBALS['sespgLocalDefinitionsFiles'],
+			'sespLabelCacheVersion' => $GLOBALS['sespgLabelCacheVersion'],
+			'sespPropertyDefinitions' => []
 		];
 
 		$hookRegistry = new HookRegistry(
