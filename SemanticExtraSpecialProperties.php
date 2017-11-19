@@ -83,7 +83,6 @@ class SemanticExtraSpecialProperties {
 		];
 
 		$GLOBALS['wgMessagesDirs']['SemanticExtraSpecialProperties'] = __DIR__ . '/i18n';
-		$GLOBALS['wgExtensionMessagesFiles']['SemanticExtraSpecialProperties'] = __DIR__ . '/i18n/SemanticExtraSpecialProperties.i18n.php';
 
 		self::onBeforeExtensionFunction();
 	}
