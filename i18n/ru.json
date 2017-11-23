@@ -5,7 +5,8 @@
 			"ShinePhantom",
 			"Аль-Гимравий",
 			"Putnik",
-			"Alexandr Efremov"
+			"Alexandr Efremov",
+			"Wirbel78"
 		]
 	},
 	"sesp-desc": "Добавляет некоторые дополнительные специальные свойства для всех страниц",
@@ -24,5 +25,7 @@
 	"sesp-property-shorturl": "Короткая ссылка",
 	"sesp-property-user-registration-date": "Дата регистрации пользователя",
 	"sesp-property-user-edit-count": "Число правок участника",
-	"sesp-property-exif-data": "Данные EXIF"
+	"sesp-property-exif-data": "Данные EXIF",
+	"sesp-exif-languagecode": "Exif:Код языка",
+	"sesp-exif-label": "Exif:Метка"
 }
