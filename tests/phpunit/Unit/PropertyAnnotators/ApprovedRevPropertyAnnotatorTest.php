@@ -5,6 +5,7 @@ namespace SESP\Tests\PropertyAnnotators;
 use SESP\PropertyAnnotators\ApprovedRevPropertyAnnotator;
 use SMW\DIProperty;
 use SMW\DIWikiPage;
+use SMWDINumber as DINumber;
 
 /**
  * @covers \SESP\PropertyAnnotators\ApprovedRevPropertyAnnotator
@@ -50,20 +51,39 @@ class ApprovedRevPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testAddAnnotation() {
-
-		$subject = DIWikiPage::newFromText( __METHOD__ );
-
 		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
 			->disableOriginalConstructor()
 			->getMock();
 
 		$semanticData->expects( $this->once() )
-			->method( 'getSubject' )
-			->will( $this->returnValue( $subject ) );
+			->method( 'addPropertyObjectValue' )
+			->with(
+				$this->equalTo( $this->property ),
+				$this->equalTo( new DINumber( 42 ) ) );
 
 		$instance = new ApprovedRevPropertyAnnotator(
 			$this->appFactory
 		);
+
+		$instance->setApprovedRev( 42 );
+
+		$instance->addAnnotation( $this->property, $semanticData );
+	}
+
+	public function testRemoval() {
+		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$semanticData->expects( $this->once() )
+			->method( 'removeProperty' )
+			->with( $this->equalTo( $this->property ) );
+
+		$instance = new ApprovedRevPropertyAnnotator(
+			$this->appFactory
+		);
+
+		$instance->setApprovedRev( false );
 
 		$instance->addAnnotation( $this->property, $semanticData );
 	}

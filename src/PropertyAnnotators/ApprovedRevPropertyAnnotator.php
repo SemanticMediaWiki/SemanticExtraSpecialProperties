@@ -6,7 +6,6 @@ use SMW\DIProperty;
 use SMW\SemanticData;
 use SMWDataItem as DataItem;
 use SMWDINumber as DINumber;
-use SMWDIBoolean as DIBool;
 use SESP\PropertyAnnotator;
 use SESP\AppFactory;
 use ApprovedRevs;
@@ -30,10 +29,24 @@ class ApprovedRevPropertyAnnotator implements PropertyAnnotator {
 	private $appFactory;
 
 	/**
+	 * @var Integer|null
+	 */
+	private $approvedRev;
+
+	/**
 	 * @param AppFactory $appFactory
 	 */
 	public function __construct( AppFactory $appFactory ) {
 		$this->appFactory = $appFactory;
+	}
+
+	/**
+	 * @since 2.0
+	 *
+	 * @param Integer $approvedRev
+	 */
+	public function setApprovedRev( $approvedRev ) {
+		$this->approvedRev = $approvedRev;
 	}
 
 	/**
@@ -46,16 +59,19 @@ class ApprovedRevPropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * {@inheritDoc}
 	 */
-	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
-		if ( !class_exists( 'ApprovedRevs' ) ) {
-			return null;
+	public function addAnnotation(
+		DIProperty $property, SemanticData $semanticData
+	) {
+		if ( $this->approvedRev === null && class_exists( 'ApprovedRevs' ) ) {
+			$this->approvedRev = ApprovedRevs::getApprovedRevID(
+				$semanticData->getSubject()->getTitle()
+			);
 		}
 
-		$title = $semanticData->getSubject()->getTitle();
-		$rev = ApprovedRevs::getApprovedRevID( $title );
-
-		if ( is_numeric( $rev ) ) {
-			$semanticData->addPropertyObjectValue( $property, new DINumber( $rev ) );
+		if ( is_numeric( $this->approvedRev ) ) {
+			$semanticData->addPropertyObjectValue(
+				$property, new DINumber( $this->approvedRev )
+			);
 		} else {
 			$semanticData->removeProperty( $property );
 		}
