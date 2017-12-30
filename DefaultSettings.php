@@ -4,12 +4,12 @@
  * DO NOT EDIT!
  *
  * The following default settings are to be used by the extension itself,
- * please modify settings in the LocalSettings file.
+ * please modify settings to configuration paramters in the "LocalSettings" file.
  *
  * @codeCoverageIgnore
  */
 if ( !defined( 'MEDIAWIKI' ) ) {
-	die( 'This file is part of the SemanticExtraSpecialProperties extension, it is not a valid entry point.' );
+	die( 'This file is part of the Semantic Extra Special Properties extension. It is not a valid entry point.' );
 }
 
 return [
@@ -17,33 +17,33 @@ return [
 	/**
 	 * To setup properties as fixed properties in order to improve data access
 	 */
-	'sespUseAsFixedTables' => false,
+	'sespgUseFixedTables' => false,
 
 	/**
 	 * Location of the property definitions
 	 */
-	'sespPropertyDefinitionFile' => __DIR__ . '/definitions.json',
+	'sespgDefinitionsFile' => __DIR__ . '/definitions.json',
 
 	/**
 	 * Specifies local definitions
 	 */
-	'sespLocalPropertyDefinitions' => [],
+	'sespgLocalDefinitions' => [],
 
 	/**
 	 * Specifies the enabled properties
 	 */
-	'sespSpecialProperties' => [],
+	'sespgEnabledPropertiesList' => [],
 
 	/**
 	 * Specifies an internal cache modifier
 	 */
-	'sespLabelCacheVersion' => '2017.07',
+	'sespgLabelCacheVersion' => '2017.07',
 
 	/**
 	 * It causes bot edits via user accounts in usergroup "bot" to be ignored when
 	 * storing data for the special properties.
 	 */
-	'wgSESPExcludeBots' => false,
+	'sespgExcludeBotEdits' => false,
 
 	/**
 	 * Used in connection with ShortUrlUtils

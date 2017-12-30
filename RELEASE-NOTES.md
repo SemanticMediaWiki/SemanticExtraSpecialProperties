@@ -1,4 +1,4 @@
-This file contains the RELEASE-NOTES of the SemanticExtraSpecialProperties (a.k.a. SESP) extension.
+This file contains the RELEASE-NOTES of the Semantic Extra Special Properties (a.k.a. SESP) extension.
 
 ### 2.0.0
 
@@ -9,6 +9,7 @@ This release now requires MediaWiki 1.27+ and Semantic MediaWiki 2.5+ (#61).
 * Complete refactoring of the extension to allow for better extensibility and testability
 * #16 Extended the `Exif` attributes
 * #48 Fixed the registration of property tables
+* #88 Harmonized configuration parameter names (BREAKING). See the [migration document](docs/02-migration-to-20.md)
 * Localization updates from https://translatewiki.net
 
 ### 1.5.0
