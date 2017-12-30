@@ -59,9 +59,8 @@ class ApprovedRevPropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * {@inheritDoc}
 	 */
-	public function addAnnotation(
-		DIProperty $property, SemanticData $semanticData
-	) {
+	public function addAnnotation( DIProperty $property, SemanticData $semanticData	) {
+
 		if ( $this->approvedRev === null && class_exists( 'ApprovedRevs' ) ) {
 			$this->approvedRev = ApprovedRevs::getApprovedRevID(
 				$semanticData->getSubject()->getTitle()
@@ -70,7 +69,8 @@ class ApprovedRevPropertyAnnotator implements PropertyAnnotator {
 
 		if ( is_numeric( $this->approvedRev ) ) {
 			$semanticData->addPropertyObjectValue(
-				$property, new DINumber( $this->approvedRev )
+				$property,
+				new DINumber( $this->approvedRev )
 			);
 		} else {
 			$semanticData->removeProperty( $property );
