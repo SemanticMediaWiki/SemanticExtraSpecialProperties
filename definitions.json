@@ -14,14 +14,14 @@
 		"label": "Page ID",
 		"desc": "sesp-property-page-id-desc"
 	},
-    "_PAGELGTH": {
-        "id": "___PAGELGTH",
-        "type": "_num",
-        "show": false,
-        "alias": "sesp-property-page-len",
-        "label": "Page length",
-        "desc": "sesp-property-page-len-desc"
-    },
+	"_PAGELGTH": {
+		"id": "___PAGELGTH",
+		"type": "_num",
+		"show": false,
+		"alias": "sesp-property-page-len",
+		"label": "Page length",
+		"desc": "sesp-property-page-len-desc"
+	},
 	"_EUSER": {
 		"id": "___EUSER",
 		"type": "_wpg",
@@ -42,6 +42,14 @@
 		"show": false,
 		"alias": "sesp-property-view-count",
 		"label": "Number of page views"
+	},
+	"_APPROVED": {
+		"id": "___APPROVED",
+		"type": "_num",
+		"show": false,
+		"alias": "sesp-property-approved-rev",
+		"label": "Approved revision",
+		"desc": "sesp-property-approved-rev-desc"
 	},
 	"_SUBP": {
 		"id": "___SUBP",

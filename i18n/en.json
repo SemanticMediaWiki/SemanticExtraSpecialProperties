@@ -22,6 +22,8 @@
 	"sesp-property-mimetype": "MIME type",
 	"sesp-property-mediatype": "Media type",
 	"sesp-property-shorturl": "Short URL",
+	"sesp-property-approved-rev": "Approved revision",
+	"sesp-property-approved-rev-desc": "\"$1\" identifies the revision ID of a page that has been approved (via the [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP] extension).",
 	"sesp-property-user-registration-date": "User registration date",
 	"sesp-property-user-edit-count": "User edit count",
 	"sesp-property-exif-data": "Exif data",
