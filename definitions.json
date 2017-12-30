@@ -51,6 +51,30 @@
 		"label": "Approved revision",
 		"desc": "sesp-property-approved-rev-desc"
 	},
+	"_APPROVEDBY": {
+		"id": "___APPROVEDBY",
+		"type": "_wpg",
+		"show": false,
+		"alias": "sesp-property-approved-by",
+		"label": "Approved by",
+		"desc": "sesp-property-approved-by-desc"
+	},
+	"_APPROVEDDATE": {
+		"id": "___APPROVEDDATE",
+		"type": "_dat",
+		"show": false,
+		"alias": "sesp-property-approved-date",
+		"label": "Approved date",
+		"desc": "sesp-property-approved-date-desc"
+	},
+	"_APPROVEDSTATUS": {
+		"id": "___APPROVEDSTATUS",
+		"type": "_txt",
+		"show": false,
+		"alias": "sesp-property-approved-status",
+		"label": "Approval status",
+		"desc": "sesp-property-approved-status-desc"
+	},
 	"_SUBP": {
 		"id": "___SUBP",
 		"type": "_wpg",
