@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Bjankuloski06"
+			"Bjankuloski06",
+			"Идеологист"
 		]
 	},
 	"sesp-desc": "Додава дополнителни посебни својства во сите страници",
@@ -20,6 +21,7 @@
 	"sesp-property-mimetype": "MIME-тип",
 	"sesp-property-mediatype": "Тип на медиум",
 	"sesp-property-shorturl": "Кратка URL",
+	"sesp-property-approved-rev": "Одобрена преработка",
 	"sesp-property-user-registration-date": "Датум на регистрација на корисникот",
 	"sesp-property-user-edit-count": "Бр. на кориснички уредувања",
 	"sesp-property-exif-data": "Exif-податоци",

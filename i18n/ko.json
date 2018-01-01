@@ -19,6 +19,7 @@
 	"sesp-property-mimetype": "MiME 종류",
 	"sesp-property-mediatype": "미디어 유형",
 	"sesp-property-shorturl": "짧은 URL",
+	"sesp-property-approved-rev": "승인된 판",
 	"sesp-property-user-registration-date": "사용자 등록 날짜",
 	"sesp-property-user-edit-count": "사용자 편집 횟수",
 	"sesp-property-exif-data": "Exif 데이터"

@@ -23,6 +23,8 @@
 	"sesp-property-mimetype": "Tipo MIME",
 	"sesp-property-mediatype": "Tipo de multimédia",
 	"sesp-property-shorturl": "URL encurtado",
+	"sesp-property-approved-rev": "Revisão aprovada",
+	"sesp-property-approved-rev-desc": "\"$1\" identifica o identificador da revisão aprovada de uma página (através da extensão [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP]).",
 	"sesp-property-user-registration-date": "Data de registo do utilizador",
 	"sesp-property-user-edit-count": "Contagem de edições do utilizador",
 	"sesp-property-exif-data": "Dados Exif",

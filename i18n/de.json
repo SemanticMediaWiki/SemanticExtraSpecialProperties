@@ -22,6 +22,8 @@
 	"sesp-property-mimetype": "MIME-Typ",
 	"sesp-property-mediatype": "Medientyp",
 	"sesp-property-shorturl": "Kurz-URL",
+	"sesp-property-approved-rev": "Bestätigte Version",
+	"sesp-property-approved-rev-desc": "„$1“ speichert die Kennung der Version einer Seite, die bestätigt wurde (über die Softwareerweiterung „[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP]“).",
 	"sesp-property-user-registration-date": "Benutzerregistrierungsdatum",
 	"sesp-property-user-edit-count": "Anzahl der Benutzerbearbeitungen",
 	"sesp-property-exif-data": "Exif-Daten",

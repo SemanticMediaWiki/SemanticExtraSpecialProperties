@@ -15,6 +15,7 @@
 	"sesp-property-mimetype": "MIME-Typ",
 	"sesp-property-mediatype": "Medientyp",
 	"sesp-property-shorturl": "Kuerz URL",
+	"sesp-property-approved-rev": "Nogekuckt Versioun",
 	"sesp-property-user-registration-date": "Datum vun der Umellung vum Benotzer",
 	"sesp-property-user-edit-count": "Compteur vu Benotzerännerungen",
 	"sesp-property-exif-data": "Exif-Donnéeën",
