@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Fohanno",
-			"Y-M D"
+			"Y-M D",
+			"Dishual"
 		]
 	},
 	"sesp-property-author": "Aozer ar bajenn",
@@ -13,5 +14,6 @@
 	"sesp-property-mimetype": "Seurt MIME",
 	"sesp-property-mediatype": "Doare media",
 	"sesp-property-shorturl": "URL berr",
+	"sesp-property-approved-rev": "Adweladenn aprouet",
 	"sesp-property-user-registration-date": "Deiziad enskrivadur an implijer"
 }

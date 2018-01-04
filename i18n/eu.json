@@ -19,6 +19,7 @@
 	"sesp-property-mimetype": "MIME mota",
 	"sesp-property-mediatype": "Media mota",
 	"sesp-property-shorturl": "URL motza",
+	"sesp-property-approved-rev": "Onartutako berrikusketa",
 	"sesp-property-user-registration-date": "Erabiltzaile erregistro data",
 	"sesp-property-user-edit-count": "Lankidearen aldaketa kontagailua",
 	"sesp-property-exif-data": "Exif datuak",

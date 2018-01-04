@@ -26,6 +26,7 @@
 	"sesp-property-mediatype": "Tipo de mídia",
 	"sesp-property-shorturl": "URL curto",
 	"sesp-property-approved-rev": "Revisão aprovada",
+	"sesp-property-approved-rev-desc": "\"$1\" identifica o identificador da revisão aprovada de uma página (através da extensão [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP]).",
 	"sesp-property-user-registration-date": "Data de registro do usuário",
 	"sesp-property-user-edit-count": "Contador de edições do usuário",
 	"sesp-property-exif-data": "Dados Exif",
