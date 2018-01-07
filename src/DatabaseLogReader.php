@@ -3,6 +3,7 @@
 namespace SESP;
 
 use DatabaseLogEntry;
+use DatabaseBase;
 use MWTimestamp;
 use Title;
 use User;
@@ -10,16 +11,22 @@ use User;
 class DatabaseLogReader {
 
 	// The parameters for our query.
-	protected $query;
+	private $query;
 
 	// The current log
-	protected $log;
+	private $log;
 
 	// Don't run multiple queries if we don't have to
-	protected static $titleCache = [];
+	private static $titleCache = [];
 
-	// The appFactory
-	protected $appFactory;
+	// The db connection
+	private $db;
+
+	// The title key
+	private $titlekey;
+
+	// The type of query being performed
+	private $type;
 
 	/**
 	 * Constructor for reading the log.
@@ -28,21 +35,48 @@ class DatabaseLogReader {
 	 * @param Title $title page
 	 * @param string $type of log (default: approval)
 	 */
-	public function __construct( AppFactory $appFactory, Title $title, $type = 'approval' ) {
-		$this->appFactory = $appFactory;
-		if ( !isset( self::$titleCache[ $title->getDBKey() ] ) ) {
-			$this->query = DatabaseLogEntry::getSelectQueryData();
+	public function __construct( DatabaseBase $db, Title $title, $type = 'approval' ) {
+		$this->db = $db;
+		$this->titlekey = $title->getDBKey();
+		$this->type = $type;
+	}
 
-			$this->query['conds'] = [
-				'log_type' => $type,
-				'log_title' => $title->getDBKey()
-			];
-			$this->query['options'] = [ 'ORDER BY' => 'log_timestamp desc' ];
-		} else {
-			$cache = self::$titleCache[ $title->getDBKey() ];
-			$this->query = $cache->getQuery();
-			$this->log = $cache->getLog();
+	/**
+	 * Take care of loading from the cache or filling the query.
+	 */
+	private function init() {
+		if ( !$this->query ) {
+			if ( !isset( self::$titleCache[ $this->titlekey ] ) ) {
+				$this->query = DatabaseLogEntry::getSelectQueryData();
+
+				$this->query['conds'] = [
+					'log_type' => $this->type,
+					'log_title' => $this->titlekey
+				];
+				$this->query['options'] = [ 'ORDER BY' => 'log_timestamp desc' ];
+				self::$titleCache[ $this->titlekey ] = $this;
+			} elseif ( $this->query ) {
+				$cache = self::$titleCache[ $this->titlekey ];
+				$this->query = $cache->getQuery();
+				$this->log = $cache->getLog();
+			}
 		}
+	}
+
+	/**
+	 * Fetch the results using our conditions
+	 *
+	 * @return IResultWrapper
+	 * @throws DBError
+	 */
+	private function getLog() {
+		if ( !$this->log ) {
+			$this->log = $this->db->select(
+				$this->query['tables'], $this->query['fields'], $this->query['conds'],
+				__METHOD__, $this->query['options'], $this->query['join_conds']
+			);
+		}
+		return $this->log;
 	}
 
 	/**
@@ -55,27 +89,12 @@ class DatabaseLogReader {
 	}
 
 	/**
-	 * Fetch the results using our conditions
-	 *
-	 * @return IResultWrapper
-	 * @throws DBError
-	 */
-	protected function getLog() {
-		if ( !$this->log ) {
-			$this->log = $this->appFactory->getConnection()->select(
-				$this->query['tables'], $this->query['fields'], $this->query['conds'],
-				__METHOD__, $this->query['options'], $this->query['join_conds']
-			);
-		}
-		return $this->log;
-	}
-
-	/**
 	 * Get the person who made the last for this page
 	 *
 	 * @return User
 	 */
 	public function getUser() {
+		$this->init();
 		$logLine = $this->getLog()->current();
 		if ( $logLine ) {
 			return User::newFromID( $logLine->user_id );
@@ -88,6 +107,7 @@ class DatabaseLogReader {
 	 * @return Timestamp
 	 */
 	public function getDate() {
+		$this->init();
 		$logLine = $this->getLog()->current();
 		if ( $logLine ) {
 			return new MWTimestamp( $logLine->log_timestamp );
@@ -100,6 +120,7 @@ class DatabaseLogReader {
 	 * @return Timestamp
 	 */
 	public function getStatus() {
+		$this->init();
 		$logLine = $this->getLog()->current();
 		if ( $logLine ) {
 			return $logLine->log_action;

@@ -205,6 +205,6 @@ class AppFactory implements LoggerAwareInterface {
 	 * @return DatabaseLogReader
 	 */
 	public function newDatabaseLogReader( Title $title, $type = 'approval' ) {
-		return new DatabaseLogReader( $this, $title, $type );
+		return new DatabaseLogReader( $this->getConnection(), $title, $type );
 	}
 }
