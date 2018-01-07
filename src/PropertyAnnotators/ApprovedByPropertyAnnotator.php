@@ -58,6 +58,16 @@ class ApprovedByPropertyAnnotator implements PropertyAnnotator {
 		return $property->getKey() === self::PROP_ID;
 	}
 
+	public function getDataItem() {
+		if ( $this->approvedBy instanceof User ) {
+			$userPage = $this->approvedBy->getUserPage();
+
+			if ( $userPage instanceof Title ) {
+				return DIWikiPage::newFromTitle( $userPage );
+			}
+		}
+	}
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -68,19 +78,11 @@ class ApprovedByPropertyAnnotator implements PropertyAnnotator {
 			$logReader = $this->appFactory->newDatabaseLogReader(
 				$semanticData->getSubject()->getTitle(), 'approval'
 			);
-			$this->approvedBy = $logReader->getUser();
+			$this->approvedBy = $logReader->getUserForLogEntry();
 		}
 
-		$dataItem = null;
-		if ( $this->approvedBy instanceof User ) {
-			$userPage = $this->approvedBy->getUserPage();
-
-			if ( $userPage instanceof Title ) {
-				$dataItem = DIWikiPage::newFromTitle( $userPage );
-			}
-		}
-
-		if ( $dataItem instanceof DataItem ) {
+		$dataItem = $this->getDataItem();
+		if ( $dataItem ) {
 			$semanticData->addPropertyObjectValue( $property, $dataItem );
 		} else {
 			$semanticData->removeProperty( $property );

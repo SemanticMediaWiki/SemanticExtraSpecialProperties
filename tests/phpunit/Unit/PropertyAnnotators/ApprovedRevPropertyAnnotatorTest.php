@@ -41,12 +41,12 @@ class ApprovedRevPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 	public function testIsAnnotatorFor() {
 
-		$instance = new ApprovedRevPropertyAnnotator(
+		$annotator = new ApprovedRevPropertyAnnotator(
 			$this->appFactory
 		);
 
 		$this->assertTrue(
-			$instance->isAnnotatorFor( $this->property )
+			$annotator->isAnnotatorFor( $this->property )
 		);
 	}
 
@@ -61,13 +61,13 @@ class ApprovedRevPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 				$this->equalTo( $this->property ),
 				$this->equalTo( new DINumber( 42 ) ) );
 
-		$instance = new ApprovedRevPropertyAnnotator(
+		$annotator = new ApprovedRevPropertyAnnotator(
 			$this->appFactory
 		);
 
-		$instance->setApprovedRev( 42 );
+		$annotator->setApprovedRev( 42 );
 
-		$instance->addAnnotation( $this->property, $semanticData );
+		$annotator->addAnnotation( $this->property, $semanticData );
 	}
 
 	public function testRemoval() {
@@ -79,12 +79,12 @@ class ApprovedRevPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->method( 'removeProperty' )
 			->with( $this->equalTo( $this->property ) );
 
-		$instance = new ApprovedRevPropertyAnnotator(
+		$annotator = new ApprovedRevPropertyAnnotator(
 			$this->appFactory
 		);
 
-		$instance->setApprovedRev( false );
+		$annotator->setApprovedRev( false );
 
-		$instance->addAnnotation( $this->property, $semanticData );
+		$annotator->addAnnotation( $this->property, $semanticData );
 	}
 }

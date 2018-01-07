@@ -41,12 +41,12 @@ class ApprovedByPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 	public function testIsAnnotatorFor() {
 
-		$instance = new ApprovedByPropertyAnnotator(
+		$annotator = new ApprovedByPropertyAnnotator(
 			$this->appFactory
 		);
 
 		$this->assertTrue(
-			$instance->isAnnotatorFor( $this->property )
+			$annotator->isAnnotatorFor( $this->property )
 		);
 	}
 
@@ -61,13 +61,13 @@ class ApprovedByPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->with(
 				$this->equalTo( $this->property ),
 				$this->equalTo( DIWikiPage::newFromTitle( $user->getUserPage() ) ) );
-		$instance = new ApprovedByPropertyAnnotator(
+		$annotator = new ApprovedByPropertyAnnotator(
 			$this->appFactory
 		);
 
-		$instance->setApprovedBy( $user );
+		$annotator->setApprovedBy( $user );
 
-		$instance->addAnnotation( $this->property, $semanticData );
+		$annotator->addAnnotation( $this->property, $semanticData );
 	}
 
 	public function testRemoval() {
@@ -79,12 +79,12 @@ class ApprovedByPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->method( 'removeProperty' )
 			->with( $this->equalTo( $this->property ) );
 
-		$instance = new ApprovedByPropertyAnnotator(
+		$annotator = new ApprovedByPropertyAnnotator(
 			$this->appFactory
 		);
 
-		$instance->setApprovedBy( false );
+		$annotator->setApprovedBy( false );
 
-		$instance->addAnnotation( $this->property, $semanticData );
+		$annotator->addAnnotation( $this->property, $semanticData );
 	}
 }

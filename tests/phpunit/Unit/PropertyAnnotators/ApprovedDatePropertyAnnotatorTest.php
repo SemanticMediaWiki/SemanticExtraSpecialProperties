@@ -41,12 +41,12 @@ class ApprovedDatePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 	public function testIsAnnotatorFor() {
 
-		$instance = new ApprovedDatePropertyAnnotator(
+		$annotator = new ApprovedDatePropertyAnnotator(
 			$this->appFactory
 		);
 
 		$this->assertTrue(
-			$instance->isAnnotatorFor( $this->property )
+			$annotator->isAnnotatorFor( $this->property )
 		);
 	}
 
@@ -75,12 +75,12 @@ class ApprovedDatePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 				$this->equalTo( $time )
 			);
 
-		$instance = new ApprovedDatePropertyAnnotator(
+		$annotator = new ApprovedDatePropertyAnnotator(
 			$this->appFactory
 		);
 
-		$instance->setApprovedDate( $now );
-		$instance->addAnnotation( $this->property, $semanticData );
+		$annotator->setApprovedDate( $now );
+		$annotator->addAnnotation( $this->property, $semanticData );
 	}
 
 	public function testRemoval() {
@@ -92,12 +92,12 @@ class ApprovedDatePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->method( 'removeProperty' )
 			->with( $this->equalTo( $this->property ) );
 
-		$instance = new ApprovedDatePropertyAnnotator(
+		$annotator = new ApprovedDatePropertyAnnotator(
 			$this->appFactory
 		);
 
-		$instance->setApprovedDate( false );
+		$annotator->setApprovedDate( false );
 
-		$instance->addAnnotation( $this->property, $semanticData );
+		$annotator->addAnnotation( $this->property, $semanticData );
 	}
 }

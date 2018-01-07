@@ -40,12 +40,12 @@ class ApprovedStatusPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 	public function testIsAnnotatorFor() {
 
-		$instance = new ApprovedStatusPropertyAnnotator(
+		$annotator = new ApprovedStatusPropertyAnnotator(
 			$this->appFactory
 		);
 
 		$this->assertTrue(
-			$instance->isAnnotatorFor( $this->property )
+			$annotator->isAnnotatorFor( $this->property )
 		);
 	}
 
@@ -60,13 +60,13 @@ class ApprovedStatusPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 				$this->equalTo( $this->property ),
 				$this->equalTo( new DIString( "checkme" ) ) );
 
-		$instance = new ApprovedStatusPropertyAnnotator(
+		$annotator = new ApprovedStatusPropertyAnnotator(
 			$this->appFactory
 		);
 
-		$instance->setApprovedStatus( "checkme" );
+		$annotator->setApprovedStatus( "checkme" );
 
-		$instance->addAnnotation( $this->property, $semanticData );
+		$annotator->addAnnotation( $this->property, $semanticData );
 	}
 
 	public function testRemoval() {
@@ -78,12 +78,12 @@ class ApprovedStatusPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->method( 'removeProperty' )
 			->with( $this->equalTo( $this->property ) );
 
-		$instance = new ApprovedStatusPropertyAnnotator(
+		$annotator = new ApprovedStatusPropertyAnnotator(
 			$this->appFactory
 		);
 
-		$instance->setApprovedStatus( false );
+		$annotator->setApprovedStatus( false );
 
-		$instance->addAnnotation( $this->property, $semanticData );
+		$annotator->addAnnotation( $this->property, $semanticData );
 	}
 }

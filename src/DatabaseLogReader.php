@@ -10,34 +10,21 @@ use User;
 
 class DatabaseLogReader {
 
-	// The parameters for our query.
-	private $query;
-
-	// The current log
-	private $log;
-
-	// Don't run multiple queries if we don't have to
 	private static $titleCache = [];
-
-	// The db connection
+	private $query;
+	private $log;
 	private $db;
-
-	// The title key
-	private $titlekey;
-
-	// The type of query being performed
+	private $titleKey;
 	private $type;
 
 	/**
-	 * Constructor for reading the log.
-	 *
 	 * @param AppFactory $appFactory injected AppFactory
-	 * @param Title $title page
+	 * @param string $titleKey from page name
 	 * @param string $type of log (default: approval)
 	 */
-	public function __construct( DatabaseBase $db, Title $title, $type = 'approval' ) {
+	public function __construct( DatabaseBase $db, $titleKey, $type = 'approval' ) {
 		$this->db = $db;
-		$this->titlekey = $title->getDBKey();
+		$this->titleKey = $titleKey;
 		$this->type = $type;
 	}
 
@@ -46,17 +33,17 @@ class DatabaseLogReader {
 	 */
 	private function init() {
 		if ( !$this->query ) {
-			if ( !isset( self::$titleCache[ $this->titlekey ] ) ) {
+			if ( !isset( self::$titleCache[ $this->titleKey ] ) ) {
 				$this->query = DatabaseLogEntry::getSelectQueryData();
 
 				$this->query['conds'] = [
 					'log_type' => $this->type,
-					'log_title' => $this->titlekey
+					'log_title' => $this->titleKey
 				];
 				$this->query['options'] = [ 'ORDER BY' => 'log_timestamp desc' ];
-				self::$titleCache[ $this->titlekey ] = $this;
+				self::$titleCache[ $this->titleKey ] = $this;
 			} elseif ( $this->query ) {
-				$cache = self::$titleCache[ $this->titlekey ];
+				$cache = self::$titleCache[ $this->titleKey ];
 				$this->query = $cache->getQuery();
 				$this->log = $cache->getLog();
 			}
@@ -80,20 +67,18 @@ class DatabaseLogReader {
 	}
 
 	/**
-	 * Fetch the query for later calls
+	 * Fetch the query parameters for later calls
 	 *
-	 * @return array
+	 * @return array of parameters for SELECT call
 	 */
 	public function getQuery() {
 		return $this->query;
 	}
 
 	/**
-	 * Get the person who made the last for this page
-	 *
 	 * @return User
 	 */
-	public function getUser() {
+	public function getUserForLogEntry() {
 		$this->init();
 		$logLine = $this->getLog()->current();
 		if ( $logLine ) {
@@ -102,11 +87,9 @@ class DatabaseLogReader {
 	}
 
 	/**
-	 * Get the date of the last entry in the log for this page
-	 *
 	 * @return Timestamp
 	 */
-	public function getDate() {
+	public function getDateOfLogEntry() {
 		$this->init();
 		$logLine = $this->getLog()->current();
 		if ( $logLine ) {
@@ -115,11 +98,9 @@ class DatabaseLogReader {
 	}
 
 	/**
-	 * Get the status of the last entry in the log for this page
-	 *
-	 * @return Timestamp
+	 * @return string
 	 */
-	public function getStatus() {
+	public function getStatusOfLogEntry() {
 		$this->init();
 		$logLine = $this->getLog()->current();
 		if ( $logLine ) {

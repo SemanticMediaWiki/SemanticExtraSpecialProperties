@@ -56,6 +56,10 @@ class ApprovedRevPropertyAnnotator implements PropertyAnnotator {
 		return $property->getKey() === self::PROP_ID;
 	}
 
+	public function getDataItem() {
+		return new DINumber( $this->approvedRev );
+	}
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -70,7 +74,7 @@ class ApprovedRevPropertyAnnotator implements PropertyAnnotator {
 		if ( is_numeric( $this->approvedRev ) ) {
 			$semanticData->addPropertyObjectValue(
 				$property,
-				new DINumber( $this->approvedRev )
+				$this->getDataItem()
 			);
 		} else {
 			$semanticData->removeProperty( $property );

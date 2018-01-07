@@ -55,6 +55,20 @@ class ApprovedDatePropertyAnnotator implements PropertyAnnotator {
 		return $property->getKey() === self::PROP_ID;
 	}
 
+	public function getDataItem() {
+		if ( $this->approvedDate ) {
+			$date = $this->approvedDate;
+			return new DITime(
+				DITime::CM_GREGORIAN,
+				$date->format( 'Y' ),
+				$date->format( 'm' ),
+				$date->format( 'd' ),
+				$date->format( 'H' ),
+				$date->format( 'i' )
+			);
+		}
+	}
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -65,23 +79,11 @@ class ApprovedDatePropertyAnnotator implements PropertyAnnotator {
 			$logReader = $this->appFactory->newDatabaseLogReader(
 				$semanticData->getSubject()->getTitle(), 'approval'
 			);
-			$this->approvedDate = $logReader->getDate();
+			$this->approvedDate = $logReader->getDateOfLogEntry();
 		}
 
-		$dataItem = null;
-		if ( $this->approvedDate ) {
-			$date = $this->approvedDate;
-			$dataItem = new DITime(
-				DITime::CM_GREGORIAN,
-				$date->format( 'Y' ),
-				$date->format( 'm' ),
-				$date->format( 'd' ),
-				$date->format( 'H' ),
-				$date->format( 'i' )
-			);
-		}
-
-		if ( $dataItem instanceof DataItem ) {
+		$dataItem = $this->getDataItem();
+		if ( $dataItem ) {
 			$semanticData->addPropertyObjectValue( $property, $dataItem );
 		} else {
 			$semanticData->removeProperty( $property );
