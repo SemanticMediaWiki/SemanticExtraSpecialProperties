@@ -2,6 +2,7 @@
 
 namespace SESP;
 
+use ArrayIterator;
 use DatabaseLogEntry;
 use DatabaseBase;
 use MWTimestamp;
@@ -13,17 +14,17 @@ class DatabaseLogReader {
 	private static $titleCache = [];
 	private $query;
 	private $log;
-	private $db;
+	private $dbr;
 	private $titleKey;
 	private $type;
 
 	/**
-	 * @param AppFactory $appFactory injected AppFactory
+	 * @param DatabaseaBase $dbr injected connection
 	 * @param string $titleKey from page name
 	 * @param string $type of log (default: approval)
 	 */
-	public function __construct( DatabaseBase $db, $titleKey, $type = 'approval' ) {
-		$this->db = $db;
+	public function __construct( DatabaseBase $dbr, $titleKey, $type = 'approval' ) {
+		$this->dbr = $dbr;
 		$this->titleKey = $titleKey;
 		$this->type = $type;
 	}
@@ -58,10 +59,17 @@ class DatabaseLogReader {
 	 */
 	private function getLog() {
 		if ( !$this->log ) {
-			$this->log = $this->db->select(
+			$this->log = $this->dbr->select(
 				$this->query['tables'], $this->query['fields'], $this->query['conds'],
 				__METHOD__, $this->query['options'], $this->query['join_conds']
 			);
+			if ( $this->log === null ) {
+				$this->log = new ArrayIterator( [
+					'user_id' => null,
+					'log_timestamp' => null,
+					'log_action' => null
+				] );
+			}
 		}
 		return $this->log;
 	}
