@@ -20,6 +20,8 @@
 	"sesp-property-mimetype": "Tipu MIME",
 	"sesp-property-mediatype": "Tipu de mediu",
 	"sesp-property-shorturl": "URL curtia",
+	"sesp-property-approved-rev": "Revisión aprobada",
+	"sesp-property-approved-rev-desc": "«$1» determina'l ID de revisión d'una páxina que s'aprobó (utilizando la estensión [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP]).",
 	"sesp-property-user-registration-date": "Data de rexistru del usuariu",
 	"sesp-property-user-edit-count": "Númberu d'ediciones del usuariu",
 	"sesp-property-exif-data": "Datos Exif",

@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Kghbln",
-			"Shirayuki"
+			"Shirayuki",
+			"Андрей"
 		]
 	},
 	"sesp-desc": "{{desc|name=Semantic Extra Special Properties|url=https://www.mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties}}",
@@ -20,6 +21,7 @@
 	"sesp-property-mimetype": "The name of the special property that stores the MIME type of a file.\n{{Doc-smw-sp}}\n{{Identical|MIME type}}",
 	"sesp-property-mediatype": "The name of the special property that stores the media type of a file.\n{{Doc-smw-sp}}",
 	"sesp-property-shorturl": "The name of the special property that stores the short URL of a page, if the extensions ShortURL is installed.\n{{Doc-smw-sp}}\n{{Identical|Short URL}}",
+	"sesp-property-approved-rev": "Ишьақәырӷәӷәо аверсиа",
 	"sesp-property-user-registration-date": "The name of the special property that stores a users registration date on a user page.\n{{Doc-smw-sp}}",
 	"sesp-property-user-edit-count": "The name of the special property that stores a users edit count on a user page.\n{{Doc-smw-sp}}",
 	"sesp-property-exif-data": "The name of the special property that stores a reference to the EXIF data of a file.\n{{Doc-smw-sp}}"
