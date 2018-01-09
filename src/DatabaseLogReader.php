@@ -43,7 +43,7 @@ class DatabaseLogReader {
 				];
 				$this->query['options'] = [ 'ORDER BY' => 'log_timestamp desc' ];
 				self::$titleCache[ $this->titleKey ] = $this;
-			} elseif ( $this->query ) {
+			} else {
 				$cache = self::$titleCache[ $this->titleKey ];
 				$this->query = $cache->getQuery();
 				$this->log = $cache->getLog();
