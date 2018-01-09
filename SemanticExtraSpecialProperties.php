@@ -79,7 +79,7 @@ class SemanticExtraSpecialProperties {
 			'version'        => SESP_VERSION,
 			'url'            => 'https://www.mediawiki.org/wiki/Extension:SemanticExtraSpecialProperties',
 			'descriptionmsg' => 'sesp-desc',
-			'license-name'   => 'GPL-2.0+'
+			'license-name'   => 'GPL-2.0-or-later'
 		];
 
 		$GLOBALS['wgMessagesDirs']['SemanticExtraSpecialProperties'] = __DIR__ . '/i18n';
