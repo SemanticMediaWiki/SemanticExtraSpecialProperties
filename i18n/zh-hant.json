@@ -4,7 +4,8 @@
 			"Shirayuki",
 			"Simon Shek",
 			"Liuxinyu970226",
-			"LNDDYL"
+			"LNDDYL",
+			"Kly"
 		]
 	},
 	"sesp-desc": "加入一些額外特殊屬性於所有頁面",
@@ -12,6 +13,7 @@
 	"sesp-property-first-author": "頁面的建立者",
 	"sesp-property-revision-id": "修訂ID",
 	"sesp-property-page-id": "頁面ID",
+	"sesp-property-page-len": "頁面長度",
 	"sesp-property-view-count": "頁面瀏覽數位",
 	"sesp-property-subpages": "子頁",
 	"sesp-property-revisions": "修訂的數目",
