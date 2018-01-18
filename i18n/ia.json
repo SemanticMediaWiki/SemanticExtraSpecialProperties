@@ -1,0 +1,31 @@
+{
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"sesp-desc": "Adde certe proprietates extra special a tote le paginas",
+	"sesp-property-unknown-label": "Etiquetta o alias incognite",
+	"sesp-property-author": "Autor del pagina",
+	"sesp-property-first-author": "Creator del pagina",
+	"sesp-property-revision-id": "ID del version",
+	"sesp-property-page-id": "ID del pagina",
+	"sesp-property-page-id-desc": "\"$1\" identifica le ID MediaWiki de un pagina e es fornite per le extension [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP].",
+	"sesp-property-page-len": "Longitude de pagina",
+	"sesp-property-page-len-desc": "\"$1\" identifica le longitude de un pagina in bytes e es fornite per le extension [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP].",
+	"sesp-property-view-count": "Numero de visitas de paginas",
+	"sesp-property-subpages": "Subpaginas",
+	"sesp-property-revisions": "Numero de versiones",
+	"sesp-property-talk-revisions": "Numero de versiones del pagina de discussion",
+	"sesp-property-mimetype": "Typo MIME",
+	"sesp-property-mediatype": "Typo de multimedia",
+	"sesp-property-shorturl": "URL curte",
+	"sesp-property-approved-rev": "Version approbate",
+	"sesp-property-approved-rev-desc": "\"$1\" identifica le ID del version de un pagina que ha essite approbate (con le extension [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP]).",
+	"sesp-property-user-registration-date": "Data de registration del usator",
+	"sesp-property-user-edit-count": "Numero de modificationes del usator",
+	"sesp-property-exif-data": "Datos EXIF",
+	"sesp-exif-languagecode": "Exif:Codice de lingua",
+	"sesp-exif-label": "Exif:Etiquetta",
+	"sesp-exif-iimcategory": "Exif:Categoria de IIM"
+}

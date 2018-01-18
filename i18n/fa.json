@@ -6,7 +6,8 @@
 			"ZxxZxxZ",
 			"Reza1615",
 			"Alirezaaa",
-			"Ommmmid"
+			"Ommmmid",
+			"Alifakoor"
 		]
 	},
 	"sesp-desc": "افزودن برخی خواص ویژه اضافی به همه صفحات",
@@ -23,10 +24,11 @@
 	"sesp-property-mimetype": "نوع مایم",
 	"sesp-property-mediatype": "نوع رسانه",
 	"sesp-property-shorturl": "نشانی کوتاه",
+	"sesp-property-approved-rev": "نسخهٔ تأییدشده",
 	"sesp-property-user-registration-date": "تاریخ ثبت‌نام کاربر",
 	"sesp-property-user-edit-count": "شمار ویرایش‌های کاربر",
 	"sesp-property-exif-data": "اطلاعات اگزیف",
-	"sesp-exif-languagecode": "Exif:Languge code",
+	"sesp-exif-languagecode": "Exif:Language code",
 	"sesp-exif-label": "Exif:Label",
 	"sesp-exif-iimcategory": "Exif:Iim Category"
 }

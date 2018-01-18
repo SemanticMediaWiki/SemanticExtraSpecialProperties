@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Eleassar",
+			"HairyFotr"
+		]
+	},
+	"sesp-property-author": "Avtor strani",
+	"sesp-property-revision-id": "ID redakcije",
+	"sesp-property-page-id": "ID strani",
+	"sesp-property-page-len": "Dolžina strani",
+	"sesp-property-view-count": "Število ogledov strani",
+	"sesp-property-subpages": "Podstran",
+	"sesp-property-revisions": "Število redakcij"
+}
