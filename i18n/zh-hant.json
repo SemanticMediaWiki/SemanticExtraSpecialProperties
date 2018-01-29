@@ -5,15 +5,19 @@
 			"Simon Shek",
 			"Liuxinyu970226",
 			"LNDDYL",
-			"Kly"
+			"Kly",
+			"Assoc"
 		]
 	},
 	"sesp-desc": "加入一些額外特殊屬性於所有頁面",
+	"sesp-property-unknown-label": "未知標籤或別名",
 	"sesp-property-author": "頁面作者",
 	"sesp-property-first-author": "頁面的建立者",
 	"sesp-property-revision-id": "修訂ID",
 	"sesp-property-page-id": "頁面ID",
+	"sesp-property-page-id-desc": "“$1”標識頁面的MediaWiki ID，並由[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP]擴展提供。",
 	"sesp-property-page-len": "頁面長度",
+	"sesp-property-page-len-desc": "“$1”標識頁面的長度（位元組），並由[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP]擴展提供。",
 	"sesp-property-view-count": "頁面瀏覽數位",
 	"sesp-property-subpages": "子頁",
 	"sesp-property-revisions": "修訂的數目",
@@ -21,6 +25,12 @@
 	"sesp-property-mimetype": "MIME類型",
 	"sesp-property-mediatype": "媒體類型",
 	"sesp-property-shorturl": "簡短的網址",
+	"sesp-property-approved-rev": "已核准版本",
+	"sesp-property-approved-rev-desc": "“$1”識別已認可頁面的修訂版本ID（通過[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP]擴展）。",
 	"sesp-property-user-registration-date": "使用者註冊日期",
-	"sesp-property-exif-data": "EXIF資料"
+	"sesp-property-user-edit-count": "使用者編輯次數",
+	"sesp-property-exif-data": "EXIF資料",
+	"sesp-exif-languagecode": "Exif:語言程式碼",
+	"sesp-exif-label": "Exif:標籤",
+	"sesp-exif-iimcategory": "Exif:Iim分類"
 }
