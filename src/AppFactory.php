@@ -204,10 +204,10 @@ class AppFactory implements LoggerAwareInterface {
 	 * @param string $type which log entries to get (default: approval)
 	 * @return DatabaseLogReader
 	 */
-	public function newDatabaseLogReader( $title, $type = 'approval' ) {
+	public function newDatabaseLogReader( Title $title = null, $type = 'approval' ) {
 		# null will match no rows but still return a valid DBLogReader
 		$key = null;
-		if ( method_exists( $title, 'getDBkey' ) ) {
+		if ( $title instanceof Title ) {
 			$key = $title->getDBkey();
 		}
 		return new DatabaseLogReader( $this->getConnection(), $key, $type );

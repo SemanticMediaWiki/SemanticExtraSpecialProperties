@@ -1,28 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit backupGlobals="false"
-         backupStaticAttributes="false"
-         bootstrap="tests/bootstrap.php"
-         cacheTokens="false"
-         colors="true"
-         convertErrorsToExceptions="true"
-         convertNoticesToExceptions="true"
-         convertWarningsToExceptions="true"
-         stopOnError="false"
-         stopOnFailure="false"
-         stopOnIncomplete="false"
-         stopOnSkipped="false"
-         verbose="true">
-    <testsuites>
-        <testsuite name="semantic-extra-special-properties-unit">
-            <directory>tests/phpunit/Unit</directory>
-        </testsuite>
-        <testsuite name="semantic-extra-special-properties-integration">
-            <directory>tests/phpunit/Integration</directory>
-        </testsuite>
-    </testsuites>
-    <filter>
-        <whitelist addUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">src</directory>
-        </whitelist>
-    </filter>
+		 backupStaticAttributes="false"
+		 bootstrap="tests/bootstrap.php"
+		 cacheTokens="false"
+		 colors="true"
+		 convertErrorsToExceptions="true"
+		 convertNoticesToExceptions="true"
+		 convertWarningsToExceptions="true"
+		 stopOnError="false"
+		 stopOnFailure="false"
+		 stopOnIncomplete="false"
+		 stopOnSkipped="false"
+		 verbose="true">
+	<testsuites>
+		<testsuite name="semantic-extra-special-properties-unit">
+			<directory>tests/phpunit/Unit</directory>
+		</testsuite>
+		<testsuite name="semantic-extra-special-properties-integration">
+			<directory>tests/phpunit/Integration</directory>
+		</testsuite>
+	</testsuites>
+	<filter>
+		<whitelist addUncoveredFilesFromWhitelist="true">
+			<directory suffix=".php">src</directory>
+		</whitelist>
+	</filter>
+	<logging>
+      <log type="coverage-clover" target="tests/_reports/logs/clover.xml"/>
+      <log type="coverage-html" target="tests/_reports/coverage" charset="UTF-8" yui="true" highlight="true" lowUpperBound="35" highLowerBound="70" />
+      <log type="testdox-text" target="tests/_reports/testdox/executed.txt"/>
+	</logging>
 </phpunit>

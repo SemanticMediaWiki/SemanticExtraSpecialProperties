@@ -29,7 +29,11 @@ class DatabaseLogReader {
 		$this->type = $type;
 	}
 
-	/**
+    public function clearCache() {
+        self::$titleCache = [];
+    }
+
+    /**
 	 * Take care of loading from the cache or filling the query.
 	 */
 	private function init() {
@@ -59,16 +63,17 @@ class DatabaseLogReader {
 	 */
 	private function getLog() {
 		if ( !$this->log ) {
+            $query = $this->getQuery();
 			$this->log = $this->dbr->select(
-				$this->query['tables'], $this->query['fields'], $this->query['conds'],
-				__METHOD__, $this->query['options'], $this->query['join_conds']
+				$query['tables'], $query['fields'], $query['conds'],
+				__METHOD__, $query['options'], $query['join_conds']
 			);
 			if ( $this->log === null ) {
-				$this->log = new ArrayIterator( [
+				$this->log = new ArrayIterator( [ (object)[
 					'user_id' => null,
 					'log_timestamp' => null,
 					'log_action' => null
-				] );
+				] ] );
 			}
 		}
 		return $this->log;
@@ -89,7 +94,7 @@ class DatabaseLogReader {
 	public function getUserForLogEntry() {
 		$this->init();
 		$logLine = $this->getLog()->current();
-		if ( $logLine ) {
+		if ( $logLine && $logLine->user_id ) {
 			return User::newFromID( $logLine->user_id );
 		}
 	}
@@ -100,7 +105,7 @@ class DatabaseLogReader {
 	public function getDateOfLogEntry() {
 		$this->init();
 		$logLine = $this->getLog()->current();
-		if ( $logLine ) {
+		if ( $logLine && $logLine->log_timestamp ) {
 			return new MWTimestamp( $logLine->log_timestamp );
 		}
 	}
@@ -111,7 +116,7 @@ class DatabaseLogReader {
 	public function getStatusOfLogEntry() {
 		$this->init();
 		$logLine = $this->getLog()->current();
-		if ( $logLine ) {
+		if ( $logLine && $logLine->log_action ) {
 			return $logLine->log_action;
 		}
 	}
