@@ -80,4 +80,5 @@ class ApprovedRevPropertyAnnotator implements PropertyAnnotator {
 			$semanticData->removeProperty( $property );
 		}
 	}
+
 }

@@ -58,7 +58,30 @@ class ApprovedByPropertyAnnotator implements PropertyAnnotator {
 		return $property->getKey() === self::PROP_ID;
 	}
 
-	public function getDataItem() {
+	/**
+	 * {@inheritDoc}
+	 */
+	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
+
+		if ( $this->approvedBy === null && class_exists( 'ApprovedRevs' ) ) {
+			$logReader = $this->appFactory->newDatabaseLogReader(
+				$semanticData->getSubject()->getTitle(),
+				'approval'
+			);
+
+			$this->approvedBy = $logReader->getUserForLogEntry();
+		}
+
+		$dataItem = $this->getDataItem();
+
+		if ( $dataItem ) {
+			$semanticData->addPropertyObjectValue( $property, $dataItem );
+		} else {
+			$semanticData->removeProperty( $property );
+		}
+	}
+
+	private function getDataItem() {
 		if ( $this->approvedBy instanceof User ) {
 			$userPage = $this->approvedBy->getUserPage();
 
@@ -68,24 +91,4 @@ class ApprovedByPropertyAnnotator implements PropertyAnnotator {
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
-	public function addAnnotation(
-		DIProperty $property, SemanticData $semanticData
-	) {
-		if ( $this->approvedBy === null && class_exists( 'ApprovedRevs' ) ) {
-			$logReader = $this->appFactory->newDatabaseLogReader(
-				$semanticData->getSubject()->getTitle(), 'approval'
-			);
-			$this->approvedBy = $logReader->getUserForLogEntry();
-		}
-
-		$dataItem = $this->getDataItem();
-		if ( $dataItem ) {
-			$semanticData->addPropertyObjectValue( $property, $dataItem );
-		} else {
-			$semanticData->removeProperty( $property );
-		}
-	}
 }

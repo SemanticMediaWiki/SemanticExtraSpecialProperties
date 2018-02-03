@@ -1,6 +1,0 @@
-SESP\Tests\DatabaseLogReader
- [x] Can construct
- [x] Get query
- [x] No log
- [ ] Get null
-

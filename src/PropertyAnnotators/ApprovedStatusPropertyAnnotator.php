@@ -55,29 +55,28 @@ class ApprovedStatusPropertyAnnotator implements PropertyAnnotator {
 		return $property->getKey() === self::PROP_ID;
 	}
 
-	public function getDataItem() {
-		return new DIString( $this->approvedStatus );
-	}
-
 	/**
 	 * {@inheritDoc}
 	 */
-	public function addAnnotation(
-		DIProperty $property, SemanticData $semanticData
-	) {
+	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
+
 		if ( $this->approvedStatus === null && class_exists( 'ApprovedRevs' ) ) {
+
 			$logReader = $this->appFactory->newDatabaseLogReader(
 				$semanticData->getSubject()->getTitle(), 'approval'
 			);
+
 			$this->approvedStatus = $logReader->getStatusOfLogEntry();
 		}
 
-		if ( is_string( $this->approvedStatus ) && $this->approvedStatus !== "" ) {
+		if ( is_string( $this->approvedStatus ) && $this->approvedStatus !== '' ) {
 			$semanticData->addPropertyObjectValue(
-				$property, $this->getDataItem()
+				$property,
+				new DIString( $this->approvedStatus )
 			);
 		} else {
 			$semanticData->removeProperty( $property );
 		}
 	}
+
 }

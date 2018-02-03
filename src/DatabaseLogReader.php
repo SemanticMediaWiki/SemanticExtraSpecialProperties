@@ -11,6 +11,9 @@ use User;
 
 class DatabaseLogReader {
 
+	/**
+	 * @var array
+	 */
 	private static $titleCache = [];
 
 	/**
@@ -39,8 +42,10 @@ class DatabaseLogReader {
 	private $type;
 
 	/**
+	 * @since 2.0
+	 *
 	 * @param DatabaseaBase $dbr injected connection
-	 * @param string $dbKey from page name
+	 * @param Title|null $title
 	 * @param string $type of log (default: approval)
 	 */
 	public function __construct( DatabaseBase $dbr, Title $title = null , $type = 'approval' ) {
@@ -49,11 +54,67 @@ class DatabaseLogReader {
 		$this->type = $type;
 	}
 
-    public function clearCache() {
-        self::$titleCache = [];
-    }
+	/**
+	 * @since 2.0
+	 */
+	public function clearCache() {
+		self::$titleCache = [];
+	}
 
-    /**
+	/**
+	 * Fetch the query parameters for later calls
+	 *
+	 * @since 2.0
+	 *
+	 * @return array of parameters for SELECT call
+	 */
+	public function getQuery() {
+		return $this->query;
+	}
+
+	/**
+	 * @since 2.0
+	 *
+	 * @return User
+	 */
+	public function getUserForLogEntry() {
+		$this->init();
+		$logLine = $this->getLog()->current();
+
+		if ( $logLine && $logLine->user_id ) {
+			return User::newFromID( $logLine->user_id );
+		}
+	}
+
+	/**
+	 * @since 2.0
+	 *
+	 * @return Timestamp
+	 */
+	public function getDateOfLogEntry() {
+		$this->init();
+		$logLine = $this->getLog()->current();
+
+		if ( $logLine && $logLine->log_timestamp ) {
+			return new MWTimestamp( $logLine->log_timestamp );
+		}
+	}
+
+	/**
+	 * @since 2.0
+	 *
+	 * @return string
+	 */
+	public function getStatusOfLogEntry() {
+		$this->init();
+		$logLine = $this->getLog()->current();
+
+		if ( $logLine && $logLine->log_action ) {
+			return $logLine->log_action;
+		}
+	}
+
+	/**
 	 * Take care of loading from the cache or filling the query.
 	 */
 	private function init() {
@@ -88,7 +149,7 @@ class DatabaseLogReader {
 	private function getLog() {
 		if ( !$this->log ) {
 
-            $query = $this->getQuery();
+			$query = $this->getQuery();
 
 			$this->log = $this->dbr->select(
 				$query['tables'],
@@ -100,59 +161,17 @@ class DatabaseLogReader {
 			);
 
 			if ( $this->log === null ) {
-				$this->log = new ArrayIterator( [ (object)[
-					'user_id' => null,
-					'log_timestamp' => null,
-					'log_action' => null
-				] ] );
+				$this->log = new ArrayIterator(
+					[ (object)[
+						'user_id' => null,
+						'log_timestamp' => null,
+						'log_action' => null
+					] ]
+				);
 			}
 		}
 
 		return $this->log;
 	}
 
-	/**
-	 * Fetch the query parameters for later calls
-	 *
-	 * @return array of parameters for SELECT call
-	 */
-	public function getQuery() {
-		return $this->query;
-	}
-
-	/**
-	 * @return User
-	 */
-	public function getUserForLogEntry() {
-		$this->init();
-		$logLine = $this->getLog()->current();
-
-		if ( $logLine && $logLine->user_id ) {
-			return User::newFromID( $logLine->user_id );
-		}
-	}
-
-	/**
-	 * @return Timestamp
-	 */
-	public function getDateOfLogEntry() {
-		$this->init();
-		$logLine = $this->getLog()->current();
-
-		if ( $logLine && $logLine->log_timestamp ) {
-			return new MWTimestamp( $logLine->log_timestamp );
-		}
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getStatusOfLogEntry() {
-		$this->init();
-		$logLine = $this->getLog()->current();
-
-		if ( $logLine && $logLine->log_action ) {
-			return $logLine->log_action;
-		}
-	}
 }

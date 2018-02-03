@@ -29,30 +29,6 @@ class DatabaseLogReaderTest extends \PHPUnit_Framework_TestCase {
 			->getMock();
 	}
 
-	protected function prepSelect( \Title $title = null, $calls ) {
-
-
-		$titleKey = $title === null ? null : $title->getDBkey();
-
-		$this->appFactory->setConnection( $this->connection );
-
-		return $this->connection->expects( $calls )
-			->method( "select" )
-			->with( [ 'logging', 'user' ],
-					[
-						'log_id', 'log_type', 'log_action', 'log_timestamp',
-						'log_user', 'log_user_text', 'log_namespace',
-						'log_title', 'log_params', 'log_deleted', 'user_id',
-						'user_name', 'user_editcount',
-						'log_comment_text' => 'log_comment',
-						'log_comment_data' => 'NULL',
-						'log_comment_cid' => 'NULL',
-					], [ 'log_type' => 'approval', 'log_title' => $titleKey ],
-					'SESP\DatabaseLogReader::getLog',
-					[ 'ORDER BY' => 'log_timestamp desc' ],
-					[ 'user' => [ 'LEFT JOIN', 'log_user=user_id' ] ] );
-	}
-
 	public function testCanConstruct() {
 		$this->assertInstanceOf(
 			DatabaseLogReader::class,
