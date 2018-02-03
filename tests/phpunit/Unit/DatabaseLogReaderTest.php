@@ -19,21 +19,23 @@ class DatabaseLogReaderTest extends \PHPUnit_Framework_TestCase {
 	private $appFactory;
 	private $connection;
 
-
 	protected function setUp() {
 		parent::setUp();
 
 		$this->appFactory = new AppFactory;
-	}
 
-	protected function prepSelect( \Title $title = null, $calls ) {
 		$this->connection = $this->getMockBuilder( '\DatabaseBase' )
 			->disableOriginalConstructor()
 			->getMock();
+	}
+
+	protected function prepSelect( \Title $title = null, $calls ) {
+
 
 		$titleKey = $title === null ? null : $title->getDBkey();
 
 		$this->appFactory->setConnection( $this->connection );
+
 		return $this->connection->expects( $calls )
 			->method( "select" )
 			->with( [ 'logging', 'user' ],
@@ -60,72 +62,115 @@ class DatabaseLogReaderTest extends \PHPUnit_Framework_TestCase {
 
 	public function testGetQuery() {
 		$log = $this->appFactory->newDatabaseLogReader();
-		$this->assertEquals( null, $log->getQuery() );
+
+		$this->assertNull(
+			$log->getQuery()
+		);
 	}
 
 	public function testNoLog() {
 		$log = $this->appFactory->newDatabaseLogReader();
-		$this->assertEquals( null, $log->getUserForLogEntry() );
+
+		$this->assertNull(
+			$log->getUserForLogEntry()
+		);
 	}
 
 	public function testGetNull() {
 		$title = \Title::newFromText( "none" );
-		$this->prepSelect( $title, $this->once() )->will( $this->returnValue( null ) );
+
 		$log = $this->appFactory->newDatabaseLogReader( $title );
-		$this->assertEquals( null, $log->getUserForLogEntry() );
-		$this->assertEquals( null, $log->getDateOfLogEntry() );
-		$this->assertEquals( null, $log->getStatusOfLogEntry() );
+
+		$this->assertNull(
+			$log->getUserForLogEntry()
+		);
+
+		$this->assertNull(
+			$log->getDateOfLogEntry()
+		);
+
+		$this->assertNull(
+			$log->getStatusOfLogEntry()
+		);
 
 		$query = $log->getQuery();
-		$this->assertEquals( [ 'tables', 'fields', 'conds', 'options', 'join_conds' ],
-							 array_keys( $query ) );
+
+		$this->assertEquals(
+			[ 'tables', 'fields', 'conds', 'options', 'join_conds' ],
+			array_keys( $query )
+		);
 	}
 
 	public function testGetLogAndQuery() {
-		$this->prepSelect( \Title::newMainPage(), $this->once() )->will( $this->returnValue(
-			new \ArrayIterator( [ (object)[
-					'user_id' => 1,
-					'log_timestamp' => 5,
-					'log_action' => 'bloop'
-				] ] ) ) );
-		$log = $this->appFactory->newDatabaseLogReader( \Title::newMainPage() );
-		$this->assertEquals( \User::newFromID( 1 ), $log->getUserForLogEntry() );
-		$this->assertEquals( new \MWTimestamp( 5 ), $log->getDateOfLogEntry() );
-		$this->assertEquals( "bloop", $log->getStatusOfLogEntry() );
+		$title = \Title::newFromText( __METHOD__ );
+
+		$row = new \stdClass;
+		$row->user_id = 1;
+		$row->log_timestamp = 5;
+		$row->log_action = 'bloop';
+
+		$this->connection->expects( $this->any() )
+			->method( 'select' )
+			->will( $this->returnValue( new \ArrayIterator( [ $row ] ) ) );
+
+		$this->appFactory->setConnection(
+			$this->connection
+		);
+
+		$log = $this->appFactory->newDatabaseLogReader( $title );
+
+		$this->assertEquals(
+			\User::newFromID( 1 ),
+			$log->getUserForLogEntry()
+		);
+
+		$this->assertEquals(
+			new \MWTimestamp( 5 ),
+			$log->getDateOfLogEntry()
+		);
+
+		$this->assertEquals(
+			'bloop',
+			$log->getStatusOfLogEntry()
+		);
 
 		$query = $log->getQuery();
-		$this->assertEquals( [ 'tables', 'fields', 'conds', 'options', 'join_conds' ],
-							 array_keys( $query ) );
+
+		$this->assertEquals(
+			[ 'tables', 'fields', 'conds', 'options', 'join_conds' ],
+			array_keys( $query )
+		);
 	}
 
 	public function testCache() {
-		$this->prepSelect( \Title::newMainPage(), $this->never() )->will( $this->returnValue(
-			new \ArrayIterator( [ (object)[
-					'user_id' => 3,
-					'log_timestamp' => 10,
-					'log_action' => 'beep'
-				] ] ) ) );
-		$log = $this->appFactory->newDatabaseLogReader( \Title::newMainPage() );
-		$this->assertEquals( \User::newFromID( 1 ), $log->getUserForLogEntry() );
-		$this->assertEquals( new \MWTimestamp( 5 ), $log->getDateOfLogEntry() );
-		$this->assertEquals( "bloop", $log->getStatusOfLogEntry() );
-	}
+		$title = \Title::newFromText( __METHOD__ );
 
-	public function testClearCache() {
-		$this->prepSelect( \Title::newMainPage(), $this->once() )->will( $this->returnValue(
-			new \ArrayIterator( [ (object)[
-					'user_id' => 4,
-					'log_timestamp' => 50,
-					'log_action' => 'ding'
-				] ] ) ) );
-		$log = $this->appFactory->newDatabaseLogReader( \Title::newMainPage() );
+		$row = new \stdClass;
+		$row->user_id = 1;
+		$row->log_timestamp = 5;
+		$row->log_action = 'bloop';
+
+		$this->connection->expects( $this->once() )
+			->method( 'select' )
+			->will( $this->returnValue( new \ArrayIterator( [ $row ] ) ) );
+
+		$this->appFactory->setConnection(
+			$this->connection
+		);
+
+		$log = $this->appFactory->newDatabaseLogReader( $title );
 		$log->clearCache();
-		$this->assertEquals( \User::newFromID( 4 ), $log->getUserForLogEntry() );
-		$this->assertEquals( new \MWTimestamp( 50 ), $log->getDateOfLogEntry() );
-		$this->assertEquals( "ding", $log->getStatusOfLogEntry() );
 
-		$query = $log->getQuery();
-		$this->assertEquals( [ 'tables', 'fields', 'conds', 'options', 'join_conds' ],
-							 array_keys( $query ) );
+		$this->assertEquals(
+			\User::newFromID( 1 ),
+			$log->getUserForLogEntry()
+		);
+
+		// Second call on same title instance should be made from cache
+		$this->assertEquals(
+			\User::newFromID( 1 ),
+			$log->getUserForLogEntry()
+		);
 	}
+
 }

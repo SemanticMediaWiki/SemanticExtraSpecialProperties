@@ -12,20 +12,40 @@ use User;
 class DatabaseLogReader {
 
 	private static $titleCache = [];
-	private $query;
-	private $log;
+
+	/**
+	 * @var DatabaseBase
+	 */
 	private $dbr;
-	private $titleKey;
+
+	/**
+	 * @var string
+	 */
+	private $query;
+
+	/**
+	 * @var string
+	 */
+	private $log;
+
+	/**
+	 * @var string
+	 */
+	private $dbKey;
+
+	/**
+	 * @var string
+	 */
 	private $type;
 
 	/**
 	 * @param DatabaseaBase $dbr injected connection
-	 * @param string $titleKey from page name
+	 * @param string $dbKey from page name
 	 * @param string $type of log (default: approval)
 	 */
-	public function __construct( DatabaseBase $dbr, $titleKey, $type = 'approval' ) {
+	public function __construct( DatabaseBase $dbr, Title $title = null , $type = 'approval' ) {
 		$this->dbr = $dbr;
-		$this->titleKey = $titleKey;
+		$this->dbKey = $title instanceof Title ? $title->getDBkey() : null;
 		$this->type = $type;
 	}
 
@@ -37,22 +57,26 @@ class DatabaseLogReader {
 	 * Take care of loading from the cache or filling the query.
 	 */
 	private function init() {
-		if ( !$this->query ) {
-			if ( !isset( self::$titleCache[ $this->titleKey ] ) ) {
-				$this->query = DatabaseLogEntry::getSelectQueryData();
 
-				$this->query['conds'] = [
-					'log_type' => $this->type,
-					'log_title' => $this->titleKey
-				];
-				$this->query['options'] = [ 'ORDER BY' => 'log_timestamp desc' ];
-				self::$titleCache[ $this->titleKey ] = $this;
-			} else {
-				$cache = self::$titleCache[ $this->titleKey ];
-				$this->query = $cache->getQuery();
-				$this->log = $cache->getLog();
-			}
+		if ( $this->query ) {
+			return;
 		}
+
+		if ( !isset( self::$titleCache[ $this->dbKey ] ) ) {
+			$this->query = DatabaseLogEntry::getSelectQueryData();
+
+			$this->query['conds'] = [
+				'log_type' => $this->type,
+				'log_title' => $this->dbKey
+			];
+			$this->query['options'] = [ 'ORDER BY' => 'log_timestamp desc' ];
+			self::$titleCache[ $this->dbKey ] = $this;
+		} else {
+			$cache = self::$titleCache[ $this->dbKey ];
+			$this->query = $cache->getQuery();
+			$this->log = $cache->getLog();
+		}
+
 	}
 
 	/**
@@ -63,11 +87,18 @@ class DatabaseLogReader {
 	 */
 	private function getLog() {
 		if ( !$this->log ) {
+
             $query = $this->getQuery();
+
 			$this->log = $this->dbr->select(
-				$query['tables'], $query['fields'], $query['conds'],
-				__METHOD__, $query['options'], $query['join_conds']
+				$query['tables'],
+				$query['fields'],
+				$query['conds'],
+				__METHOD__,
+				$query['options'],
+				$query['join_conds']
 			);
+
 			if ( $this->log === null ) {
 				$this->log = new ArrayIterator( [ (object)[
 					'user_id' => null,
@@ -76,6 +107,7 @@ class DatabaseLogReader {
 				] ] );
 			}
 		}
+
 		return $this->log;
 	}
 
@@ -94,6 +126,7 @@ class DatabaseLogReader {
 	public function getUserForLogEntry() {
 		$this->init();
 		$logLine = $this->getLog()->current();
+
 		if ( $logLine && $logLine->user_id ) {
 			return User::newFromID( $logLine->user_id );
 		}
@@ -105,6 +138,7 @@ class DatabaseLogReader {
 	public function getDateOfLogEntry() {
 		$this->init();
 		$logLine = $this->getLog()->current();
+
 		if ( $logLine && $logLine->log_timestamp ) {
 			return new MWTimestamp( $logLine->log_timestamp );
 		}
@@ -116,6 +150,7 @@ class DatabaseLogReader {
 	public function getStatusOfLogEntry() {
 		$this->init();
 		$logLine = $this->getLog()->current();
+
 		if ( $logLine && $logLine->log_action ) {
 			return $logLine->log_action;
 		}
