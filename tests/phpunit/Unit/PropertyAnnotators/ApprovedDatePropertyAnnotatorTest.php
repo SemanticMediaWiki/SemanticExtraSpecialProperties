@@ -2,13 +2,13 @@
 
 namespace SESP\Tests\PropertyAnnotators;
 
-use SESP\PropertyAnnotators\ApprovedRevPropertyAnnotator;
+use SESP\PropertyAnnotators\ApprovedDatePropertyAnnotator;
 use SMW\DIProperty;
-use SMW\DIWikiPage;
-use SMWDINumber as DINumber;
+use MWTimestamp;
+use SMWDITime as DITime;
 
 /**
- * @covers \SESP\PropertyAnnotators\ApprovedRevPropertyAnnotator
+ * @covers \SESP\PropertyAnnotators\ApprovedDatePropertyAnnotator
  * @group semantic-extra-special-properties
  *
  * @license GNU GPL v2+
@@ -16,7 +16,7 @@ use SMWDINumber as DINumber;
  *
  * @author mwjames
  */
-class ApprovedRevPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
+class ApprovedDatePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 	private $property;
 	private $appFactory;
@@ -28,20 +28,20 @@ class ApprovedRevPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$this->property = new DIProperty( '___APPROVED' );
+		$this->property = new DIProperty( '___APPROVEDDATE' );
 	}
 
 	public function testCanConstruct() {
 
 		$this->assertInstanceOf(
-			ApprovedRevPropertyAnnotator::class,
-			new ApprovedRevPropertyAnnotator( $this->appFactory )
+			ApprovedDatePropertyAnnotator::class,
+			new ApprovedDatePropertyAnnotator( $this->appFactory )
 		);
 	}
 
 	public function testIsAnnotatorFor() {
 
-		$annotator = new ApprovedRevPropertyAnnotator(
+		$annotator = new ApprovedDatePropertyAnnotator(
 			$this->appFactory
 		);
 
@@ -50,7 +50,20 @@ class ApprovedRevPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
+	protected static function getDITime( MWTimestamp $time ) {
+		return new DITime(
+				DITime::CM_GREGORIAN,
+				$time->format( 'Y' ),
+				$time->format( 'm' ),
+				$time->format( 'd' ),
+				$time->format( 'H' ),
+				$time->format( 'i' )
+		);
+	}
+
 	public function testAddAnnotation() {
+		$now = new MWTimestamp( wfTimestampNow() );
+		$time = self::getDITime( $now );
 		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
 			->disableOriginalConstructor()
 			->getMock();
@@ -59,14 +72,14 @@ class ApprovedRevPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->method( 'addPropertyObjectValue' )
 			->with(
 				$this->equalTo( $this->property ),
-				$this->equalTo( new DINumber( 42 ) ) );
+				$this->equalTo( $time )
+			);
 
-		$annotator = new ApprovedRevPropertyAnnotator(
+		$annotator = new ApprovedDatePropertyAnnotator(
 			$this->appFactory
 		);
 
-		$annotator->setApprovedRev( 42 );
-
+		$annotator->setApprovedDate( $now );
 		$annotator->addAnnotation( $this->property, $semanticData );
 	}
 
@@ -79,11 +92,11 @@ class ApprovedRevPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->method( 'removeProperty' )
 			->with( $this->equalTo( $this->property ) );
 
-		$annotator = new ApprovedRevPropertyAnnotator(
+		$annotator = new ApprovedDatePropertyAnnotator(
 			$this->appFactory
 		);
 
-		$annotator->setApprovedRev( false );
+		$annotator->setApprovedDate( false );
 
 		$annotator->addAnnotation( $this->property, $semanticData );
 	}

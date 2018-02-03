@@ -2,13 +2,13 @@
 
 namespace SESP\Tests\PropertyAnnotators;
 
-use SESP\PropertyAnnotators\ApprovedRevPropertyAnnotator;
+use SESP\PropertyAnnotators\ApprovedByPropertyAnnotator;
 use SMW\DIProperty;
 use SMW\DIWikiPage;
-use SMWDINumber as DINumber;
+use User;
 
 /**
- * @covers \SESP\PropertyAnnotators\ApprovedRevPropertyAnnotator
+ * @covers \SESP\PropertyAnnotators\ApprovedByPropertyAnnotator
  * @group semantic-extra-special-properties
  *
  * @license GNU GPL v2+
@@ -16,7 +16,7 @@ use SMWDINumber as DINumber;
  *
  * @author mwjames
  */
-class ApprovedRevPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
+class ApprovedByPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 	private $property;
 	private $appFactory;
@@ -28,20 +28,20 @@ class ApprovedRevPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$this->property = new DIProperty( '___APPROVED' );
+		$this->property = new DIProperty( '___APPROVEDBY' );
 	}
 
 	public function testCanConstruct() {
 
 		$this->assertInstanceOf(
-			ApprovedRevPropertyAnnotator::class,
-			new ApprovedRevPropertyAnnotator( $this->appFactory )
+			ApprovedByPropertyAnnotator::class,
+			new ApprovedByPropertyAnnotator( $this->appFactory )
 		);
 	}
 
 	public function testIsAnnotatorFor() {
 
-		$annotator = new ApprovedRevPropertyAnnotator(
+		$annotator = new ApprovedByPropertyAnnotator(
 			$this->appFactory
 		);
 
@@ -51,6 +51,7 @@ class ApprovedRevPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testAddAnnotation() {
+		$user = User::newFromName( "UnitTest" );
 		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
 			->disableOriginalConstructor()
 			->getMock();
@@ -59,13 +60,12 @@ class ApprovedRevPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->method( 'addPropertyObjectValue' )
 			->with(
 				$this->equalTo( $this->property ),
-				$this->equalTo( new DINumber( 42 ) ) );
-
-		$annotator = new ApprovedRevPropertyAnnotator(
+				$this->equalTo( DIWikiPage::newFromTitle( $user->getUserPage() ) ) );
+		$annotator = new ApprovedByPropertyAnnotator(
 			$this->appFactory
 		);
 
-		$annotator->setApprovedRev( 42 );
+		$annotator->setApprovedBy( $user );
 
 		$annotator->addAnnotation( $this->property, $semanticData );
 	}
@@ -79,11 +79,11 @@ class ApprovedRevPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->method( 'removeProperty' )
 			->with( $this->equalTo( $this->property ) );
 
-		$annotator = new ApprovedRevPropertyAnnotator(
+		$annotator = new ApprovedByPropertyAnnotator(
 			$this->appFactory
 		);
 
-		$annotator->setApprovedRev( false );
+		$annotator->setApprovedBy( false );
 
 		$annotator->addAnnotation( $this->property, $semanticData );
 	}

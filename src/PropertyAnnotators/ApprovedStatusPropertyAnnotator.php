@@ -4,11 +4,10 @@ namespace SESP\PropertyAnnotators;
 
 use SMW\DIProperty;
 use SMW\SemanticData;
-use SMWDataItem as DataItem;
-use SMWDINumber as DINumber;
+use SMWDIString as DIString;
 use SESP\PropertyAnnotator;
 use SESP\AppFactory;
-use ApprovedRevs;
+use LogReader;
 
 /**
  * @private
@@ -16,12 +15,12 @@ use ApprovedRevs;
  *
  * @license GNU GPL v2+
  */
-class ApprovedRevPropertyAnnotator implements PropertyAnnotator {
+class ApprovedStatusPropertyAnnotator implements PropertyAnnotator {
 
 	/**
 	 * Predefined property ID
 	 */
-	const PROP_ID = '___APPROVED';
+	const PROP_ID = '___APPROVEDSTATUS';
 
 	/**
 	 * @var AppFactory
@@ -31,7 +30,7 @@ class ApprovedRevPropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * @var Integer|null
 	 */
-	private $approvedRev;
+	private $approvedStatus;
 
 	/**
 	 * @param AppFactory $appFactory
@@ -43,10 +42,10 @@ class ApprovedRevPropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * @since 2.0
 	 *
-	 * @param Integer $approvedRev
+	 * @param string $approvedStatus
 	 */
-	public function setApprovedRev( $approvedRev ) {
-		$this->approvedRev = $approvedRev;
+	public function setApprovedStatus( $approvedStatus ) {
+		$this->approvedStatus = $approvedStatus;
 	}
 
 	/**
@@ -57,24 +56,25 @@ class ApprovedRevPropertyAnnotator implements PropertyAnnotator {
 	}
 
 	public function getDataItem() {
-		return new DINumber( $this->approvedRev );
+		return new DIString( $this->approvedStatus );
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
-	public function addAnnotation( DIProperty $property, SemanticData $semanticData	) {
-
-		if ( $this->approvedRev === null && class_exists( 'ApprovedRevs' ) ) {
-			$this->approvedRev = ApprovedRevs::getApprovedRevID(
-				$semanticData->getSubject()->getTitle()
+	public function addAnnotation(
+		DIProperty $property, SemanticData $semanticData
+	) {
+		if ( $this->approvedStatus === null && class_exists( 'ApprovedRevs' ) ) {
+			$logReader = $this->appFactory->newDatabaseLogReader(
+				$semanticData->getSubject()->getTitle(), 'approval'
 			);
+			$this->approvedStatus = $logReader->getStatusOfLogEntry();
 		}
 
-		if ( is_numeric( $this->approvedRev ) ) {
+		if ( is_string( $this->approvedStatus ) && $this->approvedStatus !== "" ) {
 			$semanticData->addPropertyObjectValue(
-				$property,
-				$this->getDataItem()
+				$property, $this->getDataItem()
 			);
 		} else {
 			$semanticData->removeProperty( $property );
