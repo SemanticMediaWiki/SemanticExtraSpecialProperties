@@ -20,6 +20,9 @@
 	"sesp-property-mediatype": "미디어 유형",
 	"sesp-property-shorturl": "짧은 URL",
 	"sesp-property-approved-rev": "승인된 판",
+	"sesp-property-approved-by": "승인자",
+	"sesp-property-approved-date": "승인 날짜",
+	"sesp-property-approved-status": "승인 상태",
 	"sesp-property-user-registration-date": "사용자 등록 날짜",
 	"sesp-property-user-edit-count": "사용자 편집 횟수",
 	"sesp-property-exif-data": "Exif 데이터"

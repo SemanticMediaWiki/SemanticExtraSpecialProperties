@@ -3,7 +3,8 @@
 		"authors": [
 			"Tarawneh",
 			"Mido",
-			"ديفيد"
+			"ديفيد",
+			"محمد أحمد عبد الفتاح"
 		]
 	},
 	"sesp-desc": "يضيف بعض الخصائص الخاصة الإضافية لجميع الصفحات",
@@ -22,6 +23,7 @@
 	"sesp-property-mimetype": "نوع MIME",
 	"sesp-property-mediatype": "نوع الوسائط",
 	"sesp-property-shorturl": "مسار قصير",
+	"sesp-property-approved-status": "حالة القبول",
 	"sesp-property-user-registration-date": "تاريخ تسجيل المستخدم",
 	"sesp-property-user-edit-count": "عداد تعديلات المستخدم",
 	"sesp-property-exif-data": "بيانات Exif",

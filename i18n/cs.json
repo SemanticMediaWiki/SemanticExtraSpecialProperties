@@ -5,7 +5,8 @@
 			"Vks",
 			"Aktron",
 			"Dvorapa",
-			"Martin Urbanec"
+			"Martin Urbanec",
+			"Ilimanaq29"
 		]
 	},
 	"sesp-property-author": "Autor stránky",
@@ -20,6 +21,12 @@
 	"sesp-property-mimetype": "MIME typ",
 	"sesp-property-mediatype": "Typ média",
 	"sesp-property-shorturl": "Krátké URL",
+	"sesp-property-approved-by": "Schváleno uživatelem",
+	"sesp-property-approved-by-desc": "\"$1\" identifikuje uživatele, který nastavil schválený status stránky (pomocí rozšíření [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP])",
+	"sesp-property-approved-date": "Schválené datum",
+	"sesp-property-approved-date-desc": "\"$1\" identifikuje čas, pokud byl schválen vhodný status stránky (přes rozšíření [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP])",
+	"sesp-property-approved-status": "Schválený status",
+	"sesp-property-approved-status-desc": "\"$1\" identifikuje schválený status stránky, která je pokryta ApprovedRevs (pomocí rozšíření [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP])",
 	"sesp-property-user-registration-date": "Datum registrace uživatele",
 	"sesp-property-user-edit-count": "Počet editací uživatele",
 	"sesp-property-exif-data": "Data EXIF"

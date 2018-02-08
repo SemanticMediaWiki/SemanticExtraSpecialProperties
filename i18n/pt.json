@@ -4,7 +4,8 @@
 			"SandroHc",
 			"Vitorvicentevalente",
 			"Fúlvio",
-			"Hamilton Abreu"
+			"Hamilton Abreu",
+			"Athena in Wonderland"
 		]
 	},
 	"sesp-desc": "Adiciona algumas propriedades adicionais especiais a todas as páginas",
@@ -25,6 +26,12 @@
 	"sesp-property-shorturl": "URL encurtado",
 	"sesp-property-approved-rev": "Revisão aprovada",
 	"sesp-property-approved-rev-desc": "\"$1\" identifica o identificador da revisão aprovada de uma página (através da extensão [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP]).",
+	"sesp-property-approved-by": "Aprovado por",
+	"sesp-property-approved-by-desc": "\"$1\" identifica o utilizador que definiu o estado de aprovação da página (através da extensão [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP]).",
+	"sesp-property-approved-date": "Data de aprovação",
+	"sesp-property-approved-date-desc": "\"$1\" identifica a hora em que o estado de aprovação da página foi definido (através da extensão [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP]).",
+	"sesp-property-approved-status": "Estado de aprovação",
+	"sesp-property-approved-status-desc": "\"$1\" identifica o estado de aprovação da página que é coberta pela extensão ApprovedRevs (através da extensão [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP]).",
 	"sesp-property-user-registration-date": "Data de registo do utilizador",
 	"sesp-property-user-edit-count": "Contagem de edições do utilizador",
 	"sesp-property-exif-data": "Dados Exif",
