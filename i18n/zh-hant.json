@@ -6,7 +6,8 @@
 			"Liuxinyu970226",
 			"LNDDYL",
 			"Kly",
-			"Assoc"
+			"Assoc",
+			"Fanjiayi"
 		]
 	},
 	"sesp-desc": "加入一些額外特殊屬性於所有頁面",
@@ -27,6 +28,11 @@
 	"sesp-property-shorturl": "簡短的網址",
 	"sesp-property-approved-rev": "已核准版本",
 	"sesp-property-approved-rev-desc": "“$1”識別已認可頁面的修訂版本ID（通過[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP]擴展）。",
+	"sesp-property-approved-by": "批準自",
+	"sesp-property-approved-date": "通過日期",
+	"sesp-property-approved-date-desc": "“$1”識別頁面通過狀態的設定時間（通過[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP]擴展）。",
+	"sesp-property-approved-status": "通過狀態",
+	"sesp-property-approved-status-desc": "“$1”識別由通過修訂覆蓋的頁面通過狀態（通過[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP]擴展）。",
 	"sesp-property-user-registration-date": "使用者註冊日期",
 	"sesp-property-user-edit-count": "使用者編輯次數",
 	"sesp-property-exif-data": "EXIF資料",
