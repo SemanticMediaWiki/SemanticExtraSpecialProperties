@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": [
+			"Rueter"
+		]
+	},
+	"sesp-property-author": "Лопанть сёрмадыцязо",
+	"sesp-property-first-author": "Лопанть шкицязо",
+	"sesp-property-page-id": "Лопа ID",
+	"sesp-property-view-count": "Зяроксть лопась ванозь",
+	"sesp-property-subpages": "Алкслопа",
+	"sesp-property-revisions": "Зяроксть витнезь-петнезь",
+	"sesp-property-talk-revisions": "Зяроксть кортнема лопась витнезь-петнезь",
+	"sesp-property-mimetype": "MIME типезэ",
+	"sesp-property-mediatype": "Медиань типесь",
+	"sesp-property-approved-rev": "Кемекстазь версия",
+	"sesp-property-approved-date": "Кемекстазь ков-чи",
+	"sesp-exif-languagecode": "Exif:Келень кодось",
+	"sesp-exif-iimcategory": "Exif:Iim-категориясь"
+}

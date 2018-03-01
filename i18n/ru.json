@@ -9,7 +9,9 @@
 			"Wirbel78",
 			"Staspotanin2",
 			"Movses",
-			"Redredsonia"
+			"Redredsonia",
+			"Kaganer",
+			"Mouse21"
 		]
 	},
 	"sesp-desc": "Добавляет некоторые дополнительные специальные свойства для всех страниц",
@@ -18,9 +20,9 @@
 	"sesp-property-first-author": "Создатель страницы",
 	"sesp-property-revision-id": "Идентификатор правки",
 	"sesp-property-page-id": "Идентификатор страницы",
-	"sesp-property-page-id-desc": "\"$1\" идентифицирует MediaWiki ID страницы и предоставлено расширением [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP]",
+	"sesp-property-page-id-desc": "«$1» определяет идентификатор страницы (MediaWiki ID) и предоставляется расширением [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP]",
 	"sesp-property-page-len": "Длина страницы",
-	"sesp-property-page-len-desc": "\"$1\" идентифицирует длину страницы в байтах и предоствлен расширением [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP] .",
+	"sesp-property-page-len-desc": "«$1» идентифицирует размер страницы в байтах и предоставляется расширением [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP] .",
 	"sesp-property-view-count": "Количество просмотров страницы",
 	"sesp-property-subpages": "Подстраница",
 	"sesp-property-revisions": "Количество правок",
@@ -35,6 +37,7 @@
 	"sesp-property-approved-date": "Утвержденная дата",
 	"sesp-property-approved-date-desc": "\"$1\" определяет время, когда был установлен статус утверждения страницы (через расширение [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP]).",
 	"sesp-property-approved-status": "Статус утверждения",
+	"sesp-property-approved-status-desc": "«$1» идентифицирует статус одобрения страницы, которая была подтверждена ApprovedRevs (с помощью расширения [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP]).",
 	"sesp-property-user-registration-date": "Дата регистрации пользователя",
 	"sesp-property-user-edit-count": "Число правок участника",
 	"sesp-property-exif-data": "Данные EXIF",

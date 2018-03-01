@@ -28,7 +28,7 @@
 	"sesp-property-approved-by": "وافقة عليها",
 	"sesp-property-approved-by-desc": "يحدد \"$1\" المستخدم الذي يحدد حالة الموافقة للصفحة (عبر الملحق [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP]).",
 	"sesp-property-approved-date": "تاريخ الموافقة",
-	"sesp-property-approved-date-desc": "يحدد \"$ 1\" الوقت الذي تم فيه تعيين حالة الموافقة للصفحة (من خلال ملحق [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP]).",
+	"sesp-property-approved-date-desc": "يحدد \"$1\" الوقت الذي تم فيه تعيين حالة الموافقة للصفحة (من خلال ملحق [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP]).",
 	"sesp-property-approved-status": "حالة القبول",
 	"sesp-property-approved-status-desc": "يحدد \"$1\" حالة الموافقة لصفحة مغطاة ب أبسيدريفس (من خلال ملحق [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP]).",
 	"sesp-property-user-registration-date": "تاريخ تسجيل المستخدم",
