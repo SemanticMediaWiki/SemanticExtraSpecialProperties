@@ -37,7 +37,7 @@
 	"sesp-property-approved-date": "Утвержденная дата",
 	"sesp-property-approved-date-desc": "\"$1\" определяет время, когда был установлен статус утверждения страницы (через расширение [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP]).",
 	"sesp-property-approved-status": "Статус утверждения",
-	"sesp-property-approved-status-desc": "«$1» идентифицирует статус одобрения страницы, которая была подтверждена ApprovedRevs (с помощью расширения [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP]).",
+	"sesp-property-approved-status-desc": "«$1» идентифицирует статус одобрения страницы, которую покрывает ApprovedRevs (с помощью расширения [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP]).",
 	"sesp-property-user-registration-date": "Дата регистрации пользователя",
 	"sesp-property-user-edit-count": "Число правок участника",
 	"sesp-property-exif-data": "Данные EXIF",

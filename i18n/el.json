@@ -10,6 +10,7 @@
 	"sesp-property-first-author": "Δημιουργός σελίδας",
 	"sesp-property-revision-id": "Αναγνωριστικό αναθεώρησης",
 	"sesp-property-page-id": "Αναγνωριστικό σελίδας",
+	"sesp-property-page-len": "Μήκος σελίδας",
 	"sesp-property-view-count": "Αριθμός προβολών σελίδας",
 	"sesp-property-subpages": "Υποσελίδα",
 	"sesp-property-revisions": "Αριθμός αναθεωρήσεων",
@@ -23,5 +24,8 @@
 	"sesp-property-approved-status": "Κατάσταση έγκρισης",
 	"sesp-property-user-registration-date": "Ημερομηνία εγγραφής χρήστη",
 	"sesp-property-user-edit-count": "Αριθμός επεξεργασιών χρήστη",
-	"sesp-property-exif-data": "Δεδομένα Exif"
+	"sesp-property-exif-data": "Δεδομένα Exif",
+	"sesp-exif-languagecode": "Exif: κωδικός γλώσσας",
+	"sesp-exif-label": "Exif: Ετικέτα",
+	"sesp-exif-iimcategory": "Exif: κατηγορία Iim"
 }
