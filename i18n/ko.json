@@ -2,11 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Priviet",
-			"Ykhwong"
+			"Ykhwong",
+			"Nuevo Paso"
 		]
 	},
 	"sesp-desc": "추가 특별 속성을 모든 문서에 추가",
-	"sesp-property-unknown-label": "알 수 없는 레이블 또는 별칭",
+	"sesp-property-unknown-label": "알 수 없는 레이블 혹은 다른 이름",
 	"sesp-property-author": "문서 저자",
 	"sesp-property-first-author": "문서 생성자",
 	"sesp-property-revision-id": "판 ID",
