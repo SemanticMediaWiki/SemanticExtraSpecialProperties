@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": [
+			"Prevodim"
+		]
+	},
+	"sesp-property-author": "Аутор странице",
+	"sesp-property-first-author": "Аутор странице",
+	"sesp-property-revision-id": "ID измене",
+	"sesp-property-page-id": "ID странице",
+	"sesp-property-subpages": "Подстраница",
+	"sesp-property-revisions": "Број измена",
+	"sesp-property-mimetype": "MIME тип",
+	"sesp-property-mediatype": "Врста медија",
+	"sesp-property-shorturl": "Скраћени URL",
+	"sesp-property-approved-rev": "Одобрена измена",
+	"sesp-property-approved-date": "Датум одобравања",
+	"sesp-property-approved-status": "Статус одобравања",
+	"sesp-property-user-edit-count": "Број корисничких измена"
+}
