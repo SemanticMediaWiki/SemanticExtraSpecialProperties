@@ -4,7 +4,8 @@
 			"Chrumps",
 			"Jacenty359",
 			"Devwebtel",
-			"InternerowyGołąb"
+			"InternerowyGołąb",
+			"DeRudySoulStorm"
 		]
 	},
 	"sesp-desc": "Dodaje kilka dodatkowych specjalnych właściwości do wszystkich stron",
@@ -23,6 +24,7 @@
 	"sesp-property-mediatype": "Typ medium",
 	"sesp-property-shorturl": "Krótki URL",
 	"sesp-property-approved-rev": "Zatwierdzona wersja",
+	"sesp-property-approved-by": "Zatwierdzono przez",
 	"sesp-property-user-registration-date": "Data rejestracji użytkownika",
 	"sesp-property-user-edit-count": "Licznik edycji użytkownika",
 	"sesp-property-exif-data": "Dane EXIF",
