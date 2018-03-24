@@ -117,6 +117,27 @@
 		"alias": "sesp-property-user-edit-count",
 		"label": "User edit count"
 	},
+	"_USERBLOCK": {
+		"id": "___USERBLOCK",
+		"type": "_txt",
+		"show": false,
+		"alias": "sesp-property-user-block",
+		"label": "User block"
+	},
+	"_USERRIGHT": {
+		"id": "___USERRIGHT",
+		"type": "_txt",
+		"show": false,
+		"alias": "sesp-property-user-right",
+		"label": "User right"
+	},
+	"_USERGROUP": {
+		"id": "___USERGROUP",
+		"type": "_txt",
+		"show": false,
+		"alias": "sesp-property-user-group",
+		"label": "User group"
+	},
 	"_EXIFDATA": {
 		"id": "___EXIFDATA",
 		"type": "_wpg",

@@ -37,7 +37,7 @@ return [
 	/**
 	 * Specifies an internal cache modifier
 	 */
-	'sespLabelCacheVersion' => '2017.07',
+	'sespLabelCacheVersion' => '2018.03',
 
 	/**
 	 * It causes bot edits via user accounts in usergroup "bot" to be ignored when

@@ -9,6 +9,9 @@ use SESP\PropertyAnnotators\PageViewsPropertyAnnotator;
 use SESP\PropertyAnnotators\LocalPropertyAnnotator;
 use SESP\PropertyAnnotators\UserRegistrationDatePropertyAnnotator;
 use SESP\PropertyAnnotators\UserEditCountPropertyAnnotator;
+use SESP\PropertyAnnotators\UserBlockPropertyAnnotator;
+use SESP\PropertyAnnotators\UserRightPropertyAnnotator;
+use SESP\PropertyAnnotators\UserGroupPropertyAnnotator;
 use SESP\PropertyAnnotators\PageIDPropertyAnnotator;
 use SESP\PropertyAnnotators\ShortUrlPropertyAnnotator;
 use SESP\PropertyAnnotators\ExifPropertyAnnotator;
@@ -121,6 +124,21 @@ class DispatchingPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		$provider[] = [
 			UserEditCountPropertyAnnotator::PROP_ID,
 			UserEditCountPropertyAnnotator::class
+		];
+
+		$provider[] = [
+			UserBlockPropertyAnnotator::PROP_ID,
+			UserBlockPropertyAnnotator::class
+		];
+
+		$provider[] = [
+			UserRightPropertyAnnotator::PROP_ID,
+			UserRightPropertyAnnotator::class
+		];
+
+		$provider[] = [
+			UserGroupPropertyAnnotator::PROP_ID,
+			UserGroupPropertyAnnotator::class
 		];
 
 		$provider[] = [
