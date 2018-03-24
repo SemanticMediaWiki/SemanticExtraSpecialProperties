@@ -11,12 +11,12 @@ Semantic Extra Special Properties (a.k.a. SESP) is an extension to [Semantic Med
 
 - PHP 5.5 or later
 - MediaWiki 1.27 or later
-- Semantic MediaWiki 2.5 or later
+- Semantic MediaWiki 3.0 or later
 
 ## Installation
 
 The recommended way to install Semantic Extra Special Properties is by using [Composer][composer]
-with an entry in MediaWiki's `composer.json` or `composer.local.json`.
+with an entry in MediaWiki's `composer.json` or preferably `composer.local.json`.
 
 ```json
 {

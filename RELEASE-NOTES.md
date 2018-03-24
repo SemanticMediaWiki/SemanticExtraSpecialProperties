@@ -4,18 +4,29 @@ This file contains the RELEASE-NOTES of the SemanticExtraSpecialProperties (a.k.
 
 Not a release, yet!
 
-This release now requires MediaWiki 1.27+ and Semantic MediaWiki 2.5+ (#61).
+This release now requires MediaWiki 1.27+ and Semantic MediaWiki 3.0+ (#100).
 
-* Complete refactoring of the extension to allow for better extensibility and testability
-* #16 Extended the `Exif` attributes
-* #48 Fixed the registration of property tables
+* Complete refactoring of the extension to allow for better extensibility and testability (by James Hong Kong)
+* #16 Extended the `Exif` attributes (by James Hong Kong)
+* #48 Fixed the registration of property tables (by James Hong Kong)
+* #81 Made special property labels use user language (by James Hong Kong)
+* #82 Added check null on edit count, refs #77 (by James Hong Kong)
+* #83 Added more integration tests (by James Hong Kong)
+* #84 Added DispatchingPropertyAnnotator (by James Hong Kong)
+* #85 Added LabelFetcher with cache layer for improved performance (by James Hong Kong)
+* #86 Converted to PHP 5.4+ short array syntax (by Karsten Hoffmeyer)
+* #89 Changed ambiguous exif labels (by James Hong Kong)
+* #91 Removed backwards compatible I18n shim (by Karsten Hoffmeyer)
+* #95 Added `_APPROVED` for approvement state collection on pages, requires the Approved Revs extension (by Mark. A. Hershberger)
+* #98 Added `_APPROVEDBY` for approving user collection on pages, `_APPROVEDDATE` for approved date collection on pages and `_APPROVEDSTATUS` for approvement status collection on pages, requires the Approved Revs extension (by Mark. A. Hershberger)
+* #100 Added `_USERBLOCK` for user block status collection on user pages, `_USERRIGHT` for user rights collection on user pages and `_USERGROUP` for user groups collection on user pages (by James Hong Kong)
 * Localization updates from https://translatewiki.net
 
 ### 1.5.0
 
 Released on June 7, 2017.
 
-* #74 Added `_PAGELGTH` for page length (size in bytes) collection on pages
+* #74 Added `_PAGELGTH` for page length (size in bytes) collection on pages (by James Hong Kong)
 * Localization updates from https://translatewiki.net
 
 ### 1.4.0
