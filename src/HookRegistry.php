@@ -102,6 +102,14 @@ class HookRegistry {
 				$exemptionlist
 			);
 		}
+
+		// #93
+		if ( isset( $config['smwgQueryDependencyPropertyExemptionList'] ) ) {
+			$config['smwgQueryDependencyPropertyExemptionList'] = array_merge(
+				$config['smwgQueryDependencyPropertyExemptionList'],
+				$exemptionlist
+			);
+		}
 	}
 
 	private function registerCallbackHandlers( $configuration ) {
