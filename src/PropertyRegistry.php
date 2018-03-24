@@ -2,7 +2,7 @@
 
 namespace SESP;
 
-use SMW\PropertyRegistry as BasePropertyRegistry;
+use SMW\PropertyRegistry as Registry;
 use SMW\DataTypeRegistry;
 use SMW\DIProperty;
 use SMWDataItem as DataItem;
@@ -34,11 +34,11 @@ class PropertyRegistry {
 	/**
 	 * @since 1.0
 	 *
-	 * @param PropertyRegistry $propertyRegistry
+	 * @param Registry $propertyRegistry
 	 *
 	 * @return boolean
 	 */
-	public function registerOn( BasePropertyRegistry $propertyRegistry ) {
+	public function register( Registry $propertyRegistry ) {
 
 		$propertyDefinitions = $this->appFactory->getPropertyDefinitions();
 		$labels = $propertyDefinitions->getLabels();
@@ -70,7 +70,7 @@ class PropertyRegistry {
 	 * @param array $customFixedProperties
 	 * @param array $fixedPropertyTablePrefix
 	 */
-	public function registerAsFixedProperties( &$customFixedProperties, &$fixedPropertyTablePrefix ) {
+	public function registerFixedProperties( &$customFixedProperties, &$fixedPropertyTablePrefix ) {
 
 		if ( $this->appFactory->getOption( 'sespUseAsFixedTables' ) === false ) {
 			return;

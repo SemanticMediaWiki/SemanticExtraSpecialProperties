@@ -35,7 +35,7 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
-	public function testRegisterOnEmptyDefinition() {
+	public function testregisterEmptyDefinition() {
 
 		$propertyDefinitions = $this->getMockBuilder( '\SESP\PropertyDefinitions' )
 			->disableOriginalConstructor()
@@ -58,10 +58,10 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 			$this->appFactory
 		);
 
-		$instance->registerOn( $propertyRegistry );
+		$instance->register( $propertyRegistry );
 	}
 
-	public function testRegisterOnEmptyDefinitionOnExifDefintion() {
+	public function testregisterEmptyDefinitionOnExifDefintion() {
 
 		$defs = [ '_EXIF' => [
 			'SOFTWARE' => [ 'id' => 'Foo', 'type' => '_txt', 'label' => 'Foo' ] ]
@@ -100,10 +100,10 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 			$this->appFactory
 		);
 
-		$instance->registerOn( $propertyRegistry );
+		$instance->register( $propertyRegistry );
 	}
 
-	public function testRegisterOnFakeDefinition() {
+	public function testregisterFakeDefinition() {
 
 		$definition['_MY_CUSTOM1'] = [
 			'id'    => '___MY_CUSTOM1',
@@ -145,7 +145,7 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 			$this->appFactory
 		);
 
-		$instance->registerOn( $propertyRegistry );
+		$instance->register( $propertyRegistry );
 	}
 
 	public function testRegisterAsFixedPropertiesDisabled() {
@@ -169,7 +169,7 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 		$customFixedProperties = [];
 		$fixedPropertyTablePrefix = [];
 
-		$instance->registerAsFixedProperties( $customFixedProperties, $fixedPropertyTablePrefix );
+		$instance->registerFixedProperties( $customFixedProperties, $fixedPropertyTablePrefix );
 	}
 
 	public function testRegisterAsFixedPropertiesEnabled() {
@@ -206,7 +206,7 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 		$customFixedProperties = [];
 		$fixedPropertyTablePrefix = [];
 
-		$instance->registerAsFixedProperties( $customFixedProperties, $fixedPropertyTablePrefix );
+		$instance->registerFixedProperties( $customFixedProperties, $fixedPropertyTablePrefix );
 
 		$this->assertArrayHasKey(
 			'___FOO',
