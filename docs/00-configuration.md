@@ -29,7 +29,10 @@ Property labels differ according to the language the wiki was set up. An easy wa
 - `_NTREV` same as `_NREV` but for the talk page, i.e. showing how much discussion is going on around this page
 - `_SUBP` adds a property with all subpages
 - `_USERREG` adds a property to user pages with the users registration date
-- `_USEREDITCNT` add a property to user pages with the users edit count
+- `_USEREDITCNT` adds a property to user pages with the users edit count
+- `_USERBLOCK` adds a property to user pages with the users block status
+- `_USERRIGHT` adds a property to user pages with the users assigned rights
+- `_USERGROUP` adds a property to user pages with the users assigned groups
 - `_EXIFDATA` adds properties for image metadata (Exif data)
 
 #### Properties with further dependencies
