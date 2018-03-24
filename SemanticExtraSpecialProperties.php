@@ -43,72 +43,21 @@ class SemanticExtraSpecialProperties {
 				$GLOBALS[$key] = $value;
 			}
 		}
-
-		/**
-		 * In case extension.json is being used, the succeeding steps are
-		 * expected to be handled by the ExtensionRegistry aka extension.json
-		 * ...
-		 *
-		 * 	"callback": "SemanticExtraSpecialProperties::initExtension",
-		 * 	"ExtensionFunctions": [
-		 * 		"SemanticExtraSpecialProperties::onExtensionFunction"
-		 * 	],
-		 */
-		self::initExtension();
-
-		$GLOBALS['wgExtensionFunctions'][] = function() {
-			self::onExtensionFunction();
-		};
 	}
 
 	/**
 	 * @since 1.4
 	 */
-	public static function initExtension() {
+	public static function initExtension( $credits = array() ) {
 
-		define( 'SESP_VERSION', '2.0.0-alpha' );
-
-		// Register extension info
-		$GLOBALS['wgExtensionCredits']['semantic'][] = [
-			'path'           => __FILE__,
-			'name'           => 'Semantic Extra Special Properties',
-			'author'         => [
-				'[https://www.semantic-mediawiki.org/wiki/User:MWJames James Hong Kong]',
-				'...'
-			],
-			'version'        => SESP_VERSION,
-			'url'            => 'https://www.mediawiki.org/wiki/Extension:SemanticExtraSpecialProperties',
-			'descriptionmsg' => 'sesp-desc',
-			'license-name'   => 'GPL-2.0-or-later'
-		];
+		// See https://phabricator.wikimedia.org/T151136
+		define( 'SESP_VERSION', isset( $credits['version'] ) ? $credits['version'] : 'UNKNOWN' );
 
 		$GLOBALS['wgMessagesDirs']['SemanticExtraSpecialProperties'] = __DIR__ . '/i18n';
 
-		self::onBeforeExtensionFunction();
-	}
-
-	/**
-	 * Register hooks that require to be listed as soon as possible and preferable
-	 * before the execution of onExtensionFunction
-	 *
-	 * @since 1.4
-	 */
-	public static function onBeforeExtensionFunction() {
-		$GLOBALS['wgHooks']['SMW::Config::BeforeCompletion'][] = '\SESP\HookRegistry::onBeforeConfigCompletion';
-	}
-
-	/**
-	 * @since 2.0
-	 */
-	public static function checkRequirements() {
-
-		if ( version_compare( $GLOBALS['wgVersion'], '1.27', '<' ) ) {
-			die( '<b>Error:</b> This version of <a href="https://github.com/SemanticMediaWiki/SemanticExtraSpecialProperties/">Semantic Extra Special Properties</a> requires MediaWiki 1.27 or above.' );
-		}
-
-		if ( !defined( 'SMW_VERSION' ) ) {
-			die( '<b>Error:</b> This version of <a href="https://github.com/SemanticMediaWiki/SemanticExtraSpecialProperties/">Semantic Extra Special Properties</a> requires <a href="https://www.semantic-mediawiki.org/wiki/Semantic_MediaWiki">Semantic MediaWiki</a> installed.<br />' );
-		}
+		// Register hooks that require to be listed as soon as possible and preferable
+		// before the execution of onExtensionFunction
+		HookRegistry::initExtension( $GLOBALS );
 	}
 
 	/**
@@ -116,10 +65,15 @@ class SemanticExtraSpecialProperties {
 	 */
 	public static function onExtensionFunction() {
 
-		// Check requirements after LocalSetting.php has been processed
-		self::checkRequirements();
+		if ( !defined( 'SMW_VERSION' ) ) {
+			if ( PHP_SAPI === 'cli' || PHP_SAPI === 'phpdbg' ) {
+				die( "\nThe 'Semantic Extra Special Properties' extension requires 'Semantic MediaWiki' to be installed and enabled.\n" );
+			} else {
+				die( '<b>Error:</b> The <a href="https://github.com/SemanticMediaWiki/SemanticExtraSpecialProperties/">Semantic Extra Special Properties</a> extension requires <a href="https://www.semantic-mediawiki.org/wiki/Semantic_MediaWiki">Semantic MediaWiki</a> to be installed and enabled.<br />' );
+			}
+		}
 
-		$configuration = [
+		$config = [
 			'wgDisableCounters'       => $GLOBALS['wgDisableCounters'],
 			'sespUseAsFixedTables'    => $GLOBALS['sespUseAsFixedTables'],
 			'sespSpecialProperties'   => $GLOBALS['sespSpecialProperties'],
@@ -132,7 +86,7 @@ class SemanticExtraSpecialProperties {
 		];
 
 		$hookRegistry = new HookRegistry(
-			$configuration
+			$config
 		);
 
 		$hookRegistry->register();
@@ -144,6 +98,11 @@ class SemanticExtraSpecialProperties {
 	 * @return string|null
 	 */
 	public static function getVersion() {
+
+		if ( !defined( 'SESP_VERSION' ) ) {
+			return null;
+		}
+
 		return SESP_VERSION;
 	}
 
