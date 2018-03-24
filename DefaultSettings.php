@@ -22,7 +22,7 @@ return [
 	/**
 	 * Location of the property definitions
 	 */
-	'sespPropertyDefinitionFile' => __DIR__ . '/definitions.json',
+	'sespPropertyDefinitionFile' => __DIR__ . '/data/definitions.json',
 
 	/**
 	 * Specifies local definitions

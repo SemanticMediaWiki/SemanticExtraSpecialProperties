@@ -38,7 +38,7 @@ The annotation process for predefined properties is mostly done in the backgroun
 and therefore doesn't need any special interaction from a user but [`LocalSettings`][mw-localsettings] for
 `SESP` need to be enabled.
 
-For details about available settings, please have a look at the [configuration](docs/00-configuration.md) document.
+For details about available settings, please have a look at the [configuration](docs/configuration.md) document.
 
 ## Contribution and support
 

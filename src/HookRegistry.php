@@ -132,10 +132,10 @@ class HookRegistry {
 		/**
 		 * @see https://www.semantic-mediawiki.org/wiki/Hooks/SMW::Property::initProperties
 		 */
-		$this->handlers['SMW::Property::initProperties'] = function ( $basePropertyRegistry ) use ( $propertyRegistry ) {
+		$this->handlers['SMW::Property::initProperties'] = function ( $registry ) use ( $propertyRegistry ) {
 
-			$propertyRegistry->registerOn(
-				$basePropertyRegistry
+			$propertyRegistry->register(
+				$registry
 			);
 
 			return true;
@@ -146,7 +146,7 @@ class HookRegistry {
 		 */
 		$this->handlers['SMW::SQLStore::AddCustomFixedPropertyTables'] = function( array &$customFixedProperties, &$fixedPropertyTablePrefix ) use( $propertyRegistry ) {
 
-			$propertyRegistry->registerAsFixedProperties(
+			$propertyRegistry->registerFixedProperties(
 				$customFixedProperties,
 				$fixedPropertyTablePrefix
 			);
