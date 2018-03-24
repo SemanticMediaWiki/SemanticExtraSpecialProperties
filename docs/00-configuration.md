@@ -35,10 +35,14 @@ Property labels differ according to the language the wiki was set up. An easy wa
 - `_USERGROUP` adds a property to user pages with the users assigned groups
 - `_EXIFDATA` adds properties for image metadata (Exif data)
 
-#### Properties with further dependencies
+#### Identifiers with further dependencies
 
 - `_SHORTURL` adds short URL if the [ShortUrl][ShortUrl] extension is installed, and there is a shortened URL for the current page
 - `_VIEWS` adds a property with number of page views if the [HitCounters][HitCounters] extension is installed. This is required starting with MediaWiki 1.25 and later. In earlier versions of MediaWiki this special property used to work out of the box if enabled. Note that depending on local settings this value might not be very up to date. If [`$wgDisableCounters`][$wgDisableCounters] is set to "true" this property will never be set.
+- `_APPROVED` for approvement state collection on pages if the [Approved Revs][Approved Revs] extension is installed
+- `_APPROVEDBY` for approving user collection on pages if the [Approved Revs][Approved Revs] extension is installed
+- `_APPROVEDDATE` for approved date collection on pages if the [Approved Revs][Approved Revs] extension is installed
+- `_APPROVEDSTATUS` for approvement status collection on pages if the [Approved Revs][Approved Revs] extension is installed
 
 ## Additional configuration
 
@@ -51,11 +55,15 @@ Running the [data refresh][data-refresh] afterwards is recommended as well and s
 
 #### Bot edits
 
-Setting ``$wgSESPExcludeBots`` to "true" causes bot edits via user accounts in usergroup "bot" to be ignored when storing data for the special properties activated. However this does not affect the page creator property (`_CUSER`).
+Setting `$wgSESPExcludeBots` to "true" causes bot edits via user accounts in usergroup "bot" to be ignored when storing data for the special properties activated. However this does not affect the page creator property (`_CUSER`).
 
 #### Property definitions
 
 Details about available properties can be found in the [definitions.json](/src/Definition/definitions.json). The file also contains information about the visibility (display in the Factbox etc.) of a property, to alter the characterisctics of non-subobject related properties one can set `show` to `true` for each definition.
+
+#### Cache usage
+
+Setting `$sespLabelCacheVersion` to "false" will cease to use the special property label cache at all. Otherwise this is used as an internal modifier to allow resetting the cache with an arbitrary version.
 
 ## Privacy
 
@@ -78,6 +86,7 @@ can pose a [privacy issue][privacy].
 [Media type]: https://semantic-mediawiki.org/wiki/Help:Special_property_Media_type
 [ShortUrl]: https://www.mediawiki.org/wiki/Extension:ShortUrl
 [HitCounters]: https://www.mediawiki.org/wiki/Extension:HitCounters
+[Approved Revs]: https://www.mediawiki.org/wiki/Extension:Approved_Revs
 [data-refresh]: https://semantic-mediawiki.org/wiki/Help:Data_refresh#Examples
 [mw-update]: https://www.mediawiki.org/wiki/Manual:Update.php
 [mw-localsettings]: https://www.mediawiki.org/wiki/Localsettings
