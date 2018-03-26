@@ -26,5 +26,8 @@
 	"sesp-property-approved-status": "승인 상태",
 	"sesp-property-user-registration-date": "사용자 등록 날짜",
 	"sesp-property-user-edit-count": "사용자 편집 횟수",
+	"sesp-property-user-block": "사용자 차단",
+	"sesp-property-user-right": "사용자 권한",
+	"sesp-property-user-group": "사용자 그룹",
 	"sesp-property-exif-data": "Exif 데이터"
 }
