@@ -7,6 +7,7 @@
 		]
 	},
 	"sesp-desc": "{{desc|name=Semantic Extra Special Properties|url=https://www.mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties}}",
+	"sesp-name": "{{notranslate}}\nName of the extension as it should be displayed.",
 	"sesp-property-author": "The name of the special property that stores the contributors to a page",
 	"sesp-property-first-author": "The name of the special property that stores the user that created the page.\n{{Doc-smw-sp}}",
 	"sesp-property-revision-id": "The name of the special property that stores the current revision ID.\n{{Doc-smw-sp}}\n{{Identical|Revision ID}}",
