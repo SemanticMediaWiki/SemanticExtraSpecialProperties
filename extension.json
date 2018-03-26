@@ -2,11 +2,14 @@
 	"name": "SemanticExtraSpecialProperties",
 	"version": "2.0.0-alpha",
 	"author": [
-        "James Hong Kong"
+        	"James Hong Kong",
+		"Leo Wallentin",
+		"..."
 	],
 	"url": "https://github.com/SemanticMediaWiki/SemanticExtraSpecialProperties/",
 	"descriptionmsg": "sesp-desc",
-	"license-name": "GPL-2.0+",
+	"namemsg": "sesp-name",
+	"license-name": "GPL-2.0-or-later",
 	"type": "semantic",
 	"requires": {
 		"MediaWiki": ">= 1.27"
