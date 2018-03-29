@@ -4,7 +4,8 @@
 			"SPQRobin",
 			"Siebrand",
 			"Esketti",
-			"Mainframe98"
+			"Mainframe98",
+			"Patio"
 		]
 	},
 	"sesp-desc": "Voegt extra bijzondere eigenschappen toe aan alle pagina's",
@@ -23,5 +24,11 @@
 	"sesp-property-shorturl": "Korte URL",
 	"sesp-property-user-registration-date": "Gebruikersregistratiedatum",
 	"sesp-property-user-edit-count": "Aantal bewerkingen van de gebruiker",
+	"sesp-property-user-block": "Gebruikersblok",
+	"sesp-property-user-block-desc": "\"$1\" levert een gebruiker een door de [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP-extensie] verzorgde bloklijst.",
+	"sesp-property-user-right": "Gebruiksrecht",
+	"sesp-property-user-right-desc": "\"$1\" levert de gebruiker een door de [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP-extensie] verzorgde rechtenlijst.",
+	"sesp-property-user-group": "Gebruikersgroep",
+	"sesp-property-user-group-desc": "\"$1\" levert een door de [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP-extensie] verzorgde voor de gebruiker relevante groepenlijst.",
 	"sesp-property-exif-data": "Exifgegevens"
 }

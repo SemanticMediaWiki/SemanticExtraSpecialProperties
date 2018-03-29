@@ -3,7 +3,8 @@
 		"authors": [
 			"Armando-Martin",
 			"Fitoschido",
-			"Macofe"
+			"Macofe",
+			"Ohlila"
 		]
 	},
 	"sesp-desc": "Añade algunas propiedades adicionales especiales a todas las páginas",
@@ -31,6 +32,9 @@
 	"sesp-property-approved-status": "Estado de aprobación",
 	"sesp-property-user-registration-date": "Fecha de registro del usuario",
 	"sesp-property-user-edit-count": "Número de ediciones del usuario",
+	"sesp-property-user-block": "Bloqueo de usuario",
+	"sesp-property-user-right": "Permiso de usuario",
+	"sesp-property-user-group": "Grupo de usuarios",
 	"sesp-property-exif-data": "Datos EXIF",
 	"sesp-exif-languagecode": "Exif:Código de idioma",
 	"sesp-exif-label": "Exif:Etiqueta",

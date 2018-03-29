@@ -5,7 +5,8 @@
 			"Phoenix303",
 			"Sfic",
 			"चक्रपाणी",
-			"Jayprakash12345"
+			"Jayprakash12345",
+			"Sachinkatiyar"
 		]
 	},
 	"sesp-property-author": "पेज लेखक",
@@ -23,6 +24,12 @@
 	"sesp-property-approved-rev": "स्वीकृत संशोधन",
 	"sesp-property-user-registration-date": "यूज़र पंजीकरण तारीक",
 	"sesp-property-user-edit-count": "सदस्य सम्पादन संख्या",
+	"sesp-property-user-block": "उपयोगकर्ता ब्लॉक",
+	"sesp-property-user-block-desc": "\"$1\" एक उपयोगकर्ता को लागू किए गए ब्लॉक को एक सूची प्रदान करता है और [https://www.semantic-mediaikiiki/wiki/Extension:Semantic_Extra_Special_Properties SESP] एक्सटेंशन द्वारा प्रदान किया गया है।",
+	"sesp-property-user-right": "सदस्य अधिकार",
+	"sesp-property-user-right-desc": "\"$1\" एक उपयोगकर्ता को लागू अधिकारों की सूची प्रदान करता है और यह [https://www.semantic-mediaikiiki/wiki/Extension:Semantic_Extra_Special_PropertiesSESP] एक्सटेंशन द्वारा प्रदान किया गया है।",
+	"sesp-property-user-group": "उपयोगकर्ता समूह",
+	"sesp-property-user-group-desc": "\"$1\" एक उपयोगकर्ता को लागू किए गए समूह की सूची प्रदान करता है और यह [https://www.semantic-mediaikiiki/wiki/Extension:Semantic_Extra_Special_PropertiesSESP] एक्सटेंशन द्वारा प्रदान किया गया है।",
 	"sesp-property-exif-data": "Exif डेटा",
 	"sesp-exif-languagecode": "Exif:भाषा कोड",
 	"sesp-exif-label": "Exif:लेबल"
