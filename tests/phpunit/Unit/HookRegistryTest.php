@@ -17,17 +17,17 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 
 	public function testCanConstruct() {
 
-		$configuration =  [];
+		$config =  [];
 
 		$this->assertInstanceOf(
 			'\SESP\HookRegistry',
-			new HookRegistry( $configuration )
+			new HookRegistry( $config )
 		);
 	}
 
 	public function testRegister() {
 
-		$configuration = [
+		$config = [
 			'sespPropertyDefinitionFile' => $GLOBALS['sespPropertyDefinitionFile'],
 			'sespLocalPropertyDefinitions' => [],
 			'sespSpecialProperties' => [],
@@ -38,7 +38,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 			'sespCacheType'    => 'hash'
 		];
 
-		$instance = new HookRegistry( $configuration );
+		$instance = new HookRegistry( $config );
 		$instance->deregister();
 		$instance->register();
 
@@ -47,7 +47,14 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 		$this->doTestRegisteredUpdateDataBeforeHandler( $instance );
 	}
 
-	public function testOnBeforeConfigCompletion() {
+	public function testInitExtension() {
+
+		$vars = [];
+
+		HookRegistry::initExtension( $vars );
+
+		// CanonicalNamespaces
+		$callback = end( $vars['wgHooks']['SMW::Config::BeforeCompletion'] );
 
 		$config = [
 			'smwgFulltextSearchPropertyExemptionList' => []
@@ -65,7 +72,10 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 			'___EXIFDATA'
 		];
 
-		HookRegistry::onBeforeConfigCompletion( $config );
+		$this->assertThatHookIsExcutable(
+			$callback,
+			[ &$config ]
+		);
 
 		$this->assertEquals(
 			[
@@ -126,7 +136,12 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
-	private function assertThatHookIsExcutable( array $hooks, $arguments ) {
+	private function assertThatHookIsExcutable( $hooks, $arguments ) {
+
+		if ( is_callable( $hooks ) ) {
+			$hooks = [ $hooks ];
+		}
+
 		foreach ( $hooks as $hook ) {
 
 			$this->assertInternalType(

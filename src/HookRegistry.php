@@ -2,6 +2,7 @@
 
 namespace SESP;
 
+use SMW\ApplicationFactory;
 use Hooks;
 
 /**
@@ -20,10 +21,10 @@ class HookRegistry {
 	/**
 	 * @since 1.0
 	 *
-	 * @param array $configuration
+	 * @param array $config
 	 */
-	public function __construct( $configuration ) {
-		$this->registerCallbackHandlers( $configuration );
+	public function __construct( $config ) {
+		$this->registerCallbackHandlers( $config );
 	}
 
 	/**
@@ -74,50 +75,55 @@ class HookRegistry {
 	}
 
 	/**
-	 * @since  1.4
+	 * @since 2.0
 	 *
-	 * @param array &$config
+	 * @param array &$vars
 	 */
-	public static function onBeforeConfigCompletion( &$config ) {
+	public static function initExtension( &$vars ) {
 
-		$exemptionlist = [
-			'___EUSER', '___CUSER', '___SUBP', '___REVID', '___VIEWS',
-			'___NREV', '___NTREV', '___USEREDITCNT', '___EXIFDATA'
-		];
+		$vars['wgHooks']['SMW::Config::BeforeCompletion'][] = function( &$config ) {
 
-		// Exclude listed properties from indexing
-		if ( isset( $config['smwgFulltextSearchPropertyExemptionList'] ) ) {
-			$config['smwgFulltextSearchPropertyExemptionList'] = array_merge(
-				$config['smwgFulltextSearchPropertyExemptionList'],
-				$exemptionlist
-			);
-		}
+			$exemptionlist = [
+				'___EUSER', '___CUSER', '___SUBP', '___REVID', '___VIEWS',
+				'___NREV', '___NTREV', '___USEREDITCNT', '___EXIFDATA'
+			];
 
-		// Exclude listed properties from dependency detection as each of the
-		// selected object would trigger an automatic change without the necessary
-		// human intervention and can therefore produce unwanted query updates
-		if ( isset( $config['smwgQueryDependencyPropertyExemptionlist'] ) ) {
-			$config['smwgQueryDependencyPropertyExemptionlist'] = array_merge(
-				$config['smwgQueryDependencyPropertyExemptionlist'],
-				$exemptionlist
-			);
-		}
+			// Exclude listed properties from indexing
+			if ( isset( $config['smwgFulltextSearchPropertyExemptionList'] ) ) {
+				$config['smwgFulltextSearchPropertyExemptionList'] = array_merge(
+					$config['smwgFulltextSearchPropertyExemptionList'],
+					$exemptionlist
+				);
+			}
 
-		// #93
-		if ( isset( $config['smwgQueryDependencyPropertyExemptionList'] ) ) {
-			$config['smwgQueryDependencyPropertyExemptionList'] = array_merge(
-				$config['smwgQueryDependencyPropertyExemptionList'],
-				$exemptionlist
-			);
-		}
+			// Exclude listed properties from dependency detection as each of the
+			// selected object would trigger an automatic change without the necessary
+			// human intervention and can therefore produce unwanted query updates
+			if ( isset( $config['smwgQueryDependencyPropertyExemptionlist'] ) ) {
+				$config['smwgQueryDependencyPropertyExemptionlist'] = array_merge(
+					$config['smwgQueryDependencyPropertyExemptionlist'],
+					$exemptionlist
+				);
+			}
+
+			// #93
+			if ( isset( $config['smwgQueryDependencyPropertyExemptionList'] ) ) {
+				$config['smwgQueryDependencyPropertyExemptionList'] = array_merge(
+					$config['smwgQueryDependencyPropertyExemptionList'],
+					$exemptionlist
+				);
+			}
+
+			return true;
+		};
 	}
 
-	private function registerCallbackHandlers( $configuration ) {
+	private function registerCallbackHandlers( $config ) {
 
-		$applicationFactory = \SMW\ApplicationFactory::getInstance();
+		$applicationFactory = ApplicationFactory::getInstance();
 
 		$appFactory = new AppFactory(
-			$configuration,
+			$config,
 			$applicationFactory->getCache()
 		);
 
