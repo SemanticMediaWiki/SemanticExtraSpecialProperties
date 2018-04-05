@@ -27,6 +27,7 @@
 	"sesp-property-approved-by": "Zatwierdzono przez",
 	"sesp-property-user-registration-date": "Data rejestracji użytkownika",
 	"sesp-property-user-edit-count": "Licznik edycji użytkownika",
+	"sesp-property-user-group": "Grupa użytkowników",
 	"sesp-property-exif-data": "Dane EXIF",
 	"sesp-exif-languagecode": "Exif:Kod języka",
 	"sesp-exif-label": "Exif:Etykieta"

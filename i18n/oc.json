@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Cedric31",
-			"Unuaiga"
+			"Unuaiga",
+			"Guilhelma"
 		]
 	},
 	"sesp-desc": "Apond de proprietats especialas suplementàrias a totas las paginas",
@@ -10,6 +11,8 @@
 	"sesp-property-first-author": "Creator de la pagina",
 	"sesp-property-revision-id": "ID de revision",
 	"sesp-property-page-id": "ID de la pagina",
+	"sesp-property-page-id-desc": "« $1 » identifica l’ID MediaWiki d’una pagina e es provesit per l’extension [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
+	"sesp-property-page-len-desc": "\"$1\" identifica la longor d’una pagina e es provesit per l’extension [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-view-count": "Nombre de paginas vistas",
 	"sesp-property-subpages": "Sospagina",
 	"sesp-property-revisions": "Nombre de revisions",
@@ -17,12 +20,14 @@
 	"sesp-property-mimetype": "Tipe MIME",
 	"sesp-property-mediatype": "Tipe de mèdia",
 	"sesp-property-shorturl": "URL corta",
+	"sesp-property-approved-date-desc": "« $1 » identifica l'ora qu'una pagina foguèt aprovada e es provesit per l’extension [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
+	"sesp-property-approved-status-desc": "« $1 » identifica l'estat d'aprovacion d’una pagina e es provesit per l’extension [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-user-registration-date": "Data d'inscripcion de l'utilizaire",
 	"sesp-property-user-block": "Blocar de l'utilizator",
-	"sesp-property-user-block-desc": "\"$1\" balha una lista de blocatges aplicats a un utilizator e balhats per l'extension[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP].",
+	"sesp-property-user-block-desc": "\"$1\" balha una lista de blocatges aplicats a un utilizator e es balhat per l'extension[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP].",
 	"sesp-property-user-right": "Dreits de l'utilizator",
 	"sesp-property-user-right-desc": "\"$1\" balha una lista de dreits aplicats a un utilizator e es balhat per l'extension [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP] extension.",
 	"sesp-property-user-group": "Grop de l'utilizator",
-	"sesp-property-user-group-desc": "\"$1\" balha una lista de grops aplicats a l'utilizator e es balhat per l'extension [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP] extension.",
+	"sesp-property-user-group-desc": "\"$1\" balha una lista de grops aplicats a l'utilizaire e es balhat per l'extension [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP] extension.",
 	"sesp-property-exif-data": "Donadas Exif"
 }
