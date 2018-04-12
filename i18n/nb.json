@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"EvenT",
-			"Jon Harald Søby"
+			"Jon Harald Søby",
+			"Imre Eilertsen"
 		]
 	},
 	"sesp-desc": "Legg til et antall ekstra spesialegenskaper for alle sider",
@@ -21,8 +22,12 @@
 	"sesp-property-mimetype": "MIME-type",
 	"sesp-property-mediatype": "Mediatype",
 	"sesp-property-shorturl": "Kort URL",
+	"sesp-property-approved-by": "Godkjent av",
+	"sesp-property-approved-date": "Godkjennelsesdato",
+	"sesp-property-approved-status": "Godkjennelsesstatus",
 	"sesp-property-user-registration-date": "Brukerregistreringsdato",
 	"sesp-property-user-edit-count": "Antall redigeringer av brukeren",
+	"sesp-property-user-group": "Brukergruppe",
 	"sesp-property-exif-data": "Exif-data",
 	"sesp-exif-languagecode": "Exif:Språkkode",
 	"sesp-exif-label": "Exif:Etikett",

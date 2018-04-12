@@ -24,6 +24,7 @@
 	"sesp-property-shorturl": "Lyhytosoite",
 	"sesp-property-user-registration-date": "Käyttäjätunnuksen luontipäivämäärä",
 	"sesp-property-user-edit-count": "Käyttäjän muokkausmäärä",
+	"sesp-property-user-group": "Käyttäjäryhmä",
 	"sesp-property-exif-data": "Exif-tiedot",
 	"sesp-exif-languagecode": "Exif:Kielikoodi"
 }
