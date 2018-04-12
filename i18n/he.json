@@ -4,7 +4,8 @@
 			"ExampleTomer",
 			"LaG roiL",
 			"Guycn2",
-			"YaronSh"
+			"YaronSh",
+			"שניאור זלמן"
 		]
 	},
 	"sesp-property-author": "מחבר הדף",
@@ -21,14 +22,18 @@
 	"sesp-property-mimetype": "סוג MIME",
 	"sesp-property-mediatype": "סוג המדיה",
 	"sesp-property-shorturl": "כתובת מקוצרת",
+	"sesp-property-approved-rev": "גרסה מאושרת",
 	"sesp-property-approved-rev-desc": "\"$1\" מציין את מזהה הגרסה שאושרה. המאפיין מסופק על־ידי ההרחבה [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
+	"sesp-property-approved-by": "מאושר על ידי",
 	"sesp-property-approved-by-desc": "\"$1\" מציין את המשתמש שהגדיר את מצב האישור של הדף. המאפיין מסופק על־ידי ההרחבה [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-approved-date-desc": "\"$1\" מציין את הזמן שבו הדף סומן כמאושר. המאפיין מסופק על־ידי ההרחבה [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-approved-status-desc": "\"$1\" מציין את מצב האישור של הדף. המאפיין מסופק על־ידי ההרחבה [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-user-registration-date": "תאריך ההרשמה של המשתמש",
 	"sesp-property-user-edit-count": "מספר עריכות",
+	"sesp-property-user-block": "לחסום משתמש",
 	"sesp-property-user-block-desc": "\"$1\" מספק רשימה של חסימות החלות על משתמש מסוים. המאפיין מסופק על־ידי ההרחבה [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-user-right-desc": "\"$1\" מספק רשימה של הרשאות החלות על משתמש מסוים. המאפיין מסופק על־ידי ההרחבה [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
+	"sesp-property-user-group": "קבוצת משתמשים",
 	"sesp-property-user-group-desc": "\"$1\" מספק רשימה של קבוצות החלות על משתמש מסוים. המאפיין מסופק על־ידי ההרחבה [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-exif-data": "נתוני Exif"
 }
