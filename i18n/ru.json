@@ -12,7 +12,8 @@
 			"Redredsonia",
 			"Kaganer",
 			"Mouse21",
-			"Happy13241"
+			"Happy13241",
+			"Ole Yves"
 		]
 	},
 	"sesp-desc": "Добавляет некоторые дополнительные специальные свойства для всех страниц",
@@ -42,9 +43,9 @@
 	"sesp-property-approved-status-desc": "«$1» идентифицирует статус одобрения страницы, которую покрывает ApprovedRevs с помощью расширения [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-user-registration-date": "Дата регистрации пользователя",
 	"sesp-property-user-edit-count": "Число правок участника",
-	"sesp-property-user-block": "Блокировка участники",
+	"sesp-property-user-block": "Блокировка участника",
 	"sesp-property-user-block-desc": "«$1» предоставляет список блоков, применяемых к пользователю, и предоставляется дополнительным расширением [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties]",
-	"sesp-property-user-right": "Права участники",
+	"sesp-property-user-right": "Право участника",
 	"sesp-property-user-right-desc": "«$1» предоставляет список прав, применяемых к пользователю, и предоставляется с расширением [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-user-group": "Группа участника",
 	"sesp-property-user-group-desc": "«$1» предоставляет список групп, применяемых к пользователю, и предоставляется дополнительным расширением [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
