@@ -1,0 +1,25 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ooswesthoesbes"
+		]
+	},
+	"sesp-desc": "Veug extra biezunjer eigesjappe toe aan alle pagina's",
+	"sesp-name": "Semantic Extra Speciaal Eigesjappe",
+	"sesp-property-unknown-label": "Ónbekand label of bienaam",
+	"sesp-property-author": "Paginasjriever",
+	"sesp-property-first-author": "Pagina-aanmaeker",
+	"sesp-property-revision-id": "Versienómmer",
+	"sesp-property-page-id": "Paginanómmer",
+	"sesp-property-page-id-desc": "\"$1\" identificeert 't MediaWiki-ID van 'n pagina en is aangebaoje door de [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties]-oetbreijing.",
+	"sesp-property-page-len": "Paginalingde",
+	"sesp-property-page-len-desc": "\"$1\" identificeert de paginalingdje in bytes van 'n pagina en is aangebaoje door de [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties]-oetbreijing.",
+	"sesp-property-view-count": "Aantaal paginawaergaves",
+	"sesp-property-subpages": "Óngerpagina",
+	"sesp-property-revisions": "Aantaal versies",
+	"sesp-property-talk-revisions": "Aantaal euverlègkverangeringe",
+	"sesp-property-mimetype": "MIME-type",
+	"sesp-property-mediatype": "Mediaformaot",
+	"sesp-property-shorturl": "Korten URL",
+	"sesp-property-approved-rev": "Goodgekäörde versie"
+}

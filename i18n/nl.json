@@ -5,12 +5,13 @@
 			"Siebrand",
 			"Esketti",
 			"Mainframe98",
-			"Patio"
+			"Patio",
+			"Ooswesthoesbes"
 		]
 	},
 	"sesp-desc": "Voegt extra bijzondere eigenschappen toe aan alle pagina's",
 	"sesp-property-unknown-label": "Onbekend label of alias",
-	"sesp-property-author": "Paginaauteur",
+	"sesp-property-author": "Pagina-auteur",
 	"sesp-property-first-author": "Paginamaker",
 	"sesp-property-revision-id": "Versienummer",
 	"sesp-property-page-id": "Pagina-ID",

@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"Lam-ang"
+		]
+	},
+	"sesp-property-author": "Mannurat iti panid",
+	"sesp-property-first-author": "Nagpartuat iti panid",
+	"sesp-property-revision-id": "ID ti rebision",
+	"sesp-property-page-id": "ID ti panid",
+	"sesp-property-page-len": "Kaatiddog ti panid",
+	"sesp-property-view-count": "Bilang dagiti panagbuybuya iti panid",
+	"sesp-property-subpages": "Subpanid",
+	"sesp-property-revisions": "Bilang dagiti rebision",
+	"sesp-property-talk-revisions": "Bilang dagiti rebision ti tuntungan a panid",
+	"sesp-property-mimetype": "Kita ti MIME",
+	"sesp-property-mediatype": "Kita ti midia",
+	"sesp-property-shorturl": "Ababa nga URL",
+	"sesp-property-approved-rev": "Naaprobaran a rebision",
+	"sesp-property-user-group": "Grupo ti agar-aramat"
+}
