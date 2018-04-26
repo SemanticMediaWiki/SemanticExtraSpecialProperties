@@ -26,6 +26,7 @@
 	"sesp-property-shorturl": "Krótki URL",
 	"sesp-property-approved-rev": "Zatwierdzona wersja",
 	"sesp-property-approved-by": "Zatwierdzono przez",
+	"sesp-property-approved-date": "Zatwierdzona data",
 	"sesp-property-approved-status": "Status akceptacji",
 	"sesp-property-user-registration-date": "Data rejestracji użytkownika",
 	"sesp-property-user-edit-count": "Licznik edycji użytkownika",
