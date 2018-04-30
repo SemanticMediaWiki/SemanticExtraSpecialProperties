@@ -6,7 +6,8 @@
 			"Devwebtel",
 			"InternerowyGołąb",
 			"DeRudySoulStorm",
-			"GlutPaprykarz"
+			"GlutPaprykarz",
+			"Railfail536"
 		]
 	},
 	"sesp-desc": "Dodaje kilka dodatkowych specjalnych właściwości do wszystkich stron",
@@ -30,6 +31,7 @@
 	"sesp-property-approved-status": "Status akceptacji",
 	"sesp-property-user-registration-date": "Data rejestracji użytkownika",
 	"sesp-property-user-edit-count": "Licznik edycji użytkownika",
+	"sesp-property-user-block": "Blokada użytkownika",
 	"sesp-property-user-right": "Prawa użytkowanika",
 	"sesp-property-user-group": "Grupa użytkowników",
 	"sesp-property-exif-data": "Dane EXIF",
