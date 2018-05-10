@@ -1,0 +1,34 @@
+{
+	"@metadata": {
+		"authors": [
+			"Hedda",
+			"Uğurkent"
+		]
+	},
+	"sesp-property-unknown-label": "Bilinmeyen etiket veya diğer ad",
+	"sesp-property-author": "Sayfa yazarı",
+	"sesp-property-first-author": "Sayfa oluşturucusu",
+	"sesp-property-revision-id": "Sürüm kimliği",
+	"sesp-property-page-id": "Sayfa kimliği",
+	"sesp-property-page-len": "Sayfa uzunluğu",
+	"sesp-property-view-count": "Sayfa görüntüleme sayısı",
+	"sesp-property-subpages": "Alt sayfa",
+	"sesp-property-revisions": "Sürüm sayısı",
+	"sesp-property-talk-revisions": "Tartışma sayfası sürüm sayısı",
+	"sesp-property-mimetype": "MIME türü",
+	"sesp-property-mediatype": "Medya türü",
+	"sesp-property-shorturl": "Kısa bağlantı",
+	"sesp-property-approved-rev": "Onaylanan düzenleme",
+	"sesp-property-approved-by": "Onaylayan:",
+	"sesp-property-approved-date": "Onay tarihi",
+	"sesp-property-approved-status": "Onay durumu",
+	"sesp-property-user-registration-date": "Kullanıcı kayıt tarihi",
+	"sesp-property-user-edit-count": "Kullanıcı düzenleme sayısı",
+	"sesp-property-user-block": "Kullanıcı engeli",
+	"sesp-property-user-right": "Kullanıcı hakları",
+	"sesp-property-user-group": "Kullanıcı grubu",
+	"sesp-property-exif-data": "Exif verisi",
+	"sesp-exif-languagecode": "Exif:Dil kodu",
+	"sesp-exif-label": "Exif:Etiket",
+	"sesp-exif-iimcategory": "Exif:Iim Kategori"
+}
