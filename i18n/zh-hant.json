@@ -39,7 +39,7 @@
 	"sesp-property-user-right": "使用者權限",
 	"sesp-property-user-group": "使用者群組",
 	"sesp-property-exif-data": "EXIF資料",
-	"sesp-exif-languagecode": "Exif:語言程式碼",
+	"sesp-exif-languagecode": "Exif:語言代碼",
 	"sesp-exif-label": "Exif:標籤",
-	"sesp-exif-iimcategory": "Exif:Iim分類"
+	"sesp-exif-iimcategory": "Exif:Iim 分類"
 }
