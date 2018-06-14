@@ -6,7 +6,8 @@
 			"Nike",
 			"Stryn",
 			"Pyscowicz",
-			"Silvonen"
+			"Silvonen",
+			"01miki10"
 		]
 	},
 	"sesp-desc": "Lisää joitain erikoisominaisuuksia kaikille sivuille",
@@ -22,6 +23,8 @@
 	"sesp-property-mimetype": "MIME-tyyppi",
 	"sesp-property-mediatype": "Median tyyppi",
 	"sesp-property-shorturl": "Lyhytosoite",
+	"sesp-property-approved-rev": "Hyväksytty versio",
+	"sesp-property-approved-by": "Hyväksynyt",
 	"sesp-property-user-registration-date": "Käyttäjätunnuksen luontipäivämäärä",
 	"sesp-property-user-edit-count": "Käyttäjän muokkausmäärä",
 	"sesp-property-user-group": "Käyttäjäryhmä",
