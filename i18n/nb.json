@@ -3,7 +3,8 @@
 		"authors": [
 			"EvenT",
 			"Jon Harald Søby",
-			"Imre Eilertsen"
+			"Imre Eilertsen",
+			"Orf3us"
 		]
 	},
 	"sesp-desc": "Legg til et antall ekstra spesialegenskaper for alle sider",
@@ -27,6 +28,7 @@
 	"sesp-property-approved-status": "Godkjennelsesstatus",
 	"sesp-property-user-registration-date": "Brukerregistreringsdato",
 	"sesp-property-user-edit-count": "Antall redigeringer av brukeren",
+	"sesp-property-user-right": "Brukerrettighet",
 	"sesp-property-user-group": "Brukergruppe",
 	"sesp-property-exif-data": "Exif-data",
 	"sesp-exif-languagecode": "Exif:Språkkode",
