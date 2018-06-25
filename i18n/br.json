@@ -15,5 +15,7 @@
 	"sesp-property-mediatype": "Doare media",
 	"sesp-property-shorturl": "URL berr",
 	"sesp-property-approved-rev": "Adweladenn aprouet",
-	"sesp-property-user-registration-date": "Deiziad enskrivadur an implijer"
+	"sesp-property-approved-by": "Aprouet gant",
+	"sesp-property-user-registration-date": "Deiziad enskrivadur an implijer",
+	"sesp-property-user-group": "Strollad implijerien"
 }

@@ -3,7 +3,8 @@
 		"authors": [
 			"An13sa",
 			"Sator",
-			"Mikel Ibaiba"
+			"Mikel Ibaiba",
+			"Fitoschido"
 		]
 	},
 	"sesp-desc": "Orri guztiei propietate gehigarri berezi batzuk gehitzen dizkio",
@@ -12,7 +13,9 @@
 	"sesp-property-first-author": "Orriaren sortzailea",
 	"sesp-property-revision-id": "Berrikuspen IDa",
 	"sesp-property-page-id": "Orriaren IDa",
+	"sesp-property-page-id-desc": "[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP], hedapenak hornitutako «$1»-(e)k, MediaWiki orri baten IDa identifikatzen du.",
 	"sesp-property-page-len": "Orri luzeera",
+	"sesp-property-page-len-desc": "«$1»-(e)k, [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP], hedapenak hornitutakoak, orri baten luzera byteetan identifikatzen du.",
 	"sesp-property-view-count": "Ikustaldi kopurua",
 	"sesp-property-subpages": "Azpiorrialdea",
 	"sesp-property-revisions": "Berrikusketa zenbakiak",
