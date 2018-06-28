@@ -4,10 +4,12 @@
 			"Armando-Martin",
 			"Fitoschido",
 			"Macofe",
-			"Ohlila"
+			"Ohlila",
+			"Amaia"
 		]
 	},
 	"sesp-desc": "Añade algunas propiedades adicionales especiales a todas las páginas",
+	"sesp-name": "Semantic Extra Special Properties",
 	"sesp-property-unknown-label": "Etiqueta o alias desconocidos",
 	"sesp-property-author": "Autor de la página",
 	"sesp-property-first-author": "Creador de la página",
