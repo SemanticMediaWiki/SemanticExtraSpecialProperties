@@ -7,7 +7,8 @@
 			"Ата",
 			"Piramidion",
 			"Base",
-			"Avatar6"
+			"Avatar6",
+			"Vlad5250"
 		]
 	},
 	"sesp-desc": "Додає деякі додаткові спеціальні властивості для всіх сторінок",
@@ -32,11 +33,17 @@
 	"sesp-property-approved-by": "Затверджено",
 	"sesp-property-approved-by-desc": "«$1» визначає користувача який встановив статус «перевірено» («затверджено») і забезпечується розширенням [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties (SESP)].",
 	"sesp-property-approved-date": "Дати затвердження",
+	"sesp-property-approved-date-desc": "«$1» визначає час, коли було встановлено статус «перевірено» («затверджено») і забезпечується розширенням [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties (SESP)].",
 	"sesp-property-approved-status": "Статус затвердження",
+	"sesp-property-approved-status-desc": "«$1» визначає статус затвердження і забезпечується розширенням [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties (SESP)].",
 	"sesp-property-user-registration-date": "Дата реєстрації користувача",
 	"sesp-property-user-edit-count": "Кількість редагувань користувача",
+	"sesp-property-user-block": "Заблокувати користувача",
+	"sesp-property-user-block-desc": "«$1» визначає список блокувань користувача і забезпечується розширенням [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties (SESP)].",
 	"sesp-property-user-right": "Права користувача",
+	"sesp-property-user-right-desc": "«$1» визначає список прав, наданих користувачеві, і забезпечується розширенням [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties (SESP)].",
 	"sesp-property-user-group": "Група користувачів",
+	"sesp-property-user-group-desc": "«$1» визначає список груп, наданих користувачеві, і забезпечується розширенням [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties (SESP)].",
 	"sesp-property-exif-data": "Дані exif",
 	"sesp-exif-languagecode": "Exif:Код мови",
 	"sesp-exif-label": "Exif:Мітка",
