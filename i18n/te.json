@@ -1,9 +1,27 @@
 {
 	"@metadata": {
 		"authors": [
-			"Veeven"
+			"Veeven",
+			"Chaduvari"
 		]
 	},
+	"sesp-property-page-len": "పేజీ నిడివి",
+	"sesp-property-view-count": "పేజీ వ్యూల సంఖ్య",
 	"sesp-property-subpages": "ఉపపుట",
-	"sesp-property-user-registration-date": "వాడుకరి నమోదైన తేదీ"
+	"sesp-property-revisions": "కూర్పుల సంఖ్య",
+	"sesp-property-talk-revisions": "చర్చా పేజీ కూర్పుల సంఖ్య",
+	"sesp-property-mimetype": "MIME రకం",
+	"sesp-property-mediatype": "మీడియా రకం",
+	"sesp-property-shorturl": "పొట్టి URL",
+	"sesp-property-approved-rev": "ఆమోదించిన కూర్పు",
+	"sesp-property-approved-by": "ఆమోదించిన వారు",
+	"sesp-property-approved-date": "ఆమోదించిన తేదీ",
+	"sesp-property-approved-status": "ఆమోదపు స్థితి",
+	"sesp-property-user-registration-date": "వాడుకరి నమోదైన తేదీ",
+	"sesp-property-user-edit-count": "వాడుకరి దిద్దుబాట్ల సంఖ్య",
+	"sesp-property-user-block": "వాడుకరి నిరోధం",
+	"sesp-property-user-right": "వాడుకరి హక్కు",
+	"sesp-property-user-group": "వాడుకరి గుంపు",
+	"sesp-exif-languagecode": "Exif:భాష కోడు",
+	"sesp-exif-label": "Exif:లేబెల్"
 }
