@@ -1,13 +1,16 @@
 {
 	"@metadata": {
 		"authors": [
-			"Joedalton"
+			"Joedalton",
+			"Saederup92"
 		]
 	},
 	"sesp-property-author": "Sideforfatter",
 	"sesp-property-revisions": "Antal revisioner",
 	"sesp-property-mimetype": "MIME-type",
 	"sesp-property-mediatype": "Medietype",
+	"sesp-property-user-right": "Brugerrettighed",
+	"sesp-property-user-group": "Brugergruppe",
 	"sesp-property-exif-data": "Exif-data",
 	"sesp-exif-languagecode": "Exif:Sprog-kode",
 	"sesp-exif-label": "Exif:Etiket",
