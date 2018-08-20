@@ -1,10 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Shirayuki"
+			"Shirayuki",
+			"Suyama"
 		]
 	},
 	"sesp-desc": "すべてのページに特殊なプロパティを追加する",
+	"sesp-property-unknown-label": "不明なラベルまたはエイリアス",
 	"sesp-property-author": "ページの著者",
 	"sesp-property-first-author": "ページの作成者",
 	"sesp-property-revision-id": "版 ID",

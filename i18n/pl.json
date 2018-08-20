@@ -17,7 +17,7 @@
 	"sesp-property-revision-id": "ID wersji",
 	"sesp-property-page-id": "ID strony",
 	"sesp-property-page-len": "Długość strony",
-	"sesp-property-page-len-desc": "\"$1\" identyfikuje długość strony w bajtach i jest zapewniana przez rozszerzenie [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP] .",
+	"sesp-property-page-len-desc": "„$1” identyfikuje długość strony w bajtach i jest dostarczana przez rozszerzenie [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-view-count": "Liczba wyświetleń strony",
 	"sesp-property-subpages": "Podstrona",
 	"sesp-property-revisions": "Liczba wersji",
@@ -36,5 +36,6 @@
 	"sesp-property-user-group": "Grupa użytkowników",
 	"sesp-property-exif-data": "Dane EXIF",
 	"sesp-exif-languagecode": "Exif:Kod języka",
-	"sesp-exif-label": "Exif:Etykieta"
+	"sesp-exif-label": "Exif:Etykieta",
+	"sesp-exif-iimcategory": "Exif:Kategoria IIM"
 }
