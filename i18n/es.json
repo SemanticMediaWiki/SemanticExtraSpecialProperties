@@ -27,7 +27,7 @@
 	"sesp-property-mediatype": "Tipo de medios",
 	"sesp-property-shorturl": "Enlace corto",
 	"sesp-property-approved-rev": "Revisión aprobada",
-	"sesp-property-approved-rev-desc": "«$1» determina el id. de revisión de una página que se ha aprobado (por medio de la extensión [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP]).",
+	"sesp-property-approved-rev-desc": "«$1» determina el id. de revisión de una página que se ha aprobado, y es provista por medio de la extensión [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-approved-by": "Aprobación por",
 	"sesp-property-approved-by-desc": "«$1» identifica al usuario que definió el estado de aprobación de la página, y es provisto por la extensión [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-approved-date": "Fecha de aprobación",
