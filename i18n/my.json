@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": [
+			"Dr Lotus Black"
+		]
+	},
+	"sesp-property-author": "စာမျက်နှာ စာရေးသူ",
+	"sesp-property-first-author": "စာမျက်နှာ ဖန်တီးသူ",
+	"sesp-property-page-id": "စာမျက်နှာ အိုင်ဒီ",
+	"sesp-property-page-len": "စာမျက်နှာ အလျား",
+	"sesp-property-view-count": "စာမျက်နှာကြည့်ရှုနှုန်း အရေအတွက်",
+	"sesp-property-subpages": "စာမျက်နှာခွဲ",
+	"sesp-property-user-registration-date": "အသုံးပြုသူ မှတ်ပုံတင်သည့်ရက်စွဲ",
+	"sesp-property-user-block": "အသုံးပြုသူ ပိတ်ပင်မှု",
+	"sesp-property-user-right": "အသုံးပြုသူ အခွင့်အရေး",
+	"sesp-property-user-group": "အသုံးပြုသူအုပ်စု"
+}

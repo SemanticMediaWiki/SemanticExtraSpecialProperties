@@ -1,0 +1,31 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bagas Chrisara"
+		]
+	},
+	"sesp-property-unknown-label": "Label tidak diketahui atau alias",
+	"sesp-property-author": "Penulis halaman",
+	"sesp-property-first-author": "Pembuat halaman",
+	"sesp-property-revision-id": "ID revisi",
+	"sesp-property-page-id": "ID halaman",
+	"sesp-property-subpages": "Subhalaman",
+	"sesp-property-revisions": "Jumlah revisi",
+	"sesp-property-talk-revisions": "Jumlah revisi halaman pembicaraan",
+	"sesp-property-mimetype": "Jenis MIME",
+	"sesp-property-mediatype": "Jenis media",
+	"sesp-property-shorturl": "URL pendek",
+	"sesp-property-approved-rev": "Revisi yang disetujui",
+	"sesp-property-approved-by": "Disetujui oleh",
+	"sesp-property-approved-date": "Disetujui pada",
+	"sesp-property-approved-status": "Status persetujuan",
+	"sesp-property-user-registration-date": "Tanggal pendaftaran pengguna",
+	"sesp-property-user-edit-count": "Jumlah suntingan pengguna",
+	"sesp-property-user-block": "Blokir pengguna",
+	"sesp-property-user-right": "Hak pengguna",
+	"sesp-property-user-group": "Kelompok pengguna",
+	"sesp-property-exif-data": "Data exif",
+	"sesp-exif-languagecode": "Exif:Kode bahasa",
+	"sesp-exif-label": "Exif:Label",
+	"sesp-exif-iimcategory": "Exif:Kategori Iim"
+}
