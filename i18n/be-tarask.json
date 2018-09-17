@@ -1,0 +1,36 @@
+{
+	"@metadata": {
+		"authors": [
+			"Nerogaf",
+			"Red Winged Duck"
+		]
+	},
+	"sesp-property-author": "Аўтар старонкі",
+	"sesp-property-first-author": "Стваральнік старонкі",
+	"sesp-property-revision-id": "Ідэнтыфікатар рэвізыі",
+	"sesp-property-page-id": "Ідэнтыфікатар старонкі",
+	"sesp-property-page-len": "Даўжыня старонкі",
+	"sesp-property-view-count": "Колькасьць праглядаў старонак",
+	"sesp-property-subpages": "Падстаронка",
+	"sesp-property-revisions": "Колькасьць зьменаў",
+	"sesp-property-talk-revisions": "Колькасьць зьменаў старонкі разьмоваў",
+	"sesp-property-mimetype": "MIME тып",
+	"sesp-property-mediatype": "Тып мэдыа",
+	"sesp-property-shorturl": "Кароткая спасылка",
+	"sesp-property-approved-rev": "Зацьверджаная рэвізыя",
+	"sesp-property-approved-by": "Зацьверджана",
+	"sesp-property-approved-by-desc": "«$1» вызначае карыстача, які ўсталяваў статус старонкі \"зацьверджана\", і забясьпечана пашырэньнем [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties (SESP)].",
+	"sesp-property-approved-date": "Дата зацьверджаньня",
+	"sesp-property-approved-status": "Статус зацьверджаньня",
+	"sesp-property-user-registration-date": "Час рэгістрацыі карыстача",
+	"sesp-property-user-edit-count": "Колькасьць рэдагаваньняў удзельніка",
+	"sesp-property-user-block": "Блякаваньні ўдзельніка",
+	"sesp-property-user-block-desc": "«$1» паказвае сьпіс блякаваньняў, прымененых да карыстача, і забясьпечана пашырэньнем [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties (SESP)].",
+	"sesp-property-user-right": "Правы карыстачоў",
+	"sesp-property-user-right-desc": "\"$1\" паказвае сьпіс правоў, прымененых да карыстача, і забясьпечана пашырэньнем [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties (SESP)]",
+	"sesp-property-user-group": "Група карыстача",
+	"sesp-property-exif-data": "Дадзеныя exif",
+	"sesp-exif-languagecode": "Exif:Код мовы",
+	"sesp-exif-label": "Exif:Этыкетка",
+	"sesp-exif-iimcategory": "Exif:Iim-катэгорыя"
+}
