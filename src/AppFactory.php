@@ -137,16 +137,16 @@ class AppFactory implements LoggerAwareInterface {
 		);
 
 		$labelFetcher->setLabelCacheVersion(
-			$this->getOption( 'sespLabelCacheVersion', 0 )
+			$this->getOption( 'sespgLabelCacheVersion', 0 )
 		);
 
 		$this->propertyDefinitions = new PropertyDefinitions(
 			$labelFetcher,
-			$this->getOption( 'sespPropertyDefinitionFile' )
+			$this->getOption( 'sespgDefinitionsFile' )
 		);
 
 		$this->propertyDefinitions->setLocalPropertyDefinitions(
-			$this->getOption( 'sespLocalPropertyDefinitions', [] )
+			$this->getOption( 'sespgLocalDefinitions', [] )
 		);
 
 		return $this->propertyDefinitions;

@@ -72,14 +72,14 @@ class PropertyRegistry {
 	 */
 	public function registerFixedProperties( &$customFixedProperties, &$fixedPropertyTablePrefix ) {
 
-		if ( $this->appFactory->getOption( 'sespUseAsFixedTables' ) === false ) {
+		if ( $this->appFactory->getOption( 'sespgUseFixedTables' ) === false ) {
 			return;
 		}
 
 		$propertyDefinitions = $this->appFactory->getPropertyDefinitions();
 
 		$properties = array_flip(
-			$this->appFactory->getOption( 'sespSpecialProperties', [] )
+			$this->appFactory->getOption( 'sespgEnabledPropertyList', [] )
 		);
 
 		foreach ( $propertyDefinitions as $key => $definition ) {

@@ -88,7 +88,7 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$appFactory->expects( $this->at( 1 ) )
 			->method( 'getOption' )
-			->with( $this->equalTo( 'sespSpecialProperties' ) )
+			->with( $this->equalTo( 'sespgEnabledPropertyList' ) )
 			->will( $this->returnValue( $localPropertyDefinitions ) );
 
 		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
@@ -139,7 +139,7 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$appFactory->expects( $this->at( 1 ) )
 			->method( 'getOption' )
-			->with( $this->equalTo( 'sespSpecialProperties' ) )
+			->with( $this->equalTo( 'sespgEnabledPropertyList' ) )
 			->will( $this->returnValue( $specialProperties ) );
 
 		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )

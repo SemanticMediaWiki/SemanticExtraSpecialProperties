@@ -1,10 +1,10 @@
 
 # Configuration
 
-Properties that are planned to be included need to be specified in the [`LocalSettings.php`][mw-localsettings] file using the `$GLOBALS['sespSpecialProperties']` array. By default the array is empty, i.e. no special property is being annotated to a page.
+Properties that are planned to be included need to be specified in the [`LocalSettings.php`][mw-localsettings] file using the `$GLOBALS['sespgEnabledPropertyList']` array. By default the array is empty, i.e. no special property is being annotated to a page.
 
 ```php
-$GLOBALS['sespSpecialProperties'] = array(
+$GLOBALS['sespgEnabledPropertyList'] = array(
 	'_EUSER',
 	'_CUSER',
 	...
@@ -48,14 +48,14 @@ Property labels differ according to the language the wiki was set up. An easy wa
 
 #### Fixed tables
 
-Setting `$sespUseAsFixedTables` to "true" enables to setup properties as [fixed properties][fixedprop] in order to
+Setting `$sespgUseFixedTables` to "true" enables to setup properties as [fixed properties][fixedprop] in order to
 improve data access. Doing so is recommended. Note that you have to run the [`update.php`][mw-update] from your wiki's base directory after setting this parameter for the required tables to be created.
 
-Running the [data refresh][data-refresh] afterwards is recommended as well and should be done every time a special property is added to the `$sespSpecialProperties` array.
+Running the [data refresh][data-refresh] afterwards is recommended as well and should be done every time a special property is added to the `$sespgEnabledPropertyList` array.
 
 #### Bot edits
 
-Setting `$wgSESPExcludeBots` to "true" causes bot edits via user accounts in usergroup "bot" to be ignored when storing data for the special properties activated. However this does not affect the page creator property (`_CUSER`).
+Setting `$sespgExcludeBotEdits` to "true" causes bot edits via user accounts in usergroup "bot" to be ignored when storing data for the special properties activated. However this does not affect the page creator property (`_CUSER`).
 
 #### Property definitions
 
@@ -63,7 +63,7 @@ Details about available properties can be found in the [definitions.json](/src/D
 
 #### Cache usage
 
-Setting `$sespLabelCacheVersion` to "false" will cease to use the special property label cache at all. Otherwise this is used as an internal modifier to allow resetting the cache with an arbitrary version.
+Setting `$sespgLabelCacheVersion` to "false" will cease to use the special property label cache at all. Otherwise this is used as an internal modifier to allow resetting the cache with an arbitrary version.
 
 ## Privacy
 
