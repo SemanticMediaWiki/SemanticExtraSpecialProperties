@@ -11,7 +11,7 @@ matrix:
     - env: DB=mysql; MW=master; PHPUNIT=4.8.*
       php: 7.1
     - env: DB=sqlite; MW=REL1_28; SITELANG=ja; PHPUNIT=4.8.*
-      php: 5.5
+      php: 5.6
 
 install:
   - composer self-update
