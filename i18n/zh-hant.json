@@ -8,7 +8,8 @@
 			"Kly",
 			"Assoc",
 			"Fanjiayi",
-			"Deathkon"
+			"Deathkon",
+			"A Chinese Wikipedian"
 		]
 	},
 	"sesp-desc": "加入一些額外特殊屬性於所有頁面",
@@ -47,5 +48,9 @@
 	"sesp-property-exif-data": "EXIF資料",
 	"sesp-exif-languagecode": "Exif:語言代碼",
 	"sesp-exif-label": "Exif:標籤",
-	"sesp-exif-iimcategory": "Exif:Iim 分類"
+	"sesp-exif-iimcategory": "Exif:Iim 分類",
+	"sesp-admin-deprecation-notice-section": "Semantic Extra Special Properties 擴充功能",
+	"sesp-admin-deprecation-notice-title-replacement": "已替換或重新命名的設定",
+	"sesp-admin-deprecation-notice-title-replacement-explanation": "以下段落包含已重新命名或或是其它變動的設定，建議立即更新其名稱或格式。",
+	"sesp-admin-deprecation-notice-config-replacement": "<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$1 $1]</code> 被替換成 <code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$2 $2]</code>"
 }

@@ -5,6 +5,7 @@
 		]
 	},
 	"sesp-desc": "Aggiunge quacche probbietà speciale extra a tutte le pàggene",
+	"sesp-name": "Probbietà Semandeche Extra e Speciale",
 	"sesp-property-unknown-label": "Etichette scanusciute o alias",
 	"sesp-property-author": "Autore d'a pàgene",
 	"sesp-property-first-author": "Ccrejatore d'a pàgene",
@@ -31,8 +32,17 @@
 	"sesp-property-user-registration-date": "Date de reggistrazione de l'utende",
 	"sesp-property-user-edit-count": "Condatore de le cangiaminde de l'utende",
 	"sesp-property-user-block": "Blocche de l'utende",
+	"sesp-property-user-block-desc": "\"$1\" dèje 'n'elenghe de blocche applecate a 'n'utende e jè date da l'estenzione [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Probbietà Semnadeche Extra e Speciale].",
+	"sesp-property-user-right": "Deritte utende",
+	"sesp-property-user-right-desc": "\"$1\" dèje 'n'elenghe de deritte applecate a 'n'utende e jè date da l'estenzione [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Probbietà Semnadeche Extra e Speciale].",
+	"sesp-property-user-group": "gruppe de l'utende",
+	"sesp-property-user-group-desc": "\"$1\" dèje 'n'elenghe de gruppe applecate a 'n'utende e jè date da l'estenzione [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Probbietà Semnadeche Extra e Speciale].",
 	"sesp-property-exif-data": "Date Exif",
 	"sesp-exif-languagecode": "Exif:Code d'a lènghe",
 	"sesp-exif-label": "Exif:Label",
-	"sesp-exif-iimcategory": "Exif:Iim Category"
+	"sesp-exif-iimcategory": "Exif:Iim Category",
+	"sesp-admin-deprecation-notice-section": "Estenzione Probbietà Semandeche Extra e Speciale",
+	"sesp-admin-deprecation-notice-title-replacement": "'Mbostaziune sostituite o renomenate",
+	"sesp-admin-deprecation-notice-title-replacement-explanation": "'A sezione ca avène mò tène le 'mbostaziune ca onne state renomenane o comungue cangiate e se conziglie de aggiornà subbete subbete 'u nome lore o 'u formate.",
+	"sesp-admin-deprecation-notice-config-replacement": "<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$1 $1]</code> ha state sostituite cu <code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$2 $2]</code>"
 }

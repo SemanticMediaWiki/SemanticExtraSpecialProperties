@@ -14,7 +14,8 @@
 			"Mouse21",
 			"Happy13241",
 			"Ole Yves",
-			"Stjn"
+			"Stjn",
+			"Vlad5250"
 		]
 	},
 	"sesp-desc": "Добавляет некоторые дополнительные специальные свойства для всех страниц",
@@ -53,5 +54,9 @@
 	"sesp-property-exif-data": "Данные EXIF",
 	"sesp-exif-languagecode": "Exif:Код языка",
 	"sesp-exif-label": "Exif:Метка",
-	"sesp-exif-iimcategory": "Exif:Iim-категория"
+	"sesp-exif-iimcategory": "Exif:Iim-категория",
+	"sesp-admin-deprecation-notice-section": "Расширение «Semantic Extra Special Properties»",
+	"sesp-admin-deprecation-notice-title-replacement": "Заменённые или переименованные настройки",
+	"sesp-admin-deprecation-notice-title-replacement-explanation": "Следующий раздел содержит настройки, которые были переименованы или изменены другим способом, поэтому рекомендуем обновить их названия или формат.",
+	"sesp-admin-deprecation-notice-config-replacement": "<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$1 $1]</code> была заменена на <code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$2 $2]</code>"
 }

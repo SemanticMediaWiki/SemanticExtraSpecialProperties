@@ -44,5 +44,9 @@
 	"sesp-property-exif-data": "Données Exif",
 	"sesp-exif-languagecode": "Exif:Code de langue",
 	"sesp-exif-label": "Exif:Libellé",
-	"sesp-exif-iimcategory": "Exif:Catégorie lim"
+	"sesp-exif-iimcategory": "Exif:Catégorie lim",
+	"sesp-admin-deprecation-notice-section": "Extension des propriétés extra spéciales de Semantic",
+	"sesp-admin-deprecation-notice-title-replacement": "Paramètres remplacés ou renommés",
+	"sesp-admin-deprecation-notice-title-replacement-explanation": "La section suivante contient les paramètres qui ont été renommés ou modifiés par ailleurs et il est recommandé de mettre à jour immédiatement leur nom ou leur format.",
+	"sesp-admin-deprecation-notice-config-replacement": "<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$1 $1]</code> a été remplacé par <code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$2 $2]</code>"
 }

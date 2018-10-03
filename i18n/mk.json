@@ -41,5 +41,9 @@
 	"sesp-property-exif-data": "Exif-податоци",
 	"sesp-exif-languagecode": "Exif:Јазичен код",
 	"sesp-exif-label": "Exif:Опис",
-	"sesp-exif-iimcategory": "Exif:Iim-категорија"
+	"sesp-exif-iimcategory": "Exif:Iim-категорија",
+	"sesp-admin-deprecation-notice-section": "Додаток „Семантички екстрапосебни својства“",
+	"sesp-admin-deprecation-notice-title-replacement": "Заменети или преименувани својства",
+	"sesp-admin-deprecation-notice-title-replacement-explanation": "Следново содржи поставки кои се преименувани или поинаку изменети. Се препорачува неодложна поднова на нивното име или формат.",
+	"sesp-admin-deprecation-notice-config-replacement": "<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$1 $1]</code> е заменета со <code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$2 $2]</code>"
 }

@@ -5,7 +5,8 @@
 			"Shirayuki",
 			"Yfdyh000",
 			"Mywood",
-			"Linforest"
+			"Linforest",
+			"A Chinese Wikipedian"
 		]
 	},
 	"sesp-desc": "将额外的一些特殊属性添加到所有页面",
@@ -44,5 +45,8 @@
 	"sesp-property-exif-data": "EXIF数据",
 	"sesp-exif-languagecode": "Exif:语言代码",
 	"sesp-exif-label": "Exif:标签",
-	"sesp-exif-iimcategory": "Exif:Iim分类"
+	"sesp-exif-iimcategory": "Exif:Iim分类",
+	"sesp-admin-deprecation-notice-section": "语义超特殊属性扩展",
+	"sesp-admin-deprecation-notice-title-replacement": "替换或重命名设置",
+	"sesp-admin-deprecation-notice-title-replacement-explanation": "以下部分包含重命名或以其他方式修改的设置，建议立即更新它们的名称或格式。"
 }

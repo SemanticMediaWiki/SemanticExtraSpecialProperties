@@ -43,5 +43,9 @@
 	"sesp-property-exif-data": "بيانات Exif",
 	"sesp-exif-languagecode": "Exif:كود لغة",
 	"sesp-exif-label": "Exif:تسمية",
-	"sesp-exif-iimcategory": "Exif:Iim تصنيف"
+	"sesp-exif-iimcategory": "Exif:Iim تصنيف",
+	"sesp-admin-deprecation-notice-section": "ملحق إضافي خاص للخاصية الدلالية",
+	"sesp-admin-deprecation-notice-title-replacement": "تم استبدال أو إعادة تسمية الإعدادات",
+	"sesp-admin-deprecation-notice-title-replacement-explanation": "يحتوي القسم التالي على الإعدادات التي تمت إعادة تسميتها أو تم تعديلها بطريقة أخرى، ويُوصَى بتحديث اسمها أو تنسيقها على الفور.",
+	"sesp-admin-deprecation-notice-config-replacement": "تم استبدال <code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$1 $1]</code> بـ<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$2 $2]</code>"
 }

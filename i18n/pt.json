@@ -9,7 +9,7 @@
 		]
 	},
 	"sesp-desc": "Adiciona algumas propriedades adicionais especiais a todas as páginas",
-	"sesp-name": "Propriedades Extra Especiais Semânticas",
+	"sesp-name": "Propriedades Semânticas Extra Especiais",
 	"sesp-property-unknown-label": "Etiqueta ou nome alternativo desconhecidos",
 	"sesp-property-author": "Autor da página",
 	"sesp-property-first-author": "Criador da página",
@@ -44,5 +44,9 @@
 	"sesp-property-exif-data": "Dados Exif",
 	"sesp-exif-languagecode": "Exif:Código de língua",
 	"sesp-exif-label": "Exif:Etiqueta",
-	"sesp-exif-iimcategory": "Exif:Categoria Iim"
+	"sesp-exif-iimcategory": "Exif:Categoria Iim",
+	"sesp-admin-deprecation-notice-section": "Extensão Propriedades Semânticas Extra Especiais",
+	"sesp-admin-deprecation-notice-title-replacement": "Definições substituídas ou com nome alterado",
+	"sesp-admin-deprecation-notice-title-replacement-explanation": "A seguinte secção contém definições cujo nome foi alterado ou que sofreram qualquer outra modificação e é recomendado que os respetivos nomes ou formatos sejam imediatamente atualizados.",
+	"sesp-admin-deprecation-notice-config-replacement": "<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$1 $1]</code> foi substituída por <code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$2 $2]</code>"
 }
