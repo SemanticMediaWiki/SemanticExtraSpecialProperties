@@ -2,9 +2,13 @@ This file contains the RELEASE-NOTES of the SemanticExtraSpecialProperties (a.k.
 
 ### 2.0.0
 
-Not a release, yet!
+Released on October 12, 2018.
 
 This release now requires MediaWiki 1.27+ and Semantic MediaWiki 3.0+ (#100).
+
+Note that the configuration parameter names were renamed (#105). See the [migration guide](/docs/02-migration-to-20.md) 
+for a concise overview of the changes. Moreover special page "SemanticMediaWiki (`Special:SemanticMediaWiki`) will
+inform about required configuration changes.
 
 * Complete refactoring of the extension to allow for better extensibility and testability (by James Hong Kong)
 * #16 Extended the `Exif` attributes (by James Hong Kong)
@@ -20,6 +24,7 @@ This release now requires MediaWiki 1.27+ and Semantic MediaWiki 3.0+ (#100).
 * #95 Added `_APPROVED` for approvement state collection on pages, requires the Approved Revs extension (by Mark. A. Hershberger)
 * #98 Added `_APPROVEDBY` for approving user collection on pages, `_APPROVEDDATE` for approved date collection on pages and `_APPROVEDSTATUS` for approvement status collection on pages, requires the Approved Revs extension (by Mark. A. Hershberger)
 * #100 Added `_USERBLOCK` for user block status collection on user pages, `_USERRIGHT` for user rights collection on user pages and `_USERGROUP` for user groups collection on user pages (by James Hong Kong)
+* #105 Renamed und harmonized configruation prarameter names (by James Hong Kong)
 * Localization updates from https://translatewiki.net
 
 ### 1.5.0
