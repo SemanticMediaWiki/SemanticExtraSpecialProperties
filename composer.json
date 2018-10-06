@@ -10,7 +10,7 @@
 		"properties",
 		"special properties"
 	],
-	"homepage": "https://www.mediawiki.org/wiki/Extension:SemanticExtraSpecialProperties",
+	"homepage": "https://www.mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties",
 	"license": "GPL-2.0-or-later",
 	"authors": [
 		{
@@ -33,7 +33,7 @@
 		"source": "https://github.com/SemanticMediaWiki/SemanticExtraSpecialProperties"
 	},
 	"require": {
-		"php": ">=5.5.0",
+		"php": ">=5.6.0",
 		"composer/installers": "1.*,>=1.0.1",
 		"mediawiki/semantic-media-wiki": "~2.5|~3.0"
 	},
