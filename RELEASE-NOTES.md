@@ -6,7 +6,7 @@ Released on October 12, 2018.
 
 This release now requires MediaWiki 1.27+ and Semantic MediaWiki 3.0+ (#100).
 
-Note that the configuration parameter names were renamed (#105). See the [migration guide](/docs/02-migration-to-20.md) 
+Note that the configuration parameter names were renamed (#105). See the [migration guide](/docs/migration-to-200.md) 
 for a concise overview of the changes. Moreover special page "SemanticMediaWiki (`Special:SemanticMediaWiki`) will
 inform about required configuration changes.
 
