@@ -5,11 +5,11 @@ configration parameters were harmonized. Thus the configuration parameter names 
 migrated to their new names. This file lists the obsolete configuration parameter names
 and their new replacements:
 
-1. `sespUseAsFixedTables` was changed to `sespgUseFixedTables`
-2. `sespPropertyDefinitionFile` was changed to `sespgDefinitionsFile`
-3. `sespLocalPropertyDefinitions` was changed to `sespgLocalDefinitions`
-4. `sespSpecialProperties` was changed to `sespgEnabledPropertiesList`
-5. `sespLabelCacheVersion` was changed to `sespgLabelCacheVersion`
-6. `wgSESPExcludeBots` was changed to `sespgExcludeBotEdits`
+1. `$sespUseAsFixedTables` was changed to `$sespgUseFixedTables`
+2. `$sespPropertyDefinitionFile` was changed to `$sespgDefinitionsFile`
+3. `$sespLocalPropertyDefinitions` was changed to `$sespgLocalDefinitions`
+4. `$sespSpecialProperties` was changed to `$sespgEnabledPropertiesList`
+5. `$sespLabelCacheVersion` was changed to `$sespgLabelCacheVersion`
+6. `$wgSESPExcludeBots` was changed to `$sespgExcludeBotEdits`
 
 &larr; [README](README.md) | [Configuration](configuration.md) | [Extension](extension.md) &rarr;
