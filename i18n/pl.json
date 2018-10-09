@@ -37,5 +37,6 @@
 	"sesp-property-exif-data": "Dane EXIF",
 	"sesp-exif-languagecode": "Exif:Kod języka",
 	"sesp-exif-label": "Exif:Etykieta",
-	"sesp-exif-iimcategory": "Exif:Kategoria IIM"
+	"sesp-exif-iimcategory": "Exif:Kategoria IIM",
+	"sesp-admin-deprecation-notice-title-replacement": "Zastąpione lub zmienione ustawienia"
 }
