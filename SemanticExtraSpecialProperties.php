@@ -48,7 +48,7 @@ class SemanticExtraSpecialProperties {
 	/**
 	 * @since 1.4
 	 */
-	public static function initExtension( $credits = array() ) {
+	public static function initExtension( $credits = [] ) {
 
 		// See https://phabricator.wikimedia.org/T151136
 		define( 'SESP_VERSION', isset( $credits['version'] ) ? $credits['version'] : 'UNKNOWN' );
