@@ -3,7 +3,8 @@
 - SMW version:
 - SESP version:
 - MW version:
-- DB (MySQL etc.):
+- PHP version:
+- DB (MySQL etc. and version):
 
 ### Issue
 

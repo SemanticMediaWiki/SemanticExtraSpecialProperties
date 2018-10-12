@@ -1,7 +1,7 @@
 
 # Extension
 
-* [Repository extensio](#repository-extension)
+* [Repository extension](#repository-extension)
 * [Local extension](#local-extension)
 
 ## Repository extension
@@ -109,4 +109,4 @@ class FooCustom {
 }
 ```
 
-&larr; [Configuration](00-configuration.md)
+&larr; [README](README.md) | [Configuration](00-configuration.md) | [Migration to 2.0.0](migration-to-200.md) &rarr;
