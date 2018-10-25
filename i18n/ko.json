@@ -3,7 +3,8 @@
 		"authors": [
 			"Priviet",
 			"Ykhwong",
-			"Nuevo Paso"
+			"Nuevo Paso",
+			"Jerrykim306"
 		]
 	},
 	"sesp-desc": "추가 특별 속성을 모든 문서에 추가",
@@ -42,5 +43,6 @@
 	"sesp-property-exif-data": "Exif 데이터",
 	"sesp-exif-languagecode": "Exif:언어 코드",
 	"sesp-exif-label": "Exif:레이블",
-	"sesp-exif-iimcategory": "Exif:Iim 분류"
+	"sesp-exif-iimcategory": "Exif:Iim 분류",
+	"sesp-admin-deprecation-notice-title-replacement": "치환되거나 이름이 변경된 설정"
 }
