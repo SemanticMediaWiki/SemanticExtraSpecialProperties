@@ -5,7 +5,8 @@
 			"LaG roiL",
 			"Guycn2",
 			"YaronSh",
-			"שניאור זלמן"
+			"שניאור זלמן",
+			"המקיסט"
 		]
 	},
 	"sesp-property-author": "מחבר הדף",
@@ -26,6 +27,7 @@
 	"sesp-property-approved-rev-desc": "\"$1\" מציין את מזהה הגרסה שאושרה. המאפיין מסופק על־ידי ההרחבה [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-approved-by": "מאושר על ידי",
 	"sesp-property-approved-by-desc": "\"$1\" מציין את המשתמש שהגדיר את מצב האישור של הדף. המאפיין מסופק על־ידי ההרחבה [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
+	"sesp-property-approved-date": "תאריך מאושר",
 	"sesp-property-approved-date-desc": "\"$1\" מציין את הזמן שבו הדף סומן כמאושר. המאפיין מסופק על־ידי ההרחבה [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-approved-status-desc": "\"$1\" מציין את מצב האישור של הדף. המאפיין מסופק על־ידי ההרחבה [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-user-registration-date": "תאריך ההרשמה של המשתמש",
