@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Nerogaf",
-			"Red Winged Duck"
+			"Red Winged Duck",
+			"Renessaince"
 		]
 	},
 	"sesp-desc": "Дадае некаторыя дадатковыя спэцыяльныя ўласьцівасьці да ўсіх старонак",
@@ -11,6 +12,7 @@
 	"sesp-property-first-author": "Стваральнік старонкі",
 	"sesp-property-revision-id": "Ідэнтыфікатар вэрсіі",
 	"sesp-property-page-id": "Ідэнтыфікатар старонкі",
+	"sesp-property-page-id-desc": "«$1» — гэта прадвызначаная ўласьцівасьць, якая вызначае ідэнтыфікатар МэдыяВікі і забясьпечваецца пашырэньнем [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Сэмантычны сайт].",
 	"sesp-property-page-len": "Даўжыня старонкі",
 	"sesp-property-view-count": "Колькасьць праглядаў старонак",
 	"sesp-property-subpages": "Падстаронка",
