@@ -8,7 +8,8 @@
 			"Alirezaaa",
 			"Ommmmid",
 			"Alifakoor",
-			"Amirsara"
+			"Amirsara",
+			"Nbi"
 		]
 	},
 	"sesp-desc": "افزودن برخی خواص ویژه اضافی به همه صفحات",
@@ -28,6 +29,7 @@
 	"sesp-property-approved-rev": "نسخهٔ تأییدشده",
 	"sesp-property-user-registration-date": "تاریخ ثبت‌نام کاربر",
 	"sesp-property-user-edit-count": "شمار ویرایش‌های کاربر",
+	"sesp-property-user-right": "حق کاربر",
 	"sesp-property-user-group": "گروه‌ کاربر",
 	"sesp-property-exif-data": "اطلاعات اگزیف",
 	"sesp-exif-languagecode": "Exif:Language code",
