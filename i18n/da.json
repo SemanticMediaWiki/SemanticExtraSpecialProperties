@@ -17,6 +17,7 @@
 	"sesp-property-approved-by": "Godkendt af",
 	"sesp-property-approved-date": "Dato for godkendelse",
 	"sesp-property-approved-status": "Status for godkendelse",
+	"sesp-property-user-registration-date": "Brugerregistreringsdato",
 	"sesp-property-user-block": "Brugerblokering",
 	"sesp-property-user-right": "Brugerrettighed",
 	"sesp-property-user-group": "Brugergruppe",
