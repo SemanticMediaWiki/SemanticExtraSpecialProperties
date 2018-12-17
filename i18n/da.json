@@ -5,6 +5,8 @@
 			"Saederup92"
 		]
 	},
+	"sesp-desc": "Tilføjer nogle ekstra specialegenskaber til alle sider",
+	"sesp-property-unknown-label": "Ukendt etiket eller alias",
 	"sesp-property-author": "Sideforfatter",
 	"sesp-property-first-author": "Sideopretter",
 	"sesp-property-page-id": "Side ID",
