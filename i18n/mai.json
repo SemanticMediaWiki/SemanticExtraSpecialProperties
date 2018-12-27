@@ -1,0 +1,30 @@
+{
+	"@metadata": {
+		"authors": [
+			"Haribanshi"
+		]
+	},
+	"sesp-property-author": "पेज लेखक",
+	"sesp-property-first-author": "पन्ना सर्जक",
+	"sesp-property-revision-id": "संशोधन आईडी",
+	"sesp-property-page-id": "पृष्ठ आइडी",
+	"sesp-property-page-len": "पृष्ट लंबाई",
+	"sesp-property-view-count": "पृष्ठ सङ्ख्या",
+	"sesp-property-subpages": "उप पृष्ठ",
+	"sesp-property-revisions": "रिविज़न्स क संख्या",
+	"sesp-property-mimetype": "माइम प्रकार",
+	"sesp-property-mediatype": "मीडिया प्रकार:",
+	"sesp-property-shorturl": "छोट युआरयल",
+	"sesp-property-approved-rev": "स्वीकृत संशोधन",
+	"sesp-property-approved-by": "स्विकृत कर्ता",
+	"sesp-property-approved-date": "स्विकृत मिति",
+	"sesp-property-approved-status": "स्विकृत स्टाटस्",
+	"sesp-property-user-registration-date": "यूज़र पंजीकरण मिति",
+	"sesp-property-user-edit-count": "प्रयोक्ता सम्पादन संख्या",
+	"sesp-property-user-block": "प्रयोक्ता ब्लॉक",
+	"sesp-property-user-right": "प्रयोक्ता अधिकारक प्रबन्धन",
+	"sesp-property-user-group": "प्रयोक्ता समूह",
+	"sesp-property-exif-data": "Exif डेटा",
+	"sesp-exif-languagecode": "Exif:भाषा कोड",
+	"sesp-exif-label": "Exif:लेबल"
+}
