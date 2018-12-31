@@ -11,6 +11,7 @@
 	"sesp-property-first-author": "ページの作成者",
 	"sesp-property-revision-id": "版 ID",
 	"sesp-property-page-id": "ページ ID",
+	"sesp-property-page-len": "ページの長さ",
 	"sesp-property-view-count": "ページビュー数",
 	"sesp-property-subpages": "下位ページ",
 	"sesp-property-revisions": "版数",
@@ -18,6 +19,13 @@
 	"sesp-property-mimetype": "MIMEタイプ",
 	"sesp-property-mediatype": "メディアの種類",
 	"sesp-property-shorturl": "短縮 URL",
+	"sesp-property-approved-by": "承認者:",
+	"sesp-property-approved-date": "承認日",
+	"sesp-property-approved-status": "承認ステータス",
 	"sesp-property-user-registration-date": "利用者登録日",
+	"sesp-property-user-edit-count": "利用者の編集回数",
+	"sesp-property-user-block": "利用者のブロック",
+	"sesp-property-user-right": "利用者権限",
+	"sesp-property-user-group": "利用者グループ",
 	"sesp-property-exif-data": "Exif データ"
 }

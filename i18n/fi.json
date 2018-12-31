@@ -11,6 +11,7 @@
 		]
 	},
 	"sesp-desc": "Lisää joitain erikoisominaisuuksia kaikille sivuille",
+	"sesp-property-unknown-label": "Tuntematon nimi tai alias",
 	"sesp-property-author": "Sivun tekijä",
 	"sesp-property-first-author": "Sivun luonut",
 	"sesp-property-revision-id": "Versiotunniste",
@@ -29,5 +30,6 @@
 	"sesp-property-user-edit-count": "Käyttäjän muokkausmäärä",
 	"sesp-property-user-group": "Käyttäjäryhmä",
 	"sesp-property-exif-data": "Exif-tiedot",
-	"sesp-exif-languagecode": "Exif:Kielikoodi"
+	"sesp-exif-languagecode": "Exif:Kielikoodi",
+	"sesp-admin-deprecation-notice-title-replacement": "Korvatut tai uudelleennimetyt asetukset"
 }
