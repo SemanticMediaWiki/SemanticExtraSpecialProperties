@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kumkumuk"
+			"Kumkumuk",
+			"Mirzali"
 		]
 	},
 	"sesp-desc": "Tay ektra bazse xısusiyeti dek pera pêro",
@@ -9,7 +10,7 @@
 	"sesp-property-first-author": "Vıraştoğê perer",
 	"sesp-property-revision-id": "Revizyona ID",
 	"sesp-property-page-id": "IDva perer",
-	"sesp-property-view-count": "Amariya pelan mocnayış",
+	"sesp-property-view-count": "Amarê mocnayışê pelan",
 	"sesp-property-subpages": "Bınpela",
 	"sesp-property-revisions": "Amariya rewizyonan",
 	"sesp-property-talk-revisions": "Amora revizyonê pera mınaqeşi",

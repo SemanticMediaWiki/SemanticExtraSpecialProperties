@@ -7,6 +7,7 @@
 		]
 	},
 	"sesp-desc": "Дадае некаторыя дадатковыя спэцыяльныя ўласьцівасьці да ўсіх старонак",
+	"sesp-name": "Semantic Extra Special Properties",
 	"sesp-property-unknown-label": "Невядомая метка ці псэўданім",
 	"sesp-property-author": "Аўтар старонкі",
 	"sesp-property-first-author": "Стваральнік старонкі",
@@ -14,6 +15,7 @@
 	"sesp-property-page-id": "Ідэнтыфікатар старонкі",
 	"sesp-property-page-id-desc": "«$1» — гэта прадвызначаная ўласьцівасьць, якая вызначае ідэнтыфікатар МэдыяВікі і забясьпечваецца пашырэньнем [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Сэмантычны сайт].",
 	"sesp-property-page-len": "Даўжыня старонкі",
+	"sesp-property-page-len-desc": "«$1» вызначае ўласьцівасьць даўжыні старонкі ў байтах і забясьпечваецца пашырэньнем [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-view-count": "Колькасьць праглядаў старонак",
 	"sesp-property-subpages": "Падстаронка",
 	"sesp-property-revisions": "Колькасьць зьменаў",
@@ -22,9 +24,11 @@
 	"sesp-property-mediatype": "Тып мэдыя",
 	"sesp-property-shorturl": "Кароткая спасылка",
 	"sesp-property-approved-rev": "Зацьверджаная вэрсія",
+	"sesp-property-approved-rev-desc": "«$1» вызначае ідэнтыфікатар вэрсіі старонкі, якая была зацьверджана і забясьпечваецца пашырэньнем [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-approved-by": "Зацьверджана",
 	"sesp-property-approved-by-desc": "«$1» вызначае карыстальніка, які ўсталяваў статус старонкі «зацьверджана», і забясьпечана пашырэньнем [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties (SESP)].",
 	"sesp-property-approved-date": "Дата зацьверджаньня",
+	"sesp-property-approved-date-desc": "«$1» вызначае час, калі зацьвярджальны стан старонкі быў вызначаны й забясьпечваецца пашырэньнем [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-approved-status": "Статус зацьверджаньня",
 	"sesp-property-user-registration-date": "Дата рэгістрацыі карыстальніка",
 	"sesp-property-user-edit-count": "Колькасьць рэдагаваньняў удзельніка",
@@ -36,5 +40,9 @@
 	"sesp-property-exif-data": "Зьвесткі exif",
 	"sesp-exif-languagecode": "Exif:Код мовы",
 	"sesp-exif-label": "Exif:Метка",
-	"sesp-exif-iimcategory": "Exif:Iim-катэгорыя"
+	"sesp-exif-iimcategory": "Exif:Iim-катэгорыя",
+	"sesp-admin-deprecation-notice-section": "Пашырэньне Semantic Extra Special Properties",
+	"sesp-admin-deprecation-notice-title-replacement": "Замененыя ці перайменаваныя налады",
+	"sesp-admin-deprecation-notice-title-replacement-explanation": "Наступны разьдзел утрымлівае налады, якія былі перайменаваны, ці неяк зьменены. Раім абнавіць іх назвы ці фармат.",
+	"sesp-admin-deprecation-notice-config-replacement": "<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$1 $1]</code> была замененая на <code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$2 $2]</code>"
 }
