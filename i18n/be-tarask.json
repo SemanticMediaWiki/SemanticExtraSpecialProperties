@@ -30,6 +30,7 @@
 	"sesp-property-approved-date": "Дата зацьверджаньня",
 	"sesp-property-approved-date-desc": "«$1» вызначае час, калі зацьвярджальны стан старонкі быў вызначаны й забясьпечваецца пашырэньнем [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-approved-status": "Статус зацьверджаньня",
+	"sesp-property-approved-status-desc": "«$1» вызначае статус ухвалы старонкі і забясьпечваецца пашырэньнем [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-user-registration-date": "Дата рэгістрацыі карыстальніка",
 	"sesp-property-user-edit-count": "Колькасьць рэдагаваньняў удзельніка",
 	"sesp-property-user-block": "Блякаваньні ўдзельніка",

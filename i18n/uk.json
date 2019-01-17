@@ -47,5 +47,9 @@
 	"sesp-property-exif-data": "Дані exif",
 	"sesp-exif-languagecode": "Exif:Код мови",
 	"sesp-exif-label": "Exif:Мітка",
-	"sesp-exif-iimcategory": "Exif:Iim-категорія"
+	"sesp-exif-iimcategory": "Exif:Iim-категорія",
+	"sesp-admin-deprecation-notice-section": "Розширення «Semantic Extra Special Properties»",
+	"sesp-admin-deprecation-notice-title-replacement": "Замінені або перейменовані налаштування",
+	"sesp-admin-deprecation-notice-title-replacement-explanation": "Вказаний розділ містить налаштування, які було перейменовано чи змінено в інший спосіб, а тому рекомендуємо негайно оновити їхні назви чи формат.",
+	"sesp-admin-deprecation-notice-config-replacement": "<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$1 $1]</code> було замінено на <code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$2 $2]</code>"
 }
