@@ -3,7 +3,8 @@
 		"authors": [
 			"Kghbln",
 			"Shirayuki",
-			"Андрей"
+			"Андрей",
+			"Tobi 406"
 		]
 	},
 	"sesp-desc": "{{desc|name=Semantic Extra Special Properties|url=https://www.mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties}}",
@@ -42,5 +43,8 @@
 	"sesp-property-exif-data": "The name of the special property that stores a reference to the EXIF data of a file.\n{{Doc-smw-sp}}",
 	"sesp-exif-languagecode": "This is the name of a special property.",
 	"sesp-exif-label": "This is the name of a special property.",
-	"sesp-exif-iimcategory": "This is the name of a special property."
+	"sesp-exif-iimcategory": "This is the name of a special property.",
+	"sesp-admin-deprecation-notice-title-replacement": "",
+	"sesp-admin-deprecation-notice-title-replacement-explanation": "",
+	"sesp-admin-deprecation-notice-config-replacement": ""
 }
