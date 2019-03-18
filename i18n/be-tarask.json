@@ -37,6 +37,7 @@
 	"sesp-property-user-right": "Правы карыстальнікаў",
 	"sesp-property-user-right-desc": "«$1» паказвае сьпіс правоў, ужытых да карыстальніка, і забясьпечана пашырэньнем [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties (SESP)]",
 	"sesp-property-user-group": "Група карыстальніка",
+	"sesp-property-user-group-desc": "«$1» паказвае сьпіс групаў, ужытых да карыстальніка і забясьпечаных пашырэньнем [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-exif-data": "Зьвесткі exif",
 	"sesp-exif-languagecode": "Exif:Код мовы",
 	"sesp-exif-label": "Exif:Метка",
