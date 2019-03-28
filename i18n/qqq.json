@@ -44,7 +44,7 @@
 	"sesp-exif-languagecode": "This is the name of a special property.",
 	"sesp-exif-label": "This is the name of a special property.",
 	"sesp-exif-iimcategory": "This is the name of a special property.",
-	"sesp-admin-deprecation-notice-title-replacement": "",
-	"sesp-admin-deprecation-notice-title-replacement-explanation": "",
-	"sesp-admin-deprecation-notice-config-replacement": ""
+	"sesp-admin-deprecation-notice-title-replacement": "This is a section header. Translate identical to {{Msg-mw|smw-admin-deprecation-notice-title-replacement}}.",
+	"sesp-admin-deprecation-notice-title-replacement-explanation": "This is an explanatory message. Translate identical to {{Msg-mw|smw-admin-deprecation-notice-title-replacement-explanation}}.",
+	"sesp-admin-deprecation-notice-config-replacement": "This is an explanatory message. \n\nParameters:\n* $1 - holds the name of the old configuration parameter\n* $2 - holds the name of the new configuration parameter"
 }

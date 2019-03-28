@@ -43,7 +43,7 @@
 	"sesp-exif-label": "Exif:Bezeichnung",
 	"sesp-exif-iimcategory": "Exif:IIM-Kategorie",
 	"sesp-admin-deprecation-notice-section": "Erweiterung „Semantic Extra Special Properties“",
-	"sesp-admin-deprecation-notice-title-replacement": "Einstellungen ersetzt oder umbenannt",
-	"sesp-admin-deprecation-notice-title-replacement-explanation": "Der folgende Abschnitt enthält Einstellungen, die umbenannt oder anderweitig verändert wurden. Es wird daher empfohlen, ihre Namen oder ihr Format unverzüglich zu aktualisieren.",
-	"sesp-admin-deprecation-notice-config-replacement": "<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$1 $1]</code> wurde durch <code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$2 $2]</code> ersetzt"
+	"sesp-admin-deprecation-notice-title-replacement": "Ersetzte oder umbenannte Konfigurationsparameter",
+	"sesp-admin-deprecation-notice-title-replacement-explanation": "Die im folgenden Abschnitt angegebenen Konfigurationsparameter wurden umbenannt oder anderweitig verändert. Sie sollten umgehend in der Konfigurationsdatei des Wikis angepasst werden.",
+	"sesp-admin-deprecation-notice-config-replacement": "<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$1 $1]</code> wird durch <code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$2 $2]</code> ersetzt."
 }
