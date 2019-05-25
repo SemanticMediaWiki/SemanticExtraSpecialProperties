@@ -173,7 +173,12 @@ class ExifPropertyAnnotator implements PropertyAnnotator {
 	}
 
 	private function makeDataItemTime( $exifValue ) {
-		$datetime = $this->convertExifDate( $exifValue );
+
+		try {
+			$datetime = $this->convertExifDate( $exifValue );
+		} catch ( \Exception $e ) {
+			$datetime = null;
+		}
 
 		if ( $datetime ) {
 			return new DITime(

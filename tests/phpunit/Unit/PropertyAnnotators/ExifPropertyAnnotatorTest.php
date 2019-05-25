@@ -188,6 +188,13 @@ class ExifPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			$this->once()
 		];
 
+		// #113
+		$provider[] = [
+			[ 'DateTimeOriginal' => '2015:07:24 10:07:88' ],
+			[ '_EXIF' => [ 'DATETIMEORIGINAL' => [ 'id' => 'Foo', 'type' => '_dat' ] ] ],
+			$this->never()
+		];
+
 		$provider[] = [
 			[ 'DateTimeOriginal' => '2013:01:11' ],
 			[ '_EXIF' => [ 'DATETIMEORIGINAL' => [ 'id' => 'Foo', 'type' => '_dat' ] ] ],
