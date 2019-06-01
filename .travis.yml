@@ -3,6 +3,13 @@ sudo: false
 
 language: php
 
+# Travis support wrote "Ubuntu 14.04 reached EOL on April 30th, 2019,
+# ... we've been slowly rolling out changes to make Xenial builds ..."
+# https://blog.travis-ci.com/2019-04-15-xenial-default-build-environment
+# https://docs.travis-ci.com/user/reference/xenial/#services-disabled-by-default.
+services:
+  - mysql
+  
 matrix:
   fast_finish: true
   include:
