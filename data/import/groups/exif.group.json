@@ -1,0 +1,146 @@
+{
+    "type": "PROPERTY_GROUP_SCHEMA",
+    "description": "Provides groups for EXIF related properties provided by the `Semantic Extra Special Properties` extension.",
+    "groups": [
+        {
+            "group_name":"Exif (Dimension and resolution)",
+            "message_key": "sesp-property-group-label-exif-dimension-group",
+            "properties": [
+                "___EXIFIMAGEWIDTH",
+                "___EXIFIMAGELENGTH",
+                "___EXIFORIGINALIMAGEHEIGHT",
+                "___EXIFORIGINALIMAGEWIDTH",
+                "___EXIFXRESOLUTION",
+                "___EXIFYRESOLUTION",
+                "___EXIFPIXELXDIMENSION",
+                "___EXIFPIXELYDIMENSION"
+            ]
+        },
+        {
+            "group_name":"Exif (Administrative)",
+            "message_key": "sesp-property-group-label-exif-meta-group",
+            "properties": [
+                "___EXIFSOFTWARE",
+                "___EXIFDATETIME",
+                "___EXIFEXIFVERSION",
+                "___EXIFDATETIMEMETADATA",
+                "___EXIFCOPYRIGHT",
+                "___EXIFCOPYRIGHTOWNER",
+                "___EXIFCOPYRIGHTED",
+                "___EXIFARTIST",
+                "___EXIFDATETIMERELEASED",
+                "___EXIFDATETIMEEXPIRES",
+                "___EXIFOBJECTNAME",
+                "___EXIFHEADLINE",
+                "___EXIFCREDIT",
+                "___EXIFSOURCE",
+                "___EXIFWRITER",
+                "___EXIFIDENTIFIER",
+                "___EXIFSERIALNUMBER",
+                "___EXIFCAMERAOWNERNAME",
+                "___EXIFNICKNAME",
+                "___EXIFLANGUAGECODE",
+                "___EXIFDATETIMEDIGITIZED",
+                "___EXIFDATETIMEORIGINAL",
+                "___EXIFFILESOURCE",
+                "___EXIFJPEGFILECOMMENT",
+                "___EXIFPNGFILECOMMENT",
+                "___EXIFGIFFILECOMMENT",
+                "___EXIFCUSTOMRENDERED"
+            ]
+        },
+        {
+            "group_name":"Exif (Classification)",
+            "message_key": "sesp-property-group-label-exif-classification-group",
+            "properties": [
+                "___EXIFIIMCATEGORY",
+                "___EXIFIIMSUPPLEMENTALCATEGORY",
+                "___EXIFKEYWORDS",
+                "___EXIFINTELLECTUALGENRE"
+            ]
+        },
+        {
+            "group_name":"Exif (Camera and lense)",
+            "message_key": "sesp-property-group-label-exif-camera-lense-settings-group",
+            "properties": [
+                "___EXIFMAKE",
+                "___EXIFMODEL",
+                "___EXIFYCBCRPOSITIONING",
+                "___EXIFCOMOPRESSION",
+                "___EXIFCOMPONENTSCONFIGURATION",
+                "___EXIFMETERINGMODE",
+                "___EXIFFLASH",
+                "___EXIFFLASHPIXVERSION",
+                "___EXIFLENS",
+                "___EXIFFOCALLENGTH",
+                "___EXIFFOCALLENGTHIN35MMFILM",
+                "___EXIFCOLORSPACE",
+                "___EXIFISOSPEEDRATINGS",
+                "___EXIFWHITEBALANCE",
+                "___EXIFLIGHTSOURCE",
+                "___EXIFSENSINGMETHOD",
+                "___EXIFORIENTATION"
+            ]
+        },
+        {
+            "group_name":"Exif (Exposure)",
+            "message_key": "sesp-property-group-label-exif-exposure-group",
+            "properties": [
+                "___EXIFEXPOSURETIME",
+                "___EXIFFNUMBER",
+                "___EXIFEXPOSUREPROGRAM",
+                "___EXIFMAXAPERTUREVALUE",
+                "___EXIFCONTRAST",
+                "___EXIFSATURATION",
+                "___EXIFSHARPNESS",
+                "___EXIFEXPOSUREMODE"
+            ]
+        },
+        {
+            "group_name":"Exif (Scene)",
+            "message_key": "sesp-property-group-label-exif-scene-group",
+            "properties": [
+                "___EXIFSCENECODE",
+                "___EXIFSCENETYPE",
+                "___EXIFSCENECAPTURETYPE",
+                "___EXIFGAINCONTROL"
+            ]
+        },
+        {
+            "group_name":"Exif (Location)",
+            "message_key": "sesp-property-group-label-exif-location-group",
+            "properties": [
+                "___EXIFWORLDREGIONDEST",
+                "___EXIFWORLDREGIONCREATED",
+                "___EXIFCOUNTRYDEST",
+                "___EXIFCOUNTRYCREATED",
+                "___EXIFCOUNTRYCODEDEST",
+                "___EXIFCOUNTRYCODECREATED",
+                "___EXIFPROVINCEORSTATEDEST",
+                "___EXIFPROVINCEORSTATECREATED",
+                "___EXIFCITYDEST",
+                "___EXIFCITYCREATED",
+                "___EXIFSUBLOCATIONDEST",
+                "___EXIFSUBLOCATIONCREATED",
+                "___EXIFLOCATIONDEST",
+                "___EXIFLOCATIONDESTCODE"
+            ]
+        },
+        {
+            "group_name":"Exif (Location, GPS)",
+            "message_key": "sesp-property-group-label-exif-gps-group",
+            "properties": [
+                "___EXIFGPSSATELLITES",
+                "___EXIFGPSVERSIONID",
+                "___EXIFGPSMAPDATUM",
+                "___EXIFGPSDATESTAMP"
+            ]
+        }
+    ],
+    "tags": [
+        "group",
+        "property group",
+        "exif special properties",
+        "extra special properties"
+    ]
+}

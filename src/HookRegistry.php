@@ -114,6 +114,10 @@ class HookRegistry {
 				);
 			}
 
+			if ( isset( $config['smwgImportFileDirs'] ) ) {
+				$config['smwgImportFileDirs'] += [ 'sesp' => __DIR__ . '/../data/import' ];
+			}
+
 			return true;
 		};
 	}

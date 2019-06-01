@@ -528,7 +528,7 @@
 			"id": "___EXIFIMAGEUNIQUEID",
 			"type": "_txt",
 			"alias": "exif-imageuniqueid",
-			"label": "Exif:Image unique i d"
+			"label": "Exif:Image unique id"
 		},
 		"SPECTRALSENSITIVITY": {
 			"id": "___EXIFSPECTRALSENSITIVITY",
@@ -546,7 +546,7 @@
 			"id": "___EXIFGPSVERSIONID",
 			"type": "_txt",
 			"alias": "exif-gpsversionid",
-			"label": "Exif:Gps version i d"
+			"label": "Exif:Gps version id"
 		},
 		"GPSMAPDATUM": {
 			"id": "___EXIFGPSMAPDATUM",
