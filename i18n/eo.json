@@ -1,8 +1,28 @@
 {
 	"@metadata": {
 		"authors": [
-			"KuboF"
+			"KuboF",
+			"Mirin"
 		]
 	},
-	"sesp-property-page-id": "Identigilo de paĝo"
+	"sesp-property-author": "Aŭtoro de paĝo",
+	"sesp-property-first-author": "Kreinto de la paĝo",
+	"sesp-property-revision-id": "Numero de versio",
+	"sesp-property-page-id": "Identigilo de paĝo",
+	"sesp-property-page-len": "Longo de paĝo",
+	"sesp-property-subpages": "Subpaĝo",
+	"sesp-property-revisions": "Nombro de versioj",
+	"sesp-property-talk-revisions": "Nombro de versioj de diskutpaĝo",
+	"sesp-property-mimetype": "MIME-tipo",
+	"sesp-property-shorturl": "Mallonga retadreso",
+	"sesp-property-approved-rev": "Aprobita versio",
+	"sesp-property-approved-by": "Aprobita de",
+	"sesp-property-approved-date": "Dato de aprobo",
+	"sesp-property-approved-status": "Aprobiteco",
+	"sesp-property-user-right": "Rajto de uzanto",
+	"sesp-property-user-group": "Grupo de uzanto",
+	"sesp-property-exif-data": "Exif-dateno",
+	"sesp-exif-languagecode": "Exif:Lingvokodo",
+	"sesp-exif-label": "Exif:Etikedo",
+	"sesp-exif-iimcategory": "Exif:IIM-kategorio"
 }
