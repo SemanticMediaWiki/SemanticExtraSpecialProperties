@@ -7,11 +7,13 @@
 
 Semantic Extra Special Properties (a.k.a. SESP) is an extension to [Semantic MediaWiki][smw] which adds some extra special properties to enabled content pages.
 
+
 ## Requirements
 
 - PHP 5.6 or later
 - MediaWiki 1.27 or later
 - Semantic MediaWiki 3.0 or later
+
 
 ## Installation
 
@@ -23,15 +25,8 @@ instructions provided.
 
 ### Step 1
 
-Change to the base directory of your MediaWiki installation. This is where the "LocalSettings.php"
-file is located. If you have not yet installed Composer do it now by running the following command
-in your shell:
-
-    wget https://getcomposer.org/composer.phar
-
-### Step 2
-    
-If you do not have a "composer.local.json" file yet, create one and add the following content to it:
+Change to the base directory of your MediaWiki installation. If you do not have a "composer.local.json" file yet,
+create one and add the following content to it:
 
 ```
 {
@@ -48,41 +43,36 @@ section in your file:
 
 Remember to add a comma to the end of the preceding line in this section.
 
-### Step 3
+### Step 2
 
 Run the following command in your shell:
 
     php composer.phar update --no-dev
 
-Note if you have Git installed on your system add the `--prefer-source` flag to the above command. Also
-note that it may be necessary to run this command twice. If unsure do it twice right away.
+Note if you have Git installed on your system add the `--prefer-source` flag to the above command.
 
-### Step 4
+### Step 3
 
 Add the following line to the end of your "LocalSettings.php" file:
 
     wfLoadExtension( 'SemanticExtraSpecialProperties' );
 
-### Step 5
+### Step 4
 
 Add the [configuration parameters](/docs/configuration.md) to the "LocalSettings.php" file according to your
 requirements below the call to `wfLoadExtension` added in step 4.
 
-### Step 6
+### Step 5
 
 This step may be skipped in case you are freshly intalling this extension. If this extension is being upgraded
 from an version earlier than 2.0.0 you have to change your configruation in the "LocalSettings.php" file according
 to the consise [migration guide](/docs/migration-to-200.md).
 
-### Step 7
+### Step 6
 
 Run the **["update.php"][mw-update]** maintenance script to ensure that property tables are properly
 initialized.
 
-### Verify installation success
-
-As final step, you can verify SESP got installed by looking at the "Special:Version" page on your wiki and
-check that it is listed in the semantic extensions section.
 
 ## Usage
 
@@ -91,6 +81,7 @@ any special interaction from a user but ["LocalSettings.php"][mw-localsettings] 
 
 For details about available configruation parameters, please have a look at the [configuration](docs/configuration.md)
 document.
+
 
 ## Contribution and support
 
@@ -101,7 +92,6 @@ If you want to contribute work to the project please subscribe to the developers
 * [File an issue](https://github.com/SemanticMediaWiki/SemanticExtraSpecialProperties/issues)
 * [Submit a pull request](https://github.com/SemanticMediaWiki/SemanticExtraSpecialProperties/pulls)
 * Ask a question on [the mailing list](https://semantic-mediawiki.org/wiki/Mailing_list)
-* Ask a question on the #semantic-mediawiki IRC channel on Freenode.
 
 ### Tests
 
