@@ -4,11 +4,11 @@
 Properties that are planned to be included need to be specified in the ["LocalSettings.php"][mw-localsettings] file using the `$sespgEnabledPropertyList` array. By default the array is empty, i.e. no special property is being annotated to a page.
 
 ```php
-$sespgEnabledPropertyList = array(
+$sespgEnabledPropertyList = [
 	'_EUSER',
 	'_CUSER',
 	...
-);
+];
 ```
 ## Property definitions
 
