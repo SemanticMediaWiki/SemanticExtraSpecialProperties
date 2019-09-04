@@ -87,6 +87,7 @@ $sespgLocalDefinitions['_MY_CUSTOM1'] = [
 	}
 ];
 ```
+
 ```
 $sespgLocalDefinitions['_MY_CUSTOM2'] = [
 	'id'    => '___MY_CUSTOM2',
@@ -109,4 +110,4 @@ class FooCustom {
 }
 ```
 
-&larr; [README](README.md) | [Configuration](00-configuration.md) | [Migration to 2.0.0](migration-to-200.md) &rarr;
+&larr; [README](README.md) | [Configuration](configuration.md) | [Migration to 2.0.0](migration-to-200.md) &rarr;
