@@ -12,7 +12,7 @@ $sespgEnabledPropertyList = array(
 ```
 ## Property definitions
 
-Property identifiers (see ["definitions.json"](/src/Definition/definitions.json) file) are used to specify which of the properties are enabled. An identifier is an internal `ID` which is not to be used during user interaction (e.g. handling in `#ask` queries) instead the property label should be used as reference.
+Property identifiers (see ["definitions.json"](/data/definitions.json) file) are used to specify which of the properties are enabled. An identifier is an internal `ID` which is not to be used during user interaction (e.g. handling in `#ask` queries) instead the property label should be used as reference.
 
 ### Labels
 
@@ -62,7 +62,7 @@ data for the special properties activated. However this does not affect the page
 
 #### Property definitions
 
-Details about available properties can be found in the ["definitions.json"](/src/Definition/definitions.json) file. The file also contains information about the visibility (display in the Factbox etc.) of a property, to alter the characterisctics of non-subobject related properties one can set `show` to `true` for each definition.
+Details about available properties can be found in the ["definitions.json"](/data/definitions.json) file. The file also contains information about the visibility (display in the Factbox etc.) of a property, to alter the characterisctics of non-subobject related properties one can set `show` to `true` for each definition.
 
 #### Cache usage
 
