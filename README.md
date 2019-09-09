@@ -77,11 +77,13 @@ initialized.
 ## Usage
 
 The annotation process for predefined properties is mostly done in the background and therefore does not need
-any special interaction from a user but ["LocalSettings.php"][mw-localsettings] for SESP need to be enabled.
+any special interaction from a user but ["LocalSettings.php"][mw-localsettings] for SESP need to be enabled. 
 
 For details about available configruation parameters, please have a look at the [configuration](docs/configuration.md)
 document.
 
+### Exif property names
+You might want to check the labels for Exif properties. They are defined in MediaWiki core and being reused by SESP. It is possible that property names you already use will be prefedinied properties after activation of SESP. On the sepcial page "System messages" you can search for all messages with the prefix "Exif". One example: there is the message Exif-source that has the label "Source". If you use a property labeled "Source" already, you should change MediaWiki:Exif-source from "Source" to "Exif-source". 
 
 ## Contribution and support
 
