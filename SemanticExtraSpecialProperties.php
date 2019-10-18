@@ -18,16 +18,6 @@ if ( defined( 'SESP_VERSION' ) ) {
 	return 1;
 }
 
-/**
- * Define DB_SLAVE for backwards compatibity due to
- * https://github.com/wikimedia/mediawiki/commit/0653e575fc641ee828a949b2e06a11a7500ab3cd
- *
- * To be removed once comatibility with MW 1.33.x and earlier is being dropped
- */
-if ( !defined( DB_SLAVE ) ) {
-    define( 'DB_SLAVE', DB_REPLICA );
-}
-
 SemanticExtraSpecialProperties::load();
 
 /**
@@ -62,6 +52,16 @@ class SemanticExtraSpecialProperties {
 
 		// See https://phabricator.wikimedia.org/T151136
 		define( 'SESP_VERSION', isset( $credits['version'] ) ? $credits['version'] : 'UNKNOWN' );
+
+		/**
+		 * Define DB_SLAVE for backwards compatibity due to
+		 * https://github.com/wikimedia/mediawiki/commit/0653e575fc641ee828a949b2e06a11a7500ab3cd
+		 *
+		 * To be removed once comatibility with MW 1.33.x and earlier is being dropped
+		 */
+		if ( !defined( DB_SLAVE ) ) {
+			define( 'DB_SLAVE', DB_REPLICA );
+		}
 
 		$GLOBALS['wgMessagesDirs']['SemanticExtraSpecialProperties'] = __DIR__ . '/i18n';
 
