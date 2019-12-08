@@ -22,8 +22,7 @@ Property labels differ according to the language the wiki was set up. An easy wa
 
 - `_EUSER` adds a property with all users that edited this page (expensive; use with care)
 - `_CUSER` adds a property with the user that created this page
-- `_REVID` adds a property with current revision ID  
-If you are using MediaWiki 1.33+ and set [`$wgMiserMode = true;`](https://www.mediawiki.org/wiki/Manual:$wgMiserMode) you cannot longer use this identifier.
+- `_REVID` adds a property with current revision ID
 - `_PAGEID` adds a property with the page ID
 - `_PAGELGTH` adds a property to record the page length
 - `_NREV` adds a property showing an estimated number of total revisions of a page
