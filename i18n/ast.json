@@ -10,7 +10,7 @@
 	"sesp-property-first-author": "Creador de la páxina",
 	"sesp-property-revision-id": "ID de la revisión",
 	"sesp-property-page-id": "ID de la páxina",
-	"sesp-property-page-id-desc": "«$1» alcuentra l'identificador MediaWiki d'una páxina, facilitáu pola estensión [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP].",
+	"sesp-property-page-id-desc": "«$1» alcuentra l'identificador MediaWiki d'una páxina, facilitáu pola estensión [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-page-len": "Llargor de páxina",
 	"sesp-property-page-len-desc": "«$1» identifica'l llargor d'una páxina en bytes, facilitáu pola estensión [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-view-count": "Númberu de vistes de la páxina",
