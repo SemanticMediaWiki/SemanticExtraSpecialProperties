@@ -2,15 +2,19 @@
 	"@metadata": {
 		"authors": [
 			"Hedda",
-			"Uğurkent"
+			"Uğurkent",
+			"BaRaN6161 TURK"
 		]
 	},
+	"sesp-desc": "Tüm sayfalara bazı ekstra özel özellikler ekler",
 	"sesp-property-unknown-label": "Bilinmeyen etiket veya diğer ad",
 	"sesp-property-author": "Sayfa yazarı",
 	"sesp-property-first-author": "Sayfa oluşturucusu",
 	"sesp-property-revision-id": "Sürüm kimliği",
 	"sesp-property-page-id": "Sayfa kimliği",
+	"sesp-property-page-id-desc": "\"$1\" bir sayfanın MediaWiki Kimliğini tanımlar ve [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantik Ekstra Özel Özellikler] uzantısı tarafından sağlanır.",
 	"sesp-property-page-len": "Sayfa uzunluğu",
+	"sesp-property-page-len-desc": "\"$1\", bir sayfanın bayt cinsinden uzunluğunu tanımlar ve [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantik Ekstra Özel Özellikler] uzantısı tarafından sağlanır.",
 	"sesp-property-view-count": "Sayfa görüntüleme sayısı",
 	"sesp-property-subpages": "Alt sayfa",
 	"sesp-property-revisions": "Sürüm sayısı",
@@ -19,16 +23,27 @@
 	"sesp-property-mediatype": "Medya türü",
 	"sesp-property-shorturl": "Kısa bağlantı",
 	"sesp-property-approved-rev": "Onaylanan düzenleme",
+	"sesp-property-approved-rev-desc": "\"$1\", [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantik Ekstra Özel Özellikler] uzantısı tarafından onaylanmış ve sağlanan bir sayfanın düzeltme kimliğini tanımlar.",
 	"sesp-property-approved-by": "Onaylayan:",
+	"sesp-property-approved-by-desc": "\"$1\", sayfanın onay durumunu ayarlayan ve [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantik Ekstra Özel Özellikler] uzantısı tarafından sağlanan kullanıcıyı tanımlar.",
 	"sesp-property-approved-date": "Onay tarihi",
+	"sesp-property-approved-date-desc": "\"$1\", sayfanın onay durumunun ayarlandığı zamanı tanımlar ve [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantik Ekstra Özel Özellikler] uzantısı tarafından sağlanır.",
 	"sesp-property-approved-status": "Onay durumu",
+	"sesp-property-approved-status-desc": "\"$1\" bir sayfanın onay durumunu tanımlar ve [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantik Ekstra Özel Özellikler] uzantısı tarafından sağlanır.",
 	"sesp-property-user-registration-date": "Kullanıcı kayıt tarihi",
 	"sesp-property-user-edit-count": "Kullanıcı düzenleme sayısı",
 	"sesp-property-user-block": "Kullanıcı engeli",
+	"sesp-property-user-block-desc": "\"$1\" bir kullanıcıya uygulanan blokların bir listesini sağlar ve [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Anlamsal Ekstra Özel Özellikler] uzantısı tarafından sağlanır.",
 	"sesp-property-user-right": "Kullanıcı hakları",
+	"sesp-property-user-right-desc": "\"$1\", bir kullanıcıya uygulanan hakların bir listesini sağlar ve [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantik Ekstra Özel Özellikler] uzantısı tarafından sağlanır.",
 	"sesp-property-user-group": "Kullanıcı grubu",
+	"sesp-property-user-group-desc": "\"$1\" bir kullanıcıya uygulanan grupların bir listesini sağlar ve [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Anlamsal Ekstra Özel Özellikler] uzantısı tarafından sağlanır.",
 	"sesp-property-exif-data": "Exif verisi",
 	"sesp-exif-languagecode": "Exif:Dil kodu",
 	"sesp-exif-label": "Exif:Etiket",
-	"sesp-exif-iimcategory": "Exif:Iim Kategori"
+	"sesp-exif-iimcategory": "Exif:Iim Kategori",
+	"sesp-admin-deprecation-notice-section": "Semantik Ekstra Özel Özellikler uzantısı",
+	"sesp-admin-deprecation-notice-title-replacement": "Değiştirilen veya yeniden adlandırılan ayarlar",
+	"sesp-admin-deprecation-notice-title-replacement-explanation": "Aşağıdaki bölüm, yeniden adlandırılmış veya başka bir şekilde değiştirilmiş ayarları içerir ve adlarını veya biçimlerini derhal güncellemeniz önerilir.",
+	"sesp-admin-deprecation-notice-config-replacement": "<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$1 $1]</code>, <code>[https://www.semantic-mediawiki.org/wiki/Extension: Semantic_Extra_Special_Properties/$2 $2]</code> ile değiştirildi"
 }
