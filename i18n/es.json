@@ -6,7 +6,8 @@
 			"Macofe",
 			"Ohlila",
 			"Amaia",
-			"AVIADOR71"
+			"AVIADOR71",
+			"Eduardo Addad de Oliveira"
 		]
 	},
 	"sesp-desc": "Añade algunas propiedades adicionales especiales a todas las páginas",
@@ -44,5 +45,6 @@
 	"sesp-property-exif-data": "Datos EXIF",
 	"sesp-exif-languagecode": "Exif:Código de idioma",
 	"sesp-exif-label": "Exif:Etiqueta",
-	"sesp-exif-iimcategory": "Exif:Categoría de IIM"
+	"sesp-exif-iimcategory": "Exif:Categoría de IIM",
+	"sesp-admin-deprecation-notice-title-replacement": "Opciones sustituidas o retituladas"
 }
