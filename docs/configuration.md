@@ -20,29 +20,29 @@ Property labels differ according to the language the wiki was set up. An easy wa
 
 ### Identifiers
 
-- `_EUSER` adds a property with all users that edited this page (expensive; use with care)
-- `_CUSER` adds a property with the user that created this page
-- `_REVID` adds a property with current revision ID
-- `_PAGEID` adds a property with the page ID
-- `_PAGELGTH` adds a property to record the page length
-- `_NREV` adds a property showing an estimated number of total revisions of a page
-- `_NTREV` same as `_NREV` but for the talk page, i.e. showing how much discussion is going on around this page
-- `_SUBP` adds a property with all subpages
-- `_USERREG` adds a property to user pages with the users registration date
-- `_USEREDITCNT` adds a property to user pages with the users edit count
-- `_USERBLOCK` adds a property to user pages with the users block status
-- `_USERRIGHT` adds a property to user pages with the users assigned rights
-- `_USERGROUP` adds a property to user pages with the users assigned groups
-- `_EXIFDATA` adds properties for image metadata (Exif data)
+- `_EUSER` adds a property called "Page author" which records all users that edited a page (*expensive*; use with care)
+- `_CUSER` adds a property called "Page creator" which records the user that created a page
+- `_REVID` adds a property called "Revision ID" which records the current revision ID of a page
+- `_PAGEID` adds a property called "Page ID" which records the page ID of a page
+- `_PAGELGTH` adds a property called "Page length" which records the page length of a page
+- `_NREV` adds a property called "Number of revisions" which records estimated number of total revisions of a page
+- `_NTREV` adds a property called "Number of talk page revisions" which records an estimated number of total revisions of a talk page
+- `_SUBP` adds a property called "Subpage" which records all subpages to a page
+- `_USERREG` adds a property called "User registration date" to user pages which records the user's registration date
+- `_USEREDITCNT` adds a property called "User edit count" to user pages which records the user's edit count
+- `_USERBLOCK` adds a property called "User block" to user pages which records the user's block status
+- `_USERRIGHT` adds a property called "User right" to user pages which records the user's assigned rights
+- `_USERGROUP` adds a property called "User group" to user pages which records the user's assigned groups
+- `_EXIFDATA` adds properties called "Exif data" to file pages which records image metadata (Exif data)
 
 #### Identifiers with further dependencies
 
-- `_SHORTURL` adds short URL if the [ShortUrl][ShortUrl] extension is installed, and there is a shortened URL for the current page
-- `_VIEWS` adds a property with number of page views if the [HitCounters][HitCounters] extension is installed. This is required starting with MediaWiki 1.25 and later. In earlier versions of MediaWiki this special property used to work out of the box if enabled. Note that depending on local settings this value might not be very up to date. If [`$wgDisableCounters`][$wgDisableCounters] is set to "true" this property will never be set.
-- `_APPROVED` for approvement state collection on pages if the [Approved Revs][Approved Revs] extension is installed
-- `_APPROVEDBY` for approving user collection on pages if the [Approved Revs][Approved Revs] extension is installed
-- `_APPROVEDDATE` for approved date collection on pages if the [Approved Revs][Approved Revs] extension is installed
-- `_APPROVEDSTATUS` for approvement status collection on pages if the [Approved Revs][Approved Revs] extension is installed
+- `_SHORTURL` adds a property called "Short URL" which records short URLs of a page if the [ShortUrl][ShortUrl] extension is installed, and if there is a shortened URL for the current page
+- `_VIEWS` adds a property called "Number of page views" which records the number of page views of a page if the [HitCounters][HitCounters] extension is installed. This is required starting with MediaWiki 1.25 and later. In earlier versions of MediaWiki this special property used to work out of the box if enabled. Note that depending on local settings this value might not be very up to date. If [`$wgDisableCounters`][$wgDisableCounters] is set to "true" this property will never be set.
+- `_APPROVED` adds a property called "Approved revision" which records the approvement state of a page if the [Approved Revs][Approved Revs] extension is installed
+- `_APPROVEDBY` adds a property called "Approved by" which records the user that approved a page if the [Approved Revs][Approved Revs] extension is installed
+- `_APPROVEDDATE` adds a property called "Approved date" which records the date a page was approved if the [Approved Revs][Approved Revs] extension is installed
+- `_APPROVEDSTATUS` adds a property called "Approval status" which records the approvement status of a page if the [Approved Revs][Approved Revs] extension is installed
 
 ## Additional configuration
 
