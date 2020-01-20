@@ -29,7 +29,7 @@
 	"sesp-property-approved-date-desc": "„$1“ го утврдува времето на (не)одобрување на една страница во бајти и е овозможено од додатокот [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Семантички екстрапосебни својства].",
 	"sesp-property-approved-status": "Одобрителна состојба",
 	"sesp-property-approved-status-desc": "„$1“ ја утврдува одобрителната состојба на страница и е овозможено од додатокот [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Семантички екстрапосебни својства].",
-	"sesp-property-user-registration-date": "Датум на регистрација на корисникот",
+	"sesp-property-user-registration-date": "Датум на зачленување на корисникот",
 	"sesp-property-user-edit-count": "Бр. на кориснички уредувања",
 	"sesp-property-user-block": "Кориснички блок",
 	"sesp-property-user-block-desc": "„$1“ дава список на блокови зададени на корисник и е овозможено од додатокот [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Семантички екстрапосебни својства].",
