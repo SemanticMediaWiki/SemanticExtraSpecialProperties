@@ -48,7 +48,16 @@ class DatabaseLogReader {
 	 * @param Title|null $title
 	 * @param string $type of log (default: approval)
 	 */
-	public function __construct( DatabaseBase $dbr, Title $title = null , $type = 'approval' ) {
+	public function __construct( $dbr, Title $title = null , $type = 'approval' ) {
+		
+		// Due to MW 1.31+ and MW 1.34+
+		if (
+			!$dbr instanceof \Wikimedia\Rdbms\IDatabase &&
+			!$dbr instanceof \IDatabase &&
+			!$dbr instanceof \DatabaseBase ) {
+			throw new \RuntimeException( "Invalid connection instance!" );
+		}
+
 		$this->dbr = $dbr;
 		$this->dbKey = $title instanceof Title ? $title->getDBkey() : null;
 		$this->type = $type;
