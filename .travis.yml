@@ -1,7 +1,6 @@
 # http://docs.travis-ci.com/user/workers/container-based-infrastructure/
-sudo: false
-
 language: php
+sudo: false
 
 # Travis support wrote "Ubuntu 14.04 reached EOL on April 30th, 2019,
 # ... we've been slowly rolling out changes to make Xenial builds ..."
@@ -13,12 +12,18 @@ services:
 matrix:
   fast_finish: true
   include:
-    - env: DB=mysql; MW=REL1_27; TYPE=coverage; PHPUNIT=4.8.*
-      php: 5.6
-    - env: DB=mysql; MW=master; PHPUNIT=4.8.*
+    - env: DB=sqlite; MW=REL1_31; PHPUNIT=5.7.*
       php: 7.1
-    - env: DB=sqlite; MW=REL1_28; SITELANG=ja; PHPUNIT=4.8.*
-      php: 5.6
+    - env: DB=mysql; MW=REL1_31; PHPUNIT=5.7.*
+      php: 7.0
+    - env: DB=mysql; MW=REL1_33; SITELANG=ja; PHPUNIT=5.7.*
+      php: 7.2
+    - env: DB=mysql; MW=REL1_34; PHPUNIT=6.5.*
+      php: 7.3
+    - env: DB=mysql; MW=master; PHPUNIT=6.5.*
+      php: 7.3
+  allow_failures:
+    - env: DB=mysql; MW=master; PHPUNIT=6.5.*
 
 install:
   - composer self-update
