@@ -10,8 +10,8 @@ Semantic Extra Special Properties (a.k.a. SESP) is an extension to [Semantic Med
 
 ## Requirements
 
-- PHP 5.6 or later
-- MediaWiki 1.27 or later
+- PHP 7.0 to PHP 7.3
+- MediaWiki 1.31 to 1.34
 - Semantic MediaWiki 3.0 or later
 
 
@@ -31,7 +31,7 @@ create one and add the following content to it:
 ```
 {
 	"require": {
-		"mediawiki/semantic-extra-special-properties": "~2.0"
+		"mediawiki/semantic-extra-special-properties": "~2.1"
 	}
 }
 ```
@@ -39,7 +39,7 @@ create one and add the following content to it:
 If you already have a "composer.local.json" file add the following line to the end of the "require"
 section in your file:
 
-    "mediawiki/semantic-extra-special-properties": "~2.0"
+    "mediawiki/semantic-extra-special-properties": "~2.1"
 
 Remember to add a comma to the end of the preceding line in this section.
 
@@ -64,9 +64,9 @@ requirements below the call to `wfLoadExtension` added in step 4.
 
 ### Step 5
 
-This step may be skipped in case you are freshly intalling this extension. If this extension is being upgraded
-from an version earlier than 2.0.0 you have to change your configruation in the "LocalSettings.php" file according
-to the consise [migration guide](/docs/migration-to-200.md).
+This step may be skipped in case you are installing this extension for the first time to the respective wiki.
+If this extension is being upgraded from an version earlier than 2.0.0 you have to change your configruation
+in the "LocalSettings.php" file according to the consise [migration guide](/docs/migration-to-200.md).
 
 ### Step 6
 
