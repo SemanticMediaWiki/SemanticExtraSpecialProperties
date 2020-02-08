@@ -51,7 +51,12 @@ class ShortUrlPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 	public function testMissingShortUrlUtilsThrowsException() {
 
-		$this->setExpectedException( 'RuntimeException' );
+		// PHPUnit 6.5+
+		if ( is_callable( [ $this, 'expectException' ] ) ) {
+			$this->expectException( '\RuntimeException' );
+		} else {
+			$this->setExpectedException( '\RuntimeException' );
+		}
 
 		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
 			->disableOriginalConstructor()
