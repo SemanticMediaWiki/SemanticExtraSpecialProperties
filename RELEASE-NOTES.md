@@ -1,4 +1,20 @@
-This file contains the RELEASE-NOTES of the SemanticExtraSpecialProperties (a.k.a. SESP) extension.
+This file contains the RELEASE-NOTES of the **Semantic Extra Special Properties** (a.k.a. SESP) extension.
+
+### 2.1.0
+
+Released on Feburary 9, 2020.
+
+* Minimum requirement for
+  * PHP changed to version 7.0 and later
+  * MediaWiki changed to version 1.31 and later
+  * Semantic MediaWiki changes to version 3.1 and later
+* #114 Added guard against invalid time strins within annotated data (by James Hong Kong)
+* #116 Added support for the property group schemas ("sesp.group.json") (by James Hong Kong)
+* #132 Replaced deprecated `DB_SLAVE` constant by `DB_REPLICA` (by Ammar Abdulhamid)
+* #138 Added missing system messages providing special property descriptions (by Karsten Hoffmeyer)
+* Several internal code changes and bug fixes (by James Hong Kong)
+* Improved documenation of the extension's functionality (by Bernhard Krabina and Karsten Hoffmeyer)
+* Localization updates from https://translatewiki.net
 
 ### 2.0.0
 
