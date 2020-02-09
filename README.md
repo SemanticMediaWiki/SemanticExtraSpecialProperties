@@ -12,7 +12,7 @@ Semantic Extra Special Properties (a.k.a. SESP) is an extension to [Semantic Med
 
 - PHP 7.0 to PHP 7.3
 - MediaWiki 1.31 to 1.34
-- Semantic MediaWiki 3.0 or later
+- Semantic MediaWiki 3.1 or later
 
 
 ## Installation
