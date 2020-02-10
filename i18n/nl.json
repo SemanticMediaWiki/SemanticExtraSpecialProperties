@@ -7,7 +7,8 @@
 			"Mainframe98",
 			"Patio",
 			"Ooswesthoesbes",
-			"KlaasZ4usV"
+			"KlaasZ4usV",
+			"Klaas van Buiten"
 		]
 	},
 	"sesp-desc": "Voegt extra bijzondere eigenschappen toe aan alle pagina's",
@@ -21,8 +22,6 @@
 	"sesp-property-subpages": "Subpagina",
 	"sesp-property-revisions": "Aantal versies",
 	"sesp-property-talk-revisions": "Aantal versies overlegpagina",
-	"sesp-property-mimetype": "MIME-type",
-	"sesp-property-mediatype": "Mediatype",
 	"sesp-property-shorturl": "Korte URL",
 	"sesp-property-approved-rev": "Goedgekeurde versie",
 	"sesp-property-approved-by": "Goedgekeurd door",

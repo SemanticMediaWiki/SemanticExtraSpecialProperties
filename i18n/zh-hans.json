@@ -22,8 +22,6 @@
 	"sesp-property-subpages": "子页面",
 	"sesp-property-revisions": "修订版本数",
 	"sesp-property-talk-revisions": "讨论页面修订版本数",
-	"sesp-property-mimetype": "MIME类型",
-	"sesp-property-mediatype": "媒体文件类型",
 	"sesp-property-shorturl": "简短URL",
 	"sesp-property-approved-rev": "已认可版本",
 	"sesp-property-approved-rev-desc": "“$1”识别已认可页面的修订版本ID，并由[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties 语义额外特殊属性]扩展提供。",

@@ -20,8 +20,6 @@
 	"sesp-property-subpages": "하위 문서",
 	"sesp-property-revisions": "판 수",
 	"sesp-property-talk-revisions": "토론 문서 판 수",
-	"sesp-property-mimetype": "MiME 종류",
-	"sesp-property-mediatype": "미디어 유형",
 	"sesp-property-shorturl": "짧은 URL",
 	"sesp-property-approved-rev": "승인된 판",
 	"sesp-property-approved-rev-desc": "\"$1\" 속성은 승인된 문서의 판 ID를 식별하며 [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties 시맨틱 추가 특수 속성] 확장 기능에 의해 제공됩니다.",

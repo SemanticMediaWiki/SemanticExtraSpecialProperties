@@ -19,8 +19,6 @@
 	"sesp-property-subpages": "Падстаронка",
 	"sesp-property-revisions": "Колькасьць зьменаў",
 	"sesp-property-talk-revisions": "Колькасьць зьменаў старонкі размоваў",
-	"sesp-property-mimetype": "MIME-тып",
-	"sesp-property-mediatype": "Тып мэдыя",
 	"sesp-property-shorturl": "Кароткая спасылка",
 	"sesp-property-approved-rev": "Зацьверджаная вэрсія",
 	"sesp-property-approved-rev-desc": "«$1» вызначае ідэнтыфікатар вэрсіі старонкі, якая была зацьверджана і забясьпечваецца пашырэньнем [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",

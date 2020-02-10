@@ -22,8 +22,6 @@
 	"sesp-property-subpages": "Subpágina",
 	"sesp-property-revisions": "Número de revisões",
 	"sesp-property-talk-revisions": "Número de revisões da página de discussão",
-	"sesp-property-mimetype": "Tipo MIME",
-	"sesp-property-mediatype": "Tipo de mídia",
 	"sesp-property-shorturl": "URL curto",
 	"sesp-property-approved-rev": "Revisão aprovada",
 	"sesp-property-approved-rev-desc": "\"$1\" identifica o identificador da revisão aprovada de uma página e é fornecida pela extensão [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Propriedades Semânticas Extra Especiais].",

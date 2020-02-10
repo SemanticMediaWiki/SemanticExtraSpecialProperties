@@ -24,8 +24,6 @@
 	"sesp-property-subpages": "Підсторінка",
 	"sesp-property-revisions": "Кількість версій",
 	"sesp-property-talk-revisions": "Кількість версій сторінки обговорення",
-	"sesp-property-mimetype": "MIME-тип",
-	"sesp-property-mediatype": "Медіатип",
 	"sesp-property-shorturl": "Коротке посилання",
 	"sesp-property-approved-rev": "Затверджена версія",
 	"sesp-property-approved-rev-desc": "«$1» визначає ідентифікатор перевіреної (затвердженої) версії сторінки і забезпечується розширенням [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties (SESP)].",

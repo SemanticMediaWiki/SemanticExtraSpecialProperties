@@ -17,8 +17,6 @@
 	"sesp-property-subpages": "Subpaginas",
 	"sesp-property-revisions": "Numero de versiones",
 	"sesp-property-talk-revisions": "Numero de versiones del pagina de discussion",
-	"sesp-property-mimetype": "Typo MIME",
-	"sesp-property-mediatype": "Typo de multimedia",
 	"sesp-property-shorturl": "URL curte",
 	"sesp-property-approved-rev": "Version approbate",
 	"sesp-property-approved-rev-desc": "\"$1\" identifica le ID del version de un pagina que ha essite approbate e es fornite per le extension [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",

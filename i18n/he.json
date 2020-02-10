@@ -20,8 +20,6 @@
 	"sesp-property-subpages": "דפי משנה",
 	"sesp-property-revisions": "מספר הגרסאות",
 	"sesp-property-talk-revisions": "מספר הגרסאות של דף השיחה",
-	"sesp-property-mimetype": "סוג MIME",
-	"sesp-property-mediatype": "סוג המדיה",
 	"sesp-property-shorturl": "כתובת מקוצרת",
 	"sesp-property-approved-rev": "גרסה מאושרת",
 	"sesp-property-approved-rev-desc": "\"$1\" מציין את מזהה הגרסה שאושרה. המאפיין מסופק על־ידי ההרחבה [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",

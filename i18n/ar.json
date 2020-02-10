@@ -20,8 +20,6 @@
 	"sesp-property-subpages": "صفحة فرعية",
 	"sesp-property-revisions": "عدد المراجعات",
 	"sesp-property-talk-revisions": "عدد مراجعات صفحة النقاش",
-	"sesp-property-mimetype": "نوع MIME",
-	"sesp-property-mediatype": "نوع الوسائط",
 	"sesp-property-shorturl": "مسار قصير",
 	"sesp-property-approved-rev": "المراجعة المعتمدة",
 	"sesp-property-approved-rev-desc": "يحدد \"$1\" معرف المراجعة لصفحة تمت الموافقة عليها (من خلال ملحق [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties خصائص إضافية خاصة دلالية]).",

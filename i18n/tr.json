@@ -19,8 +19,6 @@
 	"sesp-property-subpages": "Alt sayfa",
 	"sesp-property-revisions": "Sürüm sayısı",
 	"sesp-property-talk-revisions": "Tartışma sayfası sürüm sayısı",
-	"sesp-property-mimetype": "MIME türü",
-	"sesp-property-mediatype": "Medya türü",
 	"sesp-property-shorturl": "Kısa bağlantı",
 	"sesp-property-approved-rev": "Onaylanan düzenleme",
 	"sesp-property-approved-rev-desc": "\"$1\", [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantik Ekstra Özel Özellikler] uzantısı tarafından onaylanmış ve sağlanan bir sayfanın düzeltme kimliğini tanımlar.",

@@ -18,8 +18,6 @@
 	"sesp-property-subpages": "Потстраница",
 	"sesp-property-revisions": "Број на преработки",
 	"sesp-property-talk-revisions": "Број на преработки на разг. страници",
-	"sesp-property-mimetype": "MIME-тип",
-	"sesp-property-mediatype": "Тип на медиум",
 	"sesp-property-shorturl": "Кратка URL",
 	"sesp-property-approved-rev": "Одобрена преработка",
 	"sesp-property-approved-rev-desc": "„$1“ ја означува назнаката на страницата која е одобрена и доставена од додатокот [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Семантички екстрапосебни својства].",

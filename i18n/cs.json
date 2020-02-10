@@ -23,8 +23,6 @@
 	"sesp-property-subpages": "Podstránka",
 	"sesp-property-revisions": "Počet editací",
 	"sesp-property-talk-revisions": "Počet editací na diskusních stránkách",
-	"sesp-property-mimetype": "MIME typ",
-	"sesp-property-mediatype": "Typ média",
 	"sesp-property-shorturl": "Krátké URL",
 	"sesp-property-approved-rev": "Schválená revize",
 	"sesp-property-approved-rev-desc": "\"$1\" určuje identifikátor revize schválené stránky a je poskytován rozšířením [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Sémantické dodatečné speciální vlastnosti].",

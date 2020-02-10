@@ -31,8 +31,6 @@
 	"sesp-property-subpages": "Подстраница",
 	"sesp-property-revisions": "Количество правок",
 	"sesp-property-talk-revisions": "Количество правок страницы обсуждения",
-	"sesp-property-mimetype": "MIME-тип",
-	"sesp-property-mediatype": "Тип медиа",
 	"sesp-property-shorturl": "Короткая ссылка",
 	"sesp-property-approved-rev": "Подтверждённая версия",
 	"sesp-property-approved-rev-desc": "\"$1\" определяет ID версии страницы, которая была подтверждена с помощью расширения [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",

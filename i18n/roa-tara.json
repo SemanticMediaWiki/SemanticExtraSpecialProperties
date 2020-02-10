@@ -17,8 +17,6 @@
 	"sesp-property-subpages": "Sottopàgene",
 	"sesp-property-revisions": "Numere de le revisiune",
 	"sesp-property-talk-revisions": "Numere de le revisiune de le pàggene de le 'ngazzaminde",
-	"sesp-property-mimetype": "Tipe de MIME",
-	"sesp-property-mediatype": "Tipe de media",
 	"sesp-property-shorturl": "URL corte",
 	"sesp-property-approved-rev": "Revisione approvate",
 	"sesp-property-approved-rev-desc": "\"$1\" idendifiche l'ID d'a revisione de 'na pàgene ca ha state approvate e jè date da l'estenzione [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Probbietà Semnadeche Extra e Speciale].",

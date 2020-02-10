@@ -21,8 +21,6 @@
 	"sesp-property-subpages": "Underside",
 	"sesp-property-revisions": "Antall revisjoner",
 	"sesp-property-talk-revisions": "Antall diskusjonssiderevisjoner",
-	"sesp-property-mimetype": "MIME-type",
-	"sesp-property-mediatype": "Mediatype",
 	"sesp-property-shorturl": "Kort URL",
 	"sesp-property-approved-rev": "Godkjent revisjon",
 	"sesp-property-approved-rev-desc": "«$1» identifiserer revisjons-ID-en til en side som har blitt godkjent og gis av utvidelsen [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",

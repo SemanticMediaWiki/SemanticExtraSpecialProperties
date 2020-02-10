@@ -21,8 +21,6 @@
 	"sesp-property-subpages": "Azpiorrialdea",
 	"sesp-property-revisions": "Berrikusketa zenbakiak",
 	"sesp-property-talk-revisions": "Eztabaida orri berrikusketen zenbakia",
-	"sesp-property-mimetype": "MIME mota",
-	"sesp-property-mediatype": "Media mota",
 	"sesp-property-shorturl": "URL motza",
 	"sesp-property-approved-rev": "Onartutako berrikusketa",
 	"sesp-property-approved-rev-desc": "\"$1\"-(e)k onartua izan den orri baten berrikuspen ID-a identifikatzen du, eta [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties] luzapenak hornitutakoa da.",

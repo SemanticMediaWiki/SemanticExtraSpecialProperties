@@ -17,8 +17,6 @@
 	"sesp-property-subpages": "Subpáxina",
 	"sesp-property-revisions": "Númberu de revisiones",
 	"sesp-property-talk-revisions": "Númberu de revisiones de la páxina d'alderique",
-	"sesp-property-mimetype": "Tipu MIME",
-	"sesp-property-mediatype": "Tipu de mediu",
 	"sesp-property-shorturl": "URL curtia",
 	"sesp-property-approved-rev": "Revisión aprobada",
 	"sesp-property-approved-rev-desc": "«$1» determina'l ID de revisión d'una páxina que s'aprobó (utilizando la estensión [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties]).",
