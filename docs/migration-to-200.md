@@ -8,7 +8,7 @@ and their new replacements:
 1. `$sespUseAsFixedTables` was changed to `$sespgUseFixedTables`
 2. `$sespPropertyDefinitionFile` was changed to `$sespgDefinitionsFile`
 3. `$sespLocalPropertyDefinitions` was changed to `$sespgLocalDefinitions`
-4. `$sespSpecialProperties` was changed to `$sespgEnabledPropertiesList`
+4. `$sespSpecialProperties` was changed to `$sespgEnabledPropertyList`
 5. `$sespLabelCacheVersion` was changed to `$sespgLabelCacheVersion`
 6. `$wgSESPExcludeBots` was changed to `$sespgExcludeBotEdits`
 
