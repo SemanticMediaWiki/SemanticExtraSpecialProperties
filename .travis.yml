@@ -4,8 +4,6 @@ language: php
 os:
   - linux
 
-dist: xenial 
-
 services:
   - mysql
   
