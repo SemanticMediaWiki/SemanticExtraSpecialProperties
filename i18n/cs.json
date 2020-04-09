@@ -1,13 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mormegil",
-			"Vks",
 			"Aktron",
 			"Dvorapa",
-			"Martin Urbanec",
 			"Ilimanaq29",
-			"Jaroslav Cerny"
+			"Jaroslav Cerny",
+			"Martin Urbanec",
+			"Mormegil",
+			"Vks"
 		]
 	},
 	"sesp-desc": "Přidá některé dodatečné speciální vlastnosti do všech stránek",

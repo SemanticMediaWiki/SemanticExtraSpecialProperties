@@ -1,14 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"SPQRobin",
-			"Siebrand",
 			"Esketti",
-			"Mainframe98",
-			"Patio",
-			"Ooswesthoesbes",
+			"Klaas van Buiten",
 			"KlaasZ4usV",
-			"Klaas van Buiten"
+			"Mainframe98",
+			"Ooswesthoesbes",
+			"Patio",
+			"SPQRobin",
+			"Siebrand"
 		]
 	},
 	"sesp-desc": "Voegt extra bijzondere eigenschappen toe aan alle pagina's",

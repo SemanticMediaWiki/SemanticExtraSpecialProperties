@@ -2,10 +2,10 @@
 	"@metadata": {
 		"authors": [
 			"EvenT",
-			"Jon Harald Søby",
 			"Imre Eilertsen",
-			"Orf3us",
-			"Jeblad"
+			"Jeblad",
+			"Jon Harald Søby",
+			"Orf3us"
 		]
 	},
 	"sesp-desc": "Legg til et antall ekstra spesialegenskaper for alle sider",
