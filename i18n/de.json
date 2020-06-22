@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Druesenfieber",
 			"Kghbln",
 			"Metalhead64",
 			"Rotsee"
@@ -37,6 +38,7 @@
 	"sesp-property-user-group": "Benutzergruppe",
 	"sesp-property-user-group-desc": "„$1“ stellt eine Liste mit auf einen Benutzer angewandte Gruppen zur Verfügung und wird von der Erweiterung [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties] zur Verfügung gestellt.",
 	"sesp-property-exif-data": "Exif-Daten",
+	"sesp-property-exif-data-desc": "„$1“ speichert die EXIF Daten der Datei und wird von der Erweiterung [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties] zur Verfügung gestellt.",
 	"sesp-exif-languagecode": "Exif:Sprachcode",
 	"sesp-exif-label": "Exif:Bezeichnung",
 	"sesp-exif-iimcategory": "Exif:IIM-Kategorie",
