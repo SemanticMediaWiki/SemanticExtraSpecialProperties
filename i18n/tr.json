@@ -12,7 +12,7 @@
 	"sesp-property-author-desc": "\"$1\", bir sayfayı düzenleyen tüm kullanıcıları kaydeder. [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Ekstra Özel Özellikler] uzantısı tarafından sağlanır.",
 	"sesp-property-first-author": "Sayfa oluşturucusu",
 	"sesp-property-first-author-desc": "\"$1\", sayfa oluşturan kullanıcıyı kaydeder. [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Ekstra Özel Özellikler] uzantısı tarafından sağlanır.",
-	"sesp-property-revision-id": "Sürüm kimliği",
+	"sesp-property-revision-id": "Revizyon kimliği",
 	"sesp-property-revision-id-desc": "\"$1\" bir sayfanın geçerli düzeltme kimliğini kaydeder. [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Ekstra Özel Özellikler] uzantısı tarafından sağlanır.",
 	"sesp-property-page-id": "Sayfa kimliği",
 	"sesp-property-page-id-desc": "\"$1\" bir sayfanın kimliğini kaydeder. [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Ekstra Özel Özellikler] uzantısı tarafından sağlanır.",
