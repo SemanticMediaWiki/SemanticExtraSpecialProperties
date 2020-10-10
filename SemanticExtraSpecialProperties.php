@@ -121,7 +121,7 @@ class SemanticExtraSpecialProperties {
 			'sespgLabelCacheVersion'   => $GLOBALS['sespgLabelCacheVersion'],
 
 			// Non-SESP settings
-			'wgDisableCounters'        => $GLOBALS['wgDisableCounters'],
+			'wgDisableCounters'        => $GLOBALS['wgDisableCounters'] ?? null,
 			'wgShortUrlPrefix'         => $GLOBALS['wgShortUrlPrefix'],
 		];
 
