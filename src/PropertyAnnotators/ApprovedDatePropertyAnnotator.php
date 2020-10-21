@@ -2,6 +2,7 @@
 
 namespace SESP\PropertyAnnotators;
 
+use ApprovedRevs;
 use SMW\DIProperty;
 use SMW\SemanticData;
 use SMWDataItem as DataItem;
@@ -61,13 +62,19 @@ class ApprovedDatePropertyAnnotator implements PropertyAnnotator {
 	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
 
 		if ( $this->approvedDate === null && class_exists( 'ApprovedRevs' ) ) {
+			$title = $semanticData->getSubject()->getTitle();
+			if ( ApprovedRevs::pageIsApprovable( $title ) ) {
+				$this->approvedDate = ApprovedRevs::getApprovedTimestamp( $title );
+			}
 
-			$logReader = $this->appFactory->newDatabaseLogReader(
-				$semanticData->getSubject()->getTitle(),
-				'approval'
-			);
+			if ( !$this->approvedDate ) {
+				$logReader = $this->appFactory->newDatabaseLogReader(
+					$semanticData->getSubject()->getTitle(),
+					'approval'
+				);
 
-			$this->approvedDate = $logReader->getDateOfLogEntry();
+				$this->approvedDate = $logReader->getDateOfLogEntry();
+			}
 		}
 
 		$dataItem = $this->getDataItem();

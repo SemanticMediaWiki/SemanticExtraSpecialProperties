@@ -25,7 +25,8 @@
                 "___VIEWS",
                 "___SUBP",
                 "___NREV",
-                "___NTREV"
+                "___NTREV",
+                "___NAMESPACE"
             ]
         }
     ],

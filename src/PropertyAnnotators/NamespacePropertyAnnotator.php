@@ -2,12 +2,12 @@
 
 namespace SESP\PropertyAnnotators;
 
-use ApprovedRevs;
+use MediaWiki\MediaWikiServices;
 use SESP\AppFactory;
 use SESP\PropertyAnnotator;
 use SESP\DatabaseLogReader;
-use SMW\DIWikiPage;
 use SMWDataItem as DataItem;
+use SMWDIString as DIString;
 use SMW\DIProperty;
 use SMW\SemanticData;
 use Title;
@@ -19,12 +19,12 @@ use User;
  *
  * @license GNU GPL v2+
  */
-class ApprovedByPropertyAnnotator implements PropertyAnnotator {
+class NamespacePropertyAnnotator implements PropertyAnnotator {
 
 	/**
 	 * Predefined property ID
 	 */
-	const PROP_ID = '___APPROVEDBY';
+	const PROP_ID = '___NAMESPACE';
 
 	/**
 	 * @var AppFactory
@@ -34,7 +34,7 @@ class ApprovedByPropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * @var Integer|null
 	 */
-	private $approvedBy;
+	private $namespace;
 
 	/**
 	 * @param AppFactory $appFactory
@@ -46,10 +46,10 @@ class ApprovedByPropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * @since 2.0
 	 *
-	 * @param User $approvedBy
+	 * @param User $namespace
 	 */
-	public function setApprovedBy( $approvedBy ) {
-		$this->approvedBy = $approvedBy;
+	public function setNamespace( $namespace ) {
+		$this->namespace = $namespace;
 	}
 
 	/**
@@ -63,11 +63,13 @@ class ApprovedByPropertyAnnotator implements PropertyAnnotator {
 	 * {@inheritDoc}
 	 */
 	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
-
-		if ( $this->approvedBy === null && class_exists( 'ApprovedRevs' ) ) {
+		if ( $this->namespace === null ) {
 			$title = $semanticData->getSubject()->getTitle();
-			if ( ApprovedRevs::pageIsApprovable( $title ) ) {
-				$this->approvedBy = ApprovedRevs::getRevApprover( $title );
+			$nsInfo = MediaWikiServices::getInstance()->getNamespaceInfo();
+
+			$this->namespace = $nsInfo->getCanonicalName( $title->getNamespace() );
+			if ( "" === $this->namespace ) {
+				$this->namespace = "Main";
 			}
 		}
 
@@ -81,13 +83,7 @@ class ApprovedByPropertyAnnotator implements PropertyAnnotator {
 	}
 
 	private function getDataItem() {
-		if ( $this->approvedBy instanceof User ) {
-			$userPage = $this->approvedBy->getUserPage();
-
-			if ( $userPage instanceof Title ) {
-				return DIWikiPage::newFromTitle( $userPage );
-			}
-		}
+		return new DIString( $this->namespace );
 	}
 
 }

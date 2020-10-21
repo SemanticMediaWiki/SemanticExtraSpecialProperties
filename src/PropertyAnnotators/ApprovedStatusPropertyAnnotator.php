@@ -2,12 +2,14 @@
 
 namespace SESP\PropertyAnnotators;
 
+use ApprovedRevs;
 use SMW\DIProperty;
 use SMW\SemanticData;
 use SMWDIString as DIString;
 use SESP\PropertyAnnotator;
 use SESP\AppFactory;
 use LogReader;
+use Title;
 
 /**
  * @private
@@ -61,12 +63,19 @@ class ApprovedStatusPropertyAnnotator implements PropertyAnnotator {
 	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
 
 		if ( $this->approvedStatus === null && class_exists( 'ApprovedRevs' ) ) {
-
-			$logReader = $this->appFactory->newDatabaseLogReader(
-				$semanticData->getSubject()->getTitle(), 'approval'
-			);
-
-			$this->approvedStatus = $logReader->getStatusOfLogEntry();
+			$title = $semanticData->getSubject()->getTitle();
+			if ( ApprovedRevs::pageIsApprovable( $title ) ) {
+				$revId = ApprovedRevs::getApprovedRevID( $title );
+				if ( $revId ) {
+					if ( $title->getLatestRevID( Title::GAID_FOR_UPDATE ) === $revId  ) {
+						$this->approvedStatus = "approved";
+					} else {
+						$this->approvedStatus = "pending";
+					}
+				} else {
+					$this->approvedStatus = "unapproved";
+				}
+			}
 		}
 
 		if ( is_string( $this->approvedStatus ) && $this->approvedStatus !== '' ) {
