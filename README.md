@@ -97,7 +97,7 @@ If you want to contribute work to the project please subscribe to the developers
 
 ### Tests
 
-This extension provides unit and integration tests that are run by a [continues integration platform][travis]
+This extension provides unit and integration tests that are run by a [continuous integration platform][travis]
 but can also be executed using `composer phpunit` from the extension base directory.
 
 ## License
