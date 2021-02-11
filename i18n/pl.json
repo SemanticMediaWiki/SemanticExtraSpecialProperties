@@ -12,7 +12,7 @@
 			"SemanticPioneer"
 		]
 	},
-	"sesp-desc": "Dodaje kilka dodatkowych specjalnych właściwości do wszystkich stron",
+	"sesp-desc": "Dodaje kilka dodatkowych specjalnych właściwości do wszystkich stron.",
 	"sesp-property-unknown-label": "Nieznana etykieta lub alias",
 	"sesp-property-author": "Autor strony",
 	"sesp-property-author-desc": "„$1” przechowuje wszystkich użytkowników, którzy edytowali stronę. Właściwość jest dostarczana przez rozszerzenie [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
