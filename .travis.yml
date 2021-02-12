@@ -23,6 +23,10 @@ jobs:
   allow_failures:
     - env: DB=mysql; MW=master; PHPUNIT=6.5.*
 
+before_install:
+  # MW is not yet compatible with Composer 2.x, see https://phabricator.wikimedia.org/T266417
+  - composer self-update --1
+
 install:
   - composer self-update
   - bash ./tests/travis/install-mediawiki.sh
