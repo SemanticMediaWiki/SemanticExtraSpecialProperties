@@ -28,7 +28,6 @@ before_install:
   - composer self-update --1
 
 install:
-  - composer self-update
   - bash ./tests/travis/install-mediawiki.sh
   - bash ./tests/travis/install-semantic-extra-special-properties.sh
 
