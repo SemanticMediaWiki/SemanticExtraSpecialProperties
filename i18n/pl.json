@@ -12,6 +12,7 @@
 			"SemanticPioneer"
 		]
 	},
+	"sesp-name": "Dodatkowe Specjalne Właściwości Semantyczne",
 	"sesp-desc": "Dodaje kilka dodatkowych specjalnych właściwości do wszystkich stron.",
 	"sesp-property-unknown-label": "Nieznana etykieta lub alias",
 	"sesp-property-author": "Autor strony",
