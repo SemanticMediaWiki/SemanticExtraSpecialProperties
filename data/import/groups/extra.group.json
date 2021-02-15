@@ -1,11 +1,13 @@
 {
     "type": "PROPERTY_GROUP_SCHEMA",
     "description": "Provides groups for special properties provided by the `Semantic Extra Special Properties` extension.",
-    "groups": [
+    "groups":
+	{
+		"user_group":
         {
-            "group_name":"User related",
+            "canonical_name":"User related",
             "message_key": "sesp-property-group-label-user-data-group",
-            "properties": [
+            "property_keys": [
                 "___USERREG",
                 "___USEREDITCNT",
                 "___USERBLOCK",
@@ -13,10 +15,11 @@
                 "___USERGROUP"
             ]
         },
+		"page_group":
         {
-            "group_name":"Page related",
+            "canonical_name":"Page related",
             "message_key": "sesp-property-group-label-page-data-group",
-            "properties": [
+            "property_keys": [
                 "___REVID",
                 "___PAGEID",
                 "___PAGELGTH",
@@ -29,7 +32,7 @@
                 "___NAMESPACE"
             ]
         }
-    ],
+    },
     "tags": [
         "group",
         "property group",
