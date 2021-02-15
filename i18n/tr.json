@@ -3,6 +3,7 @@
 		"authors": [
 			"BaRaN6161 TURK",
 			"Hedda",
+			"Joseph",
 			"Uncitoyen",
 			"Uğurkent"
 		]
@@ -31,6 +32,8 @@
 	"sesp-property-shorturl-desc": "\"$1\" bir sayfanın kısa URL'sini kaydeder. [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Ekstra Özel Özellikler] uzantısı tarafından sağlanır.",
 	"sesp-property-approved-rev": "Onaylanan düzenleme",
 	"sesp-property-approved-rev-desc": "\"$1\", onaylanan bir sayfanın düzeltme kimliğini kaydeder. [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Ekstra Özel Özellikler] uzantısı tarafından sağlanır.",
+	"sesp-property-namespace": "Ad alanı",
+	"sesp-property-namespace-desc": "\"$1\" bir sayfanın ad alanını kaydeder. [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Ekstra Özel Özellikler] uzantısı tarafından sağlanır.",
 	"sesp-property-approved-by": "Onaylayan:",
 	"sesp-property-approved-by-desc": "\"$1\", sayfanın onay durumunu ayarlayan kullanıcıyı kaydeder. [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Ekstra Özel Özellikler] uzantısı tarafından sağlanır.",
 	"sesp-property-approved-date": "Onay tarihi",
