@@ -36,6 +36,8 @@
 	"sesp-property-shorturl-desc": "「$1」用來記錄頁面的所有短網址，此由 [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic 額外特殊屬性]擴充功能提供。",
 	"sesp-property-approved-rev": "已核准修訂",
 	"sesp-property-approved-rev-desc": "「$1」用來記錄已認可的頁面修訂版本 ID，此由 [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic 額外特殊屬性]擴充功能提供。",
+	"sesp-property-namespace": "命名空間",
+	"sesp-property-namespace-desc": "「$1」用來記錄頁面的命名空間，此由 [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic 額外特殊屬性]擴充功能提供。",
 	"sesp-property-approved-by": "核准由",
 	"sesp-property-approved-by-desc": "「$1」用來記錄做出設定頁面核准狀態的用戶，此由 [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic 額外特殊屬性]擴充功能提供。",
 	"sesp-property-approved-date": "核准日期",
