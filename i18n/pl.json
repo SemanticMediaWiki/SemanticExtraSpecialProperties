@@ -23,7 +23,7 @@
 	"sesp-property-page-id": "ID strony",
 	"sesp-property-page-id-desc": "„$1” przechowuje ID strony. Właściwość jest dostarczana przez rozszerzenie [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-page-len": "Długość strony",
-	"sesp-property-page-len-desc": "„$1” identyfikuje długość strony w bajtach. Właściwość jest dostarczana przez rozszerzenie [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
+	"sesp-property-page-len-desc": "„$1” określa długość strony w bajtach. Właściwość jest dostarczana przez rozszerzenie [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-view-count": "Liczba wyświetleń strony",
 	"sesp-property-view-count-desc": "„$1” przechowuje liczbę wyświetleń strony. Właściwość jest dostarczana przez rozszerzenie [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-subpages": "Podstrona",
