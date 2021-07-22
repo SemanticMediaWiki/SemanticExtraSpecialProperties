@@ -5,6 +5,7 @@
 			"Klaas van Buiten",
 			"KlaasZ4usV",
 			"Mainframe98",
+			"McDutchie",
 			"Ooswesthoesbes",
 			"Patio",
 			"SPQRobin",
@@ -29,10 +30,10 @@
 	"sesp-property-user-registration-date": "Gebruikersregistratiedatum",
 	"sesp-property-user-edit-count": "Aantal bewerkingen van de gebruiker",
 	"sesp-property-user-block": "Gebruikersblok",
-	"sesp-property-user-block-desc": "\"$1\" levert een gebruiker een door de [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP-extensie] verzorgde bloklijst.",
+	"sesp-property-user-block-desc": "\"$1\" registreert een lijst met voor een gebruiker ingestelde blokkades. Dit wordt verzorgd door de uitbreiding [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-user-right": "Gebruiksrecht",
-	"sesp-property-user-right-desc": "\"$1\" levert de gebruiker een door de [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP-extensie] verzorgde rechtenlijst.",
+	"sesp-property-user-right-desc": "\"$1\" registreert een lijst met aan een gebruiker toegewezen rechten. Dit wordt verzorgd door de uitbreiding [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-user-group": "Gebruikersgroep",
-	"sesp-property-user-group-desc": "\"$1\" levert een door de [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP-extensie] verzorgde voor de gebruiker relevante groepenlijst.",
+	"sesp-property-user-group-desc": "\"$1\" registreert een lijst met groepen waar een gebruiker lid van is. Dit wordt verzorgd door de extensie [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-exif-data": "Exifgegevens"
 }
