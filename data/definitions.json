@@ -909,6 +909,24 @@
 			"type": "_txt",
 			"alias": "sesp-exif-languagecode",
 			"label": "Exif:Language code"
-		}
+		},
+                "GPSLATITUDE": {
+                        "id": "___EXIFGPSLATITUDE",
+                        "type": "_txt",
+                        "alias": "sesp-exif-gpslatitude",
+                        "label": "Exif:GPSLatitude"
+                },
+                "GPSLONGITUDE": {
+                        "id": "___EXIFGPSLONGITUDE",
+                        "type": "_txt",
+                        "alias": "sesp-exif-gpslongitude",
+                        "label": "Exif:GPSLongitude"
+                },
+                "GPSALTITUDE": {
+                        "id": "___EXIFGPSALTITUDE",
+                        "type": "_txt",
+                        "alias": "sesp-exif-gpsaltitude",
+                        "label": "Exif:GPSAltitude"
+                }
 	}
 }
