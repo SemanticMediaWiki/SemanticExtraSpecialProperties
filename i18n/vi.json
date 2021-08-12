@@ -1,8 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
+			"Nguyễn Mạnh An",
 			"Skye Darcy"
 		]
 	},
-	"sesp-property-page-id": "Mã số trang"
+	"sesp-property-page-id": "Mã số trang",
+	"sesp-exif-gpslatitude": "Exif:Vĩ độ",
+	"sesp-exif-gpslongitude": "Exif:Kinh độ",
+	"sesp-exif-gpsaltitude": "Exif:Độ cao"
 }
