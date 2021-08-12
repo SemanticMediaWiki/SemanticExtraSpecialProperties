@@ -26,5 +26,8 @@
 	"sesp-property-approved-status": "Stato approvazione",
 	"sesp-property-user-registration-date": "Data di registrazione dell'utente",
 	"sesp-property-user-edit-count": "Numero modifiche utente",
-	"sesp-property-exif-data": "Dati Exif"
+	"sesp-property-exif-data": "Dati Exif",
+	"sesp-exif-gpslatitude": "Exif:Latitudine",
+	"sesp-exif-gpslongitude": "Exif:Longitudine",
+	"sesp-exif-gpsaltitude": "Exif:Altitudine"
 }
