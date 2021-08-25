@@ -169,6 +169,6 @@ class AppFactoryTest extends \PHPUnit_Framework_TestCase {
 		$appFactory->setConnection( $connection );
 
 		$dbLogReader = $appFactory->newDatabaseLogReader( null );
-		$dbLogReader->getStatusOfLogEntry();
+		$this->assertNull( $dbLogReader->getStatusOfLogEntry() );
 	}
 }
