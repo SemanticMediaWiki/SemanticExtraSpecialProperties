@@ -29,7 +29,7 @@ jobs:
       - name: Update MediaWiki with composer deps && install extension
         run: >-
           branch=`echo ${{ github.ref }} | sed 's,refs/heads/,,'`             &&
-          echo '{"require":{"${{env.composerID}}":"dev-'${branch}'","mediawiki/semantic-media-wiki":"dev-master"}'
+          echo '{"require":{"${{env.composerID}}":"dev-'${branch}'","mediawiki/semantic-media-wiki":"dev-master"},'
           '"repositories": [{"type":"vcs","url":"https://github.com/${{github.repository}}.git"}]}'
           > ${{env.MW_INSTALL_PATH}}/composer.local.json                      &&
           cd ${{env.MW_INSTALL_PATH}}                                         &&
