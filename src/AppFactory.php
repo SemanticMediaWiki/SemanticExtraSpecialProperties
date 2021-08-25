@@ -188,7 +188,6 @@ class AppFactory implements LoggerAwareInterface {
 		$this->setUpServices();
 		// Pre 1.36
 		if ( !method_exists( $this->services, 'getWikiPageFactory' ) ) {
-			throw new \Exception( get_class( $this->services ) );
 			return WikiPage::factory( $title );
 		} else {
 			return $this->services->getWikiPageFactory()->newFromTitle( $title );
