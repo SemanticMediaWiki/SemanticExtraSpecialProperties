@@ -2,6 +2,7 @@
 
 namespace SESP;
 
+use MediaWiki\MediaWikiServices;
 use Psr\Log\NullLogger;
 use Psr\Log\LoggerInterface;
 use Psr\Log\LoggerAwareInterface;
@@ -47,6 +48,11 @@ class AppFactory implements LoggerAwareInterface {
 	private $propertyDefinitions;
 
 	/**
+	 * @var MediaWikiServices;
+	 */
+	private $services;
+
+	/**
 	 * @since 2.0
 	 *
 	 * @param array $options
@@ -55,6 +61,7 @@ class AppFactory implements LoggerAwareInterface {
 	public function __construct( array $options = [], Cache $cache = null ) {
 		$this->options = $options;
 		$this->cache = $cache;
+		$this->services = MediaWikiServices::getInstance()->getWikiPageFactory();
 	}
 
 	/**
@@ -172,7 +179,12 @@ class AppFactory implements LoggerAwareInterface {
 			);
 		}
 
-		return WikiPage::factory( $title );
+		// Pre 1.36
+		if ( !method_exists( $this->services, 'getWikiPageFactory' ) ) {
+			return WikiPage::factory( $title );
+		} else {
+			return $this->services->getWikiPageFactory()->newFromTitle( $title );
+		}
 	}
 
 	/**
