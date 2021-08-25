@@ -17,7 +17,7 @@ class PropertyDefinitionsTest extends \PHPUnit_Framework_TestCase {
 
 	private $labelFetcher;
 
-	protected function setup() {
+	protected function setUp(): void {
 		parent::setUp();
 
 		$this->labelFetcher = $this->getMockBuilder( '\SESP\LabelFetcher' )
