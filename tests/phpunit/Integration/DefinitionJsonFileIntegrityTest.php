@@ -23,13 +23,11 @@ class DefinitionJsonFileIntegrityTest extends \PHPUnit_Framework_TestCase {
 			$GLOBALS['sespgDefinitionsFile']
 		);
 
-		$this->assertInternalType(
-			'integer',
+		$this->assertIsInt(
 			$jsonFileReader->getModificationTime()
 		);
 
-		$this->assertInternalType(
-			'array',
+		$this->assertIsArray(
 			$jsonFileReader->read()
 		);
 	}
