@@ -29,6 +29,10 @@ class AppFactoryTest extends \PHPUnit_Framework_TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
+		$title->expects( $this->any() )
+			->method( 'canExist' )
+			->will( $this->returnValue( true ) );
+
 		$instance = new AppFactory();
 
 		$this->assertInstanceOf(

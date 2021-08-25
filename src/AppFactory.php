@@ -61,7 +61,13 @@ class AppFactory implements LoggerAwareInterface {
 	public function __construct( array $options = [], Cache $cache = null ) {
 		$this->options = $options;
 		$this->cache = $cache;
-		$this->services = MediaWikiServices::getInstance()->getWikiPageFactory();
+		$this->setUpServices();
+	}
+
+	protected function setUpServices() {
+		if ( !$this->services ) {
+			$this->services = MediaWikiServices::getInstance();
+		}
 	}
 
 	/**
@@ -179,8 +185,10 @@ class AppFactory implements LoggerAwareInterface {
 			);
 		}
 
+		$this->setUpServices();
 		// Pre 1.36
 		if ( !method_exists( $this->services, 'getWikiPageFactory' ) ) {
+			throw new \Exception( get_class( $this->services ) );
 			return WikiPage::factory( $title );
 		} else {
 			return $this->services->getWikiPageFactory()->newFromTitle( $title );
