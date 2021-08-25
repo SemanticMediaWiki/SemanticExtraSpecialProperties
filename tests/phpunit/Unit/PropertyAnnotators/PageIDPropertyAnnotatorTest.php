@@ -64,7 +64,7 @@ class PageIDPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		if ( $throw ) {
 			$wikiPage->expects( $this->once() )
 					 ->method( 'getId' )
-					 ->will( $this->throwException( new TypeError ) );
+					 ->will( $this->throwException( TypeError::class ) );
 		}
 
 		$wikiPage->expects( $this->once() )
