@@ -1,0 +1,71 @@
+---
+on: push
+
+jobs:
+  run_tests:
+    env:
+      extension: SemanticExtraSpecialProperties
+      testFilter: SESP
+      MW_INSTALL_PATH: /var/www/html
+      MW_DATA_DIR: /var/www/data
+      extDir: /var/www/html/extensions
+      composerID: mediawiki/semantic-extra-special-properties
+    strategy:
+      matrix:
+        mwVer: [1.35, 1.36]
+    runs-on: ubuntu-latest
+    container: mediawiki:${{ matrix.mwVer }}
+    name: Run tests
+    steps:
+      - name: Install composer
+        run: >-
+          apt update                                                          &&
+          apt install -y unzip                                                &&
+          cd ${{env.MW_INSTALL_PATH}}                                         &&
+          curl -o installer https://getcomposer.org/installer                 &&
+          curl -o expected https://composer.github.io/installer.sig           &&
+          echo `cat expected` ' installer' | sha384sum -c -                   &&
+          php installer
+      - name: Update MediaWiki with composer deps && install extension
+        run: >-
+          branch=`echo ${{ github.ref }} | sed 's,refs/heads/,,'`             &&
+          echo '{"require":{"${{env.composerID}}":"dev-'${branch}'"},'
+          '"repositories": [{"type":"vcs","url":"https://github.com/${{github.repository}}.git"}]}'
+          > ${{env.MW_INSTALL_PATH}}/composer.local.json                      &&
+          cd ${{env.MW_INSTALL_PATH}}                                         &&
+          echo "We need to make sure we have the right version:"              &&
+          php composer.phar require --no-update --no-plugins
+          wikimedia/composer-merge-plugin ~2                                  &&
+          php composer.phar config minimum-stability dev
+          --working-dir ${{env.MW_INSTALL_PATH}} --no-plugins                 &&
+          php composer.phar config --global --auth github-oauth.github.com ${{github.token}}
+          --working-dir ${{env.MW_INSTALL_PATH}} --no-plugins                 &&
+          echo "Composer update run twice so we have the right version"       &&
+          php composer.phar update --prefer-source
+          --working-dir ${{env.MW_INSTALL_PATH}} --no-plugins                 &&
+          php composer.phar update --prefer-source
+          --working-dir ${{env.MW_INSTALL_PATH}}                              &&
+          php composer.phar dump-autoload
+          --working-dir ${{env.MW_INSTALL_PATH}}
+      - name: Install and populate the DB
+        run: >-
+          php ${{env.MW_INSTALL_PATH}}/maintenance/install.php --dbtype=sqlite
+          --dbname=mywiki --pass=ugly123456 --scriptpath=""
+          --dbpath=${{env.MW_DATA_DIR}} --server="http://localhost:8000"
+          --extensions=${{env.extension}},SemanticMediaWiki,Scribunto
+          ${{env.extension}}-test WikiSysop
+      - name: Update LocalSettings.php with debugging info
+        run: >-
+          (
+          echo 'error_reporting(E_ALL| E_STRICT);'                            &&
+          echo 'ini_set("display_errors", 1);'                                &&
+          echo '$wgShowExceptionDetails = true;'                              &&
+          echo '$wgDevelopmentWarnings = true;'
+          ) >> ${{env.MW_INSTALL_PATH}}/LocalSettings.php
+      - name: Run update.php
+        run: >-
+          php ${{env.MW_INSTALL_PATH}}/maintenance/update.php --quick
+      - name: Run Tests
+        run: >-
+          php ${{env.MW_INSTALL_PATH}}/tests/phpunit/phpunit.php
+          --filter ${{env.testFilter}} --testdox
