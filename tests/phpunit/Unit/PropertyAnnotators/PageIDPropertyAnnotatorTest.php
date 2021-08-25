@@ -61,7 +61,7 @@ class PageIDPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		if ( $throw ) {
+		if ( $throw && version_compare( MW_VERSION, '1.36', '>=' ) ) {
 			$this->expectException( TypeError::class );
 		}
 
