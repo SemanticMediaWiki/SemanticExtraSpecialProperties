@@ -20,7 +20,7 @@ class TalkPageNumRevisionPropertyAnnotatorTest extends \PHPUnit_Framework_TestCa
 	private $property;
 	private $appFactory;
 
-	protected function setUp() {
+	protected function setUp(): void {
 		parent::setUp();
 
 		$this->appFactory = $this->getMockBuilder( '\SESP\AppFactory' )

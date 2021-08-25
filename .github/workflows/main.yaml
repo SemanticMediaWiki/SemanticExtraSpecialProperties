@@ -52,7 +52,7 @@ jobs:
           php ${{env.MW_INSTALL_PATH}}/maintenance/install.php --dbtype=sqlite
           --dbname=mywiki --pass=ugly123456 --scriptpath=""
           --dbpath=${{env.MW_DATA_DIR}} --server="http://localhost:8000"
-          --extensions=${{env.extension}},SemanticMediaWiki,Scribunto
+          --extensions=${{env.extension}},SemanticMediaWiki
           ${{env.extension}}-test WikiSysop
       - name: Update LocalSettings.php with debugging info
         run: >-
