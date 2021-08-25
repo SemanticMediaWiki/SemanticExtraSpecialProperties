@@ -5,6 +5,7 @@ namespace SESP\Tests\PropertyAnnotators;
 use SESP\PropertyAnnotators\PageIDPropertyAnnotator;
 use SMW\DIProperty;
 use SMW\DIWikiPage;
+use TypeError;
 
 /**
  * @covers \SESP\PropertyAnnotators\PageIDPropertyAnnotator
@@ -52,13 +53,19 @@ class PageIDPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	/**
 	 * @dataProvider idProvider
 	 */
-	public function testAddAnnotation( $id, $expected ) {
+	public function testAddAnnotation( $id, $expected, $throw ) {
 
 		$subject = DIWikiPage::newFromText( __METHOD__ );
 
 		$wikiPage = $this->getMockBuilder( '\WikiPage' )
 			->disableOriginalConstructor()
 			->getMock();
+
+		if ( $throw ) {
+			$wikiPage->expects( $this->once() )
+					 ->method( 'getId' )
+					 ->will( $this->throwException( new TypeError ) );
+		}
 
 		$wikiPage->expects( $this->once() )
 			->method( 'getId' )
@@ -90,22 +97,26 @@ class PageIDPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$provider[] = [
 			42,
-			$this->once()
+			$this->once(),
+			false
 		];
 
 		$provider[] = [
 			0,
-			$this->never()
+			$this->never(),
+			false
 		];
 
 		$provider[] = [
 			null,
-			$this->never()
+			$this->never(),
+			true
 		];
 
 		$provider[] = [
 			'Foo',
-			$this->never()
+			$this->never(),
+			true
 		];
 
 		return $provider;
