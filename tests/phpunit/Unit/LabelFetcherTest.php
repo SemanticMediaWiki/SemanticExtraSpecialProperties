@@ -39,8 +39,7 @@ class LabelFetcherTest extends \PHPUnit_Framework_TestCase {
 			$this->cache
 		);
 
-		$this->assertInternalType(
-			'string',
+		$this->assertIsString(
 			$instance->getLabel( 'Foo' )
 		);
 	}
@@ -74,8 +73,7 @@ class LabelFetcherTest extends \PHPUnit_Framework_TestCase {
 			$this->cache
 		);
 
-		$this->assertInternalType(
-			'array',
+		$this->assertIsArray(
 			$instance->getLabelsFrom( $propertyDefinitions )
 		);
 	}
