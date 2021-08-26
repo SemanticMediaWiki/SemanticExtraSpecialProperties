@@ -2,12 +2,17 @@
 
 namespace SESP\Tests\PropertyAnnotators;
 
+use SESP\AppFactory;
 use SESP\PropertyAnnotators\UserEditCountPropertyAnnotator;
 use SMW\DIProperty;
 use SMW\DIWikiPage;
+use SMW\SemanticData;
+use User;
+use Title;
+use WikiPage;
 
 /**
- * @covers \SESP\PropertyAnnotators\UserEditCountPropertyAnnotator
+ * @covers UserEditCountPropertyAnnotator
  * @group semantic-extra-special-properties
  *
  * @license GNU GPL v2+
@@ -23,7 +28,7 @@ class UserEditCountPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		$this->appFactory = $this->getMockBuilder( '\SESP\AppFactory' )
+		$this->appFactory = $this->getMockBuilder( AppFactory::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -54,7 +59,7 @@ class UserEditCountPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	 */
 	public function testAddAnnotation( $count, $expected ) {
 
-		$user = $this->getMockBuilder( '\User' )
+		$user = $this->getMockBuilder( User::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -66,7 +71,7 @@ class UserEditCountPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->method( 'newUserFromTitle' )
 			->will( $this->returnValue( $user ) );
 
-		$title = $this->getMockBuilder( '\Title' )
+		$title = $this->getMockBuilder( Title::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -74,7 +79,7 @@ class UserEditCountPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->method( 'inNamespace' )
 			->will( $this->returnValue( true ) );
 
-		$subject = $this->getMockBuilder( '\SMW\DIWikiPage' )
+		$subject = $this->getMockBuilder( DIWikiPage::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -82,7 +87,7 @@ class UserEditCountPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->method( 'getTitle' )
 			->will( $this->returnValue( $title ) );
 
-		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
+		$semanticData = $this->getMockBuilder( SemanticData::class )
 			->disableOriginalConstructor()
 			->getMock();
 

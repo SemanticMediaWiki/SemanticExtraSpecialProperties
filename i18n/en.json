@@ -57,7 +57,7 @@
 	"sesp-admin-deprecation-notice-section": "Semantic Extra Special Properties extension",
 	"sesp-admin-deprecation-notice-title-replacement": "Replaced or renamed settings",
 	"sesp-admin-deprecation-notice-title-replacement-explanation": "The following section contains settings that were renamed or otherwise modified and it is recommended to forthwith update their name or format.",
-	"sesp-admin-deprecation-notice-config-replacement": "<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$1 $1]</code> was replaced by <code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$2 $2]</code>"
+	"sesp-admin-deprecation-notice-config-replacement": "<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$1 $1]</code> was replaced by <code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$2 $2]</code>",
 	"sesp-config-uses-fixed-tables": "To setup properties as fixed properties in order to improve data access",
 	"sesp-config-definitions-file": "Location of the property definitions",
 	"sesp-config-local-definitions": "Specifies local definitions",
