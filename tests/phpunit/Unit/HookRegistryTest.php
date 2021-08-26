@@ -34,7 +34,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 			'wgDisableCounters' => false,
 			'sespgUseFixedTables' => false,
 			'sespgExcludeBotEdits' => false,
-			'wgShortUrlPrefix' => '',
+			'sespgShortUrlPrefix' => '',
 			'sespCacheType'    => 'hash'
 		];
 

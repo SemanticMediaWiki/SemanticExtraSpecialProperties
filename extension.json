@@ -19,10 +19,52 @@
 			"i18n"
 		]
 	},
-	"callback": "SemanticExtraSpecialProperties::initExtension",
+	"callback": "SESP\\Hook::initExtension",
 	"ExtensionFunctions": [
-		"SemanticExtraSpecialProperties::onExtensionFunction"
+		"SESP\\Hook::onExtensionFunction"
 	],
+	"AutoloadNamespaces": {
+		"SESP\\": "src/"
+	},
+	"config-prefix": "sespg",
+	"config": {
+		"UseFixedTables": {
+			"value": false,
+			"path": false,
+			"description": "To setup properties as fixed properties in order to improve data access",
+			"descriptionmsg": "sesp-config-uses-fixed-tables"
+		},
+		"DefinitionsFile": {
+			"value": "data/definitions.json",
+			"path": true,
+			"description": "Location of the property definitions",
+			"descriptionmsg": "sesp-config-definitions-file"
+		},
+		"LocalDefinitions": {
+			"value": [],
+			"path": false,
+			"description": "Specifies local definitions",
+			"descriptionmsg": "sesp-config-local-definitions"
+		},
+		"EnabledPropertyList": {
+			"value": [],
+			"path": false,
+			"description": "Specifies the enabled properties",
+			"descriptionmsg": "sesp-config-enabled-property-list"
+		},
+		"LabelCacheVersion": {
+			"value": "2018.03",
+			"path": false,
+			"description": "Specifies an internal cache modifier",
+			"descriptionmsg": "sesp-config-label-cache-version"
+		},
+		"ExcludeBotEdits": {
+			"value": false,
+			"path": false,
+			"description": "Should edits via user accounts in usergroup \"bot\" be ignored when storing data for the special properties?",
+			"descrirptionmsg": "sesp-config-exclude-bot-edits"
+		}
+	},
 	"load_composer_autoloader": true,
 	"manifest_version": 1
 }
