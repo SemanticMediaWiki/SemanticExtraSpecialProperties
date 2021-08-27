@@ -20,7 +20,7 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 	private $appFactory;
 
-	protected function setUp() {
+	protected function setUp(): void {
 		parent::setUp();
 
 		$this->appFactory = $this->getMockBuilder( '\SESP\AppFactory' )

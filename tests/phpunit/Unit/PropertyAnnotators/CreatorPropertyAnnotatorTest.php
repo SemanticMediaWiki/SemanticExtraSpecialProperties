@@ -2,12 +2,16 @@
 
 namespace SESP\Tests\PropertyAnnotators;
 
+use SESP\AppFactory;
 use SESP\PropertyAnnotators\CreatorPropertyAnnotator;
 use SMW\DIProperty;
 use SMW\DIWikiPage;
+use SMW\SemanticData;
+use User;
+use WikiPage;
 
 /**
- * @covers \SESP\PropertyAnnotators\CreatorPropertyAnnotator
+ * @covers CreatorPropertyAnnotator
  * @group semantic-extra-special-properties
  *
  * @license GNU GPL v2+
@@ -20,10 +24,10 @@ class CreatorPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	private $property;
 	private $appFactory;
 
-	protected function setUp() {
+	protected function setUp(): void {
 		parent::setUp();
 
-		$this->appFactory = $this->getMockBuilder( '\SESP\AppFactory' )
+		$this->appFactory = $this->getMockBuilder( AppFactory::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -56,7 +60,7 @@ class CreatorPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$subject = DIWikiPage::newFromText( __METHOD__ );
 
-		$creator = $this->getMockBuilder( '\User' )
+		$creator = $this->getMockBuilder( User::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -64,7 +68,7 @@ class CreatorPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->method( 'getUserPage' )
 			->will( $this->returnValue( $userPage ) );
 
-		$wikiPage = $this->getMockBuilder( '\WikiPage' )
+		$wikiPage = $this->getMockBuilder( WikiPage::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -76,7 +80,7 @@ class CreatorPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->method( 'newWikiPage' )
 			->will( $this->returnValue( $wikiPage ) );
 
-		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
+		$semanticData = $this->getMockBuilder( SemanticData::class )
 			->disableOriginalConstructor()
 			->getMock();
 

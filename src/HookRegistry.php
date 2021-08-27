@@ -2,8 +2,9 @@
 
 namespace SESP;
 
-use SMW\ApplicationFactory;
 use Hooks;
+use MediaWiki\MediaWikiServices;
+use SMW\ApplicationFactory;
 
 /**
  * @license GNU GPL v2+
@@ -42,7 +43,8 @@ class HookRegistry {
 	public function deregister() {
 		foreach ( array_keys( $this->handlers ) as $name ) {
 
-			Hooks::clear( $name );
+			$hookContainer = MediaWikiServices::getInstance()->getHookContainer();
+			$hookContainer->clear( $name );
 
 			// Remove registered `wgHooks` hooks that are not cleared by the
 			// previous call

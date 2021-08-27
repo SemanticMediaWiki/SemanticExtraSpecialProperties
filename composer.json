@@ -42,9 +42,6 @@
 		}
 	},
 	"autoload": {
-		"files" : [
-			"SemanticExtraSpecialProperties.php"
-		],
 		"psr-4": {
 			"SESP\\": "src/"
 		}

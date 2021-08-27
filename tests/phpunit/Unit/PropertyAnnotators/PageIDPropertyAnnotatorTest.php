@@ -2,9 +2,13 @@
 
 namespace SESP\Tests\PropertyAnnotators;
 
+use SESP\AppFactory;
 use SESP\PropertyAnnotators\PageIDPropertyAnnotator;
 use SMW\DIProperty;
 use SMW\DIWikiPage;
+use SMW\SemanticData;
+use TypeError;
+use WikiPage;
 
 /**
  * @covers \SESP\PropertyAnnotators\PageIDPropertyAnnotator
@@ -20,10 +24,10 @@ class PageIDPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	private $property;
 	private $appFactory;
 
-	protected function setUp() {
+	protected function setUp(): void {
 		parent::setUp();
 
-		$this->appFactory = $this->getMockBuilder( '\SESP\AppFactory' )
+		$this->appFactory = $this->getMockBuilder( AppFactory::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -52,13 +56,17 @@ class PageIDPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	/**
 	 * @dataProvider idProvider
 	 */
-	public function testAddAnnotation( $id, $expected ) {
+	public function testAddAnnotation( $id, $expected, $throw ) {
 
 		$subject = DIWikiPage::newFromText( __METHOD__ );
 
-		$wikiPage = $this->getMockBuilder( '\WikiPage' )
+		$wikiPage = $this->getMockBuilder( WikiPage::class )
 			->disableOriginalConstructor()
 			->getMock();
+
+		if ( $throw && version_compare( MW_VERSION, '1.36', '>=' ) ) {
+			$this->expectException( TypeError::class );
+		}
 
 		$wikiPage->expects( $this->once() )
 			->method( 'getId' )
@@ -68,7 +76,7 @@ class PageIDPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->method( 'newWikiPage' )
 			->will( $this->returnValue( $wikiPage ) );
 
-		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
+		$semanticData = $this->getMockBuilder( SemanticData::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -90,22 +98,26 @@ class PageIDPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$provider[] = [
 			42,
-			$this->once()
+			$this->once(),
+			false
 		];
 
 		$provider[] = [
 			0,
-			$this->never()
+			$this->never(),
+			false
 		];
 
 		$provider[] = [
 			null,
-			$this->never()
+			$this->never(),
+			true
 		];
 
 		$provider[] = [
 			'Foo',
-			$this->never()
+			$this->never(),
+			true
 		];
 
 		return $provider;

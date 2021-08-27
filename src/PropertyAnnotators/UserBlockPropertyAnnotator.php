@@ -79,7 +79,7 @@ class UserBlockPropertyAnnotator implements PropertyAnnotator {
 		];
 
 		foreach ( $actions as $action ) {
-			if ( $block->prevents( $action ) ) {
+			if ( $block->appliesToRight( $action ) ) {
 				$semanticData->addPropertyObjectValue( $property, new DIBlob( $action ) );
 			}
 		}

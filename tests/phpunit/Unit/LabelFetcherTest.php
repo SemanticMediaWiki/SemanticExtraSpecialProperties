@@ -17,7 +17,7 @@ class LabelFetcherTest extends \PHPUnit_Framework_TestCase {
 
 	private $cache;
 
-	protected function setup() {
+	protected function setUp(): void {
 		parent::setUp();
 
 		$this->cache = $this->getMockBuilder( '\Onoi\Cache\Cache' )
@@ -39,8 +39,7 @@ class LabelFetcherTest extends \PHPUnit_Framework_TestCase {
 			$this->cache
 		);
 
-		$this->assertInternalType(
-			'string',
+		$this->assertIsString(
 			$instance->getLabel( 'Foo' )
 		);
 	}
@@ -74,8 +73,7 @@ class LabelFetcherTest extends \PHPUnit_Framework_TestCase {
 			$this->cache
 		);
 
-		$this->assertInternalType(
-			'array',
+		$this->assertIsArray(
 			$instance->getLabelsFrom( $propertyDefinitions )
 		);
 	}

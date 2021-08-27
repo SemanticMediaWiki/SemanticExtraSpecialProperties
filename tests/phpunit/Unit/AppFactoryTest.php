@@ -2,10 +2,18 @@
 
 namespace SESP\Tests;
 
+use DatabaseBase;
+use Psr\Log\LoggerInterface;
+use Psr\Log\NullLogger;
 use SESP\AppFactory;
+use SESP\PropertyDefinitions;
+use Title;
+use User;
+use WikiFilePage;
+use WikiPage;
 
 /**
- * @covers \SESP\AppFactory
+ * @covers AppFactory
  * @group semantic-extra-special-properties
  *
  * @license GNU GPL v2+
@@ -25,33 +33,37 @@ class AppFactoryTest extends \PHPUnit_Framework_TestCase {
 
 	public function testCanConstructWikiPage( ) {
 
-		$title = $this->getMockBuilder( '\Title' )
+		$title = $this->getMockBuilder( Title::class )
 			->disableOriginalConstructor()
 			->getMock();
+
+		$title->expects( $this->any() )
+			->method( 'canExist' )
+			->will( $this->returnValue( true ) );
 
 		$instance = new AppFactory();
 
 		$this->assertInstanceOf(
-			'\WikiPage',
+			WikiPage::class,
 			$instance->newWikiPage( $title )
 		);
 	}
 
 	public function testCanConstructWikiPageFrom_NS_MEDIA() {
 
-		$title = \Title::newFromText( 'Foo', NS_MEDIA );
+		$title = Title::newFromText( 'Foo', NS_MEDIA );
 
 		$instance = new AppFactory();
 
 		$this->assertInstanceOf(
-			'\WikiFilePage',
+			WikiFilePage::class,
 			$instance->newWikiPage( $title )
 		);
 	}
 
 	public function testCanConstructUserFromTitle( ) {
 
-		$title = $this->getMockBuilder( '\Title' )
+		$title = $this->getMockBuilder( Title::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -62,7 +74,7 @@ class AppFactoryTest extends \PHPUnit_Framework_TestCase {
 		$instance = new AppFactory();
 
 		$this->assertInstanceOf(
-			'\User',
+			User::class,
 			$instance->newUserFromTitle( $title )
 		);
 	}
@@ -72,14 +84,14 @@ class AppFactoryTest extends \PHPUnit_Framework_TestCase {
 		$instance = new AppFactory();
 
 		$this->assertInstanceOf(
-			'\User',
+			User::class,
 			$instance->newUserFromID( 42 )
 		);
 	}
 
 	public function testGetConnection( ) {
 
-		$connection = $this->getMockBuilder( '\DatabaseBase' )
+		$connection = $this->getMockBuilder( DatabaseBase::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -109,7 +121,7 @@ class AppFactoryTest extends \PHPUnit_Framework_TestCase {
 		$propertyDefinitions = $instance->getPropertyDefinitions();
 
 		$this->assertInstanceOf(
-			'\SESP\PropertyDefinitions',
+			PropertyDefinitions::class,
 			$propertyDefinitions
 		);
 
@@ -124,11 +136,11 @@ class AppFactoryTest extends \PHPUnit_Framework_TestCase {
 		$instance = new AppFactory();
 
 		$this->assertInstanceOf(
-			'\Psr\Log\NullLogger',
+			NullLogger::class,
 			$instance->getLogger()
 		);
 
-		$logger = $this->getMockBuilder( '\Psr\Log\LoggerInterface' )
+		$logger = $this->getMockBuilder( LoggerInterface::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -157,7 +169,7 @@ class AppFactoryTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testNewDatabaseLogReader() {
-		$connection = $this->getMockBuilder( '\DatabaseBase' )
+		$connection = $this->getMockBuilder( DatabaseBase::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -165,6 +177,6 @@ class AppFactoryTest extends \PHPUnit_Framework_TestCase {
 		$appFactory->setConnection( $connection );
 
 		$dbLogReader = $appFactory->newDatabaseLogReader( null );
-		$dbLogReader->getStatusOfLogEntry();
+		$this->assertNull( $dbLogReader->getStatusOfLogEntry() );
 	}
 }
