@@ -1,13 +1,13 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"sesp-property-author": "Autor stranice",
 	"sesp-property-first-author": "Autor stranice",
 	"sesp-property-revision-id": "ID izmene",
 	"sesp-property-page-id": "ID stranice",
 	"sesp-property-subpages": "Podstranica",
 	"sesp-property-revisions": "Broj izmena",
-	"sesp-property-mimetype": "MIME tip",
-	"sesp-property-mediatype": "Vrsta medija",
 	"sesp-property-shorturl": "Skraćeni URL",
 	"sesp-property-approved-rev": "Odobrena izmena",
 	"sesp-property-approved-date": "Datum odobravanja",

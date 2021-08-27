@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"NoiX180"
+			"NoiX180",
+			"Sumbukompor"
 		]
 	},
 	"sesp-property-author": "Pangarang kaca",
@@ -12,9 +13,7 @@
 	"sesp-property-subpages": "Anak kaca",
 	"sesp-property-revisions": "Cacahé révisi",
 	"sesp-property-talk-revisions": "Cacahé révisi kaca parembugan",
-	"sesp-property-mimetype": "Jinis MIME",
-	"sesp-property-mediatype": "Jinis médhia",
 	"sesp-property-shorturl": "URL cekak",
-	"sesp-property-user-registration-date": "Tanggal pandhaftaré panganggo",
-	"sesp-property-user-edit-count": "Étungan besutané panganggo"
+	"sesp-property-user-registration-date": "Tanggal pandhaftaré naraguna",
+	"sesp-property-user-edit-count": "Étungan besutané naraguna"
 }

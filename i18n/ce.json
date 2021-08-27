@@ -4,6 +4,9 @@
 			"Умар"
 		]
 	},
-	"sesp-property-page-id": "АгӀона ID",
-	"sesp-property-user-registration-date": "Декъашхо дӀавазвела/ела терахь"
+	"sesp-property-revision-id": "Нисдаран ID",
+	"sesp-property-page-id": "АгӀонан ID",
+	"sesp-property-view-count": "АгӀоне хьаьжина",
+	"sesp-property-namespace": "ЦӀерийн меттиг",
+	"sesp-property-user-registration-date": "Декъашхочо регистрацийина терахь"
 }

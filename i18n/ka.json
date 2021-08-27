@@ -1,14 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"David1010"
+			"David1010",
+			"Otogi"
 		]
 	},
 	"sesp-property-author": "გვერდის ავტორი",
-	"sesp-property-first-author": "გვერდის შემქნელი",
+	"sesp-property-first-author": "გვერდის შემქმნელი",
 	"sesp-property-subpages": "ქვეგვერდი",
-	"sesp-property-mimetype": "MIME ტიპი",
-	"sesp-property-mediatype": "მედიის ტიპი",
 	"sesp-property-shorturl": "მოკლე URL",
 	"sesp-property-user-registration-date": "მომხმარებლის რეგისტრაციის თარიღი"
 }

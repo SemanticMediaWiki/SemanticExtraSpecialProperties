@@ -1,14 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Fitoschido"
+			"Fitoschido",
+			"Toniher"
 		]
 	},
 	"sesp-property-author": "Autor de la pàgina",
 	"sesp-property-first-author": "Creador de la pàgina",
 	"sesp-property-page-len": "Llargada de la pàgina",
-	"sesp-property-mimetype": "Tipus MIME",
-	"sesp-property-mediatype": "Tipus de fitxer multimèdia",
 	"sesp-property-shorturl": "URL curt",
-	"sesp-property-approved-rev": "Revisió aprovada"
+	"sesp-property-approved-rev": "Revisió aprovada",
+	"sesp-property-approved-status": "Estat d'aprovació"
 }

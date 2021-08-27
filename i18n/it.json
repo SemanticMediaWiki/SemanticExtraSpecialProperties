@@ -19,10 +19,15 @@
 	"sesp-property-talk-revisions": "Numero di versioni della pagina di discussione",
 	"sesp-property-shorturl": "URL breve",
 	"sesp-property-approved-rev": "Versione approvata",
+	"sesp-property-namespace": "Namespace",
+	"sesp-property-namespace-desc": "\"$1\" registra il namespace di una pagina. È fornito dall'estensione [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP] (Semantic Extra Special Properties).",
 	"sesp-property-approved-by": "Approvato da",
 	"sesp-property-approved-date": "Data approvazione",
 	"sesp-property-approved-status": "Stato approvazione",
 	"sesp-property-user-registration-date": "Data di registrazione dell'utente",
 	"sesp-property-user-edit-count": "Numero modifiche utente",
-	"sesp-property-exif-data": "Dati Exif"
+	"sesp-property-exif-data": "Dati Exif",
+	"sesp-exif-gpslatitude": "Exif:Latitudine",
+	"sesp-exif-gpslongitude": "Exif:Longitudine",
+	"sesp-exif-gpsaltitude": "Exif:Altitudine"
 }
