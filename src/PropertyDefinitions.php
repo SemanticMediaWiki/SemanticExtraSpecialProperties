@@ -2,12 +2,13 @@
 
 namespace SESP;
 
+use ArrayIterator;
+use InvalidArgumentException;
+use IteratorAggregate;
+use MediaWiki\MediaWikiServices;
 use Onoi\Cache\Cache;
 use Onoi\Cache\NullCache;
 use SMW\Message;
-use IteratorAggregate;
-use ArrayIterator;
-use InvalidArgumentException;
 
 /**
  * @ingroup SESP
@@ -53,9 +54,10 @@ class PropertyDefinitions implements IteratorAggregate {
 	public function __construct( LabelFetcher $labelFetcher, $propertyDefinitionFile = '' ) {
 		$this->labelFetcher = $labelFetcher;
 		$this->propertyDefinitionFile = $propertyDefinitionFile;
+		$this->cfg = MediaWikiServices::getInstance()->getConfigFactory()->makeConfig( 'sespg' );
 
 		if ( $this->propertyDefinitionFile === '' ) {
-			$this->propertyDefinitionFile = $GLOBALS['sespgDefinitionsFile'];
+			$this->propertyDefinitionFile = $this->cfg->get( 'DefinitionsFile' );
 		}
 	}
 
@@ -85,7 +87,8 @@ class PropertyDefinitions implements IteratorAggregate {
 	 * @return boolean
 	 */
 	public function isLocalDef( $key ) {
-		return isset( $this->localPropertyDefinitions[$key] ) || array_key_exists( $key, $this->localPropertyDefinitions );
+		return isset( $this->localPropertyDefinitions[$key] )
+			|| array_key_exists( $key, $this->localPropertyDefinitions );
 	}
 
 	/**
@@ -96,7 +99,8 @@ class PropertyDefinitions implements IteratorAggregate {
 	 * @return boolean
 	 */
 	public function has( $key ) {
-		return isset( $this->propertyDefinitions[$key] ) || array_key_exists( $key, $this->propertyDefinitions );
+		return isset( $this->propertyDefinitions[$key] )
+			|| array_key_exists( $key, $this->propertyDefinitions );
 	}
 
 	/**

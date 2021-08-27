@@ -2,7 +2,7 @@
 	"name": "SemanticExtraSpecialProperties",
 	"version": "3.0.0-alpha",
 	"author": [
-        	"James Hong Kong",
+        "James Hong Kong",
 		"Leo Wallentin",
 		"..."
 	],
@@ -19,14 +19,14 @@
 			"i18n"
 		]
 	},
-	"callback": "SESP\\Hook::initExtension",
-	"ExtensionFunctions": [
-		"SESP\\Hook::onExtensionFunction"
-	],
+	"callback": "SESP\\Hook::callback",
 	"AutoloadNamespaces": {
 		"SESP\\": "src/"
 	},
-	"config-prefix": "sespg",
+	"ConfigRegistry": {
+		"sespg": "SESP\\Config::newInstance"
+	},
+	"config_prefix": "sespg",
 	"config": {
 		"UseFixedTables": {
 			"value": false,
@@ -66,5 +66,5 @@
 		}
 	},
 	"load_composer_autoloader": true,
-	"manifest_version": 1
+	"manifest_version": 2
 }

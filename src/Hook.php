@@ -2,6 +2,12 @@
 
 namespace SESP;
 
+use Title;
+use OutputPage;
+use User;
+use WebRequest;
+use MediaWiki;
+
 /**
  * @codeCoverageIgnore
  */
@@ -10,16 +16,9 @@ class Hook {
 	/**
 	 * @since 1.4
 	 */
-	public static function initExtension( $credits = [] ) {
-
+	public static function callback( array $credits ): void {
 		// See https://phabricator.wikimedia.org/T151136
 		define( 'SESP_VERSION', isset( $credits['version'] ) ? $credits['version'] : 'UNKNOWN' );
-	}
-
-	/**
-	 * @since 1.4
-	 */
-	public static function onExtensionFunction(): void {
 
 		if ( !defined( 'SMW_VERSION' ) ) {
 			if ( PHP_SAPI === 'cli' || PHP_SAPI === 'phpdbg' ) {
@@ -80,7 +79,7 @@ class Hook {
 
 			// Non-SESP settings
 			'wgDisableCounters'        => $GLOBALS['wgDisableCounters'] ?? null,
-			'wgShortUrlPrefix'         => $GLOBALS['wgShortUrlPrefix'],
+			'wgShortUrlPrefix'         => $GLOBALS['wgShortUrlPrefix'] ?? null,
 		];
 
 		$hookRegistry = new HookRegistry(
