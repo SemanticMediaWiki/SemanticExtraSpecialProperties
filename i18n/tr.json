@@ -61,5 +61,6 @@
 	"sesp-admin-deprecation-notice-section": "Semantik Ekstra Özel Özellikler uzantısı",
 	"sesp-admin-deprecation-notice-title-replacement": "Değiştirilen veya yeniden adlandırılan ayarlar",
 	"sesp-admin-deprecation-notice-title-replacement-explanation": "Aşağıdaki bölüm, yeniden adlandırılmış veya başka bir şekilde değiştirilmiş ayarları içerir ve adlarını veya biçimlerini derhal güncellemeniz önerilir.",
-	"sesp-admin-deprecation-notice-config-replacement": "<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$1 $1]</code>, <code>[https://www.semantic-mediawiki.org/wiki/Extension: Semantic_Extra_Special_Properties/$2 $2]</code> ile değiştirildi"
+	"sesp-admin-deprecation-notice-config-replacement": "<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$1 $1]</code>, <code>[https://www.semantic-mediawiki.org/wiki/Extension: Semantic_Extra_Special_Properties/$2 $2]</code> ile değiştirildi",
+	"sesp-config-uses-fixed-tables": "Veri erişimini iyileştirmek için özellikleri sabit özellikler olarak ayarlamak"
 }

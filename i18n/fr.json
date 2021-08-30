@@ -66,5 +66,12 @@
 	"sesp-admin-deprecation-notice-section": "Extension des propriétés extra spéciales de Semantic",
 	"sesp-admin-deprecation-notice-title-replacement": "Paramètres remplacés ou renommés",
 	"sesp-admin-deprecation-notice-title-replacement-explanation": "La section suivante contient les paramètres qui ont été renommés ou modifiés par ailleurs et il est recommandé de mettre à jour immédiatement leur nom ou leur format.",
-	"sesp-admin-deprecation-notice-config-replacement": "<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$1 $1]</code> a été remplacé par <code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$2 $2]</code>"
+	"sesp-admin-deprecation-notice-config-replacement": "<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$1 $1]</code> a été remplacé par <code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$2 $2]</code>",
+	"sesp-config-uses-fixed-tables": "Définir les propriétés comme fixes afin d’améliorer l’accès aux données",
+	"sesp-config-definitions-file": "Emplacement des définitions de propriété",
+	"sesp-config-local-definitions": "Spécifie les définitions locales",
+	"sesp-config-enabled-property-list": "Spécifie les propriétés activées",
+	"sesp-config-label-cache-version": "Spécifie un modificateur de cache interne",
+	"sesp-config-exclude-bot-edits": "Les modifications via des comptes utilisateur dans le groupe « bot » doivent-elles être ignorées lors de l’enregistrement des données pour les propriétés spéciales ?",
+	"sesp-config-short-url-prefix": "Utilisé en lien avec ShortUrlUtils"
 }

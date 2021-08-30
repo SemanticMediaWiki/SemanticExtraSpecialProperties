@@ -7,6 +7,7 @@
 			"Eduardo Addad de Oliveira",
 			"Eduardoaddad",
 			"Fitoschido",
+			"Johny Weissmuller Jr",
 			"Macofe",
 			"Ohlila"
 		]
@@ -50,5 +51,12 @@
 	"sesp-exif-languagecode": "Exif:Código de idioma",
 	"sesp-exif-label": "Exif:Etiqueta",
 	"sesp-exif-iimcategory": "Exif:Categoría de IIM",
-	"sesp-admin-deprecation-notice-title-replacement": "Opciones sustituidas o retituladas"
+	"sesp-admin-deprecation-notice-title-replacement": "Opciones sustituidas o retituladas",
+	"sesp-config-uses-fixed-tables": "Configurar las propiedades como propiedades fijas para mejorar el acceso a los datos",
+	"sesp-config-definitions-file": "Ubicación de las definiciones de la propiedad",
+	"sesp-config-local-definitions": "Especifica las definiciones locales",
+	"sesp-config-enabled-property-list": "Especifica las propiedades habilitadas",
+	"sesp-config-label-cache-version": "Especifica un modificador de caché interno",
+	"sesp-config-exclude-bot-edits": "¿Deben ignorarse las ediciones a través de cuentas de usuario en el grupo de usuarios \"bot\" al almacenar los datos de las propiedades especiales?",
+	"sesp-config-short-url-prefix": "Utilizado en combinación con ShortUrlUtils"
 }
