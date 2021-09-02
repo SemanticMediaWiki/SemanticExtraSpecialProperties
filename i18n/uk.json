@@ -65,5 +65,12 @@
 	"sesp-admin-deprecation-notice-section": "Розширення «Semantic Extra Special Properties»",
 	"sesp-admin-deprecation-notice-title-replacement": "Замінені або перейменовані налаштування",
 	"sesp-admin-deprecation-notice-title-replacement-explanation": "Вказаний розділ містить налаштування, які було перейменовано чи змінено в інший спосіб, а тому рекомендуємо негайно оновити їхні назви чи формат.",
-	"sesp-admin-deprecation-notice-config-replacement": "<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$1 $1]</code> було замінено на <code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$2 $2]</code>"
+	"sesp-admin-deprecation-notice-config-replacement": "<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$1 $1]</code> було замінено на <code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$2 $2]</code>",
+	"sesp-config-uses-fixed-tables": "Встановити властивості як фіксовані, щоб покращити доступ до даних",
+	"sesp-config-definitions-file": "Розташування визначення власності",
+	"sesp-config-local-definitions": "Вказує локальні визначення",
+	"sesp-config-enabled-property-list": "Вказує дозволені властивості",
+	"sesp-config-label-cache-version": "Визначає модифікатор внутрішнього кешу",
+	"sesp-config-exclude-bot-edits": "Чи слід ігнорувати редагування через облікові записи користувачів у групі користувачів «бот» при зберіганні даних для спеціальних властивостей?",
+	"sesp-config-short-url-prefix": "Використовується у зв'язку з ShortUrlUtils"
 }
