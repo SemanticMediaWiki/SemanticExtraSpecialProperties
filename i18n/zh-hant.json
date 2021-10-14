@@ -57,10 +57,20 @@
 	"sesp-property-exif-data": "EXIF資料",
 	"sesp-property-exif-data-desc": "「$1」用來記錄檔案的 EXIF 資料，此由 [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic 額外特殊屬性]擴充功能提供。",
 	"sesp-exif-languagecode": "Exif:語言代碼",
+	"sesp-exif-gpslatitude": "Exif：緯度",
+	"sesp-exif-gpslongitude": "Exif：經度",
+	"sesp-exif-gpsaltitude": "Exif：海拔",
 	"sesp-exif-label": "Exif:標籤",
 	"sesp-exif-iimcategory": "Exif:Iim 分類",
 	"sesp-admin-deprecation-notice-section": "Semantic 額外特殊屬性擴充功能",
 	"sesp-admin-deprecation-notice-title-replacement": "已替換或重新命名的設定",
 	"sesp-admin-deprecation-notice-title-replacement-explanation": "以下段落包含已重新命名或或是其它變動的設定，建議立即更新其名稱或格式。",
-	"sesp-admin-deprecation-notice-config-replacement": "<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$1 $1]</code> 被替換成 <code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$2 $2]</code>"
+	"sesp-admin-deprecation-notice-config-replacement": "<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$1 $1]</code> 被替換成 <code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$2 $2]</code>",
+	"sesp-config-uses-fixed-tables": "將屬性設定成固定屬性以改善資料存取",
+	"sesp-config-definitions-file": "屬性定義的位置",
+	"sesp-config-local-definitions": "指定本地定義",
+	"sesp-config-enabled-property-list": "指定啟用屬性",
+	"sesp-config-label-cache-version": "指定內部快取修改器",
+	"sesp-config-exclude-bot-edits": "在儲存特殊屬性的資料時，是否應忽略透過使用者群組「bot」裡的使用者帳號做出的編輯？",
+	"sesp-config-short-url-prefix": "與 ShortUrlUtils 連結使用"
 }

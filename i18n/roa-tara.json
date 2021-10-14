@@ -58,7 +58,11 @@
 	"sesp-admin-deprecation-notice-title-replacement": "'Mbostaziune sostituite o renomenate",
 	"sesp-admin-deprecation-notice-title-replacement-explanation": "'A sezione ca avène mò tène le 'mbostaziune ca onne state renomenane o comungue cangiate e se conziglie de aggiornà subbete subbete 'u nome lore o 'u formate.",
 	"sesp-admin-deprecation-notice-config-replacement": "<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$1 $1]</code> ha state sostituite cu <code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$2 $2]</code>",
+	"sesp-config-uses-fixed-tables": "'Mbostà le probbietà cumme probbietà fissate pe migliorà l'accesse a le date",
+	"sesp-config-definitions-file": "Posizione de le definiziune de probbietà",
 	"sesp-config-local-definitions": "Specifeche le definiziune locale",
 	"sesp-config-enabled-property-list": "Specifeche le probbietà abbilitate",
-	"sesp-config-label-cache-version": "Specifeche 'u cangiatore d'a cache 'nderne"
+	"sesp-config-label-cache-version": "Specifeche 'u cangiatore d'a cache 'nderne",
+	"sesp-config-exclude-bot-edits": "Le cangiamiende de le utinde ca stonne jndr'à 'u gruppe utende \"bot\" avessa essere ignorate quanne reggistre le date pe le probbietà speciale?",
+	"sesp-config-short-url-prefix": "Ausate jndr'à connessione cu ShortUrlUtils"
 }
