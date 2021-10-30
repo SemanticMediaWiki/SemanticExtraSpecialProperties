@@ -34,7 +34,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 			'wgDisableCounters' => false,
 			'sespgUseFixedTables' => false,
 			'sespgExcludeBotEdits' => false,
-			'wgShortUrlPrefix' => '',
+			'sespgShortUrlPrefix' => '',
 			'sespCacheType'    => 'hash'
 		];
 
@@ -69,7 +69,8 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 			'___NREV',
 			'___NTREV',
 			'___USEREDITCNT',
-			'___EXIFDATA'
+			'___EXIFDATA',
+			'___NAMESPACE'
 		];
 
 		$this->assertThatHookIsExcutable(
@@ -150,3 +151,4 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 	}
 
 }
+

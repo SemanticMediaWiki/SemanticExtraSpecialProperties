@@ -2,7 +2,6 @@
 
 namespace SESP\Tests\PropertyAnnotators;
 
-<<<<<<< HEAD
 use SESP\AppFactory;
 use SESP\PropertyAnnotators\UserEditCountPerNsPropertyAnnotator;
 use SMWDIContainer;
@@ -11,12 +10,6 @@ use SMW\DIWikiPage;
 use SMW\SemanticData;
 use User;
 use Wikimedia\Rdbms\Database;
-=======
-use SESP\PropertyAnnotators\UserEditCountPerNsPropertyAnnotator;
-use SMW\DIProperty;
-use SMW\DIWikiPage;
-use SMW\SemanticData;
->>>>>>> 72a8a7b (Add new property User edit count per namespace)
 use Wikimedia\Rdbms\FakeResultWrapper;
 
 /**
@@ -32,21 +25,13 @@ class UserEditCountPerNsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCas
 
 	/** @var DIProperty $property */
 	private $property;
-<<<<<<< HEAD
 	/** @var AppFactory $appFactory */
-=======
-	/** @var mixed|\PHPUnit\Framework\MockObject\MockObject|\SESP\AppFactory $appFactory */
->>>>>>> 72a8a7b (Add new property User edit count per namespace)
 	private $appFactory;
 
 	protected function setUp(): void {
 		parent::setUp();
 
-<<<<<<< HEAD
 		$this->appFactory = $this->getMockBuilder( AppFactory::class )
-=======
-		$this->appFactory = $this->getMockBuilder( '\SESP\AppFactory' )
->>>>>>> 72a8a7b (Add new property User edit count per namespace)
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -68,11 +53,7 @@ class UserEditCountPerNsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCas
 	 */
 	public function testGetEditsPerNs( $id, $ip, array $expected ) {
 		// Mock the database.
-<<<<<<< HEAD
 		$db = $this->getMockBuilder( Database::class )
-=======
-		$db = $this->getMockBuilder( '\Database' )
->>>>>>> 72a8a7b (Add new property User edit count per namespace)
 			->disableOriginalConstructor()
 			->getMock();
 		$fake = [];
@@ -103,11 +84,7 @@ class UserEditCountPerNsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCas
 	 * @return array
 	 */
 	public function getEditsPerNsProvider(): array {
-<<<<<<< HEAD
 		$user = $this->getMockBuilder( User::class )
-=======
-		$user = $this->getMockBuilder( '\User' )
->>>>>>> 72a8a7b (Add new property User edit count per namespace)
 			->disableOriginalConstructor()
 			->getMock();
 		$id = $user->getId();
@@ -138,11 +115,7 @@ class UserEditCountPerNsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCas
 		$method->setAccessible ( true );
 		$container = $method->invokeArgs( $annotator, [ $subject, $ns, $edits ] );
 
-<<<<<<< HEAD
 		$this->assertInstanceOf( SMWDIContainer::class, $container, 'Container is not an instance of SMWDIContainer' );
-=======
-		$this->assertInstanceOf( 'SMWDIContainer', $container, 'Container is not an instance of SMWDIContainer' );
->>>>>>> 72a8a7b (Add new property User edit count per namespace)
 
 		$data = $container->getSemanticData();
 		$properties = $data->getProperties();
@@ -177,11 +150,7 @@ class UserEditCountPerNsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCas
 		$semanticData = new SemanticData( $subject );
 
 		// Mock the database.
-<<<<<<< HEAD
 		$db = $this->getMockBuilder( Database::class )
-=======
-		$db = $this->getMockBuilder( '\Database' )
->>>>>>> 72a8a7b (Add new property User edit count per namespace)
 			->disableOriginalConstructor()
 			->getMock();
 		$fake = [];
@@ -196,11 +165,7 @@ class UserEditCountPerNsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCas
 		$factory->method( 'getConnection' )
 			->willReturn( $db );
 
-<<<<<<< HEAD
 		$user = $this->getMockBuilder( User::class )
-=======
-		$user = $this->getMockBuilder( '\User' )
->>>>>>> 72a8a7b (Add new property User edit count per namespace)
 			->disableOriginalConstructor()
 			->getMock();
 		$user->method( 'getId' )
@@ -226,11 +191,7 @@ class UserEditCountPerNsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCas
 
 			$records = $semanticData->getPropertyValues( new DIProperty( '___USEREDITCNTNS' ) );
 			foreach ( $records as $record ) {
-<<<<<<< HEAD
 				$this->assertInstanceOf( DIWikiPage::class, $record );
-=======
-				$this->assertInstanceOf( 'SMW\DIWikiPage', $record );
->>>>>>> 72a8a7b (Add new property User edit count per namespace)
 			}
 			$actual = [];
 			foreach ( $semanticData->getSubSemanticData() as $subSemanticDatum ) {
@@ -257,7 +218,5 @@ class UserEditCountPerNsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCas
 	}
 }
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 72a8a7b (Add new property User edit count per namespace)
+

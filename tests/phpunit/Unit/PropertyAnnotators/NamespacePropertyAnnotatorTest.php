@@ -88,3 +88,4 @@ class NamespacePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		$annotator->addAnnotation( $this->property, $semanticData );
 	}
 }
+

@@ -201,3 +201,4 @@ class DispatchingPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 }
+

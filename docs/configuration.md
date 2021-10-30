@@ -95,3 +95,4 @@ a [privacy issue][privacy].
 [mw-update]: https://www.mediawiki.org/wiki/Manual:Update.php
 [mw-localsettings]: https://www.mediawiki.org/wiki/Localsettings
 [mw-contentlang]: https://www.mediawiki.org/wiki/Content_language
+
