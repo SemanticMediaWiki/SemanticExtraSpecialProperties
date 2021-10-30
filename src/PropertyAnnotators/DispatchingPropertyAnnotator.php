@@ -111,10 +111,6 @@ class DispatchingPropertyAnnotator implements PropertyAnnotator {
 				return new PageViewsPropertyAnnotator( $appFactory );
 			},
 
-			NamespacePropertyAnnotator::PROP_ID => function ( $appFactory ) {
-				return new NamespacePropertyAnnotator( $appFactory );
-			},
-
 			ApprovedRevPropertyAnnotator::PROP_ID => function ( $appFactory ) {
 				return new ApprovedRevPropertyAnnotator( $appFactory );
 			},

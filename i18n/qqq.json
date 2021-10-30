@@ -3,8 +3,8 @@
 		"authors": [
 			"Kghbln",
 			"Shirayuki",
-			"Tobi 406",
-			"Андрей"
+			"Андрей",
+			"Tobi 406"
 		]
 	},
 	"sesp-desc": "{{desc|name=Semantic Extra Special Properties|url=https://www.mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties}}",
@@ -60,13 +60,6 @@
 	"sesp-exif-iimcategory": "This is the name of a special property.",
 	"sesp-admin-deprecation-notice-title-replacement": "This is a section header. Translate identical to {{Msg-mw|smw-admin-deprecation-notice-title-replacement}}.",
 	"sesp-admin-deprecation-notice-title-replacement-explanation": "This is an explanatory message. Translate identical to {{Msg-mw|smw-admin-deprecation-notice-title-replacement-explanation}}.",
-	"sesp-admin-deprecation-notice-config-replacement": "This is an explanatory message. \n\nParameters:\n* $1 - holds the name of the old configuration parameter\n* $2 - holds the name of the new configuration parameter",
-	"sesp-config-uses-fixed-tables": "Explains what a configuration variable does.",
-	"sesp-config-definitions-file": "Explains what a configuration variable does.",
-	"sesp-config-local-definitions": "Explains what a configuration variable does.",
-	"sesp-config-enabled-property-list": "Explains what a configuration variable does.",
-	"sesp-config-label-cache-version": "Explains what a configuration variable does.",
-	"sesp-config-exclude-bot-edits": "Explains what a configuration variable does.",
-	"sesp-config-short-url-prefix": "Explains what a configuration variable does."
+	"sesp-admin-deprecation-notice-config-replacement": "This is an explanatory message. \n\nParameters:\n* $1 - holds the name of the old configuration parameter\n* $2 - holds the name of the new configuration parameter"
 }
 

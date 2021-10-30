@@ -134,4 +134,3 @@ class UserEditCountPerNsPropertyAnnotator implements PropertyAnnotator {
 		return $records;
 	}
 }
-
