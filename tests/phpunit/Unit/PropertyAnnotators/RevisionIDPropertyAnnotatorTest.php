@@ -2,12 +2,9 @@
 
 namespace SESP\Tests\PropertyAnnotators;
 
-use SESP\AppFactory;
 use SESP\PropertyAnnotators\RevisionIDPropertyAnnotator;
 use SMW\DIProperty;
 use SMW\DIWikiPage;
-use SMW\SemanticData;
-use WikiPage;
 
 /**
  * @covers \SESP\PropertyAnnotators\RevisionIDPropertyAnnotator
@@ -26,7 +23,7 @@ class RevisionIDPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		$this->appFactory = $this->getMockBuilder( AppFactory::class )
+		$this->appFactory = $this->getMockBuilder( '\SESP\AppFactory' )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -59,7 +56,7 @@ class RevisionIDPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$subject = DIWikiPage::newFromText( __METHOD__ );
 
-		$wikiPage = $this->getMockBuilder( WikiPage::class )
+		$wikiPage = $this->getMockBuilder( '\WikiPage' )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -71,7 +68,7 @@ class RevisionIDPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->method( 'newWikiPage' )
 			->will( $this->returnValue( $wikiPage ) );
 
-		$semanticData = $this->getMockBuilder( SemanticData::class )
+		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
 			->disableOriginalConstructor()
 			->getMock();
 

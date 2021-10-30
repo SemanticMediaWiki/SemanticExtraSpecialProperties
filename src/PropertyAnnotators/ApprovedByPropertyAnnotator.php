@@ -2,12 +2,9 @@
 
 namespace SESP\PropertyAnnotators;
 
-use ApprovedRevs;
 use SESP\AppFactory;
 use SESP\PropertyAnnotator;
-use SESP\DatabaseLogReader;
 use SMW\DIWikiPage;
-use SMWDataItem as DataItem;
 use SMW\DIProperty;
 use SMW\SemanticData;
 use Title;
@@ -65,10 +62,12 @@ class ApprovedByPropertyAnnotator implements PropertyAnnotator {
 	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
 
 		if ( $this->approvedBy === null && class_exists( 'ApprovedRevs' ) ) {
-			$title = $semanticData->getSubject()->getTitle();
-			if ( ApprovedRevs::pageIsApprovable( $title ) ) {
-				$this->approvedBy = ApprovedRevs::getRevApprover( $title );
-			}
+			$logReader = $this->appFactory->newDatabaseLogReader(
+				$semanticData->getSubject()->getTitle(),
+				'approval'
+			);
+
+			$this->approvedBy = $logReader->getUserForLogEntry();
 		}
 
 		$dataItem = $this->getDataItem();

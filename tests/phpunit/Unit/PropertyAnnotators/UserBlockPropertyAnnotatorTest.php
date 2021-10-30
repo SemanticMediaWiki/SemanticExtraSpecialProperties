@@ -2,17 +2,12 @@
 
 namespace SESP\Tests\PropertyAnnotators;
 
-use MediaWiki\Block\DatabaseBlock;
-use SESP\AppFactory;
 use SESP\PropertyAnnotators\UserBlockPropertyAnnotator;
 use SMW\DIProperty;
 use SMW\DIWikiPage;
-use SMW\SemanticData;
-use Title;
-use User;
 
 /**
- * @covers UserBlockPropertyAnnotator
+ * @covers \SESP\PropertyAnnotators\UserBlockPropertyAnnotator
  * @group semantic-extra-special-properties
  *
  * @license GNU GPL v2+
@@ -28,7 +23,7 @@ class UserBlockPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		$this->appFactory = $this->getMockBuilder( AppFactory::class )
+		$this->appFactory = $this->getMockBuilder( '\SESP\AppFactory' )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -63,15 +58,15 @@ class UserBlockPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			return $reason == $action;
 		};
 
-		$block = $this->getMockBuilder( DatabaseBlock::class )
+		$block = $this->getMockBuilder( '\Block' )
 			->disableOriginalConstructor()
 			->getMock();
 
 		$block->expects( $this->any() )
-			->method( 'appliesToRight' )
+			->method( 'prevents' )
 			->will( $this->returnCallback( $compare ) );
 
-		$user = $this->getMockBuilder( User::class )
+		$user = $this->getMockBuilder( '\User' )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -83,7 +78,7 @@ class UserBlockPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->method( 'newUserFromTitle' )
 			->will( $this->returnValue( $user ) );
 
-		$title = $this->getMockBuilder( Title::class )
+		$title = $this->getMockBuilder( '\Title' )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -91,7 +86,7 @@ class UserBlockPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->method( 'inNamespace' )
 			->will( $this->returnValue( true ) );
 
-		$subject = $this->getMockBuilder( DIWikiPage::class )
+		$subject = $this->getMockBuilder( '\SMW\DIWikiPage' )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -99,7 +94,7 @@ class UserBlockPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->method( 'getTitle' )
 			->will( $this->returnValue( $title ) );
 
-		$semanticData = $this->getMockBuilder( SemanticData::class )
+		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
 			->disableOriginalConstructor()
 			->getMock();
 

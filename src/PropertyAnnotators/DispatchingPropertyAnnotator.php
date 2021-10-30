@@ -3,12 +3,9 @@
 namespace SESP\PropertyAnnotators;
 
 use SMW\DIProperty;
-use SMW\DIWikiPage;
 use SMW\SemanticData;
-use SMWDataItem as DataItem;
 use SESP\PropertyAnnotator;
 use SESP\AppFactory;
-use Closure;
 
 /**
  * @private
@@ -109,10 +106,6 @@ class DispatchingPropertyAnnotator implements PropertyAnnotator {
 
 			PageViewsPropertyAnnotator::PROP_ID => function( $appFactory ) {
 				return new PageViewsPropertyAnnotator( $appFactory );
-			},
-
-			NamespacePropertyAnnotator::PROP_ID => function ( $appFactory ) {
-				return new NamespacePropertyAnnotator( $appFactory );
 			},
 
 			ApprovedRevPropertyAnnotator::PROP_ID => function ( $appFactory ) {

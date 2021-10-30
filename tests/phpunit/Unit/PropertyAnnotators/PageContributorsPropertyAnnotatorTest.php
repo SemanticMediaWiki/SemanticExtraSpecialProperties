@@ -2,14 +2,9 @@
 
 namespace SESP\Tests\PropertyAnnotators;
 
-use ArrayIterator;
-use SESP\AppFactory;
 use SESP\PropertyAnnotators\PageContributorsPropertyAnnotator;
 use SMW\DIProperty;
 use SMW\DIWikiPage;
-use SMW\SemanticData;
-use User;
-use WikiPage;
 
 /**
  * @covers \SESP\PropertyAnnotators\PageContributorsPropertyAnnotator
@@ -28,7 +23,7 @@ class PageContributorsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase 
 	protected function setUp(): void {
 		parent::setUp();
 
-		$this->appFactory = $this->getMockBuilder( AppFactory::class )
+		$this->appFactory = $this->getMockBuilder( '\SESP\AppFactory' )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -58,11 +53,11 @@ class PageContributorsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase 
 
 		$subject = DIWikiPage::newFromText( __METHOD__ );
 
-		$contributors = $this->getMockBuilder( ArrayIterator::class )
+		$contributors = $this->getMockBuilder( '\ArrayIterator' )
 			->disableOriginalConstructor()
 			->getMock();
 
-		$user = $this->getMockBuilder( User::class )
+		$user = $this->getMockBuilder( '\User' )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -78,7 +73,7 @@ class PageContributorsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase 
 			->method( 'getRights' )
 			->will( $this->returnValue( [] ) );
 
-		$wikiPage = $this->getMockBuilder( WikiPage::class )
+		$wikiPage = $this->getMockBuilder( '\WikiPage' )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -94,7 +89,7 @@ class PageContributorsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase 
 			->method( 'newUserFromID' )
 			->will( $this->returnValue( $user ) );
 
-		$semanticData = $this->getMockBuilder( SemanticData::class )
+		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
 			->disableOriginalConstructor()
 			->getMock();
 

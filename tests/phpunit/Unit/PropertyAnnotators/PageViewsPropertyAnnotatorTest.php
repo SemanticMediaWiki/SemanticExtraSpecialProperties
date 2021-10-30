@@ -2,16 +2,12 @@
 
 namespace SESP\Tests\PropertyAnnotators;
 
-use SESP\AppFactory;
 use SESP\PropertyAnnotators\PageViewsPropertyAnnotator;
 use SMW\DIProperty;
 use SMW\DIWikiPage;
-use SMW\SemanticData;
-use User;
-use WikiPage;
 
 /**
- * @covers PageViewsPropertyAnnotator
+ * @covers \SESP\PropertyAnnotators\PageViewsPropertyAnnotator
  * @group semantic-extra-special-properties
  *
  * @license GNU GPL v2+
@@ -27,7 +23,7 @@ class PageViewsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		$this->appFactory = $this->getMockBuilder( AppFactory::class )
+		$this->appFactory = $this->getMockBuilder( '\SESP\AppFactory' )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -60,7 +56,7 @@ class PageViewsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->with( $this->equalTo( 'wgDisableCounters' ) )
 			->will( $this->returnValue( true ) );
 
-		$semanticData = $this->getMockBuilder( SemanticData::class )
+		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -83,7 +79,7 @@ class PageViewsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->with( $this->equalTo( 'wgDisableCounters' ) )
 			->will( $this->returnValue( false ) );
 
-		$wikiPage = $this->getMockBuilder( WikiPage::class )
+		$wikiPage = $this->getMockBuilder( '\WikiPage' )
 			->disableOriginalConstructor()
 			->setMethods( [ 'getCount' ] )
 			->getMock();
@@ -96,7 +92,7 @@ class PageViewsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->method( 'newWikiPage' )
 			->will( $this->returnValue( $wikiPage ) );
 
-		$semanticData = $this->getMockBuilder( SemanticData::class )
+		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
 			->disableOriginalConstructor()
 			->getMock();
 

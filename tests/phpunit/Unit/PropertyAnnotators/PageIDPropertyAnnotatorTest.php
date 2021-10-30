@@ -2,13 +2,9 @@
 
 namespace SESP\Tests\PropertyAnnotators;
 
-use SESP\AppFactory;
 use SESP\PropertyAnnotators\PageIDPropertyAnnotator;
 use SMW\DIProperty;
 use SMW\DIWikiPage;
-use SMW\SemanticData;
-use TypeError;
-use WikiPage;
 
 /**
  * @covers \SESP\PropertyAnnotators\PageIDPropertyAnnotator
@@ -27,7 +23,7 @@ class PageIDPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		$this->appFactory = $this->getMockBuilder( AppFactory::class )
+		$this->appFactory = $this->getMockBuilder( '\SESP\AppFactory' )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -56,17 +52,13 @@ class PageIDPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	/**
 	 * @dataProvider idProvider
 	 */
-	public function testAddAnnotation( $id, $expected, $throw ) {
+	public function testAddAnnotation( $id, $expected ) {
 
 		$subject = DIWikiPage::newFromText( __METHOD__ );
 
-		$wikiPage = $this->getMockBuilder( WikiPage::class )
+		$wikiPage = $this->getMockBuilder( '\WikiPage' )
 			->disableOriginalConstructor()
 			->getMock();
-
-		if ( $throw && version_compare( MW_VERSION, '1.36', '>=' ) ) {
-			$this->expectException( TypeError::class );
-		}
 
 		$wikiPage->expects( $this->once() )
 			->method( 'getId' )
@@ -76,7 +68,7 @@ class PageIDPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->method( 'newWikiPage' )
 			->will( $this->returnValue( $wikiPage ) );
 
-		$semanticData = $this->getMockBuilder( SemanticData::class )
+		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -98,26 +90,22 @@ class PageIDPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$provider[] = [
 			42,
-			$this->once(),
-			false
+			$this->once()
 		];
 
 		$provider[] = [
 			0,
-			$this->never(),
-			false
+			$this->never()
 		];
 
 		$provider[] = [
 			null,
-			$this->never(),
-			true
+			$this->never()
 		];
 
 		$provider[] = [
 			'Foo',
-			$this->never(),
-			true
+			$this->never()
 		];
 
 		return $provider;

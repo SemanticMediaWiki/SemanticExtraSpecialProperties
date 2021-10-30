@@ -43,14 +43,6 @@
 		"alias": "sesp-property-view-count",
 		"label": "Number of page views"
 	},
-	"_NAMESPACE": {
-		"id": "___NAMESPACE",
-		"type": "_txt",
-		"show": false,
-		"alias": "sesp-property-namespace",
-		"label": "Namespace",
-		"desc": "sesp-property-namespace-desc"
-	},
 	"_APPROVED": {
 		"id": "___APPROVED",
 		"type": "_num",

@@ -2,17 +2,11 @@
 
 namespace SESP\Tests\PropertyAnnotators;
 
-use SESP\AppFactory;
 use SESP\PropertyAnnotators\UserEditCountPropertyAnnotator;
 use SMW\DIProperty;
-use SMW\DIWikiPage;
-use SMW\SemanticData;
-use User;
-use Title;
-use WikiPage;
 
 /**
- * @covers UserEditCountPropertyAnnotator
+ * @covers \SESP\PropertyAnnotators\UserEditCountPropertyAnnotator
  * @group semantic-extra-special-properties
  *
  * @license GNU GPL v2+
@@ -28,7 +22,7 @@ class UserEditCountPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		$this->appFactory = $this->getMockBuilder( AppFactory::class )
+		$this->appFactory = $this->getMockBuilder( '\SESP\AppFactory' )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -59,7 +53,7 @@ class UserEditCountPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	 */
 	public function testAddAnnotation( $count, $expected ) {
 
-		$user = $this->getMockBuilder( User::class )
+		$user = $this->getMockBuilder( '\User' )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -71,7 +65,7 @@ class UserEditCountPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->method( 'newUserFromTitle' )
 			->will( $this->returnValue( $user ) );
 
-		$title = $this->getMockBuilder( Title::class )
+		$title = $this->getMockBuilder( '\Title' )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -79,7 +73,7 @@ class UserEditCountPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->method( 'inNamespace' )
 			->will( $this->returnValue( true ) );
 
-		$subject = $this->getMockBuilder( DIWikiPage::class )
+		$subject = $this->getMockBuilder( '\SMW\DIWikiPage' )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -87,7 +81,7 @@ class UserEditCountPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->method( 'getTitle' )
 			->will( $this->returnValue( $title ) );
 
-		$semanticData = $this->getMockBuilder( SemanticData::class )
+		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
 			->disableOriginalConstructor()
 			->getMock();
 
