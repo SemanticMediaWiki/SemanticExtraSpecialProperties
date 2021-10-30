@@ -38,7 +38,7 @@ class DispatchingPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	private $property;
 	private $appFactory;
 
-	protected function setUp(): void {
+	protected function setUp() {
 		parent::setUp();
 
 		$this->appFactory = $this->getMockBuilder( '\SESP\AppFactory' )
@@ -124,6 +124,11 @@ class DispatchingPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		$provider[] = [
 			UserEditCountPropertyAnnotator::PROP_ID,
 			UserEditCountPropertyAnnotator::class
+		];
+
+		$provider[] = [
+			UserEditCountPerNsPropertyAnnotator::PROP_ID,
+			UserEditCountPerNsPropertyAnnotator::class
 		];
 
 		$provider[] = [

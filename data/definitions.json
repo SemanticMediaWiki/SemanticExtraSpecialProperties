@@ -43,14 +43,6 @@
 		"alias": "sesp-property-view-count",
 		"label": "Number of page views"
 	},
-	"_NAMESPACE": {
-		"id": "___NAMESPACE",
-		"type": "_txt",
-		"show": false,
-		"alias": "sesp-property-namespace",
-		"label": "Namespace",
-		"desc": "sesp-property-namespace-desc"
-	},
 	"_APPROVED": {
 		"id": "___APPROVED",
 		"type": "_num",
@@ -124,6 +116,25 @@
 		"show": false,
 		"alias": "sesp-property-user-edit-count",
 		"label": "User edit count"
+	},
+	"_USEREDITCNTNS": {
+		"id": "___USEREDITCNTNS",
+		"type": "_wpg",
+		"show": false,
+		"alias": "sesp-property-user-edit-count-per-ns",
+		"label": "User edit count per namespace"
+	},
+	"_USEREDITCNTNS_NS": {
+		"id": "___USEREDITCNTNS_NS",
+		"type": "_num",
+		"alias": "sesp-property-user-edit-count-ns",
+		"label": "User edit count per namespace:Namespace"
+	},
+	"_USEREDITCNTNS_CNT": {
+		"id": "___USEREDITCNTNS_CNT",
+		"type": "_num",
+		"alias": "sesp-property-user-edit-count-cnt",
+		"label": "User edit count per namespace:Edit count"
 	},
 	"_USERBLOCK": {
 		"id": "___USERBLOCK",
@@ -909,24 +920,6 @@
 			"type": "_txt",
 			"alias": "sesp-exif-languagecode",
 			"label": "Exif:Language code"
-		},
-                "GPSLATITUDE": {
-                        "id": "___EXIFGPSLATITUDE",
-                        "type": "_txt",
-                        "alias": "sesp-exif-gpslatitude",
-                        "label": "Exif:GPSLatitude"
-                },
-                "GPSLONGITUDE": {
-                        "id": "___EXIFGPSLONGITUDE",
-                        "type": "_txt",
-                        "alias": "sesp-exif-gpslongitude",
-                        "label": "Exif:GPSLongitude"
-                },
-                "GPSALTITUDE": {
-                        "id": "___EXIFGPSALTITUDE",
-                        "type": "_txt",
-                        "alias": "sesp-exif-gpsaltitude",
-                        "label": "Exif:GPSAltitude"
-                }
+		}
 	}
 }

@@ -111,10 +111,6 @@ class DispatchingPropertyAnnotator implements PropertyAnnotator {
 				return new PageViewsPropertyAnnotator( $appFactory );
 			},
 
-			NamespacePropertyAnnotator::PROP_ID => function ( $appFactory ) {
-				return new NamespacePropertyAnnotator( $appFactory );
-			},
-
 			ApprovedRevPropertyAnnotator::PROP_ID => function ( $appFactory ) {
 				return new ApprovedRevPropertyAnnotator( $appFactory );
 			},
@@ -137,6 +133,10 @@ class DispatchingPropertyAnnotator implements PropertyAnnotator {
 
 			UserEditCountPropertyAnnotator::PROP_ID => function( $appFactory ) {
 				return new UserEditCountPropertyAnnotator( $appFactory );
+			},
+
+			UserEditCountPerNsPropertyAnnotator::PROP_ID => function( $appFactory ) {
+				return new UserEditCountPerNsPropertyAnnotator( $appFactory );
 			},
 
 			UserBlockPropertyAnnotator::PROP_ID => function( $appFactory ) {
