@@ -8,6 +8,7 @@ use SESP\PropertyAnnotators\CreatorPropertyAnnotator;
 use SESP\PropertyAnnotators\PageViewsPropertyAnnotator;
 use SESP\PropertyAnnotators\LocalPropertyAnnotator;
 use SESP\PropertyAnnotators\UserRegistrationDatePropertyAnnotator;
+use SESP\PropertyAnnotators\UserEditCountPerNsPropertyAnnotator;
 use SESP\PropertyAnnotators\UserEditCountPropertyAnnotator;
 use SESP\PropertyAnnotators\UserBlockPropertyAnnotator;
 use SESP\PropertyAnnotators\UserRightPropertyAnnotator;
@@ -124,6 +125,11 @@ class DispatchingPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		$provider[] = [
 			UserEditCountPropertyAnnotator::PROP_ID,
 			UserEditCountPropertyAnnotator::class
+		];
+
+		$provider[] = [
+			UserEditCountPerNsPropertyAnnotator::PROP_ID,
+			UserEditCountPerNsPropertyAnnotator::class
 		];
 
 		$provider[] = [
