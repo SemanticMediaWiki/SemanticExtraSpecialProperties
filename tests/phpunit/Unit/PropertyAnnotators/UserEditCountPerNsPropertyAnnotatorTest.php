@@ -2,10 +2,14 @@
 
 namespace SESP\Tests\PropertyAnnotators;
 
+use SESP\AppFactory;
 use SESP\PropertyAnnotators\UserEditCountPerNsPropertyAnnotator;
+use SMWDIContainer;
 use SMW\DIProperty;
 use SMW\DIWikiPage;
 use SMW\SemanticData;
+use User;
+use Wikimedia\Rdbms\Database;
 use Wikimedia\Rdbms\FakeResultWrapper;
 
 /**
@@ -21,13 +25,13 @@ class UserEditCountPerNsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCas
 
 	/** @var DIProperty $property */
 	private $property;
-	/** @var mixed|\PHPUnit\Framework\MockObject\MockObject|\SESP\AppFactory $appFactory */
+	/** @var AppFactory $appFactory */
 	private $appFactory;
 
 	protected function setUp(): void {
 		parent::setUp();
 
-		$this->appFactory = $this->getMockBuilder( '\SESP\AppFactory' )
+		$this->appFactory = $this->getMockBuilder( AppFactory::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -49,7 +53,7 @@ class UserEditCountPerNsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCas
 	 */
 	public function testGetEditsPerNs( $id, $ip, array $expected ) {
 		// Mock the database.
-		$db = $this->getMockBuilder( '\Database' )
+		$db = $this->getMockBuilder( Database::class )
 			->disableOriginalConstructor()
 			->getMock();
 		$fake = [];
@@ -80,7 +84,7 @@ class UserEditCountPerNsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCas
 	 * @return array
 	 */
 	public function getEditsPerNsProvider(): array {
-		$user = $this->getMockBuilder( '\User' )
+		$user = $this->getMockBuilder( User::class )
 			->disableOriginalConstructor()
 			->getMock();
 		$id = $user->getId();
@@ -111,7 +115,7 @@ class UserEditCountPerNsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCas
 		$method->setAccessible ( true );
 		$container = $method->invokeArgs( $annotator, [ $subject, $ns, $edits ] );
 
-		$this->assertInstanceOf( 'SMWDIContainer', $container, 'Container is not an instance of SMWDIContainer' );
+		$this->assertInstanceOf( SMWDIContainer::class, $container, 'Container is not an instance of SMWDIContainer' );
 
 		$data = $container->getSemanticData();
 		$properties = $data->getProperties();
@@ -146,7 +150,7 @@ class UserEditCountPerNsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCas
 		$semanticData = new SemanticData( $subject );
 
 		// Mock the database.
-		$db = $this->getMockBuilder( '\Database' )
+		$db = $this->getMockBuilder( Database::class )
 			->disableOriginalConstructor()
 			->getMock();
 		$fake = [];
@@ -161,7 +165,7 @@ class UserEditCountPerNsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCas
 		$factory->method( 'getConnection' )
 			->willReturn( $db );
 
-		$user = $this->getMockBuilder( '\User' )
+		$user = $this->getMockBuilder( User::class )
 			->disableOriginalConstructor()
 			->getMock();
 		$user->method( 'getId' )
@@ -187,7 +191,7 @@ class UserEditCountPerNsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCas
 
 			$records = $semanticData->getPropertyValues( new DIProperty( '___USEREDITCNTNS' ) );
 			foreach ( $records as $record ) {
-				$this->assertInstanceOf( 'SMW\DIWikiPage', $record );
+				$this->assertInstanceOf( DIWikiPage::class, $record );
 			}
 			$actual = [];
 			foreach ( $semanticData->getSubSemanticData() as $subSemanticDatum ) {
@@ -213,4 +217,5 @@ class UserEditCountPerNsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCas
 		return $provider;
 	}
 }
+
 

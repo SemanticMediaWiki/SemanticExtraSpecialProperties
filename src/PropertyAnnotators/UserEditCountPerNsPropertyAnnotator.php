@@ -1,5 +1,4 @@
 <?php
-
 namespace SESP\PropertyAnnotators;
 
 use SESP\PropertyAnnotator;
@@ -135,4 +134,3 @@ class UserEditCountPerNsPropertyAnnotator implements PropertyAnnotator {
 		return $records;
 	}
 }
-
