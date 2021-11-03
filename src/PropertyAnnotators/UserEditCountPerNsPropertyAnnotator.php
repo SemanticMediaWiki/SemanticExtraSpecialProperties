@@ -109,7 +109,7 @@ class UserEditCountPerNsPropertyAnnotator implements PropertyAnnotator {
 	}
 
 	/**
-	 * @param int|null $id User ID (0 for anonymous users)
+	 * @param int|null $id User ID (null for anonymous users)
 	 * @param string|null $ip Anonymous user's IP address
 	 * @return int[] An associative array NS number => revision count
 	 */
