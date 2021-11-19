@@ -1,71 +1,87 @@
 ---
-on: push
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+
 
 jobs:
-  run_tests:
-    env:
-      extension: SemanticExtraSpecialProperties
-      testFilter: SESP
-      MW_INSTALL_PATH: /var/www/html
-      MW_DATA_DIR: /var/www/data
-      extDir: /var/www/html/extensions
-      composerID: mediawiki/semantic-extra-special-properties
+  build:
+    runs-on: ubuntu-20.04
+    continue-on-error: ${{ matrix.experimental }}
+
     strategy:
       matrix:
-        mwVer: [1.35, 1.36]
-    runs-on: ubuntu-latest
-    container: mediawiki:${{ matrix.mwVer }}
-    name: Run tests
+        include:
+          - mediawiki_version: 1.35
+            semantic_mediawiki_version: 3.2.3
+            coverage: true
+            experimental: false
+          - mediawiki_version: 1.36
+            semantic_mediawiki_version: dev-master
+            coverage: false
+            experimental: true
+
+    container:
+      image: gesinn/docker-mediawiki:${{ matrix.mediawiki_version }}
+
+    env:
+      EXT_NAME: SemanticExtraSpecialProperties 
+      MW_INST_PATH: /var/www/html
+      MW_DB_PATH: /var/www/data
+      MW_EXT_PATH: /var/www/html/extensions
+
     steps:
-      - name: Install composer
-        run: >-
-          apt update                                                          &&
-          apt install -y unzip                                                &&
-          cd ${{env.MW_INSTALL_PATH}}                                         &&
-          curl -o installer https://getcomposer.org/installer                 &&
-          curl -o expected https://composer.github.io/installer.sig           &&
-          echo `cat expected` ' installer' | sha384sum -c -                   &&
-          php installer
-      - name: Update MediaWiki with composer deps && install extension
-        run: >-
-          branch=`echo ${{ github.ref }} | sed 's,refs/heads/,,'`             &&
-          echo '{"require":{"${{env.composerID}}":"dev-'${branch}'","mediawiki/semantic-media-wiki":"dev-master"},'
-          '"repositories": [{"type":"vcs","url":"https://github.com/${{github.repository}}.git"}]}'
-          > ${{env.MW_INSTALL_PATH}}/composer.local.json                      &&
-          cd ${{env.MW_INSTALL_PATH}}                                         &&
-          echo "We need to make sure we have the right version:"              &&
-          php composer.phar require --no-update --no-plugins
-          wikimedia/composer-merge-plugin ~2                                  &&
-          php composer.phar config minimum-stability dev
-          --working-dir ${{env.MW_INSTALL_PATH}} --no-plugins                 &&
-          php composer.phar config --global --auth github-oauth.github.com ${{github.token}}
-          --working-dir ${{env.MW_INSTALL_PATH}} --no-plugins                 &&
-          echo "Composer update run twice so we have the right version"       &&
-          php composer.phar update --prefer-source
-          --working-dir ${{env.MW_INSTALL_PATH}} --no-plugins                 &&
-          php composer.phar update --prefer-source
-          --working-dir ${{env.MW_INSTALL_PATH}}                              &&
-          php composer.phar dump-autoload
-          --working-dir ${{env.MW_INSTALL_PATH}}
-      - name: Install and populate the DB
-        run: >-
-          php ${{env.MW_INSTALL_PATH}}/maintenance/install.php --dbtype=sqlite
-          --dbname=mywiki --pass=ugly123456 --scriptpath=""
-          --dbpath=${{env.MW_DATA_DIR}} --server="http://localhost:8000"
-          --extensions=${{env.extension}},SemanticMediaWiki
-          ${{env.extension}}-test WikiSysop
-      - name: Update LocalSettings.php with debugging info
-        run: >-
-          (
-          echo 'error_reporting(E_ALL| E_STRICT);'                            &&
-          echo 'ini_set("display_errors", 1);'                                &&
-          echo '$wgShowExceptionDetails = true;'                              &&
-          echo '$wgDevelopmentWarnings = true;'
-          ) >> ${{env.MW_INSTALL_PATH}}/LocalSettings.php
-      - name: Run update.php
-        run: >-
-          php ${{env.MW_INSTALL_PATH}}/maintenance/update.php --quick
+      - name: Install SemanticMediaWiki
+        run: |
+          COMPOSER=composer.local.json composer require --update-with-dependencies --working-dir ${{ env.MW_INST_PATH }} mediawiki/semantic-media-wiki ${{ matrix.semantic_mediawiki_version }}
+          composer update --working-dir ${{ env.MW_INST_PATH }}
+          echo "enableSemantics( 'localhost' );" >> ${{ env.MW_INST_PATH }}/LocalSettings.php
+          php ${{ env.MW_INST_PATH }}/maintenance/update.php --skip-external-dependencies --quick
+
+      - name: Checkout SemanticExtraSpecialProperties
+        uses: actions/checkout@v2
+        with:
+          path: ${{ env.EXT_NAME }}
+
+      # Setting actions/checkout@v2 path to env.MW_EXT_PATH fails with "Repository path '/var/www/html/extensions' is not under ..."
+      # See also open PR https://github.com/actions/checkout/pull/388
+      - name: Move SemanticApprovedRevs
+        run: |
+          mkdir -p ${{ env.MW_EXT_PATH }}
+          mv ${{ env.EXT_NAME }} ${{ env.MW_EXT_PATH }}
+
+      - name: Install SemanticExtraSpecialProperties
+        run: |
+          COMPOSER=composer.local.json composer require --no-update --working-dir ${{ env.MW_INST_PATH }} mediawiki/semantic-extra-special-properties @dev
+          COMPOSER=composer.local.json composer config repositories.semantic-approved-revs '{"type": "path", "url": "extensions/SemanticExtraSpecialProperties"}' --working-dir ${{ env.MW_INST_PATH }}
+          composer update --working-dir ${{ env.MW_INST_PATH }}
+          echo "wfLoadExtension( '${{ env.EXT_NAME }}' );" >> ${{ env.MW_INST_PATH }}/LocalSettings.php
+          tail -n5 ${{ env.MW_INST_PATH }}/LocalSettings.php
+          php ${{ env.MW_INST_PATH }}/maintenance/update.php --quick
+
       - name: Run Tests
-        run: >-
-          php ${{env.MW_INSTALL_PATH}}/tests/phpunit/phpunit.php
-          --filter ${{env.testFilter}} --testdox
+        run: >
+          php ${{ env.MW_INST_PATH }}/tests/phpunit/phpunit.php
+          --configuration ${{ env.MW_EXT_PATH }}/${{ env.EXT_NAME }}
+          --testdox
+        if: matrix.coverage == false
+
+      - name: Run Tests With Coverage
+        run: >
+          php ${{ env.MW_INST_PATH }}/tests/phpunit/phpunit.php
+          --configuration ${{ env.MW_EXT_PATH }}/${{ env.EXT_NAME }}
+          --testdox
+          --coverage-clover ${{ env.MW_INST_PATH }}/docs/coverage.xml
+        if: matrix.coverage == true
+
+      - name: Upload code coverage
+        uses: codecov/codecov-action@v2
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ${{ env.MW_INST_PATH }}/docs/coverage.xml
+        if: matrix.coverage == true
