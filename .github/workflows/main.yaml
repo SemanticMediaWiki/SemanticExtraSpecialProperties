@@ -50,7 +50,7 @@ jobs:
 
       # Setting actions/checkout@v2 path to env.MW_EXT_PATH fails with "Repository path '/var/www/html/extensions' is not under ..."
       # See also open PR https://github.com/actions/checkout/pull/388
-      - name: Move SemanticApprovedRevs
+      - name: Move SemanticExtraSpecialProperties
         run: |
           mkdir -p ${{ env.MW_EXT_PATH }}
           mv ${{ env.EXT_NAME }} ${{ env.MW_EXT_PATH }}
@@ -58,7 +58,7 @@ jobs:
       - name: Install SemanticExtraSpecialProperties
         run: |
           COMPOSER=composer.local.json composer require --no-update --working-dir ${{ env.MW_INST_PATH }} mediawiki/semantic-extra-special-properties @dev
-          COMPOSER=composer.local.json composer config repositories.semantic-approved-revs '{"type": "path", "url": "extensions/SemanticExtraSpecialProperties"}' --working-dir ${{ env.MW_INST_PATH }}
+          COMPOSER=composer.local.json composer config repositories.semantic-extra-special-properties '{"type": "path", "url": "extensions/SemanticExtraSpecialProperties"}' --working-dir ${{ env.MW_INST_PATH }}
           composer update --working-dir ${{ env.MW_INST_PATH }}
           echo "wfLoadExtension( '${{ env.EXT_NAME }}' );" >> ${{ env.MW_INST_PATH }}/LocalSettings.php
           tail -n5 ${{ env.MW_INST_PATH }}/LocalSettings.php
