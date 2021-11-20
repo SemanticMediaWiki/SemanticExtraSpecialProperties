@@ -17,6 +17,8 @@
 	"sesp-property-revision-id-desc": "\"$1\" records the current revision ID of a page. It is provided by the [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties] extension.",
 	"sesp-property-page-id": "Page ID",
 	"sesp-property-page-id-desc": "\"$1\" records the ID of a page. It is is provided by the [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties] extension.",
+	"sesp-property-page-img": "Page Image",
+	"sesp-property-page-img-desc": "\"$1\" records the PageImages (Extension:PageImages) of a page . It is is provided by the [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties] extension.",
 	"sesp-property-page-len": "Page length",
 	"sesp-property-page-len-desc": "\"$1\" records the length of a page in bytes. It is provided by the [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties] extension.",
 	"sesp-property-view-count": "Number of page views",
