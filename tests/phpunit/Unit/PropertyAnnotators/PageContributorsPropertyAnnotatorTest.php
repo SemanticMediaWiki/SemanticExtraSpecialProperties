@@ -83,6 +83,10 @@ class PageContributorsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase 
 			->getMock();
 
 		$wikiPage->expects( $this->once() )
+			->method( 'exists' )
+			->will( $this->returnValue( true ) );
+
+		$wikiPage->expects( $this->once() )
 			->method( 'getContributors' )
 			->will( $this->returnValue( $contributors ) );
 
