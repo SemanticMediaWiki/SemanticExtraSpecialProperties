@@ -61,7 +61,7 @@ class NamespacePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->method( 'addPropertyObjectValue' )
 			->with(
 				$this->equalTo( $this->property ),
-				$this->equalTo( NS_USER ));
+				$this->equalTo( $user->getUserPage()->getNamespace() ) );
 		$annotator = new NamespacePropertyAnnotator(
 			$this->appFactory
 		);
