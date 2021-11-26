@@ -5,6 +5,8 @@ namespace SESP\Tests\PropertyAnnotators;
 use SESP\PropertyAnnotators\NamespacePropertyAnnotator;
 use SMW\DIProperty;
 use SMW\DIWikiPage;
+use SMW\SemanticData;
+use SMWDIString;
 use User;
 
 /**
@@ -51,21 +53,34 @@ class NamespacePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testAddAnnotation() {
-		$user = User::newFromName( "UnitTest" );
-		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
-			->disableOriginalConstructor()
-			->getMock();
+		$userPage = User::newFromName( "UnitTest" )->getUserPage();
+        $subject = $this->getMockBuilder( DIWikiPage::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $subject->expects( $this->once() )
+            ->method( 'getTitle' )
+            ->will( $this->returnValue( $userPage ) );
+
+        $semanticData = $this->getMockBuilder( SemanticData::class )
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $semanticData->expects( $this->once() )
+            ->method( 'getSubject' )
+            ->will($this->returnValue( $subject ));
 
 		$semanticData->expects( $this->once() )
 			->method( 'addPropertyObjectValue' )
 			->with(
 				$this->equalTo( $this->property ),
-				$this->equalTo( DIWikiPage::newFromTitle( $user->getUserPage() ) ) );
+				$this->equalTo( $userPage->getNsText() ) );
+
 		$annotator = new NamespacePropertyAnnotator(
 			$this->appFactory
 		);
 
-		$annotator->setNamespace( $user );
+		$annotator->setNamespace( null );
 
 		$annotator->addAnnotation( $this->property, $semanticData );
 	}

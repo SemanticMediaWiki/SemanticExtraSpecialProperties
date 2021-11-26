@@ -46,7 +46,7 @@ class NamespacePropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * @since 2.0
 	 *
-	 * @param User $namespace
+	 * @param string|Integer|null $namespace
 	 */
 	public function setNamespace( $namespace ) {
 		$this->namespace = $namespace;
@@ -63,6 +63,8 @@ class NamespacePropertyAnnotator implements PropertyAnnotator {
 	 * {@inheritDoc}
 	 */
 	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
+        $dataItem = false;
+
 		if ( $this->namespace === null ) {
 			$title = $semanticData->getSubject()->getTitle();
 			$nsInfo = MediaWikiServices::getInstance()->getNamespaceInfo();
@@ -71,9 +73,9 @@ class NamespacePropertyAnnotator implements PropertyAnnotator {
 			if ( "" === $this->namespace ) {
 				$this->namespace = "Main";
 			}
-		}
 
-		$dataItem = $this->getDataItem();
+            $dataItem = $this->getDataItem();
+		}
 
 		if ( $dataItem ) {
 			$semanticData->addPropertyObjectValue( $property, $dataItem );
