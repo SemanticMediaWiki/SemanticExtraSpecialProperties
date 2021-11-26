@@ -80,7 +80,7 @@ class NamespacePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			$this->appFactory
 		);
 
-		$annotator->setNamespace( $userPage );
+		$annotator->setNamespace( null );
 
 		$annotator->addAnnotation( $this->property, $semanticData );
 	}
