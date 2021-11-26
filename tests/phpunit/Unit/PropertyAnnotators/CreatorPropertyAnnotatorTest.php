@@ -11,7 +11,7 @@ use User;
 use WikiPage;
 
 /**
- * @covers \SESP\CreatorPropertyAnnotator
+ * @covers \SESP\PropertyAnnotators\CreatorPropertyAnnotator
  * @group semantic-extra-special-properties
  *
  * @license GNU GPL v2+

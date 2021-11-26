@@ -12,7 +12,7 @@ use Title;
 use WikiPage;
 
 /**
- * @covers \SESP\UserEditCountPropertyAnnotator
+ * @covers \SESP\PropertyAnnotators\UserEditCountPropertyAnnotator
  * @group semantic-extra-special-properties
  *
  * @license GNU GPL v2+
