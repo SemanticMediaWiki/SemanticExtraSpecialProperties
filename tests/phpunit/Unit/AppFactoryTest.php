@@ -13,7 +13,7 @@ use WikiFilePage;
 use WikiPage;
 
 /**
- * @covers AppFactory
+ * @covers \SESP\AppFactory
  * @group semantic-extra-special-properties
  *
  * @license GNU GPL v2+

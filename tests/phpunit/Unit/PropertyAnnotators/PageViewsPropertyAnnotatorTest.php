@@ -11,7 +11,7 @@ use User;
 use WikiPage;
 
 /**
- * @covers PageViewsPropertyAnnotator
+ * @covers \SESP\PageViewsPropertyAnnotator
  * @group semantic-extra-special-properties
  *
  * @license GNU GPL v2+

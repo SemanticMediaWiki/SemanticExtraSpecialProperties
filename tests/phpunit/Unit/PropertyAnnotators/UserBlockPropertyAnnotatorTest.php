@@ -12,7 +12,7 @@ use Title;
 use User;
 
 /**
- * @covers UserBlockPropertyAnnotator
+ * @covers \SESP\UserBlockPropertyAnnotator
  * @group semantic-extra-special-properties
  *
  * @license GNU GPL v2+
