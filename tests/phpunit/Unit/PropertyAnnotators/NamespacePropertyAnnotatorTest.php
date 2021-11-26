@@ -52,7 +52,7 @@ class NamespacePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testAddAnnotation() {
-		$user = User::newFromName( "UnitTest" )->getUserPage();
+		$userPage = User::newFromName( "UnitTest" )->getUserPage();
 		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
 			->disableOriginalConstructor()
 			->getMock();
@@ -61,12 +61,12 @@ class NamespacePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->method( 'addPropertyObjectValue' )
 			->with(
 				$this->equalTo( $this->property ),
-				$this->equalTo( $user->getUserPage()->getNsText() ) );
+				$this->equalTo( $userPage->getNsText() ) );
 		$annotator = new NamespacePropertyAnnotator(
 			$this->appFactory
 		);
 
-		$annotator->setNamespace( $user );
+		$annotator->setNamespace( $userPage );
 
 		$annotator->addAnnotation( $this->property, $semanticData );
 	}
