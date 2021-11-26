@@ -43,6 +43,7 @@ Property labels differ according to the language the wiki was set up. An easy wa
 - `_APPROVEDBY` adds a property called "Approved by" which records the user that approved a page if the [Approved Revs][Approved Revs] extension is installed
 - `_APPROVEDDATE` adds a property called "Approved date" which records the date a page was approved if the [Approved Revs][Approved Revs] extension is installed
 - `_APPROVEDSTATUS` adds a property called "Approval status" which records the approvement status of a page if the [Approved Revs][Approved Revs] extension is installed
+- `_PAGEIMG` adds a property called "Page Images" which records PageImages of a page if the [PageImages][PageImages] extension is installed
 
 ## Additional configuration
 
@@ -94,3 +95,4 @@ a [privacy issue][privacy].
 [mw-update]: https://www.mediawiki.org/wiki/Manual:Update.php
 [mw-localsettings]: https://www.mediawiki.org/wiki/Localsettings
 [mw-contentlang]: https://www.mediawiki.org/wiki/Content_language
+[PageImages]: https://www.mediawiki.org/wiki/Extension:PageImages

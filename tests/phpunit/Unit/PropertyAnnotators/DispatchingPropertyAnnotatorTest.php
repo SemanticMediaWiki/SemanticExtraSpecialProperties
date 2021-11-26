@@ -11,6 +11,7 @@ use SESP\PropertyAnnotators\NamespaceNamePropertyAnnotator;
 use SESP\PropertyAnnotators\NamespacePropertyAnnotator;
 use SESP\PropertyAnnotators\NullPropertyAnnotator;
 use SESP\PropertyAnnotators\CreatorPropertyAnnotator;
+use SESP\PropertyAnnotators\PageImagesPropertyAnnotator;
 use SESP\PropertyAnnotators\PageViewsPropertyAnnotator;
 use SESP\PropertyAnnotators\LocalPropertyAnnotator;
 use SESP\PropertyAnnotators\UserRegistrationDatePropertyAnnotator;
@@ -221,6 +222,11 @@ class DispatchingPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			ExifPropertyAnnotator::PROP_ID,
 			ExifPropertyAnnotator::class
 		];
+
+        $provider[] = [
+            PageImagesPropertyAnnotator::PROP_ID,
+            PageImagesPropertyAnnotator::class
+        ];
 
 		$provider[] = [
 			'Foo',

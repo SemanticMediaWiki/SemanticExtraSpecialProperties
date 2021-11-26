@@ -14,6 +14,14 @@
 		"label": "Page ID",
 		"desc": "sesp-property-page-id-desc"
 	},
+	"_PAGEIMG": {
+		"id": "___PAGEIMG",
+		"type": "_wpg",
+		"show": false,
+		"alias": "sesp-property-page-img",
+		"label": "Page Image",
+		"desc": "sesp-property-page-img-desc"
+	},
 	"_PAGELGTH": {
 		"id": "___PAGELGTH",
 		"type": "_num",
