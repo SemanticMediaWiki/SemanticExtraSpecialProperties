@@ -5,6 +5,7 @@ namespace SESP\Tests\PropertyAnnotators;
 use SESP\PropertyAnnotators\NamespacePropertyAnnotator;
 use SMW\DIProperty;
 use SMW\DIWikiPage;
+use SMWDIString;
 use User;
 
 /**
@@ -60,7 +61,7 @@ class NamespacePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->method( 'addPropertyObjectValue' )
 			->with(
 				$this->equalTo( $this->property ),
-				$this->equalTo( DIWikiPage::newFromTitle( $user->getUserPage() ) ) );
+				$this->equalTo( new SMWDIString( $user->getUserPage() ) ) );
 		$annotator = new NamespacePropertyAnnotator(
 			$this->appFactory
 		);
