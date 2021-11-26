@@ -46,9 +46,9 @@ class NamespacePropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * @since 2.0
 	 *
-	 * @param Title $namespace
+	 * @param string $namespace
 	 */
-	public function setNamespace( Title $namespace ) {
+	public function setNamespace( string $namespace ) {
 		$this->namespace = $namespace;
 	}
 
