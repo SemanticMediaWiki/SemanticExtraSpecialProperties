@@ -52,7 +52,7 @@ class NamespacePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testAddAnnotation() {
-		$user = User::newFromName( "UnitTest" );
+		$user = User::newFromName( "UnitTest" )->getUserPage();
 		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
 			->disableOriginalConstructor()
 			->getMock();
