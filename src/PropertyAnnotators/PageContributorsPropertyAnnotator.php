@@ -77,8 +77,12 @@ class PageContributorsPropertyAnnotator implements PropertyAnnotator {
 				);
 			}
 
-			$user = $authors->current();
-			$authors->next();
+			if ( $authors->valid() ) {
+				$user = $authors->current();
+				$authors->next();
+			} else {
+				$user = false;
+			}
 		}
 	}
 
