@@ -2,6 +2,7 @@
 
 namespace SESP\PropertyAnnotators;
 
+use MediaWiki\MediaWikiServices;
 use SMW\DIProperty;
 use SMW\DIWikiPage;
 use SMW\SemanticData;
@@ -9,6 +10,7 @@ use SMWDataItem as DataItem;
 use SESP\PropertyAnnotator;
 use SESP\AppFactory;
 use Title;
+use User;
 
 /**
  * @private
@@ -57,11 +59,16 @@ class CreatorPropertyAnnotator implements PropertyAnnotator {
 	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
 
 		$page = $this->appFactory->newWikiPage( $semanticData->getSubject()->getTitle() );
-		$creator = $page->getCreator();
 		$dataItem = null;
 
-		if ( $creator && ( $userPage = $creator->getUserPage() ) instanceof Title ) {
-			$dataItem = DIWikiPage::newFromTitle( $userPage );
+		$creator = $page->getCreator();
+		if ( $creator ) {
+			if ( !( $creator instanceof User ) ) {
+				$creator = MediaWikiServices::getInstance()->getUserFactory()->newFromUserIdentity( $creator );
+			}
+			if ( ( $userPage = $creator->getUserPage() ) instanceof Title ) {
+				$dataItem = DIWikiPage::newFromTitle( $userPage );
+			}
 		}
 
 		if ( $dataItem instanceof DataItem ) {
