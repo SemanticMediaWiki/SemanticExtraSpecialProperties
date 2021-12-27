@@ -15,7 +15,7 @@ use Wikimedia\Rdbms\FakeResultWrapper;
 /**
  * @covers \SESP\PropertyAnnotators\UserEditCountPerNsPropertyAnnotator
  * @group semantic-extra-special-properties
- * @group Databasa
+ * @group Database
  *
  * @license GNU GPL v2+
  *
