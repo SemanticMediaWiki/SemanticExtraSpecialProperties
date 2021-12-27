@@ -2,7 +2,9 @@
 
 namespace SESP\Tests\PropertyAnnotators;
 
+use MediaWiki\MediaWikiServices;
 use SESP\PropertyAnnotators\NamespacePropertyAnnotator;
+use SMWDIString as DIString;
 use SMW\DIProperty;
 use SMW\DIWikiPage;
 use User;
@@ -52,6 +54,9 @@ class NamespacePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 	public function testAddAnnotation() {
 		$user = User::newFromName( "UnitTest" );
+		$userNS = MediaWikiServices::getInstance()
+				->getNamespaceInfo()->getCanonicalName( $user->getUserPage()->getNamespace() );
+
 		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
 			->disableOriginalConstructor()
 			->getMock();
@@ -60,12 +65,12 @@ class NamespacePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->method( 'addPropertyObjectValue' )
 			->with(
 				$this->equalTo( $this->property ),
-				$this->equalTo( DIWikiPage::newFromTitle( $user->getUserPage() ) ) );
+				$this->equalTo( new DIString( $userNS ) ) );
 		$annotator = new NamespacePropertyAnnotator(
 			$this->appFactory
 		);
 
-		$annotator->setNamespace( $user );
+		$annotator->setNamespace( $userNS );
 
 		$annotator->addAnnotation( $this->property, $semanticData );
 	}
