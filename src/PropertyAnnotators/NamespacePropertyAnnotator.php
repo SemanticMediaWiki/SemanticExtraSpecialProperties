@@ -32,7 +32,7 @@ class NamespacePropertyAnnotator implements PropertyAnnotator {
 	private $appFactory;
 
 	/**
-	 * @var Integer|null
+	 * @var string|null
 	 */
 	private $namespace;
 
@@ -46,9 +46,9 @@ class NamespacePropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * @since 2.0
 	 *
-	 * @param User $namespace
+	 * @param string $namespace
 	 */
-	public function setNamespace( $namespace ) {
+	public function setNamespace( string $namespace ) {
 		$this->namespace = $namespace;
 	}
 
@@ -82,8 +82,11 @@ class NamespacePropertyAnnotator implements PropertyAnnotator {
 		}
 	}
 
-	private function getDataItem() {
-		return new DIString( $this->namespace );
+	private function getDataItem(): ?DIString {
+		if ( $this->namespace ) {
+			return new DIString( $this->namespace );
+		}
+		return null;
 	}
 
 }

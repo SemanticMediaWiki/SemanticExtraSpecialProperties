@@ -8,8 +8,11 @@ error_reporting( E_ALL | E_STRICT );
 date_default_timezone_set( 'UTC' );
 ini_set( 'display_errors', 1 );
 
-if ( !is_readable( $autoloaderClassPath = __DIR__ . '/../../SemanticMediaWiki/tests/autoloader.php' ) ) {
-	die( 'The Semantic MediaWiki test autoloader is not available' );
+$autoloaderClassPath = ( getenv( "MW_INSTALL_PATH" ) ?: dirname( dirname( dirname( __DIR__ ) ) ) )
+					 . "/extensions/SemanticMediaWiki/tests/autoloader.php";
+
+if ( !is_readable( $autoloaderClassPath ) ) {
+	die( "The Semantic MediaWiki test autoloader ($autoloaderClassPath) is not available" );
 }
 
 print sprintf( "\n%-20s%s\n", "Semantic Extra Special Properties: ", SESP_VERSION );
