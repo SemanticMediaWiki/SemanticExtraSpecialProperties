@@ -59,6 +59,10 @@ class PageContributorsPropertyAnnotator implements PropertyAnnotator {
 		$title = $semanticData->getSubject()->getTitle();
 		$page = $this->appFactory->newWikiPage( $title );
 
+		if ( !$page->exists() ) {
+			return;
+		}
+
 		$user = $this->appFactory->newUserFromID( $page->getUser() );
 		$authors = $page->getContributors();
 

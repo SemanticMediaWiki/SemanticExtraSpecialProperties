@@ -12,11 +12,7 @@ if ( !is_readable( $autoloaderClassPath = __DIR__ . '/../../SemanticMediaWiki/te
 	die( 'The Semantic MediaWiki test autoloader is not available' );
 }
 
-if ( !class_exists( 'SemanticExtraSpecialProperties' ) || ( $version = SemanticExtraSpecialProperties::getVersion() ) === null ) {
-	die( "\nSemantic Extra Special Properties is not available, please check your Composer or LocalSettings.\n" );
-}
-
-print sprintf( "\n%-20s%s\n", "Semantic Extra Special Properties: ", $version );
+print sprintf( "\n%-20s%s\n", "Semantic Extra Special Properties: ", SESP_VERSION );
 
 $autoloader = require $autoloaderClassPath;
 $autoloader->addPsr4( 'SESP\\Tests\\', __DIR__ . '/phpunit/Unit' );
