@@ -21,7 +21,7 @@ class NamespacePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	private $property;
 	private $appFactory;
 
-	protected function setUp(): void {
+	protected function setUp() {
 		parent::setUp();
 
 		$this->appFactory = $this->getMockBuilder( '\SESP\AppFactory' )
