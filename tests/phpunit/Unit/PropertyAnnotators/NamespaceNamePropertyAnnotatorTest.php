@@ -12,9 +12,6 @@ use SMWDIBlob;
  * @group semantic-extra-special-properties
  *
  * @license GNU GPL v2+
- * @since 2.0
- *
- * @author mwjames
  */
 class NamespaceNamePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
@@ -39,6 +36,9 @@ class NamespaceNamePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
+	/**
+	 * @covers \SESP\PropertyAnnotators\NamespacePropertyAnnotator::isAnnotatorFor
+	 */
 	public function testIsAnnotatorFor() {
 
 		$annotator = new NamespaceNamePropertyAnnotator(
@@ -52,6 +52,7 @@ class NamespaceNamePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 	/**
 	 * @dataProvider nsProvider
+	 * @covers \SESP\PropertyAnnotators\NamespacePropertyAnnotator::addAnnotation
 	 */
 	public function testAddAnnotation( $nsid, $nsname ) {
 		$namespace = $nsid;

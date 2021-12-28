@@ -13,9 +13,6 @@ use SMWDINumber;
  * @group semantic-extra-special-properties
  *
  * @license GNU GPL v2+
- * @since 2.0
- *
- * @author mwjames
  */
 class NamespacePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
@@ -32,6 +29,9 @@ class NamespacePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		$this->property = new DIProperty( '___NSID' );
 	}
 
+	/**
+	 * @covers \SESP\PropertyAnnotators\NamespacePropertyAnnotator
+	 */
 	public function testCanConstruct() {
 
 		$this->assertInstanceOf(
@@ -40,6 +40,9 @@ class NamespacePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
+	/**
+	 * @covers \SESP\PropertyAnnotators\NamespacePropertyAnnotator::isAnnotatorFor
+	 */
 	public function testIsAnnotatorFor() {
 
 		$annotator = new NamespacePropertyAnnotator(
@@ -51,6 +54,9 @@ class NamespacePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
+	/**
+	 * @covers \SESP\PropertyAnnotators\NamespacePropertyAnnotator::addAnnotation
+	 */
 	public function testAddAnnotation() {
 		$namespace = NS_USER;
 		$subject = DIWikiPage::newFromText( __METHOD__, $namespace );
