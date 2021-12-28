@@ -70,7 +70,8 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 			'___NTREV',
 			'___USEREDITCNT',
 			'___EXIFDATA',
-			'___NAMESPACE'
+			'___NSID',
+			'___NSNAME'
 		];
 
 		$this->assertThatHookIsExcutable(

@@ -26,7 +26,8 @@
                 "___SUBP",
                 "___NREV",
                 "___NTREV",
-                "___NAMESPACE"
+                "___NSID",
+				"___NSNAME"
             ]
         }
     ],
