@@ -47,7 +47,7 @@
 		"id": "___NSID",
 		"type": "_num",
 		"show": false,
-		"alias": "sesp-property-namespace_id",
+		"alias": "sesp-property-namespace-id",
 		"label": "Namespace id",
 		"desc": "sesp-property-namespace-id-desc"
 	},
@@ -55,7 +55,7 @@
 		"id": "___NSNAME",
 		"type": "_txt",
 		"show": false,
-		"alias": "sesp-property-namespace_name",
+		"alias": "sesp-property-namespace-name",
 		"label": "Namespace canonical name",
 		"desc": "sesp-property-namespace-name-desc"
 	},
