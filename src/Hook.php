@@ -68,7 +68,9 @@ class Hook {
 				'replacement' => $deprecationNotices['replacement']
 			];
 		}
+	}
 
+	public static function onSetupAfterCache() {
 		$config = [
 			'sespgUseFixedTables'      => $GLOBALS['sespgUseFixedTables'],
 			'sespgEnabledPropertyList' => $GLOBALS['sespgEnabledPropertyList'],
