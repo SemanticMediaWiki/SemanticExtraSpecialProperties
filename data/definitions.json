@@ -43,13 +43,21 @@
 		"alias": "sesp-property-view-count",
 		"label": "Number of page views"
 	},
-	"_NAMESPACE": {
-		"id": "___NAMESPACE",
+	"_NSID": {
+		"id": "___NSID",
+		"type": "_num",
+		"show": false,
+		"alias": "sesp-property-namespace-id",
+		"label": "Namespace id",
+		"desc": "sesp-property-namespace-id-desc"
+	},
+	"_NSNAME": {
+		"id": "___NSNAME",
 		"type": "_txt",
 		"show": false,
-		"alias": "sesp-property-namespace",
-		"label": "Namespace",
-		"desc": "sesp-property-namespace-desc"
+		"alias": "sesp-property-namespace-name",
+		"label": "Namespace canonical name",
+		"desc": "sesp-property-namespace-name-desc"
 	},
 	"_APPROVED": {
 		"id": "___APPROVED",

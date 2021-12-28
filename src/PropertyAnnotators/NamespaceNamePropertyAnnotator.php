@@ -2,11 +2,13 @@
 
 namespace SESP\PropertyAnnotators;
 
+use MediaWiki\MediaWikiServices;
+use RequestContext;
 use SESP\AppFactory;
 use SESP\PropertyAnnotator;
+use SMWDIBlob;
 use SMW\DIProperty;
 use SMW\SemanticData;
-use SMWDINumber;
 
 /**
  * @private
@@ -14,12 +16,12 @@ use SMWDINumber;
  *
  * @license GNU GPL v2+
  */
-class NamespacePropertyAnnotator implements PropertyAnnotator {
+class NamespaceNamePropertyAnnotator implements PropertyAnnotator {
 
 	/**
 	 * Predefined property ID
 	 */
-	const PROP_ID = '___NSID';
+	const PROP_ID = '___NSNAME';
 
 	/**
 	 * @var AppFactory
@@ -44,7 +46,14 @@ class NamespacePropertyAnnotator implements PropertyAnnotator {
 	 * {@inheritDoc}
 	 */
 	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
-		$dataItem = new SMWDINumber( $semanticData->getSubject()->getTitle()->getNamespace() );
-		$semanticData->addPropertyObjectValue( $property, $dataItem );
+		$nsInfo = MediaWikiServices::getInstance()->getNamespaceInfo();
+		$namespaceName = $nsInfo->getCanonicalName( $semanticData->getSubject()->getTitle()->getNamespace() );
+		if ( $namespaceName !== false ) {
+			if ( $namespaceName === '' ) {
+				$namespaceName = RequestContext::getMain()->msg( 'blanknamespace' )->text();
+			}
+			$dataItem = new SMWDIBlob( $namespaceName );
+			$semanticData->addPropertyObjectValue( $property, $dataItem );
+		}
 	}
 }

@@ -2,11 +2,10 @@
 
 namespace SESP\Tests\PropertyAnnotators;
 
-use SESP\PropertyAnnotators\NamespacePropertyAnnotator;
+use SESP\PropertyAnnotators\NamespaceNamePropertyAnnotator;
 use SMW\DIProperty;
 use SMW\DIWikiPage;
-use SMWDINumber;
-
+use SMWDIBlob;
 
 /**
  * @covers \SESP\PropertyAnnotators\NamespacePropertyAnnotator
@@ -14,7 +13,7 @@ use SMWDINumber;
  *
  * @license GNU GPL v2+
  */
-class NamespacePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
+class NamespaceNamePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 	private $property;
 	private $appFactory;
@@ -26,17 +25,14 @@ class NamespacePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$this->property = new DIProperty( '___NSID' );
+		$this->property = new DIProperty( '___NSNAME' );
 	}
 
-	/**
-	 * @covers \SESP\PropertyAnnotators\NamespacePropertyAnnotator
-	 */
 	public function testCanConstruct() {
 
 		$this->assertInstanceOf(
-			NamespacePropertyAnnotator::class,
-			new NamespacePropertyAnnotator( $this->appFactory )
+			NamespaceNamePropertyAnnotator::class,
+			new NamespaceNamePropertyAnnotator( $this->appFactory )
 		);
 	}
 
@@ -45,7 +41,7 @@ class NamespacePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	 */
 	public function testIsAnnotatorFor() {
 
-		$annotator = new NamespacePropertyAnnotator(
+		$annotator = new NamespaceNamePropertyAnnotator(
 			$this->appFactory
 		);
 
@@ -55,10 +51,11 @@ class NamespacePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	/**
+	 * @dataProvider nsProvider
 	 * @covers \SESP\PropertyAnnotators\NamespacePropertyAnnotator::addAnnotation
 	 */
-	public function testAddAnnotation() {
-		$namespace = NS_USER;
+	public function testAddAnnotation( $nsid, $nsname ) {
+		$namespace = $nsid;
 		$subject = DIWikiPage::newFromText( __METHOD__, $namespace );
 
 		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
@@ -73,11 +70,16 @@ class NamespacePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->method( 'addPropertyObjectValue' )
 			->with(
 				$this->equalTo( $this->property ),
-				$this->equalTo( new SMWDINumber( $namespace ) ) );
-		$annotator = new NamespacePropertyAnnotator(
+				$this->equalTo( new SMWDIBlob( $nsname ) ) );
+		$annotator = new NamespaceNamePropertyAnnotator(
 			$this->appFactory
 		);
 
 		$annotator->addAnnotation( $this->property, $semanticData );
+	}
+
+	public function nsProvider() {
+		yield [ NS_USER, 'User'];
+		yield [ NS_MAIN, '(Main)' ];
 	}
 }
