@@ -191,6 +191,10 @@ class DispatchingPropertyAnnotator implements PropertyAnnotator {
 				return new ExifPropertyAnnotator( $appFactory );
 			},
 
+            PageImagesPropertyAnnotator::PROP_ID => function( $appFactory ) {
+                return new PageImagesPropertyAnnotator( $appFactory );
+            },
+
 		];
 	}
 

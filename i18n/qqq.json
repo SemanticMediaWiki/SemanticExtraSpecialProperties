@@ -20,6 +20,8 @@
 	"sesp-property-page-id-desc": "{{Doc-smw-sp-desc|extension=SESP}}",
 	"sesp-property-page-len": "The name of the special property.",
 	"sesp-property-page-len-desc": "{{Doc-smw-sp-desc|extension=SESP}}",
+	"sesp-property-page-img": "{{Doc-smw-sp|extension=SESP}}",
+	"sesp-property-page-img-desc": "{{Doc-smw-sp-desc|extension=SESP}}",
 	"sesp-property-view-count": "{{Doc-smw-sp|extension=SESP}}",
 	"sesp-property-view-count-desc": "{{Doc-smw-sp-desc|extension=SESP}}",
 	"sesp-property-subpages": "{{Doc-smw-sp|extension=SESP}}\n{{Identical|Subpage}}",
