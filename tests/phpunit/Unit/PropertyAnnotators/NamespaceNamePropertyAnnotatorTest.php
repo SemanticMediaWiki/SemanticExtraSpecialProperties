@@ -28,6 +28,9 @@ class NamespaceNamePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		$this->property = new DIProperty( '___NSNAME' );
 	}
 
+	/**
+	 * @covers \SESP\PropertyAnnotators\NamespaceNamePropertyAnnotator
+	 */
 	public function testCanConstruct() {
 
 		$this->assertInstanceOf(
@@ -37,7 +40,7 @@ class NamespaceNamePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * @covers \SESP\PropertyAnnotators\NamespacePropertyAnnotator::isAnnotatorFor
+	 * @covers \SESP\PropertyAnnotators\NamespaceNamePropertyAnnotator::isAnnotatorFor
 	 */
 	public function testIsAnnotatorFor() {
 
@@ -52,11 +55,10 @@ class NamespaceNamePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 	/**
 	 * @dataProvider nsProvider
-	 * @covers \SESP\PropertyAnnotators\NamespacePropertyAnnotator::addAnnotation
+	 * @covers \SESP\PropertyAnnotators\NamespaceNamePropertyAnnotator::addAnnotation
 	 */
 	public function testAddAnnotation( $nsid, $nsname ) {
-		$namespace = $nsid;
-		$subject = DIWikiPage::newFromText( __METHOD__, $namespace );
+		$subject = DIWikiPage::newFromText( __METHOD__, $nsid );
 
 		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
 			->disableOriginalConstructor()
