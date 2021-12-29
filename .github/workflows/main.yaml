@@ -18,21 +18,36 @@ jobs:
       matrix:
         include:
           - mediawiki_version: 1.35
+            database_type: mysql
             semantic_mediawiki_version: 3.2.3
             coverage: true
             experimental: false
+          - mediawiki_version: 1.35
+            database_type: sqlite
+            semantic_mediawiki_version: 3.2.3
+            coverage: false
+            experimental: false
           - mediawiki_version: 1.36
+            database_type: sqlite
             semantic_mediawiki_version: dev-master
             coverage: false
             experimental: true
           - mediawiki_version: 1.37
+            database_type: sqlite
             semantic_mediawiki_version: dev-master
             coverage: false
             experimental: true
 
+    services:
+      some-mysql:
+        image: mariadb:latest
+        env:
+          MYSQL_ROOT_PASSWORD: database
+        options: --name mysql --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=10
 
     container:
-      image: gesinn/docker-mediawiki:${{ matrix.mediawiki_version }}
+      image: gesinn/docker-mediawiki-${{ matrix.database_type }}:${{ matrix.mediawiki_version }}
+      options: --link some-mysql:mysql
 
     env:
       EXT_NAME: SemanticExtraSpecialProperties 
@@ -41,6 +56,11 @@ jobs:
       MW_EXT_PATH: /var/www/html/extensions
 
     steps:
+      - name: Get MySQL from dump
+        working-directory: ${{ env.MW_INST_PATH }}
+        run: bash restore-database.sh
+        if: matrix.database_type == 'mysql'
+        
       - name: Install SemanticMediaWiki
         run: |
           COMPOSER=composer.local.json composer require --update-with-dependencies --working-dir ${{ env.MW_INST_PATH }} mediawiki/semantic-media-wiki ${{ matrix.semantic_mediawiki_version }}
