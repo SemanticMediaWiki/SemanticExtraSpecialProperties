@@ -37,6 +37,11 @@ jobs:
             semantic_mediawiki_version: dev-master
             coverage: false
             experimental: true
+          - mediawiki_version: 1.37
+            database_type: mysql
+            semantic_mediawiki_version: dev-master
+            coverage: false
+            experimental: true
 
     services:
       some-mysql:
