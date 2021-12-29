@@ -2,7 +2,13 @@
 
 namespace SESP\Tests\PropertyAnnotators;
 
+use SESP\PropertyAnnotators\ApprovedByPropertyAnnotator;
+use SESP\PropertyAnnotators\ApprovedDatePropertyAnnotator;
+use SESP\PropertyAnnotators\ApprovedRevPropertyAnnotator;
+use SESP\PropertyAnnotators\ApprovedStatusPropertyAnnotator;
 use SESP\PropertyAnnotators\DispatchingPropertyAnnotator;
+use SESP\PropertyAnnotators\NamespaceNamePropertyAnnotator;
+use SESP\PropertyAnnotators\NamespacePropertyAnnotator;
 use SESP\PropertyAnnotators\NullPropertyAnnotator;
 use SESP\PropertyAnnotators\CreatorPropertyAnnotator;
 use SESP\PropertyAnnotators\PageViewsPropertyAnnotator;
@@ -114,6 +120,36 @@ class DispatchingPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		$provider[] = [
 			PageViewsPropertyAnnotator::PROP_ID,
 			PageViewsPropertyAnnotator::class
+		];
+
+		$provider[] = [
+			NamespacePropertyAnnotator::PROP_ID,
+			NamespacePropertyAnnotator::class
+		];
+
+		$provider[] = [
+			NamespaceNamePropertyAnnotator::PROP_ID,
+			NamespaceNamePropertyAnnotator::class
+		];
+
+		$provider[] = [
+			ApprovedRevPropertyAnnotator::PROP_ID,
+			ApprovedRevPropertyAnnotator::class
+		];
+
+		$provider[] = [
+			ApprovedByPropertyAnnotator::PROP_ID,
+			ApprovedByPropertyAnnotator::class
+		];
+
+		$provider[] = [
+			ApprovedDatePropertyAnnotator::PROP_ID,
+			ApprovedDatePropertyAnnotator::class
+		];
+
+		$provider[] = [
+			ApprovedStatusPropertyAnnotator::PROP_ID,
+			ApprovedStatusPropertyAnnotator::class
 		];
 
 		$provider[] = [
