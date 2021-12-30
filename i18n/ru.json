@@ -35,7 +35,6 @@
 	"sesp-property-shorturl": "Короткая ссылка",
 	"sesp-property-approved-rev": "Подтверждённая версия",
 	"sesp-property-approved-rev-desc": "\"$1\" определяет ID версии страницы, которая была подтверждена. Предоставляется с помощью расширения [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
-	"sesp-property-namespace": "Пространство имён",
 	"sesp-property-approved-by": "Утвержден",
 	"sesp-property-approved-by-desc": "\"$1\" определяет пользователя, который установил статус утверждения страницы. Предоставляется расширением [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-approved-date": "Утвержденная дата",

@@ -36,8 +36,6 @@
 	"sesp-property-shorturl-desc": "„$1” przechowuje skrócony URL strony. Właściwość jest dostarczana przez rozszerzenie [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-approved-rev": "Zatwierdzona wersja",
 	"sesp-property-approved-rev-desc": "„$1” przechowuje ID rewizji strony, która została zatwierdzona. Właściwość jest dostarczana przez rozszerzenie [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
-	"sesp-property-namespace": "Przestrzeń nazw",
-	"sesp-property-namespace-desc": "„$1” przechowuje przestrzeń nazw strony. Właściwość jest dostarczana przez rozszerzenie [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-approved-by": "Zatwierdzono przez",
 	"sesp-property-approved-by-desc": "„$1” przechowuje użytkownika, który ustawił status strony na zatwierdzoną. Właściwość jest dostarczana przez rozszerzenie [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-approved-date": "Zatwierdzona data",

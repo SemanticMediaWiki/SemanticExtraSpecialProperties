@@ -28,8 +28,6 @@
 	"sesp-property-shorturl-desc": "\"$1\" reggìstre l'URL curte d'a pàgene. Jè date da l'estenzione [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Probbietà Semnadeche Extra e Speciale].",
 	"sesp-property-approved-rev": "Revisione approvate",
 	"sesp-property-approved-rev-desc": "\"$1\" reggìstre l'ID d'a revisione de 'na pàgene ca ha state approvate. Jè date da l'estenzione [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Probbietà Semnadeche Extra e Speciale].",
-	"sesp-property-namespace": "Namespace",
-	"sesp-property-namespace-desc": "\"$1\" reggìstre 'u namespace d'a pàgene. Jè date da l'estenzione [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Probbietà Semnadeche Extra e Speciale].",
 	"sesp-property-approved-by": "Approvate da",
 	"sesp-property-approved-by-desc": "\"$1\" reggìstre l'utende ca ave 'mbostate 'u state d'a pàgene. Jè date da l'estenzione [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Probbietà Semnadeche Extra e Speciale].",
 	"sesp-property-approved-date": "Date de approvazzione",

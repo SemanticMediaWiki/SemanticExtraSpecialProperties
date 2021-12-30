@@ -36,8 +36,6 @@
 	"sesp-property-shorturl-desc": "«$1» записує коротку URL-адресу сторінки. Забезпечується розширенням [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-approved-rev": "Затверджена версія",
 	"sesp-property-approved-rev-desc": "«$1» записує ідентифікатор перевіреної (затвердженої) версії сторінки. Забезпечується розширенням [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties (SESP)].",
-	"sesp-property-namespace": "Простори назв",
-	"sesp-property-namespace-desc": "\"$1\" записує простір імен сторінки. Він надається розширенням [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-approved-by": "Затверджено",
 	"sesp-property-approved-by-desc": "«$1» записує користувача який встановив статус «перевірено» («затверджено»). Забезпечується розширенням [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties (SESP)].",
 	"sesp-property-approved-date": "Дати затвердження",

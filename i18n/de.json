@@ -33,8 +33,6 @@
 	"sesp-property-shorturl-desc": "„$1“ speichert die Kurz-URL einer Seite. Sie wird von der Erweiterung [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties] zur Verfügung gestellt.",
 	"sesp-property-approved-rev": "Bestätigte Version",
 	"sesp-property-approved-rev-desc": "„$1“ speichert die Kennung der Version einer Seite, die bestätigt wurde. Sie wird von der Erweiterung [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties] zur Verfügung gestellt.",
-	"sesp-property-namespace": "Namensraum",
-	"sesp-property-namespace-desc": "„$1“ speichert den Namensraum einer Seite. Sie wird von der Erweiterung [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties] zur Verfügung gestellt.",
 	"sesp-property-approved-by": "Bestätigt von",
 	"sesp-property-approved-by-desc": "„$1“ speichert den Benutzer, der den Bestätigungsstatus der Seite festgelegt hat. Sie wird von der Erweiterung [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties] zur Verfügung gestellt.",
 	"sesp-property-approved-date": "Bestätigungsdatum",

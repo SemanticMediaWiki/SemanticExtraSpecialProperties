@@ -34,8 +34,6 @@
 	"sesp-property-shorturl-desc": "\"$1\" registra o URL curto de uma página, é fornecida pela extensão [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-approved-rev": "Revisão aprovada",
 	"sesp-property-approved-rev-desc": "\"$1\" registra o identificador da revisão aprovada de uma página, é fornecida pela extensão [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
-	"sesp-property-namespace": "Espaço nominal",
-	"sesp-property-namespace-desc": "\"$1\" registra o namespace de uma página. É fornecido pela extensão [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-approved-by": "Aprovado por",
 	"sesp-property-approved-by-desc": "\"$1\" registra o usuário que definiu o estado de aprovação de uma página, é fornecida pela extensão [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-approved-date": "Data de aprovação",
