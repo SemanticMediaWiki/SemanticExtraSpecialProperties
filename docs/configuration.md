@@ -24,6 +24,8 @@ Property labels differ according to the language the wiki was set up. An easy wa
 - `_CUSER` adds a property called "Page creator" which records the user that created a page
 - `_REVID` adds a property called "Revision ID" which records the current revision ID of a page
 - `_PAGEID` adds a property called "Page ID" which records the page ID of a page
+- `_NSID` adds a property called "Namespace ID" which records the namespace ID of a page
+- `_NSNAME` adds a property called "Namespace canonical name" which records the canonical namespace name of a page
 - `_PAGELGTH` adds a property called "Page length" which records the page length of a page
 - `_NREV` adds a property called "Number of revisions" which records estimated number of total revisions of a page
 - `_NTREV` adds a property called "Number of talk page revisions" which records an estimated number of total revisions of a talk page
