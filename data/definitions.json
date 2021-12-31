@@ -56,7 +56,7 @@
 		"type": "_num",
 		"show": false,
 		"alias": "sesp-property-namespace-id",
-		"label": "Namespace id",
+		"label": "Namespace ID",
 		"desc": "sesp-property-namespace-id-desc"
 	},
 	"_NSNAME": {
