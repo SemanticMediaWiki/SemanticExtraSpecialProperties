@@ -8,7 +8,8 @@
 			"Mywood",
 			"Shirayuki",
 			"Yfdyh000",
-			"Zhang8569"
+			"Zhang8569",
+			"孟天皓"
 		]
 	},
 	"sesp-desc": "将额外的一些特殊属性添加到所有页面",
@@ -27,6 +28,8 @@
 	"sesp-property-shorturl": "简短URL",
 	"sesp-property-approved-rev": "已认可版本",
 	"sesp-property-approved-rev-desc": "“$1”记录已认可页面的修订版本ID，由[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties 语义额外特殊属性]扩展提供。",
+	"sesp-property-namespace-id": "命名空间：",
+	"sesp-property-namespace-id-desc": "“$1”记录页面的ID，由[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties 语义额外特殊属性]扩展提供。",
 	"sesp-property-approved-by": "批准自",
 	"sesp-property-approved-by-desc": "“$1”记录设置页面通过状态的用户，由[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties 语义额外特殊属性]扩展提供。",
 	"sesp-property-approved-date": "通过日期",
