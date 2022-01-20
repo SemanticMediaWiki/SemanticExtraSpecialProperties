@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"BaRaN6161 TURK",
+			"Can",
 			"Hedda",
 			"Joseph",
 			"Uncitoyen",
@@ -20,6 +21,7 @@
 	"sesp-property-page-id-desc": "\"$1\" bir sayfanın kimliğini kaydeder. [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Ekstra Özel Özellikler] uzantısı tarafından sağlanır.",
 	"sesp-property-page-len": "Sayfa uzunluğu",
 	"sesp-property-page-len-desc": "\"$1\" bir sayfanın uzunluğunu bayt cinsinden kaydeder. [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Ekstra Özel Özellikler] uzantısı tarafından sağlanır.",
+	"sesp-property-page-img": "Sayfa Görseli",
 	"sesp-property-view-count": "Sayfa görüntüleme sayısı",
 	"sesp-property-view-count-desc": "\"$1\" bir sayfanın sayfa görüntüleme sayısını kaydeder. [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Ekstra Özel Özellikler] uzantısı tarafından sağlanır.",
 	"sesp-property-subpages": "Alt sayfa",
