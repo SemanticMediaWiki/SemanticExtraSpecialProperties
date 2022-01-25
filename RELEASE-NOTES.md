@@ -1,19 +1,26 @@
 This file contains the RELEASE-NOTES of the **Semantic Extra Special Properties** (a.k.a. SESP) extension.
 
+### 3.0.0
+
+Released on January 25, 2022.
+
+* Minimum PHP version changed from 7.0 to 7.3
+* Minimum MediaWiki version changed from 1.31 to 1.35
+
 ### 2.1.0
 
-Released on Feburary 9, 2020.
+Released on February 9, 2020.
 
 * Minimum requirement for
-  * PHP changed to version 7.0 and later
-  * MediaWiki changed to version 1.31 and later
-  * Semantic MediaWiki changes to version 3.1 and later
-* #114 Added guard against invalid time strins within annotated data (by James Hong Kong)
+  * PHP changed to version 7.0
+  * MediaWiki changed to version 1.31
+  * Semantic MediaWiki changed to version 3.1
+* #114 Added guard against invalid time strings within annotated data (by James Hong Kong)
 * #116 Added support for the property group schemas ("sesp.group.json") (by James Hong Kong)
 * #132 Replaced deprecated `DB_SLAVE` constant by `DB_REPLICA` (by Ammar Abdulhamid)
 * #138 Added missing system messages providing special property descriptions (by Karsten Hoffmeyer)
 * Several internal code changes and bug fixes (by James Hong Kong)
-* Improved documenation of the extension's functionality (by Bernhard Krabina and Karsten Hoffmeyer)
+* Improved documentation of the extension's functionality (by Bernhard Krabina and Karsten Hoffmeyer)
 * Localization updates from https://translatewiki.net
 
 ### 2.0.0
@@ -22,7 +29,7 @@ Released on October 12, 2018.
 
 This release now requires MediaWiki 1.27+ and Semantic MediaWiki 3.0+ (#100).
 
-Note that the configuration parameter names were renamed (#105). See the [migration guide](/docs/migration-to-200.md) 
+Note that the configuration parameter names were renamed (#105). See the [migration guide](/docs/migration-to-200.md)
 for a concise overview of the changes. Moreover special page "SemanticMediaWiki (`Special:SemanticMediaWiki`) will
 inform about required configuration changes.
 
