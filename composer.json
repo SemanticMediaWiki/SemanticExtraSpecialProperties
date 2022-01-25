@@ -32,9 +32,9 @@
 		"source": "https://github.com/SemanticMediaWiki/SemanticExtraSpecialProperties"
 	},
 	"require": {
-		"php": ">=7.1.0",
-		"composer/installers": "1.*,>=1.0.1",
-		"mediawiki/semantic-media-wiki": "~3.1"
+		"php": ">=7.3.0",
+		"composer/installers": ">=1.0.1",
+		"mediawiki/semantic-media-wiki": "~4.0|~3.1"
 	},
 	"extra": {
 		"branch-alias": {
