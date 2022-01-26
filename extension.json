@@ -12,7 +12,10 @@
 	"license-name": "GPL-2.0-or-later",
 	"type": "semantic",
 	"requires": {
-		"MediaWiki": ">= 1.35"
+		"MediaWiki": ">= 1.35",
+		"extensions": {
+			"SemanticMediaWiki": "*"
+		}
 	},
 	"MessagesDirs": {
 		"SemanticExtraSpecialProperties": [
