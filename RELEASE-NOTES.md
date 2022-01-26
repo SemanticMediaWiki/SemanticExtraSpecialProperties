@@ -1,5 +1,11 @@
 This file contains the RELEASE-NOTES of the **Semantic Extra Special Properties** (a.k.a. SESP) extension.
 
+### 3.0.1
+
+Released on January 26, 2022.
+
+* Fixed Semantic MediaWiki 4.x compatibility issue (thanks Jeroen De Dauw)
+
 ### 3.0.0
 
 Released on January 25, 2022.
