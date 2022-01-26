@@ -2,12 +2,6 @@
 
 namespace SESP;
 
-use Title;
-use OutputPage;
-use User;
-use WebRequest;
-use MediaWiki;
-
 /**
  * @codeCoverageIgnore
  */
@@ -17,8 +11,7 @@ class Hook {
 	 * @since 1.4
 	 */
 	public static function callback( array $credits ): void {
-		// See https://phabricator.wikimedia.org/T151136
-		define( 'SESP_VERSION', isset( $credits['version'] ) ? $credits['version'] : 'UNKNOWN' );
+		define( 'SESP_VERSION', $credits['version'] );
 
 		if ( !defined( 'SMW_VERSION' ) ) {
 			if ( PHP_SAPI === 'cli' || PHP_SAPI === 'phpdbg' ) {
