@@ -72,7 +72,7 @@ class UserEditCountPerNsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCas
 		// Expose the private method getEditsPerNs().
 		$reflector = new \ReflectionObject( $annotator );
 		$method = $reflector->getMethod( 'getEditsPerNs' );
-		$method->setAccessible ( true );
+		$method->setAccessible( true );
 
 		// Call the tested method.
 		$stats = $method->invokeArgs( $annotator, [ $id, $ip ] );
@@ -141,13 +141,16 @@ class UserEditCountPerNsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCas
 
 	/**
 	 * @dataProvider addAnnotationProvider
+	 * @param int $namespace Subject page namespace
 	 * @param string|null $name User name
 	 * @param string|null $ip Anonymous iser's I address
 	 * @param array $stats
 	 */
-	public function testAddAnnotation( $name, $ip, array $stats ) {
-		$subject = new DIWikiPage ( $name ?: $ip, NS_USER );
+	public function testAddAnnotation( $namespace, $name, $ip, array $stats ) {
+		$subject = new DIWikiPage( $name ?: $ip, $namespace );
 		$semanticData = new SemanticData( $subject );
+
+		$total = array_sum( $stats );
 
 		// Mock the database.
 		$db = $this->getMockBuilder( Database::class )
@@ -170,23 +173,28 @@ class UserEditCountPerNsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCas
 			->getMock();
 		$user->method( 'getId' )
 			->willReturn( 1 );
-		$user->expects( $this->once() )
+		$user->expects(  $namespace === NS_USER ? $this->atMost( 2 ) : $this->never() )
 			->method( 'getEditCount' )
-			->willReturn( array_sum( $stats ) );
+			->willReturn( $total );
 
 		$factory = $this->appFactory;
 
-		$this->appFactory->expects( $this->once() )
+		$this->appFactory->expects(  $namespace === NS_USER ? $this->once() : $this->never() )
 			->method( 'newUserFromTitle' )
 			->willReturn( $user );
 
 		$annotator = new UserEditCountPerNsPropertyAnnotator( $factory );
 
-		$annotator->addAnnotation( $this->property, $semanticData );
+		$annotator_return = $annotator->addAnnotation( $this->property, $semanticData );
+		// Always returns void.
+		$this->assertNull(
+			$annotator_return,
+			'UserEditCountPerNsPropertyAnnotator::addAnnotation() should return nothing'
+		);
 
 		$properties = $semanticData->getProperties();
 
-		if ( count( $stats ) > 0 ) {
+		if ( count( $stats ) > 0 && is_int( $total ) ) {
 			$this->assertArrayHasKey( '___USEREDITCNTNS', $properties, 'No edit count record for the page' );
 
 			$records = $semanticData->getPropertyValues( new DIProperty( '___USEREDITCNTNS' ) );
@@ -203,6 +211,13 @@ class UserEditCountPerNsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCas
 				$actual[$ns] = $edits;
 			}
 			$this->assertEquals( $stats, $actual, 'Edit count arrays mismatch' );
+		} else {
+			// No edits for this user or the total edits are somehow not integer.
+			$this->assertArrayNotHasKey(
+				'___USEREDITCNTNS',
+				$properties,
+				'Edit count record for the page where it should not be'
+			);
 		}
 	}
 
@@ -210,11 +225,16 @@ class UserEditCountPerNsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCas
 	 * @return array
 	 */
 	public function addAnnotationProvider(): array {
-		$provider = [];
-		$provider[] = [ 'Test user', null, [ 0 => 42, 1 => 2, 8 => 7 ] ];
-		$provider[] = [	null, '127.0.0.1', [ 0 => 84, 8 => 21 ] ];
-		$provider[] = [	null, '127.0.0.1', [] ];
-		return $provider;
+		return [
+			'Named user with edits' => [ NS_USER, 'Test user', null, [ 0 => 42, 1 => 2, 8 => 7 ] ],
+			'Named user without edits' => [ NS_USER, 'Test user', null, [] ],
+			'Named user with non-integer edits' => [ NS_USER, 'Test user', null, [ 0 => 0.5 ] ],
+			'Anonymous user with edits' => [ NS_USER, null, '127.0.0.1', [ 0 => 84, 8 => 21 ] ],
+			'Anonymous user without edits' => [	NS_USER, null, '127.0.0.1', [] ],
+			'Anonymous user with non-integer edits' => [ NS_USER, 'Test user', null, [ 0 => 0.5 ] ],
+			'Subject not in User: namespace' => [ NS_MAIN, 'Test page', null, [] ]
+		];
 	}
 }
+
 
