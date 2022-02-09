@@ -69,6 +69,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 			'___NREV',
 			'___NTREV',
 			'___USEREDITCNT',
+			'___USEREDITCNTNS',			
 			'___EXIFDATA',
 			'___NSID',
 			'___NSNAME'
