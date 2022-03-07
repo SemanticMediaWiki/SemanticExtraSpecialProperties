@@ -75,7 +75,6 @@ jobs:
       - name: Enable SemanticMediaWiki
         run: |
           echo "wfLoadExtension( 'SemanticMediaWiki' );" >> ${{ env.MW_INST_PATH }}/LocalSettings.php
-        if: matrix.semantic_mediawiki_version == 'dev-master'
 
       - name: Run update
         run: |          
