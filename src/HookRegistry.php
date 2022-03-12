@@ -87,7 +87,7 @@ class HookRegistry {
 
 			$exemptionlist = [
 				'___EUSER', '___CUSER', '___SUBP', '___REVID', '___VIEWS',
-				'___NREV', '___NTREV', '___USEREDITCNT', '___EXIFDATA', '___NSID', '___NSNAME'
+				'___NREV', '___NTREV', '___USEREDITCNT', '___USEREDITCNTNS', '___EXIFDATA', '___NSID', '___NSNAME'
 			];
 
 			// Exclude listed properties from indexing

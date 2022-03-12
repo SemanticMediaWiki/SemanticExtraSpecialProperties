@@ -32,6 +32,7 @@ Property labels differ according to the language the wiki was set up. An easy wa
 - `_SUBP` adds a property called "Subpage" which records all subpages to a page
 - `_USERREG` adds a property called "User registration date" to user pages which records the user's registration date
 - `_USEREDITCNT` adds a property called "User edit count" to user pages which records the user's edit count
+- `_USEREDITCNTNS` adds a property called "User edit count per namespace" to user pages, which records the user's edit counts in all namespaces
 - `_USERBLOCK` adds a property called "User block" to user pages which records the user's block status
 - `_USERRIGHT` adds a property called "User right" to user pages which records the user's assigned rights
 - `_USERGROUP` adds a property called "User group" to user pages which records the user's assigned groups

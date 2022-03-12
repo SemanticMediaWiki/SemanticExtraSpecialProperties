@@ -143,6 +143,10 @@ class DispatchingPropertyAnnotator implements PropertyAnnotator {
 				return new UserEditCountPropertyAnnotator( $appFactory );
 			},
 
+			UserEditCountPerNsPropertyAnnotator::PROP_ID => function( $appFactory ) {
+				return new UserEditCountPerNsPropertyAnnotator( $appFactory );
+			},
+
 			UserBlockPropertyAnnotator::PROP_ID => function( $appFactory ) {
 				return new UserBlockPropertyAnnotator( $appFactory );
 			},

@@ -141,6 +141,25 @@
 		"alias": "sesp-property-user-edit-count",
 		"label": "User edit count"
 	},
+	"_USEREDITCNTNS": {
+		"id": "___USEREDITCNTNS",
+		"type": "_wpg",
+		"show": false,
+		"alias": "sesp-property-user-edit-count-per-ns",
+		"label": "User edit count per namespace"
+	},
+	"_USEREDITCNTNS_NS": {
+		"id": "___USEREDITCNTNS_NS",
+		"type": "_num",
+		"alias": "sesp-property-user-edit-count-ns",
+		"label": "User edit count per namespace:Namespace"
+	},
+	"_USEREDITCNTNS_CNT": {
+		"id": "___USEREDITCNTNS_CNT",
+		"type": "_num",
+		"alias": "sesp-property-user-edit-count-cnt",
+		"label": "User edit count per namespace:Edit count"
+	},
 	"_USERBLOCK": {
 		"id": "___USERBLOCK",
 		"type": "_txt",
