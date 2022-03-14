@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"MathXplore",
 			"Shirayuki",
 			"Suyama"
 		]
@@ -23,6 +24,9 @@
 	"sesp-property-approved-status": "承認ステータス",
 	"sesp-property-user-registration-date": "利用者登録日",
 	"sesp-property-user-edit-count": "利用者の編集回数",
+	"sesp-property-user-edit-count-per-ns": "名前空間ごとの編集回数",
+	"sesp-property-user-edit-count-ns": "名前空間",
+	"sesp-property-user-edit-count-cnt": "編集回数",
 	"sesp-property-user-block": "利用者のブロック",
 	"sesp-property-user-right": "利用者権限",
 	"sesp-property-user-group": "利用者グループ",

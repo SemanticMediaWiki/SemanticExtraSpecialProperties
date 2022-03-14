@@ -9,6 +9,7 @@
 			"Hello71",
 			"Pierre Slamich",
 			"Thibaut120094",
+			"Verdy p",
 			"Wladek92",
 			"Zetud"
 		]
@@ -53,6 +54,12 @@
 	"sesp-property-user-registration-date-desc": "« $1 » enregistre la date d’inscription de l’utilisateur. Elle est fournie par l’extension [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Propriétés sémantiques spéciales supplémentaires].",
 	"sesp-property-user-edit-count": "Compteur d'édition de l'utilisateur",
 	"sesp-property-user-edit-count-desc": "« $1 » enregistre le nombre de modifications de l’utilisateur. Elle est fournie par l’extension [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Propriétés sémantiques spéciales supplémentaires].",
+	"sesp-property-user-edit-count-per-ns": "Nombre de modifications de l’utilisateur par espace de noms",
+	"sesp-property-user-edit-count-per-ns-desc": "« $1 » enregistre le nombre de modifications de l’utilisateur dans un espace de noms donné. Il est fourni par l’extension [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Propriétés spéciales supplémentaires sémantiques].",
+	"sesp-property-user-edit-count-ns": "Espace de noms",
+	"sesp-property-user-edit-count-ns-desc": "« $1 » enregistre le numéro de l'espace de noms dans l’enregistrement du nombre de modifications de l’utilisateur. Il est fourni par l’extension [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Propriétés spéciales supplémentaires sémantiques].",
+	"sesp-property-user-edit-count-cnt": "Nombre de modifications",
+	"sesp-property-user-edit-count-cnt-desc": "« $1 » enregistre le nombre de modifications dans l’enregistrement du nombre de modifications de l’utilisateur. Il est fourni par l’extension [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Propriétés spéciales supplémentaires sémantiques].",
 	"sesp-property-user-block": "Blocage utilisateur",
 	"sesp-property-user-block-desc": "« $1 » enregistre une liste des blocages appliqués à un utilisateur. Elle est fournie par l’extension [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Propriétés sémantiques spéciales supplémentaires] .",
 	"sesp-property-user-right": "Droits utilisateur",
