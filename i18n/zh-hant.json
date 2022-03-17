@@ -9,7 +9,8 @@
 			"LNDDYL",
 			"Liuxinyu970226",
 			"Shirayuki",
-			"Simon Shek"
+			"Simon Shek",
+			"Winston Sung"
 		]
 	},
 	"sesp-desc": "加入一些額外特殊屬性於所有頁面",
@@ -46,6 +47,8 @@
 	"sesp-property-user-registration-date-desc": "「$1」用來記錄使用者的註冊日期，此由 [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic 額外特殊屬性]擴充功能提供。",
 	"sesp-property-user-edit-count": "使用者編輯次數",
 	"sesp-property-user-edit-count-desc": "「$1」用來記錄使用者的編輯計數，此由 [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic 額外特殊屬性]擴充功能提供。",
+	"sesp-property-user-edit-count-ns": "命名空間",
+	"sesp-property-user-edit-count-cnt": "編輯次數",
 	"sesp-property-user-block": "使用者封鎖",
 	"sesp-property-user-block-desc": "「$1」用來記錄套用到用戶的封禁列表， [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic 額外特殊屬性]擴充功能提供。",
 	"sesp-property-user-right": "使用者權限",

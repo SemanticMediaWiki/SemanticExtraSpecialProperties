@@ -42,6 +42,8 @@
 	"sesp-property-user-registration-date-desc": "«$1» tar vare på brukeres registreringsdato. Den gis av utvidelsen [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-user-edit-count": "Antall redigeringer av brukeren",
 	"sesp-property-user-edit-count-desc": "«$1» tar vare på antall redigeringer en bruker har gjort. Den gis av utvidelsen [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
+	"sesp-property-user-edit-count-per-ns": "Antall redigeringer per navnerom",
+	"sesp-property-user-edit-count-ns": "Navnerom",
 	"sesp-property-user-block": "Brukerblokkering",
 	"sesp-property-user-block-desc": "«$1» gir en liste over blokkeringer av en bruker. Den gis av utvidelsen [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-user-right": "Brukerrettighet",

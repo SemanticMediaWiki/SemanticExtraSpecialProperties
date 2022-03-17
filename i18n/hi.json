@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Abijeet Patro",
 			"Jayprakash12345",
 			"Phoenix303",
 			"Sachinkatiyar",
@@ -22,6 +23,8 @@
 	"sesp-property-approved-rev": "स्वीकृत संशोधन",
 	"sesp-property-user-registration-date": "यूज़र पंजीकरण तारीक",
 	"sesp-property-user-edit-count": "सदस्य सम्पादन संख्या",
+	"sesp-property-user-edit-count-ns": "नामस्थान",
+	"sesp-property-user-edit-count-cnt": "संपादन संख्या",
 	"sesp-property-user-block": "उपयोगकर्ता ब्लॉक",
 	"sesp-property-user-block-desc": "\"$1\" एक उपयोगकर्ता को लागू किए गए ब्लॉक को एक सूची प्रदान करता है और [https://www.semantic-mediaikiiki/wiki/Extension:Semantic_Extra_Special_Properties SESP] एक्सटेंशन द्वारा प्रदान किया गया है।",
 	"sesp-property-user-right": "सदस्य अधिकार",
