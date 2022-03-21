@@ -22,6 +22,7 @@
 	"sesp-property-approved-status": "অনুমোদনের স্থিতি",
 	"sesp-property-user-registration-date": "ব্যবহারকারীর নিবন্ধনের তারিখ",
 	"sesp-property-user-edit-count": "ব্যবহারকারী সম্পাদনা গণনা",
+	"sesp-property-user-edit-count-ns": "নামস্থান",
 	"sesp-property-user-block": "ব্যবহারকারী বাধাদান",
 	"sesp-property-user-right": "ব্যবহারকারী অধিকার",
 	"sesp-property-user-group": "ব্যবহারকারী দল",
