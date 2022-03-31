@@ -7,7 +7,8 @@
 			"Felipe L. Ewald",
 			"Jaideraf",
 			"Trigonometria87",
-			"Tuliouel"
+			"Tuliouel",
+			"YuriNikolai"
 		]
 	},
 	"sesp-desc": "Adiciona algumas propriedades especiais para todas as páginas",
@@ -44,6 +45,8 @@
 	"sesp-property-user-registration-date-desc": "\"$1\" registra a data do registro do usuário, é fornecida pela extensão [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-user-edit-count": "Contador de edições do usuário",
 	"sesp-property-user-edit-count-desc": "\"$1\" registra a contagem de edições do usuário, é fornecida pela extensão [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
+	"sesp-property-user-edit-count-per-ns": "Contagem pessoal de edições por espaço nominal",
+	"sesp-property-user-edit-count-ns": "Espaço nominal",
 	"sesp-property-user-block": "Bloqueios do usuário",
 	"sesp-property-user-block-desc": "\"$1\" registra uma lista dos bloqueios aplicados a um usuário, é fornecida pela extensão [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-user-right": "Privilégios do usuário",
