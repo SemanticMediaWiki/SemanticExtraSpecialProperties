@@ -27,7 +27,7 @@
 	"sesp-property-page-len-desc": "「$1」用來記錄頁面的長度（位元組），此由 [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic 額外特殊屬性]擴充功能提供。",
 	"sesp-property-view-count": "頁面瀏覽數位",
 	"sesp-property-view-count-desc": "「$1」用來記錄頁面的檢視數量，此由 [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic 額外特殊屬性]擴充功能提供。",
-	"sesp-property-subpages": "子頁",
+	"sesp-property-subpages": "子頁面",
 	"sesp-property-subpages-desc": "「$1」用來記錄頁面下的所有子頁面，此由 [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic 額外特殊屬性]擴充功能提供。",
 	"sesp-property-revisions": "修訂的數目",
 	"sesp-property-revisions-desc": "「$1」用來記錄頁面的修訂版本數量，此由 [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic 額外特殊屬性]擴充功能提供。",
