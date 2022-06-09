@@ -4,6 +4,7 @@
 			"Kghbln",
 			"Shirayuki",
 			"Tobi 406",
+			"Verdy p",
 			"Андрей"
 		]
 	},
@@ -50,7 +51,7 @@
 	"sesp-property-user-edit-count-desc": "{{Doc-smw-sp-desc|extension=SESP}}",
 	"sesp-property-user-edit-count-per-ns": "{{Doc-smw-sp|extension=SESP}}",
 	"sesp-property-user-edit-count-per-ns-desc": "{{Doc-smw-sp-desc|extension=SESP}}",
-	"sesp-property-user-edit-count-ns": "{{Doc-smw-sp|extension=SESP}}",
+	"sesp-property-user-edit-count-ns": "{{Doc-smw-sp|extension=SESP}}\n{{Identical|Namespace}}",
 	"sesp-property-user-edit-count-ns-desc": "{{Doc-smw-sp-desc|extension=SESP}}",
 	"sesp-property-user-edit-count-cnt": "{{Doc-smw-sp|extension=SESP}}",
 	"sesp-property-user-edit-count-cnt-desc": "{{Doc-smw-sp-desc|extension=SESP}}",
