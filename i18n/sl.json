@@ -13,5 +13,6 @@
 	"sesp-property-subpages": "Podstran",
 	"sesp-property-revisions": "Število redakcij",
 	"sesp-property-approved-date": "Datum odobritve",
-	"sesp-property-approved-status": "Stanje odobritve"
+	"sesp-property-approved-status": "Stanje odobritve",
+	"sesp-property-user-edit-count-ns": "Imenski prostor"
 }
