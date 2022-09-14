@@ -8,6 +8,7 @@
             "properties": [
                 "___USERREG",
                 "___USEREDITCNT",
+                "___USEREDITCNTNS",
                 "___USERBLOCK",
                 "___USERRIGHT",
                 "___USERGROUP"
