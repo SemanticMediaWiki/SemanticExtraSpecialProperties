@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Kghbln",
 			"Shirayuki",
 			"Tobi 406",
@@ -63,12 +64,12 @@
 	"sesp-property-user-group-desc": "{{Doc-smw-sp-desc|extension=SESP}}",
 	"sesp-property-exif-data": "{{Doc-smw-sp|extension=SESP}}",
 	"sesp-property-exif-data-desc": "{{Doc-smw-sp-desc|extension=SESP}}",
-	"sesp-exif-languagecode": "This is the name of a special property.",
-	"sesp-exif-gpslatitude": "This is the name of a special property",
-	"sesp-exif-gpslongitude": "This is the name of a special property",
-	"sesp-exif-gpsaltitude": "This is the name of a special property",
-	"sesp-exif-label": "This is the name of a special property.",
-	"sesp-exif-iimcategory": "This is the name of a special property.",
+	"sesp-exif-languagecode": "This is the name of a special property.\n\nRelated to {{msg-mw|Exif-languagecode}}",
+	"sesp-exif-gpslatitude": "This is the name of a special property.\n\nRelated to {{msg-mw|Exif-gpslatitude}}",
+	"sesp-exif-gpslongitude": "This is the name of a special property.\n\nRelated to {{msg-mw|Exif-gpslongitude}}",
+	"sesp-exif-gpsaltitude": "This is the name of a special property.\n\nRelated to {{msg-mw|Exif-gpsaltitude}}",
+	"sesp-exif-label": "This is the name of a special property.\n\nRelated to {{msg-mw|Exif-label}}",
+	"sesp-exif-iimcategory": "This is the name of a special property.\n\nRelated to {{msg-mw|Exif-iimcategory}}",
 	"sesp-admin-deprecation-notice-section": "This is a section header.",
 	"sesp-admin-deprecation-notice-title-replacement": "This is a section header. Translate identical to {{Msg-mw|smw-admin-deprecation-notice-title-replacement}}.",
 	"sesp-admin-deprecation-notice-title-replacement-explanation": "This is an explanatory message. Translate identical to {{Msg-mw|smw-admin-deprecation-notice-title-replacement-explanation}}.",
