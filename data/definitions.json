@@ -51,6 +51,13 @@
 		"alias": "sesp-property-view-count",
 		"label": "Number of page views"
 	},
+	"_DESCRIPTION": {
+		"id": "___DESCRIPTION",
+		"type": "_txt",
+		"show": false,
+		"alias": "sesp-property-description",
+		"label": "Description of the page"
+	},
 	"_NSID": {
 		"id": "___NSID",
 		"type": "_num",

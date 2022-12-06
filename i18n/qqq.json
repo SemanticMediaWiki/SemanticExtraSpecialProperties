@@ -26,6 +26,8 @@
 	"sesp-property-page-img-desc": "{{Doc-smw-sp-desc|extension=SESP}}",
 	"sesp-property-view-count": "{{Doc-smw-sp|extension=SESP}}",
 	"sesp-property-view-count-desc": "{{Doc-smw-sp-desc|extension=SESP}}",
+	"sesp-property-description": "{{Doc-smw-sp|extension=SESP}}",
+	"sesp-property-description-desc": "{{Doc-smw-sp-desc|extension=SESP}}",
 	"sesp-property-subpages": "{{Doc-smw-sp|extension=SESP}}\n{{Identical|Subpage}}",
 	"sesp-property-subpages-desc": "{{Doc-smw-sp-desc|extension=SESP}}",
 	"sesp-property-revisions": "{{Doc-smw-sp|extension=SESP}}",
