@@ -56,14 +56,14 @@ class PageDescriptionPropertyAnnotator implements PropertyAnnotator {
 	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
 
 		$page = $this->appFactory->newWikiPage( $semanticData->getSubject()->getTitle() );
-		$description = $this->getPageViewCount( $page );
+		$description = $this->getPageDescription( $page );
 
 		if ( !empty( $description ) ) {
 			$semanticData->addPropertyObjectValue( $property, new DIString( $description ) );
 		}
 	}
 
-	private function getPageViewCount( $page ) {
+	private function getPageDescription( $page ) {
 
 		$parser =  $page->getParserOutput( ParserOptions::newCanonical( 'canonical' ) );
 		$description = $parser->getProperty( 'description' );
