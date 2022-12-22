@@ -6,11 +6,17 @@
 	"sesp-property-first-author": "Autor stranice",
 	"sesp-property-revision-id": "ID izmene",
 	"sesp-property-page-id": "ID stranice",
+	"sesp-property-view-count": "Broj pregleda stranica",
 	"sesp-property-subpages": "Podstranica",
 	"sesp-property-revisions": "Broj izmena",
 	"sesp-property-shorturl": "Skraćeni URL",
 	"sesp-property-approved-rev": "Odobrena izmena",
+	"sesp-property-approved-by": "Odobreno od",
 	"sesp-property-approved-date": "Datum odobravanja",
 	"sesp-property-approved-status": "Status odobravanja",
-	"sesp-property-user-edit-count": "Broj korisničkih izmena"
+	"sesp-property-user-registration-date": "Datum korisničke registracije",
+	"sesp-property-user-edit-count": "Broj korisničkih izmena",
+	"sesp-property-user-block": "Vlokiranje korisnika",
+	"sesp-property-user-right": "Korisničko pravo",
+	"sesp-property-user-group": "Korisnička grupa"
 }
