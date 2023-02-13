@@ -71,7 +71,7 @@
 	"sesp-exif-label": "Exif:תווית",
 	"sesp-exif-iimcategory": "Exit:קטגוריית Iim",
 	"sesp-admin-deprecation-notice-section": "ההרחבה Semantic Extra Special Properties",
-	"sesp-admin-deprecation-notice-title-replacement": "הגדרות שהוחלפו או ששמם שונה",
+	"sesp-admin-deprecation-notice-title-replacement": "הגדרות שהוחלפו או ששמן שונה",
 	"sesp-admin-deprecation-notice-title-replacement-explanation": "הפרק הבא מכיל הגדרות ששמן שונה או ששונו בדרך אחרת ומומלץ לעדכן לאלתר את השם או את התסדיר שלהן.",
 	"sesp-admin-deprecation-notice-config-replacement": "<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$1 $1]</code> הוחלף ב־<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$2 $2]</code>",
 	"sesp-config-uses-fixed-tables": "כדי להגדיר מאפיינים כמאפיינים קבועים לשם שיפור הגישה לנתונים",
