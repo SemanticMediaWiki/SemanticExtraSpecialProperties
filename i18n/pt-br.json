@@ -23,6 +23,8 @@
 	"sesp-property-page-id-desc": "\"$1\" registra o identificador MediaWiki de uma página, é fornecida pela extensão [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-page-len": "Tamanho da página",
 	"sesp-property-page-len-desc": "\"$1\" registra o tamanho de uma página em bytes, é fornecida pela extensão [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
+	"sesp-property-page-img": "Imagem da página",
+	"sesp-property-page-img-desc": "\"$1\" registra a Imagem de página (Extension:PageImages) de uma página. É fornecida pela extensão [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-view-count": "Número de visualizações da página",
 	"sesp-property-view-count-desc": "\"$1\" registra o número de visualizações de página (''page views'') de uma página, é fornecida pela extensão [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-subpages": "Subpágina",
@@ -35,6 +37,10 @@
 	"sesp-property-shorturl-desc": "\"$1\" registra o URL curto de uma página, é fornecida pela extensão [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-approved-rev": "Revisão aprovada",
 	"sesp-property-approved-rev-desc": "\"$1\" registra o identificador da revisão aprovada de uma página, é fornecida pela extensão [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
+	"sesp-property-namespace-id": "ID do espaço nominal",
+	"sesp-property-namespace-id-desc": "\"$1\" registra o ID do espaço nominal de uma página. É fornecida pela extensão [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
+	"sesp-property-namespace-name": "Nome canônico do espaço nominal",
+	"sesp-property-namespace-name-desc": "\"$1\" registra o nome canônico do espaço nominal de uma página. É fornecida pelo extensão [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-approved-by": "Aprovado por",
 	"sesp-property-approved-by-desc": "\"$1\" registra o usuário que definiu o estado de aprovação de uma página, é fornecida pela extensão [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-approved-date": "Data de aprovação",
@@ -63,5 +69,10 @@
 	"sesp-admin-deprecation-notice-section": "Extensão Propriedades Semânticas Extra Especiais",
 	"sesp-admin-deprecation-notice-title-replacement": "Configurações substituídas ou renomeadas",
 	"sesp-admin-deprecation-notice-title-replacement-explanation": "A seção a seguir contém configurações que foram renomeadas ou de outro modo alteradas e é recomendado que sejam atualizadas com seus nomes ou formatos atuais.",
-	"sesp-admin-deprecation-notice-config-replacement": "<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$1 $1]</code> foi substituído por <code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$2 $2]</code>"
+	"sesp-admin-deprecation-notice-config-replacement": "<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$1 $1]</code> foi substituído por <code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$2 $2]</code>",
+	"sesp-config-uses-fixed-tables": "Permite configurar propriedades como propriedades fixas de modo a melhorar o acesso aos dados",
+	"sesp-config-definitions-file": "Localização das definições de propriedade",
+	"sesp-config-local-definitions": "Especifica definições locais",
+	"sesp-config-enabled-property-list": "Especifica as propriedades ativadas",
+	"sesp-config-short-url-prefix": "Usada em conexão com ShortUrlUtils"
 }
