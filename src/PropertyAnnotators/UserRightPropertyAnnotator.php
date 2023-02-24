@@ -70,7 +70,7 @@ class UserRightPropertyAnnotator implements PropertyAnnotator {
 			return;
 		}
 
-		foreach ( $user->getRights() as $right ) {
+		foreach ( $this->appFactory->getUserRights( $user ) as $right ) {
 			$semanticData->addPropertyObjectValue( $property, new DIBlob( $right ) );
 		}
 	}

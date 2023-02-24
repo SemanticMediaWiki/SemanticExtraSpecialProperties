@@ -205,6 +205,16 @@ class AppFactory implements LoggerAwareInterface {
 	}
 
 	/**
+	 * @param User $user
+	 *
+	 * @return string[]
+	 */
+	public function getUserRights( User $user ) {
+		$permissionManager = MediaWikiServices::getInstance()->getPermissionManager();
+		return $permissionManager->getUserPermissions( $user );
+	}
+
+	/**
 	 * @since 2.0
 	 *
 	 * @param null|Title $title to get the DBLogReader

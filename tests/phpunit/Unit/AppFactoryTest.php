@@ -89,6 +89,15 @@ class AppFactoryTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
+	public function testgetUserRights( ) {
+
+		$user = new User;
+
+		$instance = new AppFactory();
+
+		$this->assertIsArray( $instance->getUserRights( $user ) );
+	}
+
 	public function testGetConnection( ) {
 
 		$connection = $this->getMockBuilder( DatabaseBase::class )
