@@ -2,6 +2,8 @@
 
 namespace SESP\PropertyAnnotators;
 
+use MediaWiki\MediaWikiServices;
+use MediaWiki\Permissions\PermissionManager;
 use SMW\DIProperty;
 use SMW\DIWikiPage;
 use SMW\SemanticData;
@@ -30,6 +32,7 @@ class PageContributorsPropertyAnnotator implements PropertyAnnotator {
 	 * @var AppFactory
 	 */
 	private $appFactory;
+	private PermissionManager $permissionManager;
 
 	/**
 	 * @since 2.0
@@ -38,6 +41,11 @@ class PageContributorsPropertyAnnotator implements PropertyAnnotator {
 	 */
 	public function __construct( AppFactory $appFactory ) {
 		$this->appFactory = $appFactory;
+		$this->permissionManager = MediaWikiServices::getInstance()->getPermissionManager();
+	}
+
+	public function setPermissionManager( PermissionManager $permissionManager ) {
+		$this->permissionManager = $permissionManager;
 	}
 
 	/**
@@ -92,9 +100,7 @@ class PageContributorsPropertyAnnotator implements PropertyAnnotator {
 	 * @return bool
 	 */
 	private function isNotAnonymous( $user ) {
-		return !( in_array( 'bot', $this->appFactory->getUserRights( $user ) )
-			&& $this->appFactory->getOption( 'wgSESPExcludeBots' ) )
-			&& !$user->isAnon();
+		return !( in_array( 'bot', $this->permissionManager->getUserPermissions( $user ) ) && $this->appFactory->getOption( 'sespgExcludeBotEdits' ) ) && !$user->isAnon();
 	}
 
 }

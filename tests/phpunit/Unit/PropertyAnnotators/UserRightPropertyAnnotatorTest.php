@@ -2,6 +2,7 @@
 
 namespace SESP\Tests\PropertyAnnotators;
 
+use MediaWiki\Permissions\PermissionManager;
 use SESP\PropertyAnnotators\UserRightPropertyAnnotator;
 use SMW\DIProperty;
 use SMW\DIWikiPage;
@@ -93,9 +94,19 @@ class UserRightPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		$semanticData->expects( $expected )
 			->method( 'addPropertyObjectValue' );
 
+		$permissionManager = $this->getMockBuilder( PermissionManager::class )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$permissionManager->expects( $this->once() )
+			->method( 'getUserPermissions' )
+			->will( $this->returnValue( $rights ) );
+
 		$instance = new UserRightPropertyAnnotator(
 			$this->appFactory
 		);
+
+		$instance->setPermissionManager( $permissionManager );
 
 		$instance->addAnnotation( $this->property, $semanticData );
 	}

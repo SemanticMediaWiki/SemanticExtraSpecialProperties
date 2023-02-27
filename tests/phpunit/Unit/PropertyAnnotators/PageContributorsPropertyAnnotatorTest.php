@@ -3,6 +3,7 @@
 namespace SESP\Tests\PropertyAnnotators;
 
 use ArrayIterator;
+use MediaWiki\Permissions\PermissionManager;
 use SESP\AppFactory;
 use SESP\PropertyAnnotators\PageContributorsPropertyAnnotator;
 use SMW\DIProperty;
@@ -109,9 +110,19 @@ class PageContributorsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase 
 		$semanticData->expects( $this->once() )
 			->method( 'addPropertyObjectValue' );
 
+		$permissionManager = $this->getMockBuilder( PermissionManager::class )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$permissionManager->expects( $this->once() )
+			->method( 'getUserPermissions' )
+			->will( $this->returnValue( [] ) );
+
 		$instance = new PageContributorsPropertyAnnotator(
 			$this->appFactory
 		);
+
+		$instance->setPermissionManager( $permissionManager );
 
 		$instance->addAnnotation( $this->property, $semanticData );
 	}
