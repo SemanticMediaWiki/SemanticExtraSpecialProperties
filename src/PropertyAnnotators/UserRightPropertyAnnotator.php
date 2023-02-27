@@ -2,6 +2,8 @@
 
 namespace SESP\PropertyAnnotators;
 
+use MediaWiki\MediaWikiServices;
+use MediaWiki\Permissions\PermissionManager;
 use SMW\DIProperty;
 use SMW\SemanticData;
 use SMWDataItem as DataItem;
@@ -30,6 +32,7 @@ class UserRightPropertyAnnotator implements PropertyAnnotator {
 	 * @var AppFactory
 	 */
 	private $appFactory;
+	private PermissionManager $permissionManager;
 
 	/**
 	 * @since 2.0
@@ -38,6 +41,11 @@ class UserRightPropertyAnnotator implements PropertyAnnotator {
 	 */
 	public function __construct( AppFactory $appFactory ) {
 		$this->appFactory = $appFactory;
+		$this->permissionManager = MediaWikiServices::getInstance()->getPermissionManager();
+	}
+
+	public function setPermissionManager( PermissionManager $permissionManager ) {
+		$this->permissionManager = $permissionManager;
 	}
 
 	/**
@@ -70,7 +78,7 @@ class UserRightPropertyAnnotator implements PropertyAnnotator {
 			return;
 		}
 
-		foreach ( $user->getRights() as $right ) {
+		foreach ( $this->permissionManager->getUserPermissions( $user ) as $right ) {
 			$semanticData->addPropertyObjectValue( $property, new DIBlob( $right ) );
 		}
 	}
