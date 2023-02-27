@@ -95,10 +95,6 @@ class PageContributorsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase 
 			->method( 'newUserFromID' )
 			->will( $this->returnValue( $user ) );
 
-		$this->appFactory->expects( $this->once() )
-			->method( 'getUserRights' )
-			->will( $this->returnValue( [] ) );
-
 		$semanticData = $this->getMockBuilder( SemanticData::class )
 			->disableOriginalConstructor()
 			->getMock();

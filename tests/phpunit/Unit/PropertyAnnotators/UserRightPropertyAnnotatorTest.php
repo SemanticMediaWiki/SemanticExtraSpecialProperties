@@ -63,10 +63,6 @@ class UserRightPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			->method( 'newUserFromTitle' )
 			->will( $this->returnValue( $user ) );
 
-		$this->appFactory->expects( $this->once() )
-			->method( 'getUserRights' )
-			->will( $this->returnValue( $rights ) );
-
 		$title = $this->getMockBuilder( '\Title' )
 			->disableOriginalConstructor()
 			->getMock();
