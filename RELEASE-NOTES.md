@@ -2,7 +2,7 @@ This file contains the RELEASE-NOTES of the **Semantic Extra Special Properties*
 
 ### 3.0.2
 
-Released on March 3, 2023.
+Released on March 8, 2023.
 
 * Improved MediaWiki 1.39 compatibility
   * Replace usage of `User::getRights` (thanks Hamish Slater)
