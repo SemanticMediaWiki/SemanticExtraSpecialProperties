@@ -4,14 +4,15 @@
 [![Latest Stable Version](https://poser.pugx.org/mediawiki/semantic-extra-special-properties/version.png)](https://packagist.org/packages/mediawiki/semantic-extra-special-properties)
 [![Packagist download count](https://poser.pugx.org/mediawiki/semantic-extra-special-properties/d/total.png)](https://packagist.org/packages/mediawiki/semantic-extra-special-properties)
 
-Semantic Extra Special Properties (a.k.a. SESP) is an extension to [Semantic MediaWiki][smw] which adds some extra special properties to enabled content pages.
+Semantic Extra Special Properties is a [Semantic MediaWiki][smw] extension that 
+adds some extra [special properties].
 
 
 ## Requirements
 
 - PHP 7.3 or later
-- MediaWiki 1.35 or later
-- Semantic MediaWiki 3.1 or later
+- MediaWiki 1.35 or later, tested up to MediaWiki 1.39
+- Semantic MediaWiki 3.1 or later, tested up to SMW 4.1
 
 
 ## Installation
@@ -103,6 +104,10 @@ but can also be executed using `composer phpunit` from the extension base direct
 
 [GNU General Public License 2.0 or later][licence]
 
+## Release notes
+
+View the [release notes](RELEASE-NOTES.md)
+
 [composer]: https://getcomposer.org/
 [licence]: https://www.gnu.org/copyleft/gpl.html
 [mwcomposer]: https://www.mediawiki.org/wiki/Composer
@@ -113,3 +118,4 @@ but can also be executed using `composer phpunit` from the extension base direct
 [mw-localsettings]: https://www.mediawiki.org/wiki/Localsettings
 [contributors]: https://github.com/SemanticMediaWiki/SemanticExtraSpecialProperties/graphs/contributors
 [semver]: https://semver.org/
+[special properties]: https://www.semantic-mediawiki.org/wiki/Help:Special_properties

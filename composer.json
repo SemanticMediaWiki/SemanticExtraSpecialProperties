@@ -22,6 +22,17 @@
 			"name": "James Hong Kong",
 			"homepage": "https://semantic-mediawiki.org/wiki/User:MWJames",
 			"role": "Developer"
+		},
+		{
+			"name": "Jeroen De Dauw",
+			"homepage": "https://www.entropywins.wtf/",
+			"role": "Developer"
+		},
+		{
+			"name": "Professional Wiki",
+			"email": "info@professional.wiki",
+			"homepage": "https://professional.wiki",
+			"role": "Maintainer"
 		}
 	],
 	"support": {
