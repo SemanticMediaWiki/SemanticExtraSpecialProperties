@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
+			"Pacha Tchernof",
 			"פוילישער"
 		]
 	},
-	"sesp-property-page-id": "בלאט נומער"
+	"sesp-property-page-id": "בלאט נומער",
+	"sesp-property-user-edit-count-ns": "נאָמענטייל"
 }
