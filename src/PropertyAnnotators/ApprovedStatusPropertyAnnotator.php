@@ -65,9 +65,10 @@ class ApprovedStatusPropertyAnnotator implements PropertyAnnotator {
 		if ( $this->approvedStatus === null && class_exists( 'ApprovedRevs' ) ) {
 			$title = $semanticData->getSubject()->getTitle();
 			if ( ApprovedRevs::pageIsApprovable( $title ) ) {
-				$revId = ApprovedRevs::getApprovedRevID( $title );
-				if ( $revId ) {
-					if ( $title->getLatestRevID( Title::GAID_FOR_UPDATE ) === $revId  ) {
+				$approvedRevId = self::getApprovedRevID( $title );
+				if ( $approvedRevId !== null ) {
+					$latestRevId = $title->getLatestRevID( Title::READ_LATEST );
+					if ( $latestRevId === $approvedRevId ) {
 						$this->approvedStatus = "approved";
 					} else {
 						$this->approvedStatus = "pending";
@@ -88,4 +89,8 @@ class ApprovedStatusPropertyAnnotator implements PropertyAnnotator {
 		}
 	}
 
+	private static function getApprovedRevID( $title ): ?int {
+		$id = ApprovedRevs::getApprovedRevID( $title );
+		return $id === null || $id === false ? null : (int) $id;
+	}
 }
