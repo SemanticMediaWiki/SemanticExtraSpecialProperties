@@ -64,7 +64,7 @@ class ApprovedDatePropertyAnnotator implements PropertyAnnotator {
 		if ( $this->approvedDate === null && class_exists( 'ApprovedRevs' ) ) {
 			$title = $semanticData->getSubject()->getTitle();
 			if ( ApprovedRevs::pageIsApprovable( $title ) ) {
-				$this->approvedDate = ApprovedRevs::getApprovedTimestamp( $title );
+				[ $this->approvedDate ] = ApprovedRevs::getApprovedFileInfo( $title );
 			}
 
 			if ( !$this->approvedDate ) {
