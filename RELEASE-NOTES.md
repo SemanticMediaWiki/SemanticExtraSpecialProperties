@@ -1,5 +1,12 @@
 This file contains the RELEASE-NOTES of the **Semantic Extra Special Properties** (a.k.a. SESP) extension.
 
+### 3.0.3
+
+Released on March 20, 2023.
+
+* #209 Allow approval status to be set to 'approved'(gesinn-it-wam)
+* #208 Allow `_APPROVEDDATE` property to be enabled (gesinn-it-wam)
+
 ### 3.0.2
 
 Released on March 8, 2023.
