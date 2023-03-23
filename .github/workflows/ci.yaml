@@ -1,0 +1,64 @@
+name: CI
+
+on:
+  push:
+   branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    continue-on-error: ${{ matrix.experimental }}
+
+    strategy:
+      matrix:
+        include:
+          - mediawiki_version: 1.35
+            semantic_mediawiki_version: 4.1.1
+            approved_revs_version: 1.8.1
+            database_type: mysql
+            coverage: true
+            experimental: false
+          - mediawiki_version: 1.35
+            semantic_mediawiki_version: 4.1.1
+            approved_revs_version: 1.8.1
+            database_type: sqlite
+            coverage: false
+            experimental: false
+          - mediawiki_version: 1.38
+            semantic_mediawiki_version: dev-master
+            approved_revs_version: master
+            database_type: sqlite
+            coverage: false
+            experimental: true
+
+    env:
+      MW_VERSION: ${{ matrix.mediawiki_version }}
+      SMW_VERSION: ${{ matrix.semantic_mediawiki_version }}
+      AR_VERSION: ${{ matrix.approved_revs_version }}
+      DB_TYPE: ${{ matrix.database_type }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Run tests
+        run: make ci
+        if: matrix.coverage == false
+
+      - name: Run tests with coverage
+        run: make ci-coverage
+        if: matrix.coverage == true
+
+      - name: Clean up after CI
+        if: always()
+        run: make destroy
+
+      - name: Upload code coverage
+        uses: codecov/codecov-action@v3
+        with:
+          files: coverage/php/coverage.xml
+        if: matrix.coverage == true
