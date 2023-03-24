@@ -1,5 +1,5 @@
 # Semantic Extra Special Properties
-[![CI](https://github.com/SemanticMediaWiki/SemanticExtraSpecialProperties/actions/workflows/main.yaml/badge.svg)](https://github.com/SemanticMediaWiki/SemanticExtraSpecialProperties/actions/workflows/main.yaml)
+[![CI](https://github.com/SemanticMediaWiki/SemanticExtraSpecialProperties/actions/workflows/ci.yaml/badge.svg)](https://github.com/SemanticMediaWiki/SemanticExtraSpecialProperties/actions/workflows/ci.yaml)
 [![codecov](https://codecov.io/gh/SemanticMediaWiki/SemanticExtraSpecialProperties/branch/master/graph/badge.svg?token=NP47aFjC7X)](https://codecov.io/gh/SemanticMediaWiki/SemanticExtraSpecialProperties)
 [![Latest Stable Version](https://poser.pugx.org/mediawiki/semantic-extra-special-properties/version.png)](https://packagist.org/packages/mediawiki/semantic-extra-special-properties)
 [![Packagist download count](https://poser.pugx.org/mediawiki/semantic-extra-special-properties/d/total.png)](https://packagist.org/packages/mediawiki/semantic-extra-special-properties)
