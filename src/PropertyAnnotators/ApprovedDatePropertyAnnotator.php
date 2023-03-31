@@ -3,6 +3,7 @@
 namespace SESP\PropertyAnnotators;
 
 use ApprovedRevs;
+use MWTimestamp;
 use SMW\DIProperty;
 use SMW\SemanticData;
 use SMWDataItem as DataItem;
@@ -60,25 +61,19 @@ class ApprovedDatePropertyAnnotator implements PropertyAnnotator {
 	 * {@inheritDoc}
 	 */
 	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
-
 		if ( $this->approvedDate === null && class_exists( 'ApprovedRevs' ) ) {
-			$title = $semanticData->getSubject()->getTitle();
-			if ( ApprovedRevs::pageIsApprovable( $title ) ) {
-				[ $this->approvedDate ] = ApprovedRevs::getApprovedFileInfo( $title );
-			}
-
-			if ( !$this->approvedDate ) {
-				$logReader = $this->appFactory->newDatabaseLogReader(
-					$semanticData->getSubject()->getTitle(),
-					'approval'
-				);
-
-				$this->approvedDate = $logReader->getDateOfLogEntry();
+			// ApprovedRevs does not provide a function to get the approval date,
+			// so fetch it here from the ApprovedRevs table
+			$pageID = $semanticData->getSubject()->getTitle()->getArticleID();
+			$dbr = wfGetDB( DB_REPLICA );
+			$approval_date = $dbr->selectField( 'approved_revs', 'approval_date', [ 'page_id' => $pageID ] );
+			
+			if ( $approval_date ) {
+				$this->approvedDate = new MWTimestamp( wfTimestamp( TS_MW, $approval_date ) );
 			}
 		}
 
 		$dataItem = $this->getDataItem();
-
 		if ( $dataItem ) {
 			$semanticData->addPropertyObjectValue( $property, $dataItem );
 		} else {
