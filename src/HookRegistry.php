@@ -4,7 +4,7 @@ namespace SESP;
 
 use Hooks;
 use MediaWiki\MediaWikiServices;
-use SMW\ApplicationFactory;
+use SMW\Services\ServicesFactory;
 
 /**
  * @license GNU GPL v2+
@@ -126,15 +126,15 @@ class HookRegistry {
 
 	private function registerCallbackHandlers( $config ) {
 
-		$applicationFactory = ApplicationFactory::getInstance();
+		$servicesFactory = ServicesFactory::getInstance();
 
 		$appFactory = new AppFactory(
 			$config,
-			$applicationFactory->getCache()
+			$servicesFactory->getCache()
 		);
 
 		$appFactory->setLogger(
-			$applicationFactory->getMediaWikiLogger( 'sesp' )
+			$servicesFactory->getMediaWikiLogger( 'sesp' )
 		);
 
 		$propertyRegistry = new PropertyRegistry(
