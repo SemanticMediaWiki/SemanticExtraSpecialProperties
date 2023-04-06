@@ -4,6 +4,7 @@ This file contains the RELEASE-NOTES of the **Semantic Extra Special Properties*
 
 Unreleased.
 
+* added handler for ApprovedRevsRevisionApproved and ApprovedRevsRevisionUnapproved to update the cache (gesinn-it-gea)
 * SMW's ApplicationFactory has been renamed to ServicesFactory (gesinn-it-gea)
 * Remove "Approved date" property when unapproving (gesinn-it-wam)
 * Improved testing / CI using docker-compose & make (gesinn-it-wam)

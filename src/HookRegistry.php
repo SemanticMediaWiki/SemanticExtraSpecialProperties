@@ -179,6 +179,44 @@ class HookRegistry {
 
 			return true;
 		};
+
+		/**
+		 * https://www.mediawiki.org/wiki/Extension:Approved_Revs/Hooks/ApprovedRevsRevisionApproved
+		 */
+		$this->handlers['ApprovedRevsRevisionApproved'] = function (
+			$output, $title, $rev_id, $content
+		) use (
+			$servicesFactory
+		) {
+			$ttl = 60 * 60; // 1hr
+
+			// Send an event to ParserAfterTidy and allow it to pass the preliminary
+			// test even in cases where the content doesn't contain any SMW related
+			// annotations. It is to ensure that when an agent switches to a blank
+			// version (no SMW related annotations or categories) the update is carried
+			// out and the store is able to remove any remaining annotations.
+			$key = smwfCacheKey( 'smw:parseraftertidy', $title->getPrefixedDBKey() );
+			$servicesFactory->getCache()->save( $key, $rev_id, $ttl );
+
+			return true;
+		};
+
+		/**
+		 * https://www.mediawiki.org/wiki/Extension:Approved_Revs/Hooks/ApprovedRevsRevisionUnapproved
+		 */
+		$this->handlers['ApprovedRevsRevisionUnapproved'] = function (
+			$output, $title, $content
+		) use (
+			$servicesFactory
+		) {
+			$ttl = 60 * 60; // 1hr
+			$key = smwfCacheKey( 'smw:parseraftertidy', $title->getPrefixedDBKey() );
+			$servicesFactory->getCache()->save( $key, null, $ttl );
+
+			return true;
+		};
+
+		//	'ApprovedRevsFileRevisionApproved' => [ $this, 'onApprovedRevsFileRevisionApproved' ],
 	}
 
 }
