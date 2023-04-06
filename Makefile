@@ -2,7 +2,7 @@ EXTENSION := SemanticExtraSpecialProperties
 
 MW_VERSION ?= 1.35
 SMW_VERSION ?= 4.1.1
-AR_VERSION ?= 1.8.1
+AR_VERSION ?= 1.8.2
 
 IMAGE_VERSION := $(MW_VERSION)-$(SMW_VERSION)-$(AR_VERSION)
 BUILD_ARGS := \
@@ -57,7 +57,7 @@ show-logs: .init
 .PHONY: .build
 .build:
 	$(show-current-target)
-	$(compose) build $(BUILD_ARGS) wiki 
+	$(compose) build $(BUILD_ARGS) wiki
 
 .PHONY: .up
 .up:

@@ -4,6 +4,7 @@ This file contains the RELEASE-NOTES of the **Semantic Extra Special Properties*
 
 Unreleased.
 
+* replace deprecated `SMWStore::updateDataBefore` hook with `SMW::Store::BeforeDataUpdateComplete` (gesinn-it-gea)
 * added handler for ApprovedRevsRevisionApproved and ApprovedRevsRevisionUnapproved to update the cache (gesinn-it-gea)
 * SMW's ApplicationFactory has been renamed to ServicesFactory (gesinn-it-gea)
 * Remove "Approved date" property when unapproving (gesinn-it-wam)

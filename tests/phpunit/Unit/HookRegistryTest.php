@@ -69,7 +69,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 			'___NREV',
 			'___NTREV',
 			'___USEREDITCNT',
-			'___USEREDITCNTNS',			
+			'___USEREDITCNTNS',
 			'___EXIFDATA',
 			'___NSID',
 			'___NSNAME'
@@ -122,7 +122,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 	public function doTestRegisteredUpdateDataBeforeHandler( $instance ) {
 
 		$this->assertTrue(
-			$instance->isRegistered( 'SMWStore::updateDataBefore' )
+			$instance->isRegistered( 'SMW::Store::BeforeDataUpdateComplete' )
 		);
 
 		$store = $this->getMockBuilder( '\SMW\Store' )
@@ -134,7 +134,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 			->getMock();
 
 		$this->assertThatHookIsExcutable(
-			$instance->getHandlers( 'SMWStore::updateDataBefore' ),
+			$instance->getHandlers( 'SMW::Store::BeforeDataUpdateComplete' ),
 			[ $store, $semanticData ]
 		);
 	}

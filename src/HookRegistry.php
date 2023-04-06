@@ -167,9 +167,9 @@ class HookRegistry {
 		};
 
 		/**
-		 * @see https://www.semantic-mediawiki.org/wiki/Hooks/SMWStore::updateDataBefore
+		 * @see https://github.com/SemanticMediaWiki/SemanticMediaWiki/blob/master/docs/technical/hooks/hook.store.beforedataupdatecomplete.md
 		 */
-		$this->handlers['SMWStore::updateDataBefore'] = function ( $store, $semanticData ) use ( $appFactory ) {
+		$this->handlers['SMW::Store::BeforeDataUpdateComplete'] = function ( $store, $semanticData ) use ( $appFactory ) {
 
 			$extraPropertyAnnotator = new ExtraPropertyAnnotator(
 				$appFactory
@@ -215,8 +215,6 @@ class HookRegistry {
 
 			return true;
 		};
-
-		//	'ApprovedRevsFileRevisionApproved' => [ $this, 'onApprovedRevsFileRevisionApproved' ],
 	}
 
 }
