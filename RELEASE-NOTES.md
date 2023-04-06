@@ -1,10 +1,18 @@
 This file contains the RELEASE-NOTES of the **Semantic Extra Special Properties** (a.k.a. SESP) extension.
 
+### 3.0.4
+
+Unreleased.
+
+* SMW's ApplicationFactory has been renamed to ServicesFactory (gesinn-it-gea)
+* Remove "Approved date" property when unapproving (gesinn-it-wam)
+* Improved testing / CI using docker-compose & make (gesinn-it-wam)
+
 ### 3.0.3
 
 Released on March 20, 2023.
 
-* #209 Allow approval status to be set to 'approved'(gesinn-it-wam)
+* #209 Allow approval status to be set to 'approved' (gesinn-it-wam)
 * #208 Allow `_APPROVEDDATE` property to be enabled (gesinn-it-wam)
 
 ### 3.0.2
