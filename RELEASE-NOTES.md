@@ -2,7 +2,7 @@ This file contains the RELEASE-NOTES of the **Semantic Extra Special Properties*
 
 ### 3.0.4
 
-Unreleased.
+Released on April 8, 2023.
 
 * replace deprecated `SMWStore::updateDataBefore` hook with `SMW::Store::BeforeDataUpdateComplete` (gesinn-it-gea)
 * added handler for ApprovedRevsRevisionApproved and ApprovedRevsRevisionUnapproved to update the cache (gesinn-it-gea)
