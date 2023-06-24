@@ -61,6 +61,8 @@
 	"sesp-property-user-group-desc": "\"$1\" records a list of groups applied to a user. It is provided by the [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties] extension.",
 	"sesp-property-exif-data": "Exif data",
 	"sesp-property-exif-data-desc": "\"$1\" records the file's EXIF data. It is provided by the [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties] extension.",
+	"sesp-property-links-to": "Links to",
+	"sesp-property-links-to-desc": "\"$1\" records a list of pages the current page links to.",
 	"sesp-exif-languagecode": "Exif:Language code",
 	"sesp-exif-gpslatitude": "Exif:Latitude",
 	"sesp-exif-gpslongitude": "Exif:Longitude",
@@ -77,5 +79,6 @@
 	"sesp-config-enabled-property-list": "Specifies the enabled properties",
 	"sesp-config-label-cache-version": "Specifies an internal cache modifier",
 	"sesp-config-exclude-bot-edits": "Should edits via user accounts in usergroup \"bot\" be ignored when storing data for the special properties?",
-	"sesp-config-short-url-prefix": "Used in connection with ShortUrlUtils"
+	"sesp-config-short-url-prefix": "Used in connection with ShortUrlUtils",
+	"sesp-config-links-to-enabled-namespaces": "List of namespace ids that are enabled for the 'Links to' property."
 }
