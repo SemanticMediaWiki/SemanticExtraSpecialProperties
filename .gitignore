@@ -4,7 +4,7 @@
 
 !.*
 .idea/
-
+.env
 composer.lock
 composer.phar
 
