@@ -124,8 +124,8 @@ jobs:
         if: always()
         run: make destroy
 
-      # - name: Upload code coverage
-      #   uses: codecov/codecov-action@v3
-      #   with:
-      #     files: coverage/php/coverage.xml
-      #   if: matrix.coverage == true
+      - name: Upload code coverage
+        uses: codecov/codecov-action@v3
+        with:
+          files: coverage/php/coverage.xml
+        if: matrix.coverage == true

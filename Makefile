@@ -127,29 +127,6 @@ dev-bash: .init
 run:
 	$(compose-dev) -f docker-compose-dev.yml run -it wiki
 
-# ======== Releasing ========
-# VERSION = `node -e 'console.log(require("./extension.json").version)'`
-
-# .PHONY: release
-# release: ci git-push gh-login
-# 	gh release create $(VERSION)
-
-# .PHONY: git-push
-# git-push:
-# 	git diff --quiet || (echo 'git directory has changes'; exit 1)
-# 	git push
-
-# .PHONY: gh-login
-# gh-login: require-GH_API_TOKEN
-# 	gh config set prompt disabled
-# 	@echo $(GH_API_TOKEN) | gh auth login --with-token
-
-# .PHONY: require-GH_API_TOKEN
-# require-GH_API_TOKEN:
-# ifndef GH_API_TOKEN
-# 	$(error GH_API_TOKEN is not set)
-# endif
-
 # ======== Helpers ========
 .PHONY: .init
 .init:
