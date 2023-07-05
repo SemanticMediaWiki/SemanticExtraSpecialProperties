@@ -16,30 +16,97 @@ jobs:
     strategy:
       matrix:
         include:
-          - mediawiki_version: 1.35
-            semantic_mediawiki_version: 4.1.1
+          # - mediawiki_version: 1.35
+          #   semantic_mediawiki_version: 4.1.1
+          #   approved_revs_version: 1.8.1
+          #   database_type: mysql
+          #   coverage: true
+          #   experimental: false
+          # - mediawiki_version: 1.35
+          #   semantic_mediawiki_version: 4.1.1
+          #   approved_revs_version: 1.8.1
+          #   database_type: sqlite
+          #   coverage: false
+          #   experimental: false
+          # - mediawiki_version: 1.38
+          #   semantic_mediawiki_version: dev-master
+          #   approved_revs_version: master
+          #   database_type: sqlite
+          #   coverage: false
+          #   experimental: true
+          
+          - mediawiki_version: '1.35'
+            smw_version: '4.1.1'
             approved_revs_version: 1.8.1
+            php_version: 7.4
             database_type: mysql
+            database_image: "mysql:5.7"
             coverage: true
             experimental: false
-          - mediawiki_version: 1.35
-            semantic_mediawiki_version: 4.1.1
+          - mediawiki_version: '1.35'
+            smw_version: '4.1.1'
             approved_revs_version: 1.8.1
+            php_version: 7.4
             database_type: sqlite
+            database_image: "mysql:5.7"
+            coverage: true
+            experimental: false
+          - mediawiki_version: '1.35'
+            smw_version: dev-master
+            approved_revs_version: master
+            php_version: 7.4
+            database_type: mysql
+            database_image: "mysql:5.7"
             coverage: false
             experimental: false
-          - mediawiki_version: 1.38
-            semantic_mediawiki_version: dev-master
+          - mediawiki_version: '1.39'
+            smw_version: dev-master
             approved_revs_version: master
-            database_type: sqlite
+            php_version: 8.1
+            database_type: mysql
+            database_image: "mysql:5.7"
+            coverage: false
+            experimental: true
+          - mediawiki_version: '1.39'
+            smw_version: dev-master
+            approved_revs_version: master
+            php_version: 8.1
+            database_type: mysql
+            database_image: "mysql:8"
+            coverage: false
+            experimental: true
+          - mediawiki_version: '1.40'
+            smw_version: dev-master
+            approved_revs_version: master
+            php_version: 8.1
+            database_type: mysql
+            database_image: "mysql:8"
+            coverage: false
+            experimental: true
+          - mediawiki_version: '1.40'
+            smw_version: dev-master
+            approved_revs_version: master
+            php_version: 8.1
+            database_type: mysql
+            database_image: "mariadb:latest"
+            coverage: false
+            experimental: true
+          - mediawiki_version: '1.40'
+            smw_version: dev-master
+            approved_revs_version: master
+            php_version: 8.1
+            database_type: postgres
+            database_image: "postgres:14"
             coverage: false
             experimental: true
 
     env:
       MW_VERSION: ${{ matrix.mediawiki_version }}
-      SMW_VERSION: ${{ matrix.semantic_mediawiki_version }}
+      SMW_VERSION: ${{ matrix.smw_version }}
       AR_VERSION: ${{ matrix.approved_revs_version }}
+      PHP_VERSION: ${{ matrix.php_version }}
       DB_TYPE: ${{ matrix.database_type }}
+      DB_IMAGE: ${{ matrix.database_image }}
 
     steps:
       - name: Checkout
