@@ -16,6 +16,7 @@ Released on March 20, 2023.
 
 * #209 Allow approval status to be set to 'approved' (gesinn-it-wam)
 * #208 Allow `_APPROVEDDATE` property to be enabled (gesinn-it-wam)
+* Localization updates from https://translatewiki.net
 
 ### 3.0.2
 
@@ -38,6 +39,7 @@ Released on January 25, 2022.
 * Minimum PHP version changed from 7.0 to 7.3
 * Minimum MediaWiki version changed from 1.31 to 1.35
 * Added compatibility with Semantic MediaWiki 4.x
+* Removed compatibility with Semantic MediaWiki 3.x
 * Localization updates from https://translatewiki.net
 
 ### 2.1.0
