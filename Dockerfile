@@ -1,11 +1,12 @@
 ARG MW_VERSION
-FROM gesinn/docker-mediawiki-sqlite:${MW_VERSION}
+ARG PHP_VERSION
+
+FROM gesinn/mediawiki-ci:${MW_VERSION}-php${PHP_VERSION}
 
 RUN rm -f /usr/local/etc/php/conf.d/docker-php-ext-opcache.ini && \
     sed -i s/80/8080/g /etc/apache2/sites-available/000-default.conf /etc/apache2/ports.conf && \
     # To be able to persist configuration and data via docker volumes
-    mkdir -p /data/sqlite /data/config /data/log && chown -R www-data. /data && \
-    rm -f LocalSettings.php && ln -s /data/config/LocalSettings.php
+    mkdir -p /data/sqlite /data/config /data/log && chown -R www-data. /data
 
 ENV EXTENSION=SemanticExtraSpecialProperties
 COPY composer*.json /var/www/html/extensions/$EXTENSION/
