@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Xuacu"
+			"Xuacu",
+			"YoaR"
 		]
 	},
 	"sesp-desc": "Amiesta delles propiedaes especiales estra a toles páxines",
@@ -40,6 +41,6 @@
 	"sesp-exif-iimcategory": "Exif:Categoría Iim",
 	"sesp-admin-deprecation-notice-section": "Estensión Semantic Extra Special Properties",
 	"sesp-admin-deprecation-notice-title-replacement": "Opciones sustituyíes o cambiaes de nome",
-	"sesp-admin-deprecation-notice-title-replacement-explanation": "La sección siguiente contien opciones que cambiaron el nome o recibieron otros cambeos. Encamiéntase anovar darréu'l so nome o formatu.",
+	"sesp-admin-deprecation-notice-title-replacement-explanation": "La sección siguiente contién opciones que cambiaron el nome o recibieron otros cambeos. Encamiéntase anovar darréu'l so nome o formatu.",
 	"sesp-admin-deprecation-notice-config-replacement": "<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$1 $1]</code> sustituyóse por <code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$2 $2]</code>"
 }
