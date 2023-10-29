@@ -13,6 +13,7 @@ use SESP\PropertyAnnotators\NullPropertyAnnotator;
 use SESP\PropertyAnnotators\CreatorPropertyAnnotator;
 use SESP\PropertyAnnotators\PageImagesPropertyAnnotator;
 use SESP\PropertyAnnotators\PageViewsPropertyAnnotator;
+use SESP\PropertyAnnotators\PageDescriptionPropertyAnnotator;
 use SESP\PropertyAnnotators\LocalPropertyAnnotator;
 use SESP\PropertyAnnotators\UserRegistrationDatePropertyAnnotator;
 use SESP\PropertyAnnotators\UserEditCountPropertyAnnotator;
@@ -122,6 +123,11 @@ class DispatchingPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		$provider[] = [
 			PageViewsPropertyAnnotator::PROP_ID,
 			PageViewsPropertyAnnotator::class
+		];
+
+		$provider[] = [
+			PageDescriptionPropertyAnnotator::PROP_ID,
+			PageDescriptionPropertyAnnotator::class
 		];
 
 		$provider[] = [

@@ -47,6 +47,7 @@ Property labels differ according to the language the wiki was set up. An easy wa
 - `_APPROVEDDATE` adds a property called "Approved date" which records the date a page was approved if the [Approved Revs][Approved Revs] extension is installed
 - `_APPROVEDSTATUS` adds a property called "Approval status" which records the approvement status of a page if the [Approved Revs][Approved Revs] extension is installed
 - `_PAGEIMG` adds a property called "Page Images" which records PageImages of a page if the [PageImages][PageImages] extension is installed
+- `_DESCRIPTION` adds a property called "Description of the page" which records the description of the page when [Description2][Description2] extension is installed
 
 ## Additional configuration
 

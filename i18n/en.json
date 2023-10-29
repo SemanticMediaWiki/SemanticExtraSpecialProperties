@@ -23,6 +23,8 @@
 	"sesp-property-page-img-desc": "\"$1\" records the PageImages (Extension:PageImages) of a page . It is is provided by the [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties] extension.",
 	"sesp-property-view-count": "Number of page views",
 	"sesp-property-view-count-desc": "\"$1\" records the number of page views of a page. It is provided by the [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties] extension.",
+	"sesp-property-description": "Description of the page",
+	"sesp-property-description-desc": "\"$1\" records the description of page views of a page. It is provided by the [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties] extension.",
 	"sesp-property-subpages": "Subpage",
 	"sesp-property-subpages-desc": "\"$1\" records all subpages of a page. It is provided by the [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties] extension.",
 	"sesp-property-revisions": "Number of revisions",
