@@ -4,6 +4,7 @@ namespace SESP;
 
 use ArrayIterator;
 use InvalidArgumentException;
+use Iterator;
 use IteratorAggregate;
 use MediaWiki\MediaWikiServices;
 use Onoi\Cache\Cache;
@@ -192,7 +193,7 @@ class PropertyDefinitions implements IteratorAggregate {
 	 *
 	 * @return Iterator
 	 */
-	public function getIterator() {
+	public function getIterator(): Iterator {
 
 		if ( $this->propertyDefinitions === null ) {
 			$this->initPropertyDefinitions();
