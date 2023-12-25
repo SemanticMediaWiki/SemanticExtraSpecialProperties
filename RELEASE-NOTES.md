@@ -1,5 +1,11 @@
 This file contains the RELEASE-NOTES of the **Semantic Extra Special Properties** (a.k.a. SESP) extension.
 
+### 3.0.5
+
+Released on December 26, 2023.
+
+* Fixed PHP 8.1 deprecation warning in `PropertyDefinitions::getIterator`
+
 ### 3.0.4
 
 Released on April 8, 2023.
