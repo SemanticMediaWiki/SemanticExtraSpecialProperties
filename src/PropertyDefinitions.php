@@ -55,10 +55,10 @@ class PropertyDefinitions implements IteratorAggregate {
 	public function __construct( LabelFetcher $labelFetcher, $propertyDefinitionFile = '' ) {
 		$this->labelFetcher = $labelFetcher;
 		$this->propertyDefinitionFile = $propertyDefinitionFile;
-		$this->cfg = MediaWikiServices::getInstance()->getConfigFactory()->makeConfig( 'sespg' );
+		$cfg = MediaWikiServices::getInstance()->getConfigFactory()->makeConfig( 'sespg' );
 
 		if ( $this->propertyDefinitionFile === '' ) {
-			$this->propertyDefinitionFile = $this->cfg->get( 'DefinitionsFile' );
+			$this->propertyDefinitionFile = $cfg->get( 'DefinitionsFile' );
 		}
 	}
 
