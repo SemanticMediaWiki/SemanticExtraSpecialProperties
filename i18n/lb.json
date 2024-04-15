@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Robby"
+			"Robby",
+			"Volvox"
 		]
 	},
 	"sesp-property-unknown-label": "Etikett oder Alias onbekannt",
@@ -14,6 +15,7 @@
 	"sesp-property-talk-revisions": "Zuel vun de Versioune vun der Diskussiounssäit",
 	"sesp-property-shorturl": "Kuerz URL",
 	"sesp-property-approved-rev": "Nogekuckt Versioun",
+	"sesp-property-namespace-id": "Nummraum-ID",
 	"sesp-property-approved-by": "Akzeptéiert vum",
 	"sesp-property-user-registration-date": "Datum vun der Umellung vum Benotzer",
 	"sesp-property-user-edit-count": "Compteur vu Benotzerännerungen",
