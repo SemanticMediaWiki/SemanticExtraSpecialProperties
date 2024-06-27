@@ -10,6 +10,7 @@
 	"sesp-property-first-author": "Vıraştoğê pele",
 	"sesp-property-revision-id": "Revizyona ID",
 	"sesp-property-page-id": "Kamiya pele",
+	"sesp-property-page-len": "Dergiya pele",
 	"sesp-property-view-count": "Amarê mocnayışê pelan",
 	"sesp-property-subpages": "Bınpela",
 	"sesp-property-revisions": "Amariya rewizyonan",
@@ -17,5 +18,6 @@
 	"sesp-property-shorturl": "Kılm URL",
 	"sesp-property-user-registration-date": "Dema keyd bıyayışa karberi",
 	"sesp-property-user-edit-count": "Hesabê karberi bıvurnê",
+	"sesp-property-user-edit-count-ns": "Heruna nameyan",
 	"sesp-property-exif-data": "Exif data"
 }
