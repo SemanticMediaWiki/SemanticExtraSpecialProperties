@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Hideki Yoshida",
 			"MathXplore",
 			"Shirayuki",
 			"Suyama"
@@ -19,6 +20,8 @@
 	"sesp-property-revisions": "版数",
 	"sesp-property-talk-revisions": "トークページの版数",
 	"sesp-property-shorturl": "短縮 URL",
+	"sesp-property-approved-rev": "承認済み版",
+	"sesp-property-namespace-id": "名前空間 ID",
 	"sesp-property-approved-by": "承認者:",
 	"sesp-property-approved-date": "承認日",
 	"sesp-property-approved-status": "承認ステータス",

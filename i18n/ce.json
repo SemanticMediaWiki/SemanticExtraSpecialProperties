@@ -4,8 +4,27 @@
 			"Умар"
 		]
 	},
+	"sesp-property-unknown-label": "Ца йевза билгало йа псевдоним",
+	"sesp-property-author": "АгӀонан автор",
+	"sesp-property-first-author": "АгӀо кхоьллинарг",
 	"sesp-property-revision-id": "Нисдаран ID",
 	"sesp-property-page-id": "АгӀонан ID",
+	"sesp-property-page-len": "АгӀонан йохалла",
+	"sesp-property-page-img": "АгӀонан сурт",
 	"sesp-property-view-count": "АгӀоне хьаьжина",
-	"sesp-property-user-registration-date": "Декъашхочо регистрацийина терахь"
+	"sesp-property-subpages": "Бухара агӀо",
+	"sesp-property-revisions": "Нисдарийн дукхалла",
+	"sesp-property-shorturl": "Йоца хьажорг",
+	"sesp-property-approved-rev": "Бакъйина верси",
+	"sesp-property-namespace-id": "ЦӀерийн меттиган ID",
+	"sesp-property-user-registration-date": "Декъашхочо регистрацийина терахь",
+	"sesp-property-user-edit-count-ns": "ЦӀерийн меттиг",
+	"sesp-property-user-edit-count-cnt": "Нисдарийн дукхалла",
+	"sesp-property-user-block": "Декъашхочун блоктохар",
+	"sesp-property-user-right": "Декъашхочун бакъо",
+	"sesp-property-user-group": "Декъашхойн тоба",
+	"sesp-property-exif-data": "EXIF хаамаш",
+	"sesp-exif-languagecode": "Exif:Меттан код",
+	"sesp-exif-label": "Exif:Билгало",
+	"sesp-exif-iimcategory": "Exif:Iim-категори"
 }
