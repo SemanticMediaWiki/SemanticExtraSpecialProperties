@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<ruleset>
+	<rule ref="./vendor/mediawiki/mediawiki-codesniffer/MediaWiki">
+        <exclude name="Squiz.WhiteSpace.FunctionOpeningBraceSpace.SpacingAfter" />
+        <exclude name="MediaWiki.Commenting.MissingCovers.MissingCovers" />
+        <exclude name="MediaWiki.Commenting.LicenseComment.InvalidLicenseTag" />
+        <exclude name="MediaWiki.PHPUnit.MockBoilerplate.returnValue" />
+        <exclude name="MediaWiki.Commenting.PropertyDocumentation.MissingDocumentationPrivate" />
+        <exclude name="MediaWiki.Classes.UnsortedUseStatements.UnsortedUse" />
+        <exclude name="MediaWiki.WhiteSpace.SpaceyParenthesis.UnnecessarySpaceBetweenParentheses" />
+        <exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingBetween" />
+        <exclude name="MediaWiki.Commenting.PhpunitAnnotations.AbsoluteCovers" />
+        <exclude name="MediaWiki.PHPUnit.PHPUnitClassUsage.NotNamespaced" />
+        <exclude name="Squiz.WhiteSpace.OperatorSpacing.SpacingAfter" />
+        <exclude name="MediaWiki.PHPUnit.MockBoilerplate.ConstraintEqualTo" />
+        <exclude name="MediaWiki.WhiteSpace.SpaceAfterClosure.NoWhitespaceAfterClosure" />
+        <exclude name="MediaWiki.Usage.StaticClosure.StaticClosure" />
+        <exclude name="MediaWiki.Classes.UnusedUseStatement.UnusedUse" />
+        <exclude name="MediaWiki.PHPUnit.SetMethods.SetMethods" />
+        <exclude name="MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis" />
+        <exclude name="MediaWiki.WhiteSpace.MultipleEmptyLines.MultipleEmptyLines" />
+        <exclude name="PSR2.Namespaces.UseDeclaration.SpaceAfterLastUse" />
+        <exclude name="Generic.WhiteSpace.DisallowSpaceIndent.SpacesUsed" />
+        <exclude name="MediaWiki.PHPUnit.MockBoilerplate.returnCallback" />
+        <exclude name="PSR2.Files.EndFileNewline.TooMany" />
+        <exclude name="MediaWiki.Commenting.FunctionComment.NotShortBoolReturn" />
+        <exclude name="MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment" />
+        <exclude name="MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis" />
+        <exclude name="Squiz.WhiteSpace.FunctionSpacing.After" />
+        <exclude name="MediaWiki.Commenting.FunctionComment.NoParamType" />
+        <exclude name="MediaWiki.Commenting.RedundantVarName.Found" />
+        <exclude name="Generic.Files.LineLength.TooLong" />
+        <exclude name="MediaWiki.WhiteSpace.SpaceyParenthesis.SpaceBeforeOpeningParenthesis" />
+        <exclude name="MediaWiki.Commenting.FunctionComment.ExtraParamComment" />
+        <exclude name="MediaWiki.Commenting.FunctionComment.MissingDocumentationPrivate" />
+        <exclude name="MediaWiki.Commenting.FunctionComment.ParamPassByReference" />
+        <exclude name="MediaWiki.Commenting.FunctionComment.MissingReturn" />
+        <exclude name="MediaWiki.Commenting.FunctionComment.MissingParamName" />
+        <exclude name="PSR12.Properties.ConstantVisibility.NotFound" />
+        <exclude name="MediaWiki.Usage.ForbiddenFunctions.is_integer" />
+        <exclude name="MediaWiki.Commenting.FunctionComment.MissingDocumentationProtected" />
+        <exclude name="PSR2.Files.EndFileNewline.NoneFound" />
+        <exclude name="Generic.PHP.NoSilencedErrors.Discouraged" />
+        <exclude name="Generic.Functions.OpeningFunctionBraceKernighanRitchie.SpaceBeforeBrace" />
+        <exclude name="Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis" />
+        <exclude name="Generic.CodeAnalysis.AssignmentInCondition.Found" />
+        <exclude name="Squiz.ControlStructures.ControlSignature.SpaceAfterKeyword" />
+        <exclude name="Generic.Functions.OpeningFunctionBraceKernighanRitchie.BraceOnNewLine" />
+        <exclude name="Squiz.WhiteSpace.SemicolonSpacing.Incorrect" />
+        <exclude name="MediaWiki.Commenting.PropertyDocumentation.NotShortIntVar" />
+        <exclude name="Squiz.Strings.ConcatenationSpacing.PaddingFound" />
+        <exclude name="MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.SingleSpaceBeforeSingleLineComment" />
+        <exclude name="Squiz.WhiteSpace.SuperfluousWhitespace.EndLine" />
+        <exclude name="MediaWiki.Commenting.FunctionComment.NotShortIntParam" />
+        <exclude name="MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic" />
+        <exclude name="Squiz.WhiteSpace.ScopeClosingBrace.ContentBefore" />
+        <exclude name="Generic.Formatting.SpaceAfterCast.TooMuchSpace" />
+        <exclude name="PSR2.Methods.FunctionClosingBrace.SpacingBeforeClose" />
+        <exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing.SpaceBeforeComma" />
+        <exclude name="Universal.WhiteSpace.CommaSpacing.SpaceBeforeInFunctionDeclaration" />
+        <exclude name="MediaWiki.Commenting.FunctionComment.MissingParamTag" />
+    </rule>
+	<file>.</file>
+    <exclude-pattern>/(vendor|conf)/</exclude-pattern>
+	<exclude-pattern type="relative">extensions/*</exclude-pattern>
+	<arg name="extensions" value="php"/>
+	<arg name="encoding" value="UTF-8"/>
+</ruleset>
