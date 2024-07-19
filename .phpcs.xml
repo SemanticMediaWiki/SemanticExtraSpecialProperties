@@ -57,7 +57,6 @@
         <exclude name="PSR2.Methods.FunctionClosingBrace.SpacingBeforeClose" />
         <exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing.SpaceBeforeComma" />
         <exclude name="Universal.WhiteSpace.CommaSpacing.SpaceBeforeInFunctionDeclaration" />
-        <exclude name="MediaWiki.Commenting.FunctionComment.MissingParamTag" />
     </rule>
 	<file>.</file>
     <exclude-pattern>/(vendor|conf)/</exclude-pattern>
