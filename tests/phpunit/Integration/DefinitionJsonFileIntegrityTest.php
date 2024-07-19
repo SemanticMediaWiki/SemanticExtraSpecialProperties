@@ -16,7 +16,6 @@ use SMW\Tests\TestEnvironment;
 class DefinitionJsonFileIntegrityTest extends \PHPUnit_Framework_TestCase {
 
 	public function testDecodeEncode() {
-
 		$testEnvironment = new TestEnvironment();
 
 		$jsonFileReader = $testEnvironment->getUtilityFactory()->newJsonFileReader(

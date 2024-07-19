@@ -37,7 +37,6 @@ class PageContributorsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase 
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			PageContributorsPropertyAnnotator::class,
 			new PageContributorsPropertyAnnotator( $this->appFactory )
@@ -45,7 +44,6 @@ class PageContributorsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase 
 	}
 
 	public function testIsAnnotatorFor() {
-
 		$instance = new PageContributorsPropertyAnnotator(
 			$this->appFactory
 		);
@@ -56,7 +54,6 @@ class PageContributorsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase 
 	}
 
 	public function testAddAnnotation() {
-
 		$subject = DIWikiPage::newFromText( __METHOD__ );
 
 		$contributors = $this->getMockBuilder( ArrayIterator::class )

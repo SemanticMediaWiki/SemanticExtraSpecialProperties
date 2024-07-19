@@ -16,7 +16,6 @@ use SESP\HookRegistry;
 class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 
 	public function testCanConstruct() {
-
 		$config =  [];
 
 		$this->assertInstanceOf(
@@ -26,7 +25,6 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testRegister() {
-
 		$config = [
 			'sespgDefinitionsFile' => $GLOBALS['sespgDefinitionsFile'],
 			'sespgLocalDefinitions' => [],
@@ -48,7 +46,6 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testInitExtension() {
-
 		$vars = [];
 
 		HookRegistry::initExtension( $vars );
@@ -89,7 +86,6 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function doTestRegisteredInitPropertiesHandler( $instance ) {
-
 		$propertyRegistry = $this->getMockBuilder( '\SMW\PropertyRegistry' )
 			->disableOriginalConstructor()
 			->getMock();
@@ -105,7 +101,6 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function doTestRegisteredAddCustomFixedPropertyTables( $instance ) {
-
 		$this->assertTrue(
 			$instance->isRegistered( 'SMW::SQLStore::AddCustomFixedPropertyTables' )
 		);
@@ -120,7 +115,6 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function doTestRegisteredUpdateDataBeforeHandler( $instance ) {
-
 		$this->assertTrue(
 			$instance->isRegistered( 'SMW::Store::BeforeDataUpdateComplete' )
 		);
@@ -140,7 +134,6 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	private function assertThatHookIsExcutable( $hooks, $arguments ) {
-
 		if ( is_callable( $hooks ) ) {
 			$hooks = [ $hooks ];
 		}

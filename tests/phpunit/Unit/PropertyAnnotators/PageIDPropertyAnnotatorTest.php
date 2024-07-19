@@ -35,7 +35,6 @@ class PageIDPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			PageIDPropertyAnnotator::class,
 			new PageIDPropertyAnnotator( $this->appFactory )
@@ -43,7 +42,6 @@ class PageIDPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testIsAnnotatorFor() {
-
 		$instance = new PageIDPropertyAnnotator(
 			$this->appFactory
 		);
@@ -57,7 +55,6 @@ class PageIDPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	 * @dataProvider idProvider
 	 */
 	public function testAddAnnotation( $id, $expected, $throw ) {
-
 		$subject = DIWikiPage::newFromText( __METHOD__ );
 
 		$wikiPage = $this->getMockBuilder( WikiPage::class )
@@ -95,7 +92,6 @@ class PageIDPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function idProvider() {
-
 		$provider[] = [
 			42,
 			$this->once(),

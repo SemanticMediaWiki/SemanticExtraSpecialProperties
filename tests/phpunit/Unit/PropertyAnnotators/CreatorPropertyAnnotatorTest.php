@@ -35,7 +35,6 @@ class CreatorPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			CreatorPropertyAnnotator::class,
 			new CreatorPropertyAnnotator( $this->appFactory )
@@ -43,7 +42,6 @@ class CreatorPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testIsAnnotatorFor() {
-
 		$instance = new CreatorPropertyAnnotator(
 			$this->appFactory
 		);
@@ -57,7 +55,6 @@ class CreatorPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	 * @dataProvider userPageProvider
 	 */
 	public function testAddAnnotation( $userPage, $expected ) {
-
 		$subject = DIWikiPage::newFromText( __METHOD__ );
 
 		$creator = $this->getMockBuilder( User::class )
@@ -99,7 +96,6 @@ class CreatorPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function userPageProvider() {
-
 		$provider[] = [
 			DIWikiPage::newFromText( __METHOD__ )->getTitle(),
 			$this->once()

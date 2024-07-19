@@ -31,7 +31,6 @@ class UserGroupPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			UserGroupPropertyAnnotator::class,
 			new UserGroupPropertyAnnotator( $this->appFactory )
@@ -39,7 +38,6 @@ class UserGroupPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testIsAnnotatorFor() {
-
 		$instance = new UserGroupPropertyAnnotator(
 			$this->appFactory
 		);
@@ -53,7 +51,6 @@ class UserGroupPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	 * @dataProvider groupsProvider
 	 */
 	public function testAddAnnotation( $groups, $expected ) {
-
 		$user = $this->getMockBuilder( '\User' )
 			->disableOriginalConstructor()
 			->getMock();
@@ -101,7 +98,6 @@ class UserGroupPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function groupsProvider() {
-
 		$provider[] = [
 			[],
 			$this->never()

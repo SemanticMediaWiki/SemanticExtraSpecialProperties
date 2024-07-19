@@ -81,7 +81,6 @@ class DispatchingPropertyAnnotator implements PropertyAnnotator {
 	 * @return PropertyAnnotator
 	 */
 	public function findPropertyAnnotator( DIProperty $property ) {
-
 		$key = $property->getKey();
 
 		if ( $this->propertyAnnotators === [] ) {
@@ -98,7 +97,6 @@ class DispatchingPropertyAnnotator implements PropertyAnnotator {
 	}
 
 	private function initDefaultPropertyAnnotators() {
-
 		// Encapsulate each instance to avoid direct instantiation for unused
 		// matches
 		$this->propertyAnnotators = [

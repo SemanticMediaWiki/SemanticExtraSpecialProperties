@@ -34,7 +34,6 @@ class PageImagesPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
     }
 
     public function testCanConstruct() {
-
         $this->assertInstanceOf(
             PageImagesPropertyAnnotator::class,
             new PageImagesPropertyAnnotator( $this->appFactory )
@@ -42,7 +41,6 @@ class PageImagesPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
     }
 
     public function testIsAnnotatorFor() {
-
         $instance = new PageImagesPropertyAnnotator(
             $this->appFactory
         );
@@ -53,7 +51,6 @@ class PageImagesPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
     }
 
     public function testAddAnnotation() {
-
         $title = $this->getMockBuilder( Title::class )
             ->disableOriginalConstructor()
             ->getMock();

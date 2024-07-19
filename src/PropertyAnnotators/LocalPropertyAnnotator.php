@@ -49,7 +49,6 @@ class LocalPropertyAnnotator implements PropertyAnnotator {
 	 * {@inheritDoc}
 	 */
 	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
-
 		$time = microtime( true );
 
 		$localDefs = $this->appFactory->getOption( 'sespgLocalDefinitions', [] );
@@ -64,7 +63,6 @@ class LocalPropertyAnnotator implements PropertyAnnotator {
 	}
 
 	private function callOnLocalDef( $definition, $property, $semanticData ) {
-
 		if ( !isset( $definition['id'] ) || $definition['id'] !== $property->getKey() ) {
 			return;
 		}

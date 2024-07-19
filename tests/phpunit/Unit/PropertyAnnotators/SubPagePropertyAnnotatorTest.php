@@ -31,7 +31,6 @@ class SubPagePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			SubPagePropertyAnnotator::class,
 			new SubPagePropertyAnnotator( $this->appFactory )
@@ -39,7 +38,6 @@ class SubPagePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testIsAnnotatorFor() {
-
 		$instance = new SubPagePropertyAnnotator(
 			$this->appFactory
 		);
@@ -50,7 +48,6 @@ class SubPagePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testAddAnnotation() {
-
 		$sub = DIWikiPage::newFromText( __METHOD__ )->getTitle();
 
 		$title = $this->getMockBuilder( '\Title' )

@@ -63,7 +63,6 @@ class UserRightPropertyAnnotator implements PropertyAnnotator {
 	 * {@inheritDoc}
 	 */
 	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
-
 		$title = $semanticData->getSubject()->getTitle();
 
 		if ( !$title->inNamespace( NS_USER ) ) {

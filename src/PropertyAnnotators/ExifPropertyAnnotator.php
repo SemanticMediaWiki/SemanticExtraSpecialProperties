@@ -65,7 +65,6 @@ class ExifPropertyAnnotator implements PropertyAnnotator {
 	 * {@inheritDoc}
 	 */
 	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
-
 		$subject = $semanticData->getSubject();
 		$title = $subject->getTitle();
 
@@ -105,7 +104,6 @@ class ExifPropertyAnnotator implements PropertyAnnotator {
 	}
 
 	protected function getDataItemFromExifData( $subject, $rawExif ) {
-
 		$containerSemanticData = $this->newContainerSemanticData(
 			$subject
 		);
@@ -120,7 +118,6 @@ class ExifPropertyAnnotator implements PropertyAnnotator {
 	}
 
 	private function newContainerSemanticData( $subject ) {
-
 		$subject = new DIWikiPage(
 			$subject->getDBkey(),
 			$subject->getNamespace(),
@@ -132,7 +129,6 @@ class ExifPropertyAnnotator implements PropertyAnnotator {
 	}
 
 	private function addExifDataTo( $containerSemanticData, $rawExif ) {
-
 		$exifDefinitions = $this->appFactory->getPropertyDefinitions()->safeGet( '_EXIF' );
 		$formattedExif = FormatMetadata::getFormattedData( $rawExif );
 
@@ -147,7 +143,6 @@ class ExifPropertyAnnotator implements PropertyAnnotator {
 	}
 
 	private function createDataItemFromExif( &$id, $key, $value, $rawExif, $exifDefinitions ) {
-
 		$dataItem = null;
 		$upKey = strtoupper( $key );
 
@@ -173,7 +168,6 @@ class ExifPropertyAnnotator implements PropertyAnnotator {
 	}
 
 	private function makeDataItemTime( $exifValue ) {
-
 		try {
 			$datetime = $this->convertExifDate( $exifValue );
 		} catch ( \Exception $e ) {
@@ -193,7 +187,6 @@ class ExifPropertyAnnotator implements PropertyAnnotator {
 	}
 
 	private function convertExifDate( $exifString ) {
-
 		// Unknown date
 		if ( $exifString == '0000:00:00 00:00:00' || $exifString == '    :  :     :  :  ' ) {
 			return false;

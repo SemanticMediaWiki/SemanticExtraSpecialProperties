@@ -31,7 +31,6 @@ class UserRegistrationDatePropertyAnnotatorTest extends \PHPUnit_Framework_TestC
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			UserRegistrationDatePropertyAnnotator::class,
 			new UserRegistrationDatePropertyAnnotator( $this->appFactory )
@@ -39,7 +38,6 @@ class UserRegistrationDatePropertyAnnotatorTest extends \PHPUnit_Framework_TestC
 	}
 
 	public function testIsAnnotatorFor() {
-
 		$instance = new UserRegistrationDatePropertyAnnotator(
 			$this->appFactory
 		);
@@ -50,7 +48,6 @@ class UserRegistrationDatePropertyAnnotatorTest extends \PHPUnit_Framework_TestC
 	}
 
 	public function testAddAnnotation() {
-
 		$user = $this->getMockBuilder( '\User' )
 			->disableOriginalConstructor()
 			->getMock();

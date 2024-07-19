@@ -32,7 +32,6 @@ class ApprovedRevPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			ApprovedRevPropertyAnnotator::class,
 			new ApprovedRevPropertyAnnotator( $this->appFactory )
@@ -40,7 +39,6 @@ class ApprovedRevPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testIsAnnotatorFor() {
-
 		$annotator = new ApprovedRevPropertyAnnotator(
 			$this->appFactory
 		);

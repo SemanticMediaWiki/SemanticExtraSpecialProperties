@@ -49,7 +49,6 @@ class DatabaseLogReader {
 	 * @param string $type of log (default: approval)
 	 */
 	public function __construct( $dbr, Title $title = null, $type = 'approval' ) {
-		
 		// Due to MW 1.31+ and MW 1.34+
 		if (
 			!$dbr instanceof \Wikimedia\Rdbms\IDatabase &&
@@ -127,7 +126,6 @@ class DatabaseLogReader {
 	 * Take care of loading from the cache or filling the query.
 	 */
 	private function init() {
-
 		if ( $this->query ) {
 			return;
 		}

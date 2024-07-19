@@ -54,7 +54,6 @@ class RevisionIDPropertyAnnotator implements PropertyAnnotator {
 	 * {@inheritDoc}
 	 */
 	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
-
 		$page = $this->appFactory->newWikiPage(
 			$semanticData->getSubject()->getTitle()
 		);

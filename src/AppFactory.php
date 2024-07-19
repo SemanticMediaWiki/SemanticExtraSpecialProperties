@@ -71,7 +71,6 @@ class AppFactory implements LoggerAwareInterface {
 	 * @return DatabaseBase
 	 */
 	public function getConnection() {
-
 		if ( $this->connection === null ) {
 			$this->connection = wfGetDB( DB_REPLICA );
 		}
@@ -96,7 +95,6 @@ class AppFactory implements LoggerAwareInterface {
 	 * @param LoggerInterface
 	 */
 	public function getLogger() {
-
 		if ( $this->logger === null ) {
 			return new NullLogger();
 		}
@@ -113,7 +111,6 @@ class AppFactory implements LoggerAwareInterface {
 	 * @return mixed|false
 	 */
 	public function getOption( $key, $default = false ) {
-
 		if ( isset( $this->options[$key] ) ) {
 			return $this->options[$key];
 		}
@@ -127,7 +124,6 @@ class AppFactory implements LoggerAwareInterface {
 	 * @return PropertyDefinitions
 	 */
 	public function getPropertyDefinitions() {
-
 		if ( $this->propertyDefinitions !== null ) {
 			return $this->propertyDefinitions;
 		}
@@ -161,7 +157,6 @@ class AppFactory implements LoggerAwareInterface {
 	 * @return WikiPage
 	 */
 	public function newWikiPage( Title $title ) {
-
 		// #55
 		// Fight a possible DB corruption and avoid "NS_MEDIA is a virtual namespace; use NS_FILE"
 		if ( $title->getNamespace() === NS_MEDIA ) {

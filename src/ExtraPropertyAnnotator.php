@@ -47,7 +47,6 @@ class ExtraPropertyAnnotator {
 	 * @param SemanticData $semanticData
 	 */
 	public function addAnnotation( SemanticData $semanticData ) {
-
 		$time = microtime( true );
 
 		if ( !$this->canAnnotate( $semanticData->getSubject() ) ) {
@@ -85,7 +84,6 @@ class ExtraPropertyAnnotator {
 	 * @param PropertyAnnotator $propertyAnnotator
 	 */
 	public function addPropertyAnnotator( $key, PropertyAnnotator $propertyAnnotator ) {
-
 		if ( $this->dispatchingPropertyAnnotator === null ) {
 			$this->initPropertyAnnotators();
 		}
@@ -94,7 +92,6 @@ class ExtraPropertyAnnotator {
 	}
 
 	private function canAnnotate( $subject ) {
-
 		if ( $subject === null || $subject->getTitle() === null || $subject->getTitle()->isSpecialPage() ) {
 			return false;
 		}
@@ -107,7 +104,6 @@ class ExtraPropertyAnnotator {
 	}
 
 	private function initPropertyAnnotators() {
-
 		$this->localPropertyAnnotator = new LocalPropertyAnnotator(
 			$this->appFactory
 		);

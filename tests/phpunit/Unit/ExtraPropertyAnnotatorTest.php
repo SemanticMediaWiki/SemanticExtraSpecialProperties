@@ -29,7 +29,6 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			ExtraPropertyAnnotator::class,
 			new ExtraPropertyAnnotator( $this->appFactory )
@@ -37,7 +36,6 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testaddAnnotationOnInvalidSubject() {
-
 		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
 			->disableOriginalConstructor()
 			->getMock();
@@ -53,7 +51,6 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testAddAnnotationOnLocalDef() {
-
 		$appFactory = $this->getMockBuilder( '\SESP\AppFactory' )
 			->disableOriginalConstructor()
 			->setMethods( [ 'getPropertyDefinitions', 'getOption' ] )
@@ -107,7 +104,6 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testAddAnnotationOnPredefined() {
-
 		$appFactory = $this->getMockBuilder( '\SESP\AppFactory' )
 			->disableOriginalConstructor()
 			->setMethods( [ 'getPropertyDefinitions', 'getOption' ] )

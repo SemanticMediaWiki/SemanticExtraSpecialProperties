@@ -57,7 +57,6 @@ class ShortUrlPropertyAnnotator implements PropertyAnnotator {
 	 * {@inheritDoc}
 	 */
 	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
-
 		if ( !$this->hasShortUrlUtils() ) {
 			throw new RuntimeException( 'Class ShortUrlUtils is not available' );
 		}
@@ -75,7 +74,6 @@ class ShortUrlPropertyAnnotator implements PropertyAnnotator {
 	}
 
 	protected function getShortUrl( Title $title ) {
-
 		// FIXME handle internal and external links
 		$shortUrl = null;
 
@@ -87,7 +85,6 @@ class ShortUrlPropertyAnnotator implements PropertyAnnotator {
 	}
 
 	protected function getUrlPrefix() {
-
 		$shortUrlPrefix = $this->appFactory->getOption( 'wgShortUrlPrefix', '' );
 
 		if ( $shortUrlPrefix === '' ) {

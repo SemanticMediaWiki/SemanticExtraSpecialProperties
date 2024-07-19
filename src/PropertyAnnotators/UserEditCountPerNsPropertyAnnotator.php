@@ -61,7 +61,6 @@ class UserEditCountPerNsPropertyAnnotator implements PropertyAnnotator {
 	 * @inheritDoc
 	 */
 	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
-
 		$subject = $semanticData->getSubject();
 		$title = $subject->getTitle();
 

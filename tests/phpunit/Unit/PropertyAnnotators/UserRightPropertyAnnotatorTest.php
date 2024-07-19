@@ -32,7 +32,6 @@ class UserRightPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			UserRightPropertyAnnotator::class,
 			new UserRightPropertyAnnotator( $this->appFactory )
@@ -40,7 +39,6 @@ class UserRightPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testIsAnnotatorFor() {
-
 		$instance = new UserRightPropertyAnnotator(
 			$this->appFactory
 		);
@@ -54,7 +52,6 @@ class UserRightPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	 * @dataProvider rightsProvider
 	 */
 	public function testAddAnnotation( $rights, $expected ) {
-
 		$user = $this->getMockBuilder( '\User' )
 			->disableOriginalConstructor()
 			->getMock();
@@ -108,7 +105,6 @@ class UserRightPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function rightsProvider() {
-
 		$provider[] = [
 			[],
 			$this->never()

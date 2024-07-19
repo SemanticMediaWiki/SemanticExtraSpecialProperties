@@ -36,7 +36,6 @@ class UserEditCountPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			UserEditCountPropertyAnnotator::class,
 			new UserEditCountPropertyAnnotator( $this->appFactory )
@@ -44,7 +43,6 @@ class UserEditCountPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testIsAnnotatorFor() {
-
 		$instance = new UserEditCountPropertyAnnotator(
 			$this->appFactory
 		);
@@ -58,7 +56,6 @@ class UserEditCountPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	 * @dataProvider editCountProvider
 	 */
 	public function testAddAnnotation( $count, $expected ) {
-
 		$user = $this->getMockBuilder( User::class )
 			->disableOriginalConstructor()
 			->getMock();
@@ -106,7 +103,6 @@ class UserEditCountPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function editCountProvider() {
-
 		$provider[] = [
 			42,
 			$this->once()

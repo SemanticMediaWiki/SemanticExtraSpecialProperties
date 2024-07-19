@@ -36,7 +36,6 @@ class UserBlockPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			UserBlockPropertyAnnotator::class,
 			new UserBlockPropertyAnnotator( $this->appFactory )
@@ -44,7 +43,6 @@ class UserBlockPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testIsAnnotatorFor() {
-
 		$instance = new UserBlockPropertyAnnotator(
 			$this->appFactory
 		);
@@ -58,7 +56,6 @@ class UserBlockPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	 * @dataProvider blockActionProvider
 	 */
 	public function testAddAnnotation( $action, $expected ) {
-
 		$compare = function( $reason ) use( $action ) {
 			return $reason == $action;
 		};
@@ -118,7 +115,6 @@ class UserBlockPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function blockActionProvider() {
-
 		$provider[] = [
 			'Foo',
 			$this->never()

@@ -54,7 +54,6 @@ class PageViewsPropertyAnnotator implements PropertyAnnotator {
 	 * {@inheritDoc}
 	 */
 	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
-
 		if ( $this->appFactory->getOption( 'wgDisableCounters' ) ) {
 			return null;
 		}
@@ -68,7 +67,6 @@ class PageViewsPropertyAnnotator implements PropertyAnnotator {
 	}
 
 	private function getPageViewCount( $page ) {
-
 		if ( class_exists( '\HitCounters\HitCounters' ) ) {
 			return \HitCounters\HitCounters::getCount( $page->getTitle() );
 		}

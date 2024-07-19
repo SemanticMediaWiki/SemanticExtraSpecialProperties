@@ -31,7 +31,6 @@ class NullPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			NullPropertyAnnotator::class,
 			new NullPropertyAnnotator( $this->appFactory )
@@ -39,7 +38,6 @@ class NullPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testIsAnnotatorFor() {
-
 		$instance = new NullPropertyAnnotator(
 			$this->appFactory
 		);
@@ -50,7 +48,6 @@ class NullPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testAddAnnotation() {
-
 		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
 			->disableOriginalConstructor()
 			->getMock();

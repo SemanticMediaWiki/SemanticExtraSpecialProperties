@@ -54,7 +54,6 @@ class TalkPageNumRevisionPropertyAnnotator implements PropertyAnnotator {
 	 * {@inheritDoc}
 	 */
 	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
-
 		$title = $semanticData->getSubject()->getTitle()->getTalkPage();
 
 		$numRevisions = $this->getPageRevisions(

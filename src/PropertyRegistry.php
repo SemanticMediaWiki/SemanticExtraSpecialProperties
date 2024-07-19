@@ -39,7 +39,6 @@ class PropertyRegistry {
 	 * @return boolean
 	 */
 	public function register( Registry $propertyRegistry ) {
-
 		$propertyDefinitions = $this->appFactory->getPropertyDefinitions();
 		$labels = $propertyDefinitions->getLabels();
 
@@ -71,7 +70,6 @@ class PropertyRegistry {
 	 * @param array $fixedPropertyTablePrefix
 	 */
 	public function registerFixedProperties( &$customFixedProperties, &$fixedPropertyTablePrefix ) {
-
 		if ( $this->appFactory->getOption( 'sespgUseFixedTables' ) === false ) {
 			return;
 		}
@@ -100,7 +98,6 @@ class PropertyRegistry {
 	}
 
 	private function addPropertyDefinition( $propertyRegistry, $propertyDefinitions, $definition, $aliases ) {
-
 		$visible = isset( $definition['show'] ) ? $definition['show'] : false;
 		$annotable = false;
 

@@ -64,7 +64,6 @@ class ApprovedRevPropertyAnnotator implements PropertyAnnotator {
 	 * {@inheritDoc}
 	 */
 	public function addAnnotation( DIProperty $property, SemanticData $semanticData	) {
-
 		if ( $this->approvedRev === null && class_exists( 'ApprovedRevs' ) ) {
 			$this->approvedRev = ApprovedRevs::getApprovedRevID(
 				$semanticData->getSubject()->getTitle()

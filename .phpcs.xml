@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <ruleset>
 	<rule ref="./vendor/mediawiki/mediawiki-codesniffer/MediaWiki">
-        <exclude name="Squiz.WhiteSpace.FunctionOpeningBraceSpace.SpacingAfter" />
         <exclude name="MediaWiki.Commenting.MissingCovers.MissingCovers" />
         <exclude name="MediaWiki.Commenting.LicenseComment.InvalidLicenseTag" />
         <exclude name="MediaWiki.PHPUnit.MockBoilerplate.returnValue" />

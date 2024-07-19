@@ -32,7 +32,6 @@ class ExifPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			ExifPropertyAnnotator::class,
 			new ExifPropertyAnnotator( $this->appFactory )
@@ -40,7 +39,6 @@ class ExifPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testIsAnnotatorFor() {
-
 		$instance = new ExifPropertyAnnotator(
 			$this->appFactory
 		);
@@ -51,7 +49,6 @@ class ExifPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testTryAddAnnotationForNonExistingFile() {
-
 		$file = $this->getMockBuilder( 'File' )
 			->disableOriginalConstructor()
 			->getMock();
@@ -107,7 +104,6 @@ class ExifPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	 * @dataProvider metaProvider
 	 */
 	public function testAddAnnotation( $meta, $defs, $expected ) {
-
 		$labelFetcher = $this->getMockBuilder( '\SESP\LabelFetcher' )
 			->disableOriginalConstructor()
 			->getMock();
@@ -169,7 +165,6 @@ class ExifPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function metaProvider() {
-
 		$provider[] = [
 			[ 'Software' => 'ABC' ],
 			[ '_EXIF' => [ 'SOFTWARE' => [ 'id' => 'Foo', 'type' => '_txt' ] ] ],

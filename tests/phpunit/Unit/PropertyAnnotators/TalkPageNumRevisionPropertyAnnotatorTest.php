@@ -31,7 +31,6 @@ class TalkPageNumRevisionPropertyAnnotatorTest extends \PHPUnit_Framework_TestCa
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			TalkPageNumRevisionPropertyAnnotator::class,
 			new TalkPageNumRevisionPropertyAnnotator( $this->appFactory )
@@ -39,7 +38,6 @@ class TalkPageNumRevisionPropertyAnnotatorTest extends \PHPUnit_Framework_TestCa
 	}
 
 	public function testIsAnnotatorFor() {
-
 		$instance = new TalkPageNumRevisionPropertyAnnotator(
 			$this->appFactory
 		);
@@ -53,7 +51,6 @@ class TalkPageNumRevisionPropertyAnnotatorTest extends \PHPUnit_Framework_TestCa
 	 * @dataProvider rowCountProvider
 	 */
 	public function testAddAnnotation( $count, $expected ) {
-
 		$talkPage = $this->getMockBuilder( '\Title' )
 			->disableOriginalConstructor()
 			->getMock();
@@ -114,7 +111,6 @@ class TalkPageNumRevisionPropertyAnnotatorTest extends \PHPUnit_Framework_TestCa
 	}
 
 	public function rowCountProvider() {
-
 		$provider[] = [
 			42,
 			$this->once()

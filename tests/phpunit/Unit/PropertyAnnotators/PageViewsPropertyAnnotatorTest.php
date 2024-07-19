@@ -35,7 +35,6 @@ class PageViewsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			PageViewsPropertyAnnotator::class,
 			new PageViewsPropertyAnnotator( $this->appFactory )
@@ -43,7 +42,6 @@ class PageViewsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testIsAnnotatorFor() {
-
 		$instance = new PageViewsPropertyAnnotator(
 			$this->appFactory
 		);
@@ -54,7 +52,6 @@ class PageViewsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testDisableCounters() {
-
 		$this->appFactory->expects( $this->once() )
 			->method( 'getOption' )
 			->with( $this->equalTo( 'wgDisableCounters' ) )
@@ -75,7 +72,6 @@ class PageViewsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testAddAnnotation() {
-
 		$subject = DIWikiPage::newFromText( __METHOD__ );
 
 		$this->appFactory->expects( $this->once() )

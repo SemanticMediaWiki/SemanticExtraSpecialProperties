@@ -24,7 +24,6 @@ use WikiPage;
 class AppFactoryTest extends \PHPUnit_Framework_TestCase {
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			AppFactory::class,
 			new AppFactory()
@@ -32,7 +31,6 @@ class AppFactoryTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testCanConstructWikiPage( ) {
-
 		$title = $this->getMockBuilder( Title::class )
 			->disableOriginalConstructor()
 			->getMock();
@@ -50,7 +48,6 @@ class AppFactoryTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testCanConstructWikiPageFrom_NS_MEDIA() {
-
 		$title = Title::newFromText( 'Foo', NS_MEDIA );
 
 		$instance = new AppFactory();
@@ -62,7 +59,6 @@ class AppFactoryTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testCanConstructUserFromTitle( ) {
-
 		$title = $this->getMockBuilder( Title::class )
 			->disableOriginalConstructor()
 			->getMock();
@@ -80,7 +76,6 @@ class AppFactoryTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testCanConstructUserFromID( ) {
-
 		$instance = new AppFactory();
 
 		$this->assertInstanceOf(
@@ -90,7 +85,6 @@ class AppFactoryTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testGetConnection( ) {
-
 		$connection = $this->getMockBuilder( DatabaseBase::class )
 			->disableOriginalConstructor()
 			->getMock();
@@ -108,7 +102,6 @@ class AppFactoryTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testGetPropertyDefinitions( ) {
-
 		$options = [
 			'sespgDefinitionsFile' => '',
 			'sespgLocalDefinitions' => []
@@ -132,7 +125,6 @@ class AppFactoryTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testGetLogger( ) {
-
 		$instance = new AppFactory();
 
 		$this->assertInstanceOf(
@@ -153,7 +145,6 @@ class AppFactoryTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testGetOption( ) {
-
 		$options = [
 			'Foo' => 'Bar'
 		];

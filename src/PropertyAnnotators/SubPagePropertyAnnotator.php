@@ -55,7 +55,6 @@ class SubPagePropertyAnnotator implements PropertyAnnotator {
 	 * {@inheritDoc}
 	 */
 	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
-
 		$title = $semanticData->getSubject()->getTitle();
 
 		// -1 = no limit. Returns TitleArray object

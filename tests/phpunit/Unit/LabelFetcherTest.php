@@ -26,7 +26,6 @@ class LabelFetcherTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			LabelFetcher::class,
 			new LabelFetcher( $this->cache )
@@ -34,7 +33,6 @@ class LabelFetcherTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testGetLabel() {
-
 		$instance = new LabelFetcher(
 			$this->cache
 		);
@@ -45,7 +43,6 @@ class LabelFetcherTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testGetLabelsUnCached() {
-
 		$defs = [
 			'FOO' => [ 'id' => 'Foo', 'alias' => 'Foo' ],
 			'_EXIF' => [
@@ -79,7 +76,6 @@ class LabelFetcherTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testGetLabelsCached() {
-
 		$labels = [
 			'FOO' => 'Bar'
 		];
@@ -104,7 +100,6 @@ class LabelFetcherTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testGetLabelsCachedVersioned() {
-
 		$labels = [
 			'FOO' => 'Bar'
 		];

@@ -63,7 +63,6 @@ class PageContributorsPropertyAnnotator implements PropertyAnnotator {
 	 * {@inheritDoc}
 	 */
 	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
-
 		$title = $semanticData->getSubject()->getTitle();
 		$page = $this->appFactory->newWikiPage( $title );
 

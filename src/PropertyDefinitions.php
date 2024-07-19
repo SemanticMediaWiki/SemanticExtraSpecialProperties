@@ -113,7 +113,6 @@ class PropertyDefinitions implements IteratorAggregate {
 	 * @throws InvalidArgumentException
 	 */
 	public function get( $key ) {
-
 		if ( $this->has( $key ) ) {
 			return $this->propertyDefinitions[$key];
 		}
@@ -143,7 +142,6 @@ class PropertyDefinitions implements IteratorAggregate {
 	 * @throws InvalidArgumentException
 	 */
 	public function deepGet( $key, $key2 ) {
-
 		if ( $this->deepHas( $key, $key2 ) ) {
 			return $this->propertyDefinitions[$key][$key2];
 		}
@@ -169,7 +167,6 @@ class PropertyDefinitions implements IteratorAggregate {
 	 * @return array
 	 */
 	public function getLabels() {
-
 		if ( $this->propertyDefinitions === null ) {
 			$this->initPropertyDefinitions();
 		}
@@ -196,7 +193,6 @@ class PropertyDefinitions implements IteratorAggregate {
 	 * @return Iterator
 	 */
 	public function getIterator(): Iterator {
-
 		if ( $this->propertyDefinitions === null ) {
 			$this->initPropertyDefinitions();
 		}
@@ -205,7 +201,6 @@ class PropertyDefinitions implements IteratorAggregate {
 	}
 
 	private function initPropertyDefinitions() {
-
 		$contents = file_get_contents(
 			str_replace( [ '\\', '/' ], DIRECTORY_SEPARATOR, $this->propertyDefinitionFile )
 		);

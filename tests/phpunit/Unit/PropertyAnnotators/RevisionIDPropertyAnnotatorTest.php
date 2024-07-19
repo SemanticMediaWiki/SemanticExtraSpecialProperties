@@ -34,7 +34,6 @@ class RevisionIDPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			RevisionIDPropertyAnnotator::class,
 			new RevisionIDPropertyAnnotator( $this->appFactory )
@@ -42,7 +41,6 @@ class RevisionIDPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testIsAnnotatorFor() {
-
 		$instance = new RevisionIDPropertyAnnotator(
 			$this->appFactory
 		);
@@ -56,7 +54,6 @@ class RevisionIDPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	 * @dataProvider latestProvider
 	 */
 	public function testAddAnnotation( $latest, $expected ) {
-
 		$subject = DIWikiPage::newFromText( __METHOD__ );
 
 		$wikiPage = $this->getMockBuilder( WikiPage::class )
@@ -90,7 +87,6 @@ class RevisionIDPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function latestProvider() {
-
 		$provider[] = [
 			42,
 			$this->once()

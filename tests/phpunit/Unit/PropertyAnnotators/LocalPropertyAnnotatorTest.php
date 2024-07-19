@@ -32,7 +32,6 @@ class LocalPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			LocalPropertyAnnotator::class,
 			new LocalPropertyAnnotator( $this->appFactory )
@@ -40,7 +39,6 @@ class LocalPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testIsAnnotatorFor() {
-
 		$instance = new LocalPropertyAnnotator(
 			$this->appFactory
 		);
@@ -51,7 +49,6 @@ class LocalPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testAddAnnotation() {
-
 		$subject = DIWikiPage::newFromText( __METHOD__ );
 
 		$callback = function( $appFactory, $property, $semanticData ) {
@@ -89,7 +86,6 @@ class LocalPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testAddAnnotationOnInvalidLocalDef() {
-
 		$subject = DIWikiPage::newFromText( __METHOD__ );
 
 		$localPropertyDefinitions = [];

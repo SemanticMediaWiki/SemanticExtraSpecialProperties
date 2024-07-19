@@ -79,7 +79,6 @@ class LabelFetcher {
 	 * @return array
 	 */
 	public function getLabelsFrom( PropertyDefinitions $propertyDefinitions ) {
-
 		$hash = smwfCacheKey(
 			self::LABEL_CACHE_NAMESPACE,
 			[
@@ -112,7 +111,6 @@ class LabelFetcher {
 	}
 
 	private function matchLabel( &$labels, $definition ) {
-
 		if ( !isset( $definition['id'] ) ) {
 			return;
 		}

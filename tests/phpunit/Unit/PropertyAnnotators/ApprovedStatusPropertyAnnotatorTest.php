@@ -31,7 +31,6 @@ class ApprovedStatusPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			ApprovedStatusPropertyAnnotator::class,
 			new ApprovedStatusPropertyAnnotator( $this->appFactory )
@@ -39,7 +38,6 @@ class ApprovedStatusPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testIsAnnotatorFor() {
-
 		$annotator = new ApprovedStatusPropertyAnnotator(
 			$this->appFactory
 		);

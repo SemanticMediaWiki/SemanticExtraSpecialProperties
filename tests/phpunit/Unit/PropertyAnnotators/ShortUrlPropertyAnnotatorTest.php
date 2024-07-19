@@ -31,7 +31,6 @@ class ShortUrlPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			ShortUrlPropertyAnnotator::class,
 			new ShortUrlPropertyAnnotator( $this->appFactory )
@@ -39,7 +38,6 @@ class ShortUrlPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testIsAnnotatorFor() {
-
 		$instance = new ShortUrlPropertyAnnotator(
 			$this->appFactory
 		);
@@ -50,7 +48,6 @@ class ShortUrlPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testMissingShortUrlUtilsThrowsException() {
-
 		// PHPUnit 6.5+
 		if ( is_callable( [ $this, 'expectException' ] ) ) {
 			$this->expectException( '\RuntimeException' );
@@ -75,7 +72,6 @@ class ShortUrlPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testAddAnnotation() {
-
 		$subject = DIWikiPage::newFromText( __METHOD__ );
 
 		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )

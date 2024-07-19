@@ -32,7 +32,6 @@ class NamespaceNamePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	 * @covers \SESP\PropertyAnnotators\NamespaceNamePropertyAnnotator
 	 */
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			NamespaceNamePropertyAnnotator::class,
 			new NamespaceNamePropertyAnnotator( $this->appFactory )
@@ -43,7 +42,6 @@ class NamespaceNamePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	 * @covers \SESP\PropertyAnnotators\NamespaceNamePropertyAnnotator::isAnnotatorFor
 	 */
 	public function testIsAnnotatorFor() {
-
 		$annotator = new NamespaceNamePropertyAnnotator(
 			$this->appFactory
 		);

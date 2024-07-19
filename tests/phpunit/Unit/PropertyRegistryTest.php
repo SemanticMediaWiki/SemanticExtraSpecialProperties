@@ -28,7 +28,6 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			PropertyRegistry::class,
 			new PropertyRegistry( $this->appFactory )
@@ -36,7 +35,6 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testregisterEmptyDefinition() {
-
 		$propertyDefinitions = $this->getMockBuilder( '\SESP\PropertyDefinitions' )
 			->disableOriginalConstructor()
 			->setMethods( [ 'getLabels' ] )
@@ -62,7 +60,6 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testregisterEmptyDefinitionOnExifDefintion() {
-
 		$defs = [ '_EXIF' => [
 			'SOFTWARE' => [ 'id' => 'Foo', 'type' => '_txt', 'label' => 'Foo' ] ]
 		];
@@ -104,7 +101,6 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testregisterFakeDefinition() {
-
 		$definition['_MY_CUSTOM1'] = [
 			'id'    => '___MY_CUSTOM1',
 			'type'  => '_wpg',
@@ -149,7 +145,6 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testRegisterAsFixedPropertiesDisabled() {
-
 		$this->appFactory->expects( $this->once() )
 			->method( 'getOption' )
 			->with( $this->stringContains( 'sespgUseFixedTables' ) )
@@ -173,7 +168,6 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testRegisterAsFixedPropertiesEnabled() {
-
 		$propertyDefinitions = $this->getMockBuilder( '\SESP\PropertyDefinitions' )
 			->disableOriginalConstructor()
 			->setMethods( null )

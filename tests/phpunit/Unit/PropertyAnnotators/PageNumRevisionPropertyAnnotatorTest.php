@@ -31,7 +31,6 @@ class PageNumRevisionPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			PageNumRevisionPropertyAnnotator::class,
 			new PageNumRevisionPropertyAnnotator( $this->appFactory )
@@ -39,7 +38,6 @@ class PageNumRevisionPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testIsAnnotatorFor() {
-
 		$instance = new PageNumRevisionPropertyAnnotator(
 			$this->appFactory
 		);
@@ -53,7 +51,6 @@ class PageNumRevisionPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	 * @dataProvider rowCountProvider
 	 */
 	public function testAddAnnotation( $count, $expected ) {
-
 		$title = $this->getMockBuilder( '\Title' )
 			->disableOriginalConstructor()
 			->getMock();
@@ -106,7 +103,6 @@ class PageNumRevisionPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function rowCountProvider() {
-
 		$provider[] = [
 			42,
 			$this->once()

@@ -57,7 +57,6 @@ class DispatchingPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			DispatchingPropertyAnnotator::class,
 			new DispatchingPropertyAnnotator( $this->appFactory )
@@ -65,7 +64,6 @@ class DispatchingPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testIsAnnotatorFor() {
-
 		$instance = new DispatchingPropertyAnnotator(
 			$this->appFactory
 		);
@@ -76,7 +74,6 @@ class DispatchingPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testAddAnnotation() {
-
 		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
 			->disableOriginalConstructor()
 			->getMock();
@@ -101,7 +98,6 @@ class DispatchingPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	 * @dataProvider propertyAnnotatorProvider
 	 */
 	public function testFindPropertyAnnotator( $property, $expected ) {
-
 		$instance = new DispatchingPropertyAnnotator(
 			$this->appFactory
 		);
@@ -113,7 +109,6 @@ class DispatchingPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function propertyAnnotatorProvider() {
-
 		$provider[] = [
 			CreatorPropertyAnnotator::PROP_ID,
 			CreatorPropertyAnnotator::class

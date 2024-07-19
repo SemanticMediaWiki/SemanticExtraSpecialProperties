@@ -31,7 +31,6 @@ class PageLengthPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			PageLengthPropertyAnnotator::class,
 			new PageLengthPropertyAnnotator( $this->appFactory )
@@ -39,7 +38,6 @@ class PageLengthPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testIsAnnotatorFor() {
-
 		$instance = new PageLengthPropertyAnnotator(
 			$this->appFactory
 		);
@@ -53,7 +51,6 @@ class PageLengthPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	 * @dataProvider lengthProvider
 	 */
 	public function testAddAnnotation( $length, $expected ) {
-
 		$title = $this->getMockBuilder( '\Title' )
 			->disableOriginalConstructor()
 			->getMock();
@@ -89,7 +86,6 @@ class PageLengthPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function lengthProvider() {
-
 		$provider[] = [
 			42,
 			$this->once()
