@@ -91,6 +91,6 @@ class ApprovedStatusPropertyAnnotator implements PropertyAnnotator {
 
 	private static function getApprovedRevID( $title ): ?int {
 		$id = ApprovedRevs::getApprovedRevID( $title );
-		return $id === null || $id === false ? null : (int) $id;
+		return $id === null || $id === false ? null : (int)$id;
 	}
 }
