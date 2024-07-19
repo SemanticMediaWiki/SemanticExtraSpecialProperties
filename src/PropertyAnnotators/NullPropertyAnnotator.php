@@ -31,6 +31,7 @@ class NullPropertyAnnotator implements PropertyAnnotator {
 	 *
 	 * {@inheritDoc}
 	 */
-	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {}
+	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
+    }
 
 }

@@ -52,7 +52,6 @@
         <exclude name="Squiz.WhiteSpace.SuperfluousWhitespace.EndLine" />
         <exclude name="MediaWiki.Commenting.FunctionComment.NotShortIntParam" />
         <exclude name="MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic" />
-        <exclude name="Squiz.WhiteSpace.ScopeClosingBrace.ContentBefore" />
     </rule>
 	<file>.</file>
     <exclude-pattern>/(vendor|conf)/</exclude-pattern>
