@@ -54,8 +54,6 @@
         <exclude name="MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic" />
         <exclude name="Squiz.WhiteSpace.ScopeClosingBrace.ContentBefore" />
         <exclude name="Generic.Formatting.SpaceAfterCast.TooMuchSpace" />
-        <exclude name="PSR2.Methods.FunctionClosingBrace.SpacingBeforeClose" />
-        <exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing.SpaceBeforeComma" />
     </rule>
 	<file>.</file>
     <exclude-pattern>/(vendor|conf)/</exclude-pattern>

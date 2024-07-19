@@ -146,7 +146,6 @@ class DatabaseLogReader {
 			$this->query = $cache->getQuery();
 			$this->log = $cache->getLog();
 		}
-
 	}
 
 	/**
