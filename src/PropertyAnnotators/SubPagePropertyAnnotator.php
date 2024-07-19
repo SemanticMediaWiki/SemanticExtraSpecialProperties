@@ -58,7 +58,7 @@ class SubPagePropertyAnnotator implements PropertyAnnotator {
 
 		$title = $semanticData->getSubject()->getTitle();
 
-		//-1 = no limit. Returns TitleArray object
+		// -1 = no limit. Returns TitleArray object
 		$subpages = $title->getSubpages( -1 );
 
 		foreach ( $subpages as $title ) {

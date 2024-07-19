@@ -76,7 +76,7 @@ class ShortUrlPropertyAnnotator implements PropertyAnnotator {
 
 	protected function getShortUrl( Title $title ) {
 
-		//FIXME handle internal and external links
+		// FIXME handle internal and external links
 		$shortUrl = null;
 
 		if ( \ShortUrlUtils::needsShortUrl( $title ) ) {

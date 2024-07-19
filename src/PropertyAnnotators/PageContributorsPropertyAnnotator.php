@@ -77,7 +77,7 @@ class PageContributorsPropertyAnnotator implements PropertyAnnotator {
 		$dataItem = null;
 
 		while ( $user ) {
-			 //no anonymous users (hidden users are not returned)
+			 // no anonymous users (hidden users are not returned)
 			if ( $this->isNotAnonymous( $user ) ) {
 				$semanticData->addPropertyObjectValue(
 					$property,
