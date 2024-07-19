@@ -122,9 +122,9 @@ class UserEditCountPerNsPropertyAnnotator implements PropertyAnnotator {
 			__METHOD__,
 			[ 'GROUP BY' => [ 'page.page_namespace' ] ], // GROUP BY.
 			[ // JOIN conditions.
-				'page'					=> [ 'INNER JOIN', ['page.page_id=revision.rev_page'] ],
-				'revision_actor_temp'	=> [ 'INNER JOIN', ['revision_actor_temp.revactor_rev=revision.rev_id'] ],
-				'actor'					=> [ 'INNER JOIN', ['actor.actor_id=revision_actor_temp.revactor_actor'] ]
+				'page'					=> [ 'INNER JOIN', [ 'page.page_id=revision.rev_page' ] ],
+				'revision_actor_temp'	=> [ 'INNER JOIN', [ 'revision_actor_temp.revactor_rev=revision.rev_id' ] ],
+				'actor'					=> [ 'INNER JOIN', [ 'actor.actor_id=revision_actor_temp.revactor_actor' ] ]
 			]
 		);
 		$records = [];

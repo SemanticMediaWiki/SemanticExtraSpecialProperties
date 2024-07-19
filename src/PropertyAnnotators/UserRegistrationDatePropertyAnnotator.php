@@ -71,11 +71,11 @@ class UserRegistrationDatePropertyAnnotator implements PropertyAnnotator {
 
 			$dataItem = new DITime(
 				DITime::CM_GREGORIAN,
-				$date->format('Y'),
-				$date->format('m'),
-				$date->format('d'),
-				$date->format('H'),
-				$date->format('i')
+				$date->format( 'Y' ),
+				$date->format( 'm' ),
+				$date->format( 'd' ),
+				$date->format( 'H' ),
+				$date->format( 'i' )
 			);
 		}
 

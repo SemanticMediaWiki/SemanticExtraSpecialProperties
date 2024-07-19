@@ -79,7 +79,7 @@ class NamespaceNamePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function nsProvider() {
-		yield [ NS_USER, 'User'];
+		yield [ NS_USER, 'User' ];
 		yield [ NS_MAIN, '(Main)' ];
 	}
 }

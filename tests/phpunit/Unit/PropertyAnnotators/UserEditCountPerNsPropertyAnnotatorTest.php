@@ -106,13 +106,13 @@ class UserEditCountPerNsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCas
 	 * @param $expected
 	 */
 	public function testContainer( $ns, $edits ) {
-		$subject = new DIWikiPage ( 'Test', NS_USER );
+		$subject = new DIWikiPage( 'Test', NS_USER );
 
 		$annotator = new UserEditCountPerNsPropertyAnnotator( $this->appFactory );
 		// Expose the private method container().
 		$reflector = new \ReflectionObject( $annotator );
 		$method = $reflector->getMethod( 'container' );
-		$method->setAccessible ( true );
+		$method->setAccessible( true );
 		$container = $method->invokeArgs( $annotator, [ $subject, $ns, $edits ] );
 
 		$this->assertInstanceOf( SMWDIContainer::class, $container, 'Container is not an instance of SMWDIContainer' );
@@ -121,18 +121,18 @@ class UserEditCountPerNsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCas
 		$properties = $data->getProperties();
 
 		$this->assertArrayHasKey( '___USEREDITCNTNS_NS', $properties, 'No namespace number in the container' );
-		$nsValue = $data->getPropertyValues(new DIProperty( '___USEREDITCNTNS_NS' ) )[0]->getNumber();
+		$nsValue = $data->getPropertyValues( new DIProperty( '___USEREDITCNTNS_NS' ) )[0]->getNumber();
 		$this->assertEquals( $ns, $nsValue, 'Wrong namespace number' );
 
 		$this->assertArrayHasKey( '___USEREDITCNTNS_CNT', $properties, 'No edit cont in the container' );
-		$editsValue = $data->getPropertyValues(new DIProperty( '___USEREDITCNTNS_CNT' ) )[0]->getNumber();
+		$editsValue = $data->getPropertyValues( new DIProperty( '___USEREDITCNTNS_CNT' ) )[0]->getNumber();
 		$this->assertEquals( $edits, $editsValue, 'Wrong edit count' );
 	}
 
 	/**
 	 * @return array
 	 */
-	public function containerProvider (): array {
+	public function containerProvider(): array {
 		return [
 			[ 0, 42 ],
 			[ 1, 21 ]
@@ -173,13 +173,13 @@ class UserEditCountPerNsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCas
 			->getMock();
 		$user->method( 'getId' )
 			->willReturn( 1 );
-		$user->expects(  $namespace === NS_USER ? $this->atMost( 2 ) : $this->never() )
+		$user->expects( $namespace === NS_USER ? $this->atMost( 2 ) : $this->never() )
 			->method( 'getEditCount' )
 			->willReturn( $total );
 
 		$factory = $this->appFactory;
 
-		$this->appFactory->expects(  $namespace === NS_USER ? $this->once() : $this->never() )
+		$this->appFactory->expects( $namespace === NS_USER ? $this->once() : $this->never() )
 			->method( 'newUserFromTitle' )
 			->willReturn( $user );
 

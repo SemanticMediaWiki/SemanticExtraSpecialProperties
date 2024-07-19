@@ -207,10 +207,7 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 			$customFixedProperties
 		);
 
-		$this->assertEquals(
-			['___FOO' => 'smw_ftp_sesp' ],
-			$fixedPropertyTablePrefix
-		);
+		$this->assertEquals( [ '___FOO' => 'smw_ftp_sesp' ], $fixedPropertyTablePrefix );
 	}
 
 }

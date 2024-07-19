@@ -55,7 +55,7 @@ class PageImagesPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
             ->disableOriginalConstructor()
             ->getMock();
 
-        $subject = $this->getMockBuilder( DIWikiPage::class)
+        $subject = $this->getMockBuilder( DIWikiPage::class )
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -69,11 +69,11 @@ class PageImagesPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
         $semanticData->expects( $this->once() )
             ->method( 'getSubject' )
-            ->will($this->returnValue( $subject ));
+            ->will( $this->returnValue( $subject ) );
 
         $instance = $this->getMockBuilder( PageImagesPropertyAnnotator::class )
             ->disableOriginalConstructor()
-            ->setMethods([ 'getPageImageTitle' ])
+            ->setMethods( [ 'getPageImageTitle' ] )
             ->getMock();
 
         $instance->expects( $this->once() )

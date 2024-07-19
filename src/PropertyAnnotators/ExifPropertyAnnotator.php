@@ -177,11 +177,11 @@ class ExifPropertyAnnotator implements PropertyAnnotator {
 		if ( $datetime ) {
 			return new DITime(
 				DITime::CM_GREGORIAN,
-				$datetime->format('Y'),
-				$datetime->format('n'),
-				$datetime->format('j'),
-				$datetime->format('G'),
-				$datetime->format('i')
+				$datetime->format( 'Y' ),
+				$datetime->format( 'n' ),
+				$datetime->format( 'j' ),
+				$datetime->format( 'G' ),
+				$datetime->format( 'i' )
 			);
 		}
 	}
@@ -203,7 +203,7 @@ class ExifPropertyAnnotator implements PropertyAnnotator {
 		}
 
 		// Only the date but not the time
-		if (  preg_match( '/^(?:\d{4}):(?:\d\d):(?:\d\d)$/D', $exifString ) ) {
+		if ( preg_match( '/^(?:\d{4}):(?:\d\d):(?:\d\d)$/D', $exifString ) ) {
 			return new \DateTime(
 				substr( $exifString, 0, 4 ) . ':' .
 				substr( $exifString, 5, 2 ) . ':' .
