@@ -26,7 +26,6 @@
         <exclude name="MediaWiki.Commenting.FunctionComment.NotShortBoolReturn" />
         <exclude name="MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment" />
         <exclude name="MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis" />
-        <exclude name="Squiz.WhiteSpace.FunctionSpacing.After" />
         <exclude name="MediaWiki.Commenting.FunctionComment.NoParamType" />
         <exclude name="MediaWiki.Commenting.RedundantVarName.Found" />
         <exclude name="Generic.Files.LineLength.TooLong" />

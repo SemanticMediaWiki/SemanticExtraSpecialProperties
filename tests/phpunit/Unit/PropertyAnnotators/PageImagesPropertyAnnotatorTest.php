@@ -52,7 +52,6 @@ class PageImagesPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
         );
     }
 
-
     public function testAddAnnotation() {
 
         $title = $this->getMockBuilder( Title::class )
