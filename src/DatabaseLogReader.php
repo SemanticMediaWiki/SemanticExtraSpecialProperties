@@ -48,7 +48,7 @@ class DatabaseLogReader {
 	 * @param Title|null $title
 	 * @param string $type of log (default: approval)
 	 */
-	public function __construct( $dbr, Title $title = null , $type = 'approval' ) {
+	public function __construct( $dbr, Title $title = null, $type = 'approval' ) {
 		
 		// Due to MW 1.31+ and MW 1.34+
 		if (
