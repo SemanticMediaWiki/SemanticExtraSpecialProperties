@@ -30,7 +30,7 @@ class AppFactoryTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
-	public function testCanConstructWikiPage( ) {
+	public function testCanConstructWikiPage() {
 		$title = $this->getMockBuilder( Title::class )
 			->disableOriginalConstructor()
 			->getMock();
@@ -58,7 +58,7 @@ class AppFactoryTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
-	public function testCanConstructUserFromTitle( ) {
+	public function testCanConstructUserFromTitle() {
 		$title = $this->getMockBuilder( Title::class )
 			->disableOriginalConstructor()
 			->getMock();
@@ -75,7 +75,7 @@ class AppFactoryTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
-	public function testCanConstructUserFromID( ) {
+	public function testCanConstructUserFromID() {
 		$instance = new AppFactory();
 
 		$this->assertInstanceOf(
@@ -84,7 +84,7 @@ class AppFactoryTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
-	public function testGetConnection( ) {
+	public function testGetConnection() {
 		$connection = $this->getMockBuilder( DatabaseBase::class )
 			->disableOriginalConstructor()
 			->getMock();
@@ -101,7 +101,7 @@ class AppFactoryTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
-	public function testGetPropertyDefinitions( ) {
+	public function testGetPropertyDefinitions() {
 		$options = [
 			'sespgDefinitionsFile' => '',
 			'sespgLocalDefinitions' => []
@@ -124,7 +124,7 @@ class AppFactoryTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
-	public function testGetLogger( ) {
+	public function testGetLogger() {
 		$instance = new AppFactory();
 
 		$this->assertInstanceOf(
@@ -144,7 +144,7 @@ class AppFactoryTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
-	public function testGetOption( ) {
+	public function testGetOption() {
 		$options = [
 			'Foo' => 'Bar'
 		];

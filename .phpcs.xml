@@ -7,7 +7,6 @@
         <exclude name="MediaWiki.Commenting.PropertyDocumentation.MissingDocumentationPrivate" />
         <exclude name="MediaWiki.Classes.UnsortedUseStatements.UnsortedUse" />
         <exclude name="MediaWiki.WhiteSpace.SpaceyParenthesis.UnnecessarySpaceBetweenParentheses" />
-        <exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingBetween" />
         <exclude name="MediaWiki.Commenting.PhpunitAnnotations.AbsoluteCovers" />
         <exclude name="MediaWiki.PHPUnit.PHPUnitClassUsage.NotNamespaced" />
         <exclude name="Squiz.WhiteSpace.OperatorSpacing.SpacingAfter" />
