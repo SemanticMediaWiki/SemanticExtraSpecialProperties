@@ -14,7 +14,6 @@
         <exclude name="MediaWiki.Usage.StaticClosure.StaticClosure" />
         <exclude name="MediaWiki.Classes.UnusedUseStatement.UnusedUse" />
         <exclude name="MediaWiki.PHPUnit.SetMethods.SetMethods" />
-        <exclude name="MediaWiki.WhiteSpace.MultipleEmptyLines.MultipleEmptyLines" />
         <exclude name="PSR2.Namespaces.UseDeclaration.SpaceAfterLastUse" />
         <exclude name="Generic.WhiteSpace.DisallowSpaceIndent.SpacesUsed" />
         <exclude name="MediaWiki.PHPUnit.MockBoilerplate.returnCallback" />

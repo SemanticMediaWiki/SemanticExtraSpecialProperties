@@ -7,7 +7,6 @@ use SMW\DIProperty;
 use SMW\DIWikiPage;
 use SMWDINumber;
 
-
 /**
  * @covers \SESP\PropertyAnnotators\NamespacePropertyAnnotator
  * @group semantic-extra-special-properties
