@@ -32,8 +32,9 @@ class HookRegistry {
 	 * @since  1.0
 	 */
 	public function register() {
+		$hookContainer = MediaWikiServices::getInstance()->getHookContainer();
 		foreach ( $this->handlers as $name => $callback ) {
-			Hooks::register( $name, $callback );
+			$hookContainer->register( $name, $callback );
 		}
 	}
 
