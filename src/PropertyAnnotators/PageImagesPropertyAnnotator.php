@@ -59,8 +59,7 @@ class PageImagesPropertyAnnotator implements PropertyAnnotator {
      * @param $Title Title
      * @return Title|bool
      */
-    protected function getPageImageTitle( Title $Title )
-    {
+    protected function getPageImageTitle( Title $Title ) {
         $imageFile = $this->getPageImage( $Title );
 
         if( $imageFile ){
@@ -76,7 +75,7 @@ class PageImagesPropertyAnnotator implements PropertyAnnotator {
      * @param $Title Title
      * @return File|bool
      */
-    protected function getPageImage( Title $Title ){
+    protected function getPageImage( Title $Title ) {
         if ( class_exists( '\PageImages\PageImages' ) ) {
             return \PageImages\PageImages::getPageImage( $Title );
         }
