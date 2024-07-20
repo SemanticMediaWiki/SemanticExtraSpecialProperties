@@ -41,7 +41,6 @@
         <exclude name="Generic.Functions.OpeningFunctionBraceKernighanRitchie.BraceOnNewLine" />
         <exclude name="Squiz.WhiteSpace.SemicolonSpacing.Incorrect" />
         <exclude name="MediaWiki.Commenting.PropertyDocumentation.NotShortIntVar" />
-        <exclude name="Squiz.Strings.ConcatenationSpacing.PaddingFound" />
         <exclude name="Squiz.WhiteSpace.SuperfluousWhitespace.EndLine" />
         <exclude name="MediaWiki.Commenting.FunctionComment.NotShortIntParam" />
         <exclude name="MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic" />

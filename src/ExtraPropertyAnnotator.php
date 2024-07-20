@@ -73,7 +73,7 @@ class ExtraPropertyAnnotator {
 		}
 
 		$this->appFactory->getLogger()->info(
-			__METHOD__ . ' (procTime in sec: '. round( ( microtime( true ) - $time ), 5 ) . ')'
+			__METHOD__ . ' (procTime in sec: ' . round( ( microtime( true ) - $time ), 5 ) . ')'
 		);
 	}
 
