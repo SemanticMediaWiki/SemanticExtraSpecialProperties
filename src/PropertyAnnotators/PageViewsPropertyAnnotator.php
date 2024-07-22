@@ -2,11 +2,11 @@
 
 namespace SESP\PropertyAnnotators;
 
+use SESP\AppFactory;
+use SESP\PropertyAnnotator;
 use SMW\DIProperty;
 use SMW\SemanticData;
 use SMWDINumber as DINumber;
-use SESP\PropertyAnnotator;
-use SESP\AppFactory;
 
 /**
  * @private

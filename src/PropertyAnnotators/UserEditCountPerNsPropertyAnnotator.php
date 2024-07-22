@@ -2,8 +2,8 @@
 
 namespace SESP\PropertyAnnotators;
 
-use SESP\PropertyAnnotator;
 use SESP\AppFactory;
+use SESP\PropertyAnnotator;
 use SMW\DIProperty;
 use SMW\DIWikiPage;
 use SMW\SemanticData;

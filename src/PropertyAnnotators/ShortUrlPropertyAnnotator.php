@@ -2,14 +2,14 @@
 
 namespace SESP\PropertyAnnotators;
 
+use RuntimeException;
+use SESP\AppFactory;
+use SESP\PropertyAnnotator;
 use SMW\DIProperty;
 use SMW\SemanticData;
 use SMWDataItem as DataItem;
 use SMWDIUri as DIUri;
-use SESP\PropertyAnnotator;
-use SESP\AppFactory;
 use Title;
-use RuntimeException;
 
 /**
  * @private

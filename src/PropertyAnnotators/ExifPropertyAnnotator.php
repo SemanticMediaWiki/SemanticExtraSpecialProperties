@@ -2,18 +2,18 @@
 
 namespace SESP\PropertyAnnotators;
 
-use SESP\PropertyAnnotator;
+use FormatMetadata;
 use SESP\AppFactory;
+use SESP\PropertyAnnotator;
 use SMW\DIProperty;
 use SMW\DIWikiPage;
-use SMWContainerSemanticData as ContainerSemanticData;
 use SMW\SemanticData;
+use SMWContainerSemanticData as ContainerSemanticData;
 use SMWDataItem as DataItem;
-use SMWDIContainer as DIContainer;
-use SMWDITime as DITime;
-use SMWDINumber as DINumber;
 use SMWDIBlob as DIBlob;
-use FormatMetadata;
+use SMWDIContainer as DIContainer;
+use SMWDINumber as DINumber;
+use SMWDITime as DITime;
 
 /**
  * @private

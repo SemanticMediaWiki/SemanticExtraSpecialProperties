@@ -3,8 +3,8 @@
 namespace SESP;
 
 use ArrayIterator;
-use DatabaseLogEntry;
 use DatabaseBase;
+use DatabaseLogEntry;
 use MWTimestamp;
 use Title;
 use User;

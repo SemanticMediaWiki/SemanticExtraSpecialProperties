@@ -2,9 +2,9 @@
 
 namespace SESP\Tests\PropertyAnnotators;
 
+use MWTimestamp;
 use SESP\PropertyAnnotators\ApprovedDatePropertyAnnotator;
 use SMW\DIProperty;
-use MWTimestamp;
 use SMWDITime as DITime;
 
 /**

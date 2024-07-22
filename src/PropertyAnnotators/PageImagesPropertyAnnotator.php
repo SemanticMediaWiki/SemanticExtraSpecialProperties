@@ -2,12 +2,12 @@
 
 namespace SESP\PropertyAnnotators;
 
+use File;
 use SESP\AppFactory;
 use SESP\PropertyAnnotator;
 use SMW\DIProperty;
 use SMW\DIWikiPage;
 use SMW\SemanticData;
-use File;
 use Title;
 
 class PageImagesPropertyAnnotator implements PropertyAnnotator {

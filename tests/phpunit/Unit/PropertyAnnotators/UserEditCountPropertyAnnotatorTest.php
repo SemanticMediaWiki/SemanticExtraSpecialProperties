@@ -7,8 +7,8 @@ use SESP\PropertyAnnotators\UserEditCountPropertyAnnotator;
 use SMW\DIProperty;
 use SMW\DIWikiPage;
 use SMW\SemanticData;
-use User;
 use Title;
+use User;
 
 /**
  * @covers UserEditCountPropertyAnnotator

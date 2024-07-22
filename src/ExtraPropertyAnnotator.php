@@ -2,10 +2,10 @@
 
 namespace SESP;
 
+use SESP\PropertyAnnotators\DispatchingPropertyAnnotator;
+use SESP\PropertyAnnotators\LocalPropertyAnnotator;
 use SMW\DIProperty;
 use SMW\SemanticData;
-use SESP\PropertyAnnotators\LocalPropertyAnnotator;
-use SESP\PropertyAnnotators\DispatchingPropertyAnnotator;
 
 /**
  * @private

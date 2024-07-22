@@ -2,11 +2,11 @@
 
 namespace SESP\PropertyAnnotators;
 
+use SESP\AppFactory;
+use SESP\PropertyAnnotator;
 use SMW\DIProperty;
 use SMW\SemanticData;
 use SMWDIBlob as DIBlob;
-use SESP\PropertyAnnotator;
-use SESP\AppFactory;
 use User;
 
 /**

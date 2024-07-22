@@ -4,10 +4,10 @@ namespace SESP\Tests\PropertyAnnotators;
 
 use SESP\AppFactory;
 use SESP\PropertyAnnotators\UserEditCountPerNsPropertyAnnotator;
-use SMWDIContainer;
 use SMW\DIProperty;
 use SMW\DIWikiPage;
 use SMW\SemanticData;
+use SMWDIContainer;
 use User;
 use Wikimedia\Rdbms\Database;
 use Wikimedia\Rdbms\FakeResultWrapper;

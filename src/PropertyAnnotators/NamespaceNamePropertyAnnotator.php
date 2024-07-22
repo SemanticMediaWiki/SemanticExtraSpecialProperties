@@ -6,9 +6,9 @@ use MediaWiki\MediaWikiServices;
 use RequestContext;
 use SESP\AppFactory;
 use SESP\PropertyAnnotator;
-use SMWDIBlob;
 use SMW\DIProperty;
 use SMW\SemanticData;
+use SMWDIBlob;
 
 /**
  * @private

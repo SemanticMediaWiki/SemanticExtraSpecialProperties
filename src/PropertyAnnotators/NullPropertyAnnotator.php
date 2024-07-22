@@ -2,9 +2,9 @@
 
 namespace SESP\PropertyAnnotators;
 
+use SESP\PropertyAnnotator;
 use SMW\DIProperty;
 use SMW\SemanticData;
-use SESP\PropertyAnnotator;
 
 /**
  * @private

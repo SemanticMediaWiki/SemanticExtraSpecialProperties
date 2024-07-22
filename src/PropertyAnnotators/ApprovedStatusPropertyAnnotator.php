@@ -3,11 +3,11 @@
 namespace SESP\PropertyAnnotators;
 
 use ApprovedRevs;
+use SESP\AppFactory;
+use SESP\PropertyAnnotator;
 use SMW\DIProperty;
 use SMW\SemanticData;
 use SMWDIString as DIString;
-use SESP\PropertyAnnotator;
-use SESP\AppFactory;
 use Title;
 
 /**

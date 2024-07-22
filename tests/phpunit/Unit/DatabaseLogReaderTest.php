@@ -2,8 +2,8 @@
 
 namespace SESP\Tests;
 
-use SESP\DatabaseLogReader;
 use SESP\AppFactory;
+use SESP\DatabaseLogReader;
 
 /**
  * @covers \SESP\DatabaseLogReader

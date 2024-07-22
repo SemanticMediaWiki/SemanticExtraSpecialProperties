@@ -3,8 +3,8 @@
 namespace SESP\Tests\PropertyAnnotators;
 
 use SESP\PropertyAnnotators\LocalPropertyAnnotator;
-use SMW\DIWikiPage;
 use SMW\DIProperty;
+use SMW\DIWikiPage;
 
 /**
  * @covers \SESP\PropertyAnnotators\LocalPropertyAnnotator

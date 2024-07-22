@@ -3,11 +3,11 @@
 namespace SESP\PropertyAnnotators;
 
 use MWTimestamp;
+use SESP\AppFactory;
+use SESP\PropertyAnnotator;
 use SMW\DIProperty;
 use SMW\SemanticData;
 use SMWDITime as DITime;
-use SESP\PropertyAnnotator;
-use SESP\AppFactory;
 
 /**
  * @private
