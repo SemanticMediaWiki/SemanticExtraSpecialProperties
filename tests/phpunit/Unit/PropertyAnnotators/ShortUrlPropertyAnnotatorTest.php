@@ -66,7 +66,7 @@ class ShortUrlPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$instance->expects( $this->once() )
 			->method( 'hasShortUrlUtils' )
-			->will( $this->returnValue( false ) );
+			->willReturn( false );
 
 		$instance->addAnnotation( $this->property, $semanticData );
 	}
@@ -80,7 +80,7 @@ class ShortUrlPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$semanticData->expects( $this->once() )
 			->method( 'getSubject' )
-			->will( $this->returnValue( $subject ) );
+			->willReturn( $subject );
 
 		$semanticData->expects( $this->once() )
 			->method( 'addPropertyObjectValue' );
@@ -92,11 +92,11 @@ class ShortUrlPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$instance->expects( $this->once() )
 			->method( 'hasShortUrlUtils' )
-			->will( $this->returnValue( true ) );
+			->willReturn( true );
 
 		$instance->expects( $this->once() )
 			->method( 'getShortUrl' )
-			->will( $this->returnValue( 'foo' ) );
+			->willReturn( 'foo' );
 
 		$instance->addAnnotation( $this->property, $semanticData );
 	}

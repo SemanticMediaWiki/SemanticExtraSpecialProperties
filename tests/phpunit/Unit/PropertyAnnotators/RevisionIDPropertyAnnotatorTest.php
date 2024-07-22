@@ -62,11 +62,11 @@ class RevisionIDPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$wikiPage->expects( $this->once() )
 			->method( 'getLatest' )
-			->will( $this->returnValue( $latest ) );
+			->willReturn( $latest );
 
 		$this->appFactory->expects( $this->once() )
 			->method( 'newWikiPage' )
-			->will( $this->returnValue( $wikiPage ) );
+			->willReturn( $wikiPage );
 
 		$semanticData = $this->getMockBuilder( SemanticData::class )
 			->disableOriginalConstructor()
@@ -74,7 +74,7 @@ class RevisionIDPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$semanticData->expects( $this->once() )
 			->method( 'getSubject' )
-			->will( $this->returnValue( $subject ) );
+			->willReturn( $subject );
 
 		$semanticData->expects( $expected )
 			->method( 'addPropertyObjectValue' );

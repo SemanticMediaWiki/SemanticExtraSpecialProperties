@@ -69,8 +69,8 @@ class ApprovedDatePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		$semanticData->expects( $this->once() )
 			->method( 'addPropertyObjectValue' )
 			->with(
-				$this->equalTo( $this->property ),
-				$this->equalTo( $time )
+				$this->property,
+				$time
 			);
 
 		$annotator = new ApprovedDatePropertyAnnotator(
@@ -88,7 +88,7 @@ class ApprovedDatePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$semanticData->expects( $this->once() )
 			->method( 'removeProperty' )
-			->with( $this->equalTo( $this->property ) );
+			->with( $this->property );
 
 		$annotator = new ApprovedDatePropertyAnnotator(
 			$this->appFactory

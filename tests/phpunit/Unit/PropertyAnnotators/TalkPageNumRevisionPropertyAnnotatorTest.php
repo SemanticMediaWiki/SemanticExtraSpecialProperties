@@ -57,11 +57,11 @@ class TalkPageNumRevisionPropertyAnnotatorTest extends \PHPUnit_Framework_TestCa
 
 		$talkPage->expects( $this->once() )
 			->method( 'exists' )
-			->will( $this->returnValue( true ) );
+			->willReturn( true );
 
 		$talkPage->expects( $this->once() )
 			->method( 'getArticleID' )
-			->will( $this->returnValue( 1001 ) );
+			->willReturn( 1001 );
 
 		$title = $this->getMockBuilder( '\Title' )
 			->disableOriginalConstructor()
@@ -69,7 +69,7 @@ class TalkPageNumRevisionPropertyAnnotatorTest extends \PHPUnit_Framework_TestCa
 
 		$title->expects( $this->once() )
 			->method( 'getTalkPage' )
-			->will( $this->returnValue( $talkPage ) );
+			->willReturn( $talkPage );
 
 		$subject = $this->getMockBuilder( '\SMW\DIWikiPage' )
 			->disableOriginalConstructor()
@@ -77,7 +77,7 @@ class TalkPageNumRevisionPropertyAnnotatorTest extends \PHPUnit_Framework_TestCa
 
 		$subject->expects( $this->once() )
 			->method( 'getTitle' )
-			->will( $this->returnValue( $title ) );
+			->willReturn( $title );
 
 		$connection = $this->getMockBuilder( '\stdClass' )
 			->disableOriginalConstructor()
@@ -86,11 +86,11 @@ class TalkPageNumRevisionPropertyAnnotatorTest extends \PHPUnit_Framework_TestCa
 
 		$connection->expects( $this->once() )
 			->method( 'estimateRowCount' )
-			->will( $this->returnValue( $count ) );
+			->willReturn( $count );
 
 		$this->appFactory->expects( $this->once() )
 			->method( 'getConnection' )
-			->will( $this->returnValue( $connection ) );
+			->willReturn( $connection );
 
 		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
 			->disableOriginalConstructor()
@@ -98,7 +98,7 @@ class TalkPageNumRevisionPropertyAnnotatorTest extends \PHPUnit_Framework_TestCa
 
 		$semanticData->expects( $this->once() )
 			->method( 'getSubject' )
-			->will( $this->returnValue( $subject ) );
+			->willReturn( $subject );
 
 		$semanticData->expects( $expected )
 			->method( 'addPropertyObjectValue' );

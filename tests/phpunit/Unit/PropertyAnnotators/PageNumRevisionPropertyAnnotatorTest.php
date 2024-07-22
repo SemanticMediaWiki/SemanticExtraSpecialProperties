@@ -57,11 +57,11 @@ class PageNumRevisionPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$title->expects( $this->once() )
 			->method( 'exists' )
-			->will( $this->returnValue( true ) );
+			->willReturn( true );
 
 		$title->expects( $this->once() )
 			->method( 'getArticleID' )
-			->will( $this->returnValue( 1001 ) );
+			->willReturn( 1001 );
 
 		$subject = $this->getMockBuilder( '\SMW\DIWikiPage' )
 			->disableOriginalConstructor()
@@ -69,7 +69,7 @@ class PageNumRevisionPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$subject->expects( $this->once() )
 			->method( 'getTitle' )
-			->will( $this->returnValue( $title ) );
+			->willReturn( $title );
 
 		$connection = $this->getMockBuilder( '\stdClass' )
 			->disableOriginalConstructor()
@@ -78,11 +78,11 @@ class PageNumRevisionPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$connection->expects( $this->once() )
 			->method( 'estimateRowCount' )
-			->will( $this->returnValue( $count ) );
+			->willReturn( $count );
 
 		$this->appFactory->expects( $this->once() )
 			->method( 'getConnection' )
-			->will( $this->returnValue( $connection ) );
+			->willReturn( $connection );
 
 		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
 			->disableOriginalConstructor()
@@ -90,7 +90,7 @@ class PageNumRevisionPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$semanticData->expects( $this->once() )
 			->method( 'getSubject' )
-			->will( $this->returnValue( $subject ) );
+			->willReturn( $subject );
 
 		$semanticData->expects( $expected )
 			->method( 'addPropertyObjectValue' );

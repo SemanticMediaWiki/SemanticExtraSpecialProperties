@@ -87,7 +87,7 @@ class DatabaseLogReaderTest extends \PHPUnit_Framework_TestCase {
 
 		$this->connection->expects( $this->any() )
 			->method( 'select' )
-			->will( $this->returnValue( new \ArrayIterator( [ $row ] ) ) );
+			->willReturn( new \ArrayIterator( [ $row ] ) );
 
 		$this->appFactory->setConnection(
 			$this->connection
@@ -128,7 +128,7 @@ class DatabaseLogReaderTest extends \PHPUnit_Framework_TestCase {
 
 		$this->connection->expects( $this->once() )
 			->method( 'select' )
-			->will( $this->returnValue( new \ArrayIterator( [ $row ] ) ) );
+			->willReturn( new \ArrayIterator( [ $row ] ) );
 
 		$this->appFactory->setConnection(
 			$this->connection

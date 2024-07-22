@@ -61,7 +61,7 @@ class LabelFetcherTest extends \PHPUnit_Framework_TestCase {
 
 		$this->cache->expects( $this->once() )
 			->method( 'fetch' )
-			->will( $this->returnValue( false ) );
+			->willReturn( false );
 
 		$this->cache->expects( $this->once() )
 			->method( 'save' );
@@ -87,7 +87,7 @@ class LabelFetcherTest extends \PHPUnit_Framework_TestCase {
 
 		$this->cache->expects( $this->once() )
 			->method( 'fetch' )
-			->will( $this->returnValue( $labels ) );
+			->willReturn( $labels );
 
 		$this->cache->expects( $this->never() )
 			->method( 'save' );
@@ -112,7 +112,7 @@ class LabelFetcherTest extends \PHPUnit_Framework_TestCase {
 		$this->cache->expects( $this->once() )
 			->method( 'fetch' )
 			->with( $this->stringContains( 'sesp:labels:e1484da79bc6323bcb087894cf9cab03' ) )
-			->will( $this->returnValue( $labels ) );
+			->willReturn( $labels );
 
 		$instance = new LabelFetcher(
 			$this->cache

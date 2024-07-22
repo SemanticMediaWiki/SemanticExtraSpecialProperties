@@ -64,8 +64,8 @@ class LocalPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$this->appFactory->expects( $this->once() )
 			->method( 'getOption' )
-			->with( $this->equalTo( 'sespgLocalDefinitions' ) )
-			->will( $this->returnValue( $localPropertyDefinitions ) );
+			->with( 'sespgLocalDefinitions' )
+			->willReturn( $localPropertyDefinitions );
 
 		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
 			->disableOriginalConstructor()
@@ -73,7 +73,7 @@ class LocalPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$semanticData->expects( $this->once() )
 			->method( 'getSubject' )
-			->will( $this->returnValue( $subject ) );
+			->willReturn( $subject );
 
 		$semanticData->expects( $this->once() )
 			->method( 'addPropertyObjectValue' );
@@ -93,8 +93,8 @@ class LocalPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$this->appFactory->expects( $this->once() )
 			->method( 'getOption' )
-			->with( $this->equalTo( 'sespgLocalDefinitions' ) )
-			->will( $this->returnValue( $localPropertyDefinitions ) );
+			->with( 'sespgLocalDefinitions' )
+			->willReturn( $localPropertyDefinitions );
 
 		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
 			->disableOriginalConstructor()

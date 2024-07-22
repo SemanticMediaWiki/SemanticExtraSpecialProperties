@@ -55,8 +55,8 @@ class ApprovedStatusPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		$semanticData->expects( $this->once() )
 			->method( 'addPropertyObjectValue' )
 			->with(
-				$this->equalTo( $this->property ),
-				$this->equalTo( new DIString( "checkme" ) ) );
+				$this->property,
+				new DIString( "checkme" ) );
 
 		$annotator = new ApprovedStatusPropertyAnnotator(
 			$this->appFactory
@@ -74,7 +74,7 @@ class ApprovedStatusPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$semanticData->expects( $this->once() )
 			->method( 'removeProperty' )
-			->with( $this->equalTo( $this->property ) );
+			->with( $this->property );
 
 		$annotator = new ApprovedStatusPropertyAnnotator(
 			$this->appFactory

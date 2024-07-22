@@ -81,12 +81,12 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$appFactory->expects( $this->at( 0 ) )
 			->method( 'getPropertyDefinitions' )
-			->will( $this->returnValue( $propertyDefinitions ) );
+			->willReturn( $propertyDefinitions );
 
 		$appFactory->expects( $this->at( 1 ) )
 			->method( 'getOption' )
-			->with( $this->equalTo( 'sespgEnabledPropertyList' ) )
-			->will( $this->returnValue( $localPropertyDefinitions ) );
+			->with( 'sespgEnabledPropertyList' )
+			->willReturn( $localPropertyDefinitions );
 
 		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
 			->disableOriginalConstructor()
@@ -94,7 +94,7 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$semanticData->expects( $this->once() )
 			->method( 'getSubject' )
-			->will( $this->returnValue( $subject ) );
+			->willReturn( $subject );
 
 		$instance = new ExtraPropertyAnnotator(
 			$appFactory
@@ -131,12 +131,12 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$appFactory->expects( $this->at( 0 ) )
 			->method( 'getPropertyDefinitions' )
-			->will( $this->returnValue( $propertyDefinitions ) );
+			->willReturn( $propertyDefinitions );
 
 		$appFactory->expects( $this->at( 1 ) )
 			->method( 'getOption' )
-			->with( $this->equalTo( 'sespgEnabledPropertyList' ) )
-			->will( $this->returnValue( $specialProperties ) );
+			->with( 'sespgEnabledPropertyList' )
+			->willReturn( $specialProperties );
 
 		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
 			->disableOriginalConstructor()
@@ -144,7 +144,7 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$semanticData->expects( $this->once() )
 			->method( 'getSubject' )
-			->will( $this->returnValue( $subject ) );
+			->willReturn( $subject );
 
 		$propertyAnnotator = $this->getMockBuilder( '\SESP\PropertyAnnotator' )
 			->disableOriginalConstructor()

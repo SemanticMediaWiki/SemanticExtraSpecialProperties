@@ -56,7 +56,7 @@ class SubPagePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$title->expects( $this->once() )
 			->method( 'getSubpages' )
-			->will( $this->returnValue( [ $sub ] ) );
+			->willReturn( [ $sub ] );
 
 		$subject = $this->getMockBuilder( '\SMW\DIWikiPage' )
 			->disableOriginalConstructor()
@@ -64,7 +64,7 @@ class SubPagePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$subject->expects( $this->once() )
 			->method( 'getTitle' )
-			->will( $this->returnValue( $title ) );
+			->willReturn( $title );
 
 		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
 			->disableOriginalConstructor()
@@ -72,7 +72,7 @@ class SubPagePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$semanticData->expects( $this->once() )
 			->method( 'getSubject' )
-			->will( $this->returnValue( $subject ) );
+			->willReturn( $subject );
 
 		$semanticData->expects( $this->once() )
 			->method( 'addPropertyObjectValue' );

@@ -37,7 +37,7 @@ class AppFactoryTest extends \PHPUnit_Framework_TestCase {
 
 		$title->expects( $this->any() )
 			->method( 'canExist' )
-			->will( $this->returnValue( true ) );
+			->willReturn( true );
 
 		$instance = new AppFactory();
 
@@ -65,7 +65,7 @@ class AppFactoryTest extends \PHPUnit_Framework_TestCase {
 
 		$title->expects( $this->once() )
 			->method( 'getText' )
-			->will( $this->returnValue( 'Foo' ) );
+			->willReturn( 'Foo' );
 
 		$instance = new AppFactory();
 

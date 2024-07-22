@@ -66,7 +66,7 @@ class UserBlockPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$block->expects( $this->any() )
 			->method( 'appliesToRight' )
-			->will( $this->returnCallback( $compare ) );
+			->willReturnCallback( $compare );
 
 		$user = $this->getMockBuilder( User::class )
 			->disableOriginalConstructor()
@@ -74,11 +74,11 @@ class UserBlockPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$user->expects( $this->once() )
 			->method( 'getBlock' )
-			->will( $this->returnValue( $block ) );
+			->willReturn( $block );
 
 		$this->appFactory->expects( $this->once() )
 			->method( 'newUserFromTitle' )
-			->will( $this->returnValue( $user ) );
+			->willReturn( $user );
 
 		$title = $this->getMockBuilder( Title::class )
 			->disableOriginalConstructor()
@@ -86,7 +86,7 @@ class UserBlockPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$title->expects( $this->once() )
 			->method( 'inNamespace' )
-			->will( $this->returnValue( true ) );
+			->willReturn( true );
 
 		$subject = $this->getMockBuilder( DIWikiPage::class )
 			->disableOriginalConstructor()
@@ -94,7 +94,7 @@ class UserBlockPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$subject->expects( $this->once() )
 			->method( 'getTitle' )
-			->will( $this->returnValue( $title ) );
+			->willReturn( $title );
 
 		$semanticData = $this->getMockBuilder( SemanticData::class )
 			->disableOriginalConstructor()
@@ -102,7 +102,7 @@ class UserBlockPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$semanticData->expects( $this->once() )
 			->method( 'getSubject' )
-			->will( $this->returnValue( $subject ) );
+			->willReturn( $subject );
 
 		$semanticData->expects( $expected )
 			->method( 'addPropertyObjectValue' );

@@ -64,13 +64,13 @@ class NamespacePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$semanticData->expects( $this->once() )
 			->method( 'getSubject' )
-			->will( $this->returnValue( $subject ) );
+			->willReturn( $subject );
 
 		$semanticData->expects( $this->once() )
 			->method( 'addPropertyObjectValue' )
 			->with(
-				$this->equalTo( $this->property ),
-				$this->equalTo( new SMWDINumber( $namespace ) ) );
+				$this->property,
+				new SMWDINumber( $namespace ) );
 		$annotator = new NamespacePropertyAnnotator(
 			$this->appFactory
 		);

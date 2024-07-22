@@ -57,8 +57,8 @@ class ApprovedByPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		$semanticData->expects( $this->once() )
 			->method( 'addPropertyObjectValue' )
 			->with(
-				$this->equalTo( $this->property ),
-				$this->equalTo( DIWikiPage::newFromTitle( $user->getUserPage() ) ) );
+				$this->property,
+				DIWikiPage::newFromTitle( $user->getUserPage() ) );
 		$annotator = new ApprovedByPropertyAnnotator(
 			$this->appFactory
 		);
@@ -75,7 +75,7 @@ class ApprovedByPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$semanticData->expects( $this->once() )
 			->method( 'removeProperty' )
-			->with( $this->equalTo( $this->property ) );
+			->with( $this->property );
 
 		$annotator = new ApprovedByPropertyAnnotator(
 			$this->appFactory

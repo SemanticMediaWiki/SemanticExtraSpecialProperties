@@ -55,7 +55,7 @@ class ExifPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$file->expects( $this->once() )
 			->method( 'exists' )
-			->will( $this->returnValue( false ) );
+			->willReturn( false );
 
 		$wikiPage = $this->getMockBuilder( '\WikiFilePage' )
 			->disableOriginalConstructor()
@@ -63,7 +63,7 @@ class ExifPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$wikiPage->expects( $this->once() )
 			->method( 'getFile' )
-			->will( $this->returnValue( $file ) );
+			->willReturn( $file );
 
 		$title = $this->getMockBuilder( '\Title' )
 			->disableOriginalConstructor()
@@ -71,7 +71,7 @@ class ExifPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$title->expects( $this->once() )
 			->method( 'inNamespace' )
-			->will( $this->returnValue( true ) );
+			->willReturn( true );
 
 		$subject = $this->getMockBuilder( '\SMW\DIWikiPage' )
 			->disableOriginalConstructor()
@@ -79,11 +79,11 @@ class ExifPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$subject->expects( $this->once() )
 			->method( 'getTitle' )
-			->will( $this->returnValue( $title ) );
+			->willReturn( $title );
 
 		$this->appFactory->expects( $this->once() )
 			->method( 'newWikiPage' )
-			->will( $this->returnValue( $wikiPage ) );
+			->willReturn( $wikiPage );
 
 		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
 			->disableOriginalConstructor()
@@ -91,7 +91,7 @@ class ExifPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$semanticData->expects( $this->once() )
 			->method( 'getSubject' )
-			->will( $this->returnValue( $subject ) );
+			->willReturn( $subject );
 
 		$instance = new ExifPropertyAnnotator(
 			$this->appFactory
@@ -124,11 +124,11 @@ class ExifPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$file->expects( $this->once() )
 			->method( 'exists' )
-			->will( $this->returnValue( true ) );
+			->willReturn( true );
 
 		$file->expects( $this->once() )
 			->method( 'getMetadata' )
-			->will( $this->returnValue( serialize( $meta ) ) );
+			->willReturn( serialize( $meta ) );
 
 		$wikiPage = $this->getMockBuilder( '\WikiFilePage' )
 			->disableOriginalConstructor()
@@ -136,15 +136,15 @@ class ExifPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$wikiPage->expects( $this->once() )
 			->method( 'getFile' )
-			->will( $this->returnValue( $file ) );
+			->willReturn( $file );
 
 		$this->appFactory->expects( $this->once() )
 			->method( 'newWikiPage' )
-			->will( $this->returnValue( $wikiPage ) );
+			->willReturn( $wikiPage );
 
 		$this->appFactory->expects( $this->once() )
 			->method( 'getPropertyDefinitions' )
-			->will( $this->returnValue( $propertyDefinitions ) );
+			->willReturn( $propertyDefinitions );
 
 		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
 			->disableOriginalConstructor()
@@ -152,7 +152,7 @@ class ExifPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$semanticData->expects( $this->once() )
 			->method( 'getSubject' )
-			->will( $this->returnValue( $subject ) );
+			->willReturn( $subject );
 
 		$semanticData->expects( $expected )
 			->method( 'addPropertyObjectValue' );

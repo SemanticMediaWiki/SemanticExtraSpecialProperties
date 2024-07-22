@@ -63,7 +63,7 @@ class CreatorPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$creator->expects( $this->once() )
 			->method( 'getUserPage' )
-			->will( $this->returnValue( $userPage ) );
+			->willReturn( $userPage );
 
 		$wikiPage = $this->getMockBuilder( WikiPage::class )
 			->disableOriginalConstructor()
@@ -71,11 +71,11 @@ class CreatorPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$wikiPage->expects( $this->once() )
 			->method( 'getCreator' )
-			->will( $this->returnValue( $creator ) );
+			->willReturn( $creator );
 
 		$this->appFactory->expects( $this->once() )
 			->method( 'newWikiPage' )
-			->will( $this->returnValue( $wikiPage ) );
+			->willReturn( $wikiPage );
 
 		$semanticData = $this->getMockBuilder( SemanticData::class )
 			->disableOriginalConstructor()
@@ -83,7 +83,7 @@ class CreatorPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$semanticData->expects( $this->once() )
 			->method( 'getSubject' )
-			->will( $this->returnValue( $subject ) );
+			->willReturn( $subject );
 
 		$semanticData->expects( $expected )
 			->method( 'addPropertyObjectValue' );

@@ -58,7 +58,7 @@ class UserRightPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$this->appFactory->expects( $this->once() )
 			->method( 'newUserFromTitle' )
-			->will( $this->returnValue( $user ) );
+			->willReturn( $user );
 
 		$title = $this->getMockBuilder( '\Title' )
 			->disableOriginalConstructor()
@@ -66,7 +66,7 @@ class UserRightPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$title->expects( $this->once() )
 			->method( 'inNamespace' )
-			->will( $this->returnValue( true ) );
+			->willReturn( true );
 
 		$subject = $this->getMockBuilder( '\SMW\DIWikiPage' )
 			->disableOriginalConstructor()
@@ -74,7 +74,7 @@ class UserRightPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$subject->expects( $this->once() )
 			->method( 'getTitle' )
-			->will( $this->returnValue( $title ) );
+			->willReturn( $title );
 
 		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
 			->disableOriginalConstructor()
@@ -82,7 +82,7 @@ class UserRightPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$semanticData->expects( $this->once() )
 			->method( 'getSubject' )
-			->will( $this->returnValue( $subject ) );
+			->willReturn( $subject );
 
 		$semanticData->expects( $expected )
 			->method( 'addPropertyObjectValue' );
@@ -93,7 +93,7 @@ class UserRightPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$permissionManager->expects( $this->once() )
 			->method( 'getUserPermissions' )
-			->will( $this->returnValue( $rights ) );
+			->willReturn( $rights );
 
 		$instance = new UserRightPropertyAnnotator(
 			$this->appFactory

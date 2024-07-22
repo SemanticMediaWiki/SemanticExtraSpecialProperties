@@ -46,7 +46,7 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$this->appFactory->expects( $this->once() )
 			->method( 'getPropertyDefinitions' )
-			->will( $this->returnValue( $propertyDefinitions ) );
+			->willReturn( $propertyDefinitions );
 
 		$propertyRegistry = $this->getMockBuilder( '\SMW\PropertyRegistry' )
 			->disableOriginalConstructor()
@@ -75,7 +75,7 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$this->appFactory->expects( $this->once() )
 			->method( 'getPropertyDefinitions' )
-			->will( $this->returnValue( $propertyDefinitions ) );
+			->willReturn( $propertyDefinitions );
 
 		$propertyRegistry = $this->getMockBuilder( '\SMW\PropertyRegistry' )
 			->disableOriginalConstructor()
@@ -119,7 +119,7 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$this->appFactory->expects( $this->once() )
 			->method( 'getPropertyDefinitions' )
-			->will( $this->returnValue( $propertyDefinitions ) );
+			->willReturn( $propertyDefinitions );
 
 		$propertyRegistry = $this->getMockBuilder( '\SMW\PropertyRegistry' )
 			->disableOriginalConstructor()
@@ -148,7 +148,7 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 		$this->appFactory->expects( $this->once() )
 			->method( 'getOption' )
 			->with( $this->stringContains( 'sespgUseFixedTables' ) )
-			->will( $this->returnValue( false ) );
+			->willReturn( false );
 
 		$this->appFactory->expects( $this->never() )
 			->method( 'getPropertyDefinitions' );
@@ -182,16 +182,16 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 		$this->appFactory->expects( $this->at( 0 ) )
 			->method( 'getOption' )
 			->with( $this->stringContains( 'sespgUseFixedTables' ) )
-			->will( $this->returnValue( true ) );
+			->willReturn( true );
 
 		$this->appFactory->expects( $this->at( 1 ) )
 			->method( 'getPropertyDefinitions' )
-			->will( $this->returnValue( $propertyDefinitions ) );
+			->willReturn( $propertyDefinitions );
 
 		$this->appFactory->expects( $this->at( 2 ) )
 			->method( 'getOption' )
 			->with( $this->stringContains( 'sespgEnabledPropertyList' ) )
-			->will( $this->returnValue( [ 'Foo' ] ) );
+			->willReturn( [ 'Foo' ] );
 
 		$instance = new PropertyRegistry(
 			$this->appFactory
