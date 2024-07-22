@@ -6,7 +6,6 @@
         <exclude name="MediaWiki.Commenting.PhpunitAnnotations.AbsoluteCovers" />
         <exclude name="MediaWiki.PHPUnit.PHPUnitClassUsage.NotNamespaced" />
         <exclude name="Generic.WhiteSpace.DisallowSpaceIndent.SpacesUsed" />
-        <exclude name="PSR2.Files.EndFileNewline.TooMany" />
         <exclude name="MediaWiki.Commenting.FunctionComment.NotShortBoolReturn" />
         <exclude name="MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment" />
         <exclude name="MediaWiki.Commenting.FunctionComment.NoParamType" />
@@ -18,7 +17,6 @@
         <exclude name="MediaWiki.Commenting.FunctionComment.MissingParamName" />
         <exclude name="PSR12.Properties.ConstantVisibility.NotFound" />
         <exclude name="MediaWiki.Usage.ForbiddenFunctions.is_integer" />
-        <exclude name="PSR2.Files.EndFileNewline.NoneFound" />
         <exclude name="Generic.PHP.NoSilencedErrors.Discouraged" />
         <exclude name="Generic.CodeAnalysis.AssignmentInCondition.Found" />
         <exclude name="Squiz.WhiteSpace.SuperfluousWhitespace.EndLine" />

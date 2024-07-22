@@ -236,5 +236,3 @@ class UserEditCountPerNsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCas
 		];
 	}
 }
-
-
