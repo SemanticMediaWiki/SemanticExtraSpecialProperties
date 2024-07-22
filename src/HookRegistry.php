@@ -152,27 +152,29 @@ class HookRegistry {
 		/**
 		 * @see https://www.semantic-mediawiki.org/wiki/Hooks/SMW::SQLStore::AddCustomFixedPropertyTables
 		 */
-		$this->handlers['SMW::SQLStore::AddCustomFixedPropertyTables'] = static function ( array &$customFixedProperties, &$fixedPropertyTablePrefix ) use( $propertyRegistry ) {
-			$propertyRegistry->registerFixedProperties(
-				$customFixedProperties,
-				$fixedPropertyTablePrefix
-			);
+		$this->handlers['SMW::SQLStore::AddCustomFixedPropertyTables'] = 
+			  	static function ( array &$customFixedProperties, &$fixedPropertyTablePrefix ) use( $propertyRegistry ) {
+							$propertyRegistry->registerFixedProperties(
+								$customFixedProperties,
+								$fixedPropertyTablePrefix
+							);
 
-			return true;
-		};
+							return true;
+				};
 
 		/**
 		 * @see https://github.com/SemanticMediaWiki/SemanticMediaWiki/blob/master/docs/technical/hooks/hook.store.beforedataupdatecomplete.md
 		 */
-		$this->handlers['SMW::Store::BeforeDataUpdateComplete'] = static function ( $store, $semanticData ) use ( $appFactory ) {
-			$extraPropertyAnnotator = new ExtraPropertyAnnotator(
-				$appFactory
-			);
+		$this->handlers['SMW::Store::BeforeDataUpdateComplete'] = 
+				static function ( $store, $semanticData ) use ( $appFactory ) {
+					$extraPropertyAnnotator = new ExtraPropertyAnnotator(
+						$appFactory
+					);
 
-			$extraPropertyAnnotator->addAnnotation( $semanticData );
+					$extraPropertyAnnotator->addAnnotation( $semanticData );
 
-			return true;
-		};
+					return true;
+				};
 
 		/**
 		 * https://www.mediawiki.org/wiki/Extension:Approved_Revs/Hooks/ApprovedRevsRevisionApproved

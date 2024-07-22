@@ -110,7 +110,8 @@ class PropertyRegistry {
 		);
 
 		$alias = isset( $definition['alias'] ) ? $definition['alias'] : 'smw-unknown-alias';
-		$label = isset( $aliases[$definition['id']] ) ? $aliases[$definition['id']] : $propertyDefinitions->getLabel( $alias );
+		$label = isset( $aliases[$definition['id']] ) ? $aliases[$definition['id']] : 
+						$propertyDefinitions->getLabel( $alias );
 
 		$propertyRegistry->registerPropertyAlias(
 			$definition['id'],
