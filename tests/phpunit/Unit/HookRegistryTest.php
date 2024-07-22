@@ -16,7 +16,7 @@ use SESP\HookRegistry;
 class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 
 	public function testCanConstruct() {
-		$config =  [];
+		$config = [];
 
 		$this->assertInstanceOf(
 			'\SESP\HookRegistry',

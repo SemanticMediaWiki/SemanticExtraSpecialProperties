@@ -8,7 +8,6 @@
         <exclude name="MediaWiki.Classes.UnsortedUseStatements.UnsortedUse" />
         <exclude name="MediaWiki.Commenting.PhpunitAnnotations.AbsoluteCovers" />
         <exclude name="MediaWiki.PHPUnit.PHPUnitClassUsage.NotNamespaced" />
-        <exclude name="Squiz.WhiteSpace.OperatorSpacing.SpacingAfter" />
         <exclude name="MediaWiki.PHPUnit.MockBoilerplate.ConstraintEqualTo" />
         <exclude name="MediaWiki.WhiteSpace.SpaceAfterClosure.NoWhitespaceAfterClosure" />
         <exclude name="MediaWiki.Usage.StaticClosure.StaticClosure" />

@@ -46,7 +46,7 @@ class PageImagesPropertyAnnotator implements PropertyAnnotator {
      * {@inheritDoc}
      */
     public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
-        $Title =  $semanticData->getSubject()->getTitle();
+        $Title = $semanticData->getSubject()->getTitle();
         $pageImageTitle = $this->getPageImageTitle( $Title );
 
         if ( $pageImageTitle ) {
