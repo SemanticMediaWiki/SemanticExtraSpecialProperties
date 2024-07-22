@@ -33,7 +33,7 @@ class PropertyRegistry {
 	 *
 	 * @param Registry $propertyRegistry
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function register( Registry $propertyRegistry ) {
 		$propertyDefinitions = $this->appFactory->getPropertyDefinitions();
@@ -63,8 +63,8 @@ class PropertyRegistry {
 	/**
 	 * @since 2.0
 	 *
-	 * @param array $customFixedProperties
-	 * @param array $fixedPropertyTablePrefix
+	 * @param array &$customFixedProperties
+	 * @param array &$fixedPropertyTablePrefix
 	 */
 	public function registerFixedProperties( &$customFixedProperties, &$fixedPropertyTablePrefix ) {
 		if ( $this->appFactory->getOption( 'sespgUseFixedTables' ) === false ) {

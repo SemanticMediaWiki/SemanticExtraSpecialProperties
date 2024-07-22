@@ -5,7 +5,6 @@
         <exclude name="MediaWiki.Commenting.PropertyDocumentation.MissingDocumentationPrivate" />
         <exclude name="MediaWiki.PHPUnit.PHPUnitClassUsage.NotNamespaced" />
         <exclude name="Generic.WhiteSpace.DisallowSpaceIndent.SpacesUsed" />
-        <exclude name="MediaWiki.Commenting.FunctionComment.NotShortBoolReturn" />
         <exclude name="MediaWiki.Commenting.FunctionComment.NoParamType" />
         <exclude name="MediaWiki.Commenting.FunctionComment.ExtraParamComment" />
         <exclude name="MediaWiki.Commenting.FunctionComment.MissingDocumentationPrivate" />

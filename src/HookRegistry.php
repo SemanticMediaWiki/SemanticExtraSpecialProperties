@@ -59,7 +59,7 @@ class HookRegistry {
 	 *
 	 * @param string $name
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function isRegistered( $name ) {
 		return Hooks::isRegistered( $name );

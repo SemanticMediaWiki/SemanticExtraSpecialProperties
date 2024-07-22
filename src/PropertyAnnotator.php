@@ -18,7 +18,7 @@ interface PropertyAnnotator {
 	 *
 	 * @param DIProperty $property
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function isAnnotatorFor( DIProperty $property );
 

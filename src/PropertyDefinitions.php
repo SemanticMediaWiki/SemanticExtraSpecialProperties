@@ -82,7 +82,7 @@ class PropertyDefinitions implements IteratorAggregate {
 	 *
 	 * @param string $key
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function isLocalDef( $key ) {
 		return isset( $this->localPropertyDefinitions[$key] )
@@ -94,7 +94,7 @@ class PropertyDefinitions implements IteratorAggregate {
 	 *
 	 * @param string $key
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function has( $key ) {
 		return isset( $this->propertyDefinitions[$key] )
@@ -123,7 +123,7 @@ class PropertyDefinitions implements IteratorAggregate {
 	 * @param string $key The primary key in the property definitions array.
  	 * @param string $key2 The secondary key within the array defined by $key.
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function deepHas( $key, $key2 ) {
 		return isset( $this->propertyDefinitions[$key][$key2] );
