@@ -46,7 +46,7 @@ class UserEditCountPropertyAnnotator implements PropertyAnnotator {
 	 * {@inheritDoc}
 	 */
 	public function isAnnotatorFor( DIProperty $property ) {
-		return $property->getKey() === self::PROP_ID ;
+		return $property->getKey() === self::PROP_ID;
 	}
 
 	/**
