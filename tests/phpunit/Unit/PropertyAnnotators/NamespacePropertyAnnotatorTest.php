@@ -11,7 +11,7 @@ use SMWDINumber;
  * @covers \SESP\PropertyAnnotators\NamespacePropertyAnnotator
  * @group semantic-extra-special-properties
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  */
 class NamespacePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 

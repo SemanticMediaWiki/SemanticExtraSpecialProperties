@@ -15,7 +15,7 @@ use Title;
  * @private
  * @ingroup SESP
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  */
 class ApprovedStatusPropertyAnnotator implements PropertyAnnotator {
 

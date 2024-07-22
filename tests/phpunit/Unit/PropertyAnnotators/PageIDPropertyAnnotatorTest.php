@@ -14,7 +14,7 @@ use WikiPage;
  * @covers \SESP\PropertyAnnotators\PageIDPropertyAnnotator
  * @group semantic-extra-special-properties
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 2.0
  *
  * @author mwjames

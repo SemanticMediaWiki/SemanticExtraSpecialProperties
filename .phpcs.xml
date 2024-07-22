@@ -2,7 +2,6 @@
 <ruleset>
 	<rule ref="./vendor/mediawiki/mediawiki-codesniffer/MediaWiki">
         <exclude name="MediaWiki.Commenting.MissingCovers.MissingCovers" />
-        <exclude name="MediaWiki.Commenting.LicenseComment.InvalidLicenseTag" />
         <exclude name="MediaWiki.Commenting.PropertyDocumentation.MissingDocumentationPrivate" />
         <exclude name="MediaWiki.Classes.UnsortedUseStatements.UnsortedUse" />
         <exclude name="MediaWiki.Commenting.PhpunitAnnotations.AbsoluteCovers" />

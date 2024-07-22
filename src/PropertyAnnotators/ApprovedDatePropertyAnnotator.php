@@ -15,7 +15,7 @@ use SESP\AppFactory;
  * @private
  * @ingroup SESP
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  */
 class ApprovedDatePropertyAnnotator implements PropertyAnnotator {
 

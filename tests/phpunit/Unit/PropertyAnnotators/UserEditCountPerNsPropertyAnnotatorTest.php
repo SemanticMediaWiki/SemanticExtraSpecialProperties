@@ -17,7 +17,7 @@ use Wikimedia\Rdbms\FakeResultWrapper;
  * @group semantic-extra-special-properties
  * @group Databasa
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  *
  * @author Alexander Mashin
  */
