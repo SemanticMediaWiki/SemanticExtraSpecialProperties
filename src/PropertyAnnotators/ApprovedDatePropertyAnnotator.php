@@ -65,7 +65,7 @@ class ApprovedDatePropertyAnnotator implements PropertyAnnotator {
 			$pageID = $semanticData->getSubject()->getTitle()->getArticleID();
 			$dbr = wfGetDB( DB_REPLICA );
 			$approval_date = $dbr->selectField( 'approved_revs', 'approval_date', [ 'page_id' => $pageID ] );
-			
+
 			if ( $approval_date ) {
 				$this->approvedDate = new MWTimestamp( wfTimestamp( TS_MW, $approval_date ) );
 			}

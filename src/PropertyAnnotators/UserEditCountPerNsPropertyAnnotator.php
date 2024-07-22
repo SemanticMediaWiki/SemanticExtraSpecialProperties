@@ -117,16 +117,16 @@ class UserEditCountPerNsPropertyAnnotator implements PropertyAnnotator {
 		$db = $this->appFactory->getConnection();
 		$result = $db->select(
 			// FROM.
-			[ 'revision', 'revision_actor_temp', 'actor', 'page' ], 
+			[ 'revision', 'revision_actor_temp', 'actor', 'page' ],
 			// SELECT.
-			[ 'ns' => 'page.page_namespace', 'edits' => 'COUNT(revision.rev_id)' ], 
+			[ 'ns' => 'page.page_namespace', 'edits' => 'COUNT(revision.rev_id)' ],
 			// WHERE.
-			$id === null ? [ 'actor.actor_name' => $ip ] : [ 'actor.actor_user' => $id ], 
+			$id === null ? [ 'actor.actor_name' => $ip ] : [ 'actor.actor_user' => $id ],
 			__METHOD__,
 			// GROUP BY.
-			[ 'GROUP BY' => [ 'page.page_namespace' ] ], 
+			[ 'GROUP BY' => [ 'page.page_namespace' ] ],
 			// JOIN conditions.
-			[ 
+			[
 				'page'					=> [ 'INNER JOIN', [ 'page.page_id=revision.rev_page' ] ],
 				'revision_actor_temp'	=> [ 'INNER JOIN', [ 'revision_actor_temp.revactor_rev=revision.rev_id' ] ],
 				'actor'					=> [ 'INNER JOIN', [ 'actor.actor_id=revision_actor_temp.revactor_actor' ] ]

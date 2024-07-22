@@ -152,7 +152,7 @@ class HookRegistry {
 		/**
 		 * @see https://www.semantic-mediawiki.org/wiki/Hooks/SMW::SQLStore::AddCustomFixedPropertyTables
 		 */
-		$this->handlers['SMW::SQLStore::AddCustomFixedPropertyTables'] = 
+		$this->handlers['SMW::SQLStore::AddCustomFixedPropertyTables'] =
 				static function ( array &$customFixedProperties, &$fixedPropertyTablePrefix ) use( $propertyRegistry ) {
 							$propertyRegistry->registerFixedProperties(
 								$customFixedProperties,
@@ -165,7 +165,7 @@ class HookRegistry {
 		/**
 		 * @see https://github.com/SemanticMediaWiki/SemanticMediaWiki/blob/master/docs/technical/hooks/hook.store.beforedataupdatecomplete.md
 		 */
-		$this->handlers['SMW::Store::BeforeDataUpdateComplete'] = 
+		$this->handlers['SMW::Store::BeforeDataUpdateComplete'] =
 				static function ( $store, $semanticData ) use ( $appFactory ) {
 					$extraPropertyAnnotator = new ExtraPropertyAnnotator(
 						$appFactory
@@ -185,7 +185,7 @@ class HookRegistry {
 			$servicesFactory
 		) {
 			// 1hr
-			$ttl = 60 * 60; 
+			$ttl = 60 * 60;
 
 			// Send an event to ParserAfterTidy and allow it to pass the preliminary
 			// test even in cases where the content doesn't contain any SMW related
@@ -207,7 +207,7 @@ class HookRegistry {
 			$servicesFactory
 		) {
 			// 1hr
-			$ttl = 60 * 60; 
+			$ttl = 60 * 60;
 			$key = smwfCacheKey( 'smw:parseraftertidy', $title->getPrefixedDBKey() );
 			$servicesFactory->getCache()->save( $key, null, $ttl );
 

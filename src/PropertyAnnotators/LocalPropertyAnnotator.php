@@ -69,8 +69,8 @@ class LocalPropertyAnnotator implements PropertyAnnotator {
 		$dataItem = null;
 
 		if ( isset( $definition['callback'] ) && is_callable( $definition['callback'] ) ) {
-			$dataItem = call_user_func_array( 
-				$definition['callback'], 
+			$dataItem = call_user_func_array(
+				$definition['callback'],
 				[ $this->appFactory, $property, $semanticData ] );
 		}
 
