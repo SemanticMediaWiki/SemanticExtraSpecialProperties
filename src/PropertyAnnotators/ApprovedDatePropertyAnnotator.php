@@ -30,7 +30,7 @@ class ApprovedDatePropertyAnnotator implements PropertyAnnotator {
 	private $appFactory;
 
 	/**
-	 * @var Integer|null
+	 * @var int|null
 	 */
 	private $approvedDate;
 
