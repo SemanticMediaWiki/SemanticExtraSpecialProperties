@@ -33,9 +33,7 @@
         <exclude name="MediaWiki.Commenting.FunctionComment.MissingDocumentationProtected" />
         <exclude name="PSR2.Files.EndFileNewline.NoneFound" />
         <exclude name="Generic.PHP.NoSilencedErrors.Discouraged" />
-        <exclude name="Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis" />
         <exclude name="Generic.CodeAnalysis.AssignmentInCondition.Found" />
-        <exclude name="Squiz.ControlStructures.ControlSignature.SpaceAfterKeyword" />
         <exclude name="Squiz.WhiteSpace.SemicolonSpacing.Incorrect" />
         <exclude name="MediaWiki.Commenting.PropertyDocumentation.NotShortIntVar" />
         <exclude name="Squiz.WhiteSpace.SuperfluousWhitespace.EndLine" />

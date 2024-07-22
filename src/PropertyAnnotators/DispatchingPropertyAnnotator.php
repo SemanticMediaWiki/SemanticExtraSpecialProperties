@@ -89,7 +89,7 @@ class DispatchingPropertyAnnotator implements PropertyAnnotator {
 
 		if ( isset( $this->propertyAnnotators[$key] ) && is_callable( $this->propertyAnnotators[$key] ) ) {
 			return call_user_func( $this->propertyAnnotators[$key], $this->appFactory );
-		} elseif( isset( $this->propertyAnnotators[$key] ) ) {
+		} elseif ( isset( $this->propertyAnnotators[$key] ) ) {
 			return $this->propertyAnnotators[$key];
 		}
 

@@ -49,7 +49,7 @@ class PageImagesPropertyAnnotator implements PropertyAnnotator {
         $Title =  $semanticData->getSubject()->getTitle();
         $pageImageTitle = $this->getPageImageTitle( $Title );
 
-        if ( $pageImageTitle ){
+        if ( $pageImageTitle ) {
             $semanticData->addPropertyObjectValue( $property, DIWikiPage::newFromTitle( $pageImageTitle ) );
         }
     }
@@ -62,7 +62,7 @@ class PageImagesPropertyAnnotator implements PropertyAnnotator {
     protected function getPageImageTitle( Title $Title ) {
         $imageFile = $this->getPageImage( $Title );
 
-        if( $imageFile ){
+        if ( $imageFile ) {
             if ( $imageFile->getTitle() instanceof Title ) {
                 return $imageFile->getTitle();
             }
