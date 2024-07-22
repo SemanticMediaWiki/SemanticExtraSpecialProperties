@@ -7,7 +7,6 @@
         <exclude name="MediaWiki.PHPUnit.PHPUnitClassUsage.NotNamespaced" />
         <exclude name="Generic.WhiteSpace.DisallowSpaceIndent.SpacesUsed" />
         <exclude name="MediaWiki.Commenting.FunctionComment.NotShortBoolReturn" />
-        <exclude name="MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment" />
         <exclude name="MediaWiki.Commenting.FunctionComment.NoParamType" />
         <exclude name="Generic.Files.LineLength.TooLong" />
         <exclude name="MediaWiki.Commenting.FunctionComment.ExtraParamComment" />

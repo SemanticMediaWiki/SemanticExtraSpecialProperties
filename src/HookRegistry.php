@@ -182,7 +182,8 @@ class HookRegistry {
 		) use (
 			$servicesFactory
 		) {
-			$ttl = 60 * 60; // 1hr
+			// 1hr
+			$ttl = 60 * 60; 
 
 			// Send an event to ParserAfterTidy and allow it to pass the preliminary
 			// test even in cases where the content doesn't contain any SMW related
@@ -203,7 +204,8 @@ class HookRegistry {
 		) use (
 			$servicesFactory
 		) {
-			$ttl = 60 * 60; // 1hr
+			// 1hr
+			$ttl = 60 * 60; 
 			$key = smwfCacheKey( 'smw:parseraftertidy', $title->getPrefixedDBKey() );
 			$servicesFactory->getCache()->save( $key, null, $ttl );
 
