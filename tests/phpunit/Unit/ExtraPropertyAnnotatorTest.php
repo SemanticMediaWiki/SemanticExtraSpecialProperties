@@ -57,7 +57,7 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$subject = DIWikiPage::newFromText( __METHOD__ );
 
-		$callback = static function( $appFactory, $property, $semanticData ) {
+		$callback = static function ( $appFactory, $property, $semanticData ) {
 			return $semanticData->getSubject();
 		};
 

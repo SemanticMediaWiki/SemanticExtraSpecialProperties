@@ -98,11 +98,11 @@ class DispatchingPropertyAnnotator implements PropertyAnnotator {
 		// matches
 		$this->propertyAnnotators = [
 
-			CreatorPropertyAnnotator::PROP_ID => static function( $appFactory ) {
+			CreatorPropertyAnnotator::PROP_ID => static function ( $appFactory ) {
 				return new CreatorPropertyAnnotator( $appFactory );
 			},
 
-			PageViewsPropertyAnnotator::PROP_ID => static function( $appFactory ) {
+			PageViewsPropertyAnnotator::PROP_ID => static function ( $appFactory ) {
 				return new PageViewsPropertyAnnotator( $appFactory );
 			},
 
@@ -130,67 +130,67 @@ class DispatchingPropertyAnnotator implements PropertyAnnotator {
 				return new ApprovedStatusPropertyAnnotator( $appFactory );
 			},
 
-			UserRegistrationDatePropertyAnnotator::PROP_ID => static function( $appFactory ) {
+			UserRegistrationDatePropertyAnnotator::PROP_ID => static function ( $appFactory ) {
 				return new UserRegistrationDatePropertyAnnotator( $appFactory );
 			},
 
-			UserEditCountPropertyAnnotator::PROP_ID => static function( $appFactory ) {
+			UserEditCountPropertyAnnotator::PROP_ID => static function ( $appFactory ) {
 				return new UserEditCountPropertyAnnotator( $appFactory );
 			},
 
-			UserEditCountPerNsPropertyAnnotator::PROP_ID => static function( $appFactory ) {
+			UserEditCountPerNsPropertyAnnotator::PROP_ID => static function ( $appFactory ) {
 				return new UserEditCountPerNsPropertyAnnotator( $appFactory );
 			},
 
-			UserBlockPropertyAnnotator::PROP_ID => static function( $appFactory ) {
+			UserBlockPropertyAnnotator::PROP_ID => static function ( $appFactory ) {
 				return new UserBlockPropertyAnnotator( $appFactory );
 			},
 
-			UserRightPropertyAnnotator::PROP_ID => static function( $appFactory ) {
+			UserRightPropertyAnnotator::PROP_ID => static function ( $appFactory ) {
 				return new UserRightPropertyAnnotator( $appFactory );
 			},
 
-			UserGroupPropertyAnnotator::PROP_ID => static function( $appFactory ) {
+			UserGroupPropertyAnnotator::PROP_ID => static function ( $appFactory ) {
 				return new UserGroupPropertyAnnotator( $appFactory );
 			},
 
-			PageIDPropertyAnnotator::PROP_ID => static function( $appFactory ) {
+			PageIDPropertyAnnotator::PROP_ID => static function ( $appFactory ) {
 				return new PageIDPropertyAnnotator( $appFactory );
 			},
 
-			PageLengthPropertyAnnotator::PROP_ID => static function( $appFactory ) {
+			PageLengthPropertyAnnotator::PROP_ID => static function ( $appFactory ) {
 				return new PageLengthPropertyAnnotator( $appFactory );
 			},
 
-			RevisionIDPropertyAnnotator::PROP_ID => static function( $appFactory ) {
+			RevisionIDPropertyAnnotator::PROP_ID => static function ( $appFactory ) {
 				return new RevisionIDPropertyAnnotator( $appFactory );
 			},
 
-			PageNumRevisionPropertyAnnotator::PROP_ID => static function( $appFactory ) {
+			PageNumRevisionPropertyAnnotator::PROP_ID => static function ( $appFactory ) {
 				return new PageNumRevisionPropertyAnnotator( $appFactory );
 			},
 
-			TalkPageNumRevisionPropertyAnnotator::PROP_ID => static function( $appFactory ) {
+			TalkPageNumRevisionPropertyAnnotator::PROP_ID => static function ( $appFactory ) {
 				return new TalkPageNumRevisionPropertyAnnotator( $appFactory );
 			},
 
-			PageContributorsPropertyAnnotator::PROP_ID => static function( $appFactory ) {
+			PageContributorsPropertyAnnotator::PROP_ID => static function ( $appFactory ) {
 				return new PageContributorsPropertyAnnotator( $appFactory );
 			},
 
-			SubPagePropertyAnnotator::PROP_ID => static function( $appFactory ) {
+			SubPagePropertyAnnotator::PROP_ID => static function ( $appFactory ) {
 				return new SubPagePropertyAnnotator( $appFactory );
 			},
 
-			ShortUrlPropertyAnnotator::PROP_ID => static function( $appFactory ) {
+			ShortUrlPropertyAnnotator::PROP_ID => static function ( $appFactory ) {
 				return new ShortUrlPropertyAnnotator( $appFactory );
 			},
 
-			ExifPropertyAnnotator::PROP_ID => static function( $appFactory ) {
+			ExifPropertyAnnotator::PROP_ID => static function ( $appFactory ) {
 				return new ExifPropertyAnnotator( $appFactory );
 			},
 
-            PageImagesPropertyAnnotator::PROP_ID => static function( $appFactory ) {
+            PageImagesPropertyAnnotator::PROP_ID => static function ( $appFactory ) {
                 return new PageImagesPropertyAnnotator( $appFactory );
             },
 

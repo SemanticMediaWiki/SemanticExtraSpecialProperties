@@ -51,7 +51,7 @@ class LocalPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	public function testAddAnnotation() {
 		$subject = DIWikiPage::newFromText( __METHOD__ );
 
-		$callback = static function( $appFactory, $property, $semanticData ) {
+		$callback = static function ( $appFactory, $property, $semanticData ) {
 			return $semanticData->getSubject();
 		};
 
