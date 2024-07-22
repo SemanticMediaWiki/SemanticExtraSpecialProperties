@@ -22,7 +22,7 @@ class SubPagePropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * Predefined property ID
 	 */
-	const PROP_ID = '___SUBP';
+	public const PROP_ID = '___SUBP';
 
 	/**
 	 * @var AppFactory

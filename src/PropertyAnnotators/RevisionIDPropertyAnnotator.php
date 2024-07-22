@@ -23,7 +23,7 @@ class RevisionIDPropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * Predefined property ID
 	 */
-	const PROP_ID = '___REVID';
+	public const PROP_ID = '___REVID';
 
 	/**
 	 * @var AppFactory

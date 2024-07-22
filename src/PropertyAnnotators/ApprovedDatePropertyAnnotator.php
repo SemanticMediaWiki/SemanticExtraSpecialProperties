@@ -20,7 +20,7 @@ class ApprovedDatePropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * Predefined property ID
 	 */
-	const PROP_ID = '___APPROVEDDATE';
+	public const PROP_ID = '___APPROVEDDATE';
 
 	/**
 	 * @var AppFactory

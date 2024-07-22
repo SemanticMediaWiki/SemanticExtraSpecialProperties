@@ -20,7 +20,7 @@ class ApprovedRevPropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * Predefined property ID
 	 */
-	const PROP_ID = '___APPROVED';
+	public const PROP_ID = '___APPROVED';
 
 	/**
 	 * @var AppFactory

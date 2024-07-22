@@ -24,7 +24,7 @@ class UserRegistrationDatePropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * Predefined property ID
 	 */
-	const PROP_ID = '___USERREG';
+	public const PROP_ID = '___USERREG';
 
 	/**
 	 * @var AppFactory

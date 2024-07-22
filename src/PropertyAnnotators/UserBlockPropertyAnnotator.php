@@ -23,7 +23,7 @@ class UserBlockPropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * Predefined property ID
 	 */
-	const PROP_ID = '___USERBLOCK';
+	public const PROP_ID = '___USERBLOCK';
 
 	/**
 	 * @var AppFactory

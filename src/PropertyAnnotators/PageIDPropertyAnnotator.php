@@ -23,7 +23,7 @@ class PageIDPropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * Predefined property ID
 	 */
-	const PROP_ID = '___PAGEID';
+	public const PROP_ID = '___PAGEID';
 
 	/**
 	 * @var AppFactory

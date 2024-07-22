@@ -23,7 +23,7 @@ class PageLengthPropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * Predefined property ID
 	 */
-	const PROP_ID = '___PAGELGTH';
+	public const PROP_ID = '___PAGELGTH';
 
 	/**
 	 * @var AppFactory

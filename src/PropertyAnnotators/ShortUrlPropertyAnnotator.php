@@ -26,7 +26,7 @@ class ShortUrlPropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * Predefined property ID
 	 */
-	const PROP_ID = '___SHORTURL';
+	public const PROP_ID = '___SHORTURL';
 
 	/**
 	 * @var AppFactory

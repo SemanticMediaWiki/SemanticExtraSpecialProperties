@@ -25,7 +25,7 @@ class UserRightPropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * Predefined property ID
 	 */
-	const PROP_ID = '___USERRIGHT';
+	public const PROP_ID = '___USERRIGHT';
 
 	/**
 	 * @var AppFactory

@@ -15,7 +15,7 @@ class PageImagesPropertyAnnotator implements PropertyAnnotator {
     /**
      * Predefined property ID
      */
-    const PROP_ID = '___PAGEIMG';
+    public const PROP_ID = '___PAGEIMG';
 
     /**
      * @var AppFactory

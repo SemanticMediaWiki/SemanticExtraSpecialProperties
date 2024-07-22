@@ -19,7 +19,7 @@ class LabelFetcher {
 	/**
 	 * Namespace of the cache instance
 	 */
-	const LABEL_CACHE_NAMESPACE = 'sesp:labels';
+	public const LABEL_CACHE_NAMESPACE = 'sesp:labels';
 
 	/**
 	 * @var Cache

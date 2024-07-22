@@ -23,7 +23,7 @@ class UserGroupPropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * Predefined property ID
 	 */
-	const PROP_ID = '___USERGROUP';
+	public const PROP_ID = '___USERGROUP';
 
 	/**
 	 * @var AppFactory

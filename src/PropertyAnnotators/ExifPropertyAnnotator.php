@@ -33,7 +33,7 @@ class ExifPropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * Predefined property ID
 	 */
-	const PROP_ID = '___EXIFDATA';
+	public const PROP_ID = '___EXIFDATA';
 
 	/**
 	 * @var AppFactory

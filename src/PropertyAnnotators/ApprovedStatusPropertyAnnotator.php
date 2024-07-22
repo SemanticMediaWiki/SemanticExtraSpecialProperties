@@ -21,7 +21,7 @@ class ApprovedStatusPropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * Predefined property ID
 	 */
-	const PROP_ID = '___APPROVEDSTATUS';
+	public const PROP_ID = '___APPROVEDSTATUS';
 
 	/**
 	 * @var AppFactory

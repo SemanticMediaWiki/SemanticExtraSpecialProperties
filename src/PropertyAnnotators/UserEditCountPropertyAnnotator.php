@@ -24,7 +24,7 @@ class UserEditCountPropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * Predefined property ID
 	 */
-	const PROP_ID = '___USEREDITCNT';
+	public const PROP_ID = '___USEREDITCNT';
 
 	/**
 	 * @var AppFactory

@@ -26,7 +26,7 @@ class CreatorPropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * Predefined property ID
 	 */
-	const PROP_ID = '___CUSER';
+	public const PROP_ID = '___CUSER';
 
 	/**
 	 * @var AppFactory

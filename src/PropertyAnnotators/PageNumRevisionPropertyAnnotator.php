@@ -23,7 +23,7 @@ class PageNumRevisionPropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * Predefined property ID
 	 */
-	const PROP_ID = '___NREV';
+	public const PROP_ID = '___NREV';
 
 	/**
 	 * @var AppFactory

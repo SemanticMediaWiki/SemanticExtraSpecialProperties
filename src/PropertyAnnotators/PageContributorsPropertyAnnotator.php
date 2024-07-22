@@ -24,7 +24,7 @@ class PageContributorsPropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * Predefined property ID
 	 */
-	const PROP_ID = '___EUSER';
+	public const PROP_ID = '___EUSER';
 
 	/**
 	 * @var AppFactory

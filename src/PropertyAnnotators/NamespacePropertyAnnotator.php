@@ -19,7 +19,7 @@ class NamespacePropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * Predefined property ID
 	 */
-	const PROP_ID = '___NSID';
+	public const PROP_ID = '___NSID';
 
 	/**
 	 * @var AppFactory

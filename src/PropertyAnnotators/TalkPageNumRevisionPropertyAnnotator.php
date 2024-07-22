@@ -23,7 +23,7 @@ class TalkPageNumRevisionPropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * Predefined property ID
 	 */
-	const PROP_ID = '___NTREV';
+	public const PROP_ID = '___NTREV';
 
 	/**
 	 * @var AppFactory

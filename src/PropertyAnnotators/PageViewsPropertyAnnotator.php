@@ -22,7 +22,7 @@ class PageViewsPropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * Predefined property ID
 	 */
-	const PROP_ID = '___VIEWS';
+	public const PROP_ID = '___VIEWS';
 
 	/**
 	 * @var AppFactory

@@ -22,7 +22,7 @@ class ApprovedByPropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * Predefined property ID
 	 */
-	const PROP_ID = '___APPROVEDBY';
+	public const PROP_ID = '___APPROVEDBY';
 
 	/**
 	 * @var AppFactory
