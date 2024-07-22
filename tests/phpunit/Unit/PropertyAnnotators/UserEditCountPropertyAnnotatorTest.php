@@ -11,7 +11,7 @@ use Title;
 use User;
 
 /**
- * @covers UserEditCountPropertyAnnotator
+ * @covers \SESP\PropertyAnnotators\UserEditCountPropertyAnnotator
  * @group semantic-extra-special-properties
  *
  * @license GPL-2.0-or-later

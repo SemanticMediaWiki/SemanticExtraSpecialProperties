@@ -3,7 +3,6 @@
 	<rule ref="./vendor/mediawiki/mediawiki-codesniffer/MediaWiki">
         <exclude name="MediaWiki.Commenting.MissingCovers.MissingCovers" />
         <exclude name="MediaWiki.Commenting.PropertyDocumentation.MissingDocumentationPrivate" />
-        <exclude name="MediaWiki.Commenting.PhpunitAnnotations.AbsoluteCovers" />
         <exclude name="MediaWiki.PHPUnit.PHPUnitClassUsage.NotNamespaced" />
         <exclude name="Generic.WhiteSpace.DisallowSpaceIndent.SpacesUsed" />
         <exclude name="MediaWiki.Commenting.FunctionComment.NotShortBoolReturn" />

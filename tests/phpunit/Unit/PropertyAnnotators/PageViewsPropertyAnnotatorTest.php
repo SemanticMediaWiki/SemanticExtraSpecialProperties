@@ -10,7 +10,7 @@ use SMW\SemanticData;
 use WikiPage;
 
 /**
- * @covers PageViewsPropertyAnnotator
+ * @covers \SESP\PropertyAnnotators\PageViewsPropertyAnnotator
  * @group semantic-extra-special-properties
  *
  * @license GPL-2.0-or-later
