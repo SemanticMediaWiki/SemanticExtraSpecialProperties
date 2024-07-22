@@ -61,7 +61,7 @@ class PageIDPropertyAnnotator implements PropertyAnnotator {
 		$pageID = $page->getId();
 		$dataItem = null;
 
-		if ( is_integer( $pageID ) && $pageID > 0 ) {
+		if ( is_int( $pageID ) && $pageID > 0 ) {
 			$dataItem = new DINumber( $pageID );
 		}
 

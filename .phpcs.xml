@@ -13,7 +13,6 @@
         <exclude name="MediaWiki.Commenting.FunctionComment.ParamPassByReference" />
         <exclude name="MediaWiki.Commenting.FunctionComment.MissingReturn" />
         <exclude name="MediaWiki.Commenting.FunctionComment.MissingParamName" />
-        <exclude name="MediaWiki.Usage.ForbiddenFunctions.is_integer" />
         <exclude name="Generic.PHP.NoSilencedErrors.Discouraged" />
         <exclude name="Generic.CodeAnalysis.AssignmentInCondition.Found" />
         <exclude name="Squiz.WhiteSpace.SuperfluousWhitespace.EndLine" />

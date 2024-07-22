@@ -61,7 +61,7 @@ class RevisionIDPropertyAnnotator implements PropertyAnnotator {
 		$revID = $page->getLatest();
 		$dataItem = null;
 
-		if ( is_integer( $revID ) && $revID > 0 ) {
+		if ( is_int( $revID ) && $revID > 0 ) {
 			$dataItem = new DINumber( $revID );
 		}
 

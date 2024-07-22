@@ -59,7 +59,7 @@ class PageLengthPropertyAnnotator implements PropertyAnnotator {
 		$length = $title->getLength();
 		$dataItem = null;
 
-		if ( is_integer( $length ) && $length > 0 ) {
+		if ( is_int( $length ) && $length > 0 ) {
 			$dataItem = new DINumber( $length );
 		}
 
