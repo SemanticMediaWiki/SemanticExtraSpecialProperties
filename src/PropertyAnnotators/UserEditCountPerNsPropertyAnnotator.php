@@ -33,12 +33,12 @@ class UserEditCountPerNsPropertyAnnotator implements PropertyAnnotator {
 	/** @const string PROP_CNT_ID ID for the edit count in the record. */
 	private const PROP_CNT_ID = '___USEREDITCNTNS_CNT';
 
-	/** @var DIProperty $nsProperty DIProperty object for namespace number. */
+	/** @var DIProperty DIProperty object for namespace number.*/
 	private static $nsProperty;
-	/** @var DIProperty $editsProperty DIProperty object for number if edits in NS. */
+	/** @var DIProperty DIProperty object for number if edits in NS.*/
 	private static $editsProperty;
 
-	/** @var AppFactory $appFactory */
+	/** @var AppFactory*/
 	private $appFactory;
 
 	/**

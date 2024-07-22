@@ -23,9 +23,9 @@ use Wikimedia\Rdbms\FakeResultWrapper;
  */
 class UserEditCountPerNsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
-	/** @var DIProperty $property */
+	/** @var DIProperty*/
 	private $property;
-	/** @var AppFactory $appFactory */
+	/** @var AppFactory*/
 	private $appFactory;
 
 	protected function setUp(): void {

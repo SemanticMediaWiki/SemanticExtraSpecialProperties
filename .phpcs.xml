@@ -16,7 +16,6 @@
         <exclude name="MediaWiki.Commenting.FunctionComment.NotShortBoolReturn" />
         <exclude name="MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment" />
         <exclude name="MediaWiki.Commenting.FunctionComment.NoParamType" />
-        <exclude name="MediaWiki.Commenting.RedundantVarName.Found" />
         <exclude name="Generic.Files.LineLength.TooLong" />
         <exclude name="MediaWiki.Commenting.FunctionComment.ExtraParamComment" />
         <exclude name="MediaWiki.Commenting.FunctionComment.MissingDocumentationPrivate" />
