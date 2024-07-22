@@ -5,7 +5,6 @@ namespace SESP\Tests\PropertyAnnotators;
 use MediaWiki\Permissions\PermissionManager;
 use SESP\PropertyAnnotators\UserRightPropertyAnnotator;
 use SMW\DIProperty;
-use SMW\DIWikiPage;
 
 /**
  * @covers \SESP\PropertyAnnotators\UserRightPropertyAnnotator

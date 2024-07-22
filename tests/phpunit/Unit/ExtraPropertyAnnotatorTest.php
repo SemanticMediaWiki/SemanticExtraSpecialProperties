@@ -4,7 +4,6 @@ namespace SESP\Tests;
 
 use SESP\ExtraPropertyAnnotator;
 use SESP\PropertyDefinitions;
-use SMW\DIProperty;
 use SMW\DIWikiPage;
 
 /**

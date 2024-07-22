@@ -3,9 +3,6 @@
 namespace SESP;
 
 use SMW\PropertyRegistry as Registry;
-use SMW\DataTypeRegistry;
-use SMW\DIProperty;
-use SMWDataItem as DataItem;
 
 /**
  * @ingroup SESP

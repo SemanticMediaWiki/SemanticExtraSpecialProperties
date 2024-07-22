@@ -9,7 +9,6 @@ use SMW\DIWikiPage;
 use SMW\SemanticData;
 use User;
 use Title;
-use WikiPage;
 
 /**
  * @covers UserEditCountPropertyAnnotator

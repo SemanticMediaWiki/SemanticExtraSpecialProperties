@@ -6,7 +6,6 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Permissions\PermissionManager;
 use SMW\DIProperty;
 use SMW\SemanticData;
-use SMWDataItem as DataItem;
 use SMWDIBlob as DIBlob;
 use SESP\PropertyAnnotator;
 use SESP\AppFactory;

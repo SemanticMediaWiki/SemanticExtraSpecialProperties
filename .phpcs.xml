@@ -7,7 +7,6 @@
         <exclude name="MediaWiki.Commenting.PhpunitAnnotations.AbsoluteCovers" />
         <exclude name="MediaWiki.PHPUnit.PHPUnitClassUsage.NotNamespaced" />
         <exclude name="MediaWiki.WhiteSpace.SpaceAfterClosure.NoWhitespaceAfterClosure" />
-        <exclude name="MediaWiki.Classes.UnusedUseStatement.UnusedUse" />
         <exclude name="MediaWiki.PHPUnit.SetMethods.SetMethods" />
         <exclude name="Generic.WhiteSpace.DisallowSpaceIndent.SpacesUsed" />
         <exclude name="PSR2.Files.EndFileNewline.TooMany" />

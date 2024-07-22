@@ -13,7 +13,6 @@ use SESP\PropertyAnnotators\NullPropertyAnnotator;
 use SESP\PropertyAnnotators\CreatorPropertyAnnotator;
 use SESP\PropertyAnnotators\PageImagesPropertyAnnotator;
 use SESP\PropertyAnnotators\PageViewsPropertyAnnotator;
-use SESP\PropertyAnnotators\LocalPropertyAnnotator;
 use SESP\PropertyAnnotators\UserRegistrationDatePropertyAnnotator;
 use SESP\PropertyAnnotators\UserEditCountPropertyAnnotator;
 use SESP\PropertyAnnotators\UserEditCountPerNsPropertyAnnotator;
@@ -30,7 +29,6 @@ use SESP\PropertyAnnotators\PageContributorsPropertyAnnotator;
 use SESP\PropertyAnnotators\SubPagePropertyAnnotator;
 use SESP\PropertyAnnotators\PageLengthPropertyAnnotator;
 use SMW\DIProperty;
-use SMW\DIWikiPage;
 
 /**
  * @covers \SESP\PropertyAnnotators\DispatchingPropertyAnnotator

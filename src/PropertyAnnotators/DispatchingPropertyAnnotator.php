@@ -3,12 +3,9 @@
 namespace SESP\PropertyAnnotators;
 
 use SMW\DIProperty;
-use SMW\DIWikiPage;
 use SMW\SemanticData;
-use SMWDataItem as DataItem;
 use SESP\PropertyAnnotator;
 use SESP\AppFactory;
-use Closure;
 
 /**
  * @private

@@ -4,7 +4,6 @@ namespace SESP\Tests\PropertyAnnotators;
 
 use SESP\PropertyAnnotators\UserGroupPropertyAnnotator;
 use SMW\DIProperty;
-use SMW\DIWikiPage;
 
 /**
  * @covers \SESP\PropertyAnnotators\UserGroupPropertyAnnotator

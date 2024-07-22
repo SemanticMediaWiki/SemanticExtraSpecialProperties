@@ -14,7 +14,6 @@ use SMWDITime as DITime;
 use SMWDINumber as DINumber;
 use SMWDIBlob as DIBlob;
 use FormatMetadata;
-use RuntimeException;
 
 /**
  * @private

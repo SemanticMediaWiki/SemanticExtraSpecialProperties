@@ -3,8 +3,6 @@
 namespace SESP\Tests;
 
 use SESP\PropertyRegistry;
-use SMW\DIProperty;
-use SMW\DIWikiPage;
 
 /**
  * @covers \SESP\PropertyRegistry

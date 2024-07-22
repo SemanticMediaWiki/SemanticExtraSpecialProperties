@@ -4,7 +4,6 @@ namespace SESP\Tests\PropertyAnnotators;
 
 use SESP\PropertyAnnotators\PageLengthPropertyAnnotator;
 use SMW\DIProperty;
-use SMW\DIWikiPage;
 
 /**
  * @covers \SESP\PropertyAnnotators\PageLengthPropertyAnnotator

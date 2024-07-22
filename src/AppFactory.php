@@ -7,7 +7,6 @@ use Psr\Log\NullLogger;
 use Psr\Log\LoggerInterface;
 use Psr\Log\LoggerAwareInterface;
 use Onoi\Cache\Cache;
-use Onoi\Cache\NullCache;
 use Title;
 use WikiPage;
 use User;

@@ -4,7 +4,6 @@ namespace SESP\Tests\PropertyAnnotators;
 
 use SESP\PropertyAnnotators\ApprovedRevPropertyAnnotator;
 use SMW\DIProperty;
-use SMW\DIWikiPage;
 use SMWDINumber as DINumber;
 
 /**

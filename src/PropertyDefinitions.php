@@ -7,9 +7,6 @@ use InvalidArgumentException;
 use Iterator;
 use IteratorAggregate;
 use MediaWiki\MediaWikiServices;
-use Onoi\Cache\Cache;
-use Onoi\Cache\NullCache;
-use SMW\Message;
 
 /**
  * @ingroup SESP

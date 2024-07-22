@@ -7,7 +7,6 @@ use SESP\PropertyAnnotators\PageViewsPropertyAnnotator;
 use SMW\DIProperty;
 use SMW\DIWikiPage;
 use SMW\SemanticData;
-use User;
 use WikiPage;
 
 /**

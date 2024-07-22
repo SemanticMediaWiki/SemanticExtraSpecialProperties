@@ -8,7 +8,6 @@ use SMW\SemanticData;
 use SMWDIString as DIString;
 use SESP\PropertyAnnotator;
 use SESP\AppFactory;
-use LogReader;
 use Title;
 
 /**

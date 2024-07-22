@@ -5,8 +5,6 @@ namespace SESP\PropertyAnnotators;
 use SMW\DIProperty;
 use SMW\DIWikiPage;
 use SMW\SemanticData;
-use SMWDataItem as DataItem;
-use SMWDINumber as DINumber;
 use SESP\PropertyAnnotator;
 use SESP\AppFactory;
 

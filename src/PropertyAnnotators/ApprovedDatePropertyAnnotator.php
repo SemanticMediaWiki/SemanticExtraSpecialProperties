@@ -2,11 +2,9 @@
 
 namespace SESP\PropertyAnnotators;
 
-use ApprovedRevs;
 use MWTimestamp;
 use SMW\DIProperty;
 use SMW\SemanticData;
-use SMWDataItem as DataItem;
 use SMWDITime as DITime;
 use SESP\PropertyAnnotator;
 use SESP\AppFactory;
