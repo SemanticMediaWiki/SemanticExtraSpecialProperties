@@ -43,7 +43,7 @@ class ApprovedRevPropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * @since 2.0
 	 *
-	 * @param Integer $approvedRev
+	 * @param int $approvedRev
 	 */
 	public function setApprovedRev( $approvedRev ) {
 		$this->approvedRev = $approvedRev;

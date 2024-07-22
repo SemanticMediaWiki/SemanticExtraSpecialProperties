@@ -36,7 +36,6 @@
         <exclude name="Squiz.WhiteSpace.SemicolonSpacing.Incorrect" />
         <exclude name="MediaWiki.Commenting.PropertyDocumentation.NotShortIntVar" />
         <exclude name="Squiz.WhiteSpace.SuperfluousWhitespace.EndLine" />
-        <exclude name="MediaWiki.Commenting.FunctionComment.NotShortIntParam" />
     </rule>
 	<file>.</file>
     <exclude-pattern>/(vendor|conf)/</exclude-pattern>

@@ -54,7 +54,7 @@ class LabelFetcher {
 	/**
 	 * @since 2.0
 	 *
-	 * @param integer|string $labelCacheVersion
+	 * @param int|string $labelCacheVersion
 	 */
 	public function setLabelCacheVersion( $labelCacheVersion ) {
 		$this->labelCacheVersion = $labelCacheVersion;

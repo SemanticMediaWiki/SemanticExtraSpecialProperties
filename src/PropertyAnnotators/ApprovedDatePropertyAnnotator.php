@@ -44,7 +44,7 @@ class ApprovedDatePropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * @since 2.0
 	 *
-	 * @param Integer $approvedDate
+	 * @param int $approvedDate
 	 */
 	public function setApprovedDate( $approvedDate ) {
 		$this->approvedDate = $approvedDate;
