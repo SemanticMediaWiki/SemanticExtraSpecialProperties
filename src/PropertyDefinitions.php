@@ -121,7 +121,7 @@ class PropertyDefinitions implements IteratorAggregate {
 	 * @since 2.0
 	 *
 	 * @param string $key The primary key in the property definitions array.
- 	 * @param string $key2 The secondary key within the array defined by $key.
+	 * @param string $key2 The secondary key within the array defined by $key.
 	 *
 	 * @return bool
 	 */

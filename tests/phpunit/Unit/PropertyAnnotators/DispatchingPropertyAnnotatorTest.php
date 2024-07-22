@@ -222,10 +222,10 @@ class DispatchingPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			ExifPropertyAnnotator::class
 		];
 
-        $provider[] = [
-            PageImagesPropertyAnnotator::PROP_ID,
-            PageImagesPropertyAnnotator::class
-        ];
+		$provider[] = [
+			PageImagesPropertyAnnotator::PROP_ID,
+			PageImagesPropertyAnnotator::class
+		];
 
 		$provider[] = [
 			'Foo',

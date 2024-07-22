@@ -153,7 +153,7 @@ class HookRegistry {
 		 * @see https://www.semantic-mediawiki.org/wiki/Hooks/SMW::SQLStore::AddCustomFixedPropertyTables
 		 */
 		$this->handlers['SMW::SQLStore::AddCustomFixedPropertyTables'] = 
-			  	static function ( array &$customFixedProperties, &$fixedPropertyTablePrefix ) use( $propertyRegistry ) {
+				static function ( array &$customFixedProperties, &$fixedPropertyTablePrefix ) use( $propertyRegistry ) {
 							$propertyRegistry->registerFixedProperties(
 								$customFixedProperties,
 								$fixedPropertyTablePrefix
