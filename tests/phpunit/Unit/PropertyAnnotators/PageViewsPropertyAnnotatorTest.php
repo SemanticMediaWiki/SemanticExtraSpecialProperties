@@ -80,7 +80,7 @@ class PageViewsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$wikiPage = $this->getMockBuilder( WikiPage::class )
 			->disableOriginalConstructor()
-			->setMethods( [ 'getCount' ] )
+			->addMethods( [ 'getCount' ] )
 			->getMock();
 
 		$wikiPage->expects( $this->once() )

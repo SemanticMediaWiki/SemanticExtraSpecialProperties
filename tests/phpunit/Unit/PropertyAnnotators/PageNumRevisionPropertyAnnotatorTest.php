@@ -72,7 +72,7 @@ class PageNumRevisionPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$connection = $this->getMockBuilder( '\stdClass' )
 			->disableOriginalConstructor()
-			->setMethods( [ 'estimateRowCount' ] )
+			->addMethods( [ 'estimateRowCount' ] )
 			->getMock();
 
 		$connection->expects( $this->once() )

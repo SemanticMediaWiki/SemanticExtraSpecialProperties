@@ -25,7 +25,7 @@ class LocalPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$this->appFactory = $this->getMockBuilder( '\SESP\AppFactory' )
 			->disableOriginalConstructor()
-			->setMethods( [ 'getOption' ] )
+			->onlyMethods( [ 'getOption' ] )
 			->getMock();
 
 		$this->property = new DIProperty( 'FAKE_PROP' );

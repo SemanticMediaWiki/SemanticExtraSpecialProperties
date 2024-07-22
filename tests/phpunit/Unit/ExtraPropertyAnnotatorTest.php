@@ -52,7 +52,7 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	public function testAddAnnotationOnLocalDef() {
 		$appFactory = $this->getMockBuilder( '\SESP\AppFactory' )
 			->disableOriginalConstructor()
-			->setMethods( [ 'getPropertyDefinitions', 'getOption' ] )
+			->onlyMethods( [ 'getPropertyDefinitions', 'getOption' ] )
 			->getMock();
 
 		$subject = DIWikiPage::newFromText( __METHOD__ );
@@ -105,7 +105,7 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	public function testAddAnnotationOnPredefined() {
 		$appFactory = $this->getMockBuilder( '\SESP\AppFactory' )
 			->disableOriginalConstructor()
-			->setMethods( [ 'getPropertyDefinitions', 'getOption' ] )
+			->onlyMethods( [ 'getPropertyDefinitions', 'getOption' ] )
 			->getMock();
 
 		$subject = DIWikiPage::newFromText( __METHOD__ );

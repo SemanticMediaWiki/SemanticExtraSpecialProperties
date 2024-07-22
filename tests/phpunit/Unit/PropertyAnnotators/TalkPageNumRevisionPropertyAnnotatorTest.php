@@ -80,7 +80,7 @@ class TalkPageNumRevisionPropertyAnnotatorTest extends \PHPUnit_Framework_TestCa
 
 		$connection = $this->getMockBuilder( '\stdClass' )
 			->disableOriginalConstructor()
-			->setMethods( [ 'estimateRowCount' ] )
+			->addMethods( [ 'estimateRowCount' ] )
 			->getMock();
 
 		$connection->expects( $this->once() )

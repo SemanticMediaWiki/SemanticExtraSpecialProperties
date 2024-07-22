@@ -52,7 +52,7 @@ class LabelFetcherTest extends \PHPUnit_Framework_TestCase {
 
 		$propertyDefinitions = $this->getMockBuilder( '\SESP\PropertyDefinitions' )
 			->disableOriginalConstructor()
-			->setMethods( null )
+			->addMethods( [] )
 			->getMock();
 
 		$propertyDefinitions->setPropertyDefinitions(
@@ -82,7 +82,7 @@ class LabelFetcherTest extends \PHPUnit_Framework_TestCase {
 
 		$propertyDefinitions = $this->getMockBuilder( '\SESP\PropertyDefinitions' )
 			->disableOriginalConstructor()
-			->setMethods( [ 'getLabels' ] )
+			->onlyMethods( [ 'getLabels' ] )
 			->getMock();
 
 		$this->cache->expects( $this->once() )
@@ -106,7 +106,7 @@ class LabelFetcherTest extends \PHPUnit_Framework_TestCase {
 
 		$propertyDefinitions = $this->getMockBuilder( '\SESP\PropertyDefinitions' )
 			->disableOriginalConstructor()
-			->setMethods( null )
+			->onlyMethods( [] )
 			->getMock();
 
 		$this->cache->expects( $this->once() )

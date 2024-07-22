@@ -73,7 +73,7 @@ class PageImagesPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
         $instance = $this->getMockBuilder( PageImagesPropertyAnnotator::class )
             ->disableOriginalConstructor()
-            ->setMethods( [ 'getPageImageTitle' ] )
+            ->onlyMethods( [ 'getPageImageTitle' ] )
             ->getMock();
 
         $instance->expects( $this->once() )
