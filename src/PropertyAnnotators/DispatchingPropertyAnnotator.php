@@ -101,99 +101,99 @@ class DispatchingPropertyAnnotator implements PropertyAnnotator {
 		// matches
 		$this->propertyAnnotators = [
 
-			CreatorPropertyAnnotator::PROP_ID => function( $appFactory ) {
+			CreatorPropertyAnnotator::PROP_ID => static function( $appFactory ) {
 				return new CreatorPropertyAnnotator( $appFactory );
 			},
 
-			PageViewsPropertyAnnotator::PROP_ID => function( $appFactory ) {
+			PageViewsPropertyAnnotator::PROP_ID => static function( $appFactory ) {
 				return new PageViewsPropertyAnnotator( $appFactory );
 			},
 
-			NamespacePropertyAnnotator::PROP_ID => function ( $appFactory ) {
+			NamespacePropertyAnnotator::PROP_ID => static function ( $appFactory ) {
 				return new NamespacePropertyAnnotator( $appFactory );
 			},
 
-			NamespaceNamePropertyAnnotator::PROP_ID => function ( $appFactory ) {
+			NamespaceNamePropertyAnnotator::PROP_ID => static function ( $appFactory ) {
 				return new NamespaceNamePropertyAnnotator( $appFactory );
 			},
 
-			ApprovedRevPropertyAnnotator::PROP_ID => function ( $appFactory ) {
+			ApprovedRevPropertyAnnotator::PROP_ID => static function ( $appFactory ) {
 				return new ApprovedRevPropertyAnnotator( $appFactory );
 			},
 
-			ApprovedByPropertyAnnotator::PROP_ID => function ( $appFactory ) {
+			ApprovedByPropertyAnnotator::PROP_ID => static function ( $appFactory ) {
 				return new ApprovedByPropertyAnnotator( $appFactory );
 			},
 
-			ApprovedDatePropertyAnnotator::PROP_ID => function ( $appFactory ) {
+			ApprovedDatePropertyAnnotator::PROP_ID => static function ( $appFactory ) {
 				return new ApprovedDatePropertyAnnotator( $appFactory );
 			},
 
-			ApprovedStatusPropertyAnnotator::PROP_ID => function ( $appFactory ) {
+			ApprovedStatusPropertyAnnotator::PROP_ID => static function ( $appFactory ) {
 				return new ApprovedStatusPropertyAnnotator( $appFactory );
 			},
 
-			UserRegistrationDatePropertyAnnotator::PROP_ID => function( $appFactory ) {
+			UserRegistrationDatePropertyAnnotator::PROP_ID => static function( $appFactory ) {
 				return new UserRegistrationDatePropertyAnnotator( $appFactory );
 			},
 
-			UserEditCountPropertyAnnotator::PROP_ID => function( $appFactory ) {
+			UserEditCountPropertyAnnotator::PROP_ID => static function( $appFactory ) {
 				return new UserEditCountPropertyAnnotator( $appFactory );
 			},
 
-			UserEditCountPerNsPropertyAnnotator::PROP_ID => function( $appFactory ) {
+			UserEditCountPerNsPropertyAnnotator::PROP_ID => static function( $appFactory ) {
 				return new UserEditCountPerNsPropertyAnnotator( $appFactory );
 			},
 
-			UserBlockPropertyAnnotator::PROP_ID => function( $appFactory ) {
+			UserBlockPropertyAnnotator::PROP_ID => static function( $appFactory ) {
 				return new UserBlockPropertyAnnotator( $appFactory );
 			},
 
-			UserRightPropertyAnnotator::PROP_ID => function( $appFactory ) {
+			UserRightPropertyAnnotator::PROP_ID => static function( $appFactory ) {
 				return new UserRightPropertyAnnotator( $appFactory );
 			},
 
-			UserGroupPropertyAnnotator::PROP_ID => function( $appFactory ) {
+			UserGroupPropertyAnnotator::PROP_ID => static function( $appFactory ) {
 				return new UserGroupPropertyAnnotator( $appFactory );
 			},
 
-			PageIDPropertyAnnotator::PROP_ID => function( $appFactory ) {
+			PageIDPropertyAnnotator::PROP_ID => static function( $appFactory ) {
 				return new PageIDPropertyAnnotator( $appFactory );
 			},
 
-			PageLengthPropertyAnnotator::PROP_ID => function( $appFactory ) {
+			PageLengthPropertyAnnotator::PROP_ID => static function( $appFactory ) {
 				return new PageLengthPropertyAnnotator( $appFactory );
 			},
 
-			RevisionIDPropertyAnnotator::PROP_ID => function( $appFactory ) {
+			RevisionIDPropertyAnnotator::PROP_ID => static function( $appFactory ) {
 				return new RevisionIDPropertyAnnotator( $appFactory );
 			},
 
-			PageNumRevisionPropertyAnnotator::PROP_ID => function( $appFactory ) {
+			PageNumRevisionPropertyAnnotator::PROP_ID => static function( $appFactory ) {
 				return new PageNumRevisionPropertyAnnotator( $appFactory );
 			},
 
-			TalkPageNumRevisionPropertyAnnotator::PROP_ID => function( $appFactory ) {
+			TalkPageNumRevisionPropertyAnnotator::PROP_ID => static function( $appFactory ) {
 				return new TalkPageNumRevisionPropertyAnnotator( $appFactory );
 			},
 
-			PageContributorsPropertyAnnotator::PROP_ID => function( $appFactory ) {
+			PageContributorsPropertyAnnotator::PROP_ID => static function( $appFactory ) {
 				return new PageContributorsPropertyAnnotator( $appFactory );
 			},
 
-			SubPagePropertyAnnotator::PROP_ID => function( $appFactory ) {
+			SubPagePropertyAnnotator::PROP_ID => static function( $appFactory ) {
 				return new SubPagePropertyAnnotator( $appFactory );
 			},
 
-			ShortUrlPropertyAnnotator::PROP_ID => function( $appFactory ) {
+			ShortUrlPropertyAnnotator::PROP_ID => static function( $appFactory ) {
 				return new ShortUrlPropertyAnnotator( $appFactory );
 			},
 
-			ExifPropertyAnnotator::PROP_ID => function( $appFactory ) {
+			ExifPropertyAnnotator::PROP_ID => static function( $appFactory ) {
 				return new ExifPropertyAnnotator( $appFactory );
 			},
 
-            PageImagesPropertyAnnotator::PROP_ID => function( $appFactory ) {
+            PageImagesPropertyAnnotator::PROP_ID => static function( $appFactory ) {
                 return new PageImagesPropertyAnnotator( $appFactory );
             },
 

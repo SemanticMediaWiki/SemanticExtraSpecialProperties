@@ -8,7 +8,6 @@
         <exclude name="MediaWiki.Commenting.PhpunitAnnotations.AbsoluteCovers" />
         <exclude name="MediaWiki.PHPUnit.PHPUnitClassUsage.NotNamespaced" />
         <exclude name="MediaWiki.WhiteSpace.SpaceAfterClosure.NoWhitespaceAfterClosure" />
-        <exclude name="MediaWiki.Usage.StaticClosure.StaticClosure" />
         <exclude name="MediaWiki.Classes.UnusedUseStatement.UnusedUse" />
         <exclude name="MediaWiki.PHPUnit.SetMethods.SetMethods" />
         <exclude name="Generic.WhiteSpace.DisallowSpaceIndent.SpacesUsed" />

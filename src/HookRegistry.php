@@ -82,7 +82,7 @@ class HookRegistry {
 	 * @param array &$vars
 	 */
 	public static function initExtension( &$vars ) {
-		$vars['wgHooks']['SMW::Config::BeforeCompletion'][] = function( &$config ) {
+		$vars['wgHooks']['SMW::Config::BeforeCompletion'][] = static function( &$config ) {
 			$exemptionlist = [
 				'___EUSER', '___CUSER', '___SUBP', '___REVID', '___VIEWS',
 				'___NREV', '___NTREV', '___USEREDITCNT', '___USEREDITCNTNS', '___EXIFDATA', '___NSID', '___NSNAME'
@@ -141,7 +141,7 @@ class HookRegistry {
 		/**
 		 * @see https://www.semantic-mediawiki.org/wiki/Hooks/SMW::Property::initProperties
 		 */
-		$this->handlers['SMW::Property::initProperties'] = function ( $registry ) use ( $propertyRegistry ) {
+		$this->handlers['SMW::Property::initProperties'] = static function ( $registry ) use ( $propertyRegistry ) {
 			$propertyRegistry->register(
 				$registry
 			);
@@ -152,7 +152,7 @@ class HookRegistry {
 		/**
 		 * @see https://www.semantic-mediawiki.org/wiki/Hooks/SMW::SQLStore::AddCustomFixedPropertyTables
 		 */
-		$this->handlers['SMW::SQLStore::AddCustomFixedPropertyTables'] = function( array &$customFixedProperties, &$fixedPropertyTablePrefix ) use( $propertyRegistry ) {
+		$this->handlers['SMW::SQLStore::AddCustomFixedPropertyTables'] = static function( array &$customFixedProperties, &$fixedPropertyTablePrefix ) use( $propertyRegistry ) {
 			$propertyRegistry->registerFixedProperties(
 				$customFixedProperties,
 				$fixedPropertyTablePrefix
@@ -164,7 +164,7 @@ class HookRegistry {
 		/**
 		 * @see https://github.com/SemanticMediaWiki/SemanticMediaWiki/blob/master/docs/technical/hooks/hook.store.beforedataupdatecomplete.md
 		 */
-		$this->handlers['SMW::Store::BeforeDataUpdateComplete'] = function ( $store, $semanticData ) use ( $appFactory ) {
+		$this->handlers['SMW::Store::BeforeDataUpdateComplete'] = static function ( $store, $semanticData ) use ( $appFactory ) {
 			$extraPropertyAnnotator = new ExtraPropertyAnnotator(
 				$appFactory
 			);
@@ -177,7 +177,7 @@ class HookRegistry {
 		/**
 		 * https://www.mediawiki.org/wiki/Extension:Approved_Revs/Hooks/ApprovedRevsRevisionApproved
 		 */
-		$this->handlers['ApprovedRevsRevisionApproved'] = function (
+		$this->handlers['ApprovedRevsRevisionApproved'] = static function (
 			$output, $title, $rev_id, $content
 		) use (
 			$servicesFactory
@@ -198,7 +198,7 @@ class HookRegistry {
 		/**
 		 * https://www.mediawiki.org/wiki/Extension:Approved_Revs/Hooks/ApprovedRevsRevisionUnapproved
 		 */
-		$this->handlers['ApprovedRevsRevisionUnapproved'] = function (
+		$this->handlers['ApprovedRevsRevisionUnapproved'] = static function (
 			$output, $title, $content
 		) use (
 			$servicesFactory

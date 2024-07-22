@@ -56,7 +56,7 @@ class UserBlockPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	 * @dataProvider blockActionProvider
 	 */
 	public function testAddAnnotation( $action, $expected ) {
-		$compare = function( $reason ) use( $action ) {
+		$compare = static function( $reason ) use( $action ) {
 			return $reason == $action;
 		};
 
