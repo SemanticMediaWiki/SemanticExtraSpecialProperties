@@ -13,7 +13,7 @@ use SESP\PropertyDefinitions;
  *
  * @author mwjames
  */
-class PropertyDefinitionsTest extends \PHPUnit_Framework_TestCase {
+class PropertyDefinitionsTest extends \PHPUnit\Framework\TestCase {
 
 	private $labelFetcher;
 

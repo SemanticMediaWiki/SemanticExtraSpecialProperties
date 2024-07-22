@@ -16,7 +16,7 @@ use User;
  *
  * @author mwjames
  */
-class ApprovedByPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
+class ApprovedByPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 	private $property;
 	private $appFactory;

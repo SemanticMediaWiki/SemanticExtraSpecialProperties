@@ -15,7 +15,7 @@ use SMWDINumber as DINumber;
  *
  * @author mwjames
  */
-class ApprovedRevPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
+class ApprovedRevPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 	private $property;
 	private $appFactory;

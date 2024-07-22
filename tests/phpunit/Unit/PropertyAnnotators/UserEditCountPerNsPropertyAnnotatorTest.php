@@ -21,7 +21,7 @@ use Wikimedia\Rdbms\FakeResultWrapper;
  *
  * @author Alexander Mashin
  */
-class UserEditCountPerNsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
+class UserEditCountPerNsPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 	/** @var DIProperty */
 	private $property;

@@ -39,7 +39,7 @@ use SMW\DIProperty;
  *
  * @author mwjames
  */
-class DispatchingPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
+class DispatchingPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 	private $property;
 	private $appFactory;

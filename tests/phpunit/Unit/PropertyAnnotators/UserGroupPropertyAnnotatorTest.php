@@ -14,7 +14,7 @@ use SMW\DIProperty;
  *
  * @author mwjames
  */
-class UserGroupPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
+class UserGroupPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 	private $property;
 	private $appFactory;

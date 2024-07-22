@@ -13,7 +13,7 @@ use SMWDIBlob;
  *
  * @license GPL-2.0-or-later
  */
-class NamespaceNamePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
+class NamespaceNamePropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 	private $property;
 	private $appFactory;

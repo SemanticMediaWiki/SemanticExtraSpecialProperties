@@ -21,7 +21,7 @@ use WikiPage;
  *
  * @author mwjames
  */
-class PageContributorsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
+class PageContributorsPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 	private $property;
 	private $appFactory;

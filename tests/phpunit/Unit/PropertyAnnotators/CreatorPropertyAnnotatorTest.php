@@ -19,7 +19,7 @@ use WikiPage;
  *
  * @author mwjames
  */
-class CreatorPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
+class CreatorPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 	private $property;
 	private $appFactory;

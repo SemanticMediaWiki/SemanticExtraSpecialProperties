@@ -18,7 +18,7 @@ use WikiPage;
  *
  * @author mwjames
  */
-class RevisionIDPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
+class RevisionIDPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 	private $property;
 	private $appFactory;

@@ -15,7 +15,7 @@ use SMWDIString as DIString;
  *
  * @author mwjames
  */
-class ApprovedStatusPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
+class ApprovedStatusPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 	private $property;
 	private $appFactory;

@@ -14,7 +14,7 @@ use SESP\DatabaseLogReader;
  *
  * @author mwjames
  */
-class DatabaseLogReaderTest extends \PHPUnit_Framework_TestCase {
+class DatabaseLogReaderTest extends \PHPUnit\Framework\TestCase {
 
 	private $appFactory;
 	private $connection;

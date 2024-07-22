@@ -14,7 +14,7 @@ use SMW\DIProperty;
  *
  * @author mwjames
  */
-class TalkPageNumRevisionPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
+class TalkPageNumRevisionPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 	private $property;
 	private $appFactory;

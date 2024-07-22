@@ -18,7 +18,7 @@ use Title;
  *
  * @author mwjames
  */
-class PageImagesPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
+class PageImagesPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
     private $property;
     private $appFactory;

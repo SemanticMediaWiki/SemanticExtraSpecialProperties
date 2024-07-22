@@ -19,7 +19,7 @@ use User;
  *
  * @author mwjames
  */
-class UserEditCountPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
+class UserEditCountPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 	private $property;
 	private $appFactory;

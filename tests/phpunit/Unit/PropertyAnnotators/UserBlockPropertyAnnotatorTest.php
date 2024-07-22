@@ -20,7 +20,7 @@ use User;
  *
  * @author mwjames
  */
-class UserBlockPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
+class UserBlockPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 	private $property;
 	private $appFactory;

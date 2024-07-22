@@ -14,7 +14,7 @@ use SMW\DIProperty;
  *
  * @author mwjames
  */
-class NullPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
+class NullPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 	private $property;
 	private $appFactory;

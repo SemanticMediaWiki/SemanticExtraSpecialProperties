@@ -18,7 +18,7 @@ use WikiPage;
  *
  * @author mwjames
  */
-class PageViewsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
+class PageViewsPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 	private $property;
 	private $appFactory;

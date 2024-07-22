@@ -13,7 +13,7 @@ use SMW\Tests\TestEnvironment;
  *
  * @author mwjames
  */
-class DefinitionJsonFileIntegrityTest extends \PHPUnit_Framework_TestCase {
+class DefinitionJsonFileIntegrityTest extends \PHPUnit\Framework\TestCase {
 
 	public function testDecodeEncode() {
 		$testEnvironment = new TestEnvironment();

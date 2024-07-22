@@ -14,7 +14,7 @@ use SMW\DIProperty;
  *
  * @author mwjames
  */
-class UserRegistrationDatePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
+class UserRegistrationDatePropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 	private $property;
 	private $appFactory;

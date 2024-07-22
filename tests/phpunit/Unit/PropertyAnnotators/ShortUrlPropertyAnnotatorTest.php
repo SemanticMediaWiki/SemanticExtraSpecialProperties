@@ -15,7 +15,7 @@ use SMW\DIWikiPage;
  *
  * @author mwjames
  */
-class ShortUrlPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
+class ShortUrlPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 	private $property;
 	private $appFactory;

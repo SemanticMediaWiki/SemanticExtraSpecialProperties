@@ -16,7 +16,7 @@ use SMWDITime as DITime;
  *
  * @author mwjames
  */
-class ApprovedDatePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
+class ApprovedDatePropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 	private $property;
 	private $appFactory;

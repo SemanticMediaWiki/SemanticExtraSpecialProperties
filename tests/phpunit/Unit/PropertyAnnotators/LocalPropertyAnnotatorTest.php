@@ -15,7 +15,7 @@ use SMW\DIWikiPage;
  *
  * @author mwjames
  */
-class LocalPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
+class LocalPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 	private $appFactory;
 	private $property;

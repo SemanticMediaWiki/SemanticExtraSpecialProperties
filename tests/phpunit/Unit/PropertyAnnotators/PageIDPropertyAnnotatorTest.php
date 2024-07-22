@@ -19,7 +19,7 @@ use WikiPage;
  *
  * @author mwjames
  */
-class PageIDPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
+class PageIDPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 	private $property;
 	private $appFactory;

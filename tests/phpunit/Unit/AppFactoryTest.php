@@ -21,7 +21,7 @@ use WikiPage;
  *
  * @author mwjames
  */
-class AppFactoryTest extends \PHPUnit_Framework_TestCase {
+class AppFactoryTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
 		$this->assertInstanceOf(

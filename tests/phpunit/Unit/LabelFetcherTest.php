@@ -13,7 +13,7 @@ use SESP\LabelFetcher;
  *
  * @author mwjames
  */
-class LabelFetcherTest extends \PHPUnit_Framework_TestCase {
+class LabelFetcherTest extends \PHPUnit\Framework\TestCase {
 
 	private $cache;
 

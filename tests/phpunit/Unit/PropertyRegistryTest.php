@@ -13,7 +13,7 @@ use SESP\PropertyRegistry;
  *
  * @author mwjames
  */
-class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
+class PropertyRegistryTest extends \PHPUnit\Framework\TestCase {
 
 	private $appFactory;
 

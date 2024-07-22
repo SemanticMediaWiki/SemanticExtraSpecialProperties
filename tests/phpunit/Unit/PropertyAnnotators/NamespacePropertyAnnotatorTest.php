@@ -13,7 +13,7 @@ use SMWDINumber;
  *
  * @license GPL-2.0-or-later
  */
-class NamespacePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
+class NamespacePropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 	private $property;
 	private $appFactory;

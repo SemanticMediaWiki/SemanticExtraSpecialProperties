@@ -16,7 +16,7 @@ use SMW\DIWikiPage;
  *
  * @author mwjames
  */
-class ExifPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
+class ExifPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 	private $property;
 	private $appFactory;

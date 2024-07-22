@@ -14,7 +14,7 @@ use SMW\DIProperty;
  *
  * @author mwjames
  */
-class PageNumRevisionPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
+class PageNumRevisionPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 	private $property;
 	private $appFactory;
