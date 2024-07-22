@@ -103,6 +103,12 @@ class ExifPropertyAnnotator implements PropertyAnnotator {
 		}
 	}
 
+	/**
+	 * @since 2.0
+	 *
+	 * @param DIWikiPage $subject
+	 * @param array $rawExif The raw EXIF data to be added.
+	 */
 	protected function getDataItemFromExifData( $subject, $rawExif ) {
 		$containerSemanticData = $this->newContainerSemanticData(
 			$subject

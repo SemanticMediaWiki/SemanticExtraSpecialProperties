@@ -73,6 +73,11 @@ class ShortUrlPropertyAnnotator implements PropertyAnnotator {
 		}
 	}
 
+	/**
+	 * @since 2.0
+	 *
+	 * @param Title $title
+	 */
 	protected function getShortUrl( Title $title ) {
 		// FIXME handle internal and external links
 		$shortUrl = null;
@@ -84,6 +89,9 @@ class ShortUrlPropertyAnnotator implements PropertyAnnotator {
 		return $shortUrl;
 	}
 
+	/**
+	 * get prefix Url
+	 */
 	protected function getUrlPrefix() {
 		$shortUrlPrefix = $this->appFactory->getOption( 'wgShortUrlPrefix', '' );
 
