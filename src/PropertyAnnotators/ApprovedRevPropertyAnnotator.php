@@ -56,6 +56,9 @@ class ApprovedRevPropertyAnnotator implements PropertyAnnotator {
 		return $property->getKey() === self::PROP_ID;
 	}
 
+	/**
+	 * get data item
+	 */
 	public function getDataItem() {
 		return new DINumber( $this->approvedRev );
 	}
