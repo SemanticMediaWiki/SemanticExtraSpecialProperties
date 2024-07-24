@@ -103,7 +103,6 @@ class UserEditCountPerNsPropertyAnnotatorTest extends \PHPUnit\Framework\TestCas
 	 * @dataProvider containerProvider
 	 * @param int $ns Namespace
 	 * @param int $edits Number of edits
-	 * @param $expected
 	 */
 	public function testContainer( $ns, $edits ) {
 		$subject = new DIWikiPage( 'Test', NS_USER );
