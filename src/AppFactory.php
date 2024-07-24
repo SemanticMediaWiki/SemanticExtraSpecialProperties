@@ -91,7 +91,7 @@ class AppFactory implements LoggerAwareInterface {
 	/**
 	 * @since 2.0
 	 *
-	 * @param LoggerInterface
+	 * @return LoggerInterface
 	 */
 	public function getLogger() {
 		if ( $this->logger === null ) {
