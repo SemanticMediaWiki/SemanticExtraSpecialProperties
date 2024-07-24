@@ -3,9 +3,7 @@
 	<rule ref="./vendor/mediawiki/mediawiki-codesniffer/MediaWiki">
         <exclude name="MediaWiki.Commenting.MissingCovers.MissingCovers" />
         <exclude name="MediaWiki.Commenting.PropertyDocumentation.MissingDocumentationPrivate" />
-        <exclude name="MediaWiki.Commenting.FunctionComment.NoParamType" />
         <exclude name="MediaWiki.Commenting.FunctionComment.MissingDocumentationPrivate" />
-        <exclude name="MediaWiki.Commenting.FunctionComment.ParamPassByReference" />
         <exclude name="MediaWiki.Commenting.FunctionComment.MissingReturn" />
         <exclude name="Generic.PHP.NoSilencedErrors.Discouraged" />
         <exclude name="Generic.CodeAnalysis.AssignmentInCondition.Found" />

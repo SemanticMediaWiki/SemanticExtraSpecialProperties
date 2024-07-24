@@ -105,7 +105,7 @@ class AppFactory implements LoggerAwareInterface {
 	 * @since 2.0
 	 *
 	 * @param string $key
-	 * @param $default $mixed
+	 * @param mixed $default
 	 *
 	 * @return mixed|false
 	 */
@@ -190,7 +190,7 @@ class AppFactory implements LoggerAwareInterface {
 	/**
 	 * @since 1.3
 	 *
-	 * @param $id
+	 * @param int $id
 	 *
 	 * @return User
 	 */

@@ -56,7 +56,7 @@ class PageImagesPropertyAnnotator implements PropertyAnnotator {
 
 	/**
 	 * PageImage (Title)
-	 * @param $Title Title
+	 * @param Title $Title
 	 * @return Title|bool
 	 */
 	protected function getPageImageTitle( Title $Title ) {
@@ -72,7 +72,7 @@ class PageImagesPropertyAnnotator implements PropertyAnnotator {
 
 	/**
 	 * PageImage (File)
-	 * @param $Title Title
+	 * @param Title $Title
 	 * @return File|bool
 	 */
 	protected function getPageImage( Title $Title ) {
