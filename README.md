@@ -104,7 +104,7 @@ in the [contributors overview][contributors].
 
 ### Tests
 
-This extension provides unit and integration tests and is usually run by a [continuous integration platform][github-actions]
+This extension provides unit and integration tests and is run by a [continuous integration platform][github-actions]
 but can also be executed locally using the shortcut command `composer phpunit` from the extension base directory.
 
 ## License
