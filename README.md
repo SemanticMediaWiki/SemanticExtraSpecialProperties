@@ -41,7 +41,7 @@ section in your file:
 
     "mediawiki/semantic-extra-special-properties": "~3.0"
 
-Please remember to add a comma to the end of the following line in this section.
+Remember to add a comma to the end of the preceding line in this section.
 
 ### Step 2
 
@@ -49,7 +49,7 @@ Run the following command in your shell:
 
     php composer.phar update --no-dev
 
-Note that if you have Git installed on your system, you can add the `--prefer-source` flag to the above command.
+If you have Git installed on your system, you can add the `--prefer-source` flag to the above command.
 
 ### Step 3
 
@@ -86,8 +86,8 @@ document.
 You should check the labels for Exif properties. They are defined in MediaWiki core and are being reused by SESP.
 Property names you already use may be predefined properties after activation of SESP. On the special page
 "System messages", you can search for all messages with the prefix "Exif". One example: There is the message
-Exif-source that has the label "Source". If you use a property labeled "Source" already, you should change
-MediaWiki:Exif-source from "Source" to "Exif-source". 
+Exif-source that has the label "Source". If you use a property labeled "Source" already, you should change the system
+message MediaWiki:Exif-source from "Source" to "Exif-source". 
 
 ## Contribution and support
 
@@ -104,7 +104,7 @@ in the [contributors overview][contributors].
 
 ### Tests
 
-This extension provides unit and integration tests and is usually run by a [continues integration platform][GitHub Actions]
+This extension provides unit and integration tests and is usually run by a [continuous integration platform][GitHub Actions]
 but can also be executed locally using the shortcut command `composer phpunit` from the extension base directory.
 
 ## License
