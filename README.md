@@ -104,7 +104,7 @@ in the [contributors overview][contributors].
 
 ### Tests
 
-This extension provides unit and integration tests and is usually run by a [continuous integration platform][GitHub Actions]
+This extension provides unit and integration tests and is usually run by a [continuous integration platform][github-actions]
 but can also be executed locally using the shortcut command `composer phpunit` from the extension base directory.
 
 ## License
@@ -119,7 +119,7 @@ View the [release notes](RELEASE-NOTES.md)
 [license]: https://www.gnu.org/copyleft/gpl.html
 [mwcomposer]: https://www.mediawiki.org/wiki/Composer
 [smw]: https://www.semantic-mediawiki.org/wiki/Semantic_MediaWiki
-[GitHub Actions]: https://docs.github.com/en/actions
+[github-actions]: https://docs.github.com/en/actions
 [mw-testing]: https://www.mediawiki.org/wiki/Manual:PHP_unit_testing
 [mw-update]: https://www.mediawiki.org/wiki/Manual:Update.php
 [mw-localsettings]: https://www.mediawiki.org/wiki/Localsettings
