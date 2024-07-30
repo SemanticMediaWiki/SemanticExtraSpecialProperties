@@ -78,11 +78,11 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			$localPropertyDefinitions
 		);
 
-		$appFactory->expects( $this->at( 0 ) )
+		$appFactory->expects( $this->once() )
 			->method( 'getPropertyDefinitions' )
 			->willReturn( $propertyDefinitions );
 
-		$appFactory->expects( $this->at( 1 ) )
+		$appFactory->expects( $this->once() )
 			->method( 'getOption' )
 			->with( 'sespgEnabledPropertyList' )
 			->willReturn( $localPropertyDefinitions );
@@ -128,11 +128,11 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			$defs
 		);
 
-		$appFactory->expects( $this->at( 0 ) )
+		$appFactory->expects( $this->once() )
 			->method( 'getPropertyDefinitions' )
 			->willReturn( $propertyDefinitions );
 
-		$appFactory->expects( $this->at( 1 ) )
+		$appFactory->expects( $this->once() )
 			->method( 'getOption' )
 			->with( 'sespgEnabledPropertyList' )
 			->willReturn( $specialProperties );

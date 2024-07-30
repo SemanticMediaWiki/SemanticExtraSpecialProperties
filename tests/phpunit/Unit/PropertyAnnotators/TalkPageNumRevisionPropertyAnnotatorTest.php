@@ -121,13 +121,13 @@ class TalkPageNumRevisionPropertyAnnotatorTest extends \PHPUnit\Framework\TestCa
 		];
 
 		$provider[] = [
-			null,
-			$this->never()
+			40,
+			$this->once()
 		];
 
 		$provider[] = [
-			'Foo',
-			$this->never()
+			44,
+			$this->once()
 		];
 
 		return $provider;

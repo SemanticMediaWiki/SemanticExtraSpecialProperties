@@ -177,19 +177,17 @@ class PropertyRegistryTest extends \PHPUnit\Framework\TestCase {
 			]
 		);
 
-		$this->appFactory->expects( $this->at( 0 ) )
+		$this->appFactory->expects( $this->exactly( 2 ) )
 			->method( 'getOption' )
-			->with( $this->stringContains( 'sespgUseFixedTables' ) )
-			->willReturn( true );
+			->withConsecutive(
+				[ $this->stringContains( 'sespgUseFixedTables' ) ],
+				[ $this->stringContains( 'sespgEnabledPropertyList' ) ]
+			)
+		->willReturnOnConsecutiveCalls( true, [ 'Foo' ] );
 
-		$this->appFactory->expects( $this->at( 1 ) )
+		$this->appFactory->expects( $this->once() )
 			->method( 'getPropertyDefinitions' )
 			->willReturn( $propertyDefinitions );
-
-		$this->appFactory->expects( $this->at( 2 ) )
-			->method( 'getOption' )
-			->with( $this->stringContains( 'sespgEnabledPropertyList' ) )
-			->willReturn( [ 'Foo' ] );
 
 		$instance = new PropertyRegistry(
 			$this->appFactory

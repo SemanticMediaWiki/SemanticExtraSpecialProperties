@@ -56,9 +56,7 @@ class PageContributorsPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase 
 	public function testAddAnnotation() {
 		$subject = DIWikiPage::newFromText( __METHOD__ );
 
-		$contributors = $this->getMockBuilder( ArrayIterator::class )
-			->disableOriginalConstructor()
-			->getMock();
+		$contributors = new ArrayIterator();
 
 		$user = $this->getMockBuilder( User::class )
 			->disableOriginalConstructor()

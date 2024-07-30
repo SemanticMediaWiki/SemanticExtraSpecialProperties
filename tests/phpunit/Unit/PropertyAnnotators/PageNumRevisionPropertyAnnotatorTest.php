@@ -113,13 +113,13 @@ class PageNumRevisionPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 		];
 
 		$provider[] = [
-			null,
-			$this->never()
+			40,
+			$this->once()
 		];
 
 		$provider[] = [
-			'Foo',
-			$this->never()
+			44,
+			$this->once()
 		];
 
 		return $provider;

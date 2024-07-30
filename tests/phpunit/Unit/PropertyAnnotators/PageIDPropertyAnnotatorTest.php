@@ -7,7 +7,6 @@ use SESP\PropertyAnnotators\PageIDPropertyAnnotator;
 use SMW\DIProperty;
 use SMW\DIWikiPage;
 use SMW\SemanticData;
-use TypeError;
 use WikiPage;
 
 /**
@@ -54,16 +53,12 @@ class PageIDPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 	/**
 	 * @dataProvider idProvider
 	 */
-	public function testAddAnnotation( $id, $expected, $throw ) {
+	public function testAddAnnotation( $id, $expected ) {
 		$subject = DIWikiPage::newFromText( __METHOD__ );
 
 		$wikiPage = $this->getMockBuilder( WikiPage::class )
 			->disableOriginalConstructor()
 			->getMock();
-
-		if ( $throw && version_compare( MW_VERSION, '1.36', '>=' ) ) {
-			$this->expectException( TypeError::class );
-		}
 
 		$wikiPage->expects( $this->once() )
 			->method( 'getId' )
@@ -105,14 +100,14 @@ class PageIDPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 		];
 
 		$provider[] = [
-			null,
-			$this->never(),
+			40,
+			$this->once(),
 			true
 		];
 
 		$provider[] = [
-			'Foo',
-			$this->never(),
+			44,
+			$this->once(),
 			true
 		];
 
