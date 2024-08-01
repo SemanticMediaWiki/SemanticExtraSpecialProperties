@@ -3,19 +3,18 @@
 namespace SESP;
 
 use MediaWiki\MediaWikiServices;
-use Psr\Log\NullLogger;
-use Psr\Log\LoggerInterface;
-use Psr\Log\LoggerAwareInterface;
 use Onoi\Cache\Cache;
-use Onoi\Cache\NullCache;
+use Psr\Log\LoggerAwareInterface;
+use Psr\Log\LoggerInterface;
+use Psr\Log\NullLogger;
 use Title;
-use WikiPage;
 use User;
+use WikiPage;
 
 /**
  * @ingroup SESP
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.3
  *
  * @author mwjames
@@ -71,7 +70,6 @@ class AppFactory implements LoggerAwareInterface {
 	 * @return DatabaseBase
 	 */
 	public function getConnection() {
-
 		if ( $this->connection === null ) {
 			$this->connection = wfGetDB( DB_REPLICA );
 		}
@@ -93,10 +91,9 @@ class AppFactory implements LoggerAwareInterface {
 	/**
 	 * @since 2.0
 	 *
-	 * @param LoggerInterface
+	 * @return LoggerInterface
 	 */
 	public function getLogger() {
-
 		if ( $this->logger === null ) {
 			return new NullLogger();
 		}
@@ -108,12 +105,11 @@ class AppFactory implements LoggerAwareInterface {
 	 * @since 2.0
 	 *
 	 * @param string $key
-	 * @param $default $mixed
+	 * @param mixed $default
 	 *
 	 * @return mixed|false
 	 */
 	public function getOption( $key, $default = false ) {
-
 		if ( isset( $this->options[$key] ) ) {
 			return $this->options[$key];
 		}
@@ -127,7 +123,6 @@ class AppFactory implements LoggerAwareInterface {
 	 * @return PropertyDefinitions
 	 */
 	public function getPropertyDefinitions() {
-
 		if ( $this->propertyDefinitions !== null ) {
 			return $this->propertyDefinitions;
 		}
@@ -161,7 +156,6 @@ class AppFactory implements LoggerAwareInterface {
 	 * @return WikiPage
 	 */
 	public function newWikiPage( Title $title ) {
-
 		// #55
 		// Fight a possible DB corruption and avoid "NS_MEDIA is a virtual namespace; use NS_FILE"
 		if ( $title->getNamespace() === NS_MEDIA ) {
@@ -196,7 +190,7 @@ class AppFactory implements LoggerAwareInterface {
 	/**
 	 * @since 1.3
 	 *
-	 * @param $id
+	 * @param int $id
 	 *
 	 * @return User
 	 */

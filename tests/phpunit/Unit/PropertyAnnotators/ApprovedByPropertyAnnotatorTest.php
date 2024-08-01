@@ -11,12 +11,12 @@ use User;
  * @covers \SESP\PropertyAnnotators\ApprovedByPropertyAnnotator
  * @group semantic-extra-special-properties
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 2.0
  *
  * @author mwjames
  */
-class ApprovedByPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
+class ApprovedByPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 	private $property;
 	private $appFactory;
@@ -32,7 +32,6 @@ class ApprovedByPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			ApprovedByPropertyAnnotator::class,
 			new ApprovedByPropertyAnnotator( $this->appFactory )
@@ -40,7 +39,6 @@ class ApprovedByPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testIsAnnotatorFor() {
-
 		$annotator = new ApprovedByPropertyAnnotator(
 			$this->appFactory
 		);
@@ -59,8 +57,8 @@ class ApprovedByPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		$semanticData->expects( $this->once() )
 			->method( 'addPropertyObjectValue' )
 			->with(
-				$this->equalTo( $this->property ),
-				$this->equalTo( DIWikiPage::newFromTitle( $user->getUserPage() ) ) );
+				$this->property,
+				DIWikiPage::newFromTitle( $user->getUserPage() ) );
 		$annotator = new ApprovedByPropertyAnnotator(
 			$this->appFactory
 		);
@@ -77,7 +75,7 @@ class ApprovedByPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$semanticData->expects( $this->once() )
 			->method( 'removeProperty' )
-			->with( $this->equalTo( $this->property ) );
+			->with( $this->property );
 
 		$annotator = new ApprovedByPropertyAnnotator(
 			$this->appFactory

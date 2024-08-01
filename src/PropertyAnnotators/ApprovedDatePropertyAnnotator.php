@@ -2,27 +2,25 @@
 
 namespace SESP\PropertyAnnotators;
 
-use ApprovedRevs;
 use MWTimestamp;
+use SESP\AppFactory;
+use SESP\PropertyAnnotator;
 use SMW\DIProperty;
 use SMW\SemanticData;
-use SMWDataItem as DataItem;
 use SMWDITime as DITime;
-use SESP\PropertyAnnotator;
-use SESP\AppFactory;
 
 /**
  * @private
  * @ingroup SESP
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  */
 class ApprovedDatePropertyAnnotator implements PropertyAnnotator {
 
 	/**
 	 * Predefined property ID
 	 */
-	const PROP_ID = '___APPROVEDDATE';
+	public const PROP_ID = '___APPROVEDDATE';
 
 	/**
 	 * @var AppFactory
@@ -30,7 +28,7 @@ class ApprovedDatePropertyAnnotator implements PropertyAnnotator {
 	private $appFactory;
 
 	/**
-	 * @var Integer|null
+	 * @var int|null
 	 */
 	private $approvedDate;
 
@@ -44,7 +42,7 @@ class ApprovedDatePropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * @since 2.0
 	 *
-	 * @param Integer $approvedDate
+	 * @param int $approvedDate
 	 */
 	public function setApprovedDate( $approvedDate ) {
 		$this->approvedDate = $approvedDate;
@@ -67,7 +65,7 @@ class ApprovedDatePropertyAnnotator implements PropertyAnnotator {
 			$pageID = $semanticData->getSubject()->getTitle()->getArticleID();
 			$dbr = wfGetDB( DB_REPLICA );
 			$approval_date = $dbr->selectField( 'approved_revs', 'approval_date', [ 'page_id' => $pageID ] );
-			
+
 			if ( $approval_date ) {
 				$this->approvedDate = new MWTimestamp( wfTimestamp( TS_MW, $approval_date ) );
 			}

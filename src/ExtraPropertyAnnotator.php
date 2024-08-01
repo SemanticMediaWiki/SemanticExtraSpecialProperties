@@ -2,15 +2,15 @@
 
 namespace SESP;
 
+use SESP\PropertyAnnotators\DispatchingPropertyAnnotator;
+use SESP\PropertyAnnotators\LocalPropertyAnnotator;
 use SMW\DIProperty;
 use SMW\SemanticData;
-use SESP\PropertyAnnotators\LocalPropertyAnnotator;
-use SESP\PropertyAnnotators\DispatchingPropertyAnnotator;
 
 /**
  * @private
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 2.0
  *
  * @author mwjames
@@ -47,7 +47,6 @@ class ExtraPropertyAnnotator {
 	 * @param SemanticData $semanticData
 	 */
 	public function addAnnotation( SemanticData $semanticData ) {
-
 		$time = microtime( true );
 
 		if ( !$this->canAnnotate( $semanticData->getSubject() ) ) {
@@ -74,7 +73,7 @@ class ExtraPropertyAnnotator {
 		}
 
 		$this->appFactory->getLogger()->info(
-			__METHOD__ . ' (procTime in sec: '. round( ( microtime( true ) - $time ), 5 ) . ')'
+			__METHOD__ . ' (procTime in sec: ' . round( ( microtime( true ) - $time ), 5 ) . ')'
 		);
 	}
 
@@ -85,7 +84,6 @@ class ExtraPropertyAnnotator {
 	 * @param PropertyAnnotator $propertyAnnotator
 	 */
 	public function addPropertyAnnotator( $key, PropertyAnnotator $propertyAnnotator ) {
-
 		if ( $this->dispatchingPropertyAnnotator === null ) {
 			$this->initPropertyAnnotators();
 		}
@@ -94,7 +92,6 @@ class ExtraPropertyAnnotator {
 	}
 
 	private function canAnnotate( $subject ) {
-
 		if ( $subject === null || $subject->getTitle() === null || $subject->getTitle()->isSpecialPage() ) {
 			return false;
 		}
@@ -107,7 +104,6 @@ class ExtraPropertyAnnotator {
 	}
 
 	private function initPropertyAnnotators() {
-
 		$this->localPropertyAnnotator = new LocalPropertyAnnotator(
 			$this->appFactory
 		);

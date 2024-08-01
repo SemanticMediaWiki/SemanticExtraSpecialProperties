@@ -2,18 +2,17 @@
 
 namespace SESP\PropertyAnnotators;
 
+use SESP\AppFactory;
+use SESP\PropertyAnnotator;
 use SMW\DIProperty;
 use SMW\SemanticData;
-use SMWDataItem as DataItem;
 use SMWDINumber as DINumber;
-use SESP\PropertyAnnotator;
-use SESP\AppFactory;
 
 /**
  * @private
  * @ingroup SESP
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 2.0
  *
  * @author mwjames
@@ -23,7 +22,7 @@ class PageViewsPropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * Predefined property ID
 	 */
-	const PROP_ID = '___VIEWS';
+	public const PROP_ID = '___VIEWS';
 
 	/**
 	 * @var AppFactory
@@ -54,7 +53,6 @@ class PageViewsPropertyAnnotator implements PropertyAnnotator {
 	 * {@inheritDoc}
 	 */
 	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
-
 		if ( $this->appFactory->getOption( 'wgDisableCounters' ) ) {
 			return null;
 		}
@@ -68,7 +66,6 @@ class PageViewsPropertyAnnotator implements PropertyAnnotator {
 	}
 
 	private function getPageViewCount( $page ) {
-
 		if ( class_exists( '\HitCounters\HitCounters' ) ) {
 			return \HitCounters\HitCounters::getCount( $page->getTitle() );
 		}

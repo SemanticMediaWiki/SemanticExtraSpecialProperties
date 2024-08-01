@@ -7,14 +7,11 @@ use InvalidArgumentException;
 use Iterator;
 use IteratorAggregate;
 use MediaWiki\MediaWikiServices;
-use Onoi\Cache\Cache;
-use Onoi\Cache\NullCache;
-use SMW\Message;
 
 /**
  * @ingroup SESP
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 2.0
  *
  * @author mwjames
@@ -85,7 +82,7 @@ class PropertyDefinitions implements IteratorAggregate {
 	 *
 	 * @param string $key
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function isLocalDef( $key ) {
 		return isset( $this->localPropertyDefinitions[$key] )
@@ -97,7 +94,7 @@ class PropertyDefinitions implements IteratorAggregate {
 	 *
 	 * @param string $key
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function has( $key ) {
 		return isset( $this->propertyDefinitions[$key] )
@@ -113,7 +110,6 @@ class PropertyDefinitions implements IteratorAggregate {
 	 * @throws InvalidArgumentException
 	 */
 	public function get( $key ) {
-
 		if ( $this->has( $key ) ) {
 			return $this->propertyDefinitions[$key];
 		}
@@ -124,9 +120,10 @@ class PropertyDefinitions implements IteratorAggregate {
 	/**
 	 * @since 2.0
 	 *
-	 * @param string $key
+	 * @param string $key The primary key in the property definitions array.
+	 * @param string $key2 The secondary key within the array defined by $key.
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function deepHas( $key, $key2 ) {
 		return isset( $this->propertyDefinitions[$key][$key2] );
@@ -135,13 +132,13 @@ class PropertyDefinitions implements IteratorAggregate {
 	/**
 	 * @since 2.3
 	 *
-	 * @param string $key
+	 * @param string $key The primary key in the property definitions array.
+	 * @param string $key2 The secondary key within the array defined by $key.
 	 *
 	 * @return string
 	 * @throws InvalidArgumentException
 	 */
 	public function deepGet( $key, $key2 ) {
-
 		if ( $this->deepHas( $key, $key2 ) ) {
 			return $this->propertyDefinitions[$key][$key2];
 		}
@@ -167,7 +164,6 @@ class PropertyDefinitions implements IteratorAggregate {
 	 * @return array
 	 */
 	public function getLabels() {
-
 		if ( $this->propertyDefinitions === null ) {
 			$this->initPropertyDefinitions();
 		}
@@ -194,7 +190,6 @@ class PropertyDefinitions implements IteratorAggregate {
 	 * @return Iterator
 	 */
 	public function getIterator(): Iterator {
-
 		if ( $this->propertyDefinitions === null ) {
 			$this->initPropertyDefinitions();
 		}
@@ -203,7 +198,6 @@ class PropertyDefinitions implements IteratorAggregate {
 	}
 
 	private function initPropertyDefinitions() {
-
 		$contents = file_get_contents(
 			str_replace( [ '\\', '/' ], DIRECTORY_SEPARATOR, $this->propertyDefinitionFile )
 		);

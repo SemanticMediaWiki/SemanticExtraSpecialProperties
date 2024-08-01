@@ -13,33 +13,31 @@ use WikiFilePage;
 use WikiPage;
 
 /**
- * @covers AppFactory
+ * @covers \SESP\AppFactory
  * @group semantic-extra-special-properties
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 2.0
  *
  * @author mwjames
  */
-class AppFactoryTest extends \PHPUnit_Framework_TestCase {
+class AppFactoryTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			AppFactory::class,
 			new AppFactory()
 		);
 	}
 
-	public function testCanConstructWikiPage( ) {
-
+	public function testCanConstructWikiPage() {
 		$title = $this->getMockBuilder( Title::class )
 			->disableOriginalConstructor()
 			->getMock();
 
 		$title->expects( $this->any() )
 			->method( 'canExist' )
-			->will( $this->returnValue( true ) );
+			->willReturn( true );
 
 		$instance = new AppFactory();
 
@@ -50,7 +48,6 @@ class AppFactoryTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testCanConstructWikiPageFrom_NS_MEDIA() {
-
 		$title = Title::newFromText( 'Foo', NS_MEDIA );
 
 		$instance = new AppFactory();
@@ -61,15 +58,14 @@ class AppFactoryTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
-	public function testCanConstructUserFromTitle( ) {
-
+	public function testCanConstructUserFromTitle() {
 		$title = $this->getMockBuilder( Title::class )
 			->disableOriginalConstructor()
 			->getMock();
 
 		$title->expects( $this->once() )
 			->method( 'getText' )
-			->will( $this->returnValue( 'Foo' ) );
+			->willReturn( 'Foo' );
 
 		$instance = new AppFactory();
 
@@ -79,8 +75,7 @@ class AppFactoryTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
-	public function testCanConstructUserFromID( ) {
-
+	public function testCanConstructUserFromID() {
 		$instance = new AppFactory();
 
 		$this->assertInstanceOf(
@@ -89,8 +84,7 @@ class AppFactoryTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
-	public function testGetConnection( ) {
-
+	public function testGetConnection() {
 		$connection = $this->getMockBuilder( DatabaseBase::class )
 			->disableOriginalConstructor()
 			->getMock();
@@ -107,8 +101,7 @@ class AppFactoryTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
-	public function testGetPropertyDefinitions( ) {
-
+	public function testGetPropertyDefinitions() {
 		$options = [
 			'sespgDefinitionsFile' => '',
 			'sespgLocalDefinitions' => []
@@ -131,8 +124,7 @@ class AppFactoryTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
-	public function testGetLogger( ) {
-
+	public function testGetLogger() {
 		$instance = new AppFactory();
 
 		$this->assertInstanceOf(
@@ -152,8 +144,7 @@ class AppFactoryTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
-	public function testGetOption( ) {
-
+	public function testGetOption() {
 		$options = [
 			'Foo' => 'Bar'
 		];

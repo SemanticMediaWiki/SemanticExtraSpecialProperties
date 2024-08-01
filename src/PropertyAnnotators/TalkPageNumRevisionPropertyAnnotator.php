@@ -2,18 +2,18 @@
 
 namespace SESP\PropertyAnnotators;
 
+use SESP\AppFactory;
+use SESP\PropertyAnnotator;
 use SMW\DIProperty;
 use SMW\SemanticData;
 use SMWDataItem as DataItem;
 use SMWDINumber as DINumber;
-use SESP\PropertyAnnotator;
-use SESP\AppFactory;
 
 /**
  * @private
  * @ingroup SESP
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 2.0
  *
  * @author mwjames
@@ -23,7 +23,7 @@ class TalkPageNumRevisionPropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * Predefined property ID
 	 */
-	const PROP_ID = '___NTREV';
+	public const PROP_ID = '___NTREV';
 
 	/**
 	 * @var AppFactory
@@ -54,7 +54,6 @@ class TalkPageNumRevisionPropertyAnnotator implements PropertyAnnotator {
 	 * {@inheritDoc}
 	 */
 	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
-
 		$title = $semanticData->getSubject()->getTitle()->getTalkPage();
 
 		$numRevisions = $this->getPageRevisions(

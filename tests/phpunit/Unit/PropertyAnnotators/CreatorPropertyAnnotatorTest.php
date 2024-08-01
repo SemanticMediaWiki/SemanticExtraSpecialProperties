@@ -11,15 +11,15 @@ use User;
 use WikiPage;
 
 /**
- * @covers CreatorPropertyAnnotator
+ * @covers \SESP\PropertyAnnotators\CreatorPropertyAnnotator
  * @group semantic-extra-special-properties
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 2.0
  *
  * @author mwjames
  */
-class CreatorPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
+class CreatorPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 	private $property;
 	private $appFactory;
@@ -35,7 +35,6 @@ class CreatorPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			CreatorPropertyAnnotator::class,
 			new CreatorPropertyAnnotator( $this->appFactory )
@@ -43,7 +42,6 @@ class CreatorPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testIsAnnotatorFor() {
-
 		$instance = new CreatorPropertyAnnotator(
 			$this->appFactory
 		);
@@ -57,7 +55,6 @@ class CreatorPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	 * @dataProvider userPageProvider
 	 */
 	public function testAddAnnotation( $userPage, $expected ) {
-
 		$subject = DIWikiPage::newFromText( __METHOD__ );
 
 		$creator = $this->getMockBuilder( User::class )
@@ -66,7 +63,7 @@ class CreatorPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$creator->expects( $this->once() )
 			->method( 'getUserPage' )
-			->will( $this->returnValue( $userPage ) );
+			->willReturn( $userPage );
 
 		$wikiPage = $this->getMockBuilder( WikiPage::class )
 			->disableOriginalConstructor()
@@ -74,11 +71,11 @@ class CreatorPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$wikiPage->expects( $this->once() )
 			->method( 'getCreator' )
-			->will( $this->returnValue( $creator ) );
+			->willReturn( $creator );
 
 		$this->appFactory->expects( $this->once() )
 			->method( 'newWikiPage' )
-			->will( $this->returnValue( $wikiPage ) );
+			->willReturn( $wikiPage );
 
 		$semanticData = $this->getMockBuilder( SemanticData::class )
 			->disableOriginalConstructor()
@@ -86,7 +83,7 @@ class CreatorPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$semanticData->expects( $this->once() )
 			->method( 'getSubject' )
-			->will( $this->returnValue( $subject ) );
+			->willReturn( $subject );
 
 		$semanticData->expects( $expected )
 			->method( 'addPropertyObjectValue' );
@@ -99,7 +96,6 @@ class CreatorPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function userPageProvider() {
-
 		$provider[] = [
 			DIWikiPage::newFromText( __METHOD__ )->getTitle(),
 			$this->once()

@@ -2,21 +2,21 @@
 
 namespace SESP\Tests\PropertyAnnotators;
 
+use MWTimestamp;
 use SESP\PropertyAnnotators\ApprovedDatePropertyAnnotator;
 use SMW\DIProperty;
-use MWTimestamp;
 use SMWDITime as DITime;
 
 /**
  * @covers \SESP\PropertyAnnotators\ApprovedDatePropertyAnnotator
  * @group semantic-extra-special-properties
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 2.0
  *
  * @author mwjames
  */
-class ApprovedDatePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
+class ApprovedDatePropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 	private $property;
 	private $appFactory;
@@ -32,7 +32,6 @@ class ApprovedDatePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			ApprovedDatePropertyAnnotator::class,
 			new ApprovedDatePropertyAnnotator( $this->appFactory )
@@ -40,7 +39,6 @@ class ApprovedDatePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testIsAnnotatorFor() {
-
 		$annotator = new ApprovedDatePropertyAnnotator(
 			$this->appFactory
 		);
@@ -71,8 +69,8 @@ class ApprovedDatePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		$semanticData->expects( $this->once() )
 			->method( 'addPropertyObjectValue' )
 			->with(
-				$this->equalTo( $this->property ),
-				$this->equalTo( $time )
+				$this->property,
+				$time
 			);
 
 		$annotator = new ApprovedDatePropertyAnnotator(
@@ -90,7 +88,7 @@ class ApprovedDatePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$semanticData->expects( $this->once() )
 			->method( 'removeProperty' )
-			->with( $this->equalTo( $this->property ) );
+			->with( $this->property );
 
 		$annotator = new ApprovedDatePropertyAnnotator(
 			$this->appFactory

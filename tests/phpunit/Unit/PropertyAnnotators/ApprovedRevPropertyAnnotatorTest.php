@@ -4,19 +4,18 @@ namespace SESP\Tests\PropertyAnnotators;
 
 use SESP\PropertyAnnotators\ApprovedRevPropertyAnnotator;
 use SMW\DIProperty;
-use SMW\DIWikiPage;
 use SMWDINumber as DINumber;
 
 /**
  * @covers \SESP\PropertyAnnotators\ApprovedRevPropertyAnnotator
  * @group semantic-extra-special-properties
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 2.0
  *
  * @author mwjames
  */
-class ApprovedRevPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
+class ApprovedRevPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 	private $property;
 	private $appFactory;
@@ -32,7 +31,6 @@ class ApprovedRevPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			ApprovedRevPropertyAnnotator::class,
 			new ApprovedRevPropertyAnnotator( $this->appFactory )
@@ -40,7 +38,6 @@ class ApprovedRevPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testIsAnnotatorFor() {
-
 		$annotator = new ApprovedRevPropertyAnnotator(
 			$this->appFactory
 		);
@@ -58,8 +55,8 @@ class ApprovedRevPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		$semanticData->expects( $this->once() )
 			->method( 'addPropertyObjectValue' )
 			->with(
-				$this->equalTo( $this->property ),
-				$this->equalTo( new DINumber( 42 ) ) );
+				$this->property,
+				new DINumber( 42 ) );
 
 		$annotator = new ApprovedRevPropertyAnnotator(
 			$this->appFactory
@@ -77,7 +74,7 @@ class ApprovedRevPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$semanticData->expects( $this->once() )
 			->method( 'removeProperty' )
-			->with( $this->equalTo( $this->property ) );
+			->with( $this->property );
 
 		$annotator = new ApprovedRevPropertyAnnotator(
 			$this->appFactory

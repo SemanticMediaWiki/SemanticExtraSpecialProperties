@@ -2,19 +2,18 @@
 
 namespace SESP\PropertyAnnotators;
 
-use SESP\PropertyAnnotator;
+use FormatMetadata;
 use SESP\AppFactory;
+use SESP\PropertyAnnotator;
 use SMW\DIProperty;
 use SMW\DIWikiPage;
-use SMWContainerSemanticData as ContainerSemanticData;
 use SMW\SemanticData;
+use SMWContainerSemanticData as ContainerSemanticData;
 use SMWDataItem as DataItem;
-use SMWDIContainer as DIContainer;
-use SMWDITime as DITime;
-use SMWDINumber as DINumber;
 use SMWDIBlob as DIBlob;
-use FormatMetadata;
-use RuntimeException;
+use SMWDIContainer as DIContainer;
+use SMWDINumber as DINumber;
+use SMWDITime as DITime;
 
 /**
  * @private
@@ -22,7 +21,7 @@ use RuntimeException;
  *
  * @see http://www.exiv2.org/tags.html
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 2.0
  *
  * @author mwjames
@@ -34,7 +33,7 @@ class ExifPropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * Predefined property ID
 	 */
-	const PROP_ID = '___EXIFDATA';
+	public const PROP_ID = '___EXIFDATA';
 
 	/**
 	 * @var AppFactory
@@ -65,7 +64,6 @@ class ExifPropertyAnnotator implements PropertyAnnotator {
 	 * {@inheritDoc}
 	 */
 	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
-
 		$subject = $semanticData->getSubject();
 		$title = $subject->getTitle();
 
@@ -104,8 +102,13 @@ class ExifPropertyAnnotator implements PropertyAnnotator {
 		}
 	}
 
+	/**
+	 * @since 2.0
+	 *
+	 * @param DIWikiPage $subject
+	 * @param array $rawExif The raw EXIF data to be added.
+	 */
 	protected function getDataItemFromExifData( $subject, $rawExif ) {
-
 		$containerSemanticData = $this->newContainerSemanticData(
 			$subject
 		);
@@ -120,7 +123,6 @@ class ExifPropertyAnnotator implements PropertyAnnotator {
 	}
 
 	private function newContainerSemanticData( $subject ) {
-
 		$subject = new DIWikiPage(
 			$subject->getDBkey(),
 			$subject->getNamespace(),
@@ -132,7 +134,6 @@ class ExifPropertyAnnotator implements PropertyAnnotator {
 	}
 
 	private function addExifDataTo( $containerSemanticData, $rawExif ) {
-
 		$exifDefinitions = $this->appFactory->getPropertyDefinitions()->safeGet( '_EXIF' );
 		$formattedExif = FormatMetadata::getFormattedData( $rawExif );
 
@@ -147,7 +148,6 @@ class ExifPropertyAnnotator implements PropertyAnnotator {
 	}
 
 	private function createDataItemFromExif( &$id, $key, $value, $rawExif, $exifDefinitions ) {
-
 		$dataItem = null;
 		$upKey = strtoupper( $key );
 
@@ -173,7 +173,6 @@ class ExifPropertyAnnotator implements PropertyAnnotator {
 	}
 
 	private function makeDataItemTime( $exifValue ) {
-
 		try {
 			$datetime = $this->convertExifDate( $exifValue );
 		} catch ( \Exception $e ) {
@@ -183,17 +182,16 @@ class ExifPropertyAnnotator implements PropertyAnnotator {
 		if ( $datetime ) {
 			return new DITime(
 				DITime::CM_GREGORIAN,
-				$datetime->format('Y'),
-				$datetime->format('n'),
-				$datetime->format('j'),
-				$datetime->format('G'),
-				$datetime->format('i')
+				$datetime->format( 'Y' ),
+				$datetime->format( 'n' ),
+				$datetime->format( 'j' ),
+				$datetime->format( 'G' ),
+				$datetime->format( 'i' )
 			);
 		}
 	}
 
 	private function convertExifDate( $exifString ) {
-
 		// Unknown date
 		if ( $exifString == '0000:00:00 00:00:00' || $exifString == '    :  :     :  :  ' ) {
 			return false;
@@ -210,7 +208,7 @@ class ExifPropertyAnnotator implements PropertyAnnotator {
 		}
 
 		// Only the date but not the time
-		if (  preg_match( '/^(?:\d{4}):(?:\d\d):(?:\d\d)$/D', $exifString ) ) {
+		if ( preg_match( '/^(?:\d{4}):(?:\d\d):(?:\d\d)$/D', $exifString ) ) {
 			return new \DateTime(
 				substr( $exifString, 0, 4 ) . ':' .
 				substr( $exifString, 5, 2 ) . ':' .

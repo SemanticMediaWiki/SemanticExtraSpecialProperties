@@ -8,18 +8,17 @@ use SMW\Tests\Utils\UtilityFactory;
  * @group semantic-extra-special-properties
  * @group medium
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.3
  *
  * @author mwjames
  */
-class I18nJsonFileIntegrityTest extends \PHPUnit_Framework_TestCase {
+class I18nJsonFileIntegrityTest extends \PHPUnit\Framework\TestCase {
 
 	/**
 	 * @dataProvider i18nFileProvider
 	 */
 	public function testI18NJsonDecodeEncode( string $file ) {
-
 		$jsonFileReader = UtilityFactory::getInstance()->newJsonFileReader( $file );
 
 		$this->assertIsInt(
@@ -32,7 +31,6 @@ class I18nJsonFileIntegrityTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function i18nFileProvider() {
-
 		$provider = [];
 		$location = $GLOBALS['wgMessagesDirs']['SemanticExtraSpecialProperties'];
 

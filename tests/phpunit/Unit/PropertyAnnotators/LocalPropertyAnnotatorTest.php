@@ -3,19 +3,19 @@
 namespace SESP\Tests\PropertyAnnotators;
 
 use SESP\PropertyAnnotators\LocalPropertyAnnotator;
-use SMW\DIWikiPage;
 use SMW\DIProperty;
+use SMW\DIWikiPage;
 
 /**
  * @covers \SESP\PropertyAnnotators\LocalPropertyAnnotator
  * @group semantic-extra-special-properties
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 2.0
  *
  * @author mwjames
  */
-class LocalPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
+class LocalPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 	private $appFactory;
 	private $property;
@@ -25,14 +25,13 @@ class LocalPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$this->appFactory = $this->getMockBuilder( '\SESP\AppFactory' )
 			->disableOriginalConstructor()
-			->setMethods( [ 'getOption' ] )
+			->onlyMethods( [ 'getOption' ] )
 			->getMock();
 
 		$this->property = new DIProperty( 'FAKE_PROP' );
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			LocalPropertyAnnotator::class,
 			new LocalPropertyAnnotator( $this->appFactory )
@@ -40,7 +39,6 @@ class LocalPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testIsAnnotatorFor() {
-
 		$instance = new LocalPropertyAnnotator(
 			$this->appFactory
 		);
@@ -51,10 +49,9 @@ class LocalPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testAddAnnotation() {
-
 		$subject = DIWikiPage::newFromText( __METHOD__ );
 
-		$callback = function( $appFactory, $property, $semanticData ) {
+		$callback = static function ( $appFactory, $property, $semanticData ) {
 			return $semanticData->getSubject();
 		};
 
@@ -67,8 +64,8 @@ class LocalPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$this->appFactory->expects( $this->once() )
 			->method( 'getOption' )
-			->with( $this->equalTo( 'sespgLocalDefinitions' ) )
-			->will( $this->returnValue( $localPropertyDefinitions ) );
+			->with( 'sespgLocalDefinitions' )
+			->willReturn( $localPropertyDefinitions );
 
 		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
 			->disableOriginalConstructor()
@@ -76,7 +73,7 @@ class LocalPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$semanticData->expects( $this->once() )
 			->method( 'getSubject' )
-			->will( $this->returnValue( $subject ) );
+			->willReturn( $subject );
 
 		$semanticData->expects( $this->once() )
 			->method( 'addPropertyObjectValue' );
@@ -89,7 +86,6 @@ class LocalPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testAddAnnotationOnInvalidLocalDef() {
-
 		$subject = DIWikiPage::newFromText( __METHOD__ );
 
 		$localPropertyDefinitions = [];
@@ -97,8 +93,8 @@ class LocalPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$this->appFactory->expects( $this->once() )
 			->method( 'getOption' )
-			->with( $this->equalTo( 'sespgLocalDefinitions' ) )
-			->will( $this->returnValue( $localPropertyDefinitions ) );
+			->with( 'sespgLocalDefinitions' )
+			->willReturn( $localPropertyDefinitions );
 
 		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
 			->disableOriginalConstructor()

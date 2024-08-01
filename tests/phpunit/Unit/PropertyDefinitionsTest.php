@@ -8,12 +8,12 @@ use SESP\PropertyDefinitions;
  * @covers \SESP\PropertyDefinitions
  * @group semantic-extra-special-properties
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 2.0
  *
  * @author mwjames
  */
-class PropertyDefinitionsTest extends \PHPUnit_Framework_TestCase {
+class PropertyDefinitionsTest extends \PHPUnit\Framework\TestCase {
 
 	private $labelFetcher;
 
@@ -26,7 +26,6 @@ class PropertyDefinitionsTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			PropertyDefinitions::class,
 			new PropertyDefinitions( $this->labelFetcher )
@@ -34,7 +33,6 @@ class PropertyDefinitionsTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testEmptyFile() {
-
 		$instance = new PropertyDefinitions(
 			$this->labelFetcher
 		);
@@ -46,7 +44,6 @@ class PropertyDefinitionsTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testHasGet() {
-
 		$defs = [
 			'SOFTWARE' => [ 'id' => 'Foo', 'type' => '_txt' ]
 		];
@@ -73,7 +70,6 @@ class PropertyDefinitionsTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testSafeGet() {
-
 		$defs = [
 			'SOFTWARE' => [ 'id' => 'Foo', 'type' => '_txt' ]
 		];
@@ -101,7 +97,6 @@ class PropertyDefinitionsTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testDeepHasGet() {
-
 		$defs = [
 			'SOFTWARE' => [ 'id' => 'Foo', 'type' => '_txt' ]
 		];
@@ -128,7 +123,6 @@ class PropertyDefinitionsTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testLocalDef() {
-
 		$defs = [
 			'SOFTWARE' => [ 'id' => 'Foo', 'type' => '_txt' ]
 		];
@@ -150,7 +144,6 @@ class PropertyDefinitionsTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testGetLabels() {
-
 		$this->labelFetcher->expects( $this->once() )
 			->method( 'getLabelsFrom' );
 
@@ -162,7 +155,6 @@ class PropertyDefinitionsTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testGetLabel() {
-
 		$this->labelFetcher->expects( $this->once() )
 			->method( 'getLabel' );
 

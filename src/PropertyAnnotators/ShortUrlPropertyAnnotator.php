@@ -2,20 +2,20 @@
 
 namespace SESP\PropertyAnnotators;
 
+use RuntimeException;
+use SESP\AppFactory;
+use SESP\PropertyAnnotator;
 use SMW\DIProperty;
 use SMW\SemanticData;
 use SMWDataItem as DataItem;
 use SMWDIUri as DIUri;
-use SESP\PropertyAnnotator;
-use SESP\AppFactory;
 use Title;
-use RuntimeException;
 
 /**
  * @private
  * @ingroup SESP
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 2.0
  *
  * @author mwjames
@@ -26,7 +26,7 @@ class ShortUrlPropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * Predefined property ID
 	 */
-	const PROP_ID = '___SHORTURL';
+	public const PROP_ID = '___SHORTURL';
 
 	/**
 	 * @var AppFactory
@@ -57,7 +57,6 @@ class ShortUrlPropertyAnnotator implements PropertyAnnotator {
 	 * {@inheritDoc}
 	 */
 	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
-
 		if ( !$this->hasShortUrlUtils() ) {
 			throw new RuntimeException( 'Class ShortUrlUtils is not available' );
 		}
@@ -74,9 +73,13 @@ class ShortUrlPropertyAnnotator implements PropertyAnnotator {
 		}
 	}
 
+	/**
+	 * @since 2.0
+	 *
+	 * @param Title $title
+	 */
 	protected function getShortUrl( Title $title ) {
-
-		//FIXME handle internal and external links
+		// FIXME handle internal and external links
 		$shortUrl = null;
 
 		if ( \ShortUrlUtils::needsShortUrl( $title ) ) {
@@ -86,8 +89,10 @@ class ShortUrlPropertyAnnotator implements PropertyAnnotator {
 		return $shortUrl;
 	}
 
+	/**
+	 * get prefix Url
+	 */
 	protected function getUrlPrefix() {
-
 		$shortUrlPrefix = $this->appFactory->getOption( 'wgShortUrlPrefix', '' );
 
 		if ( $shortUrlPrefix === '' ) {

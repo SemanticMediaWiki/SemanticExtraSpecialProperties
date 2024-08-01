@@ -11,9 +11,9 @@ use SMWDIBlob;
  * @covers \SESP\PropertyAnnotators\NamespacePropertyAnnotator
  * @group semantic-extra-special-properties
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  */
-class NamespaceNamePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
+class NamespaceNamePropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 	private $property;
 	private $appFactory;
@@ -32,7 +32,6 @@ class NamespaceNamePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	 * @covers \SESP\PropertyAnnotators\NamespaceNamePropertyAnnotator
 	 */
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			NamespaceNamePropertyAnnotator::class,
 			new NamespaceNamePropertyAnnotator( $this->appFactory )
@@ -43,7 +42,6 @@ class NamespaceNamePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	 * @covers \SESP\PropertyAnnotators\NamespaceNamePropertyAnnotator::isAnnotatorFor
 	 */
 	public function testIsAnnotatorFor() {
-
 		$annotator = new NamespaceNamePropertyAnnotator(
 			$this->appFactory
 		);
@@ -66,13 +64,13 @@ class NamespaceNamePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$semanticData->expects( $this->once() )
 			->method( 'getSubject' )
-			->will( $this->returnValue( $subject ) );
+			->willReturn( $subject );
 
 		$semanticData->expects( $this->once() )
 			->method( 'addPropertyObjectValue' )
 			->with(
-				$this->equalTo( $this->property ),
-				$this->equalTo( new SMWDIBlob( $nsname ) ) );
+				$this->property,
+				new SMWDIBlob( $nsname ) );
 		$annotator = new NamespaceNamePropertyAnnotator(
 			$this->appFactory
 		);
@@ -81,7 +79,7 @@ class NamespaceNamePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function nsProvider() {
-		yield [ NS_USER, 'User'];
+		yield [ NS_USER, 'User' ];
 		yield [ NS_MAIN, '(Main)' ];
 	}
 }

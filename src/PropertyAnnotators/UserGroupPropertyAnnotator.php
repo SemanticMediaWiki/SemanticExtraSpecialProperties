@@ -2,19 +2,18 @@
 
 namespace SESP\PropertyAnnotators;
 
+use SESP\AppFactory;
+use SESP\PropertyAnnotator;
 use SMW\DIProperty;
 use SMW\SemanticData;
-use SMWDataItem as DataItem;
 use SMWDIBlob as DIBlob;
-use SESP\PropertyAnnotator;
-use SESP\AppFactory;
 use User;
 
 /**
  * @private
  * @ingroup SESP
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 2.0
  *
  * @author mwjames
@@ -24,7 +23,7 @@ class UserGroupPropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * Predefined property ID
 	 */
-	const PROP_ID = '___USERGROUP';
+	public const PROP_ID = '___USERGROUP';
 
 	/**
 	 * @var AppFactory
@@ -55,7 +54,6 @@ class UserGroupPropertyAnnotator implements PropertyAnnotator {
 	 * {@inheritDoc}
 	 */
 	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
-
 		$title = $semanticData->getSubject()->getTitle();
 
 		if ( !$title->inNamespace( NS_USER ) ) {

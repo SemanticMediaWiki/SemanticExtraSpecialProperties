@@ -13,12 +13,12 @@ use WikiPage;
  * @covers \SESP\PropertyAnnotators\RevisionIDPropertyAnnotator
  * @group semantic-extra-special-properties
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 2.0
  *
  * @author mwjames
  */
-class RevisionIDPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
+class RevisionIDPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 	private $property;
 	private $appFactory;
@@ -34,7 +34,6 @@ class RevisionIDPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			RevisionIDPropertyAnnotator::class,
 			new RevisionIDPropertyAnnotator( $this->appFactory )
@@ -42,7 +41,6 @@ class RevisionIDPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testIsAnnotatorFor() {
-
 		$instance = new RevisionIDPropertyAnnotator(
 			$this->appFactory
 		);
@@ -56,7 +54,6 @@ class RevisionIDPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	 * @dataProvider latestProvider
 	 */
 	public function testAddAnnotation( $latest, $expected ) {
-
 		$subject = DIWikiPage::newFromText( __METHOD__ );
 
 		$wikiPage = $this->getMockBuilder( WikiPage::class )
@@ -65,11 +62,11 @@ class RevisionIDPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$wikiPage->expects( $this->once() )
 			->method( 'getLatest' )
-			->will( $this->returnValue( $latest ) );
+			->willReturn( $latest );
 
 		$this->appFactory->expects( $this->once() )
 			->method( 'newWikiPage' )
-			->will( $this->returnValue( $wikiPage ) );
+			->willReturn( $wikiPage );
 
 		$semanticData = $this->getMockBuilder( SemanticData::class )
 			->disableOriginalConstructor()
@@ -77,7 +74,7 @@ class RevisionIDPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$semanticData->expects( $this->once() )
 			->method( 'getSubject' )
-			->will( $this->returnValue( $subject ) );
+			->willReturn( $subject );
 
 		$semanticData->expects( $expected )
 			->method( 'addPropertyObjectValue' );
@@ -90,7 +87,6 @@ class RevisionIDPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function latestProvider() {
-
 		$provider[] = [
 			42,
 			$this->once()

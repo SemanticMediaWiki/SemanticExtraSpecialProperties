@@ -4,19 +4,17 @@ namespace SESP\PropertyAnnotators;
 
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Permissions\PermissionManager;
+use SESP\AppFactory;
+use SESP\PropertyAnnotator;
 use SMW\DIProperty;
 use SMW\DIWikiPage;
 use SMW\SemanticData;
-use SMWDataItem as DataItem;
-use SMWDINumber as DINumber;
-use SESP\PropertyAnnotator;
-use SESP\AppFactory;
 
 /**
  * @private
  * @ingroup SESP
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 2.0
  *
  * @author mwjames
@@ -26,7 +24,7 @@ class PageContributorsPropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * Predefined property ID
 	 */
-	const PROP_ID = '___EUSER';
+	public const PROP_ID = '___EUSER';
 
 	/**
 	 * @var AppFactory
@@ -63,7 +61,6 @@ class PageContributorsPropertyAnnotator implements PropertyAnnotator {
 	 * {@inheritDoc}
 	 */
 	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
-
 		$title = $semanticData->getSubject()->getTitle();
 		$page = $this->appFactory->newWikiPage( $title );
 
@@ -77,7 +74,7 @@ class PageContributorsPropertyAnnotator implements PropertyAnnotator {
 		$dataItem = null;
 
 		while ( $user ) {
-			 //no anonymous users (hidden users are not returned)
+			 // no anonymous users (hidden users are not returned)
 			if ( $this->isNotAnonymous( $user ) ) {
 				$semanticData->addPropertyObjectValue(
 					$property,
@@ -95,7 +92,8 @@ class PageContributorsPropertyAnnotator implements PropertyAnnotator {
 	}
 
 	private function isNotAnonymous( $user ) {
-		return !( in_array( 'bot', $this->permissionManager->getUserPermissions( $user ) ) && $this->appFactory->getOption( 'sespgExcludeBotEdits' ) ) && !$user->isAnon();
+		return !( in_array( 'bot', $this->permissionManager->getUserPermissions( $user ) )
+				&& $this->appFactory->getOption( 'sespgExcludeBotEdits' ) ) && !$user->isAnon();
 	}
 
 }

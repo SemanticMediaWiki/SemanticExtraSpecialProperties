@@ -16,12 +16,12 @@ use WikiPage;
  * @covers \SESP\PropertyAnnotators\PageContributorsPropertyAnnotator
  * @group semantic-extra-special-properties
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 2.0
  *
  * @author mwjames
  */
-class PageContributorsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
+class PageContributorsPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 	private $property;
 	private $appFactory;
@@ -37,7 +37,6 @@ class PageContributorsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase 
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			PageContributorsPropertyAnnotator::class,
 			new PageContributorsPropertyAnnotator( $this->appFactory )
@@ -45,7 +44,6 @@ class PageContributorsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase 
 	}
 
 	public function testIsAnnotatorFor() {
-
 		$instance = new PageContributorsPropertyAnnotator(
 			$this->appFactory
 		);
@@ -56,12 +54,9 @@ class PageContributorsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase 
 	}
 
 	public function testAddAnnotation() {
-
 		$subject = DIWikiPage::newFromText( __METHOD__ );
 
-		$contributors = $this->getMockBuilder( ArrayIterator::class )
-			->disableOriginalConstructor()
-			->getMock();
+		$contributors = new ArrayIterator();
 
 		$user = $this->getMockBuilder( User::class )
 			->disableOriginalConstructor()
@@ -69,11 +64,11 @@ class PageContributorsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase 
 
 		$user->expects( $this->once() )
 			->method( 'getUserPage' )
-			->will( $this->returnValue( $subject->getTitle() ) );
+			->willReturn( $subject->getTitle() );
 
 		$user->expects( $this->once() )
 			->method( 'isAnon' )
-			->will( $this->returnValue( false ) );
+			->willReturn( false );
 
 		$wikiPage = $this->getMockBuilder( WikiPage::class )
 			->disableOriginalConstructor()
@@ -81,19 +76,19 @@ class PageContributorsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase 
 
 		$wikiPage->expects( $this->once() )
 			->method( 'exists' )
-			->will( $this->returnValue( true ) );
+			->willReturn( true );
 
 		$wikiPage->expects( $this->once() )
 			->method( 'getContributors' )
-			->will( $this->returnValue( $contributors ) );
+			->willReturn( $contributors );
 
 		$this->appFactory->expects( $this->once() )
 			->method( 'newWikiPage' )
-			->will( $this->returnValue( $wikiPage ) );
+			->willReturn( $wikiPage );
 
 		$this->appFactory->expects( $this->once() )
 			->method( 'newUserFromID' )
-			->will( $this->returnValue( $user ) );
+			->willReturn( $user );
 
 		$semanticData = $this->getMockBuilder( SemanticData::class )
 			->disableOriginalConstructor()
@@ -101,7 +96,7 @@ class PageContributorsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase 
 
 		$semanticData->expects( $this->once() )
 			->method( 'getSubject' )
-			->will( $this->returnValue( $subject ) );
+			->willReturn( $subject );
 
 		$semanticData->expects( $this->once() )
 			->method( 'addPropertyObjectValue' );
@@ -112,7 +107,7 @@ class PageContributorsPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase 
 
 		$permissionManager->expects( $this->once() )
 			->method( 'getUserPermissions' )
-			->will( $this->returnValue( [] ) );
+			->willReturn( [] );
 
 		$instance = new PageContributorsPropertyAnnotator(
 			$this->appFactory

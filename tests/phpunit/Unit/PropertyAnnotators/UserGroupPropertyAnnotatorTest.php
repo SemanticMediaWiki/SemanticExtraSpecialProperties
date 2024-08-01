@@ -4,18 +4,17 @@ namespace SESP\Tests\PropertyAnnotators;
 
 use SESP\PropertyAnnotators\UserGroupPropertyAnnotator;
 use SMW\DIProperty;
-use SMW\DIWikiPage;
 
 /**
  * @covers \SESP\PropertyAnnotators\UserGroupPropertyAnnotator
  * @group semantic-extra-special-properties
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 2.0
  *
  * @author mwjames
  */
-class UserGroupPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
+class UserGroupPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 	private $property;
 	private $appFactory;
@@ -31,7 +30,6 @@ class UserGroupPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			UserGroupPropertyAnnotator::class,
 			new UserGroupPropertyAnnotator( $this->appFactory )
@@ -39,7 +37,6 @@ class UserGroupPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testIsAnnotatorFor() {
-
 		$instance = new UserGroupPropertyAnnotator(
 			$this->appFactory
 		);
@@ -53,18 +50,17 @@ class UserGroupPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	 * @dataProvider groupsProvider
 	 */
 	public function testAddAnnotation( $groups, $expected ) {
-
 		$user = $this->getMockBuilder( '\User' )
 			->disableOriginalConstructor()
 			->getMock();
 
 		$user->expects( $this->once() )
 			->method( 'getGroups' )
-			->will( $this->returnValue( $groups ) );
+			->willReturn( $groups );
 
 		$this->appFactory->expects( $this->once() )
 			->method( 'newUserFromTitle' )
-			->will( $this->returnValue( $user ) );
+			->willReturn( $user );
 
 		$title = $this->getMockBuilder( '\Title' )
 			->disableOriginalConstructor()
@@ -72,7 +68,7 @@ class UserGroupPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$title->expects( $this->once() )
 			->method( 'inNamespace' )
-			->will( $this->returnValue( true ) );
+			->willReturn( true );
 
 		$subject = $this->getMockBuilder( '\SMW\DIWikiPage' )
 			->disableOriginalConstructor()
@@ -80,7 +76,7 @@ class UserGroupPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$subject->expects( $this->once() )
 			->method( 'getTitle' )
-			->will( $this->returnValue( $title ) );
+			->willReturn( $title );
 
 		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
 			->disableOriginalConstructor()
@@ -88,7 +84,7 @@ class UserGroupPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$semanticData->expects( $this->once() )
 			->method( 'getSubject' )
-			->will( $this->returnValue( $subject ) );
+			->willReturn( $subject );
 
 		$semanticData->expects( $expected )
 			->method( 'addPropertyObjectValue' );
@@ -101,7 +97,6 @@ class UserGroupPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function groupsProvider() {
-
 		$provider[] = [
 			[],
 			$this->never()

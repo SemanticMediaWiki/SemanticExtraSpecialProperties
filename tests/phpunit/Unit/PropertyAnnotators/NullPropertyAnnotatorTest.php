@@ -4,18 +4,17 @@ namespace SESP\Tests\PropertyAnnotators;
 
 use SESP\PropertyAnnotators\NullPropertyAnnotator;
 use SMW\DIProperty;
-use SMW\DIWikiPage;
 
 /**
  * @covers \SESP\PropertyAnnotators\NullPropertyAnnotator
  * @group semantic-extra-special-properties
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 2.0
  *
  * @author mwjames
  */
-class NullPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
+class NullPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 	private $property;
 	private $appFactory;
@@ -31,7 +30,6 @@ class NullPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			NullPropertyAnnotator::class,
 			new NullPropertyAnnotator( $this->appFactory )
@@ -39,7 +37,6 @@ class NullPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testIsAnnotatorFor() {
-
 		$instance = new NullPropertyAnnotator(
 			$this->appFactory
 		);
@@ -50,7 +47,6 @@ class NullPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testAddAnnotation() {
-
 		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
 			->disableOriginalConstructor()
 			->getMock();

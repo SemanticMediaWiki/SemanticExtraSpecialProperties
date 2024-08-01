@@ -6,22 +6,22 @@ use MediaWiki\MediaWikiServices;
 use RequestContext;
 use SESP\AppFactory;
 use SESP\PropertyAnnotator;
-use SMWDIBlob;
 use SMW\DIProperty;
 use SMW\SemanticData;
+use SMWDIBlob;
 
 /**
  * @private
  * @ingroup SESP
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  */
 class NamespaceNamePropertyAnnotator implements PropertyAnnotator {
 
 	/**
 	 * Predefined property ID
 	 */
-	const PROP_ID = '___NSNAME';
+	public const PROP_ID = '___NSNAME';
 
 	/**
 	 * @var AppFactory

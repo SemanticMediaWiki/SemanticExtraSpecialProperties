@@ -13,78 +13,74 @@ use Title;
  * @covers \SESP\PropertyAnnotators\PageImagesPropertyAnnotator
  * @group semantic-extra-special-properties
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 2.0
  *
  * @author mwjames
  */
-class PageImagesPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
+class PageImagesPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
-    private $property;
-    private $appFactory;
+	private $property;
+	private $appFactory;
 
-    protected function setUp(): void {
-        parent::setUp();
+	protected function setUp(): void {
+		parent::setUp();
 
-        $this->appFactory = $this->getMockBuilder( AppFactory::class )
-            ->disableOriginalConstructor()
-            ->getMock();
+		$this->appFactory = $this->getMockBuilder( AppFactory::class )
+			->disableOriginalConstructor()
+			->getMock();
 
-        $this->property = new DIProperty( '___PAGEIMG' );
-    }
+		$this->property = new DIProperty( '___PAGEIMG' );
+	}
 
-    public function testCanConstruct() {
+	public function testCanConstruct() {
+		$this->assertInstanceOf(
+			PageImagesPropertyAnnotator::class,
+			new PageImagesPropertyAnnotator( $this->appFactory )
+		);
+	}
 
-        $this->assertInstanceOf(
-            PageImagesPropertyAnnotator::class,
-            new PageImagesPropertyAnnotator( $this->appFactory )
-        );
-    }
+	public function testIsAnnotatorFor() {
+		$instance = new PageImagesPropertyAnnotator(
+			$this->appFactory
+		);
 
-    public function testIsAnnotatorFor() {
+		$this->assertTrue(
+			$instance->isAnnotatorFor( $this->property )
+		);
+	}
 
-        $instance = new PageImagesPropertyAnnotator(
-            $this->appFactory
-        );
+	public function testAddAnnotation() {
+		$title = $this->getMockBuilder( Title::class )
+			->disableOriginalConstructor()
+			->getMock();
 
-        $this->assertTrue(
-            $instance->isAnnotatorFor( $this->property )
-        );
-    }
+		$subject = $this->getMockBuilder( DIWikiPage::class )
+			->disableOriginalConstructor()
+			->getMock();
 
+		$subject->expects( $this->once() )
+			->method( 'getTitle' )
+			->willReturn( $title );
 
-    public function testAddAnnotation() {
+		$semanticData = $this->getMockBuilder( SemanticData::class )
+			->disableOriginalConstructor()
+			->getMock();
 
-        $title = $this->getMockBuilder( Title::class )
-            ->disableOriginalConstructor()
-            ->getMock();
+		$semanticData->expects( $this->once() )
+			->method( 'getSubject' )
+			->willReturn( $subject );
 
-        $subject = $this->getMockBuilder( DIWikiPage::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+		$instance = $this->getMockBuilder( PageImagesPropertyAnnotator::class )
+			->disableOriginalConstructor()
+			->onlyMethods( [ 'getPageImageTitle' ] )
+			->getMock();
 
-        $subject->expects( $this->once() )
-            ->method( 'getTitle' )
-            ->will( $this->returnValue( $title ) );
+		$instance->expects( $this->once() )
+			->method( 'getPageImageTitle' )
+			->willReturn( DIWikiPage::newFromText( __METHOD__ )->getTitle() );
 
-        $semanticData = $this->getMockBuilder( SemanticData::class )
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $semanticData->expects( $this->once() )
-            ->method( 'getSubject' )
-            ->will($this->returnValue( $subject ));
-
-        $instance = $this->getMockBuilder( PageImagesPropertyAnnotator::class )
-            ->disableOriginalConstructor()
-            ->setMethods([ 'getPageImageTitle' ])
-            ->getMock();
-
-        $instance->expects( $this->once() )
-            ->method( 'getPageImageTitle' )
-            ->will( $this->returnValue( DIWikiPage::newFromText( __METHOD__ )->getTitle() ) );
-
-        $instance->addAnnotation( $this->property, $semanticData );
-    }
+		$instance->addAnnotation( $this->property, $semanticData );
+	}
 
 }

@@ -4,18 +4,17 @@ namespace SESP\Tests\PropertyAnnotators;
 
 use SESP\PropertyAnnotators\PageLengthPropertyAnnotator;
 use SMW\DIProperty;
-use SMW\DIWikiPage;
 
 /**
  * @covers \SESP\PropertyAnnotators\PageLengthPropertyAnnotator
  * @group semantic-extra-special-properties
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 2.0
  *
  * @author mwjames
  */
-class PageLengthPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
+class PageLengthPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 	private $property;
 	private $appFactory;
@@ -31,7 +30,6 @@ class PageLengthPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			PageLengthPropertyAnnotator::class,
 			new PageLengthPropertyAnnotator( $this->appFactory )
@@ -39,7 +37,6 @@ class PageLengthPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testIsAnnotatorFor() {
-
 		$instance = new PageLengthPropertyAnnotator(
 			$this->appFactory
 		);
@@ -53,14 +50,13 @@ class PageLengthPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	 * @dataProvider lengthProvider
 	 */
 	public function testAddAnnotation( $length, $expected ) {
-
 		$title = $this->getMockBuilder( '\Title' )
 			->disableOriginalConstructor()
 			->getMock();
 
 		$title->expects( $this->once() )
 			->method( 'getLength' )
-			->will( $this->returnValue( $length ) );
+			->willReturn( $length );
 
 		$subject = $this->getMockBuilder( '\SMW\DIWikiPage' )
 			->disableOriginalConstructor()
@@ -68,7 +64,7 @@ class PageLengthPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$subject->expects( $this->once() )
 			->method( 'getTitle' )
-			->will( $this->returnValue( $title ) );
+			->willReturn( $title );
 
 		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
 			->disableOriginalConstructor()
@@ -76,7 +72,7 @@ class PageLengthPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$semanticData->expects( $this->once() )
 			->method( 'getSubject' )
-			->will( $this->returnValue( $subject ) );
+			->willReturn( $subject );
 
 		$semanticData->expects( $expected )
 			->method( 'addPropertyObjectValue' );
@@ -89,7 +85,6 @@ class PageLengthPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function lengthProvider() {
-
 		$provider[] = [
 			42,
 			$this->once()

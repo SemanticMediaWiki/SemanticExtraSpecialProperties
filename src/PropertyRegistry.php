@@ -3,14 +3,11 @@
 namespace SESP;
 
 use SMW\PropertyRegistry as Registry;
-use SMW\DataTypeRegistry;
-use SMW\DIProperty;
-use SMWDataItem as DataItem;
 
 /**
  * @ingroup SESP
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -36,10 +33,9 @@ class PropertyRegistry {
 	 *
 	 * @param Registry $propertyRegistry
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function register( Registry $propertyRegistry ) {
-
 		$propertyDefinitions = $this->appFactory->getPropertyDefinitions();
 		$labels = $propertyDefinitions->getLabels();
 
@@ -67,11 +63,10 @@ class PropertyRegistry {
 	/**
 	 * @since 2.0
 	 *
-	 * @param array $customFixedProperties
-	 * @param array $fixedPropertyTablePrefix
+	 * @param array &$customFixedProperties
+	 * @param array &$fixedPropertyTablePrefix
 	 */
 	public function registerFixedProperties( &$customFixedProperties, &$fixedPropertyTablePrefix ) {
-
 		if ( $this->appFactory->getOption( 'sespgUseFixedTables' ) === false ) {
 			return;
 		}
@@ -100,7 +95,6 @@ class PropertyRegistry {
 	}
 
 	private function addPropertyDefinition( $propertyRegistry, $propertyDefinitions, $definition, $aliases ) {
-
 		$visible = isset( $definition['show'] ) ? $definition['show'] : false;
 		$annotable = false;
 
@@ -116,7 +110,8 @@ class PropertyRegistry {
 		);
 
 		$alias = isset( $definition['alias'] ) ? $definition['alias'] : 'smw-unknown-alias';
-		$label = isset( $aliases[$definition['id']] ) ? $aliases[$definition['id']] : $propertyDefinitions->getLabel( $alias );
+		$label = isset( $aliases[$definition['id']] ) ? $aliases[$definition['id']] :
+						$propertyDefinitions->getLabel( $alias );
 
 		$propertyRegistry->registerPropertyAlias(
 			$definition['id'],

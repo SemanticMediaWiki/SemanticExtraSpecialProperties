@@ -2,18 +2,17 @@
 
 namespace SESP\PropertyAnnotators;
 
+use SESP\AppFactory;
+use SESP\PropertyAnnotator;
 use SMW\DIProperty;
-use SMW\DIWikiPage;
 use SMW\SemanticData;
 use SMWDataItem as DataItem;
-use SESP\PropertyAnnotator;
-use SESP\AppFactory;
 
 /**
  * @private
  * @ingroup SESP
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 2.0
  *
  * @author mwjames
@@ -49,7 +48,6 @@ class LocalPropertyAnnotator implements PropertyAnnotator {
 	 * {@inheritDoc}
 	 */
 	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
-
 		$time = microtime( true );
 
 		$localDefs = $this->appFactory->getOption( 'sespgLocalDefinitions', [] );
@@ -59,12 +57,11 @@ class LocalPropertyAnnotator implements PropertyAnnotator {
 		}
 
 		$this->appFactory->getLogger()->info(
-			__METHOD__ . ' (procTime in sec: '. round( ( microtime( true ) - $time ), 5 ) . ')'
+			__METHOD__ . ' (procTime in sec: ' . round( ( microtime( true ) - $time ), 5 ) . ')'
 		);
 	}
 
 	private function callOnLocalDef( $definition, $property, $semanticData ) {
-
 		if ( !isset( $definition['id'] ) || $definition['id'] !== $property->getKey() ) {
 			return;
 		}
@@ -72,7 +69,9 @@ class LocalPropertyAnnotator implements PropertyAnnotator {
 		$dataItem = null;
 
 		if ( isset( $definition['callback'] ) && is_callable( $definition['callback'] ) ) {
-			$dataItem = call_user_func_array( $definition['callback'], [ $this->appFactory, $property, $semanticData ] );
+			$dataItem = call_user_func_array(
+				$definition['callback'],
+				[ $this->appFactory, $property, $semanticData ] );
 		}
 
 		if ( $dataItem instanceof DataItem ) {

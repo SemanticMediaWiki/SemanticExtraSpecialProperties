@@ -3,8 +3,8 @@
 namespace SESP;
 
 use ArrayIterator;
-use DatabaseLogEntry;
 use DatabaseBase;
+use DatabaseLogEntry;
 use MWTimestamp;
 use Title;
 use User;
@@ -48,8 +48,7 @@ class DatabaseLogReader {
 	 * @param Title|null $title
 	 * @param string $type of log (default: approval)
 	 */
-	public function __construct( $dbr, Title $title = null , $type = 'approval' ) {
-		
+	public function __construct( $dbr, Title $title = null, $type = 'approval' ) {
 		// Due to MW 1.31+ and MW 1.34+
 		if (
 			!$dbr instanceof \Wikimedia\Rdbms\IDatabase &&
@@ -127,7 +126,6 @@ class DatabaseLogReader {
 	 * Take care of loading from the cache or filling the query.
 	 */
 	private function init() {
-
 		if ( $this->query ) {
 			return;
 		}
@@ -146,7 +144,6 @@ class DatabaseLogReader {
 			$this->query = $cache->getQuery();
 			$this->log = $cache->getLog();
 		}
-
 	}
 
 	/**

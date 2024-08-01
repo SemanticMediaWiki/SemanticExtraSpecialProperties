@@ -4,19 +4,18 @@ namespace SESP\Tests;
 
 use SESP\ExtraPropertyAnnotator;
 use SESP\PropertyDefinitions;
-use SMW\DIProperty;
 use SMW\DIWikiPage;
 
 /**
  * @covers \SESP\ExtraPropertyAnnotator
  * @group semantic-extra-special-properties
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 2.0
  *
  * @author mwjames
  */
-class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
+class ExtraPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 	private $appFactory;
 
@@ -29,7 +28,6 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			ExtraPropertyAnnotator::class,
 			new ExtraPropertyAnnotator( $this->appFactory )
@@ -37,7 +35,6 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testaddAnnotationOnInvalidSubject() {
-
 		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
 			->disableOriginalConstructor()
 			->getMock();
@@ -53,15 +50,14 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testAddAnnotationOnLocalDef() {
-
 		$appFactory = $this->getMockBuilder( '\SESP\AppFactory' )
 			->disableOriginalConstructor()
-			->setMethods( [ 'getPropertyDefinitions', 'getOption' ] )
+			->onlyMethods( [ 'getPropertyDefinitions', 'getOption' ] )
 			->getMock();
 
 		$subject = DIWikiPage::newFromText( __METHOD__ );
 
-		$callback = function( $appFactory, $property, $semanticData ) {
+		$callback = static function ( $appFactory, $property, $semanticData ) {
 			return $semanticData->getSubject();
 		};
 
@@ -82,14 +78,14 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			$localPropertyDefinitions
 		);
 
-		$appFactory->expects( $this->at( 0 ) )
+		$appFactory->expects( $this->once() )
 			->method( 'getPropertyDefinitions' )
-			->will( $this->returnValue( $propertyDefinitions ) );
+			->willReturn( $propertyDefinitions );
 
-		$appFactory->expects( $this->at( 1 ) )
+		$appFactory->expects( $this->once() )
 			->method( 'getOption' )
-			->with( $this->equalTo( 'sespgEnabledPropertyList' ) )
-			->will( $this->returnValue( $localPropertyDefinitions ) );
+			->with( 'sespgEnabledPropertyList' )
+			->willReturn( $localPropertyDefinitions );
 
 		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
 			->disableOriginalConstructor()
@@ -97,7 +93,7 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$semanticData->expects( $this->once() )
 			->method( 'getSubject' )
-			->will( $this->returnValue( $subject ) );
+			->willReturn( $subject );
 
 		$instance = new ExtraPropertyAnnotator(
 			$appFactory
@@ -107,10 +103,9 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testAddAnnotationOnPredefined() {
-
 		$appFactory = $this->getMockBuilder( '\SESP\AppFactory' )
 			->disableOriginalConstructor()
-			->setMethods( [ 'getPropertyDefinitions', 'getOption' ] )
+			->onlyMethods( [ 'getPropertyDefinitions', 'getOption' ] )
 			->getMock();
 
 		$subject = DIWikiPage::newFromText( __METHOD__ );
@@ -133,14 +128,14 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			$defs
 		);
 
-		$appFactory->expects( $this->at( 0 ) )
+		$appFactory->expects( $this->once() )
 			->method( 'getPropertyDefinitions' )
-			->will( $this->returnValue( $propertyDefinitions ) );
+			->willReturn( $propertyDefinitions );
 
-		$appFactory->expects( $this->at( 1 ) )
+		$appFactory->expects( $this->once() )
 			->method( 'getOption' )
-			->with( $this->equalTo( 'sespgEnabledPropertyList' ) )
-			->will( $this->returnValue( $specialProperties ) );
+			->with( 'sespgEnabledPropertyList' )
+			->willReturn( $specialProperties );
 
 		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
 			->disableOriginalConstructor()
@@ -148,7 +143,7 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$semanticData->expects( $this->once() )
 			->method( 'getSubject' )
-			->will( $this->returnValue( $subject ) );
+			->willReturn( $subject );
 
 		$propertyAnnotator = $this->getMockBuilder( '\SESP\PropertyAnnotator' )
 			->disableOriginalConstructor()

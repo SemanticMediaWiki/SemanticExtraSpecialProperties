@@ -6,42 +6,40 @@ use SESP\PropertyAnnotators\ApprovedByPropertyAnnotator;
 use SESP\PropertyAnnotators\ApprovedDatePropertyAnnotator;
 use SESP\PropertyAnnotators\ApprovedRevPropertyAnnotator;
 use SESP\PropertyAnnotators\ApprovedStatusPropertyAnnotator;
+use SESP\PropertyAnnotators\CreatorPropertyAnnotator;
 use SESP\PropertyAnnotators\DispatchingPropertyAnnotator;
+use SESP\PropertyAnnotators\ExifPropertyAnnotator;
 use SESP\PropertyAnnotators\NamespaceNamePropertyAnnotator;
 use SESP\PropertyAnnotators\NamespacePropertyAnnotator;
 use SESP\PropertyAnnotators\NullPropertyAnnotator;
-use SESP\PropertyAnnotators\CreatorPropertyAnnotator;
-use SESP\PropertyAnnotators\PageImagesPropertyAnnotator;
-use SESP\PropertyAnnotators\PageViewsPropertyAnnotator;
-use SESP\PropertyAnnotators\LocalPropertyAnnotator;
-use SESP\PropertyAnnotators\UserRegistrationDatePropertyAnnotator;
-use SESP\PropertyAnnotators\UserEditCountPropertyAnnotator;
-use SESP\PropertyAnnotators\UserEditCountPerNsPropertyAnnotator;
-use SESP\PropertyAnnotators\UserBlockPropertyAnnotator;
-use SESP\PropertyAnnotators\UserRightPropertyAnnotator;
-use SESP\PropertyAnnotators\UserGroupPropertyAnnotator;
-use SESP\PropertyAnnotators\PageIDPropertyAnnotator;
-use SESP\PropertyAnnotators\ShortUrlPropertyAnnotator;
-use SESP\PropertyAnnotators\ExifPropertyAnnotator;
-use SESP\PropertyAnnotators\RevisionIDPropertyAnnotator;
-use SESP\PropertyAnnotators\PageNumRevisionPropertyAnnotator;
-use SESP\PropertyAnnotators\TalkPageNumRevisionPropertyAnnotator;
 use SESP\PropertyAnnotators\PageContributorsPropertyAnnotator;
-use SESP\PropertyAnnotators\SubPagePropertyAnnotator;
+use SESP\PropertyAnnotators\PageIDPropertyAnnotator;
+use SESP\PropertyAnnotators\PageImagesPropertyAnnotator;
 use SESP\PropertyAnnotators\PageLengthPropertyAnnotator;
+use SESP\PropertyAnnotators\PageNumRevisionPropertyAnnotator;
+use SESP\PropertyAnnotators\PageViewsPropertyAnnotator;
+use SESP\PropertyAnnotators\RevisionIDPropertyAnnotator;
+use SESP\PropertyAnnotators\ShortUrlPropertyAnnotator;
+use SESP\PropertyAnnotators\SubPagePropertyAnnotator;
+use SESP\PropertyAnnotators\TalkPageNumRevisionPropertyAnnotator;
+use SESP\PropertyAnnotators\UserBlockPropertyAnnotator;
+use SESP\PropertyAnnotators\UserEditCountPerNsPropertyAnnotator;
+use SESP\PropertyAnnotators\UserEditCountPropertyAnnotator;
+use SESP\PropertyAnnotators\UserGroupPropertyAnnotator;
+use SESP\PropertyAnnotators\UserRegistrationDatePropertyAnnotator;
+use SESP\PropertyAnnotators\UserRightPropertyAnnotator;
 use SMW\DIProperty;
-use SMW\DIWikiPage;
 
 /**
  * @covers \SESP\PropertyAnnotators\DispatchingPropertyAnnotator
  * @group semantic-extra-special-properties
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 2.0
  *
  * @author mwjames
  */
-class DispatchingPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
+class DispatchingPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 	private $property;
 	private $appFactory;
@@ -57,7 +55,6 @@ class DispatchingPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			DispatchingPropertyAnnotator::class,
 			new DispatchingPropertyAnnotator( $this->appFactory )
@@ -65,7 +62,6 @@ class DispatchingPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testIsAnnotatorFor() {
-
 		$instance = new DispatchingPropertyAnnotator(
 			$this->appFactory
 		);
@@ -76,7 +72,6 @@ class DispatchingPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testAddAnnotation() {
-
 		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
 			->disableOriginalConstructor()
 			->getMock();
@@ -101,7 +96,6 @@ class DispatchingPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	 * @dataProvider propertyAnnotatorProvider
 	 */
 	public function testFindPropertyAnnotator( $property, $expected ) {
-
 		$instance = new DispatchingPropertyAnnotator(
 			$this->appFactory
 		);
@@ -113,7 +107,6 @@ class DispatchingPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function propertyAnnotatorProvider() {
-
 		$provider[] = [
 			CreatorPropertyAnnotator::PROP_ID,
 			CreatorPropertyAnnotator::class
@@ -229,10 +222,10 @@ class DispatchingPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			ExifPropertyAnnotator::class
 		];
 
-        $provider[] = [
-            PageImagesPropertyAnnotator::PROP_ID,
-            PageImagesPropertyAnnotator::class
-        ];
+		$provider[] = [
+			PageImagesPropertyAnnotator::PROP_ID,
+			PageImagesPropertyAnnotator::class
+		];
 
 		$provider[] = [
 			'Foo',

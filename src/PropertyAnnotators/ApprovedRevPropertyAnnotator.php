@@ -2,26 +2,25 @@
 
 namespace SESP\PropertyAnnotators;
 
+use ApprovedRevs;
+use SESP\AppFactory;
+use SESP\PropertyAnnotator;
 use SMW\DIProperty;
 use SMW\SemanticData;
-use SMWDataItem as DataItem;
 use SMWDINumber as DINumber;
-use SESP\PropertyAnnotator;
-use SESP\AppFactory;
-use ApprovedRevs;
 
 /**
  * @private
  * @ingroup SESP
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  */
 class ApprovedRevPropertyAnnotator implements PropertyAnnotator {
 
 	/**
 	 * Predefined property ID
 	 */
-	const PROP_ID = '___APPROVED';
+	public const PROP_ID = '___APPROVED';
 
 	/**
 	 * @var AppFactory
@@ -29,7 +28,7 @@ class ApprovedRevPropertyAnnotator implements PropertyAnnotator {
 	private $appFactory;
 
 	/**
-	 * @var Integer|null
+	 * @var int|null
 	 */
 	private $approvedRev;
 
@@ -43,7 +42,7 @@ class ApprovedRevPropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * @since 2.0
 	 *
-	 * @param Integer $approvedRev
+	 * @param int $approvedRev
 	 */
 	public function setApprovedRev( $approvedRev ) {
 		$this->approvedRev = $approvedRev;
@@ -56,6 +55,9 @@ class ApprovedRevPropertyAnnotator implements PropertyAnnotator {
 		return $property->getKey() === self::PROP_ID;
 	}
 
+	/**
+	 * get data item
+	 */
 	public function getDataItem() {
 		return new DINumber( $this->approvedRev );
 	}
@@ -64,7 +66,6 @@ class ApprovedRevPropertyAnnotator implements PropertyAnnotator {
 	 * {@inheritDoc}
 	 */
 	public function addAnnotation( DIProperty $property, SemanticData $semanticData	) {
-
 		if ( $this->approvedRev === null && class_exists( 'ApprovedRevs' ) ) {
 			$this->approvedRev = ApprovedRevs::getApprovedRevID(
 				$semanticData->getSubject()->getTitle()

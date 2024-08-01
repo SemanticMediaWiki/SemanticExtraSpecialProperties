@@ -10,12 +10,12 @@ use SMWDIString as DIString;
  * @covers \SESP\PropertyAnnotators\ApprovedStatusPropertyAnnotator
  * @group semantic-extra-special-properties
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 2.0
  *
  * @author mwjames
  */
-class ApprovedStatusPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
+class ApprovedStatusPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 	private $property;
 	private $appFactory;
@@ -31,7 +31,6 @@ class ApprovedStatusPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			ApprovedStatusPropertyAnnotator::class,
 			new ApprovedStatusPropertyAnnotator( $this->appFactory )
@@ -39,7 +38,6 @@ class ApprovedStatusPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testIsAnnotatorFor() {
-
 		$annotator = new ApprovedStatusPropertyAnnotator(
 			$this->appFactory
 		);
@@ -57,8 +55,8 @@ class ApprovedStatusPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		$semanticData->expects( $this->once() )
 			->method( 'addPropertyObjectValue' )
 			->with(
-				$this->equalTo( $this->property ),
-				$this->equalTo( new DIString( "checkme" ) ) );
+				$this->property,
+				new DIString( "checkme" ) );
 
 		$annotator = new ApprovedStatusPropertyAnnotator(
 			$this->appFactory
@@ -76,7 +74,7 @@ class ApprovedStatusPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$semanticData->expects( $this->once() )
 			->method( 'removeProperty' )
-			->with( $this->equalTo( $this->property ) );
+			->with( $this->property );
 
 		$annotator = new ApprovedStatusPropertyAnnotator(
 			$this->appFactory

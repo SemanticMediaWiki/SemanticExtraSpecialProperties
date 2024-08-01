@@ -10,12 +10,12 @@ use SMW\DIWikiPage;
  * @covers \SESP\PropertyAnnotators\SubPagePropertyAnnotator
  * @group semantic-extra-special-properties
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 2.0
  *
  * @author mwjames
  */
-class SubPagePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
+class SubPagePropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 	private $property;
 	private $appFactory;
@@ -31,7 +31,6 @@ class SubPagePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			SubPagePropertyAnnotator::class,
 			new SubPagePropertyAnnotator( $this->appFactory )
@@ -39,7 +38,6 @@ class SubPagePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testIsAnnotatorFor() {
-
 		$instance = new SubPagePropertyAnnotator(
 			$this->appFactory
 		);
@@ -50,7 +48,6 @@ class SubPagePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testAddAnnotation() {
-
 		$sub = DIWikiPage::newFromText( __METHOD__ )->getTitle();
 
 		$title = $this->getMockBuilder( '\Title' )
@@ -59,7 +56,7 @@ class SubPagePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$title->expects( $this->once() )
 			->method( 'getSubpages' )
-			->will( $this->returnValue( [ $sub ] ) );
+			->willReturn( [ $sub ] );
 
 		$subject = $this->getMockBuilder( '\SMW\DIWikiPage' )
 			->disableOriginalConstructor()
@@ -67,7 +64,7 @@ class SubPagePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$subject->expects( $this->once() )
 			->method( 'getTitle' )
-			->will( $this->returnValue( $title ) );
+			->willReturn( $title );
 
 		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
 			->disableOriginalConstructor()
@@ -75,7 +72,7 @@ class SubPagePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$semanticData->expects( $this->once() )
 			->method( 'getSubject' )
-			->will( $this->returnValue( $subject ) );
+			->willReturn( $subject );
 
 		$semanticData->expects( $this->once() )
 			->method( 'addPropertyObjectValue' );

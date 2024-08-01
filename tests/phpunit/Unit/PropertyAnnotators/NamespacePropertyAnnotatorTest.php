@@ -7,14 +7,13 @@ use SMW\DIProperty;
 use SMW\DIWikiPage;
 use SMWDINumber;
 
-
 /**
  * @covers \SESP\PropertyAnnotators\NamespacePropertyAnnotator
  * @group semantic-extra-special-properties
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  */
-class NamespacePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
+class NamespacePropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 	private $property;
 	private $appFactory;
@@ -33,7 +32,6 @@ class NamespacePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	 * @covers \SESP\PropertyAnnotators\NamespacePropertyAnnotator
 	 */
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			NamespacePropertyAnnotator::class,
 			new NamespacePropertyAnnotator( $this->appFactory )
@@ -44,7 +42,6 @@ class NamespacePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	 * @covers \SESP\PropertyAnnotators\NamespacePropertyAnnotator::isAnnotatorFor
 	 */
 	public function testIsAnnotatorFor() {
-
 		$annotator = new NamespacePropertyAnnotator(
 			$this->appFactory
 		);
@@ -67,13 +64,13 @@ class NamespacePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$semanticData->expects( $this->once() )
 			->method( 'getSubject' )
-			->will( $this->returnValue( $subject ) );
+			->willReturn( $subject );
 
 		$semanticData->expects( $this->once() )
 			->method( 'addPropertyObjectValue' )
 			->with(
-				$this->equalTo( $this->property ),
-				$this->equalTo( new SMWDINumber( $namespace ) ) );
+				$this->property,
+				new SMWDINumber( $namespace ) );
 		$annotator = new NamespacePropertyAnnotator(
 			$this->appFactory
 		);

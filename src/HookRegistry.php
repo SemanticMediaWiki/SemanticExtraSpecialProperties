@@ -6,7 +6,7 @@ use MediaWiki\MediaWikiServices;
 use SMW\Services\ServicesFactory;
 
 /**
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.3
  *
  * @author mwjames
@@ -59,7 +59,7 @@ class HookRegistry {
 	 *
 	 * @param string $name
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function isRegistered( $name ) {
 		$hookContainer = MediaWikiServices::getInstance()->getHookContainer();
@@ -84,9 +84,7 @@ class HookRegistry {
 	 * @param array &$vars
 	 */
 	public static function initExtension( &$vars ) {
-
-		$vars['wgHooks']['SMW::Config::BeforeCompletion'][] = function( &$config ) {
-
+		$vars['wgHooks']['SMW::Config::BeforeCompletion'][] = static function ( &$config ) {
 			$exemptionlist = [
 				'___EUSER', '___CUSER', '___SUBP', '___REVID', '___VIEWS',
 				'___NREV', '___NTREV', '___USEREDITCNT', '___USEREDITCNTNS', '___EXIFDATA', '___NSID', '___NSNAME'
@@ -127,7 +125,6 @@ class HookRegistry {
 	}
 
 	private function registerCallbackHandlers( $config ) {
-
 		$servicesFactory = ServicesFactory::getInstance();
 
 		$appFactory = new AppFactory(
@@ -146,8 +143,7 @@ class HookRegistry {
 		/**
 		 * @see https://www.semantic-mediawiki.org/wiki/Hooks/SMW::Property::initProperties
 		 */
-		$this->handlers['SMW::Property::initProperties'] = function ( $registry ) use ( $propertyRegistry ) {
-
+		$this->handlers['SMW::Property::initProperties'] = static function ( $registry ) use ( $propertyRegistry ) {
 			$propertyRegistry->register(
 				$registry
 			);
@@ -158,39 +154,40 @@ class HookRegistry {
 		/**
 		 * @see https://www.semantic-mediawiki.org/wiki/Hooks/SMW::SQLStore::AddCustomFixedPropertyTables
 		 */
-		$this->handlers['SMW::SQLStore::AddCustomFixedPropertyTables'] = function( array &$customFixedProperties, &$fixedPropertyTablePrefix ) use( $propertyRegistry ) {
+		$this->handlers['SMW::SQLStore::AddCustomFixedPropertyTables'] =
+				static function ( array &$customFixedProperties, &$fixedPropertyTablePrefix ) use( $propertyRegistry ) {
+							$propertyRegistry->registerFixedProperties(
+								$customFixedProperties,
+								$fixedPropertyTablePrefix
+							);
 
-			$propertyRegistry->registerFixedProperties(
-				$customFixedProperties,
-				$fixedPropertyTablePrefix
-			);
-
-			return true;
-		};
+							return true;
+				};
 
 		/**
 		 * @see https://github.com/SemanticMediaWiki/SemanticMediaWiki/blob/master/docs/technical/hooks/hook.store.beforedataupdatecomplete.md
 		 */
-		$this->handlers['SMW::Store::BeforeDataUpdateComplete'] = function ( $store, $semanticData ) use ( $appFactory ) {
+		$this->handlers['SMW::Store::BeforeDataUpdateComplete'] =
+				static function ( $store, $semanticData ) use ( $appFactory ) {
+					$extraPropertyAnnotator = new ExtraPropertyAnnotator(
+						$appFactory
+					);
 
-			$extraPropertyAnnotator = new ExtraPropertyAnnotator(
-				$appFactory
-			);
+					$extraPropertyAnnotator->addAnnotation( $semanticData );
 
-			$extraPropertyAnnotator->addAnnotation( $semanticData );
-
-			return true;
-		};
+					return true;
+				};
 
 		/**
 		 * https://www.mediawiki.org/wiki/Extension:Approved_Revs/Hooks/ApprovedRevsRevisionApproved
 		 */
-		$this->handlers['ApprovedRevsRevisionApproved'] = function (
+		$this->handlers['ApprovedRevsRevisionApproved'] = static function (
 			$output, $title, $rev_id, $content
 		) use (
 			$servicesFactory
 		) {
-			$ttl = 60 * 60; // 1hr
+			// 1hr
+			$ttl = 60 * 60;
 
 			// Send an event to ParserAfterTidy and allow it to pass the preliminary
 			// test even in cases where the content doesn't contain any SMW related
@@ -206,12 +203,13 @@ class HookRegistry {
 		/**
 		 * https://www.mediawiki.org/wiki/Extension:Approved_Revs/Hooks/ApprovedRevsRevisionUnapproved
 		 */
-		$this->handlers['ApprovedRevsRevisionUnapproved'] = function (
+		$this->handlers['ApprovedRevsRevisionUnapproved'] = static function (
 			$output, $title, $content
 		) use (
 			$servicesFactory
 		) {
-			$ttl = 60 * 60; // 1hr
+			// 1hr
+			$ttl = 60 * 60;
 			$key = smwfCacheKey( 'smw:parseraftertidy', $title->getPrefixedDBKey() );
 			$servicesFactory->getCache()->save( $key, null, $ttl );
 

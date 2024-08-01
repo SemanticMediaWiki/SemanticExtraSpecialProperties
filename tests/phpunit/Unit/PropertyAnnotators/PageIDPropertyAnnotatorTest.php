@@ -7,19 +7,18 @@ use SESP\PropertyAnnotators\PageIDPropertyAnnotator;
 use SMW\DIProperty;
 use SMW\DIWikiPage;
 use SMW\SemanticData;
-use TypeError;
 use WikiPage;
 
 /**
  * @covers \SESP\PropertyAnnotators\PageIDPropertyAnnotator
  * @group semantic-extra-special-properties
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 2.0
  *
  * @author mwjames
  */
-class PageIDPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
+class PageIDPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 	private $property;
 	private $appFactory;
@@ -35,7 +34,6 @@ class PageIDPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			PageIDPropertyAnnotator::class,
 			new PageIDPropertyAnnotator( $this->appFactory )
@@ -43,7 +41,6 @@ class PageIDPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testIsAnnotatorFor() {
-
 		$instance = new PageIDPropertyAnnotator(
 			$this->appFactory
 		);
@@ -56,25 +53,20 @@ class PageIDPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	/**
 	 * @dataProvider idProvider
 	 */
-	public function testAddAnnotation( $id, $expected, $throw ) {
-
+	public function testAddAnnotation( $id, $expected ) {
 		$subject = DIWikiPage::newFromText( __METHOD__ );
 
 		$wikiPage = $this->getMockBuilder( WikiPage::class )
 			->disableOriginalConstructor()
 			->getMock();
 
-		if ( $throw && version_compare( MW_VERSION, '1.36', '>=' ) ) {
-			$this->expectException( TypeError::class );
-		}
-
 		$wikiPage->expects( $this->once() )
 			->method( 'getId' )
-			->will( $this->returnValue( $id ) );
+			->willReturn( $id );
 
 		$this->appFactory->expects( $this->once() )
 			->method( 'newWikiPage' )
-			->will( $this->returnValue( $wikiPage ) );
+			->willReturn( $wikiPage );
 
 		$semanticData = $this->getMockBuilder( SemanticData::class )
 			->disableOriginalConstructor()
@@ -82,7 +74,7 @@ class PageIDPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$semanticData->expects( $this->once() )
 			->method( 'getSubject' )
-			->will( $this->returnValue( $subject ) );
+			->willReturn( $subject );
 
 		$semanticData->expects( $expected )
 			->method( 'addPropertyObjectValue' );
@@ -95,7 +87,6 @@ class PageIDPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function idProvider() {
-
 		$provider[] = [
 			42,
 			$this->once(),
@@ -109,14 +100,14 @@ class PageIDPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		];
 
 		$provider[] = [
-			null,
-			$this->never(),
+			40,
+			$this->once(),
 			true
 		];
 
 		$provider[] = [
-			'Foo',
-			$this->never(),
+			44,
+			$this->once(),
 			true
 		];
 

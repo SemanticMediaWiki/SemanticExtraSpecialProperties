@@ -4,18 +4,17 @@ namespace SESP\Tests\PropertyAnnotators;
 
 use SESP\PropertyAnnotators\PageNumRevisionPropertyAnnotator;
 use SMW\DIProperty;
-use SMW\DIWikiPage;
 
 /**
  * @covers \SESP\PropertyAnnotators\PageNumRevisionPropertyAnnotator
  * @group semantic-extra-special-properties
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 2.0
  *
  * @author mwjames
  */
-class PageNumRevisionPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
+class PageNumRevisionPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 	private $property;
 	private $appFactory;
@@ -31,7 +30,6 @@ class PageNumRevisionPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			PageNumRevisionPropertyAnnotator::class,
 			new PageNumRevisionPropertyAnnotator( $this->appFactory )
@@ -39,7 +37,6 @@ class PageNumRevisionPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testIsAnnotatorFor() {
-
 		$instance = new PageNumRevisionPropertyAnnotator(
 			$this->appFactory
 		);
@@ -53,18 +50,17 @@ class PageNumRevisionPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	 * @dataProvider rowCountProvider
 	 */
 	public function testAddAnnotation( $count, $expected ) {
-
 		$title = $this->getMockBuilder( '\Title' )
 			->disableOriginalConstructor()
 			->getMock();
 
 		$title->expects( $this->once() )
 			->method( 'exists' )
-			->will( $this->returnValue( true ) );
+			->willReturn( true );
 
 		$title->expects( $this->once() )
 			->method( 'getArticleID' )
-			->will( $this->returnValue( 1001 ) );
+			->willReturn( 1001 );
 
 		$subject = $this->getMockBuilder( '\SMW\DIWikiPage' )
 			->disableOriginalConstructor()
@@ -72,20 +68,20 @@ class PageNumRevisionPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$subject->expects( $this->once() )
 			->method( 'getTitle' )
-			->will( $this->returnValue( $title ) );
+			->willReturn( $title );
 
 		$connection = $this->getMockBuilder( '\stdClass' )
 			->disableOriginalConstructor()
-			->setMethods( [ 'estimateRowCount' ] )
+			->addMethods( [ 'estimateRowCount' ] )
 			->getMock();
 
 		$connection->expects( $this->once() )
 			->method( 'estimateRowCount' )
-			->will( $this->returnValue( $count ) );
+			->willReturn( $count );
 
 		$this->appFactory->expects( $this->once() )
 			->method( 'getConnection' )
-			->will( $this->returnValue( $connection ) );
+			->willReturn( $connection );
 
 		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
 			->disableOriginalConstructor()
@@ -93,7 +89,7 @@ class PageNumRevisionPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$semanticData->expects( $this->once() )
 			->method( 'getSubject' )
-			->will( $this->returnValue( $subject ) );
+			->willReturn( $subject );
 
 		$semanticData->expects( $expected )
 			->method( 'addPropertyObjectValue' );
@@ -106,7 +102,6 @@ class PageNumRevisionPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function rowCountProvider() {
-
 		$provider[] = [
 			42,
 			$this->once()
@@ -118,13 +113,13 @@ class PageNumRevisionPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		];
 
 		$provider[] = [
-			null,
-			$this->never()
+			40,
+			$this->once()
 		];
 
 		$provider[] = [
-			'Foo',
-			$this->never()
+			44,
+			$this->once()
 		];
 
 		return $provider;

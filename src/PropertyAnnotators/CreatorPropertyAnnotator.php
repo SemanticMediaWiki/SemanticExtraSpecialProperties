@@ -3,12 +3,12 @@
 namespace SESP\PropertyAnnotators;
 
 use MediaWiki\MediaWikiServices;
+use SESP\AppFactory;
+use SESP\PropertyAnnotator;
 use SMW\DIProperty;
 use SMW\DIWikiPage;
 use SMW\SemanticData;
 use SMWDataItem as DataItem;
-use SESP\PropertyAnnotator;
-use SESP\AppFactory;
 use Title;
 use User;
 
@@ -16,7 +16,7 @@ use User;
  * @private
  * @ingroup SESP
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 2.0
  *
  * @author mwjames
@@ -26,7 +26,7 @@ class CreatorPropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * Predefined property ID
 	 */
-	const PROP_ID = '___CUSER';
+	public const PROP_ID = '___CUSER';
 
 	/**
 	 * @var AppFactory
@@ -57,7 +57,6 @@ class CreatorPropertyAnnotator implements PropertyAnnotator {
 	 * {@inheritDoc}
 	 */
 	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
-
 		$page = $this->appFactory->newWikiPage( $semanticData->getSubject()->getTitle() );
 		$dataItem = null;
 

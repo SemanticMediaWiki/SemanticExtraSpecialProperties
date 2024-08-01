@@ -8,12 +8,12 @@ use SESP\LabelFetcher;
  * @covers \SESP\LabelFetcher
  * @group SESP
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 2.0
  *
  * @author mwjames
  */
-class LabelFetcherTest extends \PHPUnit_Framework_TestCase {
+class LabelFetcherTest extends \PHPUnit\Framework\TestCase {
 
 	private $cache;
 
@@ -26,7 +26,6 @@ class LabelFetcherTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			LabelFetcher::class,
 			new LabelFetcher( $this->cache )
@@ -34,7 +33,6 @@ class LabelFetcherTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testGetLabel() {
-
 		$instance = new LabelFetcher(
 			$this->cache
 		);
@@ -45,7 +43,6 @@ class LabelFetcherTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testGetLabelsUnCached() {
-
 		$defs = [
 			'FOO' => [ 'id' => 'Foo', 'alias' => 'Foo' ],
 			'_EXIF' => [
@@ -55,7 +52,7 @@ class LabelFetcherTest extends \PHPUnit_Framework_TestCase {
 
 		$propertyDefinitions = $this->getMockBuilder( '\SESP\PropertyDefinitions' )
 			->disableOriginalConstructor()
-			->setMethods( null )
+			->addMethods( [] )
 			->getMock();
 
 		$propertyDefinitions->setPropertyDefinitions(
@@ -64,7 +61,7 @@ class LabelFetcherTest extends \PHPUnit_Framework_TestCase {
 
 		$this->cache->expects( $this->once() )
 			->method( 'fetch' )
-			->will( $this->returnValue( false ) );
+			->willReturn( false );
 
 		$this->cache->expects( $this->once() )
 			->method( 'save' );
@@ -79,19 +76,18 @@ class LabelFetcherTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testGetLabelsCached() {
-
 		$labels = [
 			'FOO' => 'Bar'
 		];
 
 		$propertyDefinitions = $this->getMockBuilder( '\SESP\PropertyDefinitions' )
 			->disableOriginalConstructor()
-			->setMethods( [ 'getLabels' ] )
+			->onlyMethods( [ 'getLabels' ] )
 			->getMock();
 
 		$this->cache->expects( $this->once() )
 			->method( 'fetch' )
-			->will( $this->returnValue( $labels ) );
+			->willReturn( $labels );
 
 		$this->cache->expects( $this->never() )
 			->method( 'save' );
@@ -104,20 +100,19 @@ class LabelFetcherTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testGetLabelsCachedVersioned() {
-
 		$labels = [
 			'FOO' => 'Bar'
 		];
 
 		$propertyDefinitions = $this->getMockBuilder( '\SESP\PropertyDefinitions' )
 			->disableOriginalConstructor()
-			->setMethods( null )
+			->onlyMethods( [] )
 			->getMock();
 
 		$this->cache->expects( $this->once() )
 			->method( 'fetch' )
 			->with( $this->stringContains( 'sesp:labels:e1484da79bc6323bcb087894cf9cab03' ) )
-			->will( $this->returnValue( $labels ) );
+			->willReturn( $labels );
 
 		$instance = new LabelFetcher(
 			$this->cache

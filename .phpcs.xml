@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<ruleset>
+	<rule ref="./vendor/mediawiki/mediawiki-codesniffer/MediaWiki">
+        <exclude name="MediaWiki.Commenting.MissingCovers.MissingCovers" />
+        <exclude name="MediaWiki.Commenting.PropertyDocumentation.MissingDocumentationPrivate" />
+        <exclude name="MediaWiki.Commenting.FunctionComment.MissingDocumentationPrivate" />
+        <exclude name="MediaWiki.Commenting.FunctionComment.MissingReturn" />
+        <exclude name="Generic.PHP.NoSilencedErrors.Discouraged" />
+        <exclude name="Generic.CodeAnalysis.AssignmentInCondition.Found" />
+    </rule>
+	<file>.</file>
+    <exclude-pattern>/(vendor|conf)/</exclude-pattern>
+	<exclude-pattern type="relative">extensions/*</exclude-pattern>
+	<arg name="extensions" value="php"/>
+	<arg name="encoding" value="UTF-8"/>
+</ruleset>

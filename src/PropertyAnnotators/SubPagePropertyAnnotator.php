@@ -2,19 +2,17 @@
 
 namespace SESP\PropertyAnnotators;
 
+use SESP\AppFactory;
+use SESP\PropertyAnnotator;
 use SMW\DIProperty;
 use SMW\DIWikiPage;
 use SMW\SemanticData;
-use SMWDataItem as DataItem;
-use SMWDINumber as DINumber;
-use SESP\PropertyAnnotator;
-use SESP\AppFactory;
 
 /**
  * @private
  * @ingroup SESP
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 2.0
  *
  * @author mwjames
@@ -24,7 +22,7 @@ class SubPagePropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * Predefined property ID
 	 */
-	const PROP_ID = '___SUBP';
+	public const PROP_ID = '___SUBP';
 
 	/**
 	 * @var AppFactory
@@ -55,10 +53,9 @@ class SubPagePropertyAnnotator implements PropertyAnnotator {
 	 * {@inheritDoc}
 	 */
 	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
-
 		$title = $semanticData->getSubject()->getTitle();
 
-		//-1 = no limit. Returns TitleArray object
+		// -1 = no limit. Returns TitleArray object
 		$subpages = $title->getSubpages( -1 );
 
 		foreach ( $subpages as $title ) {

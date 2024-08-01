@@ -2,18 +2,18 @@
 
 namespace SESP\PropertyAnnotators;
 
+use SESP\AppFactory;
+use SESP\PropertyAnnotator;
 use SMW\DIProperty;
 use SMW\SemanticData;
 use SMWDataItem as DataItem;
 use SMWDINumber as DINumber;
-use SESP\PropertyAnnotator;
-use SESP\AppFactory;
 
 /**
  * @private
  * @ingroup SESP
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 2.0
  *
  * @author mwjames
@@ -23,7 +23,7 @@ class PageIDPropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * Predefined property ID
 	 */
-	const PROP_ID = '___PAGEID';
+	public const PROP_ID = '___PAGEID';
 
 	/**
 	 * @var AppFactory
@@ -54,7 +54,6 @@ class PageIDPropertyAnnotator implements PropertyAnnotator {
 	 * {@inheritDoc}
 	 */
 	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
-
 		$page = $this->appFactory->newWikiPage(
 			$semanticData->getSubject()->getTitle()
 		);
@@ -62,7 +61,7 @@ class PageIDPropertyAnnotator implements PropertyAnnotator {
 		$pageID = $page->getId();
 		$dataItem = null;
 
-		if ( is_integer( $pageID ) && $pageID > 0 ) {
+		if ( is_int( $pageID ) && $pageID > 0 ) {
 			$dataItem = new DINumber( $pageID );
 		}
 

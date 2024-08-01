@@ -7,20 +7,19 @@ use SESP\PropertyAnnotators\UserEditCountPropertyAnnotator;
 use SMW\DIProperty;
 use SMW\DIWikiPage;
 use SMW\SemanticData;
-use User;
 use Title;
-use WikiPage;
+use User;
 
 /**
- * @covers UserEditCountPropertyAnnotator
+ * @covers \SESP\PropertyAnnotators\UserEditCountPropertyAnnotator
  * @group semantic-extra-special-properties
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 2.0
  *
  * @author mwjames
  */
-class UserEditCountPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
+class UserEditCountPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 	private $property;
 	private $appFactory;
@@ -36,7 +35,6 @@ class UserEditCountPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			UserEditCountPropertyAnnotator::class,
 			new UserEditCountPropertyAnnotator( $this->appFactory )
@@ -44,7 +42,6 @@ class UserEditCountPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testIsAnnotatorFor() {
-
 		$instance = new UserEditCountPropertyAnnotator(
 			$this->appFactory
 		);
@@ -58,18 +55,17 @@ class UserEditCountPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	 * @dataProvider editCountProvider
 	 */
 	public function testAddAnnotation( $count, $expected ) {
-
 		$user = $this->getMockBuilder( User::class )
 			->disableOriginalConstructor()
 			->getMock();
 
 		$user->expects( $this->once() )
 			->method( 'getEditCount' )
-			->will( $this->returnValue( $count ) );
+			->willReturn( $count );
 
 		$this->appFactory->expects( $this->once() )
 			->method( 'newUserFromTitle' )
-			->will( $this->returnValue( $user ) );
+			->willReturn( $user );
 
 		$title = $this->getMockBuilder( Title::class )
 			->disableOriginalConstructor()
@@ -77,7 +73,7 @@ class UserEditCountPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$title->expects( $this->once() )
 			->method( 'inNamespace' )
-			->will( $this->returnValue( true ) );
+			->willReturn( true );
 
 		$subject = $this->getMockBuilder( DIWikiPage::class )
 			->disableOriginalConstructor()
@@ -85,7 +81,7 @@ class UserEditCountPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$subject->expects( $this->once() )
 			->method( 'getTitle' )
-			->will( $this->returnValue( $title ) );
+			->willReturn( $title );
 
 		$semanticData = $this->getMockBuilder( SemanticData::class )
 			->disableOriginalConstructor()
@@ -93,7 +89,7 @@ class UserEditCountPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$semanticData->expects( $this->once() )
 			->method( 'getSubject' )
-			->will( $this->returnValue( $subject ) );
+			->willReturn( $subject );
 
 		$semanticData->expects( $expected )
 			->method( 'addPropertyObjectValue' );
@@ -106,7 +102,6 @@ class UserEditCountPropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function editCountProvider() {
-
 		$provider[] = [
 			42,
 			$this->once()

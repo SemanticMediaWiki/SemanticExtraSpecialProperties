@@ -4,18 +4,17 @@ namespace SESP\Tests\PropertyAnnotators;
 
 use SESP\PropertyAnnotators\UserRegistrationDatePropertyAnnotator;
 use SMW\DIProperty;
-use SMW\DIWikiPage;
 
 /**
  * @covers \SESP\PropertyAnnotators\UserRegistrationDatePropertyAnnotator
  * @group semantic-extra-special-properties
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 2.0
  *
  * @author mwjames
  */
-class UserRegistrationDatePropertyAnnotatorTest extends \PHPUnit_Framework_TestCase {
+class UserRegistrationDatePropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 	private $property;
 	private $appFactory;
@@ -31,7 +30,6 @@ class UserRegistrationDatePropertyAnnotatorTest extends \PHPUnit_Framework_TestC
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			UserRegistrationDatePropertyAnnotator::class,
 			new UserRegistrationDatePropertyAnnotator( $this->appFactory )
@@ -39,7 +37,6 @@ class UserRegistrationDatePropertyAnnotatorTest extends \PHPUnit_Framework_TestC
 	}
 
 	public function testIsAnnotatorFor() {
-
 		$instance = new UserRegistrationDatePropertyAnnotator(
 			$this->appFactory
 		);
@@ -50,18 +47,17 @@ class UserRegistrationDatePropertyAnnotatorTest extends \PHPUnit_Framework_TestC
 	}
 
 	public function testAddAnnotation() {
-
 		$user = $this->getMockBuilder( '\User' )
 			->disableOriginalConstructor()
 			->getMock();
 
 		$user->expects( $this->once() )
 			->method( 'getRegistration' )
-			->will( $this->returnValue( '20170101' ) );
+			->willReturn( '20170101' );
 
 		$this->appFactory->expects( $this->once() )
 			->method( 'newUserFromTitle' )
-			->will( $this->returnValue( $user ) );
+			->willReturn( $user );
 
 		$title = $this->getMockBuilder( '\Title' )
 			->disableOriginalConstructor()
@@ -69,7 +65,7 @@ class UserRegistrationDatePropertyAnnotatorTest extends \PHPUnit_Framework_TestC
 
 		$title->expects( $this->once() )
 			->method( 'inNamespace' )
-			->will( $this->returnValue( true ) );
+			->willReturn( true );
 
 		$subject = $this->getMockBuilder( '\SMW\DIWikiPage' )
 			->disableOriginalConstructor()
@@ -77,7 +73,7 @@ class UserRegistrationDatePropertyAnnotatorTest extends \PHPUnit_Framework_TestC
 
 		$subject->expects( $this->once() )
 			->method( 'getTitle' )
-			->will( $this->returnValue( $title ) );
+			->willReturn( $title );
 
 		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
 			->disableOriginalConstructor()
@@ -85,7 +81,7 @@ class UserRegistrationDatePropertyAnnotatorTest extends \PHPUnit_Framework_TestC
 
 		$semanticData->expects( $this->once() )
 			->method( 'getSubject' )
-			->will( $this->returnValue( $subject ) );
+			->willReturn( $subject );
 
 		$semanticData->expects( $this->once() )
 			->method( 'addPropertyObjectValue' );

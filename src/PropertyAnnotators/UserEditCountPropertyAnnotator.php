@@ -2,19 +2,19 @@
 
 namespace SESP\PropertyAnnotators;
 
+use SESP\AppFactory;
+use SESP\PropertyAnnotator;
 use SMW\DIProperty;
 use SMW\SemanticData;
 use SMWDataItem as DataItem;
 use SMWDINumber as DINumber;
-use SESP\PropertyAnnotator;
-use SESP\AppFactory;
 use User;
 
 /**
  * @private
  * @ingroup SESP
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 2.0
  *
  * @author mwjames
@@ -24,7 +24,7 @@ class UserEditCountPropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * Predefined property ID
 	 */
-	const PROP_ID = '___USEREDITCNT';
+	public const PROP_ID = '___USEREDITCNT';
 
 	/**
 	 * @var AppFactory
@@ -46,7 +46,7 @@ class UserEditCountPropertyAnnotator implements PropertyAnnotator {
 	 * {@inheritDoc}
 	 */
 	public function isAnnotatorFor( DIProperty $property ) {
-		return $property->getKey() === self::PROP_ID ;
+		return $property->getKey() === self::PROP_ID;
 	}
 
 	/**
@@ -55,7 +55,6 @@ class UserEditCountPropertyAnnotator implements PropertyAnnotator {
 	 * {@inheritDoc}
 	 */
 	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
-
 		$title = $semanticData->getSubject()->getTitle();
 
 		if ( !$title->inNamespace( NS_USER ) ) {

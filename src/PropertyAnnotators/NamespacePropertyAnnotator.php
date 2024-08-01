@@ -12,14 +12,14 @@ use SMWDINumber;
  * @private
  * @ingroup SESP
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  */
 class NamespacePropertyAnnotator implements PropertyAnnotator {
 
 	/**
 	 * Predefined property ID
 	 */
-	const PROP_ID = '___NSID';
+	public const PROP_ID = '___NSID';
 
 	/**
 	 * @var AppFactory

@@ -2,15 +2,15 @@
 
 namespace SESP\PropertyAnnotators;
 
+use SESP\PropertyAnnotator;
 use SMW\DIProperty;
 use SMW\SemanticData;
-use SESP\PropertyAnnotator;
 
 /**
  * @private
  * @ingroup SESP
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 2.0
  *
  * @author mwjames
@@ -31,6 +31,7 @@ class NullPropertyAnnotator implements PropertyAnnotator {
 	 *
 	 * {@inheritDoc}
 	 */
-	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {}
+	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
+	}
 
 }

@@ -3,19 +3,17 @@
 namespace SESP\Tests;
 
 use SESP\PropertyRegistry;
-use SMW\DIProperty;
-use SMW\DIWikiPage;
 
 /**
  * @covers \SESP\PropertyRegistry
  * @group semantic-extra-special-properties
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 2.0
  *
  * @author mwjames
  */
-class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
+class PropertyRegistryTest extends \PHPUnit\Framework\TestCase {
 
 	private $appFactory;
 
@@ -28,7 +26,6 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			PropertyRegistry::class,
 			new PropertyRegistry( $this->appFactory )
@@ -36,10 +33,9 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testregisterEmptyDefinition() {
-
 		$propertyDefinitions = $this->getMockBuilder( '\SESP\PropertyDefinitions' )
 			->disableOriginalConstructor()
-			->setMethods( [ 'getLabels' ] )
+			->onlyMethods( [ 'getLabels' ] )
 			->getMock();
 
 		$propertyDefinitions->setPropertyDefinitions(
@@ -48,7 +44,7 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$this->appFactory->expects( $this->once() )
 			->method( 'getPropertyDefinitions' )
-			->will( $this->returnValue( $propertyDefinitions ) );
+			->willReturn( $propertyDefinitions );
 
 		$propertyRegistry = $this->getMockBuilder( '\SMW\PropertyRegistry' )
 			->disableOriginalConstructor()
@@ -62,14 +58,13 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testregisterEmptyDefinitionOnExifDefintion() {
-
 		$defs = [ '_EXIF' => [
 			'SOFTWARE' => [ 'id' => 'Foo', 'type' => '_txt', 'label' => 'Foo' ] ]
 		];
 
 		$propertyDefinitions = $this->getMockBuilder( '\SESP\PropertyDefinitions' )
 			->disableOriginalConstructor()
-			->setMethods( [ 'getLabels', 'getLabel' ] )
+			->onlyMethods( [ 'getLabels', 'getLabel' ] )
 			->getMock();
 
 		$propertyDefinitions->setPropertyDefinitions(
@@ -78,7 +73,7 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$this->appFactory->expects( $this->once() )
 			->method( 'getPropertyDefinitions' )
-			->will( $this->returnValue( $propertyDefinitions ) );
+			->willReturn( $propertyDefinitions );
 
 		$propertyRegistry = $this->getMockBuilder( '\SMW\PropertyRegistry' )
 			->disableOriginalConstructor()
@@ -104,7 +99,6 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testregisterFakeDefinition() {
-
 		$definition['_MY_CUSTOM1'] = [
 			'id'    => '___MY_CUSTOM1',
 			'type'  => '_wpg',
@@ -114,7 +108,7 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$propertyDefinitions = $this->getMockBuilder( '\SESP\PropertyDefinitions' )
 			->disableOriginalConstructor()
-			->setMethods( [ 'getLabels', 'getLabel' ] )
+			->onlyMethods( [ 'getLabels', 'getLabel' ] )
 			->getMock();
 
 		$propertyDefinitions->setPropertyDefinitions(
@@ -123,7 +117,7 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$this->appFactory->expects( $this->once() )
 			->method( 'getPropertyDefinitions' )
-			->will( $this->returnValue( $propertyDefinitions ) );
+			->willReturn( $propertyDefinitions );
 
 		$propertyRegistry = $this->getMockBuilder( '\SMW\PropertyRegistry' )
 			->disableOriginalConstructor()
@@ -149,11 +143,10 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testRegisterAsFixedPropertiesDisabled() {
-
 		$this->appFactory->expects( $this->once() )
 			->method( 'getOption' )
 			->with( $this->stringContains( 'sespgUseFixedTables' ) )
-			->will( $this->returnValue( false ) );
+			->willReturn( false );
 
 		$this->appFactory->expects( $this->never() )
 			->method( 'getPropertyDefinitions' );
@@ -173,10 +166,9 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testRegisterAsFixedPropertiesEnabled() {
-
 		$propertyDefinitions = $this->getMockBuilder( '\SESP\PropertyDefinitions' )
 			->disableOriginalConstructor()
-			->setMethods( null )
+			->onlyMethods( [] )
 			->getMock();
 
 		$propertyDefinitions->setPropertyDefinitions(
@@ -185,19 +177,17 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 			]
 		);
 
-		$this->appFactory->expects( $this->at( 0 ) )
+		$this->appFactory->expects( $this->exactly( 2 ) )
 			->method( 'getOption' )
-			->with( $this->stringContains( 'sespgUseFixedTables' ) )
-			->will( $this->returnValue( true ) );
+			->withConsecutive(
+				[ $this->stringContains( 'sespgUseFixedTables' ) ],
+				[ $this->stringContains( 'sespgEnabledPropertyList' ) ]
+			)
+		->willReturnOnConsecutiveCalls( true, [ 'Foo' ] );
 
-		$this->appFactory->expects( $this->at( 1 ) )
+		$this->appFactory->expects( $this->once() )
 			->method( 'getPropertyDefinitions' )
-			->will( $this->returnValue( $propertyDefinitions ) );
-
-		$this->appFactory->expects( $this->at( 2 ) )
-			->method( 'getOption' )
-			->with( $this->stringContains( 'sespgEnabledPropertyList' ) )
-			->will( $this->returnValue( [ 'Foo' ] ) );
+			->willReturn( $propertyDefinitions );
 
 		$instance = new PropertyRegistry(
 			$this->appFactory
@@ -213,10 +203,7 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 			$customFixedProperties
 		);
 
-		$this->assertEquals(
-			['___FOO' => 'smw_ftp_sesp' ],
-			$fixedPropertyTablePrefix
-		);
+		$this->assertEquals( [ '___FOO' => 'smw_ftp_sesp' ], $fixedPropertyTablePrefix );
 	}
 
 }
