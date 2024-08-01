@@ -2,7 +2,6 @@
 
 namespace SESP;
 
-use Hooks;
 use MediaWiki\MediaWikiServices;
 use SMW\Services\ServicesFactory;
 
@@ -63,7 +62,8 @@ class HookRegistry {
 	 * @return boolean
 	 */
 	public function isRegistered( $name ) {
-		return Hooks::isRegistered( $name );
+		$hookContainer = MediaWikiServices::getInstance()->getHookContainer();
+		return $hookContainer->isRegistered( $name );
 	}
 
 	/**
@@ -74,7 +74,8 @@ class HookRegistry {
 	 * @return array
 	 */
 	public function getHandlers( $name ) {
-		return Hooks::getHandlers( $name );
+		$hookContainer = MediaWikiServices::getInstance()->getHookContainer();
+		return $hookContainer->getHandlers( $name );
 	}
 
 	/**
