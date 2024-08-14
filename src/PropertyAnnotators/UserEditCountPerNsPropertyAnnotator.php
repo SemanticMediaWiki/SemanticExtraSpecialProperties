@@ -115,9 +115,25 @@ class UserEditCountPerNsPropertyAnnotator implements PropertyAnnotator {
 	 */
 	private function getEditsPerNs( $id, $ip ): array {
 		$db = $this->appFactory->getConnection();
+
+		if ( version_compare( MW_VERSION, "1.39", ">=" ) ) {
+			$queryTables = [ 'revision', 'actor', 'page' ];
+			$joinConditions = [
+				'page'	=> [ 'INNER JOIN', [ 'page.page_id=revision.rev_page' ] ],
+				'actor'	=> [ 'INNER JOIN', [ 'actor.actor_id=revision.rev_actor' ] ]
+			];
+		} else {
+			$queryTables = [ 'revision', 'revision_actor_temp', 'actor', 'page' ];
+			$joinConditions = [
+				'page'					=> [ 'INNER JOIN', [ 'page.page_id=revision.rev_page' ] ],
+				'revision_actor_temp'	=> [ 'INNER JOIN', [ 'revision_actor_temp.revactor_rev=revision.rev_id' ] ],
+				'actor'					=> [ 'INNER JOIN', [ 'actor.actor_id=revision_actor_temp.revactor_actor' ] ]
+			];
+		}
+
 		$result = $db->select(
-			// FROM.
-			[ 'revision', 'revision_actor_temp', 'actor', 'page' ],
+		// FROM.
+			$queryTables,
 			// SELECT.
 			[ 'ns' => 'page.page_namespace', 'edits' => 'COUNT(revision.rev_id)' ],
 			// WHERE.
@@ -126,11 +142,7 @@ class UserEditCountPerNsPropertyAnnotator implements PropertyAnnotator {
 			// GROUP BY.
 			[ 'GROUP BY' => [ 'page.page_namespace' ] ],
 			// JOIN conditions.
-			[
-				'page'					=> [ 'INNER JOIN', [ 'page.page_id=revision.rev_page' ] ],
-				'revision_actor_temp'	=> [ 'INNER JOIN', [ 'revision_actor_temp.revactor_rev=revision.rev_id' ] ],
-				'actor'					=> [ 'INNER JOIN', [ 'actor.actor_id=revision_actor_temp.revactor_actor' ] ]
-			]
+			$joinConditions
 		);
 		$records = [];
 		foreach ( $result as $row ) {
