@@ -2,7 +2,6 @@
 
 namespace SESP\PropertyAnnotators;
 
-use MediaWiki\MediaWikiServices;
 use SESP\AppFactory;
 use SESP\PropertyAnnotator;
 use SMW\DIProperty;
@@ -120,8 +119,8 @@ class UserEditCountPerNsPropertyAnnotator implements PropertyAnnotator {
 		if ( version_compare( MW_VERSION, "1.39", ">=" ) ) {
 			$queryTables = [ 'revision', 'actor', 'page' ];
 			$joinConditions = [
-				'page'	=> [ 'INNER JOIN', ['page.page_id=revision.rev_page'] ],
-				'actor'	=> [ 'INNER JOIN', ['actor.actor_id=revision.rev_actor'] ]
+				'page'	=> [ 'INNER JOIN', [ 'page.page_id=revision.rev_page' ] ],
+				'actor'	=> [ 'INNER JOIN', [ 'actor.actor_id=revision.rev_actor' ] ]
 			];
 		} else {
 			$queryTables = [ 'revision', 'revision_actor_temp', 'actor', 'page' ];
