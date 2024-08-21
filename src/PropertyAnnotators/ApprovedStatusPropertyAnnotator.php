@@ -3,12 +3,12 @@
 namespace SESP\PropertyAnnotators;
 
 use ApprovedRevs;
+use IDBAccessObject;
 use SESP\AppFactory;
 use SESP\PropertyAnnotator;
 use SMW\DIProperty;
 use SMW\SemanticData;
 use SMWDIString as DIString;
-use Title;
 
 /**
  * @private
@@ -65,7 +65,7 @@ class ApprovedStatusPropertyAnnotator implements PropertyAnnotator {
 			if ( ApprovedRevs::pageIsApprovable( $title ) ) {
 				$approvedRevId = self::getApprovedRevID( $title );
 				if ( $approvedRevId !== null ) {
-					$latestRevId = $title->getLatestRevID( Title::READ_LATEST );
+					$latestRevId = $title->getLatestRevID( IDBAccessObject::READ_LATEST );
 					if ( $latestRevId === $approvedRevId ) {
 						$this->approvedStatus = "approved";
 					} else {
