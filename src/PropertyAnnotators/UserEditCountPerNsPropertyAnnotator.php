@@ -128,16 +128,25 @@ class UserEditCountPerNsPropertyAnnotator implements PropertyAnnotator {
 		} else {
 			$queryTables = [ "revision", "revision_actor_temp", "actor", "page" ];
 			$joinConditions = [
-				"page"					=> [ 'INNER JOIN', [ "{$dbPrefix}page.page_id={$dbPrefix}revision.rev_page" ] ],
-				"revision_actor_temp"	=> [ 'INNER JOIN', [ "{$dbPrefix}revision_actor_temp.revactor_rev={$dbPrefix}revision.rev_id" ] ],
-				"actor"					=> [ 'INNER JOIN', [ "{$dbPrefix}actor.actor_id={$dbPrefix}revision_actor_temp.revactor_actor" ] ]
+				"page"					=> [ 'INNER JOIN', [
+					"{$dbPrefix}page.page_id={$dbPrefix}revision.rev_page"
+				] ],
+				"revision_actor_temp"	=> [ 'INNER JOIN', [
+					"{$dbPrefix}revision_actor_temp.revactor_rev={$dbPrefix}revision.rev_id"
+				] ],
+				"actor"					=> [ 'INNER JOIN', [
+					"{$dbPrefix}actor.actor_id={$dbPrefix}revision_actor_temp.revactor_actor"
+				] ]
 			];
 		}
 
 		$result = $dbr->newSelectQueryBuilder()
 			->select( [ 'ns' => "{$dbPrefix}page.page_namespace", 'edits' => "COUNT({$dbPrefix}revision.rev_id)" ] )
 			->tables( $queryTables )
-			->where( $id === null ? [ "{$dbPrefix}actor.actor_name" => $ip ] : [ "{$dbPrefix}actor.actor_user" => $id ] )
+			->where( $id === null
+				? [ "{$dbPrefix}actor.actor_name" => $ip ]
+				: [ "{$dbPrefix}actor.actor_user" => $id ]
+			)
 			->groupBy( "{$dbPrefix}page.page_namespace" )
 			->joinConds( $joinConditions )
 			->caller( __METHOD__ )
