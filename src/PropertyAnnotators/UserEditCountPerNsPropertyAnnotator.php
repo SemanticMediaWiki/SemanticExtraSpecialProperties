@@ -113,8 +113,8 @@ class UserEditCountPerNsPropertyAnnotator implements PropertyAnnotator {
 	 * @param string|null $ip Anonymous user's IP address
 	 * @return int[] An associative array NS number => revision count
 	 */
-	private function getEditsPerNs( $id, $ip ): array {
-		$db = $this->appFactory->getConnection();
+	public function getEditsPerNs( $id, $ip ): array {
+		$dbr = wfGetDB( DB_REPLICA );
 
 		if ( version_compare( MW_VERSION, "1.39", ">=" ) ) {
 			$queryTables = [ 'revision', 'actor', 'page' ];
@@ -131,19 +131,15 @@ class UserEditCountPerNsPropertyAnnotator implements PropertyAnnotator {
 			];
 		}
 
-		$result = $db->select(
-		// FROM.
-			$queryTables,
-			// SELECT.
-			[ 'ns' => 'page.page_namespace', 'edits' => 'COUNT(revision.rev_id)' ],
-			// WHERE.
-			$id === null ? [ 'actor.actor_name' => $ip ] : [ 'actor.actor_user' => $id ],
-			__METHOD__,
-			// GROUP BY.
-			[ 'GROUP BY' => [ 'page.page_namespace' ] ],
-			// JOIN conditions.
-			$joinConditions
-		);
+		$result = $dbr->newSelectQueryBuilder()
+			->select( [ 'ns' => 'page.page_namespace', 'edits' => 'COUNT(revision.rev_id)' ] )
+			->tables( $queryTables )
+			->where( $id === null ? [ 'actor.actor_name' => $ip ] : [ 'actor.actor_user' => $id ] )
+			->groupBy( 'page.page_namespace' )
+			->joinConds( $joinConditions )
+			->caller( __METHOD__ )
+			->fetchResultSet();
+
 		$records = [];
 		foreach ( $result as $row ) {
 			$records[$row->ns] = $row->edits;
