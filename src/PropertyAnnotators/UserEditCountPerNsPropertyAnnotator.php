@@ -113,29 +113,32 @@ class UserEditCountPerNsPropertyAnnotator implements PropertyAnnotator {
 	 * @param string|null $ip Anonymous user's IP address
 	 * @return int[] An associative array NS number => revision count
 	 */
-	public function getEditsPerNs( $id, $ip ): array {
+	private function getEditsPerNs( $id, $ip ): array {
 		$dbr = wfGetDB( DB_REPLICA );
 
+		// Get the configured table prefix to inject in the clauses for the SELECT, WHERE, and JOIN conditions
+		$dbPrefix = $dbr->tablePrefix();
+
 		if ( version_compare( MW_VERSION, "1.39", ">=" ) ) {
-			$queryTables = [ 'revision', 'actor', 'page' ];
+			$queryTables = [ "revision", "actor", "page" ];
 			$joinConditions = [
-				'page'	=> [ 'INNER JOIN', [ 'page.page_id=revision.rev_page' ] ],
-				'actor'	=> [ 'INNER JOIN', [ 'actor.actor_id=revision.rev_actor' ] ]
+				"page"	=> [ 'INNER JOIN', [ "{$dbPrefix}page.page_id={$dbPrefix}revision.rev_page" ] ],
+				"actor"	=> [ 'INNER JOIN', [ "{$dbPrefix}actor.actor_id={$dbPrefix}revision.rev_actor" ] ]
 			];
 		} else {
-			$queryTables = [ 'revision', 'revision_actor_temp', 'actor', 'page' ];
+			$queryTables = [ "revision", "revision_actor_temp", "actor", "page" ];
 			$joinConditions = [
-				'page'					=> [ 'INNER JOIN', [ 'page.page_id=revision.rev_page' ] ],
-				'revision_actor_temp'	=> [ 'INNER JOIN', [ 'revision_actor_temp.revactor_rev=revision.rev_id' ] ],
-				'actor'					=> [ 'INNER JOIN', [ 'actor.actor_id=revision_actor_temp.revactor_actor' ] ]
+				"page"					=> [ 'INNER JOIN', [ "{$dbPrefix}page.page_id={$dbPrefix}revision.rev_page" ] ],
+				"revision_actor_temp"	=> [ 'INNER JOIN', [ "{$dbPrefix}revision_actor_temp.revactor_rev={$dbPrefix}revision.rev_id" ] ],
+				"actor"					=> [ 'INNER JOIN', [ "{$dbPrefix}actor.actor_id={$dbPrefix}revision_actor_temp.revactor_actor" ] ]
 			];
 		}
 
 		$result = $dbr->newSelectQueryBuilder()
-			->select( [ 'ns' => 'page.page_namespace', 'edits' => 'COUNT(revision.rev_id)' ] )
+			->select( [ 'ns' => "{$dbPrefix}page.page_namespace", 'edits' => "COUNT({$dbPrefix}revision.rev_id)" ] )
 			->tables( $queryTables )
-			->where( $id === null ? [ 'actor.actor_name' => $ip ] : [ 'actor.actor_user' => $id ] )
-			->groupBy( 'page.page_namespace' )
+			->where( $id === null ? [ "{$dbPrefix}actor.actor_name" => $ip ] : [ "{$dbPrefix}actor.actor_user" => $id ] )
+			->groupBy( "{$dbPrefix}page.page_namespace" )
 			->joinConds( $joinConditions )
 			->caller( __METHOD__ )
 			->fetchResultSet();
