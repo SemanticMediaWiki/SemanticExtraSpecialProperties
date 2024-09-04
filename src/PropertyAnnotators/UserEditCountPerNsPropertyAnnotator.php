@@ -114,42 +114,39 @@ class UserEditCountPerNsPropertyAnnotator implements PropertyAnnotator {
 	 * @return int[] An associative array NS number => revision count
 	 */
 	private function getEditsPerNs( $id, $ip ): array {
-		$dbr = wfGetDB( DB_REPLICA );
+		$db = wfGetDB( DB_REPLICA );
+		$queryTables = [ 'revision', 'actor', 'page' ];
 
-		// Get the configured table prefix to inject in the clauses for the SELECT, WHERE, and JOIN conditions
-		$dbPrefix = $dbr->tablePrefix();
-		$queryTables = [ "revision", "actor", "page" ];
-
-		if ( version_compare( MW_VERSION, "1.39", ">=" ) ) {
+		if ( version_compare( MW_VERSION, '1.39', '>=' ) ) {
 			$joinConditions = [
-				"page"	=> [ 'INNER JOIN', [ "{$dbPrefix}page.page_id={$dbPrefix}revision.rev_page" ] ],
-				"actor"	=> [ 'INNER JOIN', [ "{$dbPrefix}actor.actor_id={$dbPrefix}revision.rev_actor" ] ]
+				'page'	=> [ 'INNER JOIN', [ 'page_id=rev_page' ] ],
+				'actor'	=> [ 'INNER JOIN', [ 'actor_id=rev_actor' ] ]
 			];
 		} else {
-			$queryTables[] = "revision_actor_temp";
+			$queryTables[] = 'revision_actor_temp';
 			$joinConditions = [
-				"page"					=> [ 'INNER JOIN', [
-					"{$dbPrefix}page.page_id={$dbPrefix}revision.rev_page"
+				'page'					=> [ 'INNER JOIN', [
+					'page_id=rev_page'
 				] ],
-				"revision_actor_temp"	=> [ 'INNER JOIN', [
-					"{$dbPrefix}revision_actor_temp.revactor_rev={$dbPrefix}revision.rev_id"
+				'revision_actor_temp'	=> [ 'INNER JOIN', [
+					'revactor_rev=rev_id'
 				] ],
-				"actor"					=> [ 'INNER JOIN', [
-					"{$dbPrefix}actor.actor_id={$dbPrefix}revision_actor_temp.revactor_actor"
+				'actor'					=> [ 'INNER JOIN', [
+					'actor_id=revactor_actor'
 				] ]
 			];
 		}
 
-		$result = $dbr->select(
+		$result = $db->select(
 		// FROM.
 			$queryTables,
 			// SELECT.
-			[ 'ns' => "{$dbPrefix}page.page_namespace", 'edits' => "COUNT({$dbPrefix}revision.rev_id)" ],
+			[ 'ns' => 'page_namespace', 'edits' => 'COUNT(rev_id)' ],
 			// WHERE.
-			$id === null ? [ "{$dbPrefix}actor.actor_name" => $ip ] : [ "{$dbPrefix}actor.actor_user" => $id ],
+			$id === null ? [ 'actor_name' => $ip ] : [ 'actor_user' => $id ],
 			__METHOD__,
 			// GROUP BY.
-			[ 'GROUP BY' => [ "{$dbPrefix}page.page_namespace" ] ],
+			[ 'GROUP BY' => [ 'page_namespace' ] ],
 			// JOIN conditions.
 			$joinConditions
 		);
