@@ -118,15 +118,15 @@ class UserEditCountPerNsPropertyAnnotator implements PropertyAnnotator {
 
 		// Get the configured table prefix to inject in the clauses for the SELECT, WHERE, and JOIN conditions
 		$dbPrefix = $dbr->tablePrefix();
+		$queryTables = [ "revision", "actor", "page" ];
 
 		if ( version_compare( MW_VERSION, "1.39", ">=" ) ) {
-			$queryTables = [ "revision", "actor", "page" ];
 			$joinConditions = [
 				"page"	=> [ 'INNER JOIN', [ "{$dbPrefix}page.page_id={$dbPrefix}revision.rev_page" ] ],
 				"actor"	=> [ 'INNER JOIN', [ "{$dbPrefix}actor.actor_id={$dbPrefix}revision.rev_actor" ] ]
 			];
 		} else {
-			$queryTables = [ "revision", "revision_actor_temp", "actor", "page" ];
+			$queryTables[] = "revision_actor_temp";
 			$joinConditions = [
 				"page"					=> [ 'INNER JOIN', [
 					"{$dbPrefix}page.page_id={$dbPrefix}revision.rev_page"
@@ -140,17 +140,19 @@ class UserEditCountPerNsPropertyAnnotator implements PropertyAnnotator {
 			];
 		}
 
-		$result = $dbr->newSelectQueryBuilder()
-			->select( [ 'ns' => "{$dbPrefix}page.page_namespace", 'edits' => "COUNT({$dbPrefix}revision.rev_id)" ] )
-			->tables( $queryTables )
-			->where( $id === null
-				? [ "{$dbPrefix}actor.actor_name" => $ip ]
-				: [ "{$dbPrefix}actor.actor_user" => $id ]
-			)
-			->groupBy( "{$dbPrefix}page.page_namespace" )
-			->joinConds( $joinConditions )
-			->caller( __METHOD__ )
-			->fetchResultSet();
+		$result = $dbr->select(
+		// FROM.
+			$queryTables,
+			// SELECT.
+			[ 'ns' => "{$dbPrefix}page.page_namespace", 'edits' => "COUNT({$dbPrefix}revision.rev_id)" ],
+			// WHERE.
+			$id === null ? [ "{$dbPrefix}actor.actor_name" => $ip ] : [ "{$dbPrefix}actor.actor_user" => $id ],
+			__METHOD__,
+			// GROUP BY.
+			[ 'GROUP BY' => [ "{$dbPrefix}page.page_namespace" ] ],
+			// JOIN conditions.
+			$joinConditions
+		);
 
 		$records = [];
 		foreach ( $result as $row ) {
