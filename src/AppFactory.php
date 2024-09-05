@@ -9,6 +9,7 @@ use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use Title;
 use User;
+use Wikimedia\Rdbms\Database;
 use WikiPage;
 
 /**
@@ -60,14 +61,14 @@ class AppFactory implements LoggerAwareInterface {
 	/**
 	 * @since 2.0
 	 */
-	public function setConnection( \DatabaseBase $connection ) {
+	public function setConnection( Database $connection ) {
 		$this->connection = $connection;
 	}
 
 	/**
 	 * @since 1.3
 	 *
-	 * @return DatabaseBase
+	 * @return Database
 	 */
 	public function getConnection() {
 		if ( $this->connection === null ) {

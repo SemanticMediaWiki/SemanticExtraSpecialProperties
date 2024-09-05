@@ -3,11 +3,11 @@
 namespace SESP;
 
 use ArrayIterator;
-use DatabaseBase;
 use DatabaseLogEntry;
 use MWTimestamp;
 use Title;
 use User;
+use Wikimedia\Rdbms\Database;
 
 class DatabaseLogReader {
 
@@ -17,7 +17,7 @@ class DatabaseLogReader {
 	private static $titleCache = [];
 
 	/**
-	 * @var DatabaseBase
+	 * @var Database
 	 */
 	private $dbr;
 
@@ -53,7 +53,7 @@ class DatabaseLogReader {
 		if (
 			!$dbr instanceof \Wikimedia\Rdbms\IDatabase &&
 			!$dbr instanceof \IDatabase &&
-			!$dbr instanceof \DatabaseBase ) {
+			!$dbr instanceof Database ) {
 			throw new \RuntimeException( "Invalid connection instance!" );
 		}
 
