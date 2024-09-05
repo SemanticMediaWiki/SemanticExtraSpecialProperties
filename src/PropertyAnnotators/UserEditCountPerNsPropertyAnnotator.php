@@ -114,7 +114,7 @@ class UserEditCountPerNsPropertyAnnotator implements PropertyAnnotator {
 	 * @return int[] An associative array NS number => revision count
 	 */
 	private function getEditsPerNs( $id, $ip ): array {
-		$db = wfGetDB( DB_REPLICA );
+		$db = $this->appFactory->getConnection();
 		$queryTables = [ 'revision', 'actor', 'page' ];
 
 		if ( version_compare( MW_VERSION, '1.39', '>=' ) ) {
