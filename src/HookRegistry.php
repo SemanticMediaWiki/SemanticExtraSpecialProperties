@@ -62,8 +62,7 @@ class HookRegistry {
 	 * @return bool
 	 */
 	public function isRegistered( $name ) {
-		$hookContainer = MediaWikiServices::getInstance()->getHookContainer();
-		return $hookContainer->isRegistered( $name );
+		return MediaWikiServices::getInstance()->getHookContainer()->isRegistered( $name );
 	}
 
 	/**
@@ -74,8 +73,11 @@ class HookRegistry {
 	 * @return array
 	 */
 	public function getHandlers( $name ) {
-		$hookContainer = MediaWikiServices::getInstance()->getHookContainer();
-		return $hookContainer->getHandlers( $name );
+		$container = MediaWikiServices::getInstance()->getHookContainer();
+		$hook = 'SMW::Property::initProperties';
+		return method_exists( 'HookContainer', 'getHandlerCallbacks' )
+			? $container->getHandlerCallbacks( $hook )
+			: $container->getHandlers( $hook );
 	}
 
 	/**

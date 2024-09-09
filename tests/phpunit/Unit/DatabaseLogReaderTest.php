@@ -4,6 +4,7 @@ namespace SESP\Tests;
 
 use SESP\AppFactory;
 use SESP\DatabaseLogReader;
+use Wikimedia\Rdbms\Database;
 
 /**
  * @covers \SESP\DatabaseLogReader
@@ -24,7 +25,7 @@ class DatabaseLogReaderTest extends \PHPUnit\Framework\TestCase {
 
 		$this->appFactory = new AppFactory;
 
-		$this->connection = $this->getMockBuilder( 'Database' )
+		$this->connection = $this->getMockBuilder( Database::class )
 			->disableOriginalConstructor()
 			->getMock();
 	}
