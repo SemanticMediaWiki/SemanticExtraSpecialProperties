@@ -24,7 +24,7 @@ class DatabaseLogReaderTest extends \PHPUnit\Framework\TestCase {
 
 		$this->appFactory = new AppFactory;
 
-		$this->connection = $this->getMockBuilder( '\DatabaseBase' )
+		$this->connection = $this->getMockBuilder( 'Database' )
 			->disableOriginalConstructor()
 			->getMock();
 	}

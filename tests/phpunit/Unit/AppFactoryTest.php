@@ -2,7 +2,6 @@
 
 namespace SESP\Tests;
 
-use DatabaseBase;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use SESP\AppFactory;
@@ -10,6 +9,7 @@ use SESP\PropertyDefinitions;
 use Title;
 use User;
 use WikiFilePage;
+use Wikimedia\Rdbms\Database;
 use WikiPage;
 
 /**
@@ -85,7 +85,7 @@ class AppFactoryTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testGetConnection() {
-		$connection = $this->getMockBuilder( DatabaseBase::class )
+		$connection = $this->getMockBuilder( Database::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -160,7 +160,7 @@ class AppFactoryTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testNewDatabaseLogReader() {
-		$connection = $this->getMockBuilder( DatabaseBase::class )
+		$connection = $this->getMockBuilder( Database::class )
 			->disableOriginalConstructor()
 			->getMock();
 
