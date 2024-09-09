@@ -93,7 +93,7 @@ class ExifPropertyAnnotator implements PropertyAnnotator {
 		}
 
 		if ( ( $width = $file->getWidth() ) !== null ) {
-			$exif['ImageWidth']  = $width;
+			$exif['ImageWidth'] = $width;
 		}
 		if ( ( $height = $file->getHeight() ) !== null ) {
 			$exif['ImageLength'] = $height;
