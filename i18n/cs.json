@@ -6,6 +6,7 @@
 			"Ilimanaq29",
 			"Jaroslav Cerny",
 			"Martin Urbanec",
+			"MasterStudioCZ",
 			"Mormegil",
 			"Vks"
 		]
@@ -44,6 +45,7 @@
 	"sesp-property-user-registration-date-desc": "\"$1\" zaznamenává datum registrace uživatele. Tuto vlastnost poskytuje rozšíření [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Sémantické dodatečné speciální vlastnosti].",
 	"sesp-property-user-edit-count": "Počet editací uživatele",
 	"sesp-property-user-edit-count-desc": "\"$1\" zaznamenává počet editací, které uživatel provedl. Tuto vlastnost poskytuje rozšíření [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Sémantické dodatečné speciální vlastnosti].",
+	"sesp-property-user-edit-count-ns": "Jmenný prostor",
 	"sesp-property-user-block": "Blok uživatele",
 	"sesp-property-user-block-desc": "\"$1\" zaznamenává seznam blokování použitých na uživatele. Tuto vlastnost poskytuje rozšíření [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Sémantické dodatečné speciální vlastnosti].",
 	"sesp-property-user-right": "Právo uživatele",
