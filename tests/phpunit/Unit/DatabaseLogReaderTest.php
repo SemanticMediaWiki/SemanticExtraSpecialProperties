@@ -4,7 +4,6 @@ namespace SESP\Tests;
 
 use SESP\AppFactory;
 use SESP\DatabaseLogReader;
-use Wikimedia\Rdbms\Database;
 
 /**
  * @covers \SESP\DatabaseLogReader
