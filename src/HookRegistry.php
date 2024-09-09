@@ -75,10 +75,9 @@ class HookRegistry {
 	 */
 	public function getHandlers( $name ) {
 		$container = MediaWikiServices::getInstance()->getHookContainer();
-		$hook = 'SMW::Property::initProperties';
 		return method_exists( $container, 'getHandlerCallbacks' )
-			? $container->getHandlerCallbacks( $hook )
-			: $container->getHandlers( $hook );
+			? $container->getHandlerCallbacks( $name )
+			: $container->getHandlers( $name );
 	}
 
 	/**
