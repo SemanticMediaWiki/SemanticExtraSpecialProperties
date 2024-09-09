@@ -150,7 +150,7 @@ class HookRegistry {
 			= static function ( Registry $registry ) use ( $propertyRegistry ) {
 				$propertyRegistry->register( $registry );
 				return true;
-		};
+			};
 
 		/**
 		 * @see https://www.semantic-mediawiki.org/wiki/Hooks/SMW::SQLStore::AddCustomFixedPropertyTables
