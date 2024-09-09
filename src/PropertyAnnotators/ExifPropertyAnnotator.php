@@ -86,14 +86,18 @@ class ExifPropertyAnnotator implements PropertyAnnotator {
 		}
 
 		// Guard against "Error at offset 0 of 1 bytes"
-		$exif = @unserialize( $meta );
+		$exif = @unserialize( $meta, [ 'allowed_classes' => false ] );
 
 		if ( !is_array( $exif ) || count( $exif ) === 0 ) {
 			return;
 		}
 
-		$exif['ImageWidth']  = $file->getWidth();
-		$exif['ImageLength'] = $file->getHeight();
+		if ( ( $width = $file->getWidth() ) !== null ) {
+			$exif['ImageWidth']  = $width;
+		}
+		if ( ( $height = $file->getHeight() ) !== null ) {
+			$exif['ImageLength'] = $height;
+		}
 
 		$dataItem = $this->getDataItemFromExifData( $subject, $exif );
 

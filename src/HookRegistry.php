@@ -3,6 +3,7 @@
 namespace SESP;
 
 use MediaWiki\MediaWikiServices;
+use SMW\PropertyRegistry as Registry;
 use SMW\Services\ServicesFactory;
 
 /**
@@ -145,12 +146,10 @@ class HookRegistry {
 		/**
 		 * @see https://www.semantic-mediawiki.org/wiki/Hooks/SMW::Property::initProperties
 		 */
-		$this->handlers['SMW::Property::initProperties'] = static function ( $registry ) use ( $propertyRegistry ) {
-			$propertyRegistry->register(
-				$registry
-			);
-
-			return true;
+		$this->handlers['SMW::Property::initProperties']
+			= static function ( Registry $registry ) use ( $propertyRegistry ) {
+				$propertyRegistry->register( $registry );
+				return true;
 		};
 
 		/**

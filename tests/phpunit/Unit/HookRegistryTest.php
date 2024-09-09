@@ -133,7 +133,7 @@ class HookRegistryTest extends \PHPUnit\Framework\TestCase {
 		);
 	}
 
-	private function assertThatHookIsExcutable( $hooks, $arguments ) {
+	private function assertThatHookIsExcutable( $hooks, array $arguments ) {
 		if ( is_callable( $hooks ) ) {
 			$hooks = [ $hooks ];
 		}

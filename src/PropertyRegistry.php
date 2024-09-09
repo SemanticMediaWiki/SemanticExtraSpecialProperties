@@ -39,7 +39,7 @@ class PropertyRegistry {
 		$propertyDefinitions = $this->appFactory->getPropertyDefinitions();
 		$labels = $propertyDefinitions->getLabels();
 
-		foreach ( $propertyDefinitions as $key => $definition ) {
+		foreach ( $propertyDefinitions as $definition ) {
 
 			if ( !isset( $definition['id'] ) ) {
 				continue;
@@ -48,7 +48,7 @@ class PropertyRegistry {
 			$this->addPropertyDefinition( $propertyRegistry, $propertyDefinitions, $definition, $labels );
 		}
 
-		foreach ( $propertyDefinitions->safeGet( '_EXIF', [] ) as $key => $definition ) {
+		foreach ( $propertyDefinitions->safeGet( '_EXIF', [] ) as $definition ) {
 
 			if ( !isset( $definition['id'] ) ) {
 				continue;
