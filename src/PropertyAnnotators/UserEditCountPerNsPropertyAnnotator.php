@@ -115,19 +115,25 @@ class UserEditCountPerNsPropertyAnnotator implements PropertyAnnotator {
 	 */
 	private function getEditsPerNs( $id, $ip ): array {
 		$db = $this->appFactory->getConnection();
+		$queryTables = [ 'revision', 'actor', 'page' ];
 
-		if ( version_compare( MW_VERSION, "1.39", ">=" ) ) {
-			$queryTables = [ 'revision', 'actor', 'page' ];
+		if ( version_compare( MW_VERSION, '1.39', '>=' ) ) {
 			$joinConditions = [
-				'page'	=> [ 'INNER JOIN', [ 'page.page_id=revision.rev_page' ] ],
-				'actor'	=> [ 'INNER JOIN', [ 'actor.actor_id=revision.rev_actor' ] ]
+				'page'	=> [ 'INNER JOIN', [ 'page_id=rev_page' ] ],
+				'actor'	=> [ 'INNER JOIN', [ 'actor_id=rev_actor' ] ]
 			];
 		} else {
-			$queryTables = [ 'revision', 'revision_actor_temp', 'actor', 'page' ];
+			$queryTables[] = 'revision_actor_temp';
 			$joinConditions = [
-				'page'					=> [ 'INNER JOIN', [ 'page.page_id=revision.rev_page' ] ],
-				'revision_actor_temp'	=> [ 'INNER JOIN', [ 'revision_actor_temp.revactor_rev=revision.rev_id' ] ],
-				'actor'					=> [ 'INNER JOIN', [ 'actor.actor_id=revision_actor_temp.revactor_actor' ] ]
+				'page'					=> [ 'INNER JOIN', [
+					'page_id=rev_page'
+				] ],
+				'revision_actor_temp'	=> [ 'INNER JOIN', [
+					'revactor_rev=rev_id'
+				] ],
+				'actor'					=> [ 'INNER JOIN', [
+					'actor_id=revactor_actor'
+				] ]
 			];
 		}
 
@@ -135,15 +141,16 @@ class UserEditCountPerNsPropertyAnnotator implements PropertyAnnotator {
 		// FROM.
 			$queryTables,
 			// SELECT.
-			[ 'ns' => 'page.page_namespace', 'edits' => 'COUNT(revision.rev_id)' ],
+			[ 'ns' => 'page_namespace', 'edits' => 'COUNT(rev_id)' ],
 			// WHERE.
-			$id === null ? [ 'actor.actor_name' => $ip ] : [ 'actor.actor_user' => $id ],
+			$id === null ? [ 'actor_name' => $ip ] : [ 'actor_user' => $id ],
 			__METHOD__,
 			// GROUP BY.
-			[ 'GROUP BY' => [ 'page.page_namespace' ] ],
+			[ 'GROUP BY' => [ 'page_namespace' ] ],
 			// JOIN conditions.
 			$joinConditions
 		);
+
 		$records = [];
 		foreach ( $result as $row ) {
 			$records[$row->ns] = $row->edits;
