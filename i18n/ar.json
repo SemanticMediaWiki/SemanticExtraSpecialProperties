@@ -23,6 +23,7 @@
 	"sesp-property-shorturl": "مسار قصير",
 	"sesp-property-approved-rev": "المراجعة المعتمدة",
 	"sesp-property-approved-rev-desc": "يحدد \"$1\" معرف المراجعة لصفحة تمت الموافقة عليها (من خلال ملحق [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties خصائص إضافية خاصة دلالية]).",
+	"sesp-property-namespace-id": "معرف النطاق",
 	"sesp-property-approved-by": "وافقة عليها",
 	"sesp-property-approved-by-desc": "يحدد \"$1\" المستخدم الذي يحدد حالة الموافقة للصفحة (عبر الملحق [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties خصائص إضافية خاصة دلالية]).",
 	"sesp-property-approved-date": "تاريخ الموافقة",
