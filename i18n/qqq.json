@@ -64,6 +64,7 @@
 	"sesp-property-user-group-desc": "{{Doc-smw-sp-desc|extension=SESP}}",
 	"sesp-property-exif-data": "{{Doc-smw-sp|extension=SESP}}",
 	"sesp-property-exif-data-desc": "{{Doc-smw-sp-desc|extension=SESP}}",
+	"sesp-property-links-to": "{{Doc-smw-sp-desc|extension=SESP}}",
 	"sesp-exif-languagecode": "This is the name of a special property.\n\nRelated to {{msg-mw|Exif-languagecode}}",
 	"sesp-exif-gpslatitude": "This is the name of a special property.\n\nRelated to {{msg-mw|Exif-gpslatitude}}",
 	"sesp-exif-gpslongitude": "This is the name of a special property.\n\nRelated to {{msg-mw|Exif-gpslongitude}}",
@@ -80,5 +81,6 @@
 	"sesp-config-enabled-property-list": "Explains what a configuration variable does.",
 	"sesp-config-label-cache-version": "Explains what a configuration variable does.",
 	"sesp-config-exclude-bot-edits": "Explains what a configuration variable does.",
-	"sesp-config-short-url-prefix": "Explains what a configuration variable does."
+	"sesp-config-short-url-prefix": "Explains what a configuration variable does.",
+	"sesp-config-links-to-enabled-namespaces": "Explains what a configuration variable does."
 }
