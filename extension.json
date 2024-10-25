@@ -67,6 +67,12 @@
 			"path": false,
 			"description": "Should edits via user accounts in usergroup \"bot\" be ignored when storing data for the special properties?",
 			"descriptionmsg": "sesp-config-exclude-bot-edits"
+		},
+		"LinksToEnabledNamespaces": {
+			"value": [],
+			"path": false,
+			"description": "List of namespaces where the 'Links to' property should be enabled",
+			"descriptionmsg": "sesp-config-links-to-enabled-namespaces"
 		}
 	},
 	"Hooks": {
