@@ -14,7 +14,7 @@ use Title;
  * @private
  * @ingroup SESP
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 3.0.4
  */
 class LinksToPropertyAnnotator implements PropertyAnnotator {
@@ -22,7 +22,7 @@ class LinksToPropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * Predefined property ID
 	 */
-	const PROP_ID = '___LINKSTO';
+	public const PROP_ID = '___LINKSTO';
 
 	/**
 	 * @var AppFactory
@@ -53,7 +53,7 @@ class LinksToPropertyAnnotator implements PropertyAnnotator {
 	 * {@inheritDoc}
 	 */
 	public function isAnnotatorFor( DIProperty $property ) {
-		return $property->getKey() === self::PROP_ID ;
+		return $property->getKey() === self::PROP_ID;
 	}
 
 	/**
@@ -64,7 +64,11 @@ class LinksToPropertyAnnotator implements PropertyAnnotator {
 	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
 		$page = $semanticData->getSubject()->getTitle();
 
-		if ( $page === null || ( !empty( $this->enabledNamespaces ) && !$page->inNamespaces( $this->enabledNamespaces ) ) ) {
+		if (
+			$page === null ||
+			( !empty( $this->enabledNamespaces ) &&
+			!$page->inNamespaces( $this->enabledNamespaces ) )
+		) {
 			return;
 		}
 
@@ -89,7 +93,7 @@ class LinksToPropertyAnnotator implements PropertyAnnotator {
 			[ 'page' => [ 'JOIN', 'page_id=pl_from' ] ]
 		);
 
-		foreach( $res as $row ) {
+		foreach ( $res as $row ) {
 			$title = Title::newFromText( $row->sel_title, $row->sel_ns );
 			if ( $title !== null && $title->exists() ) {
 				$semanticData->addPropertyObjectValue( $property, DIWikiPage::newFromTitle( $title ) );
