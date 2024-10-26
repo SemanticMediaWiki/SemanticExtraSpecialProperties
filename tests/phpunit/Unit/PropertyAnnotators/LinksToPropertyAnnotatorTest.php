@@ -2,7 +2,6 @@
 
 namespace SESP\Tests\PropertyAnnotators;
 
-use PHPUnit_Framework_TestCase;
 use SESP\AppFactory;
 use SESP\PropertyAnnotators\LinksToPropertyAnnotator;
 use SMW\DIProperty;
@@ -14,10 +13,10 @@ use Title;
  * @covers \SESP\PropertyAnnotators\LinksToPropertyAnnotator
  * @group semantic-extra-special-properties
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 2.0
  */
-class LinksToPropertyAnnotatorTest extends PHPUnit_Framework_TestCase {
+class LinksToPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 	private $property;
 	private $appFactory;
@@ -33,7 +32,6 @@ class LinksToPropertyAnnotatorTest extends PHPUnit_Framework_TestCase {
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			LinksToPropertyAnnotator::class,
 			new LinksToPropertyAnnotator( $this->appFactory )
@@ -41,7 +39,6 @@ class LinksToPropertyAnnotatorTest extends PHPUnit_Framework_TestCase {
 	}
 
 	public function testIsAnnotatorFor() {
-
 		$instance = new LinksToPropertyAnnotator(
 			$this->appFactory
 		);
@@ -56,7 +53,7 @@ class LinksToPropertyAnnotatorTest extends PHPUnit_Framework_TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$factory->expects( $this->once() )->method('getConnection');
+		$factory->expects( $this->once() )->method( 'getConnection' );
 
 		$subject = $this->getMockBuilder( DIWikiPage::class )
 			->disableOriginalConstructor()
@@ -90,7 +87,7 @@ class LinksToPropertyAnnotatorTest extends PHPUnit_Framework_TestCase {
 			->getMock();
 
 		$factory->expects( $this->never() )
-			->method('getConnection');
+			->method( 'getConnection' );
 
 		$subject = $this->getMockBuilder( DIWikiPage::class )
 			->disableOriginalConstructor()

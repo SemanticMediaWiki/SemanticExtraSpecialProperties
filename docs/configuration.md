@@ -37,6 +37,7 @@ Property labels differ according to the language the wiki was set up. An easy wa
 - `_USERRIGHT` adds a property called "User right" to user pages which records the user's assigned rights
 - `_USERGROUP` adds a property called "User group" to user pages which records the user's assigned groups
 - `_EXIFDATA` adds properties called "Exif data" to file pages which records image metadata (Exif data)
+- `_LINKSTO` adds a property called "Links to" which records a list of pages the current page links to
 
 #### Identifiers with further dependencies
 
