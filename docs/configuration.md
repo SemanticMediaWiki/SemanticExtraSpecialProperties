@@ -74,6 +74,17 @@ Details about available properties can be found in the ["definitions.json"](/dat
 Setting `$sespgLabelCacheVersion` to "false" will cease to use the special property label cache at all. Otherwise this is
 used as an internal modifier to allow resetting the cache with an arbitrary version.
 
+### Links to property
+
+Setting `$sespgLinksToEnabledNamespaces` to a list of namespaces (in int) where the "Links to" property should be enabled.
+For example, enabling the "Links to" proerty only in the Template and Module namespace:
+```php
+$sespgLinksToEnabledNamespaces = [
+  10,
+  828
+];
+```
+
 ## Privacy
 
 Please note that users that are otherwise hidden to some usergroup might be revealed by this extension, as the `_EUSER`
