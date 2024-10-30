@@ -962,7 +962,7 @@
 				"type": "_txt",
 				"alias": "sesp-exif-gpsaltitude",
 				"label": "Exif:GPSAltitude"
-		},
+		}
 	},
 	"_LINKSTO": {
 		"id": "___LINKSTO",
