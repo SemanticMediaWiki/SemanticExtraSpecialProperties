@@ -962,12 +962,12 @@
 				"type": "_txt",
 				"alias": "sesp-exif-gpsaltitude",
 				"label": "Exif:GPSAltitude"
-		},
-		"LINKSTO": {
-			"id": "___LINKSTO",
-			"type": "_wpg",
-			"alias": "sesp-property-links-to",
-			"label": "Links to"
 		}
+	},
+	"_LINKSTO": {
+		"id": "___LINKSTO",
+		"type": "_wpg",
+		"alias": "sesp-property-links-to",
+		"label": "Links to"
 	}
 }
