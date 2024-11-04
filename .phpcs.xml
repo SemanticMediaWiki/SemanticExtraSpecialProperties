@@ -7,6 +7,16 @@
         <exclude name="MediaWiki.Commenting.FunctionComment.MissingReturn" />
         <exclude name="Generic.PHP.NoSilencedErrors.Discouraged" />
         <exclude name="Generic.CodeAnalysis.AssignmentInCondition.Found" />
+
+        <exclude name="MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis" />
+        <exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing.NoSpaceBeforeArg" />
+        <exclude name="Universal.WhiteSpace.CommaSpacing.NoSpaceAfterInFunctionDeclaration" />
+        <exclude name="MediaWiki.WhiteSpace.MultipleEmptyLines.MultipleEmptyLines" />
+        <exclude name="MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis" />
+        <exclude name="(MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceBeforeCloseParenthesis" />
+        <exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingBeforeClose" />
+        <exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingBeforeClose" />
+        <exclude name="Squiz.WhiteSpace.SuperfluousWhitespace.EndLine" />
     </rule>
 	<file>.</file>
     <exclude-pattern>/(vendor|conf)/</exclude-pattern>

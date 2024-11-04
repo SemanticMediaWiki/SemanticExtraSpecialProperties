@@ -54,7 +54,7 @@ class PropertyRegistry {
 				continue;
 			}
 
-			$this->addPropertyDefinition( $propertyRegistry, $propertyDefinitions, $definition, $labels );
+			$this->addPropertyDefinition($propertyRegistry, $propertyDefinitions, $definition, $labels);
 		}
 
 		return true;
@@ -66,7 +66,7 @@ class PropertyRegistry {
 	 * @param array &$customFixedProperties
 	 * @param array &$fixedPropertyTablePrefix
 	 */
-	public function registerFixedProperties( &$customFixedProperties, &$fixedPropertyTablePrefix ) {
+	public function registerFixedProperties( &$customFixedProperties, &$fixedPropertyTablePrefix) {
 		if ( $this->appFactory->getOption( 'sespgUseFixedTables' ) === false ) {
 			return;
 		}
@@ -94,7 +94,7 @@ class PropertyRegistry {
 		}
 	}
 
-	private function addPropertyDefinition( $propertyRegistry, $propertyDefinitions, $definition, $aliases ) {
+	private function addPropertyDefinition( $propertyRegistry,$propertyDefinitions, $definition, $aliases ) {
 		$visible = isset( $definition['show'] ) ? $definition['show'] : false;
 		$annotable = false;
 
@@ -118,6 +118,8 @@ class PropertyRegistry {
 			$label
 		);
 
+
+		
 		$propertyRegistry->registerPropertyAliasByMsgKey(
 			$definition['id'],
 			$alias
