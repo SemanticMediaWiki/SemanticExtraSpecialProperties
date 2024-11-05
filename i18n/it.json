@@ -26,7 +26,10 @@
 	"sesp-property-user-registration-date": "Data di registrazione dell'utente",
 	"sesp-property-user-edit-count": "Numero modifiche utente",
 	"sesp-property-exif-data": "Dati Exif",
+	"sesp-property-links-to": "Collegamenti a",
+	"sesp-property-links-to-desc": "\"$1\" registra un elenco di pagine alle quali l'attuale pagina collega.",
 	"sesp-exif-gpslatitude": "Exif:Latitudine",
 	"sesp-exif-gpslongitude": "Exif:Longitudine",
-	"sesp-exif-gpsaltitude": "Exif:Altitudine"
+	"sesp-exif-gpsaltitude": "Exif:Altitudine",
+	"sesp-config-links-to-enabled-namespaces": "Elenco di ID namespace abilitati per la proprietà 'Collegamenti a'."
 }

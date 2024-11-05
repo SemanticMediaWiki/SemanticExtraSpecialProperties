@@ -10,7 +10,8 @@
 			"Shirayuki",
 			"Yfdyh000",
 			"Zhang8569",
-			"孟天皓"
+			"孟天皓",
+			"沈澄心"
 		]
 	},
 	"sesp-desc": "添加一些额外特殊属性到所有页面",
@@ -67,6 +68,7 @@
 	"sesp-property-user-group-desc": "“$1”记录应用于用户的用户组的列表。它由[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties 语义额外特殊属性]扩展提供。",
 	"sesp-property-exif-data": "Exif数据",
 	"sesp-property-exif-data-desc": "“$1”记录文件的的EXIF数据。它由[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties 语义额外特殊属性]扩展提供。",
+	"sesp-property-links-to": "链接到",
 	"sesp-exif-languagecode": "Exif:语言代码",
 	"sesp-exif-gpslatitude": "Exif:纬度",
 	"sesp-exif-gpslongitude": "Exif:经度",

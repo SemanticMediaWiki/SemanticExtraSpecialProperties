@@ -66,6 +66,8 @@
 	"sesp-property-user-group-desc": "\"$1\" registreert een lijst met groepen waar een gebruiker lid van is. Dit wordt verzorgd door de extensie [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-exif-data": "Exifgegevens",
 	"sesp-property-exif-data-desc": "Met “$1” worden de EXIF-gegevens van het bestand vastgelegd. Deze eigenschap wordt geleverd door de uitbreiding [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
+	"sesp-property-links-to": "Koppelingen naar",
+	"sesp-property-links-to-desc": "“$1” bevat een lijst met pagina’s waarnaar de huidige pagina koppelingen bevat.",
 	"sesp-exif-languagecode": "Exif:Taalcode",
 	"sesp-exif-gpslatitude": "Exif:Breedtegraad",
 	"sesp-exif-gpslongitude": "Exif:Lengtegraad",
@@ -82,5 +84,6 @@
 	"sesp-config-enabled-property-list": "Specificeert de ingeschakelde eigenschappen",
 	"sesp-config-label-cache-version": "Specificeert een interne cache-modifier",
 	"sesp-config-exclude-bot-edits": "Moeten bewerkingen via gebruikersaccounts in gebruikersgroep “bot” worden genegeerd bij het opslaan van gegevens voor de speciale eigenschappen?",
-	"sesp-config-short-url-prefix": "Gebruikt in verband met ShortUrlUtils"
+	"sesp-config-short-url-prefix": "Gebruikt in verband met ShortUrlUtils",
+	"sesp-config-links-to-enabled-namespaces": "Lijst met naamruimte-ID’s die zijn ingeschakeld voor de eigenschap ‘Koppelingen naar’."
 }

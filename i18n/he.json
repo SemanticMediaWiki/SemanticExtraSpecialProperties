@@ -64,6 +64,8 @@
 	"sesp-property-user-group-desc": "\"$1\" רושם רשימה של קבוצות החלות על משתמש מסוים. זה מסופק על־ידי ההרחבה [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-exif-data": "נתוני Exif",
 	"sesp-property-exif-data-desc": "\"$1\" רושם את נתוני ה־EXIF של הקובץ. זה מסופק על־ידי ההרחבה [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
+	"sesp-property-links-to": "מקשרת אל",
+	"sesp-property-links-to-desc": "\"$1\" מכיל רשימת דפים שהדף הנוכחי מקשר אליהם.",
 	"sesp-exif-languagecode": "Exif:קוד שפה",
 	"sesp-exif-gpslatitude": "Exif:קו־רוחב",
 	"sesp-exif-gpslongitude": "Exif:קו־אורך",
@@ -80,5 +82,6 @@
 	"sesp-config-enabled-property-list": "מציין את המאפיינים המופעלים",
 	"sesp-config-label-cache-version": "מציין משנה מטמון פנימי",
 	"sesp-config-exclude-bot-edits": "האם להתעלם מעריכות דרך חשבונות משתמש בקבוצת המשתמש \"בוט\" בעת אחסון נתונים עבור המאפיינים המיוחדים?",
-	"sesp-config-short-url-prefix": "משמש עם ShortUrlUtils"
+	"sesp-config-short-url-prefix": "משמש עם ShortUrlUtils",
+	"sesp-config-links-to-enabled-namespaces": "רשימה של מזהי מרחב שם שמופעלים עבור המאפיין \"מקשרת אל\"."
 }

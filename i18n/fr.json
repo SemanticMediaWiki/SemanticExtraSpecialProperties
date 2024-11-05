@@ -7,6 +7,7 @@
 			"Derugon",
 			"Gomoko",
 			"Hello71",
+			"Mahabarata",
 			"Pierre Slamich",
 			"Thibaut120094",
 			"Verdy p",
@@ -68,6 +69,8 @@
 	"sesp-property-user-group-desc": "« $1 » enregistre une liste des groupes d’un utilisateur. Ceci est fourni par l’extension [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Propriétés sémantiques spéciales complémentaires].",
 	"sesp-property-exif-data": "Données Exif",
 	"sesp-property-exif-data-desc": "« $1 » enregistre les données EXIF du fichier. Ceci est fourni par l’extension [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Propriétés sémantiques spéciales complémentaires].",
+	"sesp-property-links-to": "Liens vers",
+	"sesp-property-links-to-desc": "« $1 » contient une liste de pages vers lesquelles la page actuelle renvoie.",
 	"sesp-exif-languagecode": "Exif:Code de langue",
 	"sesp-exif-gpslatitude": "Exif:Latitude",
 	"sesp-exif-gpslongitude": "Exif:Longitude",
@@ -84,5 +87,6 @@
 	"sesp-config-enabled-property-list": "Permet de spécifier les propriétés activées.",
 	"sesp-config-label-cache-version": "Permet de spécifier un modificateur de cache interne",
 	"sesp-config-exclude-bot-edits": "Faut-il ignorer les modifications effectuées via des comptes d’utilisateur dans le groupe « robot » lors de l’enregistrement de données pour les propriétés spéciales ?",
-	"sesp-config-short-url-prefix": "Utilisé en lien avec ShortUrlUtils"
+	"sesp-config-short-url-prefix": "Utilisé en lien avec ShortUrlUtils",
+	"sesp-config-links-to-enabled-namespaces": "Liste des identifiants d'espace de noms compatibles avec la propriété « Liens vers »."
 }

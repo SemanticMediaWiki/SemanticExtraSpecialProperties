@@ -59,6 +59,8 @@
 	"sesp-property-user-group-desc": "„$1“ води список на групи кои важат за даден корисник. Овозможено од додатокот [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Семантички екстрапосебни својства].",
 	"sesp-property-exif-data": "Exif-податоци",
 	"sesp-property-exif-data-desc": "„$1“ ги заведува EXIF-податоците на податотеката. Овозможено е од додатокот [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Семантички екстрапосебни својства].",
+	"sesp-property-links-to": "Води кон",
+	"sesp-property-links-to-desc": "„$1“ заведува список на страници кон кои води тековната страница.",
 	"sesp-exif-languagecode": "Exif:Јазичен код",
 	"sesp-exif-gpslatitude": "Exif:Гео. ширина",
 	"sesp-exif-gpslongitude": "Exif:Гео. должина",
@@ -75,5 +77,6 @@
 	"sesp-config-enabled-property-list": "Ги укажува овозможените својства",
 	"sesp-config-label-cache-version": "Укажува внатрешен меѓускладен изменител",
 	"sesp-config-exclude-bot-edits": "Дали да се занемарат уредувањата на сметки во корисничката група „бот“ при складирање на податоци за посебните својства?",
-	"sesp-config-short-url-prefix": "Се користи во врска со ShortUrlUtils"
+	"sesp-config-short-url-prefix": "Се користи во врска со ShortUrlUtils",
+	"sesp-config-links-to-enabled-namespaces": "Список на назнаки за именски простор кои се овозможуваат за својството „Води кон“."
 }
