@@ -59,6 +59,8 @@
 	"sesp-property-user-group-desc": "Lastnost »$1« beleži seznam skupin, ki jim pripada uporabnik. Zagotavlja jo razširitev [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-exif-data": "Podatki Exif",
 	"sesp-property-exif-data-desc": "Lastnost »$1« beleži podatke Exif datoteke. Zagotavlja jo razširitev [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
+	"sesp-property-links-to": "Povezave do",
+	"sesp-property-links-to-desc": "»$1« zabeleži seznam strani, na katere vodi trenutna stran.",
 	"sesp-exif-languagecode": "Exif:Oznaka jezika",
 	"sesp-exif-gpslatitude": "Exif:Zemljepisna širina",
 	"sesp-exif-gpslongitude": "Exif:Zemljepisna dolžina",
@@ -75,5 +77,6 @@
 	"sesp-config-enabled-property-list": "Določa omogočene lastnosti",
 	"sesp-config-label-cache-version": "Določa modifikator notranjega predpomnjenja",
 	"sesp-config-exclude-bot-edits": "Ali naj se pri shranjevanju podatkov za posebne lastnosti prezrejo urejanja z uporabniškimi računoi v uporabniški skupini »bot«?",
-	"sesp-config-short-url-prefix": "Uporablja se v povezavi s ShortUrlUtils"
+	"sesp-config-short-url-prefix": "Uporablja se v povezavi s ShortUrlUtils",
+	"sesp-config-links-to-enabled-namespaces": "Seznam ID-jev imenskih prostorov, ki so omogočeni za lastnost »Povezave do«."
 }
