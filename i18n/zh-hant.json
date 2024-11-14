@@ -3,6 +3,7 @@
 		"authors": [
 			"A Chinese Wikipedian",
 			"Assoc",
+			"Cookai1205",
 			"Deathkon",
 			"Fanjiayi",
 			"Kly",
@@ -35,7 +36,7 @@
 	"sesp-property-revisions-desc": "「$1」用來記錄頁面的修訂版本數量，此由 [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic 額外特殊屬性]擴充功能提供。",
 	"sesp-property-talk-revisions": "討論頁修訂數位",
 	"sesp-property-talk-revisions-desc": "「$1」用來記錄討論頁的修訂版本數量，此由 [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic 額外特殊屬性]擴充功能提供。",
-	"sesp-property-shorturl": "簡短的網址",
+	"sesp-property-shorturl": "短網址",
 	"sesp-property-shorturl-desc": "「$1」用來記錄頁面的所有短網址，此由 [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic 額外特殊屬性]擴充功能提供。",
 	"sesp-property-approved-rev": "已核准修訂",
 	"sesp-property-approved-rev-desc": "「$1」用來記錄已認可的頁面修訂版本 ID，此由 [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic 額外特殊屬性]擴充功能提供。",
