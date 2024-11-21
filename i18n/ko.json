@@ -45,8 +45,10 @@
 	"sesp-property-user-group": "사용자 그룹",
 	"sesp-property-user-group-desc": "\"$1\" 속성은 사용자에 적용된 그룹 목록을 기록하며 [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties 시맨틱 추가 특수 속성] 확장 기능에 의해 제공됩니다.",
 	"sesp-property-exif-data": "Exif 데이터",
+	"sesp-property-links-to": "링크 대상",
 	"sesp-exif-languagecode": "Exif:언어 코드",
 	"sesp-exif-label": "Exif:레이블",
 	"sesp-exif-iimcategory": "Exif:Iim 분류",
-	"sesp-admin-deprecation-notice-title-replacement": "치환되거나 이름이 변경된 설정"
+	"sesp-admin-deprecation-notice-title-replacement": "치환되거나 이름이 변경된 설정",
+	"sesp-config-links-to-enabled-namespaces": "'링크 대상' 속성에 대해 활성화된 이름공간 ID 목록입니다."
 }

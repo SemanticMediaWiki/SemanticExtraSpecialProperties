@@ -11,7 +11,8 @@
 			"Liuxinyu970226",
 			"Shirayuki",
 			"Simon Shek",
-			"Winston Sung"
+			"Winston Sung",
+			"列维劳德"
 		]
 	},
 	"sesp-desc": "加入一些額外特殊屬性於所有頁面",
@@ -68,6 +69,8 @@
 	"sesp-property-user-group-desc": "「$1」用來記錄套用到用戶的組列表， [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic 額外特殊屬性]擴充功能提供。",
 	"sesp-property-exif-data": "EXIF資料",
 	"sesp-property-exif-data-desc": "「$1」用來記錄檔案的 EXIF 資料，此由 [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic 額外特殊屬性]擴充功能提供。",
+	"sesp-property-links-to": "所連結頁面",
+	"sesp-property-links-to-desc": "「$1」清單會記錄目前頁面所連結至的頁面。",
 	"sesp-exif-languagecode": "Exif:語言代碼",
 	"sesp-exif-gpslatitude": "Exif：緯度",
 	"sesp-exif-gpslongitude": "Exif：經度",
@@ -84,5 +87,6 @@
 	"sesp-config-enabled-property-list": "指定啟用屬性",
 	"sesp-config-label-cache-version": "指定內部快取修改器",
 	"sesp-config-exclude-bot-edits": "在儲存特殊屬性的資料時，是否應忽略透過使用者群組「bot」裡的使用者帳號做出的編輯？",
-	"sesp-config-short-url-prefix": "與 ShortUrlUtils 連結使用"
+	"sesp-config-short-url-prefix": "與 ShortUrlUtils 連結使用",
+	"sesp-config-links-to-enabled-namespaces": "已啟用「所連結頁面」屬性的命名空間 ID 清單"
 }
