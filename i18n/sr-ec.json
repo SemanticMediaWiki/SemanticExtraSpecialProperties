@@ -3,10 +3,12 @@
 		"authors": [
 			"BadDog",
 			"Kizule",
+			"Milicevic01",
 			"Prevodim",
 			"Zoranzoki21"
 		]
 	},
+	"sesp-property-unknown-label": "Непознат назив или псеудоним",
 	"sesp-property-author": "Аутор странице",
 	"sesp-property-first-author": "Аутор странице",
 	"sesp-property-revision-id": "ID измене",
@@ -16,11 +18,14 @@
 	"sesp-property-revisions": "Број измена",
 	"sesp-property-shorturl": "Скраћени URL",
 	"sesp-property-approved-rev": "Одобрена измена",
+	"sesp-property-namespace-id": "ID именског простора",
 	"sesp-property-approved-by": "Одобрено од",
 	"sesp-property-approved-date": "Датум одобравања",
 	"sesp-property-approved-status": "Статус одобравања",
 	"sesp-property-user-registration-date": "Датум корисничке регистрације",
 	"sesp-property-user-edit-count": "Број корисничких измена",
+	"sesp-property-user-edit-count-ns": "Именски простор",
+	"sesp-property-user-edit-count-cnt": "Број измена",
 	"sesp-property-user-block": "Влокирање корисника",
 	"sesp-property-user-right": "Корисничко право",
 	"sesp-property-user-group": "Корисничка група"
