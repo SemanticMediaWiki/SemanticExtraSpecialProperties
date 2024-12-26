@@ -65,7 +65,7 @@
 	"sesp-property-user-group-desc": "{{Doc-smw-sp-desc|extension=SESP}}",
 	"sesp-property-exif-data": "{{Doc-smw-sp|extension=SESP}}",
 	"sesp-property-exif-data-desc": "{{Doc-smw-sp-desc|extension=SESP}}",
-	"sesp-property-links-to": "{{Doc-smw-sp-desc|extension=SESP}}",
+	"sesp-property-links-to": "<span style=\"color: red\">'''“Links” is a verb, as in “This page links to …”.'''</span>\n\n{{Doc-smw-sp-desc|extension=SESP}}",
 	"sesp-exif-languagecode": "This is the name of a special property.\n\nRelated to {{msg-mw|Exif-languagecode}}",
 	"sesp-exif-gpslatitude": "This is the name of a special property.\n\nRelated to {{msg-mw|Exif-gpslatitude}}",
 	"sesp-exif-gpslongitude": "This is the name of a special property.\n\nRelated to {{msg-mw|Exif-gpslongitude}}",

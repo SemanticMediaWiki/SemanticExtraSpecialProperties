@@ -69,7 +69,7 @@
 	"sesp-property-user-group-desc": "« $1 » enregistre une liste des groupes d’un utilisateur. Ceci est fourni par l’extension [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Propriétés sémantiques spéciales complémentaires].",
 	"sesp-property-exif-data": "Données Exif",
 	"sesp-property-exif-data-desc": "« $1 » enregistre les données EXIF du fichier. Ceci est fourni par l’extension [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Propriétés sémantiques spéciales complémentaires].",
-	"sesp-property-links-to": "Liens vers",
+	"sesp-property-links-to": "Pointe vers",
 	"sesp-property-links-to-desc": "« $1 » contient une liste de pages vers lesquelles la page actuelle renvoie.",
 	"sesp-exif-languagecode": "Exif:Code de langue",
 	"sesp-exif-gpslatitude": "Exif:Latitude",

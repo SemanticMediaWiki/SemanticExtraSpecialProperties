@@ -58,6 +58,8 @@
 	"sesp-property-user-group-desc": "\"$1\" registra un lista de gruppos applicate a un usator. Illo es fornite per le extension [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-exif-data": "Datos EXIF",
 	"sesp-property-exif-data-desc": "\"$1\" registra le datos EXIF del file. Es fornite per le extension [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
+	"sesp-property-links-to": "Liga a",
+	"sesp-property-links-to-desc": "“$1” registra un lista de paginas al quales le pagina actual contine ligamines.",
 	"sesp-exif-languagecode": "Exif:Codice de lingua",
 	"sesp-exif-gpslatitude": "Exif:Latitude",
 	"sesp-exif-gpslongitude": "Exif:Longitude",
@@ -74,5 +76,6 @@
 	"sesp-config-enabled-property-list": "Specifica le proprietates activate",
 	"sesp-config-label-cache-version": "Specifica un modificator de cache interne",
 	"sesp-config-exclude-bot-edits": "Debe le modificationes proveniente de contos de usator in le gruppo \"bot\" esser ignorate quando se immagazina datos pro le proprietates special?",
-	"sesp-config-short-url-prefix": "Usate in connexion con ShortUrlUtils"
+	"sesp-config-short-url-prefix": "Usate in connexion con ShortUrlUtils",
+	"sesp-config-links-to-enabled-namespaces": "Lista de IDs de spatio de nomines activate pro le proprietate “Liga a”."
 }
