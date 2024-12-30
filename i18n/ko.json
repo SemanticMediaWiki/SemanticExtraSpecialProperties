@@ -50,5 +50,9 @@
 	"sesp-exif-label": "Exif:레이블",
 	"sesp-exif-iimcategory": "Exif:Iim 분류",
 	"sesp-admin-deprecation-notice-title-replacement": "치환되거나 이름이 변경된 설정",
+	"sesp-config-local-definitions": "로컬 정의를 지정합니다",
+	"sesp-config-enabled-property-list": "활성화된 속성을 지정합니다",
+	"sesp-config-label-cache-version": "내부 캐시 수정자를 지정합니다",
+	"sesp-config-short-url-prefix": "ShortUrlUtils와 관련하여 사용됩니다",
 	"sesp-config-links-to-enabled-namespaces": "'링크 대상' 속성에 대해 활성화된 이름공간 ID 목록입니다."
 }

@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"A Chinese Wikipedian",
+			"Chimes",
 			"FakeGreenHand",
 			"Linforest",
 			"LittlePaw365",
@@ -69,6 +70,7 @@
 	"sesp-property-exif-data": "Exif数据",
 	"sesp-property-exif-data-desc": "“$1”记录文件的的EXIF数据。它由[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties 语义额外特殊属性]扩展提供。",
 	"sesp-property-links-to": "链接到",
+	"sesp-property-links-to-desc": "「$1」清单会记录目前页面所链接至的页面。",
 	"sesp-exif-languagecode": "Exif:语言代码",
 	"sesp-exif-gpslatitude": "Exif:纬度",
 	"sesp-exif-gpslongitude": "Exif:经度",
@@ -85,5 +87,6 @@
 	"sesp-config-enabled-property-list": "指定启用的属性",
 	"sesp-config-label-cache-version": "指定内部缓存修饰符",
 	"sesp-config-exclude-bot-edits": "储存特殊属性的数据时，是否应该忽略用户组“机器人”内用户账号的编辑。",
-	"sesp-config-short-url-prefix": "与ShortUrlUtils配合使用"
+	"sesp-config-short-url-prefix": "与ShortUrlUtils配合使用",
+	"sesp-config-links-to-enabled-namespaces": "已启用「所连接页面」属性的命名空间 ID 清单"
 }
