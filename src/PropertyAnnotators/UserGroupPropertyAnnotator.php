@@ -68,7 +68,8 @@ class UserGroupPropertyAnnotator implements PropertyAnnotator {
 			return;
 		}
 
-		foreach ( $user->getGroups() as $group ) {
+		$groups = MediaWikiServices::getInstance()->getUserGroupManager()->getUserGroups( $user );
+		foreach ( $groups as $group ) {
 			$semanticData->addPropertyObjectValue( $property, new DIBlob( $group ) );
 		}
 	}
