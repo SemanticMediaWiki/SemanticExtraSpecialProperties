@@ -2,6 +2,7 @@
 
 namespace SESP\PropertyAnnotators;
 
+use MediaWiki\MediaWikiServices;
 use SESP\AppFactory;
 use SESP\PropertyAnnotator;
 use SMW\DIProperty;
