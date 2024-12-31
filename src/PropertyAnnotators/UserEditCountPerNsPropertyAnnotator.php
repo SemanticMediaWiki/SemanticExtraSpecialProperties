@@ -117,25 +117,10 @@ class UserEditCountPerNsPropertyAnnotator implements PropertyAnnotator {
 		$db = $this->appFactory->getConnection();
 		$queryTables = [ 'revision', 'actor', 'page' ];
 
-		if ( version_compare( MW_VERSION, '1.39', '>=' ) ) {
-			$joinConditions = [
-				'page'	=> [ 'INNER JOIN', [ 'page_id=rev_page' ] ],
-				'actor'	=> [ 'INNER JOIN', [ 'actor_id=rev_actor' ] ]
-			];
-		} else {
-			$queryTables[] = 'revision_actor_temp';
-			$joinConditions = [
-				'page'					=> [ 'INNER JOIN', [
-					'page_id=rev_page'
-				] ],
-				'revision_actor_temp'	=> [ 'INNER JOIN', [
-					'revactor_rev=rev_id'
-				] ],
-				'actor'					=> [ 'INNER JOIN', [
-					'actor_id=revactor_actor'
-				] ]
-			];
-		}
+		$joinConditions = [
+			'page'	=> [ 'INNER JOIN', [ 'page_id=rev_page' ] ],
+			'actor'	=> [ 'INNER JOIN', [ 'actor_id=rev_actor' ] ]
+		];
 
 		$result = $db->select(
 		// FROM.
