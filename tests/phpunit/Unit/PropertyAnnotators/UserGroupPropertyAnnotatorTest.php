@@ -2,6 +2,7 @@
 
 namespace SESP\Tests\PropertyAnnotators;
 
+use MediaWiki\User\UserGroupManager;
 use SESP\PropertyAnnotators\UserGroupPropertyAnnotator;
 use SMW\DIProperty;
 
@@ -54,7 +55,8 @@ class UserGroupPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$user->expects( $this->once() )
+		$userGroupManager = $this->createMock( UserGroupManager::class );
+		$userGroupManager->expects( $this->once() )
 			->method( 'getGroups' )
 			->willReturn( $groups );
 
