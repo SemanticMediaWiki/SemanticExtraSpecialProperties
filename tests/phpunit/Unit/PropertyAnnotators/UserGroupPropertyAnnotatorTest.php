@@ -57,7 +57,7 @@ class UserGroupPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 		$userGroupManager = $this->createMock( UserGroupManager::class );
 		$userGroupManager->expects( $this->once() )
-			->method( 'getGroups' )
+			->method( 'getUserGroups' )
 			->willReturn( $groups );
 
 		$this->appFactory->expects( $this->once() )
