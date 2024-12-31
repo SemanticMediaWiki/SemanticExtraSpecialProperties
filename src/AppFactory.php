@@ -168,13 +168,8 @@ class AppFactory implements LoggerAwareInterface {
 			);
 		}
 
-		// Pre 1.36
 		$services = MediaWikiServices::getInstance();
-		if ( !method_exists( $services, 'getWikiPageFactory' ) ) {
-			return WikiPage::factory( $title );
-		} else {
-			return $services->getWikiPageFactory()->newFromTitle( $title );
-		}
+		return $services->getWikiPageFactory()->newFromTitle( $title );
 	}
 
 	/**
