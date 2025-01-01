@@ -2,6 +2,7 @@
 
 namespace SESP\Tests\PropertyAnnotators;
 
+use MediaWiki\MediaWikiServices;
 use SESP\PropertyAnnotators\UserGroupPropertyAnnotator;
 use SMW\DIProperty;
 
