@@ -2,9 +2,10 @@
 
 namespace SESP\Tests\PropertyAnnotators;
 
-use MediaWiki\User\UserGroupManager;
 use SESP\PropertyAnnotators\UserGroupPropertyAnnotator;
 use SMW\DIProperty;
+
+// use MediaWiki\User\UserGroupManager;
 
 /**
  * @covers \SESP\PropertyAnnotators\UserGroupPropertyAnnotator
