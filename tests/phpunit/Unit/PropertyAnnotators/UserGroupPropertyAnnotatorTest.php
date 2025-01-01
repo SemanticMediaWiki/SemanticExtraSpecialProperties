@@ -55,10 +55,18 @@ class UserGroupPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$userGroupManager = $this->createMock( UserGroupManager::class );
-		$userGroupManager
-			->method( 'getUserGroups' )
-			->willReturn( $groups );
+		// We can't mock this as we call this directly in addAnnotation so not
+		// reachable to mock.
+		foreach ( $groups as $group ) {
+			MediaWikiServices::getInstance()
+				->getUserGroupManager()
+				->addUserToGroup( $user, $group );
+		}
+
+		// $userGroupManager = $this->createMock( UserGroupManager::class );
+		// $userGroupManager
+		// ->method( 'getUserGroups' )
+		// ->willReturn( $groups );
 
 		$this->appFactory->expects( $this->once() )
 			->method( 'newUserFromTitle' )
