@@ -2,6 +2,7 @@
 
 namespace SESP\PropertyAnnotators;
 
+use MediaWiki\MediaWikiServices;
 use SESP\AppFactory;
 use SESP\PropertyAnnotator;
 use SMW\DIProperty;
@@ -68,7 +69,8 @@ class UserGroupPropertyAnnotator implements PropertyAnnotator {
 			return;
 		}
 
-		foreach ( $user->getGroups() as $group ) {
+		$groups = MediaWikiServices::getInstance()->getUserGroupManager()->getUserGroups( $user );
+		foreach ( $groups as $group ) {
 			$semanticData->addPropertyObjectValue( $property, new DIBlob( $group ) );
 		}
 	}
