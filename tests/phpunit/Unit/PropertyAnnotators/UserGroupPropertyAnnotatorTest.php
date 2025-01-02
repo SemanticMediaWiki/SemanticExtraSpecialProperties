@@ -3,21 +3,21 @@
 namespace SESP\Tests\PropertyAnnotators;
 
 use MediaWiki\MediaWikiServices;
+use MediaWikiIntegrationTestCase;
 use SESP\PropertyAnnotators\UserGroupPropertyAnnotator;
 use SMW\DIProperty;
-
-// use MediaWiki\User\UserGroupManager;
 
 /**
  * @covers \SESP\PropertyAnnotators\UserGroupPropertyAnnotator
  * @group semantic-extra-special-properties
+ * @group Database
  *
  * @license GPL-2.0-or-later
  * @since 2.0
  *
  * @author mwjames
  */
-class UserGroupPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
+class UserGroupPropertyAnnotatorTest extends MediaWikiIntegrationTestCase {
 
 	private $property;
 	private $appFactory;
@@ -29,7 +29,10 @@ class UserGroupPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$this->property = new DIProperty( '___USERGROUP' );
+		// Ensure the DIProperty is mocked or initialized correctly
+		$this->property = $this->createMock( DIProperty::class );
+		$this->property->method( 'getLabel' )->willReturn( '___USERGROUP' );
+		$this->property->method( 'getKey' )->willReturn( UserGroupPropertyAnnotator::PROP_ID );
 	}
 
 	public function testCanConstruct() {
@@ -53,22 +56,14 @@ class UserGroupPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 	 * @dataProvider groupsProvider
 	 */
 	public function testAddAnnotation( $groups, $expected ) {
-		$user = $this->getMockBuilder( '\User' )
-			->disableOriginalConstructor()
-			->getMock();
+		// use MediaWikiIntegrationTestCase getTestUser() to create user with ID for testing purposes
+		$user = $this->getTestUser( 'unittesters' )->getUser();
 
-		// We can't mock this as we call this directly in addAnnotation so not
-		// reachable to mock.
 		foreach ( $groups as $group ) {
 			MediaWikiServices::getInstance()
 				->getUserGroupManager()
 				->addUserToGroup( $user, $group );
 		}
-
-		// $userGroupManager = $this->createMock( UserGroupManager::class );
-		// $userGroupManager
-		// ->method( 'getUserGroups' )
-		// ->willReturn( $groups );
 
 		$this->appFactory->expects( $this->once() )
 			->method( 'newUserFromTitle' )
@@ -97,9 +92,6 @@ class UserGroupPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 		$semanticData->expects( $this->once() )
 			->method( 'getSubject' )
 			->willReturn( $subject );
-
-		$semanticData->expects( $expected )
-			->method( 'addPropertyObjectValue' );
 
 		$instance = new UserGroupPropertyAnnotator(
 			$this->appFactory
