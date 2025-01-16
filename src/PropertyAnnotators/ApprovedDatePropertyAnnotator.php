@@ -63,8 +63,13 @@ class ApprovedDatePropertyAnnotator implements PropertyAnnotator {
 			// ApprovedRevs does not provide a function to get the approval date,
 			// so fetch it here from the ApprovedRevs table
 			$pageID = $semanticData->getSubject()->getTitle()->getArticleID();
-			$dbr = wfGetDB( DB_REPLICA );
-			$approval_date = $dbr->selectField( 'approved_revs', 'approval_date', [ 'page_id' => $pageID ] );
+			$dbr = $this->appFactory->getConnection();
+			if ( $dbr ) {
+				$approval_date = $dbr->selectField( 'approved_revs', 'approval_date', [ 'page_id' => $pageID ] );
+			} else {
+				// Handle the error appropriately, e.g., log an error or throw an exception
+				throw new \RuntimeException( 'Database connection failed.' );
+			}
 
 			if ( $approval_date ) {
 				$this->approvedDate = new MWTimestamp( wfTimestamp( TS_MW, $approval_date ) );
