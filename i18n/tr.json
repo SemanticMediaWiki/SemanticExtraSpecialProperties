@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"BaRaN6161 TURK",
+			"Brightt11",
 			"Can",
 			"Hedda",
 			"Joseph",
@@ -44,6 +45,7 @@
 	"sesp-property-user-registration-date-desc": "\"$1\" kullanıcının kayıt tarihini kaydeder. [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Ekstra Özel Özellikler] uzantısı tarafından sağlanır.",
 	"sesp-property-user-edit-count": "Kullanıcı düzenleme sayısı",
 	"sesp-property-user-edit-count-desc": "\"$1\" kullanıcının düzenleme sayısını kaydeder. [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Ekstra Özel Özellikler] uzantısı tarafından sağlanır.",
+	"sesp-property-user-edit-count-ns": "Ad alanı",
 	"sesp-property-user-block": "Kullanıcı engeli",
 	"sesp-property-user-block-desc": "\"$1\" bir kullanıcıya uygulanan blokların bir listesini kaydeder. [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Ekstra Özel Özellikler] uzantısı tarafından sağlanır.",
 	"sesp-property-user-right": "Kullanıcı hakları",
