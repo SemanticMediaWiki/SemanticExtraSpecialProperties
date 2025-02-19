@@ -8,7 +8,7 @@ use SESP\AppFactory;
 use SESP\PropertyAnnotator;
 use SMW\DIProperty;
 use SMW\SemanticData;
-use SMWDIString as DIString;
+use SMWDIBlob as DIString;
 
 /**
  * @private
