@@ -4,7 +4,7 @@ namespace SESP\Tests\PropertyAnnotators;
 
 use SESP\PropertyAnnotators\ApprovedStatusPropertyAnnotator;
 use SMW\DIProperty;
-use SMWDIString as DIString;
+use SMWDIBlob as DIString;
 
 /**
  * @covers \SESP\PropertyAnnotators\ApprovedStatusPropertyAnnotator
