@@ -4,10 +4,10 @@ namespace SESP\PropertyAnnotators;
 
 use SESP\AppFactory;
 use SESP\PropertyAnnotator;
+use SMW\DataModel\ContainerSemanticData;
 use SMW\DIProperty;
 use SMW\DIWikiPage;
 use SMW\SemanticData;
-use SMW\DataModel\ContainerSemanticData;
 use SMWDataItem as DataItem;
 use SMWDIContainer as DIContainer;
 use SMWDINumber as DINumber;
