@@ -8,7 +8,7 @@ use SESP\PropertyAnnotator;
 use SMW\DIProperty;
 use SMW\DIWikiPage;
 use SMW\SemanticData;
-use SMWContainerSemanticData as ContainerSemanticData;
+use SMW\DataModel\ContainerSemanticData as ContainerSemanticData;
 use SMWDataItem as DataItem;
 use SMWDIBlob as DIBlob;
 use SMWDIContainer as DIContainer;
