@@ -4,7 +4,7 @@ namespace SESP;
 
 use Onoi\Cache\Cache;
 use Onoi\Cache\NullCache;
-use SMW\Message;
+use SMW\Localizer\Message;
 
 /**
  * @ingroup SESP
