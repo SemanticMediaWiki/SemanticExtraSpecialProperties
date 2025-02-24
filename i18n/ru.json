@@ -16,6 +16,7 @@
 			"Stjn",
 			"Vlad5250",
 			"Wirbel78",
+			"Yurina Tatiana",
 			"Аль-Гимравий"
 		]
 	},
@@ -58,6 +59,7 @@
 	"sesp-property-user-group": "Группа участника",
 	"sesp-property-user-group-desc": "«$1» определяет список групп, применяемых к пользователю. Предоставляется расширением [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-exif-data": "Данные EXIF",
+	"sesp-property-links-to": "Ссылается на",
 	"sesp-exif-languagecode": "Exif:Код языка",
 	"sesp-exif-label": "Exif:Метка",
 	"sesp-exif-iimcategory": "Exif:Iim-категория",
