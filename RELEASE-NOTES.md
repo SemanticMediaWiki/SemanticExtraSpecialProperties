@@ -1,5 +1,20 @@
 This file contains the RELEASE-NOTES of the **Semantic Extra Special Properties** (a.k.a. SESP) extension.
 
+### 4.0.0
+
+Not yet released.
+
+* New minumum required versions:
+  * MediaWiki 1.39
+  * PHP 8.1
+* Support for newer MediaWiki versions
+* Support for newer Semantic MediaWiki versions
+* Improved testing and CI
+* fix (Links to): incorrect definition for _LINKSTO (#247)
+* feat: add LinksTOPropertyAnnotator (#216)
+* chg: update the underlying schema for SMW 3.2. (#150)
+* chg: Remove creation of dynamic property (#225)
+
 ### 3.0.5
 
 Released on December 26, 2023.
