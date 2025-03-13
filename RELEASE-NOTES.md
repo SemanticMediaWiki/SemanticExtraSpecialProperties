@@ -2,7 +2,7 @@ This file contains the RELEASE-NOTES of the **Semantic Extra Special Properties*
 
 ### 4.0.0
 
-Not yet released.
+Released on 2025-03-13.
 
 * New minumum required versions:
   * MediaWiki 1.39
@@ -17,13 +17,13 @@ Not yet released.
 
 ### 3.0.5
 
-Released on December 26, 2023.
+Released on 2023-12-26.
 
 * Fixed PHP 8.1 deprecation warning in `PropertyDefinitions::getIterator`
 
 ### 3.0.4
 
-Released on April 8, 2023.
+Released on 2023-04-08.
 
 * replace deprecated `SMWStore::updateDataBefore` hook with `SMW::Store::BeforeDataUpdateComplete` (gesinn-it-gea)
 * added handler for ApprovedRevsRevisionApproved and ApprovedRevsRevisionUnapproved to update the cache (gesinn-it-gea)
@@ -33,7 +33,7 @@ Released on April 8, 2023.
 
 ### 3.0.3
 
-Released on March 20, 2023.
+Released on 2023-03-20.
 
 * #209 Allow approval status to be set to 'approved' (gesinn-it-wam)
 * #208 Allow `_APPROVEDDATE` property to be enabled (gesinn-it-wam)
@@ -41,7 +41,7 @@ Released on March 20, 2023.
 
 ### 3.0.2
 
-Released on March 8, 2023.
+Released on 2023-03-08.
 
 * Improved MediaWiki 1.39 compatibility
   * Replace usage of `User::getRights` (thanks Hamish Slater)
@@ -49,13 +49,13 @@ Released on March 8, 2023.
 
 ### 3.0.1
 
-Released on January 26, 2022.
+Released on 2022-01-26.
 
 * Fixed Semantic MediaWiki 4.x compatibility issue (thanks Jeroen De Dauw)
 
 ### 3.0.0
 
-Released on January 25, 2022.
+Released on 2022-01-25.
 
 * Minimum PHP version changed from 7.0 to 7.3
 * Minimum MediaWiki version changed from 1.31 to 1.35
@@ -65,7 +65,7 @@ Released on January 25, 2022.
 
 ### 2.1.0
 
-Released on February 9, 2020.
+Released on 2020-02-09.
 
 * Minimum requirement for
   * PHP changed to version 7.0
@@ -81,7 +81,7 @@ Released on February 9, 2020.
 
 ### 2.0.0
 
-Released on October 12, 2018.
+Released on 2018-10-12.
 
 This release now requires MediaWiki 1.27+ and Semantic MediaWiki 3.0+ (#100).
 
@@ -108,14 +108,14 @@ inform about required configuration changes.
 
 ### 1.5.0
 
-Released on June 7, 2017.
+Released on 2017-06-07.
 
 * #74 Added `_PAGELGTH` for page length (size in bytes) collection on pages (by James Hong Kong)
 * Localization updates from https://translatewiki.net
 
 ### 1.4.0
 
-Released on January 22, 2017.
+Released on 2017-01-22.
 
 This release now requires MediaWiki 1.25+ and Semantic MediaWiki 2.3+ (#61).
 
@@ -132,45 +132,45 @@ This release now requires MediaWiki 1.25+ and Semantic MediaWiki 2.3+ (#61).
 
 ### 1.3.1
 
-Released on July 18, 2015.
+Released on 2015-07-18.
 
 - #50 Fixed error with `_USEREDITCNT` on subpages in namespace "user"
 
 ### 1.3.0
 
-Released on May 9, 2015.
+Released on 2015-05-09.
 
 - #43 Added `_USEREDITCNT` for user edit count collection on user pages
 
 ### 1.2.2
 
-Released on December 31, 2014.
+Released on 2014-12-31.
 
 - #42 Fixed fatal during `importDump` for when a file doesn't exist
 
 ### 1.2.1
 
-Released on July 21, 2014.
+Released on 2014-07-21.
 
 - Added compatibility with Semantic MediaWiki 2.x
 
 ### 1.2.0
 
-Released on April 23, 2014.
+Released on 2014-04-23.
 
 - #25 Added MessageCache to improve registration and lookup performance
 - #33 Added DefinitionReader to separate responsibilities
 
 ### 1.1.0
 
-Released on April 9, 2014.
+Released on 2014-04-09.
 
 - #31 Fixed error when a User page is created with a subpage
 - #32 Migrate to JSON i18n
 
 ### 1.0.0
 
-Released on February 23, 2014.
+Released on 2014-02-23.
 
 Version 1.0 is a complete rewrite of the existing implementation to allow sufficient test integration which made it necessary
 to split the original file into different classes (force encapsulation), eliminate GLOBALS (where necessary inject
@@ -202,28 +202,28 @@ For details about the rewrite, its discussion, and changes see #10.
 
 ### 0.2.7
 
-Released on October 22, 2012.
+Released on 2012-10-22.
 
 - Requires MediaWiki 1.20
 - Use WikiPage instead of Article
 
 ### 0.2.6
 
-Released on October 5, 2012.
+Released on 2012-10-05.
 
 - Fixed bug sometimes causing a crash on pagesave on MW 1.20+
 - Added `_USERREG` special property
 
 ### 0.2.5
 
-Released on August 1, 2012.
+Released on 2012-08-01.
 
 - Bugfixes
 - Error message fixes by Nischayn22
 
 ### 0.2.4
 
-Released on July 28, 2012.
+Released on 2012-07-28.
 
 - Requires MediaWiki 1.19
 - Added some image meta data (exif) properties
@@ -231,7 +231,7 @@ Released on July 28, 2012.
 
 ### 0.2.3
 
-Released on May 10, 2012.
+Released on 2012-05-10.
 
 - Added `_SHORTURL` special property
 - Translation updates, German
@@ -239,21 +239,21 @@ Released on May 10, 2012.
 
 ### 0.2.2
 
-Released on February 9, 2012.
+Released on 2012-02-09.
 
 - $smwgPageSpecialProperties replaced by `$sespSpecialProperties`
 - Added `_MIMETYPE` (mime type, mediatype) special property
 
 ### 0.2.1
 
-Released on January 8, 2012.
+Released on 2012-01-08.
 
 - German translation by Kghbln
 - Better method to fetch list of `_EUSER` (getContributors and getUser, instead of getLastNAuthors. Anonymous users will never be listed)
 
 ### 0.2.0
 
-Released on January 4, 2012.
+Released on 2012-01-04.
 
 - Only tested with SMW 1.7 and MW 1.18.
 - Changed name for `_EUSER` and `_CUSER` props in both English and Swedish, article ###> page for clarity.
