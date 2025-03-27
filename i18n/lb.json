@@ -26,6 +26,9 @@
 	"sesp-property-user-group": "Benotzergrupp",
 	"sesp-property-exif-data": "Exif-Donnéeën",
 	"sesp-exif-languagecode": "Exif:Sproochecode",
+	"sesp-exif-gpslatitude": "Exif:Breedegrad",
+	"sesp-exif-gpslongitude": "Exif:Längegrad",
+	"sesp-exif-gpsaltitude": "Exif:Héicht",
 	"sesp-exif-label": "Exif:Etikett",
 	"sesp-exif-iimcategory": "Exif:IIM-Kategorie"
 }
