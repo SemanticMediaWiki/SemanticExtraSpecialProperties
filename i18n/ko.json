@@ -5,6 +5,7 @@
 			"Jerrykim306",
 			"Nuevo Paso",
 			"Priviet",
+			"Tensama0415",
 			"Ykhwong"
 		]
 	},
@@ -47,6 +48,9 @@
 	"sesp-property-exif-data": "Exif 데이터",
 	"sesp-property-links-to": "링크 대상",
 	"sesp-exif-languagecode": "Exif:언어 코드",
+	"sesp-exif-gpslatitude": "Exif:위도",
+	"sesp-exif-gpslongitude": "Exif:경도",
+	"sesp-exif-gpsaltitude": "Exif:고도",
 	"sesp-exif-label": "Exif:레이블",
 	"sesp-exif-iimcategory": "Exif:Iim 분류",
 	"sesp-admin-deprecation-notice-title-replacement": "치환되거나 이름이 변경된 설정",
