@@ -78,16 +78,15 @@ class LinksToPropertyAnnotator implements PropertyAnnotator {
 			return;
 		}
 
-		$where = sprintf(
-			'pl.pl_from = %s AND pl.pl_title != %s',
-			$page->getArticleID(),
-			$con->addQuotes( $page->getDBkey() )
-		);
+		$where = [];
+		$where[] = sprintf( 'pl.pl_from = %s', $page->getArticleID() );
+		$where[] = sprintf( 'pl.pl_title != %s', $con->addQuotes( $page->getDBkey() ) );
+		$where[] = sprintf( 'pl.pl_namespace IN (%s)', implode(',', $this->enabledNamespaces ) );
 
 		$res = $con->select(
 			[ 'pl' => 'pagelinks', 'page' ],
 			[ 'sel_title' => 'pl.pl_title', 'sel_ns' => 'pl.pl_namespace' ],
-			[ $where ],
+			$where,
 			__METHOD__,
 			[ 'DISTINCT' ],
 			[ 'page' => [ 'JOIN', 'page_id=pl_from' ] ]
