@@ -10,9 +10,9 @@ adds some extra [special properties].
 
 ## Requirements
 
-- PHP 7.3 or later
-- MediaWiki 1.35 or later, tested up to MediaWiki 1.39
-- Semantic MediaWiki 3.1 or later, tested up to SMW 4.1
+- PHP 8.1 or later
+- MediaWiki 1.39 or later, tested up to MediaWiki 1.43
+- Semantic MediaWiki 5.0 or later, tested up to SMW 5.0.1
 
 
 ## Installation
@@ -31,7 +31,7 @@ create one and add the following content to it:
 ```
 {
 	"require": {
-		"mediawiki/semantic-extra-special-properties": "~3.0"
+		"mediawiki/semantic-extra-special-properties": "~4.0"
 	}
 }
 ```
@@ -39,7 +39,7 @@ create one and add the following content to it:
 If you already have a "composer.local.json" file, add the following line to the end of the "require"
 section in your file:
 
-    "mediawiki/semantic-extra-special-properties": "~3.0"
+    "mediawiki/semantic-extra-special-properties": "~4.0"
 
 Remember to add a comma to the end of the preceding line in this section.
 
