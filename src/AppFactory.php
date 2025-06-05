@@ -53,7 +53,7 @@ class AppFactory implements LoggerAwareInterface {
 	 * @param array $options
 	 * @param Cache|null $cache
 	 */
-	public function __construct( array $options = [], Cache $cache = null ) {
+	public function __construct( array $options = [], ?Cache $cache = null ) {
 		$this->options = $options;
 		$this->cache = $cache;
 	}
@@ -205,7 +205,7 @@ class AppFactory implements LoggerAwareInterface {
 	 * @param string $type which log entries to get (default: approval)
 	 * @return DatabaseLogReader
 	 */
-	public function newDatabaseLogReader( Title $title = null, $type = 'approval' ) {
+	public function newDatabaseLogReader( ?Title $title = null, $type = 'approval' ) {
 		return new DatabaseLogReader( $this->getConnection(), $title, $type );
 	}
 }
