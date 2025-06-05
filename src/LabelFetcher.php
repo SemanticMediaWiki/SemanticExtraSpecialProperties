@@ -42,7 +42,7 @@ class LabelFetcher {
 	 * @param Cache|null $cache
 	 * @param string $languageCode
 	 */
-	public function __construct( Cache $cache = null, $languageCode = 'en' ) {
+	public function __construct( ?Cache $cache = null, $languageCode = 'en' ) {
 		$this->cache = $cache;
 		$this->languageCode = $languageCode;
 
