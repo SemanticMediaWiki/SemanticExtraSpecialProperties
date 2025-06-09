@@ -44,6 +44,7 @@
 	"sesp-property-user-group": "مجموعة المستخدم",
 	"sesp-property-user-group-desc": "يوفر \"$1\" قائمة المجموعات التي تم تطبيقها على مستخدم ويتم توفيرها من خلال الامتداد [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties خصائص إضافية خاصة دلالية].",
 	"sesp-property-exif-data": "بيانات Exif",
+	"sesp-property-links-to": "روابط إلى",
 	"sesp-exif-languagecode": "Exif:كود لغة",
 	"sesp-exif-label": "Exif:تسمية",
 	"sesp-exif-iimcategory": "Exif:Iim تصنيف",
