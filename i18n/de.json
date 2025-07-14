@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"*surak*",
 			"Ameisenigel",
 			"Brettchenweber",
 			"Druesenfieber",
@@ -65,6 +66,8 @@
 	"sesp-property-user-group-desc": "„$1“ speichert eine Liste mit auf einen Benutzer angewandten Gruppen. Diese wird von der Erweiterung [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties] zur Verfügung gestellt.",
 	"sesp-property-exif-data": "Exif-Daten",
 	"sesp-property-exif-data-desc": "„$1“ speichert die EXIF Daten der Datei und wird von der Erweiterung [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties] zur Verfügung gestellt.",
+	"sesp-property-links-to": "Verknüpfung mit",
+	"sesp-property-links-to-desc": "\"$1\" enthält eine Liste der Seiten, auf die die aktuelle Seite verlinkt ist.",
 	"sesp-exif-languagecode": "Exif:Sprachcode",
 	"sesp-exif-gpslatitude": "Exif:Breitengrad",
 	"sesp-exif-gpslongitude": "Exif:Längengrad",
@@ -81,5 +84,6 @@
 	"sesp-config-enabled-property-list": "Gibt die aktivierten Spezialattribute an",
 	"sesp-config-label-cache-version": "Gibt einen internen Cache-Modifikator an",
 	"sesp-config-exclude-bot-edits": "Sollen Änderungen über Benutzerkonten in der Benutzergruppe „bot“ beim Speichern von Daten für die speziellen Eigenschaften ignoriert werden?",
-	"sesp-config-short-url-prefix": "Wird in Verbindung mit ShortUrlUtils verwendet"
+	"sesp-config-short-url-prefix": "Wird in Verbindung mit ShortUrlUtils verwendet",
+	"sesp-config-links-to-enabled-namespaces": "Liste der Namespace-IDs, die für die Eigenschaft „Verknüpfung mit“ aktiviert sind."
 }
