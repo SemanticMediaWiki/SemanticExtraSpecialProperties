@@ -21,6 +21,7 @@
 	"sesp-property-approved-rev": "Бакъйина верси",
 	"sesp-property-approved-rev-desc": "\"$1\" билгалйоккху тӀечӀагӀйинчу агӀонан версин ID. Аьтто луш бу [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties] шордаран гӀоьнца.",
 	"sesp-property-namespace-id": "ЦӀерийн меттиган ID",
+	"sesp-property-namespace-name": "ЦӀерийн меттиган канонин цӀе",
 	"sesp-property-approved-by": "Магийна",
 	"sesp-property-approved-by-desc": "\"$1\" билгалвоккху(йоккху) агӀо тӀечӀагӀйаран статус хӀоттина декъашхо. Аьтто луш бу шордаро [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-approved-date": "ТӀечӀагӀйина хан",
@@ -53,5 +54,6 @@
 	"sesp-admin-deprecation-notice-section": "Шордар «Semantic Extra Special Properties»",
 	"sesp-admin-deprecation-notice-title-replacement": "Хийцина йа цӀе хийцина нисдаран гӀирс",
 	"sesp-admin-deprecation-notice-title-replacement-explanation": "ХӀокху декъехь бу цӀераш хийцина йа кхечу кепара хийцина нисдаран гӀирс, цундела тӀедуьллу церан цӀераш йа формат карлайаккхар.",
-	"sesp-admin-deprecation-notice-config-replacement": "<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$1 $1]</code> хийцина → <code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$2 $2]</code>"
+	"sesp-admin-deprecation-notice-config-replacement": "<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$1 $1]</code> хийцина → <code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$2 $2]</code>",
+	"sesp-config-local-definitions": "Локалан билгалдаккхар гойту"
 }
