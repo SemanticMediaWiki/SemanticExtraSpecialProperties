@@ -63,6 +63,7 @@
 	"sesp-property-user-group-desc": "\"$1\" registra uma lista dos grupos aplicados a um usuário, é fornecida pela extensão [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-exif-data": "Dados Exif",
 	"sesp-property-exif-data-desc": "\"$1\" registra os dados EXIF do arquivo, é fornecida pela extensão [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
+	"sesp-property-links-to": "Links para",
 	"sesp-exif-languagecode": "Exif: código de idioma",
 	"sesp-exif-label": "Exif:Etiqueta",
 	"sesp-exif-iimcategory": "Exif:Categoria Iim",
