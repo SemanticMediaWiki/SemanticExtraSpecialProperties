@@ -70,5 +70,9 @@
 	"sesp-admin-deprecation-notice-title-replacement": "Хийцина йа цӀе хийцина нисдаран гӀирс",
 	"sesp-admin-deprecation-notice-title-replacement-explanation": "ХӀокху декъехь бу цӀераш хийцина йа кхечу кепара хийцина нисдаран гӀирс, цундела тӀедуьллу церан цӀераш йа формат карлайаккхар.",
 	"sesp-admin-deprecation-notice-config-replacement": "<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$1 $1]</code> хийцина → <code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$2 $2]</code>",
-	"sesp-config-local-definitions": "Локалан билгалдаккхар гойту"
+	"sesp-config-uses-fixed-tables": "Хаамашна тӀекхачаран Ӏалашонца дӀахӀоттийна билгалйаьхна санна башхаллаш хӀиттор",
+	"sesp-config-definitions-file": "Долахьдерг долу меттиг билгалйаккхар",
+	"sesp-config-local-definitions": "Локалан билгалдаккхар гойту",
+	"sesp-config-enabled-property-list": "Билгалйоху дӀахӀоттийна башхаллаш",
+	"sesp-config-label-cache-version": "Чоьхьара кэшан модификатор билгалйоккху"
 }
