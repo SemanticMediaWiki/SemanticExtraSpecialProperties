@@ -3,10 +3,12 @@
 		"authors": [
 			"Ngoxuannguyenchuong",
 			"Nguyễn Mạnh An",
+			"Nvdtn19",
 			"Skye Darcy"
 		]
 	},
 	"sesp-property-page-id": "Mã số trang",
+	"sesp-property-subpages": "Trang con",
 	"sesp-property-user-edit-count-ns": "Không gian tên",
 	"sesp-exif-gpslatitude": "Exif:Vĩ độ",
 	"sesp-exif-gpslongitude": "Exif:Kinh độ",
