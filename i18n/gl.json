@@ -37,6 +37,6 @@
 	"sesp-exif-label": "Exif:Etiqueta",
 	"sesp-exif-iimcategory": "Exif:Categoría Iim",
 	"sesp-admin-deprecation-notice-title-replacement": "Opcións substituídas ou renomeadas",
-	"sesp-admin-deprecation-notice-title-replacement-explanation": "A sección seguinte contén parámetros que foron renomeados ou recibiron cambios doutro tipo e recoméndase que se actualice inmediatamente o seu nome ou o seu formato.",
+	"sesp-admin-deprecation-notice-title-replacement-explanation": "A sección seguinte contén os parámetros que foron renomeados ou modificados e cuxos nomes ou formatos é recomendable actualizar de inmediato.",
 	"sesp-admin-deprecation-notice-config-replacement": "<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$1 $1]</code> foi substituída por <code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$2 $2]</code>"
 }
