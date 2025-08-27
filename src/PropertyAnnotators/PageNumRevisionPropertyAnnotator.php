@@ -75,7 +75,8 @@ class PageNumRevisionPropertyAnnotator implements PropertyAnnotator {
 		return $this->appFactory->getConnection()->estimateRowCount(
 			"revision",
 			"*",
-			[ "rev_page" => $pageId ]
+			[ "rev_page" => $pageId ],
+			__METHOD__
 		);
 	}
 
