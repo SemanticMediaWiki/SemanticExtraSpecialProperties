@@ -33,7 +33,7 @@ jobs:
             coverage: true
             experimental: false
           - mediawiki_version: '1.41'
-            smw_version: dev-master
+            smw_version: 5.1.0
             approved_revs_version: master
             php_version: 8.1
             database_type: mysql
@@ -41,7 +41,7 @@ jobs:
             coverage: false
             experimental: false
           - mediawiki_version: '1.42'
-            smw_version: dev-master
+            smw_version: 5.1.0
             approved_revs_version: master
             php_version: 8.2
             database_type: mysql
