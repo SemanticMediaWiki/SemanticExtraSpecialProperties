@@ -75,5 +75,7 @@
 	"sesp-config-local-definitions": "Локалан билгалдаккхар гойту",
 	"sesp-config-enabled-property-list": "Билгалйоху дӀахӀоттийна башхаллаш",
 	"sesp-config-label-cache-version": "Чоьхьара кэшан модификатор билгалйоккху",
-	"sesp-config-exclude-bot-edits": "\"bot\" тобанехь декъашхойн аккаунташкахула хийцамаш тидаме эца бези леррина башхаллашна лерина хаамаш Ӏалашбеш?"
+	"sesp-config-exclude-bot-edits": "\"bot\" тобанехь декъашхойн аккаунташкахула хийцамаш тидаме эца бези леррина башхаллашна лерина хаамаш Ӏалашбеш?",
+	"sesp-config-short-url-prefix": "ShortUrlUtils -ца цхьана лелайо",
+	"sesp-config-links-to-enabled-namespaces": "ЦӀерийн меттиган идентификаторийн могӀам, уьш дӀахӀиттийна ду «Хьажоргаш» башхаллашна."
 }
