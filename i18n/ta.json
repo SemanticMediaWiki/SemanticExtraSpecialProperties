@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"ElangoRamanujam",
 			"Shanmugamp7",
 			"மதனாஹரன்"
 		]
@@ -13,5 +14,6 @@
 	"sesp-property-talk-revisions": "பேச்சுப் பக்க திருத்தங்களின் எண்ணிக்கை",
 	"sesp-property-shorturl": "குறுந்தொடுப்பு",
 	"sesp-property-user-registration-date": "பயனர் பதிவுசெய்த நாள்",
-	"sesp-property-user-edit-count": "பயனர் தொகுப்பு எண்ணிக்கை"
+	"sesp-property-user-edit-count": "பயனர் தொகுப்பு எண்ணிக்கை",
+	"sesp-property-user-group": "பயனர் குழு"
 }
