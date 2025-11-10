@@ -1,12 +1,20 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ahmed-Najib-Biabani-Ibrahimkhel"
+			"Ahmed-Najib-Biabani-Ibrahimkhel",
+			"شاه زمان پټان"
 		]
 	},
 	"sesp-property-author": "د مخ ليکوال",
 	"sesp-property-first-author": "مخ جوړونکی",
+	"sesp-property-revision-id": "بياليدنې پېژند",
+	"sesp-property-page-id": "د مخ پېژند",
+	"sesp-property-page-len": "د مخ اوږدوالی",
+	"sesp-property-page-img": "د مخ انځور",
+	"sesp-property-view-count": "د مخليدنو شمېر",
 	"sesp-property-subpages": "څېرمه مخ",
+	"sesp-property-revisions": "د بياليدنو شمېر",
+	"sesp-property-talk-revisions": "د خبرو اترو مخونو د بياليدنو شمېر",
 	"sesp-property-shorturl": "لنډ يو آر ال",
 	"sesp-property-user-registration-date": "د کارن نومليکنې نېټه"
 }
