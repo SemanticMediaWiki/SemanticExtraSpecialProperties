@@ -3,13 +3,14 @@
 		"authors": [
 			"Nerogaf",
 			"Red Winged Duck",
-			"Renessaince"
+			"Renessaince",
+			"Ucukor"
 		]
 	},
 	"sesp-desc": "Дадае некаторыя дадатковыя спэцыяльныя ўласьцівасьці да ўсіх старонак",
 	"sesp-property-unknown-label": "Невядомая метка ці псэўданім",
 	"sesp-property-author": "Аўтар старонкі",
-	"sesp-property-first-author": "Стваральнік старонкі",
+	"sesp-property-first-author": "Творца старонкі",
 	"sesp-property-revision-id": "Ідэнтыфікатар вэрсіі",
 	"sesp-property-page-id": "Ідэнтыфікатар старонкі",
 	"sesp-property-page-id-desc": "«$1» захоўвае ідэнтыфікатар старонкі. Яна забясьпечваецца пашырэньнем [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Cite Сэмантычны сайт].",
