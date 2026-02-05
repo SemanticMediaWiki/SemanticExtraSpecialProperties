@@ -54,7 +54,9 @@
 	"sesp-property-user-edit-count-per-ns": "Contagem pessoal de edições por espaço nominal",
 	"sesp-property-user-edit-count-per-ns-desc": "\"$1\" registra o número de edições de um usuário em um espaço nominal específico. A ferramenta é providenciada pela extensão [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties]",
 	"sesp-property-user-edit-count-ns": "Espaço nominal",
+	"sesp-property-user-edit-count-ns-desc": "\"$1\" registra o número do domínio no registro de contagem de edições do usuário. É fornecida pela extensão [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-user-edit-count-cnt": "Contagem de edições",
+	"sesp-property-user-edit-count-cnt-desc": "\"$1\" registra a contagem de edições do usuário, é fornecida pela extensão [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-user-block": "Bloqueios do usuário",
 	"sesp-property-user-block-desc": "\"$1\" registra uma lista dos bloqueios aplicados a um usuário, é fornecida pela extensão [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-user-right": "Privilégios do usuário",
@@ -64,6 +66,7 @@
 	"sesp-property-exif-data": "Dados Exif",
 	"sesp-property-exif-data-desc": "\"$1\" registra os dados EXIF do arquivo, é fornecida pela extensão [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-links-to": "Links para",
+	"sesp-property-links-to-desc": "\"$1\" registra uma lista de páginas que a página atual aponta.",
 	"sesp-exif-languagecode": "Exif: código de idioma",
 	"sesp-exif-label": "Exif:Etiqueta",
 	"sesp-exif-iimcategory": "Exif:Categoria Iim",
@@ -75,5 +78,6 @@
 	"sesp-config-definitions-file": "Localização das definições de propriedade",
 	"sesp-config-local-definitions": "Especifica definições locais",
 	"sesp-config-enabled-property-list": "Especifica as propriedades ativadas",
-	"sesp-config-short-url-prefix": "Usada em conexão com ShortUrlUtils"
+	"sesp-config-short-url-prefix": "Usada em conexão com ShortUrlUtils",
+	"sesp-config-links-to-enabled-namespaces": "Lista de identificadores de domínio que estão ativados para a propriedade 'Links para'."
 }
