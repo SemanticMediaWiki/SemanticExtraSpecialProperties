@@ -3,11 +3,11 @@
 namespace SESP;
 
 use MediaWiki\MediaWikiServices;
+use Mediawiki\Title\Title;
 use Onoi\Cache\Cache;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
-use Title;
 use User;
 use Wikimedia\Rdbms\Database;
 use WikiPage;
