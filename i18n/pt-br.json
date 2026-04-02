@@ -68,6 +68,9 @@
 	"sesp-property-links-to": "Links para",
 	"sesp-property-links-to-desc": "\"$1\" registra uma lista de páginas que a página atual aponta.",
 	"sesp-exif-languagecode": "Exif: código de idioma",
+	"sesp-exif-gpslatitude": "Exif:Latitude",
+	"sesp-exif-gpslongitude": "Exif:Longitude",
+	"sesp-exif-gpsaltitude": "Exif:Altitude",
 	"sesp-exif-label": "Exif:Etiqueta",
 	"sesp-exif-iimcategory": "Exif:Categoria Iim",
 	"sesp-admin-deprecation-notice-section": "Extensão Propriedades Semânticas Extra Especiais",
@@ -78,6 +81,8 @@
 	"sesp-config-definitions-file": "Localização das definições de propriedade",
 	"sesp-config-local-definitions": "Especifica definições locais",
 	"sesp-config-enabled-property-list": "Especifica as propriedades ativadas",
+	"sesp-config-label-cache-version": "Especifica um modificador de cache interno",
+	"sesp-config-exclude-bot-edits": "As edições feitas por contas de usuário que pertencem ao grupo de usuários robô devem ser ignoradas ao armazenar dados para as propriedades especiais?",
 	"sesp-config-short-url-prefix": "Usada em conexão com ShortUrlUtils",
 	"sesp-config-links-to-enabled-namespaces": "Lista de identificadores de domínio que estão ativados para a propriedade 'Links para'."
 }
