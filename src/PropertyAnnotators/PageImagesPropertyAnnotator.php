@@ -3,12 +3,12 @@
 namespace SESP\PropertyAnnotators;
 
 use File;
+use MediaWiki\Title\Title;
 use SESP\AppFactory;
 use SESP\PropertyAnnotator;
 use SMW\DIProperty;
 use SMW\DIWikiPage;
 use SMW\SemanticData;
-use Title;
 
 class PageImagesPropertyAnnotator implements PropertyAnnotator {
 
