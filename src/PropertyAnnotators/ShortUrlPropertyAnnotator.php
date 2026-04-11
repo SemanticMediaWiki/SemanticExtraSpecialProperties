@@ -2,6 +2,7 @@
 
 namespace SESP\PropertyAnnotators;
 
+use MediaWiki\Title\Title;
 use RuntimeException;
 use SESP\AppFactory;
 use SESP\PropertyAnnotator;
@@ -9,7 +10,6 @@ use SMW\DIProperty;
 use SMW\SemanticData;
 use SMWDataItem as DataItem;
 use SMWDIUri as DIUri;
-use Title;
 
 /**
  * @private
