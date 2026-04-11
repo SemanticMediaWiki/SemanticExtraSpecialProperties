@@ -17,7 +17,7 @@ jobs:
       matrix:
         include:
           - mediawiki_version: '1.43'
-            smw_version: '4.2.0'
+            smw_version: '6.0.1'
             approved_revs_version: 2.1
             php_version: 8.1
             database_type: mysql
@@ -25,7 +25,7 @@ jobs:
             coverage: false
             experimental: false
           - mediawiki_version: '1.43'
-            smw_version: '4.2.0'
+            smw_version: '6.0.1'
             approved_revs_version: 2.1
             php_version: 8.1
             database_type: mysql
