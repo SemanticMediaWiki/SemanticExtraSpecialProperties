@@ -2,6 +2,7 @@
 
 namespace SESP\Tests\PropertyAnnotators;
 
+use MediaWiki\Title\Title;
 use SESP\PropertyAnnotators\TalkPageNumRevisionPropertyAnnotator;
 use SMW\DIProperty;
 
@@ -50,7 +51,7 @@ class TalkPageNumRevisionPropertyAnnotatorTest extends \PHPUnit\Framework\TestCa
 	 * @dataProvider rowCountProvider
 	 */
 	public function testAddAnnotation( $count, $expected ) {
-		$talkPage = $this->getMockBuilder( '\Title' )
+		$talkPage = $this->getMockBuilder( Title::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -62,7 +63,7 @@ class TalkPageNumRevisionPropertyAnnotatorTest extends \PHPUnit\Framework\TestCa
 			->method( 'getArticleID' )
 			->willReturn( 1001 );
 
-		$title = $this->getMockBuilder( '\Title' )
+		$title = $this->getMockBuilder( Title::class )
 			->disableOriginalConstructor()
 			->getMock();
 
