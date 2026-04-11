@@ -2,6 +2,7 @@
 
 namespace SESP\Tests\PropertyAnnotators;
 
+use MediaWiki\Title\Title;
 use SESP\PropertyAnnotators\PageLengthPropertyAnnotator;
 use SMW\DIProperty;
 
@@ -50,7 +51,7 @@ class PageLengthPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 	 * @dataProvider lengthProvider
 	 */
 	public function testAddAnnotation( $length, $expected ) {
-		$title = $this->getMockBuilder( '\Title' )
+		$title = $this->getMockBuilder( Title::class )
 			->disableOriginalConstructor()
 			->getMock();
 
