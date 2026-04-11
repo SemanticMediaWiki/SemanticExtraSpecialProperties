@@ -2,12 +2,12 @@
 
 namespace SESP\Tests\PropertyAnnotators;
 
+use MediaWiki\Title\Title;
 use SESP\AppFactory;
 use SESP\PropertyAnnotators\LinksToPropertyAnnotator;
 use SMW\DIProperty;
 use SMW\DIWikiPage;
 use SMW\SemanticData;
-use Title;
 
 /**
  * @covers \SESP\PropertyAnnotators\LinksToPropertyAnnotator
