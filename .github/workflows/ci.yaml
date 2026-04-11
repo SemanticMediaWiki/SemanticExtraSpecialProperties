@@ -16,7 +16,7 @@ jobs:
     strategy:
       matrix:
         include:
-          - mediawiki_version: '1.39'
+          - mediawiki_version: '1.43'
             smw_version: '4.2.0'
             approved_revs_version: 2.1
             php_version: 8.1
@@ -24,7 +24,7 @@ jobs:
             database_image: "mysql:8"
             coverage: false
             experimental: false
-          - mediawiki_version: '1.40'
+          - mediawiki_version: '1.43'
             smw_version: '4.2.0'
             approved_revs_version: 2.1
             php_version: 8.1
@@ -32,28 +32,20 @@ jobs:
             database_image: "mysql:8"
             coverage: true
             experimental: false
-          - mediawiki_version: '1.41'
-            smw_version: 5.1.0
-            approved_revs_version: master
-            php_version: 8.1
-            database_type: mysql
-            database_image: "mysql:8"
-            coverage: false
-            experimental: false
-          - mediawiki_version: '1.42'
-            smw_version: 5.1.0
-            approved_revs_version: master
-            php_version: 8.2
-            database_type: mysql
-            database_image: "mysql:8"
-            coverage: false
-            experimental: false
-          - mediawiki_version: '1.43'
+          - mediawiki_version: '1.44'
             smw_version: dev-master
             approved_revs_version: master
             php_version: 8.2
             database_type: mysql
-            database_image: "mysql:8"
+            database_image: "mariadb:11.2"
+            coverage: false
+            experimental: false
+          - mediawiki_version: '1.45'
+            smw_version: dev-master
+            approved_revs_version: master
+            php_version: 8.1
+            database_type: mysql
+            database_image: "mariadb:11.2"
             coverage: false
             experimental: false
 
