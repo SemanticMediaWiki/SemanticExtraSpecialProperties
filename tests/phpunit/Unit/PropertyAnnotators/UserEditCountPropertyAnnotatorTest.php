@@ -2,13 +2,13 @@
 
 namespace SESP\Tests\PropertyAnnotators;
 
+use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 use SESP\AppFactory;
 use SESP\PropertyAnnotators\UserEditCountPropertyAnnotator;
 use SMW\DIProperty;
 use SMW\DIWikiPage;
 use SMW\SemanticData;
-use Title;
-use User;
 
 /**
  * @covers \SESP\PropertyAnnotators\UserEditCountPropertyAnnotator
