@@ -4,9 +4,9 @@ namespace SESP;
 
 use ArrayIterator;
 use DatabaseLogEntry;
+use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 use MWTimestamp;
-use Title;
-use User;
 use Wikimedia\Rdbms\Database;
 
 class DatabaseLogReader {

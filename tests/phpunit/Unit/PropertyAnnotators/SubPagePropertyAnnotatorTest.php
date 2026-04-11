@@ -2,6 +2,7 @@
 
 namespace SESP\Tests\PropertyAnnotators;
 
+use MediaWiki\Title\Title;
 use SESP\PropertyAnnotators\SubPagePropertyAnnotator;
 use SMW\DIProperty;
 use SMW\DIWikiPage;
@@ -50,7 +51,7 @@ class SubPagePropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 	public function testAddAnnotation() {
 		$sub = DIWikiPage::newFromText( __METHOD__ )->getTitle();
 
-		$title = $this->getMockBuilder( '\Title' )
+		$title = $this->getMockBuilder( Title::class )
 			->disableOriginalConstructor()
 			->getMock();
 

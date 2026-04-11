@@ -2,6 +2,7 @@
 
 namespace SESP\Tests\PropertyAnnotators;
 
+use MediaWiki\Title\Title;
 use SESP\PropertyAnnotators\UserRegistrationDatePropertyAnnotator;
 use SMW\DIProperty;
 
@@ -59,7 +60,7 @@ class UserRegistrationDatePropertyAnnotatorTest extends \PHPUnit\Framework\TestC
 			->method( 'newUserFromTitle' )
 			->willReturn( $user );
 
-		$title = $this->getMockBuilder( '\Title' )
+		$title = $this->getMockBuilder( Title::class )
 			->disableOriginalConstructor()
 			->getMock();
 

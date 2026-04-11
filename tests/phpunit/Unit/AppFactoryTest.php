@@ -2,12 +2,12 @@
 
 namespace SESP\Tests;
 
+use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use SESP\AppFactory;
 use SESP\PropertyDefinitions;
-use Title;
-use User;
 use WikiFilePage;
 use Wikimedia\Rdbms\Database;
 use WikiPage;

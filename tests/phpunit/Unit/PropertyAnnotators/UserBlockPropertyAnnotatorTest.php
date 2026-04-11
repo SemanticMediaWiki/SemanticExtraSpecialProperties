@@ -3,13 +3,13 @@
 namespace SESP\Tests\PropertyAnnotators;
 
 use MediaWiki\Block\DatabaseBlock;
+use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 use SESP\AppFactory;
 use SESP\PropertyAnnotators\UserBlockPropertyAnnotator;
 use SMW\DIProperty;
 use SMW\DIWikiPage;
 use SMW\SemanticData;
-use Title;
-use User;
 
 /**
  * @covers \SESP\PropertyAnnotators\UserBlockPropertyAnnotator

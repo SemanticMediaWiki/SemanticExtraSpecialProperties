@@ -2,6 +2,7 @@
 
 namespace SESP\Tests\PropertyAnnotators;
 
+use MediaWiki\Title\Title;
 use SESP\PropertyAnnotators\PageNumRevisionPropertyAnnotator;
 use SMW\DIProperty;
 
@@ -50,7 +51,7 @@ class PageNumRevisionPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 	 * @dataProvider rowCountProvider
 	 */
 	public function testAddAnnotation( $count, $expected ) {
-		$title = $this->getMockBuilder( '\Title' )
+		$title = $this->getMockBuilder( Title::class )
 			->disableOriginalConstructor()
 			->getMock();
 

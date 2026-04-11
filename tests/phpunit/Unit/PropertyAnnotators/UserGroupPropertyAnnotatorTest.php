@@ -3,6 +3,7 @@
 namespace SESP\Tests\PropertyAnnotators;
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Title\Title;
 use MediaWikiIntegrationTestCase;
 use SESP\PropertyAnnotators\UserGroupPropertyAnnotator;
 use SMW\DIProperty;
@@ -69,7 +70,7 @@ class UserGroupPropertyAnnotatorTest extends MediaWikiIntegrationTestCase {
 			->method( 'newUserFromTitle' )
 			->willReturn( $user );
 
-		$title = $this->getMockBuilder( '\Title' )
+		$title = $this->getMockBuilder( Title::class )
 			->disableOriginalConstructor()
 			->getMock();
 

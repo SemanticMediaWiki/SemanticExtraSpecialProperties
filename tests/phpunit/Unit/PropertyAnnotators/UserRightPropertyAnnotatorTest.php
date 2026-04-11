@@ -3,6 +3,7 @@
 namespace SESP\Tests\PropertyAnnotators;
 
 use MediaWiki\Permissions\PermissionManager;
+use MediaWiki\Title\Title;
 use SESP\PropertyAnnotators\UserRightPropertyAnnotator;
 use SMW\DIProperty;
 
@@ -59,7 +60,7 @@ class UserRightPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			->method( 'newUserFromTitle' )
 			->willReturn( $user );
 
-		$title = $this->getMockBuilder( '\Title' )
+		$title = $this->getMockBuilder( Title::class )
 			->disableOriginalConstructor()
 			->getMock();
 

@@ -3,14 +3,14 @@
 namespace SESP\PropertyAnnotators;
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 use SESP\AppFactory;
 use SESP\PropertyAnnotator;
 use SMW\DIProperty;
 use SMW\DIWikiPage;
 use SMW\SemanticData;
 use SMWDataItem as DataItem;
-use Title;
-use User;
 
 /**
  * @private

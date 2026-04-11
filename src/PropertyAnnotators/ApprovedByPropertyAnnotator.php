@@ -3,13 +3,13 @@
 namespace SESP\PropertyAnnotators;
 
 use ApprovedRevs;
+use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 use SESP\AppFactory;
 use SESP\PropertyAnnotator;
 use SMW\DIProperty;
 use SMW\DIWikiPage;
 use SMW\SemanticData;
-use Title;
-use User;
 
 /**
  * @private
