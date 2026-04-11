@@ -2,6 +2,7 @@
 
 namespace SESP\Tests\PropertyAnnotators;
 
+use MediaWiki\Title\Title;
 use SESP\PropertyAnnotators\ExifPropertyAnnotator;
 use SESP\PropertyDefinitions;
 use SMW\DIProperty;
@@ -65,7 +66,7 @@ class ExifPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			->method( 'getFile' )
 			->willReturn( $file );
 
-		$title = $this->getMockBuilder( '\Title' )
+		$title = $this->getMockBuilder( Title::class )
 			->disableOriginalConstructor()
 			->getMock();
 
