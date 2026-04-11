@@ -2,6 +2,7 @@
 
 namespace SESP\Tests;
 
+use MediaWiki\Title\Title;
 use SESP\AppFactory;
 use SESP\DatabaseLogReader;
 use Wikimedia\Rdbms\Database;
@@ -54,7 +55,7 @@ class DatabaseLogReaderTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testGetNull() {
-		$title = \Title::newFromText( "none" );
+		$title = Title::newFromText( "none" );
 
 		$log = $this->appFactory->newDatabaseLogReader( $title );
 
@@ -79,7 +80,7 @@ class DatabaseLogReaderTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testGetLogAndQuery() {
-		$title = \Title::newFromText( __METHOD__ );
+		$title = Title::newFromText( __METHOD__ );
 
 		$row = new \stdClass;
 		$row->user_id = 1;
@@ -120,7 +121,7 @@ class DatabaseLogReaderTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testCache() {
-		$title = \Title::newFromText( __METHOD__ );
+		$title = Title::newFromText( __METHOD__ );
 
 		$row = new \stdClass;
 		$row->user_id = 1;
