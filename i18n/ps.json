@@ -6,7 +6,7 @@
 		]
 	},
 	"sesp-property-author": "د مخ ليکوال",
-	"sesp-property-first-author": "مخ جوړونکی",
+	"sesp-property-first-author": "مخ جوړوونکی",
 	"sesp-property-revision-id": "بياليدنې پېژند",
 	"sesp-property-page-id": "د مخ پېژند",
 	"sesp-property-page-len": "د مخ اوږدوالی",
@@ -15,6 +15,6 @@
 	"sesp-property-subpages": "څېرمه مخ",
 	"sesp-property-revisions": "د بياليدنو شمېر",
 	"sesp-property-talk-revisions": "د خبرو اترو مخونو د بياليدنو شمېر",
-	"sesp-property-shorturl": "لنډ يو آر ال",
+	"sesp-property-shorturl": "لنډ وېبتړ",
 	"sesp-property-user-registration-date": "د کارن نومليکنې نېټه"
 }
