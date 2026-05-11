@@ -5,6 +5,8 @@
 			"شاه زمان پټان"
 		]
 	},
+	"sesp-desc": "ټولو مخونو ته ځينې زياتي ځانگړي ځانتياوې ورگډوي",
+	"sesp-property-unknown-label": "نامالومه نښکه يا بل‌نوم",
 	"sesp-property-author": "د مخ ليکوال",
 	"sesp-property-first-author": "مخ جوړوونکی",
 	"sesp-property-revision-id": "بياليدنې پېژند",
@@ -16,5 +18,24 @@
 	"sesp-property-revisions": "د بياليدنو شمېر",
 	"sesp-property-talk-revisions": "د خبرو اترو مخونو د بياليدنو شمېر",
 	"sesp-property-shorturl": "لنډ وېبتړ",
-	"sesp-property-user-registration-date": "د کارن نومليکنې نېټه"
+	"sesp-property-approved-rev": "منل شوې بياليدنه",
+	"sesp-property-namespace-id": "نوم‌تشيال پېژند",
+	"sesp-property-namespace-name": "د نوم‌تشيال کره نوم",
+	"sesp-property-approved-by": "منونکی",
+	"sesp-property-approved-date": "منلو نېټه",
+	"sesp-property-approved-status": "منلو دريځ",
+	"sesp-property-user-registration-date": "د کارن نومليکنې نېټه",
+	"sesp-property-user-edit-count": "کارن سمون شمېر",
+	"sesp-property-user-edit-count-per-ns": "د نوم‌تشيال له مخې د کارن د سمون شمېر",
+	"sesp-property-user-edit-count-ns": "نوم‌تشيال",
+	"sesp-property-user-edit-count-cnt": "سمون شمېر",
+	"sesp-property-user-block": "کارن بنديز",
+	"sesp-property-user-right": "کارن رښته",
+	"sesp-property-user-group": "کارن ډله",
+	"sesp-property-exif-data": "اېگزيف اومتوک",
+	"sesp-property-links-to": "ته تړونی ورکول",
+	"sesp-admin-deprecation-notice-title-replacement": "ځايناستې‌شوې يا نوم‌بدل‌شوې اوڼنې",
+	"sesp-config-local-definitions": "سيمه‌ييز پېژندونه مشخصوي",
+	"sesp-config-enabled-property-list": "چارن شوې ځانتياوې مشخصوي",
+	"sesp-config-label-cache-version": "دننه‌نی نيونگ بدلوونکی مشخصوي"
 }

@@ -26,7 +26,7 @@
 	"sesp-property-approved-by": "Зацьверджана",
 	"sesp-property-approved-by-desc": "«$1» захоўвае карыстальніка, які ўсталяваў статус старонкі «зацьверджана». Яна забясьпечана пашырэньнем [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties (SESP)].",
 	"sesp-property-approved-date": "Дата зацьверджаньня",
-	"sesp-property-approved-date-desc": "«$1» захоўвае час, калі зацьвярджальны стан старонкі быў вызначаны. Яна забясьпечваецца пашырэньнем [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
+	"sesp-property-approved-date-desc": "«$1» захоўвае час, калі зацьвярджальны статус старонкі быў вызначаны. Яна забясьпечваецца пашырэньнем [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-approved-status": "Статус зацьверджаньня",
 	"sesp-property-approved-status-desc": "«$1» захоўвае статус ухвалы старонкі. Яна забясьпечваецца пашырэньнем [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties].",
 	"sesp-property-user-registration-date": "Дата рэгістрацыі карыстальніка",
