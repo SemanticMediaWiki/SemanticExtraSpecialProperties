@@ -72,11 +72,7 @@ class AppFactory implements LoggerAwareInterface {
 	 */
 	public function getConnection() {
 		if ( $this->connection === null ) {
-			if ( version_compare( MW_VERSION, '1.42', '>=' ) ) {
-				$this->connection = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
-			} else {
-				$this->connection = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_REPLICA );
-			}
+			$this->connection = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 		}
 
 		return $this->connection;
