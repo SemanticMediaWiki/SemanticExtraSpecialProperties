@@ -11,8 +11,8 @@ adds some extra [special properties].
 ## Requirements
 
 - PHP 8.1 or later
-- MediaWiki 1.39 or later, tested up to MediaWiki 1.43
-- Semantic MediaWiki 5.0 or later, tested up to SMW 5.0.1
+- MediaWiki 1.43 or later, tested up to MediaWiki 1.45
+- Semantic MediaWiki 7.0 or later
 
 
 ## Installation
@@ -31,7 +31,7 @@ create one and add the following content to it:
 ```
 {
 	"require": {
-		"mediawiki/semantic-extra-special-properties": "~4.0"
+		"mediawiki/semantic-extra-special-properties": "~7.0"
 	}
 }
 ```
@@ -39,7 +39,7 @@ create one and add the following content to it:
 If you already have a "composer.local.json" file, add the following line to the end of the "require"
 section in your file:
 
-    "mediawiki/semantic-extra-special-properties": "~4.0"
+    "mediawiki/semantic-extra-special-properties": "~7.0"
 
 Remember to add a comma to the end of the preceding line in this section.
 
