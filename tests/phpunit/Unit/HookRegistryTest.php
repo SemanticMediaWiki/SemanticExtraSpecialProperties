@@ -3,6 +3,9 @@
 namespace SESP\Tests;
 
 use SESP\HookRegistry;
+use SMW\DataModel\SemanticData;
+use SMW\PropertyRegistry;
+use SMW\Store;
 
 /**
  * @covers \SESP\HookRegistry
@@ -86,7 +89,7 @@ class HookRegistryTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function doTestRegisteredInitPropertiesHandler( $instance ) {
-		$propertyRegistry = $this->getMockBuilder( '\SMW\PropertyRegistry' )
+		$propertyRegistry = $this->getMockBuilder( PropertyRegistry::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -119,11 +122,11 @@ class HookRegistryTest extends \PHPUnit\Framework\TestCase {
 			$instance->isRegistered( 'SMW::Store::BeforeDataUpdateComplete' )
 		);
 
-		$store = $this->getMockBuilder( '\SMW\Store' )
+		$store = $this->getMockBuilder( Store::class )
 			->disableOriginalConstructor()
 			->getMockForAbstractClass();
 
-		$semanticData = $this->getMockBuilder( '\SMW\DataModel\SemanticData' )
+		$semanticData = $this->getMockBuilder( SemanticData::class )
 			->disableOriginalConstructor()
 			->getMock();
 

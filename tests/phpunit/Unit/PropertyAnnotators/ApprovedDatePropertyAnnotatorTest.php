@@ -6,6 +6,8 @@ use MWTimestamp;
 use SESP\PropertyAnnotators\ApprovedDatePropertyAnnotator;
 use SMW\DataItems\Property;
 use SMW\DataItems\Time;
+use SMW\DataModel\SemanticData;
+use SESP\AppFactory;
 /**
  * @covers \SESP\PropertyAnnotators\ApprovedDatePropertyAnnotator
  * @group semantic-extra-special-properties
@@ -23,7 +25,7 @@ class ApprovedDatePropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		$this->appFactory = $this->getMockBuilder( '\SESP\AppFactory' )
+		$this->appFactory = $this->getMockBuilder( AppFactory::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -61,7 +63,7 @@ class ApprovedDatePropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 	public function testAddAnnotation() {
 		$now = new MWTimestamp( wfTimestampNow() );
 		$time = self::getDITime( $now );
-		$semanticData = $this->getMockBuilder( '\SMW\DataModel\SemanticData' )
+		$semanticData = $this->getMockBuilder( SemanticData::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -81,7 +83,7 @@ class ApprovedDatePropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testRemoval() {
-		$semanticData = $this->getMockBuilder( '\SMW\DataModel\SemanticData' )
+		$semanticData = $this->getMockBuilder( SemanticData::class )
 			->disableOriginalConstructor()
 			->getMock();
 

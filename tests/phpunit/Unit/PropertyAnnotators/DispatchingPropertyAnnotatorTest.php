@@ -29,6 +29,9 @@ use SESP\PropertyAnnotators\UserGroupPropertyAnnotator;
 use SESP\PropertyAnnotators\UserRegistrationDatePropertyAnnotator;
 use SESP\PropertyAnnotators\UserRightPropertyAnnotator;
 use SMW\DataItems\Property;
+use SMW\DataModel\SemanticData;
+use SESP\AppFactory;
+use SESP\PropertyAnnotator;
 /**
  * @covers \SESP\PropertyAnnotators\DispatchingPropertyAnnotator
  * @group semantic-extra-special-properties
@@ -46,7 +49,7 @@ class DispatchingPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		$this->appFactory = $this->getMockBuilder( '\SESP\AppFactory' )
+		$this->appFactory = $this->getMockBuilder( AppFactory::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -71,11 +74,11 @@ class DispatchingPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testAddAnnotation() {
-		$semanticData = $this->getMockBuilder( '\SMW\DataModel\SemanticData' )
+		$semanticData = $this->getMockBuilder( SemanticData::class )
 			->disableOriginalConstructor()
 			->getMock();
 
-		$propertyAnnotator = $this->getMockBuilder( '\SESP\PropertyAnnotator' )
+		$propertyAnnotator = $this->getMockBuilder( PropertyAnnotator::class )
 			->disableOriginalConstructor()
 			->getMock();
 

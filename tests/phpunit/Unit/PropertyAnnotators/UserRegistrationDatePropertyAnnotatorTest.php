@@ -5,6 +5,10 @@ namespace SESP\Tests\PropertyAnnotators;
 use MediaWiki\Title\Title;
 use SESP\PropertyAnnotators\UserRegistrationDatePropertyAnnotator;
 use SMW\DataItems\Property;
+use SMW\DataModel\SemanticData;
+use SESP\AppFactory;
+use SMW\DataItems\WikiPage as DIWikiPage;
+use User;
 /**
  * @covers \SESP\PropertyAnnotators\UserRegistrationDatePropertyAnnotator
  * @group semantic-extra-special-properties
@@ -22,7 +26,7 @@ class UserRegistrationDatePropertyAnnotatorTest extends \PHPUnit\Framework\TestC
 	protected function setUp(): void {
 		parent::setUp();
 
-		$this->appFactory = $this->getMockBuilder( '\SESP\AppFactory' )
+		$this->appFactory = $this->getMockBuilder( AppFactory::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -47,7 +51,7 @@ class UserRegistrationDatePropertyAnnotatorTest extends \PHPUnit\Framework\TestC
 	}
 
 	public function testAddAnnotation() {
-		$user = $this->getMockBuilder( '\User' )
+		$user = $this->getMockBuilder( User::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -67,7 +71,7 @@ class UserRegistrationDatePropertyAnnotatorTest extends \PHPUnit\Framework\TestC
 			->method( 'inNamespace' )
 			->willReturn( true );
 
-		$subject = $this->getMockBuilder( '\SMW\WikiPage' )
+		$subject = $this->getMockBuilder( DIWikiPage::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -75,7 +79,7 @@ class UserRegistrationDatePropertyAnnotatorTest extends \PHPUnit\Framework\TestC
 			->method( 'getTitle' )
 			->willReturn( $title );
 
-		$semanticData = $this->getMockBuilder( '\SMW\DataModel\SemanticData' )
+		$semanticData = $this->getMockBuilder( SemanticData::class )
 			->disableOriginalConstructor()
 			->getMock();
 

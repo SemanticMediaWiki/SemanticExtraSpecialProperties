@@ -7,6 +7,9 @@ use MediaWiki\Title\Title;
 use MediaWikiIntegrationTestCase;
 use SESP\PropertyAnnotators\UserGroupPropertyAnnotator;
 use SMW\DataItems\Property;
+use SMW\DataModel\SemanticData;
+use SESP\AppFactory;
+use SMW\DataItems\WikiPage as DIWikiPage;
 /**
  * @covers \SESP\PropertyAnnotators\UserGroupPropertyAnnotator
  * @group semantic-extra-special-properties
@@ -25,7 +28,7 @@ class UserGroupPropertyAnnotatorTest extends MediaWikiIntegrationTestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		$this->appFactory = $this->getMockBuilder( '\SESP\AppFactory' )
+		$this->appFactory = $this->getMockBuilder( AppFactory::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -77,7 +80,7 @@ class UserGroupPropertyAnnotatorTest extends MediaWikiIntegrationTestCase {
 			->method( 'inNamespace' )
 			->willReturn( true );
 
-		$subject = $this->getMockBuilder( '\SMW\WikiPage' )
+		$subject = $this->getMockBuilder( DIWikiPage::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -85,7 +88,7 @@ class UserGroupPropertyAnnotatorTest extends MediaWikiIntegrationTestCase {
 			->method( 'getTitle' )
 			->willReturn( $title );
 
-		$semanticData = $this->getMockBuilder( '\SMW\DataModel\SemanticData' )
+		$semanticData = $this->getMockBuilder( SemanticData::class )
 			->disableOriginalConstructor()
 			->getMock();
 

@@ -5,6 +5,8 @@ namespace SESP\Tests\PropertyAnnotators;
 use SESP\PropertyAnnotators\ShortUrlPropertyAnnotator;
 use SMW\DataItems\Property;
 use SMW\DataItems\WikiPage;
+use SMW\DataModel\SemanticData;
+use SESP\AppFactory;
 /**
  * @covers \SESP\PropertyAnnotators\ShortUrlPropertyAnnotator
  * @group semantic-extra-special-properties
@@ -22,7 +24,7 @@ class ShortUrlPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		$this->appFactory = $this->getMockBuilder( '\SESP\AppFactory' )
+		$this->appFactory = $this->getMockBuilder( AppFactory::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -54,7 +56,7 @@ class ShortUrlPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			$this->setExpectedException( '\RuntimeException' );
 		}
 
-		$semanticData = $this->getMockBuilder( '\SMW\DataModel\SemanticData' )
+		$semanticData = $this->getMockBuilder( SemanticData::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -73,7 +75,7 @@ class ShortUrlPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 	public function testAddAnnotation() {
 		$subject = WikiPage::newFromText( __METHOD__ );
 
-		$semanticData = $this->getMockBuilder( '\SMW\DataModel\SemanticData' )
+		$semanticData = $this->getMockBuilder( SemanticData::class )
 			->disableOriginalConstructor()
 			->getMock();
 

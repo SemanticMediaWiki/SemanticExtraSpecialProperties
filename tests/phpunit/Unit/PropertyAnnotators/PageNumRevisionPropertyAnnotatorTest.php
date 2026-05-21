@@ -5,6 +5,10 @@ namespace SESP\Tests\PropertyAnnotators;
 use MediaWiki\Title\Title;
 use SESP\PropertyAnnotators\PageNumRevisionPropertyAnnotator;
 use SMW\DataItems\Property;
+use SMW\DataModel\SemanticData;
+use SESP\AppFactory;
+use SMW\DataItems\WikiPage as DIWikiPage;
+use stdClass;
 /**
  * @covers \SESP\PropertyAnnotators\PageNumRevisionPropertyAnnotator
  * @group semantic-extra-special-properties
@@ -22,7 +26,7 @@ class PageNumRevisionPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		$this->appFactory = $this->getMockBuilder( '\SESP\AppFactory' )
+		$this->appFactory = $this->getMockBuilder( AppFactory::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -62,7 +66,7 @@ class PageNumRevisionPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			->method( 'getArticleID' )
 			->willReturn( 1001 );
 
-		$subject = $this->getMockBuilder( '\SMW\WikiPage' )
+		$subject = $this->getMockBuilder( DIWikiPage::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -70,7 +74,7 @@ class PageNumRevisionPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			->method( 'getTitle' )
 			->willReturn( $title );
 
-		$connection = $this->getMockBuilder( '\stdClass' )
+		$connection = $this->getMockBuilder( stdClass::class )
 			->disableOriginalConstructor()
 			->addMethods( [ 'estimateRowCount' ] )
 			->getMock();
@@ -83,7 +87,7 @@ class PageNumRevisionPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			->method( 'getConnection' )
 			->willReturn( $connection );
 
-		$semanticData = $this->getMockBuilder( '\SMW\DataModel\SemanticData' )
+		$semanticData = $this->getMockBuilder( SemanticData::class )
 			->disableOriginalConstructor()
 			->getMock();
 

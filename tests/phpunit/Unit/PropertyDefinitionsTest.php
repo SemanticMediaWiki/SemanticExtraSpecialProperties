@@ -3,6 +3,7 @@
 namespace SESP\Tests;
 
 use SESP\PropertyDefinitions;
+use SESP\LabelFetcher;
 
 /**
  * @covers \SESP\PropertyDefinitions
@@ -20,7 +21,7 @@ class PropertyDefinitionsTest extends \PHPUnit\Framework\TestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		$this->labelFetcher = $this->getMockBuilder( '\SESP\LabelFetcher' )
+		$this->labelFetcher = $this->getMockBuilder( LabelFetcher::class )
 			->disableOriginalConstructor()
 			->getMock();
 	}

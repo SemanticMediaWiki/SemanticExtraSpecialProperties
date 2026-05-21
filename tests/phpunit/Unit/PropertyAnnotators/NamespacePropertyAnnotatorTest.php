@@ -6,6 +6,8 @@ use SESP\PropertyAnnotators\NamespacePropertyAnnotator;
 use SMW\DataItems\Property;
 use SMW\DataItems\WikiPage;
 use SMW\DataItems\Number;
+use SMW\DataModel\SemanticData;
+use SESP\AppFactory;
 /**
  * @covers \SESP\PropertyAnnotators\NamespacePropertyAnnotator
  * @group semantic-extra-special-properties
@@ -20,7 +22,7 @@ class NamespacePropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		$this->appFactory = $this->getMockBuilder( '\SESP\AppFactory' )
+		$this->appFactory = $this->getMockBuilder( AppFactory::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -57,7 +59,7 @@ class NamespacePropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 		$namespace = NS_USER;
 		$subject = WikiPage::newFromText( __METHOD__, $namespace );
 
-		$semanticData = $this->getMockBuilder( '\SMW\DataModel\SemanticData' )
+		$semanticData = $this->getMockBuilder( SemanticData::class )
 			->disableOriginalConstructor()
 			->getMock();
 

@@ -6,6 +6,8 @@ use SESP\PropertyAnnotators\ApprovedByPropertyAnnotator;
 use SMW\DataItems\Property;
 use SMW\DataItems\WikiPage;
 use User;
+use SMW\DataModel\SemanticData;
+use SESP\AppFactory;
 
 /**
  * @covers \SESP\PropertyAnnotators\ApprovedByPropertyAnnotator
@@ -24,7 +26,7 @@ class ApprovedByPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		$this->appFactory = $this->getMockBuilder( '\SESP\AppFactory' )
+		$this->appFactory = $this->getMockBuilder( AppFactory::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -50,7 +52,7 @@ class ApprovedByPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 	public function testAddAnnotation() {
 		$user = User::newFromName( "UnitTest" );
-		$semanticData = $this->getMockBuilder( '\SMW\DataModel\SemanticData' )
+		$semanticData = $this->getMockBuilder( SemanticData::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -69,7 +71,7 @@ class ApprovedByPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testRemoval() {
-		$semanticData = $this->getMockBuilder( '\SMW\DataModel\SemanticData' )
+		$semanticData = $this->getMockBuilder( SemanticData::class )
 			->disableOriginalConstructor()
 			->getMock();
 

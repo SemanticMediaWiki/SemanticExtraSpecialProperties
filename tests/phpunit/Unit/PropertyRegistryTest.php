@@ -3,6 +3,9 @@
 namespace SESP\Tests;
 
 use SESP\PropertyRegistry;
+use SESP\AppFactory;
+use SESP\PropertyDefinitions;
+use SMW\PropertyRegistry as Registry;
 
 /**
  * @covers \SESP\PropertyRegistry
@@ -20,7 +23,7 @@ class PropertyRegistryTest extends \PHPUnit\Framework\TestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		$this->appFactory = $this->getMockBuilder( '\SESP\AppFactory' )
+		$this->appFactory = $this->getMockBuilder( AppFactory::class )
 			->disableOriginalConstructor()
 			->getMock();
 	}
@@ -33,7 +36,7 @@ class PropertyRegistryTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testregisterEmptyDefinition() {
-		$propertyDefinitions = $this->getMockBuilder( '\SESP\PropertyDefinitions' )
+		$propertyDefinitions = $this->getMockBuilder( PropertyDefinitions::class )
 			->disableOriginalConstructor()
 			->onlyMethods( [ 'getLabels' ] )
 			->getMock();
@@ -46,7 +49,7 @@ class PropertyRegistryTest extends \PHPUnit\Framework\TestCase {
 			->method( 'getPropertyDefinitions' )
 			->willReturn( $propertyDefinitions );
 
-		$propertyRegistry = $this->getMockBuilder( '\SMW\PropertyRegistry' )
+		$propertyRegistry = $this->getMockBuilder( Registry::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -62,7 +65,7 @@ class PropertyRegistryTest extends \PHPUnit\Framework\TestCase {
 			'SOFTWARE' => [ 'id' => 'Foo', 'type' => '_txt', 'label' => 'Foo' ] ]
 		];
 
-		$propertyDefinitions = $this->getMockBuilder( '\SESP\PropertyDefinitions' )
+		$propertyDefinitions = $this->getMockBuilder( PropertyDefinitions::class )
 			->disableOriginalConstructor()
 			->onlyMethods( [ 'getLabels', 'getLabel' ] )
 			->getMock();
@@ -75,7 +78,7 @@ class PropertyRegistryTest extends \PHPUnit\Framework\TestCase {
 			->method( 'getPropertyDefinitions' )
 			->willReturn( $propertyDefinitions );
 
-		$propertyRegistry = $this->getMockBuilder( '\SMW\PropertyRegistry' )
+		$propertyRegistry = $this->getMockBuilder( Registry::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -106,7 +109,7 @@ class PropertyRegistryTest extends \PHPUnit\Framework\TestCase {
 			'label' => 'SomeCustomProperty',
 		];
 
-		$propertyDefinitions = $this->getMockBuilder( '\SESP\PropertyDefinitions' )
+		$propertyDefinitions = $this->getMockBuilder( PropertyDefinitions::class )
 			->disableOriginalConstructor()
 			->onlyMethods( [ 'getLabels', 'getLabel' ] )
 			->getMock();
@@ -119,7 +122,7 @@ class PropertyRegistryTest extends \PHPUnit\Framework\TestCase {
 			->method( 'getPropertyDefinitions' )
 			->willReturn( $propertyDefinitions );
 
-		$propertyRegistry = $this->getMockBuilder( '\SMW\PropertyRegistry' )
+		$propertyRegistry = $this->getMockBuilder( Registry::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -151,7 +154,7 @@ class PropertyRegistryTest extends \PHPUnit\Framework\TestCase {
 		$this->appFactory->expects( $this->never() )
 			->method( 'getPropertyDefinitions' );
 
-		$propertyRegistry = $this->getMockBuilder( '\SMW\PropertyRegistry' )
+		$propertyRegistry = $this->getMockBuilder( Registry::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -166,7 +169,7 @@ class PropertyRegistryTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testRegisterAsFixedPropertiesEnabled() {
-		$propertyDefinitions = $this->getMockBuilder( '\SESP\PropertyDefinitions' )
+		$propertyDefinitions = $this->getMockBuilder( PropertyDefinitions::class )
 			->disableOriginalConstructor()
 			->onlyMethods( [] )
 			->getMock();

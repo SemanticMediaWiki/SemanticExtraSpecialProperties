@@ -5,6 +5,8 @@ namespace SESP\Tests\PropertyAnnotators;
 use SESP\PropertyAnnotators\LocalPropertyAnnotator;
 use SMW\DataItems\Property;
 use SMW\DataItems\WikiPage;
+use SMW\DataModel\SemanticData;
+use SESP\AppFactory;
 /**
  * @covers \SESP\PropertyAnnotators\LocalPropertyAnnotator
  * @group semantic-extra-special-properties
@@ -22,7 +24,7 @@ class LocalPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		$this->appFactory = $this->getMockBuilder( '\SESP\AppFactory' )
+		$this->appFactory = $this->getMockBuilder( AppFactory::class )
 			->disableOriginalConstructor()
 			->onlyMethods( [ 'getOption' ] )
 			->getMock();
@@ -66,7 +68,7 @@ class LocalPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			->with( 'sespgLocalDefinitions' )
 			->willReturn( $localPropertyDefinitions );
 
-		$semanticData = $this->getMockBuilder( '\SMW\DataModel\SemanticData' )
+		$semanticData = $this->getMockBuilder( SemanticData::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -95,7 +97,7 @@ class LocalPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			->with( 'sespgLocalDefinitions' )
 			->willReturn( $localPropertyDefinitions );
 
-		$semanticData = $this->getMockBuilder( '\SMW\DataModel\SemanticData' )
+		$semanticData = $this->getMockBuilder( SemanticData::class )
 			->disableOriginalConstructor()
 			->getMock();
 

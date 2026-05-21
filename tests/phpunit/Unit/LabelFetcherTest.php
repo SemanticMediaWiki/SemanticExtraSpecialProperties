@@ -3,6 +3,8 @@
 namespace SESP\Tests;
 
 use SESP\LabelFetcher;
+use SESP\PropertyDefinitions;
+use Onoi\Cache\Cache;
 
 /**
  * @covers \SESP\LabelFetcher
@@ -20,7 +22,7 @@ class LabelFetcherTest extends \PHPUnit\Framework\TestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		$this->cache = $this->getMockBuilder( '\Onoi\Cache\Cache' )
+		$this->cache = $this->getMockBuilder( Cache::class )
 			->disableOriginalConstructor()
 			->getMock();
 	}
@@ -50,7 +52,7 @@ class LabelFetcherTest extends \PHPUnit\Framework\TestCase {
 			]
 		];
 
-		$propertyDefinitions = $this->getMockBuilder( '\SESP\PropertyDefinitions' )
+		$propertyDefinitions = $this->getMockBuilder( PropertyDefinitions::class )
 			->disableOriginalConstructor()
 			->addMethods( [] )
 			->getMock();
@@ -80,7 +82,7 @@ class LabelFetcherTest extends \PHPUnit\Framework\TestCase {
 			'FOO' => 'Bar'
 		];
 
-		$propertyDefinitions = $this->getMockBuilder( '\SESP\PropertyDefinitions' )
+		$propertyDefinitions = $this->getMockBuilder( PropertyDefinitions::class )
 			->disableOriginalConstructor()
 			->onlyMethods( [ 'getLabels' ] )
 			->getMock();
@@ -104,7 +106,7 @@ class LabelFetcherTest extends \PHPUnit\Framework\TestCase {
 			'FOO' => 'Bar'
 		];
 
-		$propertyDefinitions = $this->getMockBuilder( '\SESP\PropertyDefinitions' )
+		$propertyDefinitions = $this->getMockBuilder( PropertyDefinitions::class )
 			->disableOriginalConstructor()
 			->onlyMethods( [] )
 			->getMock();
