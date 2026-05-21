@@ -4,6 +4,7 @@ namespace SESP;
 
 use SMW\DataItems\Property;
 use SMW\DataModel\SemanticData;
+
 /**
  * @license GPL-2.0-or-later
  * @since 2.0

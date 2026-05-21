@@ -8,6 +8,7 @@ use SESP\PropertyAnnotators\LinksToPropertyAnnotator;
 use SMW\DataItems\Property;
 use SMW\DataItems\WikiPage;
 use SMW\DataModel\SemanticData;
+
 /**
  * @covers \SESP\PropertyAnnotators\LinksToPropertyAnnotator
  * @group semantic-extra-special-properties

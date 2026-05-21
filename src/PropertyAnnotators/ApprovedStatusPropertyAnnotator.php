@@ -6,9 +6,9 @@ use ApprovedRevs;
 use IDBAccessObject;
 use SESP\AppFactory;
 use SESP\PropertyAnnotator;
+use SMW\DataItems\Blob as DIString;
 use SMW\DataItems\Property;
 use SMW\DataModel\SemanticData;
-use SMW\DataItems\Blob as DIString;
 
 /**
  * @private

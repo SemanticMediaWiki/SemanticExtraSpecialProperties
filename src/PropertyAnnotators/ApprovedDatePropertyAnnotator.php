@@ -6,8 +6,9 @@ use MWTimestamp;
 use SESP\AppFactory;
 use SESP\PropertyAnnotator;
 use SMW\DataItems\Property;
-use SMW\DataModel\SemanticData;
 use SMW\DataItems\Time;
+use SMW\DataModel\SemanticData;
+
 /**
  * @private
  * @ingroup SESP

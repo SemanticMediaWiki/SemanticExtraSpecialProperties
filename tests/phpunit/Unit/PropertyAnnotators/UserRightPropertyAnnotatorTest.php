@@ -4,12 +4,13 @@ namespace SESP\Tests\PropertyAnnotators;
 
 use MediaWiki\Permissions\PermissionManager;
 use MediaWiki\Title\Title;
+use SESP\AppFactory;
 use SESP\PropertyAnnotators\UserRightPropertyAnnotator;
 use SMW\DataItems\Property;
-use SMW\DataModel\SemanticData;
-use SESP\AppFactory;
 use SMW\DataItems\WikiPage as DIWikiPage;
+use SMW\DataModel\SemanticData;
 use User;
+
 /**
  * @covers \SESP\PropertyAnnotators\UserRightPropertyAnnotator
  * @group semantic-extra-special-properties

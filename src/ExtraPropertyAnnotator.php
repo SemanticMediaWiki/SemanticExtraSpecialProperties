@@ -6,6 +6,7 @@ use SESP\PropertyAnnotators\DispatchingPropertyAnnotator;
 use SESP\PropertyAnnotators\LocalPropertyAnnotator;
 use SMW\DataItems\Property;
 use SMW\DataModel\SemanticData;
+
 /**
  * @private
  *

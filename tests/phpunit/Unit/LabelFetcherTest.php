@@ -2,9 +2,9 @@
 
 namespace SESP\Tests;
 
+use Onoi\Cache\Cache;
 use SESP\LabelFetcher;
 use SESP\PropertyDefinitions;
-use Onoi\Cache\Cache;
 
 /**
  * @covers \SESP\LabelFetcher

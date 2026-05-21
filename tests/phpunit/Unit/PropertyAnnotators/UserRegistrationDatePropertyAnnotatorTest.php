@@ -3,12 +3,13 @@
 namespace SESP\Tests\PropertyAnnotators;
 
 use MediaWiki\Title\Title;
+use SESP\AppFactory;
 use SESP\PropertyAnnotators\UserRegistrationDatePropertyAnnotator;
 use SMW\DataItems\Property;
-use SMW\DataModel\SemanticData;
-use SESP\AppFactory;
 use SMW\DataItems\WikiPage as DIWikiPage;
+use SMW\DataModel\SemanticData;
 use User;
+
 /**
  * @covers \SESP\PropertyAnnotators\UserRegistrationDatePropertyAnnotator
  * @group semantic-extra-special-properties

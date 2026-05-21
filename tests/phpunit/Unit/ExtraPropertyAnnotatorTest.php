@@ -2,13 +2,14 @@
 
 namespace SESP\Tests;
 
+use SESP\AppFactory;
 use SESP\ExtraPropertyAnnotator;
+use SESP\LabelFetcher;
+use SESP\PropertyAnnotator;
 use SESP\PropertyDefinitions;
 use SMW\DataItems\WikiPage;
 use SMW\DataModel\SemanticData;
-use SESP\AppFactory;
-use SESP\LabelFetcher;
-use SESP\PropertyAnnotator;
+
 /**
  * @covers \SESP\ExtraPropertyAnnotator
  * @group semantic-extra-special-properties

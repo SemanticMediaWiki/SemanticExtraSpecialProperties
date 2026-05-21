@@ -7,10 +7,11 @@ use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 use SESP\AppFactory;
 use SESP\PropertyAnnotator;
+use SMW\DataItems\DataItem;
 use SMW\DataItems\Property;
 use SMW\DataItems\WikiPage;
 use SMW\DataModel\SemanticData;
-use SMW\DataItems\DataItem;
+
 /**
  * @private
  * @ingroup SESP

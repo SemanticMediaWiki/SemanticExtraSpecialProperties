@@ -2,10 +2,11 @@
 
 namespace SESP\Tests\PropertyAnnotators;
 
+use SESP\AppFactory;
 use SESP\PropertyAnnotators\NullPropertyAnnotator;
 use SMW\DataItems\Property;
 use SMW\DataModel\SemanticData;
-use SESP\AppFactory;
+
 /**
  * @covers \SESP\PropertyAnnotators\NullPropertyAnnotator
  * @group semantic-extra-special-properties

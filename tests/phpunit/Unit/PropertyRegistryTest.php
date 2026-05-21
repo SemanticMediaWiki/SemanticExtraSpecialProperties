@@ -2,9 +2,9 @@
 
 namespace SESP\Tests;
 
-use SESP\PropertyRegistry;
 use SESP\AppFactory;
 use SESP\PropertyDefinitions;
+use SESP\PropertyRegistry;
 use SMW\PropertyRegistry as Registry;
 
 /**

@@ -6,9 +6,10 @@ use MediaWiki\MediaWikiServices;
 use RequestContext;
 use SESP\AppFactory;
 use SESP\PropertyAnnotator;
+use SMW\DataItems\Blob;
 use SMW\DataItems\Property;
 use SMW\DataModel\SemanticData;
-use SMW\DataItems\Blob;
+
 /**
  * @private
  * @ingroup SESP

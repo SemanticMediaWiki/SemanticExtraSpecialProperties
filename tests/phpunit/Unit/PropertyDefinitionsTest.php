@@ -2,8 +2,8 @@
 
 namespace SESP\Tests;
 
-use SESP\PropertyDefinitions;
 use SESP\LabelFetcher;
+use SESP\PropertyDefinitions;
 
 /**
  * @covers \SESP\PropertyDefinitions

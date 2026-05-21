@@ -4,10 +4,11 @@ namespace SESP\PropertyAnnotators;
 
 use SESP\AppFactory;
 use SESP\PropertyAnnotator;
-use SMW\DataItems\Property;
-use SMW\DataModel\SemanticData;
 use SMW\DataItems\DataItem;
 use SMW\DataItems\Number;
+use SMW\DataItems\Property;
+use SMW\DataModel\SemanticData;
+
 /**
  * @private
  * @ingroup SESP

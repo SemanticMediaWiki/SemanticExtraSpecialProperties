@@ -2,11 +2,11 @@
 
 namespace SESP\Tests\PropertyAnnotators;
 
-use SESP\PropertyAnnotators\ApprovedStatusPropertyAnnotator;
-use SMW\DataItems\Property;
-use SMW\DataItems\Blob as DIString;
-use SMW\DataModel\SemanticData;
 use SESP\AppFactory;
+use SESP\PropertyAnnotators\ApprovedStatusPropertyAnnotator;
+use SMW\DataItems\Blob as DIString;
+use SMW\DataItems\Property;
+use SMW\DataModel\SemanticData;
 
 /**
  * @covers \SESP\PropertyAnnotators\ApprovedStatusPropertyAnnotator

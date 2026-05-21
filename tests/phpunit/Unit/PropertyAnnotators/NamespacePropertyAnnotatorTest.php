@@ -2,12 +2,13 @@
 
 namespace SESP\Tests\PropertyAnnotators;
 
+use SESP\AppFactory;
 use SESP\PropertyAnnotators\NamespacePropertyAnnotator;
+use SMW\DataItems\Number;
 use SMW\DataItems\Property;
 use SMW\DataItems\WikiPage;
-use SMW\DataItems\Number;
 use SMW\DataModel\SemanticData;
-use SESP\AppFactory;
+
 /**
  * @covers \SESP\PropertyAnnotators\NamespacePropertyAnnotator
  * @group semantic-extra-special-properties

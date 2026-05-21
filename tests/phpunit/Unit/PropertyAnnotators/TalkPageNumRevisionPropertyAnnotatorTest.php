@@ -3,12 +3,13 @@
 namespace SESP\Tests\PropertyAnnotators;
 
 use MediaWiki\Title\Title;
+use SESP\AppFactory;
 use SESP\PropertyAnnotators\TalkPageNumRevisionPropertyAnnotator;
 use SMW\DataItems\Property;
-use SMW\DataModel\SemanticData;
-use SESP\AppFactory;
 use SMW\DataItems\WikiPage as DIWikiPage;
+use SMW\DataModel\SemanticData;
 use stdClass;
+
 /**
  * @covers \SESP\PropertyAnnotators\TalkPageNumRevisionPropertyAnnotator
  * @group semantic-extra-special-properties

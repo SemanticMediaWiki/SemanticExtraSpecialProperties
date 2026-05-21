@@ -9,6 +9,7 @@ use SESP\PropertyAnnotators\UserEditCountPropertyAnnotator;
 use SMW\DataItems\Property;
 use SMW\DataItems\WikiPage;
 use SMW\DataModel\SemanticData;
+
 /**
  * @covers \SESP\PropertyAnnotators\UserEditCountPropertyAnnotator
  * @group semantic-extra-special-properties

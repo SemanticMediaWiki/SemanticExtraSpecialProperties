@@ -8,6 +8,7 @@ use SESP\PropertyAnnotators\PageImagesPropertyAnnotator;
 use SMW\DataItems\Property;
 use SMW\DataItems\WikiPage;
 use SMW\DataModel\SemanticData;
+
 /**
  * @covers \SESP\PropertyAnnotators\PageImagesPropertyAnnotator
  * @group semantic-extra-special-properties

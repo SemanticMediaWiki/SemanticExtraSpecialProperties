@@ -5,15 +5,16 @@ namespace SESP\PropertyAnnotators;
 use FormatMetadata;
 use SESP\AppFactory;
 use SESP\PropertyAnnotator;
-use SMW\DataModel\ContainerSemanticData;
-use SMW\DataItems\Property;
-use SMW\DataItems\WikiPage;
-use SMW\DataModel\SemanticData;
-use SMW\DataItems\DataItem;
 use SMW\DataItems\Blob;
 use SMW\DataItems\Container;
+use SMW\DataItems\DataItem;
 use SMW\DataItems\Number;
+use SMW\DataItems\Property;
 use SMW\DataItems\Time;
+use SMW\DataItems\WikiPage;
+use SMW\DataModel\ContainerSemanticData;
+use SMW\DataModel\SemanticData;
+
 /**
  * @private
  * @ingroup SESP

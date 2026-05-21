@@ -2,6 +2,8 @@
 
 namespace SESP\Tests\PropertyAnnotators;
 
+use SESP\AppFactory;
+use SESP\PropertyAnnotator;
 use SESP\PropertyAnnotators\ApprovedByPropertyAnnotator;
 use SESP\PropertyAnnotators\ApprovedDatePropertyAnnotator;
 use SESP\PropertyAnnotators\ApprovedRevPropertyAnnotator;
@@ -30,8 +32,7 @@ use SESP\PropertyAnnotators\UserRegistrationDatePropertyAnnotator;
 use SESP\PropertyAnnotators\UserRightPropertyAnnotator;
 use SMW\DataItems\Property;
 use SMW\DataModel\SemanticData;
-use SESP\AppFactory;
-use SESP\PropertyAnnotator;
+
 /**
  * @covers \SESP\PropertyAnnotators\DispatchingPropertyAnnotator
  * @group semantic-extra-special-properties

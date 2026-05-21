@@ -2,11 +2,12 @@
 
 namespace SESP\Tests\PropertyAnnotators;
 
-use SESP\PropertyAnnotators\ApprovedRevPropertyAnnotator;
-use SMW\DataItems\Property;
-use SMW\DataItems\Number;
-use SMW\DataModel\SemanticData;
 use SESP\AppFactory;
+use SESP\PropertyAnnotators\ApprovedRevPropertyAnnotator;
+use SMW\DataItems\Number;
+use SMW\DataItems\Property;
+use SMW\DataModel\SemanticData;
+
 /**
  * @covers \SESP\PropertyAnnotators\ApprovedRevPropertyAnnotator
  * @group semantic-extra-special-properties

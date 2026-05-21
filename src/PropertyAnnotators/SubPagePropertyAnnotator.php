@@ -7,6 +7,7 @@ use SESP\PropertyAnnotator;
 use SMW\DataItems\Property;
 use SMW\DataItems\WikiPage;
 use SMW\DataModel\SemanticData;
+
 /**
  * @private
  * @ingroup SESP

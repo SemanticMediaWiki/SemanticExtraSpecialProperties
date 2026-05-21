@@ -6,10 +6,11 @@ use MediaWiki\Title\Title;
 use RuntimeException;
 use SESP\AppFactory;
 use SESP\PropertyAnnotator;
-use SMW\DataItems\Property;
-use SMW\DataModel\SemanticData;
 use SMW\DataItems\DataItem;
+use SMW\DataItems\Property;
 use SMW\DataItems\Uri;
+use SMW\DataModel\SemanticData;
+
 /**
  * @private
  * @ingroup SESP

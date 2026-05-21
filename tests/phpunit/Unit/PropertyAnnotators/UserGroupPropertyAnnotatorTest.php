@@ -5,11 +5,12 @@ namespace SESP\Tests\PropertyAnnotators;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 use MediaWikiIntegrationTestCase;
+use SESP\AppFactory;
 use SESP\PropertyAnnotators\UserGroupPropertyAnnotator;
 use SMW\DataItems\Property;
-use SMW\DataModel\SemanticData;
-use SESP\AppFactory;
 use SMW\DataItems\WikiPage as DIWikiPage;
+use SMW\DataModel\SemanticData;
+
 /**
  * @covers \SESP\PropertyAnnotators\UserGroupPropertyAnnotator
  * @group semantic-extra-special-properties

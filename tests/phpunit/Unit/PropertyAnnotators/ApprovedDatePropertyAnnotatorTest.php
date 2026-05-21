@@ -3,11 +3,12 @@
 namespace SESP\Tests\PropertyAnnotators;
 
 use MWTimestamp;
+use SESP\AppFactory;
 use SESP\PropertyAnnotators\ApprovedDatePropertyAnnotator;
 use SMW\DataItems\Property;
 use SMW\DataItems\Time;
 use SMW\DataModel\SemanticData;
-use SESP\AppFactory;
+
 /**
  * @covers \SESP\PropertyAnnotators\ApprovedDatePropertyAnnotator
  * @group semantic-extra-special-properties

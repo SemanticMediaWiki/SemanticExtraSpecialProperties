@@ -5,6 +5,7 @@ namespace SESP\PropertyAnnotators;
 use SESP\PropertyAnnotator;
 use SMW\DataItems\Property;
 use SMW\DataModel\SemanticData;
+
 /**
  * @private
  * @ingroup SESP

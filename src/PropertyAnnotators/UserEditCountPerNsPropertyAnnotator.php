@@ -4,13 +4,13 @@ namespace SESP\PropertyAnnotators;
 
 use SESP\AppFactory;
 use SESP\PropertyAnnotator;
-use SMW\DataModel\ContainerSemanticData;
+use SMW\DataItems\Container;
+use SMW\DataItems\DataItem;
+use SMW\DataItems\Number;
 use SMW\DataItems\Property;
 use SMW\DataItems\WikiPage;
+use SMW\DataModel\ContainerSemanticData;
 use SMW\DataModel\SemanticData;
-use SMW\DataItems\DataItem;
-use SMW\DataItems\Container;
-use SMW\DataItems\Number;
 use User;
 use Wikimedia\IPUtils;
 

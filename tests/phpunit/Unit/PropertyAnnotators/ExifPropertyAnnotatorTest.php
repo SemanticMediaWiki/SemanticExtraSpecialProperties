@@ -2,17 +2,18 @@
 
 namespace SESP\Tests\PropertyAnnotators;
 
+use File;
 use MediaWiki\Title\Title;
+use SESP\AppFactory;
+use SESP\LabelFetcher;
 use SESP\PropertyAnnotators\ExifPropertyAnnotator;
 use SESP\PropertyDefinitions;
 use SMW\DataItems\Property;
 use SMW\DataItems\WikiPage;
-use SMW\DataModel\SemanticData;
-use SESP\AppFactory;
 use SMW\DataItems\WikiPage as DIWikiPage;
-use SESP\LabelFetcher;
+use SMW\DataModel\SemanticData;
 use WikiFilePage;
-use File;
+
 /**
  * @covers \SESP\PropertyAnnotators\ExifPropertyAnnotator
  * @group semantic-extra-special-properties

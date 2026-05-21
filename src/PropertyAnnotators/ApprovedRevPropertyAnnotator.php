@@ -5,9 +5,10 @@ namespace SESP\PropertyAnnotators;
 use ApprovedRevs;
 use SESP\AppFactory;
 use SESP\PropertyAnnotator;
+use SMW\DataItems\Number;
 use SMW\DataItems\Property;
 use SMW\DataModel\SemanticData;
-use SMW\DataItems\Number;
+
 /**
  * @private
  * @ingroup SESP
@@ -64,7 +65,7 @@ class ApprovedRevPropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * {@inheritDoc}
 	 */
-	public function addAnnotation( Property $property, SemanticData $semanticData	) {
+	public function addAnnotation( Property $property, SemanticData $semanticData ) {
 		if ( $this->approvedRev === null && class_exists( 'ApprovedRevs' ) ) {
 			$this->approvedRev = ApprovedRevs::getApprovedRevID(
 				$semanticData->getSubject()->getTitle()
