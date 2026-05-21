@@ -3,9 +3,11 @@
 namespace SESP\Tests\PropertyAnnotators;
 
 use MediaWiki\Title\Title;
+use SESP\AppFactory;
 use SESP\PropertyAnnotators\SubPagePropertyAnnotator;
-use SMW\DIProperty;
-use SMW\DIWikiPage;
+use SMW\DataItems\Property;
+use SMW\DataItems\WikiPage;
+use SMW\DataModel\SemanticData;
 
 /**
  * @covers \SESP\PropertyAnnotators\SubPagePropertyAnnotator
@@ -24,11 +26,11 @@ class SubPagePropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		$this->appFactory = $this->getMockBuilder( '\SESP\AppFactory' )
+		$this->appFactory = $this->getMockBuilder( AppFactory::class )
 			->disableOriginalConstructor()
 			->getMock();
 
-		$this->property = new DIProperty( '___SUBP' );
+		$this->property = new Property( '___SUBP' );
 	}
 
 	public function testCanConstruct() {
@@ -49,7 +51,7 @@ class SubPagePropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testAddAnnotation() {
-		$sub = DIWikiPage::newFromText( __METHOD__ )->getTitle();
+		$sub = WikiPage::newFromText( __METHOD__ )->getTitle();
 
 		$title = $this->getMockBuilder( Title::class )
 			->disableOriginalConstructor()
@@ -59,7 +61,7 @@ class SubPagePropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			->method( 'getSubpages' )
 			->willReturn( [ $sub ] );
 
-		$subject = $this->getMockBuilder( '\SMW\DIWikiPage' )
+		$subject = $this->getMockBuilder( WikiPage::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -67,7 +69,7 @@ class SubPagePropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			->method( 'getTitle' )
 			->willReturn( $title );
 
-		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
+		$semanticData = $this->getMockBuilder( SemanticData::class )
 			->disableOriginalConstructor()
 			->getMock();
 

@@ -3,8 +3,8 @@
 namespace SESP\PropertyAnnotators;
 
 use SESP\PropertyAnnotator;
-use SMW\DIProperty;
-use SMW\SemanticData;
+use SMW\DataItems\Property;
+use SMW\DataModel\SemanticData;
 
 /**
  * @private
@@ -22,7 +22,7 @@ class NullPropertyAnnotator implements PropertyAnnotator {
 	 *
 	 * {@inheritDoc}
 	 */
-	public function isAnnotatorFor( DIProperty $property ) {
+	public function isAnnotatorFor( Property $property ) {
 		return true;
 	}
 
@@ -31,7 +31,7 @@ class NullPropertyAnnotator implements PropertyAnnotator {
 	 *
 	 * {@inheritDoc}
 	 */
-	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
+	public function addAnnotation( Property $property, SemanticData $semanticData ) {
 	}
 
 }

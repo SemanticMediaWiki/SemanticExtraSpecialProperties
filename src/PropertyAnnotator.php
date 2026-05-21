@@ -2,8 +2,8 @@
 
 namespace SESP;
 
-use SMW\DIProperty;
-use SMW\SemanticData;
+use SMW\DataItems\Property;
+use SMW\DataModel\SemanticData;
 
 /**
  * @license GPL-2.0-or-later
@@ -16,18 +16,18 @@ interface PropertyAnnotator {
 	/**
 	 * @since 2.0
 	 *
-	 * @param DIProperty $property
+	 * @param Property $property
 	 *
 	 * @return bool
 	 */
-	public function isAnnotatorFor( DIProperty $property );
+	public function isAnnotatorFor( Property $property );
 
 	/**
 	 * @since 2.0
 	 *
-	 * @param DIProperty $property
+	 * @param Property $property
 	 * @param SemanticData $semanticData
 	 */
-	public function addAnnotation( DIProperty $property, SemanticData $semanticData );
+	public function addAnnotation( Property $property, SemanticData $semanticData );
 
 }

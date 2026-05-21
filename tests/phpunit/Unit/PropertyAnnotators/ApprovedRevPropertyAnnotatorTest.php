@@ -2,9 +2,11 @@
 
 namespace SESP\Tests\PropertyAnnotators;
 
+use SESP\AppFactory;
 use SESP\PropertyAnnotators\ApprovedRevPropertyAnnotator;
-use SMW\DIProperty;
-use SMWDINumber as DINumber;
+use SMW\DataItems\Number;
+use SMW\DataItems\Property;
+use SMW\DataModel\SemanticData;
 
 /**
  * @covers \SESP\PropertyAnnotators\ApprovedRevPropertyAnnotator
@@ -23,11 +25,11 @@ class ApprovedRevPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		$this->appFactory = $this->getMockBuilder( '\SESP\AppFactory' )
+		$this->appFactory = $this->getMockBuilder( AppFactory::class )
 			->disableOriginalConstructor()
 			->getMock();
 
-		$this->property = new DIProperty( '___APPROVED' );
+		$this->property = new Property( '___APPROVED' );
 	}
 
 	public function testCanConstruct() {
@@ -48,7 +50,7 @@ class ApprovedRevPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testAddAnnotation() {
-		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
+		$semanticData = $this->getMockBuilder( SemanticData::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -56,7 +58,7 @@ class ApprovedRevPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			->method( 'addPropertyObjectValue' )
 			->with(
 				$this->property,
-				new DINumber( 42 ) );
+				new Number( 42 ) );
 
 		$annotator = new ApprovedRevPropertyAnnotator(
 			$this->appFactory
@@ -68,7 +70,7 @@ class ApprovedRevPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testRemoval() {
-		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
+		$semanticData = $this->getMockBuilder( SemanticData::class )
 			->disableOriginalConstructor()
 			->getMock();
 

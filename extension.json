@@ -1,6 +1,6 @@
 {
 	"name": "SemanticExtraSpecialProperties",
-	"version": "4.0.0",
+	"version": "7.0.0-alpha",
 	"author": [
 		"Leo Wallentin",
         "James Hong Kong",
@@ -15,7 +15,7 @@
 	"requires": {
 		"MediaWiki": ">= 1.43",
 		"extensions": {
-			"SemanticMediaWiki": ">= 6.0"
+			"SemanticMediaWiki": ">= 7.0"
 		}
 	},
 	"MessagesDirs": {

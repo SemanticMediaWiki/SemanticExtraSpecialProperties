@@ -6,9 +6,9 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Permissions\PermissionManager;
 use SESP\AppFactory;
 use SESP\PropertyAnnotator;
-use SMW\DIProperty;
-use SMW\DIWikiPage;
-use SMW\SemanticData;
+use SMW\DataItems\Property;
+use SMW\DataItems\WikiPage;
+use SMW\DataModel\SemanticData;
 
 /**
  * @private
@@ -51,7 +51,7 @@ class PageContributorsPropertyAnnotator implements PropertyAnnotator {
 	 *
 	 * {@inheritDoc}
 	 */
-	public function isAnnotatorFor( DIProperty $property ) {
+	public function isAnnotatorFor( Property $property ) {
 		return $property->getKey() === self::PROP_ID;
 	}
 
@@ -60,7 +60,7 @@ class PageContributorsPropertyAnnotator implements PropertyAnnotator {
 	 *
 	 * {@inheritDoc}
 	 */
-	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
+	public function addAnnotation( Property $property, SemanticData $semanticData ) {
 		$title = $semanticData->getSubject()->getTitle();
 		$page = $this->appFactory->newWikiPage( $title );
 
@@ -78,7 +78,7 @@ class PageContributorsPropertyAnnotator implements PropertyAnnotator {
 			if ( $this->isNotAnonymous( $user ) ) {
 				$semanticData->addPropertyObjectValue(
 					$property,
-					DIWikiPage::newFromTitle( $user->getUserPage() )
+					WikiPage::newFromTitle( $user->getUserPage() )
 				);
 			}
 

@@ -4,9 +4,9 @@ namespace SESP\Tests\PropertyAnnotators;
 
 use SESP\AppFactory;
 use SESP\PropertyAnnotators\PageIDPropertyAnnotator;
-use SMW\DIProperty;
-use SMW\DIWikiPage;
-use SMW\SemanticData;
+use SMW\DataItems\Property;
+use SMW\DataItems\WikiPage as DIWikiPage;
+use SMW\DataModel\SemanticData;
 use WikiPage;
 
 /**
@@ -30,7 +30,7 @@ class PageIDPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$this->property = new DIProperty( '___PAGEID' );
+		$this->property = new Property( '___PAGEID' );
 	}
 
 	public function testCanConstruct() {

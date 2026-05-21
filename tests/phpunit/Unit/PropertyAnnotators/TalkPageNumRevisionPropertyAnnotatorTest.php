@@ -3,8 +3,12 @@
 namespace SESP\Tests\PropertyAnnotators;
 
 use MediaWiki\Title\Title;
+use SESP\AppFactory;
 use SESP\PropertyAnnotators\TalkPageNumRevisionPropertyAnnotator;
-use SMW\DIProperty;
+use SMW\DataItems\Property;
+use SMW\DataItems\WikiPage;
+use SMW\DataModel\SemanticData;
+use stdClass;
 
 /**
  * @covers \SESP\PropertyAnnotators\TalkPageNumRevisionPropertyAnnotator
@@ -23,11 +27,11 @@ class TalkPageNumRevisionPropertyAnnotatorTest extends \PHPUnit\Framework\TestCa
 	protected function setUp(): void {
 		parent::setUp();
 
-		$this->appFactory = $this->getMockBuilder( '\SESP\AppFactory' )
+		$this->appFactory = $this->getMockBuilder( AppFactory::class )
 			->disableOriginalConstructor()
 			->getMock();
 
-		$this->property = new DIProperty( '___NTREV' );
+		$this->property = new Property( '___NTREV' );
 	}
 
 	public function testCanConstruct() {
@@ -71,7 +75,7 @@ class TalkPageNumRevisionPropertyAnnotatorTest extends \PHPUnit\Framework\TestCa
 			->method( 'getTalkPage' )
 			->willReturn( $talkPage );
 
-		$subject = $this->getMockBuilder( '\SMW\DIWikiPage' )
+		$subject = $this->getMockBuilder( WikiPage::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -79,7 +83,7 @@ class TalkPageNumRevisionPropertyAnnotatorTest extends \PHPUnit\Framework\TestCa
 			->method( 'getTitle' )
 			->willReturn( $title );
 
-		$connection = $this->getMockBuilder( '\stdClass' )
+		$connection = $this->getMockBuilder( stdClass::class )
 			->disableOriginalConstructor()
 			->addMethods( [ 'estimateRowCount' ] )
 			->getMock();
@@ -92,7 +96,7 @@ class TalkPageNumRevisionPropertyAnnotatorTest extends \PHPUnit\Framework\TestCa
 			->method( 'getConnection' )
 			->willReturn( $connection );
 
-		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
+		$semanticData = $this->getMockBuilder( SemanticData::class )
 			->disableOriginalConstructor()
 			->getMock();
 

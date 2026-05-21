@@ -2,10 +2,12 @@
 
 namespace SESP\Tests\PropertyAnnotators;
 
+use SESP\AppFactory;
 use SESP\PropertyAnnotators\NamespaceNamePropertyAnnotator;
-use SMW\DIProperty;
-use SMW\DIWikiPage;
-use SMWDIBlob;
+use SMW\DataItems\Blob;
+use SMW\DataItems\Property;
+use SMW\DataItems\WikiPage;
+use SMW\DataModel\SemanticData;
 
 /**
  * @covers \SESP\PropertyAnnotators\NamespacePropertyAnnotator
@@ -21,11 +23,11 @@ class NamespaceNamePropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		$this->appFactory = $this->getMockBuilder( '\SESP\AppFactory' )
+		$this->appFactory = $this->getMockBuilder( AppFactory::class )
 			->disableOriginalConstructor()
 			->getMock();
 
-		$this->property = new DIProperty( '___NSNAME' );
+		$this->property = new Property( '___NSNAME' );
 	}
 
 	/**
@@ -56,9 +58,9 @@ class NamespaceNamePropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 	 * @covers \SESP\PropertyAnnotators\NamespaceNamePropertyAnnotator::addAnnotation
 	 */
 	public function testAddAnnotation( $nsid, $nsname ) {
-		$subject = DIWikiPage::newFromText( __METHOD__, $nsid );
+		$subject = WikiPage::newFromText( __METHOD__, $nsid );
 
-		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
+		$semanticData = $this->getMockBuilder( SemanticData::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -70,7 +72,7 @@ class NamespaceNamePropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			->method( 'addPropertyObjectValue' )
 			->with(
 				$this->property,
-				new SMWDIBlob( $nsname ) );
+				new Blob( $nsname ) );
 		$annotator = new NamespaceNamePropertyAnnotator(
 			$this->appFactory
 		);

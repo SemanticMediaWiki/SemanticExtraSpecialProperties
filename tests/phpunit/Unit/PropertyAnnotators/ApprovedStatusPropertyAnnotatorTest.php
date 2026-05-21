@@ -2,9 +2,11 @@
 
 namespace SESP\Tests\PropertyAnnotators;
 
+use SESP\AppFactory;
 use SESP\PropertyAnnotators\ApprovedStatusPropertyAnnotator;
-use SMW\DIProperty;
-use SMWDIBlob as DIString;
+use SMW\DataItems\Blob as DIString;
+use SMW\DataItems\Property;
+use SMW\DataModel\SemanticData;
 
 /**
  * @covers \SESP\PropertyAnnotators\ApprovedStatusPropertyAnnotator
@@ -23,11 +25,11 @@ class ApprovedStatusPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		$this->appFactory = $this->getMockBuilder( '\SESP\AppFactory' )
+		$this->appFactory = $this->getMockBuilder( AppFactory::class )
 			->disableOriginalConstructor()
 			->getMock();
 
-		$this->property = new DIProperty( '___APPROVEDSTATUS' );
+		$this->property = new Property( '___APPROVEDSTATUS' );
 	}
 
 	public function testCanConstruct() {
@@ -48,7 +50,7 @@ class ApprovedStatusPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testAddAnnotation() {
-		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
+		$semanticData = $this->getMockBuilder( SemanticData::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -68,7 +70,7 @@ class ApprovedStatusPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testRemoval() {
-		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
+		$semanticData = $this->getMockBuilder( SemanticData::class )
 			->disableOriginalConstructor()
 			->getMock();
 

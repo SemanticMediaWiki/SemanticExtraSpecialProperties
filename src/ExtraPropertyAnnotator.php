@@ -4,8 +4,8 @@ namespace SESP;
 
 use SESP\PropertyAnnotators\DispatchingPropertyAnnotator;
 use SESP\PropertyAnnotators\LocalPropertyAnnotator;
-use SMW\DIProperty;
-use SMW\SemanticData;
+use SMW\DataItems\Property;
+use SMW\DataModel\SemanticData;
 
 /**
  * @private
@@ -61,7 +61,7 @@ class ExtraPropertyAnnotator {
 				continue;
 			}
 
-			$property = new DIProperty(
+			$property = new Property(
 				$propertyDefinitions->deepGet( $key, 'id' )
 			);
 

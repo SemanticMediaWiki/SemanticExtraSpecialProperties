@@ -6,9 +6,9 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 use SESP\AppFactory;
 use SESP\PropertyAnnotator;
-use SMW\DIProperty;
-use SMW\DIWikiPage;
-use SMW\SemanticData;
+use SMW\DataItems\Property;
+use SMW\DataItems\WikiPage;
+use SMW\DataModel\SemanticData;
 
 /**
  * @private
@@ -52,7 +52,7 @@ class LinksToPropertyAnnotator implements PropertyAnnotator {
 	 *
 	 * {@inheritDoc}
 	 */
-	public function isAnnotatorFor( DIProperty $property ) {
+	public function isAnnotatorFor( Property $property ) {
 		return $property->getKey() === self::PROP_ID;
 	}
 
@@ -61,7 +61,7 @@ class LinksToPropertyAnnotator implements PropertyAnnotator {
 	 *
 	 * {@inheritDoc}
 	 */
-	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
+	public function addAnnotation( Property $property, SemanticData $semanticData ) {
 		$page = $semanticData->getSubject()->getTitle();
 
 		if (
@@ -95,7 +95,7 @@ class LinksToPropertyAnnotator implements PropertyAnnotator {
 		foreach ( $res as $row ) {
 			$title = Title::newFromText( $row->sel_title, $row->sel_ns );
 			if ( $title !== null && $title->exists() ) {
-				$semanticData->addPropertyObjectValue( $property, DIWikiPage::newFromTitle( $title ) );
+				$semanticData->addPropertyObjectValue( $property, WikiPage::newFromTitle( $title ) );
 			}
 		}
 	}

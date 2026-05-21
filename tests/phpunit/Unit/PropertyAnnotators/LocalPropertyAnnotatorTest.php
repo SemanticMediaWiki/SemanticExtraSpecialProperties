@@ -2,9 +2,11 @@
 
 namespace SESP\Tests\PropertyAnnotators;
 
+use SESP\AppFactory;
 use SESP\PropertyAnnotators\LocalPropertyAnnotator;
-use SMW\DIProperty;
-use SMW\DIWikiPage;
+use SMW\DataItems\Property;
+use SMW\DataItems\WikiPage;
+use SMW\DataModel\SemanticData;
 
 /**
  * @covers \SESP\PropertyAnnotators\LocalPropertyAnnotator
@@ -23,12 +25,12 @@ class LocalPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		$this->appFactory = $this->getMockBuilder( '\SESP\AppFactory' )
+		$this->appFactory = $this->getMockBuilder( AppFactory::class )
 			->disableOriginalConstructor()
 			->onlyMethods( [ 'getOption' ] )
 			->getMock();
 
-		$this->property = new DIProperty( 'FAKE_PROP' );
+		$this->property = new Property( 'FAKE_PROP' );
 	}
 
 	public function testCanConstruct() {
@@ -49,7 +51,7 @@ class LocalPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testAddAnnotation() {
-		$subject = DIWikiPage::newFromText( __METHOD__ );
+		$subject = WikiPage::newFromText( __METHOD__ );
 
 		$callback = static function ( $appFactory, $property, $semanticData ) {
 			return $semanticData->getSubject();
@@ -67,7 +69,7 @@ class LocalPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			->with( 'sespgLocalDefinitions' )
 			->willReturn( $localPropertyDefinitions );
 
-		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
+		$semanticData = $this->getMockBuilder( SemanticData::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -86,7 +88,7 @@ class LocalPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testAddAnnotationOnInvalidLocalDef() {
-		$subject = DIWikiPage::newFromText( __METHOD__ );
+		$subject = WikiPage::newFromText( __METHOD__ );
 
 		$localPropertyDefinitions = [];
 		$localPropertyDefinitions['FAKE_PROP'] = [];
@@ -96,7 +98,7 @@ class LocalPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			->with( 'sespgLocalDefinitions' )
 			->willReturn( $localPropertyDefinitions );
 
-		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
+		$semanticData = $this->getMockBuilder( SemanticData::class )
 			->disableOriginalConstructor()
 			->getMock();
 

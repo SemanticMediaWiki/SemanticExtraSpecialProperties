@@ -5,9 +5,9 @@ namespace SESP\Tests\PropertyAnnotators;
 use MediaWiki\Title\Title;
 use SESP\AppFactory;
 use SESP\PropertyAnnotators\LinksToPropertyAnnotator;
-use SMW\DIProperty;
-use SMW\DIWikiPage;
-use SMW\SemanticData;
+use SMW\DataItems\Property;
+use SMW\DataItems\WikiPage;
+use SMW\DataModel\SemanticData;
 
 /**
  * @covers \SESP\PropertyAnnotators\LinksToPropertyAnnotator
@@ -24,11 +24,11 @@ class LinksToPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		$this->appFactory = $this->getMockBuilder( '\SESP\AppFactory' )
+		$this->appFactory = $this->getMockBuilder( AppFactory::class )
 			->disableOriginalConstructor()
 			->getMock();
 
-		$this->property = new DIProperty( '___LINKSTO' );
+		$this->property = new Property( '___LINKSTO' );
 	}
 
 	public function testCanConstruct() {
@@ -55,7 +55,7 @@ class LinksToPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 		$factory->expects( $this->once() )->method( 'getConnection' );
 
-		$subject = $this->getMockBuilder( DIWikiPage::class )
+		$subject = $this->getMockBuilder( WikiPage::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -89,7 +89,7 @@ class LinksToPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 		$factory->expects( $this->never() )
 			->method( 'getConnection' );
 
-		$subject = $this->getMockBuilder( DIWikiPage::class )
+		$subject = $this->getMockBuilder( WikiPage::class )
 			->disableOriginalConstructor()
 			->getMock();
 

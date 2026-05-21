@@ -4,10 +4,10 @@ namespace SESP\PropertyAnnotators;
 
 use SESP\AppFactory;
 use SESP\PropertyAnnotator;
-use SMW\DIProperty;
-use SMW\SemanticData;
-use SMWDataItem as DataItem;
-use SMWDINumber as DINumber;
+use SMW\DataItems\DataItem;
+use SMW\DataItems\Number;
+use SMW\DataItems\Property;
+use SMW\DataModel\SemanticData;
 
 /**
  * @private
@@ -44,7 +44,7 @@ class PageLengthPropertyAnnotator implements PropertyAnnotator {
 	 *
 	 * {@inheritDoc}
 	 */
-	public function isAnnotatorFor( DIProperty $property ) {
+	public function isAnnotatorFor( Property $property ) {
 		return $property->getKey() === self::PROP_ID;
 	}
 
@@ -53,14 +53,14 @@ class PageLengthPropertyAnnotator implements PropertyAnnotator {
 	 *
 	 * {@inheritDoc}
 	 */
-	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
+	public function addAnnotation( Property $property, SemanticData $semanticData ) {
 		$title = $semanticData->getSubject()->getTitle();
 
 		$length = $title->getLength();
 		$dataItem = null;
 
 		if ( is_int( $length ) && $length > 0 ) {
-			$dataItem = new DINumber( $length );
+			$dataItem = new Number( $length );
 		}
 
 		if ( $dataItem instanceof DataItem ) {

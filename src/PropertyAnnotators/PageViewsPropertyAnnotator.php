@@ -4,9 +4,9 @@ namespace SESP\PropertyAnnotators;
 
 use SESP\AppFactory;
 use SESP\PropertyAnnotator;
-use SMW\DIProperty;
-use SMW\SemanticData;
-use SMWDINumber as DINumber;
+use SMW\DataItems\Number;
+use SMW\DataItems\Property;
+use SMW\DataModel\SemanticData;
 
 /**
  * @private
@@ -43,7 +43,7 @@ class PageViewsPropertyAnnotator implements PropertyAnnotator {
 	 *
 	 * {@inheritDoc}
 	 */
-	public function isAnnotatorFor( DIProperty $property ) {
+	public function isAnnotatorFor( Property $property ) {
 		return $property->getKey() === self::PROP_ID;
 	}
 
@@ -52,7 +52,7 @@ class PageViewsPropertyAnnotator implements PropertyAnnotator {
 	 *
 	 * {@inheritDoc}
 	 */
-	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
+	public function addAnnotation( Property $property, SemanticData $semanticData ) {
 		if ( $this->appFactory->getOption( 'wgDisableCounters' ) ) {
 			return null;
 		}
@@ -61,7 +61,7 @@ class PageViewsPropertyAnnotator implements PropertyAnnotator {
 		$count = $this->getPageViewCount( $page );
 
 		if ( is_numeric( $count ) ) {
-			$semanticData->addPropertyObjectValue( $property, new DINumber( $count ) );
+			$semanticData->addPropertyObjectValue( $property, new Number( $count ) );
 		}
 	}
 

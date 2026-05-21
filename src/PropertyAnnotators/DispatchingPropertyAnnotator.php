@@ -4,8 +4,8 @@ namespace SESP\PropertyAnnotators;
 
 use SESP\AppFactory;
 use SESP\PropertyAnnotator;
-use SMW\DIProperty;
-use SMW\SemanticData;
+use SMW\DataItems\Property;
+use SMW\DataModel\SemanticData;
 
 /**
  * @private
@@ -47,7 +47,7 @@ class DispatchingPropertyAnnotator implements PropertyAnnotator {
 	 *
 	 * {@inheritDoc}
 	 */
-	public function isAnnotatorFor( DIProperty $property ) {
+	public function isAnnotatorFor( Property $property ) {
 		return true;
 	}
 
@@ -66,18 +66,18 @@ class DispatchingPropertyAnnotator implements PropertyAnnotator {
 	 *
 	 * {@inheritDoc}
 	 */
-	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
+	public function addAnnotation( Property $property, SemanticData $semanticData ) {
 		$this->findPropertyAnnotator( $property )->addAnnotation( $property, $semanticData );
 	}
 
 	/**
 	 * @since 2.0
 	 *
-	 * @param DIProperty $property
+	 * @param Property $property
 	 *
 	 * @return PropertyAnnotator
 	 */
-	public function findPropertyAnnotator( DIProperty $property ) {
+	public function findPropertyAnnotator( Property $property ) {
 		$key = $property->getKey();
 
 		if ( $this->propertyAnnotators === [] ) {

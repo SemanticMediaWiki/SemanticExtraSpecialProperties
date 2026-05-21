@@ -125,7 +125,7 @@ class PropertyRegistry {
 
 		$desc = isset( $definition['desc'] ) ? $definition['desc'] : '';
 
-		$propertyRegistry->registerPropertyDescriptionMsgKeyById(
+		$propertyRegistry->registerPropertyDescriptionByMsgKey(
 			$definition['id'],
 			$desc
 		);

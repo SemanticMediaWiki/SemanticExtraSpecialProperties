@@ -2,9 +2,13 @@
 
 namespace SESP\Tests;
 
+use SESP\AppFactory;
 use SESP\ExtraPropertyAnnotator;
+use SESP\LabelFetcher;
+use SESP\PropertyAnnotator;
 use SESP\PropertyDefinitions;
-use SMW\DIWikiPage;
+use SMW\DataItems\WikiPage;
+use SMW\DataModel\SemanticData;
 
 /**
  * @covers \SESP\ExtraPropertyAnnotator
@@ -22,7 +26,7 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		$this->appFactory = $this->getMockBuilder( '\SESP\AppFactory' )
+		$this->appFactory = $this->getMockBuilder( AppFactory::class )
 			->disableOriginalConstructor()
 			->getMock();
 	}
@@ -35,7 +39,7 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testaddAnnotationOnInvalidSubject() {
-		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
+		$semanticData = $this->getMockBuilder( SemanticData::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -50,12 +54,12 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testAddAnnotationOnLocalDef() {
-		$appFactory = $this->getMockBuilder( '\SESP\AppFactory' )
+		$appFactory = $this->getMockBuilder( AppFactory::class )
 			->disableOriginalConstructor()
 			->onlyMethods( [ 'getPropertyDefinitions', 'getOption' ] )
 			->getMock();
 
-		$subject = DIWikiPage::newFromText( __METHOD__ );
+		$subject = WikiPage::newFromText( __METHOD__ );
 
 		$callback = static function ( $appFactory, $property, $semanticData ) {
 			return $semanticData->getSubject();
@@ -66,7 +70,7 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			'callback' => $callback
 		];
 
-		$labelFetcher = $this->getMockBuilder( '\SESP\LabelFetcher' )
+		$labelFetcher = $this->getMockBuilder( LabelFetcher::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -87,7 +91,7 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			->with( 'sespgEnabledPropertyList' )
 			->willReturn( $localPropertyDefinitions );
 
-		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
+		$semanticData = $this->getMockBuilder( SemanticData::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -103,12 +107,12 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testAddAnnotationOnPredefined() {
-		$appFactory = $this->getMockBuilder( '\SESP\AppFactory' )
+		$appFactory = $this->getMockBuilder( AppFactory::class )
 			->disableOriginalConstructor()
 			->onlyMethods( [ 'getPropertyDefinitions', 'getOption' ] )
 			->getMock();
 
-		$subject = DIWikiPage::newFromText( __METHOD__ );
+		$subject = WikiPage::newFromText( __METHOD__ );
 
 		$specialProperties = [ 'FAKE2' ];
 
@@ -116,7 +120,7 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			'id'    => 'FAKE2'
 		];
 
-		$labelFetcher = $this->getMockBuilder( '\SESP\LabelFetcher' )
+		$labelFetcher = $this->getMockBuilder( LabelFetcher::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -137,7 +141,7 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			->with( 'sespgEnabledPropertyList' )
 			->willReturn( $specialProperties );
 
-		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
+		$semanticData = $this->getMockBuilder( SemanticData::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -145,7 +149,7 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			->method( 'getSubject' )
 			->willReturn( $subject );
 
-		$propertyAnnotator = $this->getMockBuilder( '\SESP\PropertyAnnotator' )
+		$propertyAnnotator = $this->getMockBuilder( PropertyAnnotator::class )
 			->disableOriginalConstructor()
 			->getMock();
 

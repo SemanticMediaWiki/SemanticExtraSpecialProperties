@@ -5,15 +5,15 @@ namespace SESP\PropertyAnnotators;
 use FormatMetadata;
 use SESP\AppFactory;
 use SESP\PropertyAnnotator;
+use SMW\DataItems\Blob;
+use SMW\DataItems\Container;
+use SMW\DataItems\DataItem;
+use SMW\DataItems\Number;
+use SMW\DataItems\Property;
+use SMW\DataItems\Time;
+use SMW\DataItems\WikiPage;
 use SMW\DataModel\ContainerSemanticData;
-use SMW\DIProperty;
-use SMW\DIWikiPage;
-use SMW\SemanticData;
-use SMWDataItem as DataItem;
-use SMWDIBlob as DIBlob;
-use SMWDIContainer as DIContainer;
-use SMWDINumber as DINumber;
-use SMWDITime as DITime;
+use SMW\DataModel\SemanticData;
 
 /**
  * @private
@@ -54,7 +54,7 @@ class ExifPropertyAnnotator implements PropertyAnnotator {
 	 *
 	 * {@inheritDoc}
 	 */
-	public function isAnnotatorFor( DIProperty $property ) {
+	public function isAnnotatorFor( Property $property ) {
 		return $property->getKey() === self::PROP_ID;
 	}
 
@@ -63,7 +63,7 @@ class ExifPropertyAnnotator implements PropertyAnnotator {
 	 *
 	 * {@inheritDoc}
 	 */
-	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
+	public function addAnnotation( Property $property, SemanticData $semanticData ) {
 		$subject = $semanticData->getSubject();
 		$title = $subject->getTitle();
 
@@ -109,7 +109,7 @@ class ExifPropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * @since 2.0
 	 *
-	 * @param DIWikiPage $subject
+	 * @param WikiPage $subject
 	 * @param array $rawExif The raw EXIF data to be added.
 	 */
 	protected function getDataItemFromExifData( $subject, $rawExif ) {
@@ -123,11 +123,11 @@ class ExifPropertyAnnotator implements PropertyAnnotator {
 			return;
 		}
 
-		return new DIContainer( $containerSemanticData );
+		return new Container( $containerSemanticData );
 	}
 
 	private function newContainerSemanticData( $subject ) {
-		$subject = new DIWikiPage(
+		$subject = new WikiPage(
 			$subject->getDBkey(),
 			$subject->getNamespace(),
 			$subject->getInterwiki(),
@@ -146,7 +146,7 @@ class ExifPropertyAnnotator implements PropertyAnnotator {
 			$dataItem = $this->createDataItemFromExif( $id, $key, $value, $rawExif, $exifDefinitions );
 
 			if ( $dataItem instanceof DataItem ) {
-				$containerSemanticData->addPropertyObjectValue( new DIProperty( $id ), $dataItem );
+				$containerSemanticData->addPropertyObjectValue( new Property( $id ), $dataItem );
 			}
 		}
 	}
@@ -164,10 +164,10 @@ class ExifPropertyAnnotator implements PropertyAnnotator {
 
 		switch ( $type ) {
 			case '_num':
-				$dataItem = is_numeric( $rawExif[$key] ) ? new DINumber( $rawExif[$key] ) : null;
+				$dataItem = is_numeric( $rawExif[$key] ) ? new Number( $rawExif[$key] ) : null;
 				break;
 			case '_txt':
-				$dataItem = new DIBlob( $value );
+				$dataItem = new Blob( $value );
 				break;
 			case '_dat':
 				$dataItem = $this->makeDataItemTime( $rawExif[$key] );
@@ -184,8 +184,8 @@ class ExifPropertyAnnotator implements PropertyAnnotator {
 		}
 
 		if ( $datetime ) {
-			return new DITime(
-				DITime::CM_GREGORIAN,
+			return new Time(
+				Time::CM_GREGORIAN,
 				$datetime->format( 'Y' ),
 				$datetime->format( 'n' ),
 				$datetime->format( 'j' ),
