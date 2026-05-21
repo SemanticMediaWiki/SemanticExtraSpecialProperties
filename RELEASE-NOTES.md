@@ -1,5 +1,15 @@
 This file contains the RELEASE-NOTES of the **Semantic Extra Special Properties** (a.k.a. SESP) extension.
 
+### 7.0.0-alpha
+
+Released on TBD.
+
+* New minimum required versions:
+  * MediaWiki 1.43
+  * Semantic MediaWiki 7.0
+  * PHP 8.1
+* Major version bumped from 4.x to 7.x to realign with Semantic MediaWiki's major version (5.x and 6.x intentionally skipped).
+
 ### 4.0.0
 
 Released on 2025-03-13.
