@@ -10,7 +10,6 @@ use SESP\PropertyAnnotators\ExifPropertyAnnotator;
 use SESP\PropertyDefinitions;
 use SMW\DataItems\Property;
 use SMW\DataItems\WikiPage;
-use SMW\DataItems\WikiPage as DIWikiPage;
 use SMW\DataModel\SemanticData;
 use WikiFilePage;
 
@@ -80,7 +79,7 @@ class ExifPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			->method( 'inNamespace' )
 			->willReturn( true );
 
-		$subject = $this->getMockBuilder( DIWikiPage::class )
+		$subject = $this->getMockBuilder( WikiPage::class )
 			->disableOriginalConstructor()
 			->getMock();
 

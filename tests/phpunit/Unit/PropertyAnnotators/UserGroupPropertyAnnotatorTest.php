@@ -8,7 +8,7 @@ use MediaWikiIntegrationTestCase;
 use SESP\AppFactory;
 use SESP\PropertyAnnotators\UserGroupPropertyAnnotator;
 use SMW\DataItems\Property;
-use SMW\DataItems\WikiPage as DIWikiPage;
+use SMW\DataItems\WikiPage;
 use SMW\DataModel\SemanticData;
 
 /**
@@ -81,7 +81,7 @@ class UserGroupPropertyAnnotatorTest extends MediaWikiIntegrationTestCase {
 			->method( 'inNamespace' )
 			->willReturn( true );
 
-		$subject = $this->getMockBuilder( DIWikiPage::class )
+		$subject = $this->getMockBuilder( WikiPage::class )
 			->disableOriginalConstructor()
 			->getMock();
 

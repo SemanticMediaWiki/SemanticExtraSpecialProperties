@@ -6,7 +6,7 @@ use MediaWiki\Title\Title;
 use SESP\AppFactory;
 use SESP\PropertyAnnotators\UserRegistrationDatePropertyAnnotator;
 use SMW\DataItems\Property;
-use SMW\DataItems\WikiPage as DIWikiPage;
+use SMW\DataItems\WikiPage;
 use SMW\DataModel\SemanticData;
 use User;
 
@@ -72,7 +72,7 @@ class UserRegistrationDatePropertyAnnotatorTest extends \PHPUnit\Framework\TestC
 			->method( 'inNamespace' )
 			->willReturn( true );
 
-		$subject = $this->getMockBuilder( DIWikiPage::class )
+		$subject = $this->getMockBuilder( WikiPage::class )
 			->disableOriginalConstructor()
 			->getMock();
 

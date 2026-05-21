@@ -6,7 +6,7 @@ use MediaWiki\Title\Title;
 use SESP\AppFactory;
 use SESP\PropertyAnnotators\PageLengthPropertyAnnotator;
 use SMW\DataItems\Property;
-use SMW\DataItems\WikiPage as DIWikiPage;
+use SMW\DataItems\WikiPage;
 use SMW\DataModel\SemanticData;
 
 /**
@@ -62,7 +62,7 @@ class PageLengthPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			->method( 'getLength' )
 			->willReturn( $length );
 
-		$subject = $this->getMockBuilder( DIWikiPage::class )
+		$subject = $this->getMockBuilder( WikiPage::class )
 			->disableOriginalConstructor()
 			->getMock();
 

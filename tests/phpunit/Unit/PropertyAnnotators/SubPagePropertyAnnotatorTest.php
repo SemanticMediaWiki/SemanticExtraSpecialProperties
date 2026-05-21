@@ -7,7 +7,6 @@ use SESP\AppFactory;
 use SESP\PropertyAnnotators\SubPagePropertyAnnotator;
 use SMW\DataItems\Property;
 use SMW\DataItems\WikiPage;
-use SMW\DataItems\WikiPage as DIWikiPage;
 use SMW\DataModel\SemanticData;
 
 /**
@@ -62,7 +61,7 @@ class SubPagePropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			->method( 'getSubpages' )
 			->willReturn( [ $sub ] );
 
-		$subject = $this->getMockBuilder( DIWikiPage::class )
+		$subject = $this->getMockBuilder( WikiPage::class )
 			->disableOriginalConstructor()
 			->getMock();
 

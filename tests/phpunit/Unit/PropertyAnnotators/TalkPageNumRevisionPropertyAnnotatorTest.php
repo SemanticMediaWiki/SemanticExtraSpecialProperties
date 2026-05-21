@@ -6,7 +6,7 @@ use MediaWiki\Title\Title;
 use SESP\AppFactory;
 use SESP\PropertyAnnotators\TalkPageNumRevisionPropertyAnnotator;
 use SMW\DataItems\Property;
-use SMW\DataItems\WikiPage as DIWikiPage;
+use SMW\DataItems\WikiPage;
 use SMW\DataModel\SemanticData;
 use stdClass;
 
@@ -75,7 +75,7 @@ class TalkPageNumRevisionPropertyAnnotatorTest extends \PHPUnit\Framework\TestCa
 			->method( 'getTalkPage' )
 			->willReturn( $talkPage );
 
-		$subject = $this->getMockBuilder( DIWikiPage::class )
+		$subject = $this->getMockBuilder( WikiPage::class )
 			->disableOriginalConstructor()
 			->getMock();
 

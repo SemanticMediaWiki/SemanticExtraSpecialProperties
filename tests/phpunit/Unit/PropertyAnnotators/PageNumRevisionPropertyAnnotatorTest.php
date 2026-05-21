@@ -6,7 +6,7 @@ use MediaWiki\Title\Title;
 use SESP\AppFactory;
 use SESP\PropertyAnnotators\PageNumRevisionPropertyAnnotator;
 use SMW\DataItems\Property;
-use SMW\DataItems\WikiPage as DIWikiPage;
+use SMW\DataItems\WikiPage;
 use SMW\DataModel\SemanticData;
 use stdClass;
 
@@ -67,7 +67,7 @@ class PageNumRevisionPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			->method( 'getArticleID' )
 			->willReturn( 1001 );
 
-		$subject = $this->getMockBuilder( DIWikiPage::class )
+		$subject = $this->getMockBuilder( WikiPage::class )
 			->disableOriginalConstructor()
 			->getMock();
 
