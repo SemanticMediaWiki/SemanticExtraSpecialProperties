@@ -2,6 +2,7 @@
 
 namespace SESP\PropertyAnnotators;
 
+use MediaWiki\User\User;
 use SESP\AppFactory;
 use SESP\PropertyAnnotator;
 use SMW\DataItems\Container;
@@ -11,7 +12,6 @@ use SMW\DataItems\Property;
 use SMW\DataItems\WikiPage;
 use SMW\DataModel\ContainerSemanticData;
 use SMW\DataModel\SemanticData;
-use User;
 use Wikimedia\IPUtils;
 
 /**

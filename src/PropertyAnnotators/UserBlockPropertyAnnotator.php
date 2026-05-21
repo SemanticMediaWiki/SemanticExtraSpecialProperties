@@ -2,12 +2,12 @@
 
 namespace SESP\PropertyAnnotators;
 
+use MediaWiki\User\User;
 use SESP\AppFactory;
 use SESP\PropertyAnnotator;
 use SMW\DataItems\Blob;
 use SMW\DataItems\Property;
 use SMW\DataModel\SemanticData;
-use User;
 
 /**
  * @private

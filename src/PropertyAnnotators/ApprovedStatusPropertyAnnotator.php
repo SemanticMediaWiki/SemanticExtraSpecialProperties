@@ -3,12 +3,12 @@
 namespace SESP\PropertyAnnotators;
 
 use ApprovedRevs;
-use IDBAccessObject;
 use SESP\AppFactory;
 use SESP\PropertyAnnotator;
 use SMW\DataItems\Blob as DIString;
 use SMW\DataItems\Property;
 use SMW\DataModel\SemanticData;
+use Wikimedia\Rdbms\IDBAccessObject;
 
 /**
  * @private

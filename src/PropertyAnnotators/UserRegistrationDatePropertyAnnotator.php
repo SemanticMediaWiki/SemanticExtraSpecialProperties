@@ -2,13 +2,13 @@
 
 namespace SESP\PropertyAnnotators;
 
+use MediaWiki\User\User;
 use SESP\AppFactory;
 use SESP\PropertyAnnotator;
 use SMW\DataItems\DataItem;
 use SMW\DataItems\Property;
 use SMW\DataItems\Time;
 use SMW\DataModel\SemanticData;
-use User;
 
 /**
  * @private

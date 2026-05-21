@@ -2,12 +2,12 @@
 
 namespace SESP\Tests\PropertyAnnotators;
 
+use MediaWiki\User\User;
 use SESP\AppFactory;
 use SESP\PropertyAnnotators\ApprovedByPropertyAnnotator;
 use SMW\DataItems\Property;
 use SMW\DataItems\WikiPage;
 use SMW\DataModel\SemanticData;
-use User;
 
 /**
  * @covers \SESP\PropertyAnnotators\ApprovedByPropertyAnnotator
