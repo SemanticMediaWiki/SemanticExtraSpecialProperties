@@ -3,8 +3,7 @@
 namespace SESP\Tests\PropertyAnnotators;
 
 use SESP\PropertyAnnotators\NullPropertyAnnotator;
-use SMW\DIProperty;
-
+use SMW\DataItems\Property;
 /**
  * @covers \SESP\PropertyAnnotators\NullPropertyAnnotator
  * @group semantic-extra-special-properties
@@ -26,7 +25,7 @@ class NullPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$this->property = new DIProperty( 'Foo' );
+		$this->property = new Property( 'Foo' );
 	}
 
 	public function testCanConstruct() {
@@ -47,7 +46,7 @@ class NullPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testAddAnnotation() {
-		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
+		$semanticData = $this->getMockBuilder( '\SMW\DataModel\SemanticData' )
 			->disableOriginalConstructor()
 			->getMock();
 

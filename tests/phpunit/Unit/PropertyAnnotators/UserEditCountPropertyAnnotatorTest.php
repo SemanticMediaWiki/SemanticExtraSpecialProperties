@@ -6,10 +6,9 @@ use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 use SESP\AppFactory;
 use SESP\PropertyAnnotators\UserEditCountPropertyAnnotator;
-use SMW\DIProperty;
-use SMW\DIWikiPage;
-use SMW\SemanticData;
-
+use SMW\DataItems\Property;
+use SMW\DataItems\WikiPage;
+use SMW\DataModel\SemanticData;
 /**
  * @covers \SESP\PropertyAnnotators\UserEditCountPropertyAnnotator
  * @group semantic-extra-special-properties
@@ -31,7 +30,7 @@ class UserEditCountPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$this->property = new DIProperty( '___USEREDITCNT' );
+		$this->property = new Property( '___USEREDITCNT' );
 	}
 
 	public function testCanConstruct() {
@@ -75,7 +74,7 @@ class UserEditCountPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			->method( 'inNamespace' )
 			->willReturn( true );
 
-		$subject = $this->getMockBuilder( DIWikiPage::class )
+		$subject = $this->getMockBuilder( WikiPage::class )
 			->disableOriginalConstructor()
 			->getMock();
 

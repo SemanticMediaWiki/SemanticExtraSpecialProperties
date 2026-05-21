@@ -28,8 +28,7 @@ use SESP\PropertyAnnotators\UserEditCountPropertyAnnotator;
 use SESP\PropertyAnnotators\UserGroupPropertyAnnotator;
 use SESP\PropertyAnnotators\UserRegistrationDatePropertyAnnotator;
 use SESP\PropertyAnnotators\UserRightPropertyAnnotator;
-use SMW\DIProperty;
-
+use SMW\DataItems\Property;
 /**
  * @covers \SESP\PropertyAnnotators\DispatchingPropertyAnnotator
  * @group semantic-extra-special-properties
@@ -51,7 +50,7 @@ class DispatchingPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$this->property = new DIProperty( 'Foo' );
+		$this->property = new Property( 'Foo' );
 	}
 
 	public function testCanConstruct() {
@@ -72,7 +71,7 @@ class DispatchingPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testAddAnnotation() {
-		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
+		$semanticData = $this->getMockBuilder( '\SMW\DataModel\SemanticData' )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -89,7 +88,7 @@ class DispatchingPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 		$instance->addPropertyAnnotator( 'Foo', $propertyAnnotator );
 
-		$instance->addAnnotation( new DIProperty( 'Foo' ), $semanticData );
+		$instance->addAnnotation( new Property( 'Foo' ), $semanticData );
 	}
 
 	/**
@@ -102,7 +101,7 @@ class DispatchingPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 		$this->assertInstanceOf(
 			$expected,
-			$instance->findPropertyAnnotator( new DIProperty( $property ) )
+			$instance->findPropertyAnnotator( new Property( $property ) )
 		);
 	}
 

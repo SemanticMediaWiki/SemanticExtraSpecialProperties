@@ -7,10 +7,9 @@ use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 use SESP\AppFactory;
 use SESP\PropertyAnnotators\UserBlockPropertyAnnotator;
-use SMW\DIProperty;
-use SMW\DIWikiPage;
-use SMW\SemanticData;
-
+use SMW\DataItems\Property;
+use SMW\DataItems\WikiPage;
+use SMW\DataModel\SemanticData;
 /**
  * @covers \SESP\PropertyAnnotators\UserBlockPropertyAnnotator
  * @group semantic-extra-special-properties
@@ -32,7 +31,7 @@ class UserBlockPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$this->property = new DIProperty( '___USERBLOCK' );
+		$this->property = new Property( '___USERBLOCK' );
 	}
 
 	public function testCanConstruct() {
@@ -88,7 +87,7 @@ class UserBlockPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			->method( 'inNamespace' )
 			->willReturn( true );
 
-		$subject = $this->getMockBuilder( DIWikiPage::class )
+		$subject = $this->getMockBuilder( WikiPage::class )
 			->disableOriginalConstructor()
 			->getMock();
 

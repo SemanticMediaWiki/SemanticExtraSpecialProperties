@@ -4,8 +4,7 @@ namespace SESP\Tests\PropertyAnnotators;
 
 use MediaWiki\Title\Title;
 use SESP\PropertyAnnotators\TalkPageNumRevisionPropertyAnnotator;
-use SMW\DIProperty;
-
+use SMW\DataItems\Property;
 /**
  * @covers \SESP\PropertyAnnotators\TalkPageNumRevisionPropertyAnnotator
  * @group semantic-extra-special-properties
@@ -27,7 +26,7 @@ class TalkPageNumRevisionPropertyAnnotatorTest extends \PHPUnit\Framework\TestCa
 			->disableOriginalConstructor()
 			->getMock();
 
-		$this->property = new DIProperty( '___NTREV' );
+		$this->property = new Property( '___NTREV' );
 	}
 
 	public function testCanConstruct() {
@@ -71,7 +70,7 @@ class TalkPageNumRevisionPropertyAnnotatorTest extends \PHPUnit\Framework\TestCa
 			->method( 'getTalkPage' )
 			->willReturn( $talkPage );
 
-		$subject = $this->getMockBuilder( '\SMW\DIWikiPage' )
+		$subject = $this->getMockBuilder( '\SMW\WikiPage' )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -92,7 +91,7 @@ class TalkPageNumRevisionPropertyAnnotatorTest extends \PHPUnit\Framework\TestCa
 			->method( 'getConnection' )
 			->willReturn( $connection );
 
-		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
+		$semanticData = $this->getMockBuilder( '\SMW\DataModel\SemanticData' )
 			->disableOriginalConstructor()
 			->getMock();
 

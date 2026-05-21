@@ -4,8 +4,7 @@ namespace SESP\Tests\PropertyAnnotators;
 
 use MediaWiki\Title\Title;
 use SESP\PropertyAnnotators\PageLengthPropertyAnnotator;
-use SMW\DIProperty;
-
+use SMW\DataItems\Property;
 /**
  * @covers \SESP\PropertyAnnotators\PageLengthPropertyAnnotator
  * @group semantic-extra-special-properties
@@ -27,7 +26,7 @@ class PageLengthPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$this->property = new DIProperty( '___PAGELGTH' );
+		$this->property = new Property( '___PAGELGTH' );
 	}
 
 	public function testCanConstruct() {
@@ -59,7 +58,7 @@ class PageLengthPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			->method( 'getLength' )
 			->willReturn( $length );
 
-		$subject = $this->getMockBuilder( '\SMW\DIWikiPage' )
+		$subject = $this->getMockBuilder( '\SMW\WikiPage' )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -67,7 +66,7 @@ class PageLengthPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			->method( 'getTitle' )
 			->willReturn( $title );
 
-		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
+		$semanticData = $this->getMockBuilder( '\SMW\DataModel\SemanticData' )
 			->disableOriginalConstructor()
 			->getMock();
 

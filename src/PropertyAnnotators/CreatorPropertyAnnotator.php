@@ -7,11 +7,10 @@ use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 use SESP\AppFactory;
 use SESP\PropertyAnnotator;
-use SMW\DIProperty;
-use SMW\DIWikiPage;
-use SMW\SemanticData;
-use SMWDataItem as DataItem;
-
+use SMW\DataItems\Property;
+use SMW\DataItems\WikiPage;
+use SMW\DataModel\SemanticData;
+use SMW\DataItems\DataItem;
 /**
  * @private
  * @ingroup SESP
@@ -47,7 +46,7 @@ class CreatorPropertyAnnotator implements PropertyAnnotator {
 	 *
 	 * {@inheritDoc}
 	 */
-	public function isAnnotatorFor( DIProperty $property ) {
+	public function isAnnotatorFor( Property $property ) {
 		return $property->getKey() === self::PROP_ID;
 	}
 
@@ -56,7 +55,7 @@ class CreatorPropertyAnnotator implements PropertyAnnotator {
 	 *
 	 * {@inheritDoc}
 	 */
-	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
+	public function addAnnotation( Property $property, SemanticData $semanticData ) {
 		$page = $this->appFactory->newWikiPage( $semanticData->getSubject()->getTitle() );
 		$dataItem = null;
 
@@ -66,7 +65,7 @@ class CreatorPropertyAnnotator implements PropertyAnnotator {
 				$creator = MediaWikiServices::getInstance()->getUserFactory()->newFromUserIdentity( $creator );
 			}
 			if ( ( $userPage = $creator->getUserPage() ) instanceof Title ) {
-				$dataItem = DIWikiPage::newFromTitle( $userPage );
+				$dataItem = WikiPage::newFromTitle( $userPage );
 			}
 		}
 

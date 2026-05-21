@@ -6,11 +6,10 @@ use MediaWiki\Title\Title;
 use RuntimeException;
 use SESP\AppFactory;
 use SESP\PropertyAnnotator;
-use SMW\DIProperty;
-use SMW\SemanticData;
-use SMWDataItem as DataItem;
-use SMWDIUri as DIUri;
-
+use SMW\DataItems\Property;
+use SMW\DataModel\SemanticData;
+use SMW\DataItems\DataItem;
+use SMW\DataItems\Uri;
 /**
  * @private
  * @ingroup SESP
@@ -47,7 +46,7 @@ class ShortUrlPropertyAnnotator implements PropertyAnnotator {
 	 *
 	 * {@inheritDoc}
 	 */
-	public function isAnnotatorFor( DIProperty $property ) {
+	public function isAnnotatorFor( Property $property ) {
 		return $property->getKey() === self::PROP_ID;
 	}
 
@@ -56,7 +55,7 @@ class ShortUrlPropertyAnnotator implements PropertyAnnotator {
 	 *
 	 * {@inheritDoc}
 	 */
-	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
+	public function addAnnotation( Property $property, SemanticData $semanticData ) {
 		if ( !$this->hasShortUrlUtils() ) {
 			throw new RuntimeException( 'Class ShortUrlUtils is not available' );
 		}
@@ -65,7 +64,7 @@ class ShortUrlPropertyAnnotator implements PropertyAnnotator {
 		$shortUrl = $this->getShortUrl( $semanticData->getSubject()->getTitle() );
 
 		if ( $shortUrl !== null ) {
-			$dataItem = new DIUri( 'http', $shortUrl, '', '' );
+			$dataItem = new Uri( 'http', $shortUrl, '', '' );
 		}
 
 		if ( $dataItem instanceof DataItem ) {

@@ -4,10 +4,10 @@ namespace SESP\Tests\PropertyAnnotators;
 
 use SESP\AppFactory;
 use SESP\PropertyAnnotators\UserEditCountPerNsPropertyAnnotator;
-use SMW\DIProperty;
-use SMW\DIWikiPage;
-use SMW\SemanticData;
-use SMWDIContainer;
+use SMW\DataItems\Property;
+use SMW\DataItems\WikiPage;
+use SMW\DataModel\SemanticData;
+use SMW\DataItems\Container;
 use User;
 use Wikimedia\Rdbms\Database;
 use Wikimedia\Rdbms\FakeResultWrapper;
@@ -23,7 +23,7 @@ use Wikimedia\Rdbms\FakeResultWrapper;
  */
 class UserEditCountPerNsPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
-	/** @var DIProperty */
+	/** @var Property */
 	private $property;
 	/** @var AppFactory */
 	private $appFactory;
@@ -35,7 +35,7 @@ class UserEditCountPerNsPropertyAnnotatorTest extends \PHPUnit\Framework\TestCas
 			->disableOriginalConstructor()
 			->getMock();
 
-		$this->property = new DIProperty( '___USEREDITCNTNS' );
+		$this->property = new Property( '___USEREDITCNTNS' );
 	}
 
 	public function testIsAnnotatorFor() {
@@ -105,7 +105,7 @@ class UserEditCountPerNsPropertyAnnotatorTest extends \PHPUnit\Framework\TestCas
 	 * @param int $edits Number of edits
 	 */
 	public function testContainer( $ns, $edits ) {
-		$subject = new DIWikiPage( 'Test', NS_USER );
+		$subject = new WikiPage( 'Test', NS_USER );
 
 		$annotator = new UserEditCountPerNsPropertyAnnotator( $this->appFactory );
 		// Expose the private method container().
@@ -114,17 +114,17 @@ class UserEditCountPerNsPropertyAnnotatorTest extends \PHPUnit\Framework\TestCas
 		$method->setAccessible( true );
 		$container = $method->invokeArgs( $annotator, [ $subject, $ns, $edits ] );
 
-		$this->assertInstanceOf( SMWDIContainer::class, $container, 'Container is not an instance of SMWDIContainer' );
+		$this->assertInstanceOf( Container::class, $container, 'Container is not an instance of Container' );
 
 		$data = $container->getSemanticData();
 		$properties = $data->getProperties();
 
 		$this->assertArrayHasKey( '___USEREDITCNTNS_NS', $properties, 'No namespace number in the container' );
-		$nsValue = $data->getPropertyValues( new DIProperty( '___USEREDITCNTNS_NS' ) )[0]->getNumber();
+		$nsValue = $data->getPropertyValues( new Property( '___USEREDITCNTNS_NS' ) )[0]->getNumber();
 		$this->assertEquals( $ns, $nsValue, 'Wrong namespace number' );
 
 		$this->assertArrayHasKey( '___USEREDITCNTNS_CNT', $properties, 'No edit cont in the container' );
-		$editsValue = $data->getPropertyValues( new DIProperty( '___USEREDITCNTNS_CNT' ) )[0]->getNumber();
+		$editsValue = $data->getPropertyValues( new Property( '___USEREDITCNTNS_CNT' ) )[0]->getNumber();
 		$this->assertEquals( $edits, $editsValue, 'Wrong edit count' );
 	}
 
@@ -146,7 +146,7 @@ class UserEditCountPerNsPropertyAnnotatorTest extends \PHPUnit\Framework\TestCas
 	 * @param array $stats
 	 */
 	public function testAddAnnotation( $namespace, $name, $ip, array $stats ) {
-		$subject = new DIWikiPage( $name ?: $ip, $namespace );
+		$subject = new WikiPage( $name ?: $ip, $namespace );
 		$semanticData = new SemanticData( $subject );
 
 		$total = array_sum( $stats );
@@ -196,9 +196,9 @@ class UserEditCountPerNsPropertyAnnotatorTest extends \PHPUnit\Framework\TestCas
 		if ( count( $stats ) > 0 && is_int( $total ) ) {
 			$this->assertArrayHasKey( '___USEREDITCNTNS', $properties, 'No edit count record for the page' );
 
-			$records = $semanticData->getPropertyValues( new DIProperty( '___USEREDITCNTNS' ) );
+			$records = $semanticData->getPropertyValues( new Property( '___USEREDITCNTNS' ) );
 			foreach ( $records as $record ) {
-				$this->assertInstanceOf( DIWikiPage::class, $record );
+				$this->assertInstanceOf( WikiPage::class, $record );
 			}
 			$actual = [];
 			foreach ( $semanticData->getSubSemanticData() as $subSemanticDatum ) {

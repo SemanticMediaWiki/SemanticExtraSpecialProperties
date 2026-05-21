@@ -6,8 +6,7 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 use MediaWikiIntegrationTestCase;
 use SESP\PropertyAnnotators\UserGroupPropertyAnnotator;
-use SMW\DIProperty;
-
+use SMW\DataItems\Property;
 /**
  * @covers \SESP\PropertyAnnotators\UserGroupPropertyAnnotator
  * @group semantic-extra-special-properties
@@ -30,8 +29,8 @@ class UserGroupPropertyAnnotatorTest extends MediaWikiIntegrationTestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		// Ensure the DIProperty is mocked or initialized correctly
-		$this->property = $this->createMock( DIProperty::class );
+		// Ensure the Property is mocked or initialized correctly
+		$this->property = $this->createMock( Property::class );
 		$this->property->method( 'getLabel' )->willReturn( '___USERGROUP' );
 		$this->property->method( 'getKey' )->willReturn( UserGroupPropertyAnnotator::PROP_ID );
 	}
@@ -78,7 +77,7 @@ class UserGroupPropertyAnnotatorTest extends MediaWikiIntegrationTestCase {
 			->method( 'inNamespace' )
 			->willReturn( true );
 
-		$subject = $this->getMockBuilder( '\SMW\DIWikiPage' )
+		$subject = $this->getMockBuilder( '\SMW\WikiPage' )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -86,7 +85,7 @@ class UserGroupPropertyAnnotatorTest extends MediaWikiIntegrationTestCase {
 			->method( 'getTitle' )
 			->willReturn( $title );
 
-		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
+		$semanticData = $this->getMockBuilder( '\SMW\DataModel\SemanticData' )
 			->disableOriginalConstructor()
 			->getMock();
 

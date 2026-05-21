@@ -5,10 +5,9 @@ namespace SESP\Tests\PropertyAnnotators;
 use MediaWiki\Title\Title;
 use SESP\AppFactory;
 use SESP\PropertyAnnotators\PageImagesPropertyAnnotator;
-use SMW\DIProperty;
-use SMW\DIWikiPage;
-use SMW\SemanticData;
-
+use SMW\DataItems\Property;
+use SMW\DataItems\WikiPage;
+use SMW\DataModel\SemanticData;
 /**
  * @covers \SESP\PropertyAnnotators\PageImagesPropertyAnnotator
  * @group semantic-extra-special-properties
@@ -30,7 +29,7 @@ class PageImagesPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$this->property = new DIProperty( '___PAGEIMG' );
+		$this->property = new Property( '___PAGEIMG' );
 	}
 
 	public function testCanConstruct() {
@@ -55,7 +54,7 @@ class PageImagesPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$subject = $this->getMockBuilder( DIWikiPage::class )
+		$subject = $this->getMockBuilder( WikiPage::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -78,7 +77,7 @@ class PageImagesPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 		$instance->expects( $this->once() )
 			->method( 'getPageImageTitle' )
-			->willReturn( DIWikiPage::newFromText( __METHOD__ )->getTitle() );
+			->willReturn( WikiPage::newFromText( __METHOD__ )->getTitle() );
 
 		$instance->addAnnotation( $this->property, $semanticData );
 	}

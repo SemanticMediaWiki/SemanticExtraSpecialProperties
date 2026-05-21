@@ -7,10 +7,9 @@ use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 use SESP\AppFactory;
 use SESP\PropertyAnnotator;
-use SMW\DIProperty;
-use SMW\DIWikiPage;
-use SMW\SemanticData;
-
+use SMW\DataItems\Property;
+use SMW\DataItems\WikiPage;
+use SMW\DataModel\SemanticData;
 /**
  * @private
  * @ingroup SESP
@@ -53,14 +52,14 @@ class ApprovedByPropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * {@inheritDoc}
 	 */
-	public function isAnnotatorFor( DIProperty $property ) {
+	public function isAnnotatorFor( Property $property ) {
 		return $property->getKey() === self::PROP_ID;
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
-	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
+	public function addAnnotation( Property $property, SemanticData $semanticData ) {
 		if ( $this->approvedBy === null && class_exists( 'ApprovedRevs' ) ) {
 			$title = $semanticData->getSubject()->getTitle();
 			if ( ApprovedRevs::pageIsApprovable( $title ) ) {
@@ -82,7 +81,7 @@ class ApprovedByPropertyAnnotator implements PropertyAnnotator {
 			$userPage = $this->approvedBy->getUserPage();
 
 			if ( $userPage instanceof Title ) {
-				return DIWikiPage::newFromTitle( $userPage );
+				return WikiPage::newFromTitle( $userPage );
 			}
 		}
 	}

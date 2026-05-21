@@ -5,9 +5,8 @@ namespace SESP\Tests\PropertyAnnotators;
 use MediaWiki\Title\Title;
 use SESP\PropertyAnnotators\ExifPropertyAnnotator;
 use SESP\PropertyDefinitions;
-use SMW\DIProperty;
-use SMW\DIWikiPage;
-
+use SMW\DataItems\Property;
+use SMW\DataItems\WikiPage;
 /**
  * @covers \SESP\PropertyAnnotators\ExifPropertyAnnotator
  * @group semantic-extra-special-properties
@@ -29,7 +28,7 @@ class ExifPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$this->property = new DIProperty( '___EXIFDATA' );
+		$this->property = new Property( '___EXIFDATA' );
 	}
 
 	public function testCanConstruct() {
@@ -74,7 +73,7 @@ class ExifPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			->method( 'inNamespace' )
 			->willReturn( true );
 
-		$subject = $this->getMockBuilder( '\SMW\DIWikiPage' )
+		$subject = $this->getMockBuilder( '\SMW\WikiPage' )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -86,7 +85,7 @@ class ExifPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			->method( 'newWikiPage' )
 			->willReturn( $wikiPage );
 
-		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
+		$semanticData = $this->getMockBuilder( '\SMW\DataModel\SemanticData' )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -117,7 +116,7 @@ class ExifPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			$defs
 		);
 
-		$subject = DIWikiPage::newFromText( __METHOD__, NS_FILE );
+		$subject = WikiPage::newFromText( __METHOD__, NS_FILE );
 
 		$file = $this->getMockBuilder( 'File' )
 			->disableOriginalConstructor()
@@ -147,7 +146,7 @@ class ExifPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			->method( 'getPropertyDefinitions' )
 			->willReturn( $propertyDefinitions );
 
-		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
+		$semanticData = $this->getMockBuilder( '\SMW\DataModel\SemanticData' )
 			->disableOriginalConstructor()
 			->getMock();
 

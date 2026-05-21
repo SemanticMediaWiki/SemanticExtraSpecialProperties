@@ -4,8 +4,7 @@ namespace SESP\Tests\PropertyAnnotators;
 
 use MediaWiki\Title\Title;
 use SESP\PropertyAnnotators\PageNumRevisionPropertyAnnotator;
-use SMW\DIProperty;
-
+use SMW\DataItems\Property;
 /**
  * @covers \SESP\PropertyAnnotators\PageNumRevisionPropertyAnnotator
  * @group semantic-extra-special-properties
@@ -27,7 +26,7 @@ class PageNumRevisionPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$this->property = new DIProperty( '___NREV' );
+		$this->property = new Property( '___NREV' );
 	}
 
 	public function testCanConstruct() {
@@ -63,7 +62,7 @@ class PageNumRevisionPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			->method( 'getArticleID' )
 			->willReturn( 1001 );
 
-		$subject = $this->getMockBuilder( '\SMW\DIWikiPage' )
+		$subject = $this->getMockBuilder( '\SMW\WikiPage' )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -84,7 +83,7 @@ class PageNumRevisionPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			->method( 'getConnection' )
 			->willReturn( $connection );
 
-		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
+		$semanticData = $this->getMockBuilder( '\SMW\DataModel\SemanticData' )
 			->disableOriginalConstructor()
 			->getMock();
 

@@ -4,9 +4,9 @@ namespace SESP\PropertyAnnotators;
 
 use SESP\AppFactory;
 use SESP\PropertyAnnotator;
-use SMW\DIProperty;
-use SMW\SemanticData;
-use SMWDIBlob as DIBlob;
+use SMW\DataItems\Property;
+use SMW\DataModel\SemanticData;
+use SMW\DataItems\Blob;
 use User;
 
 /**
@@ -44,7 +44,7 @@ class UserBlockPropertyAnnotator implements PropertyAnnotator {
 	 *
 	 * {@inheritDoc}
 	 */
-	public function isAnnotatorFor( DIProperty $property ) {
+	public function isAnnotatorFor( Property $property ) {
 		return $property->getKey() === self::PROP_ID;
 	}
 
@@ -53,7 +53,7 @@ class UserBlockPropertyAnnotator implements PropertyAnnotator {
 	 *
 	 * {@inheritDoc}
 	 */
-	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
+	public function addAnnotation( Property $property, SemanticData $semanticData ) {
 		$title = $semanticData->getSubject()->getTitle();
 
 		if ( !$title->inNamespace( NS_USER ) ) {
@@ -78,7 +78,7 @@ class UserBlockPropertyAnnotator implements PropertyAnnotator {
 
 		foreach ( $actions as $action ) {
 			if ( $block->appliesToRight( $action ) ) {
-				$semanticData->addPropertyObjectValue( $property, new DIBlob( $action ) );
+				$semanticData->addPropertyObjectValue( $property, new Blob( $action ) );
 			}
 		}
 	}

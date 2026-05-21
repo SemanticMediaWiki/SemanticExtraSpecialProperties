@@ -6,10 +6,9 @@ use File;
 use MediaWiki\Title\Title;
 use SESP\AppFactory;
 use SESP\PropertyAnnotator;
-use SMW\DIProperty;
-use SMW\DIWikiPage;
-use SMW\SemanticData;
-
+use SMW\DataItems\Property;
+use SMW\DataItems\WikiPage;
+use SMW\DataModel\SemanticData;
 class PageImagesPropertyAnnotator implements PropertyAnnotator {
 
 	/**
@@ -36,7 +35,7 @@ class PageImagesPropertyAnnotator implements PropertyAnnotator {
 	 *
 	 * {@inheritDoc}
 	 */
-	public function isAnnotatorFor( DIProperty $property ) {
+	public function isAnnotatorFor( Property $property ) {
 		return $property->getKey() === self::PROP_ID;
 	}
 
@@ -45,12 +44,12 @@ class PageImagesPropertyAnnotator implements PropertyAnnotator {
 	 *
 	 * {@inheritDoc}
 	 */
-	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
+	public function addAnnotation( Property $property, SemanticData $semanticData ) {
 		$Title = $semanticData->getSubject()->getTitle();
 		$pageImageTitle = $this->getPageImageTitle( $Title );
 
 		if ( $pageImageTitle ) {
-			$semanticData->addPropertyObjectValue( $property, DIWikiPage::newFromTitle( $pageImageTitle ) );
+			$semanticData->addPropertyObjectValue( $property, WikiPage::newFromTitle( $pageImageTitle ) );
 		}
 	}
 

@@ -4,10 +4,10 @@ namespace SESP\PropertyAnnotators;
 
 use SESP\AppFactory;
 use SESP\PropertyAnnotator;
-use SMW\DIProperty;
-use SMW\SemanticData;
-use SMWDataItem as DataItem;
-use SMWDITime as DITime;
+use SMW\DataItems\Property;
+use SMW\DataModel\SemanticData;
+use SMW\DataItems\DataItem;
+use SMW\DataItems\Time;
 use User;
 
 /**
@@ -45,7 +45,7 @@ class UserRegistrationDatePropertyAnnotator implements PropertyAnnotator {
 	 *
 	 * {@inheritDoc}
 	 */
-	public function isAnnotatorFor( DIProperty $property ) {
+	public function isAnnotatorFor( Property $property ) {
 		return $property->getKey() === self::PROP_ID;
 	}
 
@@ -54,7 +54,7 @@ class UserRegistrationDatePropertyAnnotator implements PropertyAnnotator {
 	 *
 	 * {@inheritDoc}
 	 */
-	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
+	public function addAnnotation( Property $property, SemanticData $semanticData ) {
 		$title = $semanticData->getSubject()->getTitle();
 
 		if ( !$title->inNamespace( NS_USER ) ) {
@@ -69,8 +69,8 @@ class UserRegistrationDatePropertyAnnotator implements PropertyAnnotator {
 			$timestamp = wfTimestamp( TS_ISO_8601, $user->getRegistration() );
 			$date = new \DateTime( $timestamp );
 
-			$dataItem = new DITime(
-				DITime::CM_GREGORIAN,
+			$dataItem = new Time(
+				Time::CM_GREGORIAN,
 				$date->format( 'Y' ),
 				$date->format( 'm' ),
 				$date->format( 'd' ),

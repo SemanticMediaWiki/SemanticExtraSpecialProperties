@@ -3,8 +3,8 @@
 namespace SESP\Tests\PropertyAnnotators;
 
 use SESP\PropertyAnnotators\ApprovedByPropertyAnnotator;
-use SMW\DIProperty;
-use SMW\DIWikiPage;
+use SMW\DataItems\Property;
+use SMW\DataItems\WikiPage;
 use User;
 
 /**
@@ -28,7 +28,7 @@ class ApprovedByPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$this->property = new DIProperty( '___APPROVEDBY' );
+		$this->property = new Property( '___APPROVEDBY' );
 	}
 
 	public function testCanConstruct() {
@@ -50,7 +50,7 @@ class ApprovedByPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 	public function testAddAnnotation() {
 		$user = User::newFromName( "UnitTest" );
-		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
+		$semanticData = $this->getMockBuilder( '\SMW\DataModel\SemanticData' )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -58,7 +58,7 @@ class ApprovedByPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			->method( 'addPropertyObjectValue' )
 			->with(
 				$this->property,
-				DIWikiPage::newFromTitle( $user->getUserPage() ) );
+				WikiPage::newFromTitle( $user->getUserPage() ) );
 		$annotator = new ApprovedByPropertyAnnotator(
 			$this->appFactory
 		);
@@ -69,7 +69,7 @@ class ApprovedByPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testRemoval() {
-		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
+		$semanticData = $this->getMockBuilder( '\SMW\DataModel\SemanticData' )
 			->disableOriginalConstructor()
 			->getMock();
 

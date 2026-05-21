@@ -4,10 +4,9 @@ namespace SESP\PropertyAnnotators;
 
 use SESP\AppFactory;
 use SESP\PropertyAnnotator;
-use SMW\DIProperty;
-use SMW\DIWikiPage;
-use SMW\SemanticData;
-
+use SMW\DataItems\Property;
+use SMW\DataItems\WikiPage;
+use SMW\DataModel\SemanticData;
 /**
  * @private
  * @ingroup SESP
@@ -43,7 +42,7 @@ class SubPagePropertyAnnotator implements PropertyAnnotator {
 	 *
 	 * {@inheritDoc}
 	 */
-	public function isAnnotatorFor( DIProperty $property ) {
+	public function isAnnotatorFor( Property $property ) {
 		return $property->getKey() === self::PROP_ID;
 	}
 
@@ -52,7 +51,7 @@ class SubPagePropertyAnnotator implements PropertyAnnotator {
 	 *
 	 * {@inheritDoc}
 	 */
-	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
+	public function addAnnotation( Property $property, SemanticData $semanticData ) {
 		$title = $semanticData->getSubject()->getTitle();
 
 		// -1 = no limit. Returns TitleArray object
@@ -61,7 +60,7 @@ class SubPagePropertyAnnotator implements PropertyAnnotator {
 		foreach ( $subpages as $title ) {
 			$semanticData->addPropertyObjectValue(
 				$property,
-				DIWikiPage::newFromTitle( $title )
+				WikiPage::newFromTitle( $title )
 			);
 		}
 	}

@@ -5,8 +5,7 @@ namespace SESP\Tests\PropertyAnnotators;
 use MediaWiki\Permissions\PermissionManager;
 use MediaWiki\Title\Title;
 use SESP\PropertyAnnotators\UserRightPropertyAnnotator;
-use SMW\DIProperty;
-
+use SMW\DataItems\Property;
 /**
  * @covers \SESP\PropertyAnnotators\UserRightPropertyAnnotator
  * @group semantic-extra-special-properties
@@ -28,7 +27,7 @@ class UserRightPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$this->property = new DIProperty( '___USERRIGHT' );
+		$this->property = new Property( '___USERRIGHT' );
 	}
 
 	public function testCanConstruct() {
@@ -68,7 +67,7 @@ class UserRightPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			->method( 'inNamespace' )
 			->willReturn( true );
 
-		$subject = $this->getMockBuilder( '\SMW\DIWikiPage' )
+		$subject = $this->getMockBuilder( '\SMW\WikiPage' )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -76,7 +75,7 @@ class UserRightPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			->method( 'getTitle' )
 			->willReturn( $title );
 
-		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
+		$semanticData = $this->getMockBuilder( '\SMW\DataModel\SemanticData' )
 			->disableOriginalConstructor()
 			->getMock();
 

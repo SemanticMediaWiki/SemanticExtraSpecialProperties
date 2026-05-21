@@ -5,9 +5,9 @@ namespace SESP\PropertyAnnotators;
 use MediaWiki\MediaWikiServices;
 use SESP\AppFactory;
 use SESP\PropertyAnnotator;
-use SMW\DIProperty;
-use SMW\SemanticData;
-use SMWDIBlob as DIBlob;
+use SMW\DataItems\Property;
+use SMW\DataModel\SemanticData;
+use SMW\DataItems\Blob;
 use User;
 
 /**
@@ -45,7 +45,7 @@ class UserGroupPropertyAnnotator implements PropertyAnnotator {
 	 *
 	 * {@inheritDoc}
 	 */
-	public function isAnnotatorFor( DIProperty $property ) {
+	public function isAnnotatorFor( Property $property ) {
 		return $property->getKey() === self::PROP_ID;
 	}
 
@@ -54,7 +54,7 @@ class UserGroupPropertyAnnotator implements PropertyAnnotator {
 	 *
 	 * {@inheritDoc}
 	 */
-	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
+	public function addAnnotation( Property $property, SemanticData $semanticData ) {
 		$title = $semanticData->getSubject()->getTitle();
 
 		if ( !$title->inNamespace( NS_USER ) ) {
@@ -71,7 +71,7 @@ class UserGroupPropertyAnnotator implements PropertyAnnotator {
 
 		$groups = MediaWikiServices::getInstance()->getUserGroupManager()->getUserGroups( $user );
 		foreach ( $groups as $group ) {
-			$semanticData->addPropertyObjectValue( $property, new DIBlob( $group ) );
+			$semanticData->addPropertyObjectValue( $property, new Blob( $group ) );
 		}
 	}
 

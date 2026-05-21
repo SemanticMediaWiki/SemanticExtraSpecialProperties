@@ -4,8 +4,7 @@ namespace SESP\Tests\PropertyAnnotators;
 
 use MediaWiki\Title\Title;
 use SESP\PropertyAnnotators\UserRegistrationDatePropertyAnnotator;
-use SMW\DIProperty;
-
+use SMW\DataItems\Property;
 /**
  * @covers \SESP\PropertyAnnotators\UserRegistrationDatePropertyAnnotator
  * @group semantic-extra-special-properties
@@ -27,7 +26,7 @@ class UserRegistrationDatePropertyAnnotatorTest extends \PHPUnit\Framework\TestC
 			->disableOriginalConstructor()
 			->getMock();
 
-		$this->property = new DIProperty( '___USERREG' );
+		$this->property = new Property( '___USERREG' );
 	}
 
 	public function testCanConstruct() {
@@ -68,7 +67,7 @@ class UserRegistrationDatePropertyAnnotatorTest extends \PHPUnit\Framework\TestC
 			->method( 'inNamespace' )
 			->willReturn( true );
 
-		$subject = $this->getMockBuilder( '\SMW\DIWikiPage' )
+		$subject = $this->getMockBuilder( '\SMW\WikiPage' )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -76,7 +75,7 @@ class UserRegistrationDatePropertyAnnotatorTest extends \PHPUnit\Framework\TestC
 			->method( 'getTitle' )
 			->willReturn( $title );
 
-		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
+		$semanticData = $this->getMockBuilder( '\SMW\DataModel\SemanticData' )
 			->disableOriginalConstructor()
 			->getMock();
 

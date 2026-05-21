@@ -4,10 +4,9 @@ namespace SESP\PropertyAnnotators;
 
 use SESP\AppFactory;
 use SESP\PropertyAnnotator;
-use SMW\DIProperty;
-use SMW\SemanticData;
-use SMWDINumber;
-
+use SMW\DataItems\Property;
+use SMW\DataModel\SemanticData;
+use SMW\DataItems\Number;
 /**
  * @private
  * @ingroup SESP
@@ -36,15 +35,15 @@ class NamespacePropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * {@inheritDoc}
 	 */
-	public function isAnnotatorFor( DIProperty $property ) {
+	public function isAnnotatorFor( Property $property ) {
 		return $property->getKey() === self::PROP_ID;
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
-	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
-		$dataItem = new SMWDINumber( $semanticData->getSubject()->getTitle()->getNamespace() );
+	public function addAnnotation( Property $property, SemanticData $semanticData ) {
+		$dataItem = new Number( $semanticData->getSubject()->getTitle()->getNamespace() );
 		$semanticData->addPropertyObjectValue( $property, $dataItem );
 	}
 }

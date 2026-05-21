@@ -5,10 +5,9 @@ namespace SESP\PropertyAnnotators;
 use MWTimestamp;
 use SESP\AppFactory;
 use SESP\PropertyAnnotator;
-use SMW\DIProperty;
-use SMW\SemanticData;
-use SMWDITime as DITime;
-
+use SMW\DataItems\Property;
+use SMW\DataModel\SemanticData;
+use SMW\DataItems\Time;
 /**
  * @private
  * @ingroup SESP
@@ -51,14 +50,14 @@ class ApprovedDatePropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * {@inheritDoc}
 	 */
-	public function isAnnotatorFor( DIProperty $property ) {
+	public function isAnnotatorFor( Property $property ) {
 		return $property->getKey() === self::PROP_ID;
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
-	public function addAnnotation( DIProperty $property, SemanticData $semanticData ) {
+	public function addAnnotation( Property $property, SemanticData $semanticData ) {
 		if ( $this->approvedDate === null && class_exists( 'ApprovedRevs' ) ) {
 			// ApprovedRevs does not provide a function to get the approval date,
 			// so fetch it here from the ApprovedRevs table
@@ -87,8 +86,8 @@ class ApprovedDatePropertyAnnotator implements PropertyAnnotator {
 	private function getDataItem() {
 		if ( $this->approvedDate ) {
 			$date = $this->approvedDate;
-			return new DITime(
-				DITime::CM_GREGORIAN,
+			return new Time(
+				Time::CM_GREGORIAN,
 				$date->format( 'Y' ),
 				$date->format( 'm' ),
 				$date->format( 'd' ),

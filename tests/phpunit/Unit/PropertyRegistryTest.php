@@ -89,7 +89,7 @@ class PropertyRegistryTest extends \PHPUnit\Framework\TestCase {
 			->method( 'registerPropertyAliasByMsgKey' );
 
 		$propertyRegistry->expects( $this->once() )
-			->method( 'registerPropertyDescriptionMsgKeyById' );
+			->method( 'registerPropertyDescriptionByMsgKey' );
 
 		$instance = new PropertyRegistry(
 			$this->appFactory
@@ -133,7 +133,7 @@ class PropertyRegistryTest extends \PHPUnit\Framework\TestCase {
 			->method( 'registerPropertyAliasByMsgKey' );
 
 		$propertyRegistry->expects( $this->once() )
-			->method( 'registerPropertyDescriptionMsgKeyById' );
+			->method( 'registerPropertyDescriptionByMsgKey' );
 
 		$instance = new PropertyRegistry(
 			$this->appFactory
