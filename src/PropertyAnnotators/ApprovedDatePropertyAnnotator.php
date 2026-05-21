@@ -2,7 +2,7 @@
 
 namespace SESP\PropertyAnnotators;
 
-use MWTimestamp;
+use MediaWiki\Utils\MWTimestamp;
 use SESP\AppFactory;
 use SESP\PropertyAnnotator;
 use SMW\DataItems\Property;

@@ -6,7 +6,7 @@ use ArrayIterator;
 use DatabaseLogEntry;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
-use MWTimestamp;
+use MediaWiki\Utils\MWTimestamp;
 use Wikimedia\Rdbms\Database;
 
 class DatabaseLogReader {
