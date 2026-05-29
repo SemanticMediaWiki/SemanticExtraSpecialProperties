@@ -2,6 +2,7 @@
 
 namespace SESP;
 
+use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use SMW\PropertyRegistry as Registry;
 use SMW\Services\ServicesFactory;
@@ -135,7 +136,7 @@ class HookRegistry {
 		);
 
 		$appFactory->setLogger(
-			$servicesFactory->getMediaWikiLogger( 'sesp' )
+			LoggerFactory::getInstance( 'sesp' )
 		);
 
 		$propertyRegistry = new PropertyRegistry(
