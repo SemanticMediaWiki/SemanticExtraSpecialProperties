@@ -88,7 +88,7 @@ class LabelFetcher {
 			]
 		);
 
-		if ( $this->labelCacheVersion !== false && ( $labels = $this->cache->fetch( $hash ) ) !== false ) {
+		if ( $this->labelCacheVersion !== false && ( $labels = $this->cache->get( $hash ) ) !== false ) {
 			return $labels;
 		}
 
