@@ -51,7 +51,7 @@ class AppFactory implements LoggerAwareInterface {
 	 * @since 2.0
 	 *
 	 * @param array $options
-	 * @param Cache|null $cache
+	 * @param BagOStuff|null $cache
 	 */
 	public function __construct( array $options = [], ?BagOStuff $cache = null ) {
 		$this->options = $options;
