@@ -104,7 +104,7 @@ class LabelFetcher {
 		}
 
 		if ( $labels !== [] ) {
-			$this->cache->save( $hash, $labels, 3600 * 24 );
+			$this->cache->set( $hash, $labels, 3600 * 24 );
 		}
 
 		return $labels;
