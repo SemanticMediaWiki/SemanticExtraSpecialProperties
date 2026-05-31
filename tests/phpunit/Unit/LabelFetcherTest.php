@@ -2,9 +2,9 @@
 
 namespace SESP\Tests;
 
-use Onoi\Cache\Cache;
 use SESP\LabelFetcher;
 use SESP\PropertyDefinitions;
+use Wikimedia\ObjectCache\BagOStuff;
 
 /**
  * @covers \SESP\LabelFetcher
@@ -22,7 +22,7 @@ class LabelFetcherTest extends \PHPUnit\Framework\TestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		$this->cache = $this->getMockBuilder( Cache::class )
+		$this->cache = $this->getMockBuilder( BagOStuff::class )
 			->disableOriginalConstructor()
 			->getMock();
 	}
@@ -62,11 +62,11 @@ class LabelFetcherTest extends \PHPUnit\Framework\TestCase {
 		);
 
 		$this->cache->expects( $this->once() )
-			->method( 'fetch' )
+			->method( 'get' )
 			->willReturn( false );
 
 		$this->cache->expects( $this->once() )
-			->method( 'save' );
+			->method( 'set' );
 
 		$instance = new LabelFetcher(
 			$this->cache
@@ -88,11 +88,11 @@ class LabelFetcherTest extends \PHPUnit\Framework\TestCase {
 			->getMock();
 
 		$this->cache->expects( $this->once() )
-			->method( 'fetch' )
+			->method( 'get' )
 			->willReturn( $labels );
 
 		$this->cache->expects( $this->never() )
-			->method( 'save' );
+			->method( 'set' );
 
 		$instance = new LabelFetcher(
 			$this->cache
@@ -112,7 +112,7 @@ class LabelFetcherTest extends \PHPUnit\Framework\TestCase {
 			->getMock();
 
 		$this->cache->expects( $this->once() )
-			->method( 'fetch' )
+			->method( 'get' )
 			->with( $this->stringContains( 'sesp:labels:e1484da79bc6323bcb087894cf9cab03' ) )
 			->willReturn( $labels );
 
