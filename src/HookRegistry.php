@@ -212,7 +212,7 @@ class HookRegistry {
 			// 1hr
 			$ttl = 60 * 60;
 			$key = smwfCacheKey( 'smw:parseraftertidy', $title->getPrefixedDBKey() );
-			$servicesFactory->getCache()->save( $key, null, $ttl );
+			$servicesFactory->getObjectCache()->save( $key, null, $ttl );
 
 			return true;
 		};
