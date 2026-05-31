@@ -5,10 +5,10 @@ namespace SESP;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
-use Onoi\Cache\Cache;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
+use Wikimedia\ObjectCache\BagOStuff;
 use Wikimedia\Rdbms\Database;
 use WikiPage;
 
@@ -28,7 +28,7 @@ class AppFactory implements LoggerAwareInterface {
 	private $options;
 
 	/**
-	 * @var Cache
+	 * @var BagOStuff
 	 */
 	private $cache;
 
@@ -53,7 +53,7 @@ class AppFactory implements LoggerAwareInterface {
 	 * @param array $options
 	 * @param Cache|null $cache
 	 */
-	public function __construct( array $options = [], ?Cache $cache = null ) {
+	public function __construct( array $options = [], ?BagOStuff $cache = null ) {
 		$this->options = $options;
 		$this->cache = $cache;
 	}
