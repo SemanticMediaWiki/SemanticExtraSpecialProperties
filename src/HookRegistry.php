@@ -132,7 +132,7 @@ class HookRegistry {
 
 		$appFactory = new AppFactory(
 			$config,
-			$servicesFactory->getCache()
+			$servicesFactory->getObjectCache()
 		);
 
 		$appFactory->setLogger(
@@ -196,7 +196,7 @@ class HookRegistry {
 			// version (no SMW related annotations or categories) the update is carried
 			// out and the store is able to remove any remaining annotations.
 			$key = smwfCacheKey( 'smw:parseraftertidy', $title->getPrefixedDBKey() );
-			$servicesFactory->getCache()->save( $key, $rev_id, $ttl );
+			$servicesFactory->getObjectCache()->save( $key, $rev_id, $ttl );
 
 			return true;
 		};
