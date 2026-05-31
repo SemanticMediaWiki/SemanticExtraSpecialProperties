@@ -2,9 +2,9 @@
 
 namespace SESP;
 
-use Onoi\Cache\Cache;
-use Onoi\Cache\NullCache;
 use SMW\Localizer\Message;
+use Wikimedia\ObjectCache\BagOStuff;
+use Wikimedia\ObjectCache\EmptyBagOStuff;
 
 /**
  * @ingroup SESP
@@ -39,15 +39,15 @@ class LabelFetcher {
 	/**
 	 * @since 2.0
 	 *
-	 * @param Cache|null $cache
+	 * @param BagOStuff|null $cache
 	 * @param string $languageCode
 	 */
-	public function __construct( ?Cache $cache = null, $languageCode = 'en' ) {
+	public function __construct( ?BagOStuff $cache = null, $languageCode = 'en' ) {
 		$this->cache = $cache;
 		$this->languageCode = $languageCode;
 
 		if ( $this->cache === null ) {
-			$this->cache = new NullCache();
+			$this->cache = new EmptyBagOStuff();
 		}
 	}
 
