@@ -58,11 +58,6 @@
 			"dev-master": "7.x-dev"
 		}
 	},
-	"autoload": {
-		"psr-4": {
-			"SESP\\": "src/"
-		}
-	},
 	"config": {
 		"process-timeout": 0,
 		"allow-plugins": {
