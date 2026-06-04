@@ -13,7 +13,7 @@ use SMW\Store;
  * their values when Semantic MediaWiki stores data.
  *
  * @license GPL-2.0-or-later
- * @since 7.0.0
+ * @since 5.0.0
  */
 class PropertyHooks {
 
@@ -25,7 +25,7 @@ class PropertyHooks {
 
 	/**
 	 * @see https://www.semantic-mediawiki.org/wiki/Hooks/SMW::Property::initProperties
-	 * @since 7.0.0
+	 * @since 5.0.0
 	 */
 	public function onSMW__Property__initProperties( Registry $registry ): bool {
 		return $this->propertyRegistry->register( $registry );
@@ -33,7 +33,7 @@ class PropertyHooks {
 
 	/**
 	 * @see https://www.semantic-mediawiki.org/wiki/Hooks/SMW::SQLStore::AddCustomFixedPropertyTables
-	 * @since 7.0.0
+	 * @since 5.0.0
 	 *
 	 * @param array &$customFixedProperties
 	 * @param array &$fixedPropertyTablePrefix
@@ -52,7 +52,7 @@ class PropertyHooks {
 
 	/**
 	 * @see https://www.semantic-mediawiki.org/wiki/Hooks/SMW::Store::BeforeDataUpdateComplete
-	 * @since 7.0.0
+	 * @since 5.0.0
 	 */
 	public function onSMW__Store__BeforeDataUpdateComplete( Store $store, SemanticData $semanticData ): bool {
 		$this->extraPropertyAnnotator->addAnnotation( $semanticData );

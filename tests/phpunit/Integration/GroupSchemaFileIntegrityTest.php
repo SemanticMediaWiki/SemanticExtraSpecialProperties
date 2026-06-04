@@ -9,7 +9,7 @@ use SMW\Schema\SchemaFactory;
  * @group medium
  *
  * @license GPL-2.0-or-later
- * @since 7.0.0
+ * @since 5.0.0
  */
 class GroupSchemaFileIntegrityTest extends \PHPUnit\Framework\TestCase {
 
