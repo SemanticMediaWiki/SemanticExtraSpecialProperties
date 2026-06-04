@@ -12,7 +12,7 @@ namespace SESP\Tests\Integration;
  * @coversNothing
  *
  * @license GPL-2.0-or-later
- * @since 7.0.0
+ * @since 5.0.0
  */
 class HookRegistrationIntegrityTest extends \PHPUnit\Framework\TestCase {
 

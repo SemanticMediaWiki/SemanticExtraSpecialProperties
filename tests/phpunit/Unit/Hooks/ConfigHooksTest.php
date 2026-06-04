@@ -9,7 +9,7 @@ use SESP\Hooks\ConfigHooks;
  * @group semantic-extra-special-properties
  *
  * @license GPL-2.0-or-later
- * @since 7.0.0
+ * @since 5.0.0
  */
 class ConfigHooksTest extends \PHPUnit\Framework\TestCase {
 

@@ -7,7 +7,7 @@ namespace SESP\Hooks;
  * initialization.
  *
  * @license GPL-2.0-or-later
- * @since 7.0.0
+ * @since 5.0.0
  */
 class ConfigHooks {
 
@@ -29,7 +29,7 @@ class ConfigHooks {
 
 	/**
 	 * @see https://www.semantic-mediawiki.org/wiki/Hooks/SMW::Settings::BeforeInitializationComplete
-	 * @since 7.0.0
+	 * @since 5.0.0
 	 *
 	 * @param array &$configuration
 	 */

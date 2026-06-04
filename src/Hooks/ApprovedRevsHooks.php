@@ -17,7 +17,7 @@ use Wikimedia\ObjectCache\BagOStuff;
  * parameters are left untyped to match its contract.
  *
  * @license GPL-2.0-or-later
- * @since 7.0.0
+ * @since 5.0.0
  */
 class ApprovedRevsHooks {
 
@@ -28,7 +28,7 @@ class ApprovedRevsHooks {
 
 	/**
 	 * @see https://www.mediawiki.org/wiki/Extension:Approved_Revs/Hooks/ApprovedRevsRevisionApproved
-	 * @since 7.0.0
+	 * @since 5.0.0
 	 *
 	 * @param mixed $output
 	 * @param Title $title
@@ -43,7 +43,7 @@ class ApprovedRevsHooks {
 
 	/**
 	 * @see https://www.mediawiki.org/wiki/Extension:Approved_Revs/Hooks/ApprovedRevsRevisionUnapproved
-	 * @since 7.0.0
+	 * @since 5.0.0
 	 *
 	 * @param mixed $output
 	 * @param Title $title

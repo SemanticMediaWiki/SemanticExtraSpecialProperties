@@ -14,7 +14,7 @@ use SMW\Store;
  * @group semantic-extra-special-properties
  *
  * @license GPL-2.0-or-later
- * @since 7.0.0
+ * @since 5.0.0
  */
 class PropertyHooksTest extends \PHPUnit\Framework\TestCase {
 
