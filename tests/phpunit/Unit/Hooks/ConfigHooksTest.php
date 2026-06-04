@@ -41,4 +41,23 @@ class ConfigHooksTest extends \PHPUnit\Framework\TestCase {
 
 		$this->assertSame( [], $configuration );
 	}
+
+	public function testRegistersImportFileDir() {
+		$configuration = [
+			'smwgImportFileDirs' => [ 'smw' => '/smw/data/import' ],
+		];
+
+		( new ConfigHooks() )->onSMW__Settings__BeforeInitializationComplete( $configuration );
+
+		$this->assertArrayHasKey( 'sesp', $configuration['smwgImportFileDirs'] );
+		$this->assertSame(
+			'/smw/data/import',
+			$configuration['smwgImportFileDirs']['smw'],
+			'must not clobber existing import directories'
+		);
+		$this->assertStringEndsWith(
+			'/data/import',
+			$configuration['smwgImportFileDirs']['sesp']
+		);
+	}
 }

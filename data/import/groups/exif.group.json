@@ -1,11 +1,11 @@
 {
     "type": "PROPERTY_GROUP_SCHEMA",
     "description": "Provides groups for EXIF related properties provided by the `Semantic Extra Special Properties` extension.",
-    "groups": [
-        {
-            "group_name":"Exif (Dimension and resolution)",
+    "groups": {
+        "exif_dimension_group": {
+            "canonical_name": "Exif (Dimension and resolution)",
             "message_key": "sesp-property-group-label-exif-dimension-group",
-            "properties": [
+            "property_keys": [
                 "___EXIFIMAGEWIDTH",
                 "___EXIFIMAGELENGTH",
                 "___EXIFORIGINALIMAGEHEIGHT",
@@ -16,10 +16,10 @@
                 "___EXIFPIXELYDIMENSION"
             ]
         },
-        {
-            "group_name":"Exif (Administrative)",
+        "exif_administrative_group": {
+            "canonical_name": "Exif (Administrative)",
             "message_key": "sesp-property-group-label-exif-meta-group",
-            "properties": [
+            "property_keys": [
                 "___EXIFSOFTWARE",
                 "___EXIFDATETIME",
                 "___EXIFEXIFVERSION",
@@ -49,20 +49,20 @@
                 "___EXIFCUSTOMRENDERED"
             ]
         },
-        {
-            "group_name":"Exif (Classification)",
+        "exif_classification_group": {
+            "canonical_name": "Exif (Classification)",
             "message_key": "sesp-property-group-label-exif-classification-group",
-            "properties": [
+            "property_keys": [
                 "___EXIFIIMCATEGORY",
                 "___EXIFIIMSUPPLEMENTALCATEGORY",
                 "___EXIFKEYWORDS",
                 "___EXIFINTELLECTUALGENRE"
             ]
         },
-        {
-            "group_name":"Exif (Camera and lense)",
+        "exif_camera_lens_group": {
+            "canonical_name": "Exif (Camera and lense)",
             "message_key": "sesp-property-group-label-exif-camera-lense-settings-group",
-            "properties": [
+            "property_keys": [
                 "___EXIFMAKE",
                 "___EXIFMODEL",
                 "___EXIFYCBCRPOSITIONING",
@@ -82,10 +82,10 @@
                 "___EXIFORIENTATION"
             ]
         },
-        {
-            "group_name":"Exif (Exposure)",
+        "exif_exposure_group": {
+            "canonical_name": "Exif (Exposure)",
             "message_key": "sesp-property-group-label-exif-exposure-group",
-            "properties": [
+            "property_keys": [
                 "___EXIFEXPOSURETIME",
                 "___EXIFFNUMBER",
                 "___EXIFEXPOSUREPROGRAM",
@@ -96,20 +96,20 @@
                 "___EXIFEXPOSUREMODE"
             ]
         },
-        {
-            "group_name":"Exif (Scene)",
+        "exif_scene_group": {
+            "canonical_name": "Exif (Scene)",
             "message_key": "sesp-property-group-label-exif-scene-group",
-            "properties": [
+            "property_keys": [
                 "___EXIFSCENECODE",
                 "___EXIFSCENETYPE",
                 "___EXIFSCENECAPTURETYPE",
                 "___EXIFGAINCONTROL"
             ]
         },
-        {
-            "group_name":"Exif (Location)",
+        "exif_location_group": {
+            "canonical_name": "Exif (Location)",
             "message_key": "sesp-property-group-label-exif-location-group",
-            "properties": [
+            "property_keys": [
                 "___EXIFWORLDREGIONDEST",
                 "___EXIFWORLDREGIONCREATED",
                 "___EXIFCOUNTRYDEST",
@@ -126,17 +126,17 @@
                 "___EXIFLOCATIONDESTCODE"
             ]
         },
-        {
-            "group_name":"Exif (Location, GPS)",
+        "exif_gps_group": {
+            "canonical_name": "Exif (Location, GPS)",
             "message_key": "sesp-property-group-label-exif-gps-group",
-            "properties": [
+            "property_keys": [
                 "___EXIFGPSSATELLITES",
                 "___EXIFGPSVERSIONID",
                 "___EXIFGPSMAPDATUM",
                 "___EXIFGPSDATESTAMP"
             ]
         }
-    ],
+    },
     "tags": [
         "group",
         "property group",
