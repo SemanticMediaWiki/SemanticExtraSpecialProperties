@@ -9,6 +9,8 @@ Released on TBD.
   * Semantic MediaWiki 7.0
   * PHP 8.1
 * Major version bumped from 4.x to 7.x to realign with Semantic MediaWiki's major version (5.x and 6.x intentionally skipped).
+* fix (Approved Revs): approving or unapproving a revision triggered a fatal error because the integration called a cache method that no longer exists under Semantic MediaWiki 7.0; it now uses the supported cache API.
+* Volatile special properties such as page views, revision ID, number of revisions and user edit counts are now excluded from Semantic MediaWiki's query-dependency detection, avoiding unnecessary re-evaluation of queries that use them.
 
 ### 4.0.0
 

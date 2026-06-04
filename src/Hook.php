@@ -54,25 +54,4 @@ class Hook {
 			];
 		}
 	}
-
-	public static function onSetupAfterCache() {
-		$config = [
-			'sespgUseFixedTables'      => $GLOBALS['sespgUseFixedTables'],
-			'sespgEnabledPropertyList' => $GLOBALS['sespgEnabledPropertyList'],
-			'sespgExcludeBotEdits'     => $GLOBALS['sespgExcludeBotEdits'],
-			'sespgDefinitionsFile'     => $GLOBALS['sespgDefinitionsFile'],
-			'sespgLocalDefinitions'    => $GLOBALS['sespgLocalDefinitions'],
-			'sespgLabelCacheVersion'   => $GLOBALS['sespgLabelCacheVersion'],
-
-			// Non-SESP settings
-			'wgDisableCounters'        => $GLOBALS['wgDisableCounters'] ?? null,
-			'wgShortUrlPrefix'         => $GLOBALS['wgShortUrlPrefix'] ?? null,
-		];
-
-		$hookRegistry = new HookRegistry(
-			$config
-		);
-
-		$hookRegistry->register();
-	}
 }
