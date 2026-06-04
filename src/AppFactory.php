@@ -173,6 +173,27 @@ class AppFactory implements LoggerAwareInterface {
 	}
 
 	/**
+	 * Reads a single page property as persisted in the `page_props` table (for
+	 * example the `description` set by the Description2 extension).
+	 *
+	 * @since 7.0.0
+	 *
+	 * @param Title $title
+	 * @param string $name
+	 *
+	 * @return string|null the property value, or null when it is not set
+	 */
+	public function getPageProperty( Title $title, string $name ): ?string {
+		$properties = MediaWikiServices::getInstance()->getPageProps()->getProperties( $title, $name );
+
+		if ( $properties === [] ) {
+			return null;
+		}
+
+		return (string)reset( $properties );
+	}
+
+	/**
 	 * @since 1.3
 	 *
 	 * @param Title $title

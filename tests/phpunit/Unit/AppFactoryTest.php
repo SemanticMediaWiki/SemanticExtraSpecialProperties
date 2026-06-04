@@ -84,6 +84,16 @@ class AppFactoryTest extends \PHPUnit\Framework\TestCase {
 		);
 	}
 
+	public function testGetPagePropertyReturnsNullForUnknownPage() {
+		$title = Title::newFromText( 'SESP-getPageProperty-unknown-page' );
+
+		$instance = new AppFactory();
+
+		$this->assertNull(
+			$instance->getPageProperty( $title, 'description' )
+		);
+	}
+
 	public function testGetConnection() {
 		$connection = $this->getMockBuilder( Database::class )
 			->disableOriginalConstructor()

@@ -48,6 +48,7 @@ Property labels differ according to the language the wiki was set up. An easy wa
 - `_APPROVEDDATE` adds a property called "Approved date" which records the date a page was approved if the [Approved Revs][Approved Revs] extension is installed
 - `_APPROVEDSTATUS` adds a property called "Approval status" which records the approvement status of a page if the [Approved Revs][Approved Revs] extension is installed
 - `_PAGEIMG` adds a property called "Page Images" which records PageImages of a page if the [PageImages][PageImages] extension is installed
+- `_DESCRIPTION` adds a property called "Description of the page" which records the page's `description` page property, as set by meta-description extensions such as [Description2][Description2] or [WikiSEO][WikiSEO]. It is read regardless of which extension set it, and stays empty when none has
 
 ## Additional configuration
 
@@ -111,3 +112,5 @@ a [privacy issue][privacy].
 [mw-localsettings]: https://www.mediawiki.org/wiki/Localsettings
 [mw-contentlang]: https://www.mediawiki.org/wiki/Content_language
 [PageImages]: https://www.mediawiki.org/wiki/Extension:PageImages
+[Description2]: https://www.mediawiki.org/wiki/Extension:Description2
+[WikiSEO]: https://www.mediawiki.org/wiki/Extension:WikiSEO
