@@ -34,13 +34,21 @@ class ConfigHooks {
 	 * @param array &$configuration
 	 */
 	public function onSMW__Settings__BeforeInitializationComplete( array &$configuration ): void {
-		if ( !isset( $configuration['smwgQueryDependencyPropertyExemptionList'] ) ) {
-			return;
+		// Register the SESP import directory so Semantic MediaWiki reads the
+		// `sesp.groups.json` manifest there and imports the `Group:` schema
+		// pages that group the special properties on Special:Browse and the
+		// property pages.
+		if ( isset( $configuration['smwgImportFileDirs'] ) ) {
+			$configuration['smwgImportFileDirs'] += [
+				'sesp' => __DIR__ . '/../../data/import',
+			];
 		}
 
-		$configuration['smwgQueryDependencyPropertyExemptionList'] = array_merge(
-			$configuration['smwgQueryDependencyPropertyExemptionList'],
-			self::QUERY_DEPENDENCY_EXEMPTION_LIST
-		);
+		if ( isset( $configuration['smwgQueryDependencyPropertyExemptionList'] ) ) {
+			$configuration['smwgQueryDependencyPropertyExemptionList'] = array_merge(
+				$configuration['smwgQueryDependencyPropertyExemptionList'],
+				self::QUERY_DEPENDENCY_EXEMPTION_LIST
+			);
+		}
 	}
 }

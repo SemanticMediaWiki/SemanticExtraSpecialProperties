@@ -11,6 +11,7 @@ Released on TBD.
 * Major version bumped from 4.x to 7.x to realign with Semantic MediaWiki's major version (5.x and 6.x intentionally skipped).
 * fix (Approved Revs): approving or unapproving a revision triggered a fatal error because the integration called a cache method that no longer exists under Semantic MediaWiki 7.0; it now uses the supported cache API.
 * Volatile special properties such as page views, revision ID, number of revisions and user edit counts are now excluded from Semantic MediaWiki's query-dependency detection, avoiding unnecessary re-evaluation of queries that use them.
+* feat: special properties are again grouped by category (user-related, page-related and the various EXIF groups) on Special:Browse and property pages. The underlying property-group schema import had been inactive since 2021, and the EXIF group schema has been migrated to the format required by Semantic MediaWiki 7.0 (#151).
 
 ### 4.0.0
 
