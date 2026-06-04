@@ -75,8 +75,34 @@
 			"descriptionmsg": "sesp-config-links-to-enabled-namespaces"
 		}
 	},
+	"ServiceWiringFiles": [
+		"src/ServiceWiring.php"
+	],
+	"HookHandlers": {
+		"PropertyHooks": {
+			"class": "SESP\\Hooks\\PropertyHooks",
+			"services": [
+				"SESP.PropertyRegistry",
+				"SESP.ExtraPropertyAnnotator"
+			]
+		},
+		"ApprovedRevsHooks": {
+			"class": "SESP\\Hooks\\ApprovedRevsHooks",
+			"services": [
+				"SESP.ObjectCache"
+			]
+		},
+		"ConfigHooks": {
+			"class": "SESP\\Hooks\\ConfigHooks"
+		}
+	},
 	"Hooks": {
-		"SetupAfterCache": "SESP\\Hook::onSetupAfterCache"
+		"SMW::Property::initProperties": "PropertyHooks",
+		"SMW::SQLStore::AddCustomFixedPropertyTables": "PropertyHooks",
+		"SMW::Store::BeforeDataUpdateComplete": "PropertyHooks",
+		"ApprovedRevsRevisionApproved": "ApprovedRevsHooks",
+		"ApprovedRevsRevisionUnapproved": "ApprovedRevsHooks",
+		"SMW::Settings::BeforeInitializationComplete": "ConfigHooks"
 	},
 	"manifest_version": 2
 }
