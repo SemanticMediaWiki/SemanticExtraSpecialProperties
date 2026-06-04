@@ -15,6 +15,7 @@ use SESP\PropertyAnnotators\NamespaceNamePropertyAnnotator;
 use SESP\PropertyAnnotators\NamespacePropertyAnnotator;
 use SESP\PropertyAnnotators\NullPropertyAnnotator;
 use SESP\PropertyAnnotators\PageContributorsPropertyAnnotator;
+use SESP\PropertyAnnotators\PageDescriptionPropertyAnnotator;
 use SESP\PropertyAnnotators\PageIDPropertyAnnotator;
 use SESP\PropertyAnnotators\PageImagesPropertyAnnotator;
 use SESP\PropertyAnnotators\PageLengthPropertyAnnotator;
@@ -118,6 +119,11 @@ class DispatchingPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 		$provider[] = [
 			PageViewsPropertyAnnotator::PROP_ID,
 			PageViewsPropertyAnnotator::class
+		];
+
+		$provider[] = [
+			PageDescriptionPropertyAnnotator::PROP_ID,
+			PageDescriptionPropertyAnnotator::class
 		];
 
 		$provider[] = [
