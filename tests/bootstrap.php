@@ -15,7 +15,8 @@ if ( !is_readable( $autoloaderClassPath ) ) {
 	die( "The Semantic MediaWiki test autoloader ($autoloaderClassPath) is not available" );
 }
 
-print sprintf( "\n%-20s%s\n", "Semantic Extra Special Properties: ", SESP_VERSION );
+$version = json_decode( file_get_contents( __DIR__ . '/../extension.json' ), true )['version'];
+print sprintf( "\n%-20s%s\n", "Semantic Extra Special Properties: ", $version );
 
 $autoloader = require $autoloaderClassPath;
 $autoloader->addPsr4( 'SESP\\Tests\\', __DIR__ . '/phpunit/Unit' );
