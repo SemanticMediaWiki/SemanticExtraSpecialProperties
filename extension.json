@@ -23,7 +23,6 @@
 			"i18n"
 		]
 	},
-	"callback": "SESP\\Hook::callback",
 	"AutoloadNamespaces": {
 		"SESP\\": "src/"
 	},
