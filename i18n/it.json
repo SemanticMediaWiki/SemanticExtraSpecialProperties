@@ -14,6 +14,7 @@
 	"sesp-property-page-len": "Lunghezza della pagina",
 	"sesp-property-page-len-desc": "\"$1\" registra la lunghezza di una pagina in byte. È fornito dall'estensione [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties SESP] (Semantic Extra Special Properties).",
 	"sesp-property-view-count": "Numero di visite alla pagina",
+	"sesp-property-description": "Descrizione della pagina",
 	"sesp-property-subpages": "Sottopagine",
 	"sesp-property-revisions": "Numero di versioni",
 	"sesp-property-talk-revisions": "Numero di versioni della pagina di discussione",
@@ -31,5 +32,7 @@
 	"sesp-exif-gpslatitude": "Exif:Latitudine",
 	"sesp-exif-gpslongitude": "Exif:Longitudine",
 	"sesp-exif-gpsaltitude": "Exif:Altitudine",
+	"sesp-property-group-label-user-data-group": "Relativo all'utente",
+	"sesp-property-group-label-page-data-group": "Relativo alla pagina",
 	"sesp-config-links-to-enabled-namespaces": "Elenco di ID namespace abilitati per la proprietà 'Collegamenti a'."
 }
