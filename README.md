@@ -31,7 +31,7 @@ create one and add the following content to it:
 ```
 {
 	"require": {
-		"mediawiki/semantic-extra-special-properties": "~7.0"
+		"mediawiki/semantic-extra-special-properties": "~5.0"
 	}
 }
 ```
@@ -39,7 +39,7 @@ create one and add the following content to it:
 If you already have a "composer.local.json" file, add the following line to the end of the "require"
 section in your file:
 
-    "mediawiki/semantic-extra-special-properties": "~7.0"
+    "mediawiki/semantic-extra-special-properties": "~5.0"
 
 Remember to add a comma to the end of the preceding line in this section.
 
