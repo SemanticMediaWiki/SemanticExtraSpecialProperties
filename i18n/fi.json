@@ -8,7 +8,8 @@
 			"Nike",
 			"Pyscowicz",
 			"Silvonen",
-			"Stryn"
+			"Stryn",
+			"Wikipeedikko"
 		]
 	},
 	"sesp-desc": "Lisää joitain erikoisominaisuuksia kaikille sivuille",
@@ -20,6 +21,7 @@
 	"sesp-property-page-len": "Sivun pituus",
 	"sesp-property-page-img": "Sivun kuva",
 	"sesp-property-view-count": "Näyttökertojen määrä",
+	"sesp-property-description": "Sivun kuvaus",
 	"sesp-property-subpages": "Alasivu",
 	"sesp-property-revisions": "Muokkausten määrä",
 	"sesp-property-talk-revisions": "Keskustelusivujen muokkausten määrä",

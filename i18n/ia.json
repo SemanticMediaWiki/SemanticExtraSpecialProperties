@@ -68,6 +68,8 @@
 	"sesp-exif-gpsaltitude": "Exif:Altitude",
 	"sesp-exif-label": "Exif:Etiquetta",
 	"sesp-exif-iimcategory": "Exif:Categoria de IIM",
+	"sesp-property-group-label-user-data-group": "Concernente le usator",
+	"sesp-property-group-label-page-data-group": "Concernente le pagina",
 	"sesp-property-group-label-exif-dimension-group": "Exif (Dimension e resolution)",
 	"sesp-property-group-label-exif-meta-group": "Exif (Administrative)",
 	"sesp-property-group-label-exif-classification-group": "Exif (Classification)",
