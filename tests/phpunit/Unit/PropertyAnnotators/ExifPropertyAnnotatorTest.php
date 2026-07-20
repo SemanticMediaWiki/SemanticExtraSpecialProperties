@@ -219,6 +219,13 @@ class ExifPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			$this->never()
 		];
 
+		// #226
+		$provider['multivalue-dc-date'] = [
+			[ 'dc-date' => [ 0 => '2025:11:03 21:27:42', '_type' => 'ol' ] ],
+			[ '_EXIF' => [ 'DC-DATE' => [ 'id' => 'Foo', 'type' => '_dat' ] ] ],
+			$this->once()
+		];
+
 		return $provider;
 	}
 
