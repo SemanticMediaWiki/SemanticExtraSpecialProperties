@@ -226,6 +226,13 @@ class ExifPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			$this->once()
 		];
 
+		// #226 - empty once _type is dropped: no annotation, no fatal
+		$provider['multivalue-empty'] = [
+			[ 'dc-date' => [ '_type' => 'ol' ] ],
+			[ '_EXIF' => [ 'DC-DATE' => [ 'id' => 'Foo', 'type' => '_dat' ] ] ],
+			$this->never()
+		];
+
 		return $provider;
 	}
 
