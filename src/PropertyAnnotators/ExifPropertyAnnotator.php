@@ -177,6 +177,15 @@ class ExifPropertyAnnotator implements PropertyAnnotator {
 	}
 
 	private function makeDataItemTime( $exifValue ) {
+		if ( is_array( $exifValue ) ) {
+			unset( $exifValue['_type'] );
+			$exifValue = $exifValue !== [] ? reset( $exifValue ) : null;
+		}
+
+		if ( !is_string( $exifValue ) ) {
+			return null;
+		}
+
 		try {
 			$datetime = $this->convertExifDate( $exifValue );
 		} catch ( \Exception $e ) {
