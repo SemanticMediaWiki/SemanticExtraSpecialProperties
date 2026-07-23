@@ -2,9 +2,10 @@ This file contains the RELEASE-NOTES of the **Semantic Extra Special Properties*
 
 ### 5.0.1
 
-Released on TBD.
+Released on July 23, 2026.
 
 * Fixed a fatal error that aborted a page's entire Semantic MediaWiki data update when an EXIF or XMP date property held a multi-valued value, such as an XMP `dc:date` Dublin Core sequence; such values are now handled (#226).
+* Localization updates from https://translatewiki.net
 
 ### 5.0.0
 
