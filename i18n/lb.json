@@ -30,5 +30,6 @@
 	"sesp-exif-gpslongitude": "Exif:Längegrad",
 	"sesp-exif-gpsaltitude": "Exif:Héicht",
 	"sesp-exif-label": "Exif:Etikett",
-	"sesp-exif-iimcategory": "Exif:IIM-Kategorie"
+	"sesp-exif-iimcategory": "Exif:IIM-Kategorie",
+	"sesp-property-group-label-exif-gps-group": "Exif (Standuert, GPS)"
 }
