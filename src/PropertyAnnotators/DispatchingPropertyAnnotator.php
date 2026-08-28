@@ -67,6 +67,10 @@ class DispatchingPropertyAnnotator implements PropertyAnnotator {
 	 * {@inheritDoc}
 	 */
 	public function addAnnotation( Property $property, SemanticData $semanticData ) {
+		$title = $semanticData->getSubject()->getTitle();
+		if ( $title === null || !$title->canExist() ) {
+			return;
+		}
 		$this->findPropertyAnnotator( $property )->addAnnotation( $property, $semanticData );
 	}
 

@@ -55,6 +55,10 @@ class PropertyHooks {
 	 * @since 5.0.0
 	 */
 	public function onSMW__Store__BeforeDataUpdateComplete( Store $store, SemanticData $semanticData ): bool {
+		$title = $semanticData->getSubject()->getTitle();
+		if ( $title === null || !$title->canExist() ) {
+			return false;
+		}
 		$this->extraPropertyAnnotator->addAnnotation( $semanticData );
 
 		return true;
