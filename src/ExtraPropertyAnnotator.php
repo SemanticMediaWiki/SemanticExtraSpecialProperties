@@ -91,8 +91,9 @@ class ExtraPropertyAnnotator {
 		$this->dispatchingPropertyAnnotator->addPropertyAnnotator( $key, $propertyAnnotator );
 	}
 
+	//$subject->getTitle()->isSpecialPage() || 
 	private function canAnnotate( $subject ) {
-		if ( $subject === null || $subject->getTitle() === null || $subject->getTitle()->isSpecialPage() ) {
+		if ( $subject === null || $subject->getTitle() === null || !$subject->getTitle()->canExist() ) {
 			return false;
 		}
 
