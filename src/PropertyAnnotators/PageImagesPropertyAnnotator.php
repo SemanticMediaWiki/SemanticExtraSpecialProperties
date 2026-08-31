@@ -3,6 +3,7 @@
 namespace SESP\PropertyAnnotators;
 
 use File;
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 use SESP\AppFactory;
 use SESP\PropertyAnnotator;
@@ -76,9 +77,24 @@ class PageImagesPropertyAnnotator implements PropertyAnnotator {
 	 * @return File|bool
 	 */
 	protected function getPageImage( Title $Title ) {
-		if ( class_exists( '\PageImages\PageImages' ) ) {
+		if ( !class_exists( '\PageImages\PageImages' ) ) {
+			return false;
+		}
+
+		// MW 1.44+ registers a PageImages service. The static
+		// PageImages::getPageImage() was deprecated in MW 1.45 and removed in
+		// MW 1.46, so prefer the service wherever it is available.
+		$services = MediaWikiServices::getInstance();
+
+		if ( $services->hasService( 'PageImages.PageImages' ) ) {
+			return $services->getService( 'PageImages.PageImages' )->getImage( $Title ) ?? false;
+		}
+
+		// MW 1.43 only provides the static method.
+		if ( method_exists( '\PageImages\PageImages', 'getPageImage' ) ) {
 			return \PageImages\PageImages::getPageImage( $Title );
 		}
+
 		return false;
 	}
 }
