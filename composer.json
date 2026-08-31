@@ -84,8 +84,8 @@
 		"lint": "parallel-lint . --exclude vendor --exclude node_modules --exclude extensions",
 		"phpcs": "phpcs -ps",
 		"phpcs-fix": "phpcbf -p",
-		"phpunit": "php ../../tests/phpunit/phpunit.php -c phpunit.xml.dist --testdox",
-		"phpunit-coverage": "php ../../tests/phpunit/phpunit.php -c phpunit.xml.dist --testdox --coverage-text --coverage-html coverage/php --coverage-clover coverage/php/coverage.xml",
+		"phpunit": "cd ${MW_INSTALL_PATH:-../..} && { [ ! -f tests/phpunit/generatePHPUnitConfig.php ] || [ -f phpunit.xml ] || php tests/phpunit/generatePHPUnitConfig.php >/dev/null 2>&1 || printf '%s' '<phpunit><!-- generatePHPUnitConfig unavailable in tarball installs --></phpunit>' > phpunit.xml; } && vendor/bin/phpunit -c extensions/SemanticExtraSpecialProperties/phpunit.xml.dist --bootstrap tests/phpunit/bootstrap.php --testdox",
+		"phpunit-coverage": "cd ${MW_INSTALL_PATH:-../..} && { [ ! -f tests/phpunit/generatePHPUnitConfig.php ] || [ -f phpunit.xml ] || php tests/phpunit/generatePHPUnitConfig.php >/dev/null 2>&1 || printf '%s' '<phpunit><!-- generatePHPUnitConfig unavailable in tarball installs --></phpunit>' > phpunit.xml; } && vendor/bin/phpunit -c extensions/SemanticExtraSpecialProperties/phpunit.xml.dist --bootstrap tests/phpunit/bootstrap.php --testdox --coverage-text --coverage-html extensions/SemanticExtraSpecialProperties/coverage/php --coverage-clover extensions/SemanticExtraSpecialProperties/coverage/php/coverage.xml",
 		"minus-x": "minus-x check ."
 	}
 }

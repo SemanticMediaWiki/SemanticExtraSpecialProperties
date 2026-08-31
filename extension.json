@@ -26,6 +26,10 @@
 	"AutoloadNamespaces": {
 		"SESP\\": "src/"
 	},
+	"TestAutoloadNamespaces": {
+		"SESP\\Tests\\": "tests/phpunit/Unit/",
+		"SESP\\Tests\\Integration\\": "tests/phpunit/Integration/"
+	},
 	"ConfigRegistry": {
 		"sespg": "SESP\\Config::newInstance"
 	},
