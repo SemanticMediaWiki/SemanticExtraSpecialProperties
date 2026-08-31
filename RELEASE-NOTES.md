@@ -1,5 +1,10 @@
 This file contains the RELEASE-NOTES of the **Semantic Extra Special Properties** (a.k.a. SESP) extension.
 
+### Unreleased
+
+* Fixed a fatal error when annotating a subject whose title cannot be a local wiki page, such as a redirect to an interwiki link; it could stop `rebuildData.php` part-way through (#286).
+* Subjects in the virtual `NS_MEDIA` namespace are no longer annotated. They were previously remapped to `NS_FILE`, but that path already failed whenever `_NTREV` was enabled, since a virtual namespace has no talk page.
+
 ### 5.0.1
 
 Released on July 23, 2026.
