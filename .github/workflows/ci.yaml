@@ -19,7 +19,7 @@ jobs:
           - mediawiki_version: '1.43'
             smw_version: dev-master
             approved_revs_version: 2.1
-            php_version: 8.1
+            php_version: 8.3
             database_type: mysql
             database_image: "mariadb:10.11"
             coverage: false
@@ -27,7 +27,7 @@ jobs:
           - mediawiki_version: '1.43'
             smw_version: dev-master
             approved_revs_version: 2.1
-            php_version: 8.1
+            php_version: 8.3
             database_type: mysql
             database_image: "mariadb:11.4"
             coverage: true
@@ -35,7 +35,7 @@ jobs:
           - mediawiki_version: '1.44'
             smw_version: dev-master
             approved_revs_version: master
-            php_version: 8.2
+            php_version: 8.3
             database_type: mysql
             database_image: "mariadb:11.8"
             coverage: false

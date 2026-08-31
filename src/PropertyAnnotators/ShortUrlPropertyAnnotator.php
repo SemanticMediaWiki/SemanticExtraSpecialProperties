@@ -102,6 +102,9 @@ class ShortUrlPropertyAnnotator implements PropertyAnnotator {
 		return $shortUrlPrefix;
 	}
 
+	/**
+	 * Whether the separate ShortUrl extension, which provides ShortUrlUtils, is installed.
+	 */
 	protected function hasShortUrlUtils() {
 		return class_exists( 'ShortUrlUtils' );
 	}
