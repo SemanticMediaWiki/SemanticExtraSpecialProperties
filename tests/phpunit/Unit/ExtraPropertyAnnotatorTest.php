@@ -53,6 +53,52 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 		$instance->addAnnotation( $semanticData );
 	}
 
+	/**
+	 * @dataProvider provideSubjectThatCannotBeAPage
+	 */
+	public function testAddAnnotationIsSkippedForSubjectThatCannotBeAPage(
+		string $dbKey, int $namespace, string $interwiki
+	) {
+		$appFactory = $this->getMockBuilder( AppFactory::class )
+			->disableOriginalConstructor()
+			->onlyMethods( [ 'getPropertyDefinitions', 'getOption' ] )
+			->getMock();
+
+		$appFactory->expects( $this->never() )
+			->method( 'getPropertyDefinitions' );
+
+		$appFactory->expects( $this->never() )
+			->method( 'getOption' );
+
+		$semanticData = $this->getMockBuilder( SemanticData::class )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$semanticData->expects( $this->never() )
+			->method( 'addPropertyObjectValue' );
+
+		$semanticData->method( 'getSubject' )
+			->willReturn( new WikiPage( $dbKey, $namespace, $interwiki ) );
+
+		$instance = new ExtraPropertyAnnotator(
+			$appFactory
+		);
+
+		$instance->addAnnotation( $semanticData );
+	}
+
+	public static function provideSubjectThatCannotBeAPage() {
+		// An interwiki link resolves to a title on another wiki, so it has no
+		// local page. "wikipedia" is one of the prefixes install.php seeds; an
+		// unregistered prefix would be read as part of the page name instead.
+		yield 'interwiki link' => [ 'Foo', NS_MAIN, 'wikipedia' ];
+
+		// NS_MEDIA is virtual: the file it refers to lives in NS_FILE.
+		yield 'virtual namespace' => [ 'Foo.png', NS_MEDIA, '' ];
+
+		yield 'special page' => [ 'Version', NS_SPECIAL, '' ];
+	}
+
 	public function testAddAnnotationOnLocalDef() {
 		$appFactory = $this->getMockBuilder( AppFactory::class )
 			->disableOriginalConstructor()

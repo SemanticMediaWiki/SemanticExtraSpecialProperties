@@ -92,7 +92,9 @@ class ExtraPropertyAnnotator {
 	}
 
 	private function canAnnotate( $subject ) {
-		if ( $subject === null || $subject->getTitle() === null || !$subject->getTitle()->canExist() ) {
+		$title = $subject === null ? null : $subject->getTitle();
+
+		if ( $title === null || !$title->canExist() ) {
 			return false;
 		}
 

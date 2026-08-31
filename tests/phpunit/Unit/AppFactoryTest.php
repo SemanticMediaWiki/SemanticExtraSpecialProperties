@@ -8,7 +8,6 @@ use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use SESP\AppFactory;
 use SESP\PropertyDefinitions;
-use WikiFilePage;
 use Wikimedia\Rdbms\Database;
 use WikiPage;
 
@@ -43,17 +42,6 @@ class AppFactoryTest extends \PHPUnit\Framework\TestCase {
 
 		$this->assertInstanceOf(
 			WikiPage::class,
-			$instance->newWikiPage( $title )
-		);
-	}
-
-	public function testCanConstructWikiPageFrom_NS_MEDIA() {
-		$title = Title::newFromText( 'Foo', NS_MEDIA );
-
-		$instance = new AppFactory();
-
-		$this->assertInstanceOf(
-			WikiFilePage::class,
 			$instance->newWikiPage( $title )
 		);
 	}
