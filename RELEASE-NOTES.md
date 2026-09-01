@@ -1,9 +1,14 @@
 This file contains the RELEASE-NOTES of the **Semantic Extra Special Properties** (a.k.a. SESP) extension.
 
-### Unreleased
+### 5.0.2
+
+Released on September 1, 2026.
 
 * Fixed a fatal error when annotating a subject whose title cannot be a local wiki page, such as a redirect to an interwiki link; it could stop `rebuildData.php` part-way through (#286).
+* Fixed a fatal error on MediaWiki 1.46 that aborted a page's entire Semantic MediaWiki data update when the `_PAGEIMG` property was enabled together with the PageImages extension. `PageImages::getPageImage()` was removed in MediaWiki 1.46; the annotator now uses the PageImages service where it is available.
 * Subjects in the virtual `NS_MEDIA` namespace are no longer annotated. They were previously remapped to `NS_FILE`, but that path already failed whenever `_NTREV` was enabled, since a virtual namespace has no talk page.
+* MediaWiki 1.46 is now part of the tested version matrix.
+* Localization updates from https://translatewiki.net
 
 ### 5.0.1
 
