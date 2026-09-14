@@ -73,6 +73,8 @@
 	"sesp-exif-gpsaltitude": "Exif:גובה",
 	"sesp-exif-label": "Exif:תווית",
 	"sesp-exif-iimcategory": "Exit:קטגוריית Iim",
+	"sesp-property-group-label-user-data-group": "קשור למשתמש",
+	"sesp-property-group-label-page-data-group": "קשור לדף",
 	"sesp-property-group-label-exif-dimension-group": "Exif (ממד ורזולוציה)",
 	"sesp-property-group-label-exif-meta-group": "Exif (מנהלי)",
 	"sesp-property-group-label-exif-classification-group": "Exif (סיווג)",
