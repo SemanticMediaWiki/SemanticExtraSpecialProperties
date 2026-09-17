@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"A Chinese Wikipedian",
+			"Addonian1123",
 			"Assoc",
 			"Cookai1205",
 			"Deathkon",
@@ -82,6 +83,14 @@
 	"sesp-exif-iimcategory": "Exif:Iim 分類",
 	"sesp-property-group-label-user-data-group": "與使用者相關",
 	"sesp-property-group-label-page-data-group": "與頁面相關",
+	"sesp-property-group-label-exif-dimension-group": "Exif（尺寸和解析度）",
+	"sesp-property-group-label-exif-meta-group": "Exif（管理）",
+	"sesp-property-group-label-exif-classification-group": "Exif（分類）",
+	"sesp-property-group-label-exif-camera-lense-settings-group": "Exif（相機和鏡頭）",
+	"sesp-property-group-label-exif-exposure-group": "Exif（曝光）",
+	"sesp-property-group-label-exif-scene-group": "Exif（場景）",
+	"sesp-property-group-label-exif-location-group": "Exif（位置）",
+	"sesp-property-group-label-exif-gps-group": "Exif（位置資訊，GPS）",
 	"sesp-admin-deprecation-notice-section": "Semantic 額外特殊屬性擴充功能",
 	"sesp-admin-deprecation-notice-title-replacement": "已替換或重新命名的設定",
 	"sesp-admin-deprecation-notice-title-replacement-explanation": "以下段落包含已重新命名或或是其它變動的設定，建議立即更新其名稱或格式。",
