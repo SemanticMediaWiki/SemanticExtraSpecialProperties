@@ -29,7 +29,7 @@
 	"sesp-property-view-count": "Anzahl der Seitenaufrufe",
 	"sesp-property-view-count-desc": "„$1“ speichert Anzahl der Seitenaufrufe einer Seite. Diese wird von der Erweiterung [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties] zur Verfügung gestellt.",
 	"sesp-property-description": "Beschreibung der Seite",
-	"sesp-property-description-desc": "Der Wert „$1“ speichert die Beschreibung der Seite, wie sie von Erweiterungen, z. B. „Description2“ oder „WikiSEO“ in der Seiteneigenschaft „description“ hinterlegt wird. Er wird unabhängig von der Erweiterung gelesen, die ihn festgelegt hat. Das Attribut wird von der Erweiterung [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties] bereitgestellt.",
+	"sesp-property-description-desc": "Der Wert „$1“ speichert die Beschreibung der Seite, wie sie von Erweiterungen, z. B. „Description2“ oder „WikiSEO“, in der Seiteneigenschaft „description“ hinterlegt wird. Er wird unabhängig von der Erweiterung gelesen, die ihn festgelegt hat. Das Attribut wird von der Erweiterung [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties] bereitgestellt.",
 	"sesp-property-subpages": "Unterseite",
 	"sesp-property-subpages-desc": "„$1“ speichert alle Unterseiten einer Seite. Diese wird von der Erweiterung [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties Semantic Extra Special Properties] zur Verfügung gestellt.",
 	"sesp-property-revisions": "Anzahl der Bearbeitungen",
