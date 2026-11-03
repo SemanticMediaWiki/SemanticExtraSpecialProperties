@@ -95,7 +95,7 @@ class PropertyRegistry {
 	}
 
 	private function addPropertyDefinition( $propertyRegistry, $propertyDefinitions, $definition, $aliases ) {
-		$visible = isset( $definition['show'] ) ? $definition['show'] : false;
+		$visible = $definition['show'] ?? false;
 		$annotable = false;
 
 		// If someone screws up the definition format we just fail epically here
@@ -109,9 +109,8 @@ class PropertyRegistry {
 			$annotable
 		);
 
-		$alias = isset( $definition['alias'] ) ? $definition['alias'] : 'smw-unknown-alias';
-		$label = isset( $aliases[$definition['id']] ) ? $aliases[$definition['id']] :
-						$propertyDefinitions->getLabel( $alias );
+		$alias = $definition['alias'] ?? 'smw-unknown-alias';
+		$label = $aliases[$definition['id']] ?? $propertyDefinitions->getLabel( $alias );
 
 		$propertyRegistry->registerPropertyAlias(
 			$definition['id'],
@@ -123,7 +122,7 @@ class PropertyRegistry {
 			$alias
 		);
 
-		$desc = isset( $definition['desc'] ) ? $definition['desc'] : '';
+		$desc = $definition['desc'] ?? '';
 
 		$propertyRegistry->registerPropertyDescriptionByMsgKey(
 			$definition['id'],
