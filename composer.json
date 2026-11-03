@@ -86,6 +86,7 @@
 		"phpcs-fix": "phpcbf -p",
 		"phpunit": "cd ${MW_INSTALL_PATH:-../..} && { [ ! -f tests/phpunit/generatePHPUnitConfig.php ] || [ -f phpunit.xml ] || php tests/phpunit/generatePHPUnitConfig.php >/dev/null 2>&1 || printf '%s' '<phpunit><!-- generatePHPUnitConfig unavailable in tarball installs --></phpunit>' > phpunit.xml; } && vendor/bin/phpunit -c extensions/SemanticExtraSpecialProperties/phpunit.xml.dist --bootstrap tests/phpunit/bootstrap.php --testdox",
 		"phpunit-coverage": "cd ${MW_INSTALL_PATH:-../..} && { [ ! -f tests/phpunit/generatePHPUnitConfig.php ] || [ -f phpunit.xml ] || php tests/phpunit/generatePHPUnitConfig.php >/dev/null 2>&1 || printf '%s' '<phpunit><!-- generatePHPUnitConfig unavailable in tarball installs --></phpunit>' > phpunit.xml; } && vendor/bin/phpunit -c extensions/SemanticExtraSpecialProperties/phpunit.xml.dist --bootstrap tests/phpunit/bootstrap.php --testdox --coverage-text --coverage-html extensions/SemanticExtraSpecialProperties/coverage/php --coverage-clover extensions/SemanticExtraSpecialProperties/coverage/php/coverage.xml",
-		"minus-x": "minus-x check ."
+		"minus-x": "minus-x check .",
+		"phan": "phan --allow-polyfill-parser"
 	}
 }
