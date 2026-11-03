@@ -10,11 +10,11 @@
 return [
 	// # Issue statistics:
 	// PhanTypeMismatchArgumentNullable : 15+ occurrences
-	// PhanTypeMismatchProperty : 8 occurrences
 	// PhanUndeclaredClassMethod : 6 occurrences
 	// PhanNonClassMethodCall : 5 occurrences
 	// PhanPluginDuplicateConditionalNullCoalescing : 4 occurrences
 	// PhanTypeArraySuspiciousNullable : 4 occurrences
+	// PhanTypeMismatchProperty : 3 occurrences
 	// PhanTypeMismatchPropertyProbablyReal : 3 occurrences
 	// PhanTypeMismatchPropertyDefault : 2 occurrences
 	// PhanUndeclaredMethod : 2 occurrences
@@ -37,8 +37,7 @@ return [
 			'PhanUndeclaredTypeProperty' => ['\\SESP\\LabelFetcher']
 		],
 		'src/PropertyAnnotators/ApprovedByPropertyAnnotator.php' => [
-			'PhanTypeMismatchArgumentNullable' => ['\\SESP\\PropertyAnnotators\\ApprovedByPropertyAnnotator::addAnnotation'],
-			'PhanTypeMismatchProperty' => ['\\SESP\\PropertyAnnotators\\ApprovedByPropertyAnnotator::setApprovedBy']
+			'PhanTypeMismatchArgumentNullable' => ['\\SESP\\PropertyAnnotators\\ApprovedByPropertyAnnotator::addAnnotation']
 		],
 		'src/PropertyAnnotators/ApprovedDatePropertyAnnotator.php' => [
 			'PhanNonClassMethodCall' => ['\\SESP\\PropertyAnnotators\\ApprovedDatePropertyAnnotator::getDataItem'],
@@ -46,8 +45,7 @@ return [
 			'PhanTypeMismatchPropertyProbablyReal' => ['\\SESP\\PropertyAnnotators\\ApprovedDatePropertyAnnotator::addAnnotation']
 		],
 		'src/PropertyAnnotators/ApprovedStatusPropertyAnnotator.php' => [
-			'PhanTypeMismatchArgumentNullable' => ['\\SESP\\PropertyAnnotators\\ApprovedStatusPropertyAnnotator::addAnnotation'],
-			'PhanTypeMismatchProperty' => ['\\SESP\\PropertyAnnotators\\ApprovedStatusPropertyAnnotator::addAnnotation', '\\SESP\\PropertyAnnotators\\ApprovedStatusPropertyAnnotator::setApprovedStatus']
+			'PhanTypeMismatchArgumentNullable' => ['\\SESP\\PropertyAnnotators\\ApprovedStatusPropertyAnnotator::addAnnotation']
 		],
 		'src/PropertyAnnotators/CreatorPropertyAnnotator.php' => [
 			'PhanTypeMismatchArgumentNullable' => ['\\SESP\\PropertyAnnotators\\CreatorPropertyAnnotator::addAnnotation']
