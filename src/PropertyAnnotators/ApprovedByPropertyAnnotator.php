@@ -79,8 +79,15 @@ class ApprovedByPropertyAnnotator implements PropertyAnnotator {
 	}
 
 	private function getDataItem() {
-		if ( $this->approvedBy instanceof User ) {
-			$userPage = $this->approvedBy->getUserPage();
+		$approver = $this->approvedBy;
+
+		// ApprovedRevs declares the approver as a UserIdentity, which is not necessarily a User.
+		if ( $approver instanceof UserIdentity && !$approver instanceof User ) {
+			$approver = User::newFromIdentity( $approver );
+		}
+
+		if ( $approver instanceof User ) {
+			$userPage = $approver->getUserPage();
 
 			if ( $userPage instanceof Title ) {
 				return WikiPage::newFromTitle( $userPage );

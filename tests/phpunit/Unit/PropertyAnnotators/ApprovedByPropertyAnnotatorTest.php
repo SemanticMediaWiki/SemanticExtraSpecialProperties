@@ -2,7 +2,9 @@
 
 namespace SESP\Tests\PropertyAnnotators;
 
+use MediaWiki\Title\Title;
 use MediaWiki\User\User;
+use MediaWiki\User\UserIdentityValue;
 use SESP\AppFactory;
 use SESP\PropertyAnnotators\ApprovedByPropertyAnnotator;
 use SMW\DataItems\Property;
@@ -66,6 +68,37 @@ class ApprovedByPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 		);
 
 		$annotator->setApprovedBy( $user );
+
+		$annotator->addAnnotation( $this->property, $semanticData );
+	}
+
+	/**
+	 * ApprovedRevs declares the approver as a UserIdentity, which is not necessarily a User.
+	 */
+	public function testAddAnnotationForApproverThatIsOnlyAUserIdentity() {
+		$approver = new UserIdentityValue( 42, 'UnitTestIdentity' );
+
+		$this->assertNotInstanceOf( User::class, $approver );
+
+		$semanticData = $this->getMockBuilder( SemanticData::class )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$semanticData->expects( $this->once() )
+			->method( 'addPropertyObjectValue' )
+			->with(
+				$this->property,
+				WikiPage::newFromTitle( Title::makeTitle( NS_USER, 'UnitTestIdentity' ) )
+			);
+
+		$semanticData->expects( $this->never() )
+			->method( 'removeProperty' );
+
+		$annotator = new ApprovedByPropertyAnnotator(
+			$this->appFactory
+		);
+
+		$annotator->setApprovedBy( $approver );
 
 		$annotator->addAnnotation( $this->property, $semanticData );
 	}

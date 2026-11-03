@@ -4,6 +4,7 @@ This file contains the RELEASE-NOTES of the **Semantic Extra Special Properties*
 
 Released on TBD.
 
+* Fixed the `Approved by` property being dropped when ApprovedRevs reports the approver as a user identity that is not a `User` object, as its API allows.
 * The minimum required PHP version is now 8.2 (previously 8.1).
 * Removed the unused `SESP\DatabaseLogReader` class and `AppFactory::newDatabaseLogReader()`; no property annotator has used them since 2023.
 * Localization updates from https://translatewiki.net
