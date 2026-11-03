@@ -11,8 +11,8 @@ return [
 	// # Issue statistics:
 	// PhanTypeMismatchArgumentNullable : 15+ occurrences
 	// PhanNonClassMethodCall : 5 occurrences
-	// PhanUndeclaredClassMethod : 4 occurrences
 	// PhanTypeMismatchPropertyProbablyReal : 3 occurrences
+	// PhanUndeclaredClassMethod : 3 occurrences
 	// PhanUndeclaredMethod : 2 occurrences
 	// MediaWikiNoEmptyIfDefined : 1 occurrence
 	// PhanParamTooFewInPHPDoc : 1 occurrence
@@ -74,7 +74,7 @@ return [
 		],
 		'src/PropertyAnnotators/ShortUrlPropertyAnnotator.php' => [
 			'PhanTypeMismatchArgumentNullable' => ['\\SESP\\PropertyAnnotators\\ShortUrlPropertyAnnotator::addAnnotation'],
-			'PhanUndeclaredClassMethod' => ['\\SESP\\PropertyAnnotators\\ShortUrlPropertyAnnotator::getShortUrl', '\\SESP\\PropertyAnnotators\\ShortUrlPropertyAnnotator::getUrlPrefix']
+			'PhanUndeclaredClassMethod' => ['\\SESP\\PropertyAnnotators\\ShortUrlPropertyAnnotator::getShortUrl']
 		],
 		'src/PropertyAnnotators/UserBlockPropertyAnnotator.php' => [
 			'PhanTypeMismatchArgumentNullable' => ['\\SESP\\PropertyAnnotators\\UserBlockPropertyAnnotator::addAnnotation']
