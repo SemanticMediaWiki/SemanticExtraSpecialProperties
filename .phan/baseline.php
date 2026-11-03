@@ -11,7 +11,6 @@ return [
 	// # Issue statistics:
 	// PhanTypeMismatchArgumentNullable : 15+ occurrences
 	// PhanNonClassMethodCall : 5 occurrences
-	// PhanTypeArraySuspiciousNullable : 4 occurrences
 	// PhanUndeclaredClassMethod : 4 occurrences
 	// PhanTypeMismatchPropertyProbablyReal : 3 occurrences
 	// PhanUndeclaredMethod : 2 occurrences
@@ -94,9 +93,6 @@ return [
 		],
 		'src/PropertyAnnotators/UserRightPropertyAnnotator.php' => [
 			'PhanTypeMismatchArgumentNullable' => ['\\SESP\\PropertyAnnotators\\UserRightPropertyAnnotator::addAnnotation']
-		],
-		'src/PropertyDefinitions.php' => [
-			'PhanTypeArraySuspiciousNullable' => ['\\SESP\\PropertyDefinitions::deepGet', '\\SESP\\PropertyDefinitions::get', '\\SESP\\PropertyDefinitions::safeGet']
 		],
 	],
 	// 'directory_suppressions' => ['src/directory_name' => ['PhanIssueName1', 'PhanIssueName2']] can be manually added if needed.
