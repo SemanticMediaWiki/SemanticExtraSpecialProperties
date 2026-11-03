@@ -10,43 +10,25 @@
 return [
 	// # Issue statistics:
 	// PhanTypeMismatchArgumentNullable : 15+ occurrences
-	// PhanTypeMismatchProperty : 10+ occurrences
-	// PhanUndeclaredClassMethod : 9 occurrences
-	// PhanTypeMismatchPropertyProbablyReal : 6 occurrences
+	// PhanTypeMismatchProperty : 8 occurrences
+	// PhanUndeclaredClassMethod : 6 occurrences
 	// PhanNonClassMethodCall : 5 occurrences
 	// PhanPluginDuplicateConditionalNullCoalescing : 4 occurrences
 	// PhanTypeArraySuspiciousNullable : 4 occurrences
-	// PhanTypeMismatchReturn : 4 occurrences
-	// PhanTypeMismatchDimAssignment : 2 occurrences
+	// PhanTypeMismatchPropertyProbablyReal : 3 occurrences
 	// PhanTypeMismatchPropertyDefault : 2 occurrences
 	// PhanUndeclaredMethod : 2 occurrences
-	// PhanUndeclaredTypeReturnType : 2 occurrences
 	// MediaWikiNoEmptyIfDefined : 1 occurrence
 	// PhanParamTooFewInPHPDoc : 1 occurrence
 	// PhanRedundantCondition : 1 occurrence
-	// PhanTypeMismatchArgument : 1 occurrence
-	// PhanUndeclaredClassInstanceof : 1 occurrence
-	// PhanUndeclaredTypeParameter : 1 occurrence
+	// PhanTypeMismatchReturn : 1 occurrence
 	// PhanUndeclaredTypeProperty : 1 occurrence
-	// PhanUndeclaredTypeThrowsType : 1 occurrence
 	// PhanUnusedVariableCaughtException : 1 occurrence
 
 	'file_suppressions' => [
 		'src/AppFactory.php' => [
-			'PhanTypeMismatchArgument' => ['\\SESP\\AppFactory::newDatabaseLogReader'],
 			'PhanTypeMismatchPropertyProbablyReal' => ['\\SESP\\AppFactory::getConnection', '\\SESP\\AppFactory::setConnection'],
 			'PhanTypeMismatchReturn' => ['\\SESP\\AppFactory::getConnection']
-		],
-		'src/DatabaseLogReader.php' => [
-			'PhanTypeMismatchDimAssignment' => ['\\SESP\\DatabaseLogReader::init'],
-			'PhanTypeMismatchProperty' => ['\\SESP\\DatabaseLogReader::getLog', '\\SESP\\DatabaseLogReader::init'],
-			'PhanTypeMismatchPropertyProbablyReal' => ['\\SESP\\DatabaseLogReader::getLog', '\\SESP\\DatabaseLogReader::init'],
-			'PhanTypeMismatchReturn' => ['\\SESP\\DatabaseLogReader::getDateOfLogEntry', '\\SESP\\DatabaseLogReader::getLog', '\\SESP\\DatabaseLogReader::getQuery'],
-			'PhanUndeclaredClassInstanceof' => ['\\SESP\\DatabaseLogReader::__construct'],
-			'PhanUndeclaredClassMethod' => ['\\SESP\\DatabaseLogReader::getDateOfLogEntry', '\\SESP\\DatabaseLogReader::getStatusOfLogEntry', '\\SESP\\DatabaseLogReader::getUserForLogEntry'],
-			'PhanUndeclaredTypeParameter' => ['\\SESP\\DatabaseLogReader::__construct'],
-			'PhanUndeclaredTypeReturnType' => ['\\SESP\\DatabaseLogReader::getDateOfLogEntry', '\\SESP\\DatabaseLogReader::getLog'],
-			'PhanUndeclaredTypeThrowsType' => ['\\SESP\\DatabaseLogReader::getLog']
 		],
 		'src/LabelFetcher.php' => [
 			'PhanTypeMismatchProperty' => ['\\SESP\\LabelFetcher::__construct'],
