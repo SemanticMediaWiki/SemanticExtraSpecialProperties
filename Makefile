@@ -29,3 +29,16 @@ COMPOSER_EXT?=true
 
 # check for build dir and git submodule init if it does not exist
 include build/Makefile
+
+.PHONY: composer-phan
+composer-phan: .init
+	$(compose-exec-wiki) bash -c "cd $(EXTENSION_FOLDER) && composer phan $(COMPOSER_PARAMS)"
+
+# Re-generate the Phan baseline. Phan writes its baseline with 4-space indentation, which MediaWiki
+# PHPCS rejects, so convert it to tabs afterwards. The baseline is written inside the container and
+# copied back to the working tree.
+.PHONY: composer-phan-update-baseline
+composer-phan-update-baseline: .init
+	$(compose-exec-wiki) bash -c "cd $(EXTENSION_FOLDER) && composer phan -- --save-baseline=.phan/baseline.php || true"
+	$(compose) cp wiki:$(EXTENSION_FOLDER)/.phan/baseline.php .phan/baseline.php
+	unexpand --first-only -t 4 .phan/baseline.php > /tmp/baseline.php && mv /tmp/baseline.php .phan/baseline.php
