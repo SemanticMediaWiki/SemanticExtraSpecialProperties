@@ -65,7 +65,12 @@ class ApprovedDatePropertyAnnotator implements PropertyAnnotator {
 			$pageID = $semanticData->getSubject()->getTitle()->getArticleID();
 			$dbr = $this->appFactory->getConnection();
 			if ( $dbr ) {
-				$approval_date = $dbr->selectField( 'approved_revs', 'approval_date', [ 'page_id' => $pageID ] );
+				$approval_date = $dbr->selectField(
+					'approved_revs',
+					'approval_date',
+					[ 'page_id' => $pageID ],
+					__METHOD__
+				);
 			} else {
 				// Handle the error appropriately, e.g., log an error or throw an exception
 				throw new \RuntimeException( 'Database connection failed.' );
