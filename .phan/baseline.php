@@ -10,31 +10,22 @@
 return [
 	// # Issue statistics:
 	// PhanTypeMismatchArgumentNullable : 15+ occurrences
-	// PhanUndeclaredClassMethod : 6 occurrences
 	// PhanNonClassMethodCall : 5 occurrences
-	// PhanPluginDuplicateConditionalNullCoalescing : 4 occurrences
 	// PhanTypeArraySuspiciousNullable : 4 occurrences
-	// PhanTypeMismatchProperty : 3 occurrences
+	// PhanUndeclaredClassMethod : 4 occurrences
 	// PhanTypeMismatchPropertyProbablyReal : 3 occurrences
-	// PhanTypeMismatchPropertyDefault : 2 occurrences
 	// PhanUndeclaredMethod : 2 occurrences
 	// MediaWikiNoEmptyIfDefined : 1 occurrence
 	// PhanParamTooFewInPHPDoc : 1 occurrence
 	// PhanRedundantCondition : 1 occurrence
+	// PhanTypeMismatchProperty : 1 occurrence
 	// PhanTypeMismatchReturn : 1 occurrence
-	// PhanUndeclaredTypeProperty : 1 occurrence
 	// PhanUnusedVariableCaughtException : 1 occurrence
 
 	'file_suppressions' => [
 		'src/AppFactory.php' => [
 			'PhanTypeMismatchPropertyProbablyReal' => ['\\SESP\\AppFactory::getConnection', '\\SESP\\AppFactory::setConnection'],
 			'PhanTypeMismatchReturn' => ['\\SESP\\AppFactory::getConnection']
-		],
-		'src/LabelFetcher.php' => [
-			'PhanTypeMismatchProperty' => ['\\SESP\\LabelFetcher::__construct'],
-			'PhanTypeMismatchPropertyDefault' => ['\\SESP\\LabelFetcher'],
-			'PhanUndeclaredClassMethod' => ['\\SESP\\LabelFetcher::getLabelsFrom'],
-			'PhanUndeclaredTypeProperty' => ['\\SESP\\LabelFetcher']
 		],
 		'src/PropertyAnnotators/ApprovedByPropertyAnnotator.php' => [
 			'PhanTypeMismatchArgumentNullable' => ['\\SESP\\PropertyAnnotators\\ApprovedByPropertyAnnotator::addAnnotation']
@@ -105,11 +96,7 @@ return [
 			'PhanTypeMismatchArgumentNullable' => ['\\SESP\\PropertyAnnotators\\UserRightPropertyAnnotator::addAnnotation']
 		],
 		'src/PropertyDefinitions.php' => [
-			'PhanTypeArraySuspiciousNullable' => ['\\SESP\\PropertyDefinitions::deepGet', '\\SESP\\PropertyDefinitions::get', '\\SESP\\PropertyDefinitions::safeGet'],
-			'PhanTypeMismatchPropertyDefault' => ['\\SESP\\PropertyDefinitions']
-		],
-		'src/PropertyRegistry.php' => [
-			'PhanPluginDuplicateConditionalNullCoalescing' => ['\\SESP\\PropertyRegistry::addPropertyDefinition']
+			'PhanTypeArraySuspiciousNullable' => ['\\SESP\\PropertyDefinitions::deepGet', '\\SESP\\PropertyDefinitions::get', '\\SESP\\PropertyDefinitions::safeGet']
 		],
 	],
 	// 'directory_suppressions' => ['src/directory_name' => ['PhanIssueName1', 'PhanIssueName2']] can be manually added if needed.
