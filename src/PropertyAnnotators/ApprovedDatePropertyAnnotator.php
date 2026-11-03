@@ -28,7 +28,7 @@ class ApprovedDatePropertyAnnotator implements PropertyAnnotator {
 	private $appFactory;
 
 	/**
-	 * @var int|null
+	 * @var MWTimestamp|false|null
 	 */
 	private $approvedDate;
 
@@ -42,7 +42,7 @@ class ApprovedDatePropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * @since 2.0
 	 *
-	 * @param int $approvedDate
+	 * @param MWTimestamp|false|null $approvedDate
 	 */
 	public function setApprovedDate( $approvedDate ) {
 		$this->approvedDate = $approvedDate;
