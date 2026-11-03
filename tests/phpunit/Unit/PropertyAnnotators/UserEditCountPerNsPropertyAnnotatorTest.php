@@ -69,10 +69,9 @@ class UserEditCountPerNsPropertyAnnotatorTest extends \PHPUnit\Framework\TestCas
 			->willReturn( $db );
 
 		$annotator = new UserEditCountPerNsPropertyAnnotator( $factory );
-		// Expose the private method getEditsPerNs().
+		// Reach the private method getEditsPerNs() by reflection; it is accessible by default since PHP 8.1.
 		$reflector = new \ReflectionObject( $annotator );
 		$method = $reflector->getMethod( 'getEditsPerNs' );
-		$method->setAccessible( true );
 
 		// Call the tested method.
 		$stats = $method->invokeArgs( $annotator, [ $id, $ip ] );
@@ -108,10 +107,9 @@ class UserEditCountPerNsPropertyAnnotatorTest extends \PHPUnit\Framework\TestCas
 		$subject = new WikiPage( 'Test', NS_USER );
 
 		$annotator = new UserEditCountPerNsPropertyAnnotator( $this->appFactory );
-		// Expose the private method container().
+		// Reach the private method container() by reflection; it is accessible by default since PHP 8.1.
 		$reflector = new \ReflectionObject( $annotator );
 		$method = $reflector->getMethod( 'container' );
-		$method->setAccessible( true );
 		$container = $method->invokeArgs( $annotator, [ $subject, $ns, $edits ] );
 
 		$this->assertInstanceOf( Container::class, $container, 'Container is not an instance of Container' );
