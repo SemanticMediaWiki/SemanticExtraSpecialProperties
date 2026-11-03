@@ -10,47 +10,31 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     continue-on-error: ${{ matrix.experimental }}
 
     strategy:
       matrix:
         include:
           - mediawiki_version: '1.43'
-            smw_version: dev-master
+            smw_version: 7.4.0
             approved_revs_version: 2.1
-            php_version: 8.3
+            php_version: 8.2
             database_type: mysql
             database_image: "mariadb:10.11"
             coverage: false
             experimental: false
           - mediawiki_version: '1.43'
-            smw_version: dev-master
+            smw_version: 7.4.0
             approved_revs_version: 2.1
             php_version: 8.3
             database_type: mysql
             database_image: "mariadb:11.4"
             coverage: true
             experimental: false
-          - mediawiki_version: '1.44'
-            smw_version: dev-master
-            approved_revs_version: master
-            php_version: 8.3
-            database_type: mysql
-            database_image: "mariadb:11.8"
-            coverage: false
-            experimental: false
-          - mediawiki_version: '1.45'
-            smw_version: dev-master
-            approved_revs_version: master
-            php_version: 8.3
-            database_type: mysql
-            database_image: "mariadb:12.3"
-            coverage: false
-            experimental: false
           - mediawiki_version: '1.46'
-            smw_version: dev-master
-            approved_revs_version: master
+            smw_version: 7.4.0
+            approved_revs_version: 2.4.3
             php_version: 8.4
             database_type: mysql
             database_image: "mariadb:12.3"
