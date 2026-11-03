@@ -10,29 +10,16 @@
 return [
 	// # Issue statistics:
 	// PhanTypeMismatchArgumentNullable : 15+ occurrences
-	// PhanNonClassMethodCall : 5 occurrences
-	// PhanTypeMismatchPropertyProbablyReal : 3 occurrences
 	// PhanUndeclaredClassMethod : 3 occurrences
 	// PhanUndeclaredMethod : 2 occurrences
 	// MediaWikiNoEmptyIfDefined : 1 occurrence
-	// PhanParamTooFewInPHPDoc : 1 occurrence
 	// PhanRedundantCondition : 1 occurrence
 	// PhanTypeMismatchProperty : 1 occurrence
-	// PhanTypeMismatchReturn : 1 occurrence
 	// PhanUnusedVariableCaughtException : 1 occurrence
 
 	'file_suppressions' => [
-		'src/AppFactory.php' => [
-			'PhanTypeMismatchPropertyProbablyReal' => ['\\SESP\\AppFactory::getConnection', '\\SESP\\AppFactory::setConnection'],
-			'PhanTypeMismatchReturn' => ['\\SESP\\AppFactory::getConnection']
-		],
 		'src/PropertyAnnotators/ApprovedByPropertyAnnotator.php' => [
 			'PhanTypeMismatchArgumentNullable' => ['\\SESP\\PropertyAnnotators\\ApprovedByPropertyAnnotator::addAnnotation']
-		],
-		'src/PropertyAnnotators/ApprovedDatePropertyAnnotator.php' => [
-			'PhanNonClassMethodCall' => ['\\SESP\\PropertyAnnotators\\ApprovedDatePropertyAnnotator::getDataItem'],
-			'PhanParamTooFewInPHPDoc' => ['\\SESP\\PropertyAnnotators\\ApprovedDatePropertyAnnotator::addAnnotation'],
-			'PhanTypeMismatchPropertyProbablyReal' => ['\\SESP\\PropertyAnnotators\\ApprovedDatePropertyAnnotator::addAnnotation']
 		],
 		'src/PropertyAnnotators/ApprovedStatusPropertyAnnotator.php' => [
 			'PhanTypeMismatchArgumentNullable' => ['\\SESP\\PropertyAnnotators\\ApprovedStatusPropertyAnnotator::addAnnotation']
