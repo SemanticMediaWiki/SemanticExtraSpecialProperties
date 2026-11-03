@@ -49,6 +49,47 @@ class ShortUrlPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 		);
 	}
 
+	public function testUrlPrefixDefaultsToTheShortUrlSpecialPage() {
+		$this->appFactory->method( 'getOption' )
+			->with( 'wgShortUrlPrefix', '' )
+			->willReturn( '' );
+
+		// The ShortUrl extension defines the alias of its special page and is not installed in the test
+		// environment, so MediaWiki would raise a development warning about the missing alias. That is
+		// unrelated to what is tested here, so only this call runs without development warnings.
+		global $wgDevelopmentWarnings;
+		$developmentWarnings = $wgDevelopmentWarnings;
+		$wgDevelopmentWarnings = false;
+
+		try {
+			$prefix = $this->newInstanceExposingUrlPrefix()->urlPrefix();
+		} finally {
+			$wgDevelopmentWarnings = $developmentWarnings;
+		}
+
+		$this->assertStringContainsString( 'ShortUrl', $prefix );
+		$this->assertStringEndsWith( '/', $prefix );
+	}
+
+	public function testConfiguredUrlPrefixIsUsedAsIs() {
+		$this->appFactory->method( 'getOption' )
+			->with( 'wgShortUrlPrefix', '' )
+			->willReturn( 'https://example.org/s/' );
+
+		$this->assertSame(
+			'https://example.org/s/',
+			$this->newInstanceExposingUrlPrefix()->urlPrefix()
+		);
+	}
+
+	private function newInstanceExposingUrlPrefix(): ShortUrlPropertyAnnotator {
+		return new class( $this->appFactory ) extends ShortUrlPropertyAnnotator {
+			public function urlPrefix() {
+				return $this->getUrlPrefix();
+			}
+		};
+	}
+
 	public function testMissingShortUrlUtilsThrowsException() {
 		// PHPUnit 6.5+
 		if ( is_callable( [ $this, 'expectException' ] ) ) {

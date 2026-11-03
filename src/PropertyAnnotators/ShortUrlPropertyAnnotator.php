@@ -2,6 +2,7 @@
 
 namespace SESP\PropertyAnnotators;
 
+use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\Title;
 use RuntimeException;
 use SESP\AppFactory;
