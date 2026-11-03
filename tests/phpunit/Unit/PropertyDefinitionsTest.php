@@ -17,6 +17,7 @@ use SESP\PropertyDefinitions;
 class PropertyDefinitionsTest extends \PHPUnit\Framework\TestCase {
 
 	private $labelFetcher;
+	private $definitionsFile;
 
 	protected function setUp(): void {
 		parent::setUp();
@@ -24,6 +25,29 @@ class PropertyDefinitionsTest extends \PHPUnit\Framework\TestCase {
 		$this->labelFetcher = $this->getMockBuilder( LabelFetcher::class )
 			->disableOriginalConstructor()
 			->getMock();
+	}
+
+	protected function tearDown(): void {
+		if ( $this->definitionsFile !== null ) {
+			unlink( $this->definitionsFile );
+			$this->definitionsFile = null;
+		}
+
+		parent::tearDown();
+	}
+
+	/**
+	 * Instance that reads its definitions from a file and has not been iterated yet.
+	 */
+	private function newInstanceReadingFromFile(): PropertyDefinitions {
+		$this->definitionsFile = tempnam( sys_get_temp_dir(), 'sesp' );
+
+		file_put_contents(
+			$this->definitionsFile,
+			json_encode( [ 'SOFTWARE' => [ 'id' => 'Foo', 'type' => '_txt' ] ] )
+		);
+
+		return new PropertyDefinitions( $this->labelFetcher, $this->definitionsFile );
 	}
 
 	public function testCanConstruct() {
@@ -67,6 +91,29 @@ class PropertyDefinitionsTest extends \PHPUnit\Framework\TestCase {
 		$this->assertEquals(
 			$expected,
 			$instance->get( $key )
+		);
+	}
+
+	public function testHasAndGetLoadTheDefinitionsFileOnDemand() {
+		$instance = $this->newInstanceReadingFromFile();
+
+		$this->assertTrue( $instance->has( 'SOFTWARE' ) );
+		$this->assertSame( [ 'id' => 'Foo', 'type' => '_txt' ], $instance->get( 'SOFTWARE' ) );
+	}
+
+	public function testDeepHasAndDeepGetLoadTheDefinitionsFileOnDemand() {
+		$instance = $this->newInstanceReadingFromFile();
+
+		$this->assertTrue( $instance->deepHas( 'SOFTWARE', 'id' ) );
+		$this->assertSame( 'Foo', $instance->deepGet( 'SOFTWARE', 'id' ) );
+	}
+
+	public function testSafeGetLoadsTheDefinitionsFileOnDemand() {
+		$instance = $this->newInstanceReadingFromFile();
+
+		$this->assertSame(
+			[ 'id' => 'Foo', 'type' => '_txt' ],
+			$instance->safeGet( 'SOFTWARE', 'default' )
 		);
 	}
 

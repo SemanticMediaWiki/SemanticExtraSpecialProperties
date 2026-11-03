@@ -7,6 +7,7 @@ use SESP\ExtraPropertyAnnotator;
 use SESP\LabelFetcher;
 use SESP\PropertyAnnotator;
 use SESP\PropertyDefinitions;
+use SMW\DataItems\Property;
 use SMW\DataItems\WikiPage;
 use SMW\DataModel\SemanticData;
 
@@ -132,18 +133,22 @@ class ExtraPropertyAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			->method( 'getPropertyDefinitions' )
 			->willReturn( $propertyDefinitions );
 
-		$appFactory->expects( $this->once() )
-			->method( 'getOption' )
-			->with( 'sespgEnabledPropertyList' )
-			->willReturn( $localPropertyDefinitions );
+		$appFactory->method( 'getOption' )
+			->willReturnMap( [
+				[ 'sespgEnabledPropertyList', [], [ 'FAKE_PROP' ] ],
+				[ 'sespgLocalDefinitions', [], $localPropertyDefinitions ],
+			] );
 
 		$semanticData = $this->getMockBuilder( SemanticData::class )
 			->disableOriginalConstructor()
 			->getMock();
 
-		$semanticData->expects( $this->once() )
-			->method( 'getSubject' )
+		$semanticData->method( 'getSubject' )
 			->willReturn( $subject );
+
+		$semanticData->expects( $this->once() )
+			->method( 'addPropertyObjectValue' )
+			->with( new Property( 'FAKE_PROP' ), $subject );
 
 		$instance = new ExtraPropertyAnnotator(
 			$appFactory

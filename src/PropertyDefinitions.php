@@ -92,8 +92,9 @@ class PropertyDefinitions implements IteratorAggregate {
 	 * @return bool
 	 */
 	public function has( $key ) {
-		return isset( $this->propertyDefinitions[$key] )
-			|| array_key_exists( $key, $this->propertyDefinitions );
+		$definitions = $this->getDefinitions();
+
+		return isset( $definitions[$key] ) || array_key_exists( $key, $definitions );
 	}
 
 	/**
@@ -106,7 +107,7 @@ class PropertyDefinitions implements IteratorAggregate {
 	 */
 	public function get( $key ) {
 		if ( $this->has( $key ) ) {
-			return $this->propertyDefinitions[$key];
+			return $this->getDefinitions()[$key];
 		}
 
 		throw new InvalidArgumentException( "{$key} is an unregistered option" );
@@ -121,7 +122,7 @@ class PropertyDefinitions implements IteratorAggregate {
 	 * @return bool
 	 */
 	public function deepHas( $key, $key2 ) {
-		return isset( $this->propertyDefinitions[$key][$key2] );
+		return isset( $this->getDefinitions()[$key][$key2] );
 	}
 
 	/**
@@ -135,7 +136,7 @@ class PropertyDefinitions implements IteratorAggregate {
 	 */
 	public function deepGet( $key, $key2 ) {
 		if ( $this->deepHas( $key, $key2 ) ) {
-			return $this->propertyDefinitions[$key][$key2];
+			return $this->getDefinitions()[$key][$key2];
 		}
 
 		throw new InvalidArgumentException( "{$key}{$key2} is an unregistered option" );
@@ -150,7 +151,7 @@ class PropertyDefinitions implements IteratorAggregate {
 	 * @return mixed
 	 */
 	public function safeGet( $key, $default = false ) {
-		return $this->has( $key ) ? $this->propertyDefinitions[$key] : $default;
+		return $this->has( $key ) ? $this->getDefinitions()[$key] : $default;
 	}
 
 	/**
@@ -159,9 +160,7 @@ class PropertyDefinitions implements IteratorAggregate {
 	 * @return array
 	 */
 	public function getLabels() {
-		if ( $this->propertyDefinitions === null ) {
-			$this->initPropertyDefinitions();
-		}
+		$this->getDefinitions();
 
 		return $this->labelFetcher->getLabelsFrom( $this );
 	}
@@ -185,11 +184,19 @@ class PropertyDefinitions implements IteratorAggregate {
 	 * @return Iterator
 	 */
 	public function getIterator(): Iterator {
+		return new ArrayIterator( $this->getDefinitions() );
+	}
+
+	/**
+	 * The definitions are read from the definitions file on first use, so that every lookup works
+	 * regardless of whether something has iterated over them before.
+	 */
+	private function getDefinitions(): array {
 		if ( $this->propertyDefinitions === null ) {
 			$this->initPropertyDefinitions();
 		}
 
-		return new ArrayIterator( $this->propertyDefinitions );
+		return $this->propertyDefinitions;
 	}
 
 	private function initPropertyDefinitions() {
