@@ -29,11 +29,6 @@ class PropertyDefinitions implements IteratorAggregate {
 	private $propertyDefinitionFile;
 
 	/**
-	 * @var string
-	 */
-	private $labelCacheVersion = 0;
-
-	/**
 	 * @var array|null
 	 */
 	private $propertyDefinitions;
