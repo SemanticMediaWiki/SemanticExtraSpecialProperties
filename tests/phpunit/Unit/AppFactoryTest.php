@@ -156,16 +156,4 @@ class AppFactoryTest extends \PHPUnit\Framework\TestCase {
 			$instance->getOption( 'Foo' )
 		);
 	}
-
-	public function testNewDatabaseLogReader() {
-		$connection = $this->getMockBuilder( Database::class )
-			->disableOriginalConstructor()
-			->getMock();
-
-		$appFactory = new AppFactory();
-		$appFactory->setConnection( $connection );
-
-		$dbLogReader = $appFactory->newDatabaseLogReader( null );
-		$this->assertNull( $dbLogReader->getStatusOfLogEntry() );
-	}
 }

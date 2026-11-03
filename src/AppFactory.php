@@ -203,15 +203,4 @@ class AppFactory implements LoggerAwareInterface {
 	public function newUserFromID( $id ) {
 		return User::newFromId( $id );
 	}
-
-	/**
-	 * @since 2.0
-	 *
-	 * @param null|Title $title to get the DBLogReader
-	 * @param string $type which log entries to get (default: approval)
-	 * @return DatabaseLogReader
-	 */
-	public function newDatabaseLogReader( ?Title $title = null, $type = 'approval' ) {
-		return new DatabaseLogReader( $this->getConnection(), $title, $type );
-	}
 }

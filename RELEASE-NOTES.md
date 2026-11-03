@@ -5,6 +5,7 @@ This file contains the RELEASE-NOTES of the **Semantic Extra Special Properties*
 Released on TBD.
 
 * The minimum required PHP version is now 8.2 (previously 8.1).
+* Removed the unused `SESP\DatabaseLogReader` class and `AppFactory::newDatabaseLogReader()`; no property annotator has used them since 2023.
 * Localization updates from https://translatewiki.net
 
 ### 5.0.2
