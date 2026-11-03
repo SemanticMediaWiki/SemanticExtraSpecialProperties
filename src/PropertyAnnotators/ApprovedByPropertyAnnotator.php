@@ -30,7 +30,7 @@ class ApprovedByPropertyAnnotator implements PropertyAnnotator {
 	private $appFactory;
 
 	/**
-	 * @var int|null
+	 * @var User|false|null
 	 */
 	private $approvedBy;
 
@@ -44,7 +44,7 @@ class ApprovedByPropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * @since 2.0
 	 *
-	 * @param User $approvedBy
+	 * @param User|false|null $approvedBy
 	 */
 	public function setApprovedBy( $approvedBy ) {
 		$this->approvedBy = $approvedBy;
