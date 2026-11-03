@@ -22,7 +22,7 @@ class LabelFetcher {
 	public const LABEL_CACHE_NAMESPACE = 'sesp:labels';
 
 	/**
-	 * @var Cache
+	 * @var BagOStuff
 	 */
 	private $cache;
 
@@ -32,7 +32,7 @@ class LabelFetcher {
 	private $languageCode = 'en';
 
 	/**
-	 * @var string
+	 * @var int|string|false false disables reading from the cache
 	 */
 	private $labelCacheVersion = 0;
 
@@ -54,7 +54,7 @@ class LabelFetcher {
 	/**
 	 * @since 2.0
 	 *
-	 * @param int|string $labelCacheVersion
+	 * @param int|string|false $labelCacheVersion
 	 */
 	public function setLabelCacheVersion( $labelCacheVersion ) {
 		$this->labelCacheVersion = $labelCacheVersion;
