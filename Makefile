@@ -12,7 +12,7 @@ EXTENSION=SemanticExtraSpecialProperties
 
 # docker images
 MW_VERSION?=1.43
-PHP_VERSION?=8.1
+PHP_VERSION?=8.2
 DB_TYPE?=mysql
 DB_IMAGE?="mariadb:10"
 

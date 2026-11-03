@@ -1,5 +1,12 @@
 This file contains the RELEASE-NOTES of the **Semantic Extra Special Properties** (a.k.a. SESP) extension.
 
+### 5.1.0
+
+Released on TBD.
+
+* The minimum required PHP version is now 8.2 (previously 8.1).
+* Localization updates from https://translatewiki.net
+
 ### 5.0.2
 
 Released on September 1, 2026.

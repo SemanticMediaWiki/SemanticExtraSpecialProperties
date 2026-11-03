@@ -10,7 +10,7 @@ adds some extra [special properties].
 
 ## Requirements
 
-- PHP 8.1 or later
+- PHP 8.2 or later
 - MediaWiki 1.43 or later, tested up to MediaWiki 1.46
 - Semantic MediaWiki 7.0 or later
 
