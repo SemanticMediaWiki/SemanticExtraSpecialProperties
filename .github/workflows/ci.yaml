@@ -18,7 +18,7 @@ jobs:
         include:
           - mediawiki_version: '1.43'
             smw_version: 7.4.0
-            approved_revs_version: 2.1
+            approved_revs_version: 2.4.3
             php_version: 8.2
             database_type: mysql
             database_image: "mariadb:10.11"
@@ -26,7 +26,7 @@ jobs:
             experimental: false
           - mediawiki_version: '1.43'
             smw_version: 7.4.0
-            approved_revs_version: 2.1
+            approved_revs_version: 2.4.3
             php_version: 8.3
             database_type: mysql
             database_image: "mariadb:11.4"
