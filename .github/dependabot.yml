@@ -6,6 +6,10 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "daily"
+    ignore:
+      # 52.x requires PHP 8.3, but the minimum supported PHP version is 8.2
+      - dependency-name: "mediawiki/mediawiki-codesniffer"
+        versions: [ ">=52" ]
 
   - package-ecosystem: "github-actions"
     directory: "/" # Dependabot scans .github/workflows from the root
