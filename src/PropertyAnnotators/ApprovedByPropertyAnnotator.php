@@ -5,6 +5,7 @@ namespace SESP\PropertyAnnotators;
 use ApprovedRevs;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
+use MediaWiki\User\UserIdentity;
 use SESP\AppFactory;
 use SESP\PropertyAnnotator;
 use SMW\DataItems\Property;
@@ -30,7 +31,7 @@ class ApprovedByPropertyAnnotator implements PropertyAnnotator {
 	private $appFactory;
 
 	/**
-	 * @var User|false|null
+	 * @var UserIdentity|false|null
 	 */
 	private $approvedBy;
 
@@ -44,7 +45,7 @@ class ApprovedByPropertyAnnotator implements PropertyAnnotator {
 	/**
 	 * @since 2.0
 	 *
-	 * @param User|false|null $approvedBy
+	 * @param UserIdentity|false|null $approvedBy
 	 */
 	public function setApprovedBy( $approvedBy ) {
 		$this->approvedBy = $approvedBy;
